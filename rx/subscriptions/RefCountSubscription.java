@@ -1,17 +1,17 @@
 package rx.subscriptions;
 
-import com.baidu.tieba.pra;
-import com.baidu.tieba.zma;
+import com.baidu.tieba.lwa;
+import com.baidu.tieba.vra;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes9.dex */
-public final class RefCountSubscription implements zma {
+public final class RefCountSubscription implements vra {
     public static final a c = new a(false, 0);
-    public final zma a;
+    public final vra a;
     public final AtomicReference<a> b = new AtomicReference<>(c);
 
     /* loaded from: classes9.dex */
-    public static final class InnerSubscription extends AtomicInteger implements zma {
+    public static final class InnerSubscription extends AtomicInteger implements vra {
         public static final long serialVersionUID = 7005765588239987643L;
         public final RefCountSubscription parent;
 
@@ -19,7 +19,7 @@ public final class RefCountSubscription implements zma {
             this.parent = refCountSubscription;
         }
 
-        @Override // com.baidu.tieba.zma
+        @Override // com.baidu.tieba.vra
         public boolean isUnsubscribed() {
             if (get() != 0) {
                 return true;
@@ -27,7 +27,7 @@ public final class RefCountSubscription implements zma {
             return false;
         }
 
-        @Override // com.baidu.tieba.zma
+        @Override // com.baidu.tieba.vra
         public void unsubscribe() {
             if (compareAndSet(0, 1)) {
                 this.parent.b();
@@ -58,13 +58,13 @@ public final class RefCountSubscription implements zma {
         }
     }
 
-    public zma a() {
+    public vra a() {
         a aVar;
         AtomicReference<a> atomicReference = this.b;
         do {
             aVar = atomicReference.get();
             if (aVar.a) {
-                return pra.c();
+                return lwa.c();
             }
         } while (!atomicReference.compareAndSet(aVar, aVar.a()));
         return new InnerSubscription(this);
@@ -81,12 +81,12 @@ public final class RefCountSubscription implements zma {
         c(b);
     }
 
-    @Override // com.baidu.tieba.zma
+    @Override // com.baidu.tieba.vra
     public boolean isUnsubscribed() {
         return this.b.get().a;
     }
 
-    @Override // com.baidu.tieba.zma
+    @Override // com.baidu.tieba.vra
     public void unsubscribe() {
         a aVar;
         a c2;
@@ -101,9 +101,9 @@ public final class RefCountSubscription implements zma {
         c(c2);
     }
 
-    public RefCountSubscription(zma zmaVar) {
-        if (zmaVar != null) {
-            this.a = zmaVar;
+    public RefCountSubscription(vra vraVar) {
+        if (vraVar != null) {
+            this.a = vraVar;
             return;
         }
         throw new IllegalArgumentException("s");

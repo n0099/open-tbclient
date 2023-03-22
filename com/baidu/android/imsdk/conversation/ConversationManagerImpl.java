@@ -249,7 +249,7 @@ public class ConversationManagerImpl {
             if (bIMConversation == null) {
                 return false;
             }
-            ChatMsgManagerImpl.getInstance(mContext).deleteAllMsgs(bIMConversation.getCategory().getValue(), bIMConversation.getChatSession().getContacter(), false);
+            ChatMsgManagerImpl.getInstance(mContext).deleteAllMsgs(bIMConversation.getCategory().getValue(), bIMConversation.getChatSession().getContacter(), false, 1);
             return ChatSessionManagerImpl.getInstance(mContext).deleteChatSession(bIMConversation.getChatSession());
         }
         return invokeL.booleanValue;

@@ -1,61 +1,59 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.apps.api.pending.queue.operation.BasePendingOperation;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Canvas;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 /* loaded from: classes4.dex */
-public class d12 {
+public class d12 extends z02 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public float a;
+    public float b;
+    public float c;
+    public float d;
+    public float e;
+    public float f;
+    public boolean g;
 
-    /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
+    public d12() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.g = false;
+    }
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-912553273, "Lcom/baidu/tieba/d12$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-912553273, "Lcom/baidu/tieba/d12$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[BasePendingOperation.OperationType.values().length];
-            a = iArr;
-            try {
-                iArr[BasePendingOperation.OperationType.OPERATION_TYPE_MAIN_THREAD.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[BasePendingOperation.OperationType.OPERATION_TYPE_REQUEST.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
+    @Override // com.baidu.tieba.z02
+    public void a(a12 a12Var, Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, a12Var, canvas) == null) && this.g) {
+            a12Var.f.cubicTo(this.a, this.b, this.c, this.d, this.e, this.f);
         }
     }
 
-    public static z02 a(BasePendingOperation.OperationType operationType) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.z02
+    public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, operationType)) == null) {
-            int i = a.a[operationType.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    return new e12();
-                }
-                return new c12();
-            }
-            return new b12();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 5) {
+            this.a = kl3.g((float) jSONArray.optDouble(0));
+            this.b = kl3.g((float) jSONArray.optDouble(1));
+            this.c = kl3.g((float) jSONArray.optDouble(2));
+            this.d = kl3.g((float) jSONArray.optDouble(3));
+            this.e = kl3.g((float) jSONArray.optDouble(4));
+            this.f = kl3.g((float) jSONArray.optDouble(5));
+            this.g = true;
         }
-        return (z02) invokeL.objValue;
     }
 }

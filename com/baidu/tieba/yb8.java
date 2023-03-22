@@ -1,305 +1,54 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.content.Context;
+import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ListAdapter;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.PassportSDK;
-import com.baidu.sapi2.SapiAccount;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.sapi2.callback.RegisterUserFaceIDCallback;
-import com.baidu.sapi2.callback.SapiCallback;
-import com.baidu.sapi2.callback.VerifyUserFaceIDCallback;
-import com.baidu.sapi2.dto.FaceBaseDTO;
-import com.baidu.sapi2.dto.FaceIDRegDTO;
-import com.baidu.sapi2.dto.FaceIDVerifyDTO;
-import com.baidu.sapi2.result.CheckUserFaceIdResult;
-import com.baidu.sapi2.result.RealNameFaceIDResult;
-import com.baidu.sapi2.result.SapiResult;
-import com.baidu.sapi2.result.UnRealNameFaceIDResult;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.atomData.TailManagementActivityConfig;
+import com.baidu.tbadk.core.data.SmallTailThemeData;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.validation.result.ValidationResult;
-import java.util.HashMap;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.drawable.ScalingUtils;
+import com.facebook.drawee.view.SimpleDraweeView;
 /* loaded from: classes7.dex */
 public class yb8 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile yb8 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public e b;
+    public final BdListView a;
+    public LinearLayout b;
+    public LinearLayout c;
+    public TextView d;
+    public ImageView e;
+    public ImageView f;
+    public TextView g;
+    public final Context h;
+    public SimpleDraweeView i;
+    public final View.OnClickListener j;
 
     /* loaded from: classes7.dex */
-    public interface e {
-        void a(boolean z, String str);
-
-        void b(boolean z, boolean z2, String str);
-
-        void c();
-
-        void onFail();
-    }
-
-    /* loaded from: classes7.dex */
-    public class a implements SapiCallback<CheckUserFaceIdResult> {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SapiAccount a;
-        public final /* synthetic */ yb8 b;
+        public final /* synthetic */ yb8 a;
 
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFinish() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            }
-        }
-
-        public a(yb8 yb8Var, SapiAccount sapiAccount) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yb8Var, sapiAccount};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = yb8Var;
-            this.a = sapiAccount;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        /* renamed from: a */
-        public void onFailure(CheckUserFaceIdResult checkUserFaceIdResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, checkUserFaceIdResult) == null) {
-                if (checkUserFaceIdResult != null) {
-                    ej.Q(TbadkCoreApplication.getInst(), checkUserFaceIdResult.getResultMsg());
-                }
-                if (this.b.b != null) {
-                    this.b.b.onFail();
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        /* renamed from: b */
-        public void onSuccess(CheckUserFaceIdResult checkUserFaceIdResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, checkUserFaceIdResult) == null) {
-                int i = checkUserFaceIdResult.status;
-                if (i == 1) {
-                    if (!TextUtils.isEmpty(checkUserFaceIdResult.livingUname)) {
-                        BdLog.e("非实名人脸验证流程");
-                        this.b.e(false, false, FaceBaseDTO.BUSINESS_SENCE_REALNAME_FACE, checkUserFaceIdResult.livingUname, this.a.bduss);
-                        return;
-                    }
-                    BdLog.e("实名人脸验证流程");
-                    this.b.e(false, false, FaceBaseDTO.BUSINESS_SENCE_REALNAME_FACE, "", this.a.bduss);
-                } else if (i == 2) {
-                    BdLog.e("人脸注册流程");
-                    this.b.j(false, false, FaceBaseDTO.BUSINESS_SENCE_REALNAME_FACE, checkUserFaceIdResult.authsid, checkUserFaceIdResult.livingUname, checkUserFaceIdResult.authWidgetURL);
-                } else if (i == 3) {
-                    BdLog.e("人脸验证不可用");
-                    ej.Q(TbadkCoreApplication.getInst(), "刷脸功能暂不可用，请您稍后再试");
-                    if (this.b.b != null) {
-                        this.b.b.c();
-                    }
-                } else {
-                    BdLog.e("人脸验证不可用");
-                    ej.Q(TbadkCoreApplication.getInst(), "刷脸功能暂不可用，请您稍后再试");
-                    if (this.b.b != null) {
-                        this.b.b.c();
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends VerifyUserFaceIDCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ boolean b;
-        public final /* synthetic */ yb8 c;
-
-        public b(yb8 yb8Var, boolean z, boolean z2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yb8Var, Boolean.valueOf(z), Boolean.valueOf(z2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = yb8Var;
-            this.a = z;
-            this.b = z2;
-        }
-
-        @Override // com.baidu.sapi2.callback.FaceIDCallback
-        public void onFailure(SapiResult sapiResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, sapiResult) == null) {
-                if (sapiResult != null && sapiResult.getResultCode() != -204 && !StringHelper.equals(ValidationResult.MSG_USER_CANCEL, sapiResult.getResultMsg())) {
-                    ej.Q(TbadkCoreApplication.getInst(), sapiResult.getResultMsg());
-                }
-                if (this.c.b == null) {
-                    return;
-                }
-                this.c.b.b(sapiResult instanceof RealNameFaceIDResult, false, null);
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.FaceIDCallback
-        public void onSuccess(SapiResult sapiResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sapiResult) == null) {
-                if (sapiResult instanceof RealNameFaceIDResult) {
-                    RealNameFaceIDResult realNameFaceIDResult = (RealNameFaceIDResult) sapiResult;
-                    BdLog.d("实名人脸验证成功,callBackKey:" + realNameFaceIDResult.callBackKey + ",authSid:" + realNameFaceIDResult.authSid);
-                    ej.Q(TbadkCoreApplication.getInst(), "刷脸验证成功");
-                    if (this.c.b != null) {
-                        this.c.b.b(true, true, realNameFaceIDResult.callBackKey);
-                    }
-                    if (!this.a) {
-                        return;
-                    }
-                    this.c.h(this.b, realNameFaceIDResult.callBackKey);
-                } else if (sapiResult instanceof UnRealNameFaceIDResult) {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("非实名人脸验证成功 callBackKey");
-                    UnRealNameFaceIDResult unRealNameFaceIDResult = (UnRealNameFaceIDResult) sapiResult;
-                    sb.append(unRealNameFaceIDResult.registerResult);
-                    BdLog.d(sb.toString());
-                    ej.Q(TbadkCoreApplication.getInst(), "刷脸验证成功");
-                    if (this.c.b != null) {
-                        this.c.b.b(false, true, unRealNameFaceIDResult.callBackKey);
-                    }
-                    if (!this.a) {
-                        return;
-                    }
-                    this.c.h(this.b, unRealNameFaceIDResult.callBackKey);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c extends RegisterUserFaceIDCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ boolean b;
-        public final /* synthetic */ yb8 c;
-
-        public c(yb8 yb8Var, boolean z, boolean z2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yb8Var, Boolean.valueOf(z), Boolean.valueOf(z2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = yb8Var;
-            this.a = z;
-            this.b = z2;
-        }
-
-        @Override // com.baidu.sapi2.callback.FaceIDCallback
-        public void onFailure(SapiResult sapiResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, sapiResult) == null) {
-                if (sapiResult != null && sapiResult.getResultCode() != -204 && !StringHelper.equals(ValidationResult.MSG_USER_CANCEL, sapiResult.getResultMsg())) {
-                    ej.Q(TbadkCoreApplication.getInst(), sapiResult.getResultMsg());
-                }
-                if (this.c.b != null) {
-                    this.c.b.a(false, null);
-                }
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.FaceIDCallback
-        public void onSuccess(SapiResult sapiResult) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sapiResult) == null) && (sapiResult instanceof UnRealNameFaceIDResult)) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("人脸注册结果");
-                UnRealNameFaceIDResult unRealNameFaceIDResult = (UnRealNameFaceIDResult) sapiResult;
-                sb.append(unRealNameFaceIDResult.registerResult);
-                BdLog.d(sb.toString());
-                ej.Q(TbadkCoreApplication.getInst(), "刷脸注册成功");
-                if (this.c.b != null) {
-                    this.c.b.a(true, unRealNameFaceIDResult.callBackKey);
-                }
-                if (!this.a) {
-                    return;
-                }
-                this.c.h(this.b, unRealNameFaceIDResult.callBackKey);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class d implements SapiCallback<SapiResult> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFailure(SapiResult sapiResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, sapiResult) == null) {
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFinish() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            }
-        }
-
-        public d(yb8 yb8Var) {
+        public a(yb8 yb8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -311,105 +60,106 @@ public class yb8 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = yb8Var;
         }
 
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onSuccess(SapiResult sapiResult) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            String str;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, sapiResult) == null) {
-                BdLog.d("faceLginSwitch onSuccess()" + sapiResult.getResultCode());
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (view2 == this.a.b) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new TailManagementActivityConfig(view2.getContext())));
+                } else if (view2 == this.a.c) {
+                    UserData e = he5.d().e();
+                    if (e == null || e.getSmallTailThemeData() == null) {
+                        str = "";
+                    } else {
+                        str = e.getSmallTailThemeData().getPropsId();
+                    }
+                    String string = TbadkCoreApplication.getInst().getString(R.string.tail_web_view_title);
+                    String s = m35.m().s("tail_link", "");
+                    if (!StringUtils.isNull(s)) {
+                        Context context = view2.getContext();
+                        gt4.x(context, string, UtilHelper.urlAddParam(s, "page_from=4&tailSkinId=" + str), true, true, true);
+                    }
+                }
             }
         }
     }
 
-    public yb8() {
+    public yb8(ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.j = new a(this);
+        this.h = viewGroup.getContext();
+        this.a = (BdListView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0922b8);
+        this.i = (SimpleDraweeView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0922b9);
+        this.b = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0922b2);
+        this.d = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0922b3);
+        this.e = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0922b4);
+        this.c = (LinearLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f0922af);
+        this.f = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0922b1);
+        this.g = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0922b0);
+        this.b.setOnClickListener(this.j);
+        this.c.setOnClickListener(this.j);
     }
 
-    public static yb8 i() {
-        InterceptResult invokeV;
+    public void d(tb8 tb8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (c == null) {
-                synchronized (yb8.class) {
-                    if (c == null) {
-                        c = new yb8();
-                    }
-                }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tb8Var) == null) {
+            this.a.setAdapter((ListAdapter) tb8Var);
+        }
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            n15 d = n15.d(this.d);
+            d.w(R.color.CAM_X0304);
+            d.B(R.string.F_X02);
+            d.A(R.dimen.T_X06);
+            n15 d2 = n15.d(this.b);
+            d2.o(R.string.J_X01);
+            d2.e(R.string.A_X11);
+            d2.f(R.color.CAM_X0302);
+            n15 d3 = n15.d(this.g);
+            d3.w(R.color.CAM_X0101);
+            d3.B(R.string.F_X02);
+            d3.A(R.dimen.T_X06);
+            n15 d4 = n15.d(this.c);
+            d4.o(R.string.J_X01);
+            d4.f(R.color.CAM_X0302);
+            WebPManager.setPureDrawable(this.e, R.drawable.obfuscated_res_0x7f080a49, R.color.CAM_X0304, null);
+            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f0809c4, R.color.CAM_X0101, null);
+        }
+    }
+
+    public void e(SmallTailThemeData smallTailThemeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, smallTailThemeData) == null) {
+            if (smallTailThemeData != null && !TextUtils.isEmpty(smallTailThemeData.getTail())) {
+                this.i.setVisibility(0);
+                this.i.setController(Fresco.newDraweeControllerBuilder().setUri(Uri.parse(smallTailThemeData.getTail())).setAutoPlayAnimations(true).build());
+                this.i.getHierarchy().setActualImageScaleType(ScalingUtils.ScaleType.FIT_CENTER);
+                return;
             }
-            return c;
-        }
-        return (yb8) invokeV.objValue;
-    }
-
-    public void k(e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, eVar) == null) {
-            this.b = eVar;
-        }
-    }
-
-    public final void e(boolean z, boolean z2, String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), str, str2, str3}) == null) {
-            FaceIDVerifyDTO faceIDVerifyDTO = new FaceIDVerifyDTO();
-            faceIDVerifyDTO.livingUname = str2;
-            faceIDVerifyDTO.businessSence = str;
-            faceIDVerifyDTO.bduss = str3;
-            faceIDVerifyDTO.showGuidePage = false;
-            PassportSDK.getInstance().verifyUserFaceId(this.a, new b(this, z, z2), faceIDVerifyDTO);
-        }
-    }
-
-    public final void f() {
-        SapiAccount session;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (session = SapiAccountManager.getInstance().getSession()) == null) {
-            return;
-        }
-        HashMap hashMap = new HashMap();
-        hashMap.put("scene", FaceBaseDTO.BUSINESS_SENCE_REALNAME_FACE);
-        SapiAccountManager.getInstance().getAccountService().checkUserFaceId(new a(this, session), session.bduss, hashMap);
-    }
-
-    public void g(Activity activity, e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, activity, eVar) == null) {
-            this.a = activity;
-            this.b = eVar;
-            f();
-        }
-    }
-
-    public final void h(boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048579, this, z, str) == null) {
-            SapiAccountManager.getInstance().getAccountService().faceLoginSwitch(new d(this), SapiAccountManager.getInstance().getSession().bduss, !z, str);
-        }
-    }
-
-    public final void j(boolean z, boolean z2, String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), str, str2, str3, str4}) == null) {
-            FaceIDRegDTO faceIDRegDTO = new FaceIDRegDTO();
-            faceIDRegDTO.authsid = str2;
-            faceIDRegDTO.livingUname = str3;
-            faceIDRegDTO.businessSence = str;
-            faceIDRegDTO.authWidgetURL = str4;
-            faceIDRegDTO.showGuidePage = true;
-            PassportSDK.getInstance().registerUserFaceID(this.a, new c(this, z, z2), faceIDRegDTO);
+            this.i.setVisibility(4);
         }
     }
 }

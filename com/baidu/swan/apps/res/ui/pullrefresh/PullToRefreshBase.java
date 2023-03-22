@@ -10,12 +10,12 @@ import android.view.ViewTreeObserver;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.Scroller;
-import com.baidu.tieba.ts2;
-import com.baidu.tieba.wp1;
-import com.baidu.tieba.y73;
+import com.baidu.tieba.ar2;
+import com.baidu.tieba.do1;
+import com.baidu.tieba.f63;
 /* loaded from: classes3.dex */
 public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
-    public static final boolean v = wp1.a;
+    public static final boolean v = do1.a;
     public HEADERTYPE a;
     public float b;
     public h<T> c;
@@ -36,7 +36,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     public int r;
     public Scroller s;
     public int t;
-    public y73<T> u;
+    public f63<T> u;
 
     /* loaded from: classes3.dex */
     public enum HEADERTYPE {
@@ -207,7 +207,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
     }
 
     private boolean getNgWebViewHeightSwitch() {
-        ts2.g0().getSwitch("swan_app_refresh_ngwebview_height_switch", false);
+        ar2.g0().getSwitch("swan_app_refresh_ngwebview_height_switch", false);
         return false;
     }
 
@@ -274,7 +274,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         return this.d;
     }
 
-    public y73<T> getRefreshableFactory() {
+    public f63<T> getRefreshableFactory() {
         return this.u;
     }
 
@@ -535,7 +535,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         }
     }
 
-    public PullToRefreshBase(Context context, y73<T> y73Var, HEADERTYPE headertype) {
+    public PullToRefreshBase(Context context, f63<T> f63Var, HEADERTYPE headertype) {
         super(context);
         this.a = HEADERTYPE.Common_STYLE_HEADER;
         this.b = -1.0f;
@@ -549,7 +549,7 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout {
         this.o = iLoadingLayout$State;
         this.r = -1;
         this.t = -1;
-        this.u = y73Var;
+        this.u = f63Var;
         this.a = headertype;
         m(context, null);
     }

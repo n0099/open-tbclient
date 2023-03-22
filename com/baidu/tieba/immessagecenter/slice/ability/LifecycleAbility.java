@@ -15,19 +15,16 @@ import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
 public interface LifecycleAbility extends LifecycleObserver {
     @CallSuper
-    void F();
+    void I();
 
     @CallSuper
-    void I(LifecycleOwner lifecycleOwner, Lifecycle.Event event);
+    void M(LifecycleOwner lifecycleOwner, Lifecycle.Event event);
 
     @CallSuper
-    void J();
+    void N();
 
     @CallSuper
     void f(LifecycleOwner lifecycleOwner, Lifecycle.Event event);
-
-    @CallSuper
-    void o();
 
     @CallSuper
     void onCreate();
@@ -36,10 +33,13 @@ public interface LifecycleAbility extends LifecycleObserver {
     void onDestroy();
 
     @CallSuper
-    void s();
+    void p();
 
     @CallSuper
-    void x(LifecycleOwner lifecycleOwner, Lifecycle.Event event);
+    void t();
+
+    @CallSuper
+    void y(LifecycleOwner lifecycleOwner, Lifecycle.Event event);
 
     /* loaded from: classes4.dex */
     public static final class a {
@@ -154,8 +154,8 @@ public interface LifecycleAbility extends LifecycleObserver {
             if (interceptable == null || interceptable.invokeLLL(65549, null, lifecycleAbility, owner, event) == null) {
                 Intrinsics.checkNotNullParameter(owner, "owner");
                 Intrinsics.checkNotNullParameter(event, "event");
-                lifecycleAbility.x(owner, event);
-                lifecycleAbility.I(owner, event);
+                lifecycleAbility.y(owner, event);
+                lifecycleAbility.M(owner, event);
                 lifecycleAbility.f(owner, event);
             }
         }
@@ -165,9 +165,9 @@ public interface LifecycleAbility extends LifecycleObserver {
         public static void performCreate(LifecycleAbility lifecycleAbility) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65550, null, lifecycleAbility) == null) {
-                lifecycleAbility.o();
+                lifecycleAbility.p();
                 lifecycleAbility.onCreate();
-                lifecycleAbility.s();
+                lifecycleAbility.t();
             }
         }
 
@@ -176,9 +176,9 @@ public interface LifecycleAbility extends LifecycleObserver {
         public static void performDestroy(LifecycleAbility lifecycleAbility) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(65551, null, lifecycleAbility) == null) {
-                lifecycleAbility.J();
+                lifecycleAbility.N();
                 lifecycleAbility.onDestroy();
-                lifecycleAbility.F();
+                lifecycleAbility.I();
             }
         }
     }

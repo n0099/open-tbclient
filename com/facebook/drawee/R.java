@@ -39,16 +39,16 @@ public final class R {
 
     /* loaded from: classes7.dex */
     public static final class id {
-        public static final int center = 0x7f090638;
-        public static final int centerCrop = 0x7f09063c;
-        public static final int centerInside = 0x7f09063d;
-        public static final int fitBottomStart = 0x7f090aa1;
-        public static final int fitCenter = 0x7f090aa2;
-        public static final int fitEnd = 0x7f090aa3;
-        public static final int fitStart = 0x7f090aa4;
-        public static final int fitXY = 0x7f090aa6;
-        public static final int focusCrop = 0x7f090ae8;
-        public static final int none = 0x7f091835;
+        public static final int center = 0x7f09064f;
+        public static final int centerCrop = 0x7f090653;
+        public static final int centerInside = 0x7f090654;
+        public static final int fitBottomStart = 0x7f090ac7;
+        public static final int fitCenter = 0x7f090ac8;
+        public static final int fitEnd = 0x7f090ac9;
+        public static final int fitStart = 0x7f090aca;
+        public static final int fitXY = 0x7f090acc;
+        public static final int focusCrop = 0x7f090b0f;
+        public static final int none = 0x7f091873;
     }
 
     /* loaded from: classes7.dex */

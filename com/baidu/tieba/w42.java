@@ -1,21 +1,24 @@
 package com.baidu.tieba;
 
-import android.graphics.Paint;
-import android.text.style.LineHeightSpan;
+import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes6.dex */
-public class w42 implements LineHeightSpan {
+public class w42 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean a;
+    public static String b;
+    public static String c;
+    public static v42 d;
+    public static int e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
 
     static {
         InterceptResult invokeClinit;
@@ -30,50 +33,120 @@ public class w42 implements LineHeightSpan {
                 return;
             }
         }
-        b = wp1.a;
+        a = do1.a;
+        b = "";
+        c = "";
+        e = 0;
     }
 
-    public w42(int i) {
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (e == 2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (e == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d != null) {
+                return d.c() + File.separator + b;
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (d != null) {
+                return d.c() + File.separator + c;
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void g(Bundle bundle) {
+        v42 v42Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65543, null, bundle) == null) && (v42Var = d) != null) {
+            v42Var.b(bundle);
+        }
+    }
+
+    public static void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
+            b = str;
+        }
+    }
+
+    public static void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
+            c = str;
+        }
+    }
+
+    public static void h(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, bundle) == null) {
+            String i = sk3.i(bundle, "extraWSUrl");
+            String i2 = sk3.i(bundle, "adb_debug_path");
+            if (!TextUtils.isEmpty(i)) {
+                d = new o52();
+                e = 1;
+            } else if (!TextUtils.isEmpty(i2)) {
+                d = new y42();
+                e = 2;
+            } else {
+                if (a) {
+                    Log.d("UserDebugParams", "not debug mode");
+                }
+                e = 0;
+                d = null;
                 return;
             }
-        }
-        this.a = i;
-    }
-
-    @Override // android.text.style.LineHeightSpan
-    public void chooseHeight(CharSequence charSequence, int i, int i2, int i3, int i4, Paint.FontMetricsInt fontMetricsInt) {
-        int i5;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), fontMetricsInt}) == null) {
-            if (b) {
-                Log.i("AdjustLineHeightSpan", "chooseHeight :: in fm=" + fontMetricsInt);
-                Log.i("AdjustLineHeightSpan", "chooseHeight :: in height=" + this.a);
-            }
-            if (this.a >= 0 && (i5 = fontMetricsInt.descent - fontMetricsInt.ascent) >= 0) {
-                if (b) {
-                    Log.i("AdjustLineHeightSpan", "chooseHeight :: in originHeight=" + i5);
-                }
-                int i6 = (this.a - i5) / 2;
-                if (b) {
-                    Log.i("AdjustLineHeightSpan", "chooseHeight :: in hafDiff=" + i6);
-                }
-                fontMetricsInt.descent += i6;
-                fontMetricsInt.ascent -= i6;
-                if (b) {
-                    Log.i("AdjustLineHeightSpan", "chooseHeight :: out fm=" + fontMetricsInt);
-                }
-            }
+            d.a(bundle);
         }
     }
 }

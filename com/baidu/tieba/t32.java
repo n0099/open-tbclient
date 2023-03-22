@@ -1,64 +1,182 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.DashPathEffect;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.MotionEvent;
+import android.view.View;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.canvas.view.CanvasView;
+import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class t32 extends s22 {
+public final class t32 extends i32<CanvasView, q22> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public DashPathEffect a;
+    @NonNull
+    public CanvasView i;
 
-    public t32() {
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CanvasView.c a;
+
+        public a(t32 t32Var, CanvasView.c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t32Var, cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            CanvasView.c cVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (cVar = this.a) != null) {
+                cVar.a();
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends zm3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean j;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(t32 t32Var, String str, String str2, String str3, boolean z) {
+            super(str, str2, str3);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t32Var, str, str2, str3, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.j = z;
+        }
+
+        @Override // com.baidu.tieba.zm3, android.view.View.OnTouchListener
+        public boolean onTouch(View view2, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+                if (this.j && super.onTouch(view2, motionEvent)) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t32(@NonNull Context context, @NonNull q22 q22Var) {
+        super(context, q22Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, q22Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (j32) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.s22
-    public void a(t22 t22Var, Canvas canvas) {
-        DashPathEffect dashPathEffect;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, t22Var, canvas) == null) && (dashPathEffect = this.a) != null) {
-            t22Var.c.setPathEffect(dashPathEffect);
+        CanvasView canvasView = new CanvasView(context);
+        this.i = canvasView;
+        canvasView.setInterceptTouchEvent(q22Var.j);
+        this.i.setHide(q22Var.f);
+        this.i.setGesture(q22Var.g);
+        if (q22Var.g) {
+            this.i.setInterceptTouchEvent(false);
         }
     }
 
-    @Override // com.baidu.tieba.s22
-    public void b(JSONArray jSONArray) {
-        float[] fArr;
-        JSONArray optJSONArray;
-        int length;
+    public boolean F(q22 q22Var, CanvasView.c cVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            int i = 0;
-            if (jSONArray.length() > 0 && (optJSONArray = jSONArray.optJSONArray(0)) != null && (length = optJSONArray.length()) > 0) {
-                fArr = new float[length];
-                for (int i2 = 0; i2 < length; i2++) {
-                    fArr[i2] = dn3.g((float) optJSONArray.optDouble(i2));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, q22Var, cVar)) == null) {
+            if (q22Var != null && (q22Var instanceof r22)) {
+                q22 n = n();
+                if (!TextUtils.equals(n.b, q22Var.b) || !TextUtils.equals(n.c, q22Var.c)) {
+                    m42.a("Component-Canvas", "drawCanvas with illegal ids!");
                 }
-            } else {
-                fArr = null;
+                r22 r22Var = (r22) q22Var;
+                this.i.c(r22Var.h(), r22Var.i());
+                this.i.postInvalidate();
+                this.i.post(new a(this, cVar));
+                return true;
             }
-            if (jSONArray.length() > 1) {
-                i = dn3.g((float) jSONArray.optDouble(1));
-            }
-            if (fArr != null && i >= 0) {
-                this.a = new DashPathEffect(fArr, i);
-            }
+            t42.c("Component-Canvas", "some params is invalid");
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.i32
+    @SuppressLint({"ClickableViewAccessibility"})
+    /* renamed from: G */
+    public void r(@NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull q22 q22Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, swanAppComponentContainerView, q22Var) == null) {
+            swanAppComponentContainerView.setOnTouchListener(new b(this, q22Var.c, q22Var.b, q22Var.a, q22Var.g));
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.i32
+    @NonNull
+    /* renamed from: H */
+    public CanvasView v(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            return this.i;
+        }
+        return (CanvasView) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.i32
+    public void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.z();
+            this.i.f();
         }
     }
 }

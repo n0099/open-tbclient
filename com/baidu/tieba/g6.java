@@ -1,145 +1,102 @@
 package com.baidu.tieba;
 
-import com.badlogic.gdx.utils.BufferUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.ByteBuffer;
-import java.nio.FloatBuffer;
-import java.nio.IntBuffer;
 /* loaded from: classes4.dex */
-public class g6 implements h6 {
+public class g6 extends e6 implements f6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final IntBuffer g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final a4 a;
-    public final FloatBuffer b;
-    public final ByteBuffer c;
-    public final boolean d;
-    public int e;
-    public int f;
+    public g3 h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448303838, "Lcom/baidu/tieba/g6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448303838, "Lcom/baidu/tieba/g6;");
-                return;
+    public g6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        g = BufferUtils.d(1);
     }
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            g.clear();
-            l1.g.v(1, g);
-            this.f = g.get();
-        }
-    }
-
-    @Override // com.baidu.tieba.h6
-    public a4 b() {
+    public g3 o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.h;
         }
-        return (a4) invokeV.objValue;
+        return (g3) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.h6
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return (this.b.limit() * 4) / this.a.b;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.h6, com.baidu.tieba.o7
-    public void dispose() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            u3 u3Var = l1.g;
-            u3Var.E(34962, 0);
-            u3Var.b(this.e);
-            this.e = 0;
-            if (this.d) {
-                BufferUtils.b(this.c);
-            }
-            f();
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f != -1) {
-            g.clear();
-            g.put(this.f);
-            g.flip();
-            l1.g.A(1, g);
-            this.f = -1;
-        }
-    }
-
-    @Override // com.baidu.tieba.h6
-    public FloatBuffer getBuffer() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
-        }
-        return (FloatBuffer) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.h6
-    public void invalidate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.e = l1.g.n();
-            a();
-        }
-    }
-
-    public g6(boolean z, int i, a4 a4Var) {
+    public g6(g3 g3Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i), a4Var};
+            Object[] objArr = {g3Var};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.f = -1;
-        new s7();
-        this.a = a4Var;
-        ByteBuffer e = BufferUtils.e(a4Var.b * i);
-        this.c = e;
-        FloatBuffer asFloatBuffer = e.asFloatBuffer();
-        this.b = asFloatBuffer;
-        this.d = true;
-        asFloatBuffer.flip();
-        this.c.flip();
-        this.e = l1.f.n();
-        a();
+        p(g3Var);
+    }
+
+    public g6 q(u2 u2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, u2Var)) == null) {
+            g6 g6Var = new g6(this);
+            g6Var.h = new g3(g6Var.o(), u2Var);
+            return g6Var;
+        }
+        return (g6) invokeL.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g6(g6 g6Var) {
+        super(g6Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {g6Var};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((f6) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.h = g6Var.h;
+    }
+
+    public void p(g3 g3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, g3Var) == null) {
+            this.h = g3Var;
+            if (g3Var != null) {
+                j(g3Var.k());
+                h(g3Var.j());
+                f(g3Var.g());
+                c(g3Var.f());
+                d(g3Var.d());
+                b(g3Var.e());
+            }
+        }
     }
 }

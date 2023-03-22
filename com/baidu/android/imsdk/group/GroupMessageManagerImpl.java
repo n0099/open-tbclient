@@ -28,12 +28,14 @@ import com.baidu.android.imsdk.chatmessage.messages.GroupMemberDelMsg;
 import com.baidu.android.imsdk.chatmessage.messages.GroupMemberJoinMsg;
 import com.baidu.android.imsdk.chatmessage.messages.GroupMemberNameChangeMsg;
 import com.baidu.android.imsdk.chatmessage.messages.GroupMemberQuitMsg;
+import com.baidu.android.imsdk.chatmessage.messages.GroupReplyUpdateMsg;
 import com.baidu.android.imsdk.chatmessage.messages.GroupSettingNoticeMsg;
 import com.baidu.android.imsdk.chatmessage.messages.GroupStarAlertMsg;
 import com.baidu.android.imsdk.chatmessage.messages.GroupStarJoinMsg;
 import com.baidu.android.imsdk.chatmessage.messages.GroupStarMasterUpdateMsg;
 import com.baidu.android.imsdk.chatmessage.messages.GroupUnbannedMsg;
 import com.baidu.android.imsdk.chatmessage.messages.HtmlMsg;
+import com.baidu.android.imsdk.chatmessage.messages.MsgRepliedData;
 import com.baidu.android.imsdk.chatmessage.messages.SetGroupWelcomeDisplayScopeMsg;
 import com.baidu.android.imsdk.chatmessage.messages.SetGroupWelcomeMsg;
 import com.baidu.android.imsdk.chatmessage.sync.DialogRecordDBManager;
@@ -189,7 +191,7 @@ public class GroupMessageManagerImpl {
     private boolean isAtCurrentUser(ChatMsg chatMsg) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65564, this, chatMsg)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65565, this, chatMsg)) == null) {
             String uid = AccountManager.getUid(mContext);
             if (chatMsg.getMsgType() != 40 || !((FansGroupAtMsg) chatMsg).isGroupAtUserById(uid)) {
                 return false;
@@ -202,7 +204,7 @@ public class GroupMessageManagerImpl {
     private boolean isSendFromGroupCreator(ChatMsg chatMsg) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65567, this, chatMsg)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65569, this, chatMsg)) == null) {
             long longByString = Utility.getLongByString(chatMsg.getSenderUid(), 0L);
             if (longByString <= 0) {
                 return false;
@@ -286,12 +288,32 @@ public class GroupMessageManagerImpl {
 
     private void handlePermitGroup(ChatMsg chatMsg) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65560, this, chatMsg) == null) {
+        if (interceptable == null || interceptable.invokeL(65561, this, chatMsg) == null) {
             String valueOf = String.valueOf(((GroupStarAlertMsg) chatMsg).getGroupid());
             int groupPermit = GroupInfoDAOImpl.setGroupPermit(mContext, valueOf, 1);
             String str = TAG;
             LogUtils.d(str, "STAR handlePermitGroup " + valueOf + "  ret=" + groupPermit);
         }
+    }
+
+    private boolean isGroupCoupon(ChatMsg chatMsg) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65567, this, chatMsg)) == null) {
+            if (chatMsg == null) {
+                return false;
+            }
+            long longByString = Utility.getLongByString(chatMsg.getSenderUid(), 0L);
+            if (longByString <= 0) {
+                return false;
+            }
+            String uid = AccountManager.getUid(mContext);
+            if (TextUtils.isEmpty(uid) || TextUtils.equals(String.valueOf(longByString), uid) || chatMsg.getMsgType() != 60) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 
     public List<GroupMember> getGroupAdministrators(String str) {
@@ -350,7 +372,7 @@ public class GroupMessageManagerImpl {
     /* JADX INFO: Access modifiers changed from: private */
     public void updateAndNotifyApplyCount(long j, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65571, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) != null) || j <= 0) {
+        if ((interceptable != null && interceptable.invokeCommon(65573, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) != null) || j <= 0) {
             return;
         }
         GroupUpdateManager.getInstance(mContext).onApplyCountChanged(j, i);
@@ -413,63 +435,65 @@ public class GroupMessageManagerImpl {
 
     private void handleGroupSystemMessage(ChatMsg chatMsg) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65556, this, chatMsg) == null) {
+        if (interceptable == null || interceptable.invokeL(65557, this, chatMsg) == null) {
             if (chatMsg == null) {
                 LogUtils.d(TAG, "handleGroupSystemMessage msg is null");
                 return;
             }
             String str = TAG;
             LogUtils.d(str, "handleGroupSystemMessage msg type is " + chatMsg.getMsgType());
-            switch (chatMsg.getMsgType()) {
-                case 1001:
-                    handleAddMemberMsg(chatMsg);
-                    return;
-                case 1002:
-                    handleJoinGroupMsg(chatMsg);
-                    return;
-                case 1003:
-                    handleQuitGroupMsg(chatMsg);
-                    return;
-                case 1004:
-                    handleDeleteMemberMsg(chatMsg);
-                    return;
-                case 1005:
-                    handleChangeGroupInfoMsg(chatMsg);
-                    return;
-                case 1006:
-                case 1013:
-                case 1014:
-                case 1015:
-                case 1017:
-                case 1018:
-                default:
-                    return;
-                case 1007:
-                    handleStartJoin(chatMsg);
-                    return;
-                case 1008:
-                    handleMasterChange(chatMsg);
-                    return;
-                case 1009:
-                    handleDeleteGroup(chatMsg);
-                    return;
-                case 1010:
-                    handlePermitGroup(chatMsg);
-                    return;
-                case 1011:
-                    handleAllowGroup(chatMsg);
-                    return;
-                case 1012:
-                    handleMemberNameChange(chatMsg);
-                    return;
-                case 1016:
-                    handleDeleteMsg(chatMsg);
-                    return;
-                case 1019:
-                case 1020:
+            int msgType = chatMsg.getMsgType();
+            if (msgType != 1016) {
+                if (msgType != 5001) {
+                    if (msgType != 1019 && msgType != 1020) {
+                        switch (msgType) {
+                            case 1001:
+                                handleAddMemberMsg(chatMsg);
+                                return;
+                            case 1002:
+                                handleJoinGroupMsg(chatMsg);
+                                return;
+                            case 1003:
+                                handleQuitGroupMsg(chatMsg);
+                                return;
+                            case 1004:
+                                handleDeleteMemberMsg(chatMsg);
+                                return;
+                            case 1005:
+                                handleChangeGroupInfoMsg(chatMsg);
+                                return;
+                            default:
+                                switch (msgType) {
+                                    case 1007:
+                                        handleStartJoin(chatMsg);
+                                        return;
+                                    case 1008:
+                                        handleMasterChange(chatMsg);
+                                        return;
+                                    case 1009:
+                                        handleDeleteGroup(chatMsg);
+                                        return;
+                                    case 1010:
+                                        handlePermitGroup(chatMsg);
+                                        return;
+                                    case 1011:
+                                        handleAllowGroup(chatMsg);
+                                        return;
+                                    case 1012:
+                                        handleMemberNameChange(chatMsg);
+                                        return;
+                                    default:
+                                        return;
+                                }
+                        }
+                    }
                     handleGroupBandStateChangeMsg(chatMsg);
                     return;
+                }
+                handleGroupReplyMsgUpdate((GroupReplyUpdateMsg) chatMsg);
+                return;
             }
+            handleDeleteMsg(chatMsg);
         }
     }
 
@@ -495,7 +519,7 @@ public class GroupMessageManagerImpl {
 
     private void handleMemberNameChange(ChatMsg chatMsg) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65559, this, chatMsg) == null) {
+        if (interceptable == null || interceptable.invokeL(65560, this, chatMsg) == null) {
             GroupMemberNameChangeMsg groupMemberNameChangeMsg = (GroupMemberNameChangeMsg) chatMsg;
             String valueOf = String.valueOf(chatMsg.getContacter());
             String memberChangedid = groupMemberNameChangeMsg.memberChangedid();
@@ -513,7 +537,7 @@ public class GroupMessageManagerImpl {
     private boolean isExistChatMsg(ArrayList<ChatMsg> arrayList) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65565, this, arrayList)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65566, this, arrayList)) == null) {
             for (int i = 0; i < arrayList.size(); i++) {
                 int msgType = arrayList.get(i).getMsgType();
                 int groupType = arrayList.get(i).getGroupType();
@@ -535,7 +559,7 @@ public class GroupMessageManagerImpl {
     private boolean isSendFromGroupAdmin(ChatMsg chatMsg) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65566, this, chatMsg)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65568, this, chatMsg)) == null) {
             long longByString = Utility.getLongByString(chatMsg.getSenderUid(), 0L);
             if (longByString <= 0) {
                 return false;
@@ -551,7 +575,7 @@ public class GroupMessageManagerImpl {
 
     private void quitGroupByGroupId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65568, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(65570, this, j) == null) {
             String valueOf = String.valueOf(j);
             GroupInfoDAOImpl.quitGroup(mContext, valueOf);
             String str = TAG;
@@ -615,14 +639,14 @@ public class GroupMessageManagerImpl {
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    /* JADX WARN: Code restructure failed: missing block: B:100:0x0444, code lost:
-        if (r7.get(0).getGroupCapacity() > r2.getGroupnum()) goto L91;
+    /* JADX WARN: Code restructure failed: missing block: B:102:0x042f, code lost:
+        if (r7.get(0).getGroupCapacity() > r2.getGroupnum()) goto L93;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:101:0x0446, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:103:0x0431, code lost:
         r21 = true;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:87:0x03c8, code lost:
-        if (r7.get(0).getGroupCapacity() > r1.getGroupnum()) goto L91;
+    /* JADX WARN: Code restructure failed: missing block: B:89:0x03b5, code lost:
+        if (r7.get(0).getGroupCapacity() > r1.getGroupnum()) goto L93;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -631,10 +655,9 @@ public class GroupMessageManagerImpl {
         long j;
         long j2;
         ArrayList<String> arrayList2;
-        boolean z;
+        ArrayList<GroupInfo> arrayList3;
         long j3;
         long j4;
-        ArrayList<GroupInfo> arrayList3;
         long j5;
         BIMValueCallBack<ArrayList<GroupInfo>> bIMValueCallBack;
         ArrayList<GroupInfo> arrayList4;
@@ -659,7 +682,7 @@ public class GroupMessageManagerImpl {
                 BIMValueCallBack<ArrayList<GroupInfo>> bIMValueCallBack3 = null;
                 BIMValueCallBack<ArrayList<GroupMember>> bIMValueCallBack4 = null;
                 ArrayList<String> arrayList7 = null;
-                boolean z2 = false;
+                boolean z = false;
                 long j6 = 0;
                 long j7 = 0;
                 while (it.hasNext()) {
@@ -667,267 +690,185 @@ public class GroupMessageManagerImpl {
                     Iterator<ChatMsg> it2 = it;
                     next.setChatType(57);
                     int msgType = next.getMsgType();
-                    switch (msgType) {
-                        case 1001:
-                            arrayList2 = arrayList6;
-                            z = z2;
-                            j3 = j;
-                            j4 = j2;
-                            arrayList3 = groupInfo;
-                            j5 = j7;
-                            bIMValueCallBack = bIMValueCallBack3;
-                            handleFansAddMemberMsg(next, valueOf);
-                            break;
-                        case 1002:
-                            arrayList2 = arrayList6;
-                            z = z2;
-                            j3 = j;
-                            j4 = j2;
-                            arrayList3 = groupInfo;
-                            long j8 = j7;
-                            bIMValueCallBack = bIMValueCallBack3;
-                            GroupMemberJoinMsg groupMemberJoinMsg = (GroupMemberJoinMsg) next;
-                            if (TextUtils.equals(groupMemberJoinMsg.getMemberBuid(), AccountManager.getUid(mContext))) {
-                                GroupInfoDAOImpl.setGroupState(mContext, valueOf, 0);
-                            }
-                            if (groupMemberJoinMsg.getMemberVersion() > j3) {
-                                GroupInfoDAOImpl.modifyGroupMemberNumber(mContext, valueOf, groupMemberJoinMsg.getGroupnum());
-                            }
-                            GroupInfoDAOImpl.activeGroupState(mContext, valueOf);
-                            j5 = Math.max(groupMemberJoinMsg.getMemberVersion(), j8);
-                            if (arrayList3 != null && arrayList3.size() > 0) {
-                                if (arrayList3.get(0).getGroupCapacity() <= groupMemberJoinMsg.getGroupnum()) {
-                                    updateAndNotifyApplyCount(Long.valueOf(valueOf).longValue(), 0);
-                                    break;
-                                } else {
-                                    break;
+                    boolean z2 = z;
+                    if (msgType != 5001) {
+                        switch (msgType) {
+                            case 1001:
+                                arrayList2 = arrayList6;
+                                arrayList3 = groupInfo;
+                                j3 = j;
+                                j4 = j2;
+                                j5 = j7;
+                                bIMValueCallBack = bIMValueCallBack3;
+                                handleFansAddMemberMsg(next, valueOf);
+                                break;
+                            case 1002:
+                                arrayList2 = arrayList6;
+                                arrayList3 = groupInfo;
+                                j3 = j;
+                                j4 = j2;
+                                long j8 = j7;
+                                bIMValueCallBack = bIMValueCallBack3;
+                                GroupMemberJoinMsg groupMemberJoinMsg = (GroupMemberJoinMsg) next;
+                                if (TextUtils.equals(groupMemberJoinMsg.getMemberBuid(), AccountManager.getUid(mContext))) {
+                                    GroupInfoDAOImpl.setGroupState(mContext, valueOf, 0);
                                 }
-                            }
-                            break;
-                        case 1003:
-                            arrayList2 = arrayList6;
-                            z = z2;
-                            j3 = j;
-                            j4 = j2;
-                            arrayList3 = groupInfo;
-                            j5 = j7;
-                            bIMValueCallBack = bIMValueCallBack3;
-                            GroupMemberQuitMsg groupMemberQuitMsg = (GroupMemberQuitMsg) next;
-                            String quitBuid = groupMemberQuitMsg.getQuitBuid();
-                            if (TextUtils.equals(quitBuid, AccountManager.getUid(mContext))) {
-                                quitGroupByGroupId(groupMemberQuitMsg.getContacter());
-                                updateAndNotifyApplyCount(Long.valueOf(valueOf).longValue(), 0);
-                            } else {
-                                j5 = Math.max(groupMemberQuitMsg.getMemberVersion(), j5);
-                                if (groupMemberQuitMsg.getMemberVersion() > j3) {
-                                    ArrayList arrayList8 = new ArrayList();
-                                    arrayList8.add(quitBuid);
-                                    GroupInfoDAOImpl.modifyGroupMemberNumber(mContext, valueOf, groupMemberQuitMsg.getGroupnum());
-                                    GroupInfoDAOImpl.delGroupMember(mContext, valueOf, arrayList8);
+                                if (groupMemberJoinMsg.getMemberVersion() > j3) {
+                                    GroupInfoDAOImpl.modifyGroupMemberNumber(mContext, valueOf, groupMemberJoinMsg.getGroupnum());
                                 }
                                 GroupInfoDAOImpl.activeGroupState(mContext, valueOf);
-                                if (arrayList3 != null) {
-                                    if (arrayList3.size() > 0) {
+                                j5 = Math.max(groupMemberJoinMsg.getMemberVersion(), j8);
+                                if (arrayList3 != null && arrayList3.size() > 0) {
+                                    if (arrayList3.get(0).getGroupCapacity() <= groupMemberJoinMsg.getGroupnum()) {
+                                        updateAndNotifyApplyCount(Long.valueOf(valueOf).longValue(), 0);
+                                        break;
+                                    } else {
                                         break;
                                     }
                                 }
-                            }
-                            break;
-                        case 1004:
-                            arrayList2 = arrayList6;
-                            arrayList4 = groupInfo;
-                            z = z2;
-                            j3 = j;
-                            j4 = j2;
-                            j5 = j7;
-                            bIMValueCallBack = bIMValueCallBack3;
-                            GroupMemberDelMsg groupMemberDelMsg = (GroupMemberDelMsg) next;
-                            ArrayList<String> memberBuids = groupMemberDelMsg.getMemberBuids();
-                            if (memberBuids.contains(AccountManager.getUid(mContext))) {
-                                updateAndNotifyApplyCount(Long.valueOf(valueOf).longValue(), 0);
-                                quitGroupByGroupId(groupMemberDelMsg.getContacter());
-                                ArrayList<ChatMsg> arrayList9 = new ArrayList<>();
-                                arrayList9.add(next);
-                                ChatMsgManagerImpl.getInstance(mContext).broadDeleteGroupMsg(mContext, arrayList9);
-                            } else {
-                                if (groupMemberDelMsg.getMemberVersion() > j3) {
-                                    GroupInfoDAOImpl.modifyGroupMemberNumber(mContext, valueOf, groupMemberDelMsg.getGroupnum());
-                                    GroupInfoDAOImpl.delGroupMember(mContext, valueOf, memberBuids);
-                                }
-                                j5 = Math.max(groupMemberDelMsg.getMemberVersion(), j5);
-                                GroupInfoDAOImpl.activeGroupState(mContext, valueOf);
-                                if (arrayList4 != null && arrayList4.size() > 0) {
-                                    arrayList3 = arrayList4;
-                                    break;
-                                }
-                            }
-                            arrayList3 = arrayList4;
-                            break;
-                        case 1005:
-                            arrayList2 = arrayList6;
-                            arrayList4 = groupInfo;
-                            z = z2;
-                            j3 = j;
-                            j4 = j2;
-                            j5 = j7;
-                            bIMValueCallBack = bIMValueCallBack3;
-                            GroupInfoChangeMsg groupInfoChangeMsg = (GroupInfoChangeMsg) next;
-                            if (groupInfoChangeMsg.getInfoVersion() > j4) {
-                                GroupInfoDAOImpl.modifyGroupName(mContext, valueOf, groupInfoChangeMsg.getGroupname());
-                                ConversationManagerImpl.getInstance(mContext).updateConversationName(groupInfoChangeMsg.getGroupname(), 1, valueOf);
-                            }
-                            j6 = Math.max(groupInfoChangeMsg.getInfoVersion(), j6);
-                            arrayList3 = arrayList4;
-                            break;
-                        default:
-                            switch (msgType) {
-                                case 1012:
-                                    arrayList2 = arrayList6;
-                                    arrayList4 = groupInfo;
-                                    z = z2;
-                                    j3 = j;
-                                    j4 = j2;
-                                    long j9 = j7;
-                                    bIMValueCallBack = bIMValueCallBack3;
-                                    GroupMemberNameChangeMsg groupMemberNameChangeMsg = (GroupMemberNameChangeMsg) next;
-                                    if (groupMemberNameChangeMsg.getMemberVersion() > j3) {
-                                        String memberChangedid = groupMemberNameChangeMsg.memberChangedid();
-                                        GroupInfoDAOImpl.updateMemberNickName(mContext, valueOf, memberChangedid, groupMemberNameChangeMsg.getNickname());
-                                        ChatSession chatSession = ChatMsgManager.getChatSession(mContext, 1, next.getContacter());
-                                        if (chatSession != null && TextUtils.equals(memberChangedid, String.valueOf(chatSession.getLastMsgUid()))) {
-                                            chatSession.setLastMsgName(groupMemberNameChangeMsg.getNickname());
-                                            ChatMessageDBManager.getInstance(mContext).updateChatSession(4, chatSession);
+                                break;
+                            case 1003:
+                                arrayList2 = arrayList6;
+                                arrayList3 = groupInfo;
+                                j3 = j;
+                                j4 = j2;
+                                j5 = j7;
+                                bIMValueCallBack = bIMValueCallBack3;
+                                GroupMemberQuitMsg groupMemberQuitMsg = (GroupMemberQuitMsg) next;
+                                String quitBuid = groupMemberQuitMsg.getQuitBuid();
+                                if (TextUtils.equals(quitBuid, AccountManager.getUid(mContext))) {
+                                    quitGroupByGroupId(groupMemberQuitMsg.getContacter());
+                                    updateAndNotifyApplyCount(Long.valueOf(valueOf).longValue(), 0);
+                                } else {
+                                    j5 = Math.max(groupMemberQuitMsg.getMemberVersion(), j5);
+                                    if (groupMemberQuitMsg.getMemberVersion() > j3) {
+                                        ArrayList arrayList8 = new ArrayList();
+                                        arrayList8.add(quitBuid);
+                                        GroupInfoDAOImpl.modifyGroupMemberNumber(mContext, valueOf, groupMemberQuitMsg.getGroupnum());
+                                        GroupInfoDAOImpl.delGroupMember(mContext, valueOf, arrayList8);
+                                    }
+                                    GroupInfoDAOImpl.activeGroupState(mContext, valueOf);
+                                    if (arrayList3 != null) {
+                                        if (arrayList3.size() > 0) {
+                                            break;
                                         }
                                     }
-                                    j5 = Math.max(groupMemberNameChangeMsg.getMemberVersion(), j9);
-                                    arrayList3 = arrayList4;
-                                    break;
-                                case 1013:
-                                    arrayList2 = arrayList6;
-                                    arrayList4 = groupInfo;
-                                    z = z2;
-                                    j3 = j;
-                                    j4 = j2;
-                                    j5 = j7;
-                                    bIMValueCallBack = bIMValueCallBack3;
-                                    handleDisbandMsg(next);
-                                    arrayList3 = arrayList4;
-                                    break;
-                                case 1014:
-                                    arrayList2 = arrayList6;
-                                    arrayList4 = groupInfo;
-                                    z = z2;
-                                    j3 = j;
-                                    j4 = j2;
-                                    j5 = j7;
-                                    bIMValueCallBack = bIMValueCallBack3;
-                                    j6 = Math.max(((FansInfoUpdateMsg) next).getInfoVersion(), j6);
-                                    arrayList3 = arrayList4;
-                                    break;
-                                case 1015:
-                                    arrayList2 = arrayList6;
-                                    arrayList4 = groupInfo;
-                                    z = z2;
-                                    j3 = j;
-                                    j4 = j2;
-                                    long j10 = j7;
-                                    bIMValueCallBack = bIMValueCallBack3;
-                                    FansSetAdminMsg fansSetAdminMsg = (FansSetAdminMsg) next;
-                                    ArrayList arrayList10 = new ArrayList();
-                                    if (fansSetAdminMsg.getBduids() != null) {
-                                        for (String str : fansSetAdminMsg.getBduids()) {
-                                            arrayList10.add(Long.valueOf(Utility.getLongByString(str, 0L)));
-                                        }
+                                }
+                                break;
+                            case 1004:
+                                arrayList2 = arrayList6;
+                                arrayList4 = groupInfo;
+                                j3 = j;
+                                j4 = j2;
+                                j5 = j7;
+                                bIMValueCallBack = bIMValueCallBack3;
+                                GroupMemberDelMsg groupMemberDelMsg = (GroupMemberDelMsg) next;
+                                ArrayList<String> memberBuids = groupMemberDelMsg.getMemberBuids();
+                                if (memberBuids.contains(AccountManager.getUid(mContext))) {
+                                    updateAndNotifyApplyCount(Long.valueOf(valueOf).longValue(), 0);
+                                    quitGroupByGroupId(groupMemberDelMsg.getContacter());
+                                    ArrayList<ChatMsg> arrayList9 = new ArrayList<>();
+                                    arrayList9.add(next);
+                                    ChatMsgManagerImpl.getInstance(mContext).broadDeleteGroupMsg(mContext, arrayList9);
+                                } else {
+                                    if (groupMemberDelMsg.getMemberVersion() > j3) {
+                                        GroupInfoDAOImpl.modifyGroupMemberNumber(mContext, valueOf, groupMemberDelMsg.getGroupnum());
+                                        GroupInfoDAOImpl.delGroupMember(mContext, valueOf, memberBuids);
                                     }
-                                    j5 = Math.max(fansSetAdminMsg.getMemberVersion(), j10);
-                                    j6 = Math.max(fansSetAdminMsg.getGroupVersion(), j6);
-                                    BIMValueCallBack<ArrayList<GroupMember>> bIMValueCallBack5 = new BIMValueCallBack<ArrayList<GroupMember>>(this, fansSetAdminMsg) { // from class: com.baidu.android.imsdk.group.GroupMessageManagerImpl.2
-                                        public static /* synthetic */ Interceptable $ic;
-                                        public transient /* synthetic */ FieldHolder $fh;
-                                        public final /* synthetic */ GroupMessageManagerImpl this$0;
-                                        public final /* synthetic */ FansSetAdminMsg val$setAdminMsg;
-
-                                        {
-                                            Interceptable interceptable2 = $ic;
-                                            if (interceptable2 != null) {
-                                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                                newInitContext.initArgs = r2;
-                                                Object[] objArr = {this, fansSetAdminMsg};
-                                                interceptable2.invokeUnInit(65536, newInitContext);
-                                                int i = newInitContext.flag;
-                                                if ((i & 1) != 0) {
-                                                    int i2 = i & 2;
-                                                    newInitContext.thisArg = this;
-                                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                                    return;
-                                                }
-                                            }
-                                            this.this$0 = this;
-                                            this.val$setAdminMsg = fansSetAdminMsg;
-                                        }
-
-                                        /* JADX DEBUG: Method merged with bridge method */
-                                        @Override // com.baidu.android.imsdk.group.BIMValueCallBack
-                                        public void onResult(int i, String str2, ArrayList<GroupMember> arrayList11) {
-                                            Interceptable interceptable2 = $ic;
-                                            if ((interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str2, arrayList11) == null) && i == 0) {
-                                                ArrayList<ChatMsg> arrayList12 = new ArrayList<>();
-                                                arrayList12.add(this.val$setAdminMsg);
-                                                ChatMsgManagerImpl.getInstance(GroupMessageManagerImpl.mContext).sendMessageBroadcast(GroupMessageManagerImpl.mContext, arrayList12);
-                                            }
-                                        }
-                                    };
-                                    handleGroupRoleChanged(1015, fansSetAdminMsg);
-                                    bIMValueCallBack4 = bIMValueCallBack5;
-                                    arrayList3 = arrayList4;
-                                    break;
-                                case 1016:
-                                    arrayList2 = arrayList6;
-                                    arrayList5 = groupInfo;
-                                    z = z2;
-                                    j3 = j;
-                                    j4 = j2;
-                                    j5 = j7;
-                                    bIMValueCallBack = bIMValueCallBack3;
-                                    handleDeleteMsg(next);
-                                    arrayList3 = arrayList5;
-                                    break;
-                                case 1017:
-                                    arrayList2 = arrayList6;
-                                    arrayList5 = groupInfo;
-                                    z = z2;
-                                    long j11 = j7;
-                                    FansSetOwnerMsg fansSetOwnerMsg = (FansSetOwnerMsg) next;
-                                    String oldOwner = fansSetOwnerMsg.getOldOwner();
-                                    String newOwner = fansSetOwnerMsg.getNewOwner();
-                                    if (!TextUtils.isEmpty(oldOwner) && !TextUtils.isEmpty(newOwner)) {
-                                        ArrayList arrayList11 = new ArrayList();
-                                        bIMValueCallBack = bIMValueCallBack3;
-                                        ArrayList arrayList12 = new ArrayList();
-                                        j4 = j2;
+                                    j5 = Math.max(groupMemberDelMsg.getMemberVersion(), j5);
+                                    GroupInfoDAOImpl.activeGroupState(mContext, valueOf);
+                                    if (arrayList4 != null && arrayList4.size() > 0) {
+                                        arrayList3 = arrayList4;
+                                        break;
+                                    }
+                                }
+                                arrayList3 = arrayList4;
+                                break;
+                            case 1005:
+                                arrayList2 = arrayList6;
+                                arrayList4 = groupInfo;
+                                j3 = j;
+                                j4 = j2;
+                                j5 = j7;
+                                bIMValueCallBack = bIMValueCallBack3;
+                                GroupInfoChangeMsg groupInfoChangeMsg = (GroupInfoChangeMsg) next;
+                                if (groupInfoChangeMsg.getInfoVersion() > j4) {
+                                    GroupInfoDAOImpl.modifyGroupName(mContext, valueOf, groupInfoChangeMsg.getGroupname());
+                                    ConversationManagerImpl.getInstance(mContext).updateConversationName(groupInfoChangeMsg.getGroupname(), 1, valueOf);
+                                }
+                                j6 = Math.max(groupInfoChangeMsg.getInfoVersion(), j6);
+                                arrayList3 = arrayList4;
+                                break;
+                            default:
+                                switch (msgType) {
+                                    case 1012:
+                                        arrayList2 = arrayList6;
+                                        arrayList4 = groupInfo;
                                         j3 = j;
-                                        arrayList11.add(Long.valueOf(Utility.getLongByString(oldOwner, 0L)));
-                                        arrayList12.add(Long.valueOf(Utility.getLongByString(newOwner, 0L)));
-                                        GroupInfoDAOImpl.updateGroupMembersRole(mContext, valueOf, arrayList11, 0);
-                                        GroupInfoDAOImpl.updateGroupMembersRole(mContext, valueOf, arrayList12, 1);
-                                        String uid = AccountManager.getUid(mContext);
-                                        j6 = (TextUtils.equals(oldOwner, uid) || TextUtils.equals(newOwner, uid)) ? Long.MAX_VALUE : Long.MAX_VALUE;
-                                        ArrayList<String> arrayList13 = new ArrayList<>();
-                                        arrayList13.add(oldOwner);
-                                        arrayList13.add(newOwner);
-                                        j5 = Math.max(fansSetOwnerMsg.getGroupMemberVersion(), j11);
-                                        bIMValueCallBack4 = new BIMValueCallBack<ArrayList<GroupMember>>(this, fansSetOwnerMsg) { // from class: com.baidu.android.imsdk.group.GroupMessageManagerImpl.3
+                                        j4 = j2;
+                                        long j9 = j7;
+                                        bIMValueCallBack = bIMValueCallBack3;
+                                        GroupMemberNameChangeMsg groupMemberNameChangeMsg = (GroupMemberNameChangeMsg) next;
+                                        if (groupMemberNameChangeMsg.getMemberVersion() > j3) {
+                                            String memberChangedid = groupMemberNameChangeMsg.memberChangedid();
+                                            GroupInfoDAOImpl.updateMemberNickName(mContext, valueOf, memberChangedid, groupMemberNameChangeMsg.getNickname());
+                                            ChatSession chatSession = ChatMsgManager.getChatSession(mContext, 1, next.getContacter());
+                                            if (chatSession != null && TextUtils.equals(memberChangedid, String.valueOf(chatSession.getLastMsgUid()))) {
+                                                chatSession.setLastMsgName(groupMemberNameChangeMsg.getNickname());
+                                                ChatMessageDBManager.getInstance(mContext).updateChatSession(4, chatSession);
+                                            }
+                                        }
+                                        j5 = Math.max(groupMemberNameChangeMsg.getMemberVersion(), j9);
+                                        arrayList3 = arrayList4;
+                                        break;
+                                    case 1013:
+                                        arrayList2 = arrayList6;
+                                        arrayList4 = groupInfo;
+                                        j3 = j;
+                                        j4 = j2;
+                                        j5 = j7;
+                                        bIMValueCallBack = bIMValueCallBack3;
+                                        handleDisbandMsg(next);
+                                        arrayList3 = arrayList4;
+                                        break;
+                                    case 1014:
+                                        arrayList2 = arrayList6;
+                                        arrayList4 = groupInfo;
+                                        j3 = j;
+                                        j4 = j2;
+                                        j5 = j7;
+                                        bIMValueCallBack = bIMValueCallBack3;
+                                        j6 = Math.max(((FansInfoUpdateMsg) next).getInfoVersion(), j6);
+                                        arrayList3 = arrayList4;
+                                        break;
+                                    case 1015:
+                                        arrayList2 = arrayList6;
+                                        arrayList4 = groupInfo;
+                                        j3 = j;
+                                        j4 = j2;
+                                        long j10 = j7;
+                                        bIMValueCallBack = bIMValueCallBack3;
+                                        FansSetAdminMsg fansSetAdminMsg = (FansSetAdminMsg) next;
+                                        ArrayList arrayList10 = new ArrayList();
+                                        if (fansSetAdminMsg.getBduids() != null) {
+                                            for (String str : fansSetAdminMsg.getBduids()) {
+                                                arrayList10.add(Long.valueOf(Utility.getLongByString(str, 0L)));
+                                            }
+                                        }
+                                        j5 = Math.max(fansSetAdminMsg.getMemberVersion(), j10);
+                                        j6 = Math.max(fansSetAdminMsg.getGroupVersion(), j6);
+                                        BIMValueCallBack<ArrayList<GroupMember>> bIMValueCallBack5 = new BIMValueCallBack<ArrayList<GroupMember>>(this, fansSetAdminMsg) { // from class: com.baidu.android.imsdk.group.GroupMessageManagerImpl.2
                                             public static /* synthetic */ Interceptable $ic;
                                             public transient /* synthetic */ FieldHolder $fh;
                                             public final /* synthetic */ GroupMessageManagerImpl this$0;
-                                            public final /* synthetic */ FansSetOwnerMsg val$setOwnerMsg;
+                                            public final /* synthetic */ FansSetAdminMsg val$setAdminMsg;
 
                                             {
                                                 Interceptable interceptable2 = $ic;
                                                 if (interceptable2 != null) {
                                                     InitContext newInitContext = TitanRuntime.newInitContext();
                                                     newInitContext.initArgs = r2;
-                                                    Object[] objArr = {this, fansSetOwnerMsg};
+                                                    Object[] objArr = {this, fansSetAdminMsg};
                                                     interceptable2.invokeUnInit(65536, newInitContext);
                                                     int i = newInitContext.flag;
                                                     if ((i & 1) != 0) {
@@ -938,255 +879,331 @@ public class GroupMessageManagerImpl {
                                                     }
                                                 }
                                                 this.this$0 = this;
-                                                this.val$setOwnerMsg = fansSetOwnerMsg;
+                                                this.val$setAdminMsg = fansSetAdminMsg;
                                             }
 
                                             /* JADX DEBUG: Method merged with bridge method */
                                             @Override // com.baidu.android.imsdk.group.BIMValueCallBack
-                                            public void onResult(int i, String str2, ArrayList<GroupMember> arrayList14) {
+                                            public void onResult(int i, String str2, ArrayList<GroupMember> arrayList11) {
                                                 Interceptable interceptable2 = $ic;
-                                                if ((interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str2, arrayList14) == null) && i == 0) {
-                                                    ArrayList<ChatMsg> arrayList15 = new ArrayList<>();
-                                                    arrayList15.add(this.val$setOwnerMsg);
-                                                    ChatMsgManagerImpl.getInstance(GroupMessageManagerImpl.mContext).sendMessageBroadcast(GroupMessageManagerImpl.mContext, arrayList15);
+                                                if ((interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str2, arrayList11) == null) && i == 0) {
+                                                    ArrayList<ChatMsg> arrayList12 = new ArrayList<>();
+                                                    arrayList12.add(this.val$setAdminMsg);
+                                                    ChatMsgManagerImpl.getInstance(GroupMessageManagerImpl.mContext).sendMessageBroadcast(GroupMessageManagerImpl.mContext, arrayList12);
                                                 }
                                             }
                                         };
-                                        handleGroupRoleChanged(1017, next);
-                                        arrayList7 = arrayList13;
+                                        handleGroupRoleChanged(1015, fansSetAdminMsg);
+                                        bIMValueCallBack4 = bIMValueCallBack5;
+                                        arrayList3 = arrayList4;
+                                        break;
+                                    case 1016:
+                                        arrayList2 = arrayList6;
+                                        arrayList5 = groupInfo;
+                                        j3 = j;
+                                        j4 = j2;
+                                        j5 = j7;
+                                        bIMValueCallBack = bIMValueCallBack3;
+                                        handleDeleteMsg(next);
                                         arrayList3 = arrayList5;
                                         break;
-                                    } else {
-                                        return;
-                                    }
-                                    break;
-                                case 1018:
-                                    z = z2;
-                                    FansGroupCancelAdminMsg fansGroupCancelAdminMsg = (FansGroupCancelAdminMsg) next;
-                                    arrayList2 = arrayList6;
-                                    ArrayList<GroupInfo> arrayList14 = groupInfo;
-                                    long max = Math.max(fansGroupCancelAdminMsg.getMemberVersion(), j7);
-                                    j6 = Math.max(fansGroupCancelAdminMsg.getGroupVersion(), j6);
-                                    ArrayList<String> arrayList15 = new ArrayList<>();
-                                    arrayList15.add(String.valueOf(fansGroupCancelAdminMsg.getMember()));
-                                    BIMValueCallBack<ArrayList<GroupMember>> bIMValueCallBack6 = new BIMValueCallBack<ArrayList<GroupMember>>(this, fansGroupCancelAdminMsg) { // from class: com.baidu.android.imsdk.group.GroupMessageManagerImpl.1
-                                        public static /* synthetic */ Interceptable $ic;
-                                        public transient /* synthetic */ FieldHolder $fh;
-                                        public final /* synthetic */ GroupMessageManagerImpl this$0;
-                                        public final /* synthetic */ FansGroupCancelAdminMsg val$cancelAdminMsg;
+                                    case 1017:
+                                        arrayList2 = arrayList6;
+                                        arrayList5 = groupInfo;
+                                        long j11 = j7;
+                                        FansSetOwnerMsg fansSetOwnerMsg = (FansSetOwnerMsg) next;
+                                        String oldOwner = fansSetOwnerMsg.getOldOwner();
+                                        String newOwner = fansSetOwnerMsg.getNewOwner();
+                                        if (!TextUtils.isEmpty(oldOwner) && !TextUtils.isEmpty(newOwner)) {
+                                            ArrayList arrayList11 = new ArrayList();
+                                            bIMValueCallBack = bIMValueCallBack3;
+                                            ArrayList arrayList12 = new ArrayList();
+                                            j4 = j2;
+                                            j3 = j;
+                                            arrayList11.add(Long.valueOf(Utility.getLongByString(oldOwner, 0L)));
+                                            arrayList12.add(Long.valueOf(Utility.getLongByString(newOwner, 0L)));
+                                            GroupInfoDAOImpl.updateGroupMembersRole(mContext, valueOf, arrayList11, 0);
+                                            GroupInfoDAOImpl.updateGroupMembersRole(mContext, valueOf, arrayList12, 1);
+                                            String uid = AccountManager.getUid(mContext);
+                                            j6 = (TextUtils.equals(oldOwner, uid) || TextUtils.equals(newOwner, uid)) ? Long.MAX_VALUE : Long.MAX_VALUE;
+                                            ArrayList<String> arrayList13 = new ArrayList<>();
+                                            arrayList13.add(oldOwner);
+                                            arrayList13.add(newOwner);
+                                            j5 = Math.max(fansSetOwnerMsg.getGroupMemberVersion(), j11);
+                                            bIMValueCallBack4 = new BIMValueCallBack<ArrayList<GroupMember>>(this, fansSetOwnerMsg) { // from class: com.baidu.android.imsdk.group.GroupMessageManagerImpl.3
+                                                public static /* synthetic */ Interceptable $ic;
+                                                public transient /* synthetic */ FieldHolder $fh;
+                                                public final /* synthetic */ GroupMessageManagerImpl this$0;
+                                                public final /* synthetic */ FansSetOwnerMsg val$setOwnerMsg;
 
-                                        {
-                                            Interceptable interceptable2 = $ic;
-                                            if (interceptable2 != null) {
-                                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                                newInitContext.initArgs = r2;
-                                                Object[] objArr = {this, fansGroupCancelAdminMsg};
-                                                interceptable2.invokeUnInit(65536, newInitContext);
-                                                int i = newInitContext.flag;
-                                                if ((i & 1) != 0) {
-                                                    int i2 = i & 2;
-                                                    newInitContext.thisArg = this;
-                                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                                    return;
+                                                {
+                                                    Interceptable interceptable2 = $ic;
+                                                    if (interceptable2 != null) {
+                                                        InitContext newInitContext = TitanRuntime.newInitContext();
+                                                        newInitContext.initArgs = r2;
+                                                        Object[] objArr = {this, fansSetOwnerMsg};
+                                                        interceptable2.invokeUnInit(65536, newInitContext);
+                                                        int i = newInitContext.flag;
+                                                        if ((i & 1) != 0) {
+                                                            int i2 = i & 2;
+                                                            newInitContext.thisArg = this;
+                                                            interceptable2.invokeInitBody(65536, newInitContext);
+                                                            return;
+                                                        }
+                                                    }
+                                                    this.this$0 = this;
+                                                    this.val$setOwnerMsg = fansSetOwnerMsg;
+                                                }
+
+                                                /* JADX DEBUG: Method merged with bridge method */
+                                                @Override // com.baidu.android.imsdk.group.BIMValueCallBack
+                                                public void onResult(int i, String str2, ArrayList<GroupMember> arrayList14) {
+                                                    Interceptable interceptable2 = $ic;
+                                                    if ((interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str2, arrayList14) == null) && i == 0) {
+                                                        ArrayList<ChatMsg> arrayList15 = new ArrayList<>();
+                                                        arrayList15.add(this.val$setOwnerMsg);
+                                                        ChatMsgManagerImpl.getInstance(GroupMessageManagerImpl.mContext).sendMessageBroadcast(GroupMessageManagerImpl.mContext, arrayList15);
+                                                    }
+                                                }
+                                            };
+                                            handleGroupRoleChanged(1017, next);
+                                            arrayList7 = arrayList13;
+                                            arrayList3 = arrayList5;
+                                            break;
+                                        } else {
+                                            return;
+                                        }
+                                        break;
+                                    case 1018:
+                                        FansGroupCancelAdminMsg fansGroupCancelAdminMsg = (FansGroupCancelAdminMsg) next;
+                                        arrayList2 = arrayList6;
+                                        ArrayList<GroupInfo> arrayList14 = groupInfo;
+                                        long max = Math.max(fansGroupCancelAdminMsg.getMemberVersion(), j7);
+                                        j6 = Math.max(fansGroupCancelAdminMsg.getGroupVersion(), j6);
+                                        ArrayList<String> arrayList15 = new ArrayList<>();
+                                        arrayList15.add(String.valueOf(fansGroupCancelAdminMsg.getMember()));
+                                        BIMValueCallBack<ArrayList<GroupMember>> bIMValueCallBack6 = new BIMValueCallBack<ArrayList<GroupMember>>(this, fansGroupCancelAdminMsg) { // from class: com.baidu.android.imsdk.group.GroupMessageManagerImpl.1
+                                            public static /* synthetic */ Interceptable $ic;
+                                            public transient /* synthetic */ FieldHolder $fh;
+                                            public final /* synthetic */ GroupMessageManagerImpl this$0;
+                                            public final /* synthetic */ FansGroupCancelAdminMsg val$cancelAdminMsg;
+
+                                            {
+                                                Interceptable interceptable2 = $ic;
+                                                if (interceptable2 != null) {
+                                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                                    newInitContext.initArgs = r2;
+                                                    Object[] objArr = {this, fansGroupCancelAdminMsg};
+                                                    interceptable2.invokeUnInit(65536, newInitContext);
+                                                    int i = newInitContext.flag;
+                                                    if ((i & 1) != 0) {
+                                                        int i2 = i & 2;
+                                                        newInitContext.thisArg = this;
+                                                        interceptable2.invokeInitBody(65536, newInitContext);
+                                                        return;
+                                                    }
+                                                }
+                                                this.this$0 = this;
+                                                this.val$cancelAdminMsg = fansGroupCancelAdminMsg;
+                                            }
+
+                                            /* JADX DEBUG: Method merged with bridge method */
+                                            @Override // com.baidu.android.imsdk.group.BIMValueCallBack
+                                            public void onResult(int i, String str2, ArrayList<GroupMember> arrayList16) {
+                                                Interceptable interceptable2 = $ic;
+                                                if ((interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str2, arrayList16) == null) && i == 0) {
+                                                    ArrayList<ChatMsg> arrayList17 = new ArrayList<>();
+                                                    arrayList17.add(this.val$cancelAdminMsg);
+                                                    ChatMsgManagerImpl.getInstance(GroupMessageManagerImpl.mContext).sendMessageBroadcast(GroupMessageManagerImpl.mContext, arrayList17);
                                                 }
                                             }
-                                            this.this$0 = this;
-                                            this.val$cancelAdminMsg = fansGroupCancelAdminMsg;
+                                        };
+                                        handleGroupRoleChanged(1018, next);
+                                        arrayList7 = arrayList15;
+                                        bIMValueCallBack4 = bIMValueCallBack6;
+                                        j3 = j;
+                                        j4 = j2;
+                                        j5 = max;
+                                        arrayList3 = arrayList14;
+                                        bIMValueCallBack = bIMValueCallBack3;
+                                        break;
+                                    case 1019:
+                                        j6 = Math.max(((GroupBannedMsg) next).getInfoVersion(), j6);
+                                        updateAndNotifyApplyCount(Long.parseLong(valueOf), 0);
+                                        arrayList2 = arrayList6;
+                                        arrayList3 = groupInfo;
+                                        j3 = j;
+                                        j4 = j2;
+                                        j5 = j7;
+                                        z2 = false;
+                                        bIMValueCallBack = bIMValueCallBack3;
+                                        break;
+                                    case 1020:
+                                        j6 = Math.max(((GroupUnbannedMsg) next).getInfoVersion(), j6);
+                                        arrayList2 = arrayList6;
+                                        arrayList3 = groupInfo;
+                                        j3 = j;
+                                        j4 = j2;
+                                        j5 = j7;
+                                        z2 = true;
+                                        bIMValueCallBack = bIMValueCallBack3;
+                                        break;
+                                    case 1021:
+                                    case 1022:
+                                    case 1023:
+                                    case 1024:
+                                        if (msgType == 1024) {
+                                            j6 = Math.max(((GroupJoinAuditOpenMsg) next).getGroupVersion(), j6);
                                         }
+                                        arrayList2 = arrayList6;
+                                        arrayList3 = groupInfo;
+                                        j3 = j;
+                                        j4 = j2;
+                                        j5 = j7;
+                                        z2 = true;
+                                        bIMValueCallBack = bIMValueCallBack3;
+                                        break;
+                                    case 1025:
+                                        j6 = Math.max(((GroupJoinAuditCloseMsg) next).getGroupVersion(), j6);
+                                        updateAndNotifyApplyCount(Long.valueOf(valueOf).longValue(), 0);
+                                        arrayList2 = arrayList6;
+                                        arrayList3 = groupInfo;
+                                        j3 = j;
+                                        j4 = j2;
+                                        j5 = j7;
+                                        z2 = false;
+                                        bIMValueCallBack = bIMValueCallBack3;
+                                        break;
+                                    case 1026:
+                                        GroupSettingNoticeMsg groupSettingNoticeMsg = (GroupSettingNoticeMsg) next;
+                                        groupSettingNoticeMsg.setGroupId(valueOf);
+                                        j6 = Math.max(groupSettingNoticeMsg.getInfoVersion(), j6);
+                                        bIMValueCallBack2 = new BIMValueCallBack<ArrayList<GroupInfo>>(this, groupSettingNoticeMsg) { // from class: com.baidu.android.imsdk.group.GroupMessageManagerImpl.4
+                                            public static /* synthetic */ Interceptable $ic;
+                                            public transient /* synthetic */ FieldHolder $fh;
+                                            public final /* synthetic */ GroupMessageManagerImpl this$0;
+                                            public final /* synthetic */ GroupSettingNoticeMsg val$settingNoticeMsg;
 
-                                        /* JADX DEBUG: Method merged with bridge method */
-                                        @Override // com.baidu.android.imsdk.group.BIMValueCallBack
-                                        public void onResult(int i, String str2, ArrayList<GroupMember> arrayList16) {
-                                            Interceptable interceptable2 = $ic;
-                                            if ((interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str2, arrayList16) == null) && i == 0) {
-                                                ArrayList<ChatMsg> arrayList17 = new ArrayList<>();
-                                                arrayList17.add(this.val$cancelAdminMsg);
-                                                ChatMsgManagerImpl.getInstance(GroupMessageManagerImpl.mContext).sendMessageBroadcast(GroupMessageManagerImpl.mContext, arrayList17);
+                                            {
+                                                Interceptable interceptable2 = $ic;
+                                                if (interceptable2 != null) {
+                                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                                    newInitContext.initArgs = r2;
+                                                    Object[] objArr = {this, groupSettingNoticeMsg};
+                                                    interceptable2.invokeUnInit(65536, newInitContext);
+                                                    int i = newInitContext.flag;
+                                                    if ((i & 1) != 0) {
+                                                        int i2 = i & 2;
+                                                        newInitContext.thisArg = this;
+                                                        interceptable2.invokeInitBody(65536, newInitContext);
+                                                        return;
+                                                    }
+                                                }
+                                                this.this$0 = this;
+                                                this.val$settingNoticeMsg = groupSettingNoticeMsg;
                                             }
-                                        }
-                                    };
-                                    handleGroupRoleChanged(1018, next);
-                                    arrayList7 = arrayList15;
-                                    bIMValueCallBack4 = bIMValueCallBack6;
-                                    j3 = j;
-                                    j4 = j2;
-                                    j5 = max;
-                                    arrayList3 = arrayList14;
-                                    bIMValueCallBack = bIMValueCallBack3;
-                                    break;
-                                case 1019:
-                                    j6 = Math.max(((GroupBannedMsg) next).getInfoVersion(), j6);
-                                    updateAndNotifyApplyCount(Long.parseLong(valueOf), 0);
-                                    arrayList2 = arrayList6;
-                                    arrayList3 = groupInfo;
-                                    j3 = j;
-                                    j4 = j2;
-                                    j5 = j7;
-                                    z = false;
-                                    bIMValueCallBack = bIMValueCallBack3;
-                                    break;
-                                case 1020:
-                                    j6 = Math.max(((GroupUnbannedMsg) next).getInfoVersion(), j6);
-                                    arrayList2 = arrayList6;
-                                    arrayList3 = groupInfo;
-                                    j3 = j;
-                                    j4 = j2;
-                                    j5 = j7;
-                                    z = true;
-                                    bIMValueCallBack = bIMValueCallBack3;
-                                    break;
-                                case 1021:
-                                case 1022:
-                                case 1023:
-                                case 1024:
-                                    if (msgType == 1024) {
-                                        j6 = Math.max(((GroupJoinAuditOpenMsg) next).getGroupVersion(), j6);
-                                    }
-                                    arrayList2 = arrayList6;
-                                    arrayList3 = groupInfo;
-                                    j3 = j;
-                                    j4 = j2;
-                                    j5 = j7;
-                                    z = true;
-                                    bIMValueCallBack = bIMValueCallBack3;
-                                    break;
-                                case 1025:
-                                    j6 = Math.max(((GroupJoinAuditCloseMsg) next).getGroupVersion(), j6);
-                                    updateAndNotifyApplyCount(Long.valueOf(valueOf).longValue(), 0);
-                                    arrayList2 = arrayList6;
-                                    arrayList3 = groupInfo;
-                                    j3 = j;
-                                    j4 = j2;
-                                    j5 = j7;
-                                    z = false;
-                                    bIMValueCallBack = bIMValueCallBack3;
-                                    break;
-                                case 1026:
-                                    z = z2;
-                                    GroupSettingNoticeMsg groupSettingNoticeMsg = (GroupSettingNoticeMsg) next;
-                                    groupSettingNoticeMsg.setGroupId(valueOf);
-                                    j6 = Math.max(groupSettingNoticeMsg.getInfoVersion(), j6);
-                                    bIMValueCallBack2 = new BIMValueCallBack<ArrayList<GroupInfo>>(this, groupSettingNoticeMsg) { // from class: com.baidu.android.imsdk.group.GroupMessageManagerImpl.4
-                                        public static /* synthetic */ Interceptable $ic;
-                                        public transient /* synthetic */ FieldHolder $fh;
-                                        public final /* synthetic */ GroupMessageManagerImpl this$0;
-                                        public final /* synthetic */ GroupSettingNoticeMsg val$settingNoticeMsg;
 
-                                        {
-                                            Interceptable interceptable2 = $ic;
-                                            if (interceptable2 != null) {
-                                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                                newInitContext.initArgs = r2;
-                                                Object[] objArr = {this, groupSettingNoticeMsg};
-                                                interceptable2.invokeUnInit(65536, newInitContext);
-                                                int i = newInitContext.flag;
-                                                if ((i & 1) != 0) {
-                                                    int i2 = i & 2;
-                                                    newInitContext.thisArg = this;
-                                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                                    return;
+                                            /* JADX DEBUG: Method merged with bridge method */
+                                            @Override // com.baidu.android.imsdk.group.BIMValueCallBack
+                                            public void onResult(int i, String str2, ArrayList<GroupInfo> arrayList16) {
+                                                Interceptable interceptable2 = $ic;
+                                                if ((interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str2, arrayList16) == null) && i == 0) {
+                                                    ArrayList<ChatMsg> arrayList17 = new ArrayList<>();
+                                                    arrayList17.add(this.val$settingNoticeMsg);
+                                                    ChatMsgManagerImpl.getInstance(GroupMessageManagerImpl.mContext).sendMessageBroadcast(GroupMessageManagerImpl.mContext, arrayList17);
                                                 }
                                             }
-                                            this.this$0 = this;
-                                            this.val$settingNoticeMsg = groupSettingNoticeMsg;
-                                        }
+                                        };
+                                        arrayList2 = arrayList6;
+                                        arrayList3 = groupInfo;
+                                        j3 = j;
+                                        j4 = j2;
+                                        j5 = j7;
+                                        bIMValueCallBack = bIMValueCallBack2;
+                                        break;
+                                    case 1027:
+                                        GroupClearNoticeMsg groupClearNoticeMsg = (GroupClearNoticeMsg) next;
+                                        groupClearNoticeMsg.setGroupId(valueOf);
+                                        j6 = Math.max(groupClearNoticeMsg.getInfoVersion(), j6);
+                                        bIMValueCallBack2 = new BIMValueCallBack<ArrayList<GroupInfo>>(this, groupClearNoticeMsg) { // from class: com.baidu.android.imsdk.group.GroupMessageManagerImpl.5
+                                            public static /* synthetic */ Interceptable $ic;
+                                            public transient /* synthetic */ FieldHolder $fh;
+                                            public final /* synthetic */ GroupMessageManagerImpl this$0;
+                                            public final /* synthetic */ GroupClearNoticeMsg val$clearNoticeMsg;
 
-                                        /* JADX DEBUG: Method merged with bridge method */
-                                        @Override // com.baidu.android.imsdk.group.BIMValueCallBack
-                                        public void onResult(int i, String str2, ArrayList<GroupInfo> arrayList16) {
-                                            Interceptable interceptable2 = $ic;
-                                            if ((interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str2, arrayList16) == null) && i == 0) {
-                                                ArrayList<ChatMsg> arrayList17 = new ArrayList<>();
-                                                arrayList17.add(this.val$settingNoticeMsg);
-                                                ChatMsgManagerImpl.getInstance(GroupMessageManagerImpl.mContext).sendMessageBroadcast(GroupMessageManagerImpl.mContext, arrayList17);
+                                            {
+                                                Interceptable interceptable2 = $ic;
+                                                if (interceptable2 != null) {
+                                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                                    newInitContext.initArgs = r2;
+                                                    Object[] objArr = {this, groupClearNoticeMsg};
+                                                    interceptable2.invokeUnInit(65536, newInitContext);
+                                                    int i = newInitContext.flag;
+                                                    if ((i & 1) != 0) {
+                                                        int i2 = i & 2;
+                                                        newInitContext.thisArg = this;
+                                                        interceptable2.invokeInitBody(65536, newInitContext);
+                                                        return;
+                                                    }
+                                                }
+                                                this.this$0 = this;
+                                                this.val$clearNoticeMsg = groupClearNoticeMsg;
                                             }
-                                        }
-                                    };
-                                    arrayList2 = arrayList6;
-                                    arrayList3 = groupInfo;
-                                    j3 = j;
-                                    j4 = j2;
-                                    j5 = j7;
-                                    bIMValueCallBack = bIMValueCallBack2;
-                                    break;
-                                case 1027:
-                                    GroupClearNoticeMsg groupClearNoticeMsg = (GroupClearNoticeMsg) next;
-                                    groupClearNoticeMsg.setGroupId(valueOf);
-                                    z = z2;
-                                    j6 = Math.max(groupClearNoticeMsg.getInfoVersion(), j6);
-                                    bIMValueCallBack2 = new BIMValueCallBack<ArrayList<GroupInfo>>(this, groupClearNoticeMsg) { // from class: com.baidu.android.imsdk.group.GroupMessageManagerImpl.5
-                                        public static /* synthetic */ Interceptable $ic;
-                                        public transient /* synthetic */ FieldHolder $fh;
-                                        public final /* synthetic */ GroupMessageManagerImpl this$0;
-                                        public final /* synthetic */ GroupClearNoticeMsg val$clearNoticeMsg;
 
-                                        {
-                                            Interceptable interceptable2 = $ic;
-                                            if (interceptable2 != null) {
-                                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                                newInitContext.initArgs = r2;
-                                                Object[] objArr = {this, groupClearNoticeMsg};
-                                                interceptable2.invokeUnInit(65536, newInitContext);
-                                                int i = newInitContext.flag;
-                                                if ((i & 1) != 0) {
-                                                    int i2 = i & 2;
-                                                    newInitContext.thisArg = this;
-                                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                                    return;
+                                            /* JADX DEBUG: Method merged with bridge method */
+                                            @Override // com.baidu.android.imsdk.group.BIMValueCallBack
+                                            public void onResult(int i, String str2, ArrayList<GroupInfo> arrayList16) {
+                                                Interceptable interceptable2 = $ic;
+                                                if ((interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str2, arrayList16) == null) && i == 0) {
+                                                    ArrayList<ChatMsg> arrayList17 = new ArrayList<>();
+                                                    arrayList17.add(this.val$clearNoticeMsg);
+                                                    ChatMsgManagerImpl.getInstance(GroupMessageManagerImpl.mContext).sendMessageBroadcast(GroupMessageManagerImpl.mContext, arrayList17);
                                                 }
                                             }
-                                            this.this$0 = this;
-                                            this.val$clearNoticeMsg = groupClearNoticeMsg;
-                                        }
-
-                                        /* JADX DEBUG: Method merged with bridge method */
-                                        @Override // com.baidu.android.imsdk.group.BIMValueCallBack
-                                        public void onResult(int i, String str2, ArrayList<GroupInfo> arrayList16) {
-                                            Interceptable interceptable2 = $ic;
-                                            if ((interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str2, arrayList16) == null) && i == 0) {
-                                                ArrayList<ChatMsg> arrayList17 = new ArrayList<>();
-                                                arrayList17.add(this.val$clearNoticeMsg);
-                                                ChatMsgManagerImpl.getInstance(GroupMessageManagerImpl.mContext).sendMessageBroadcast(GroupMessageManagerImpl.mContext, arrayList17);
-                                            }
-                                        }
-                                    };
-                                    arrayList2 = arrayList6;
-                                    arrayList3 = groupInfo;
-                                    j3 = j;
-                                    j4 = j2;
-                                    j5 = j7;
-                                    bIMValueCallBack = bIMValueCallBack2;
-                                    break;
-                                case 1028:
-                                    j6 = Math.max(((SetGroupWelcomeMsg) next).getGroupVersion(), j6);
-                                    arrayList2 = arrayList6;
-                                    z = z2;
-                                    j3 = j;
-                                    j4 = j2;
-                                    arrayList3 = groupInfo;
-                                    j5 = j7;
-                                    bIMValueCallBack = bIMValueCallBack3;
-                                    break;
-                                case 1029:
-                                    j6 = Math.max(((SetGroupWelcomeDisplayScopeMsg) next).getGroupVersion(), j6);
-                                    arrayList2 = arrayList6;
-                                    z = z2;
-                                    j3 = j;
-                                    j4 = j2;
-                                    arrayList3 = groupInfo;
-                                    j5 = j7;
-                                    bIMValueCallBack = bIMValueCallBack3;
-                                    break;
-                                default:
-                                    arrayList2 = arrayList6;
-                                    z = z2;
-                                    j3 = j;
-                                    j4 = j2;
-                                    arrayList3 = groupInfo;
-                                    j5 = j7;
-                                    bIMValueCallBack = bIMValueCallBack3;
-                                    break;
-                            }
+                                        };
+                                        arrayList2 = arrayList6;
+                                        arrayList3 = groupInfo;
+                                        j3 = j;
+                                        j4 = j2;
+                                        j5 = j7;
+                                        bIMValueCallBack = bIMValueCallBack2;
+                                        break;
+                                    case 1028:
+                                        j6 = Math.max(((SetGroupWelcomeMsg) next).getGroupVersion(), j6);
+                                        arrayList2 = arrayList6;
+                                        arrayList3 = groupInfo;
+                                        j3 = j;
+                                        j4 = j2;
+                                        j5 = j7;
+                                        bIMValueCallBack = bIMValueCallBack3;
+                                        break;
+                                    case 1029:
+                                        j6 = Math.max(((SetGroupWelcomeDisplayScopeMsg) next).getGroupVersion(), j6);
+                                        arrayList2 = arrayList6;
+                                        arrayList3 = groupInfo;
+                                        j3 = j;
+                                        j4 = j2;
+                                        j5 = j7;
+                                        bIMValueCallBack = bIMValueCallBack3;
+                                        break;
+                                    default:
+                                        arrayList2 = arrayList6;
+                                        arrayList3 = groupInfo;
+                                        j3 = j;
+                                        j4 = j2;
+                                        j5 = j7;
+                                        bIMValueCallBack = bIMValueCallBack3;
+                                        break;
+                                }
+                        }
+                    } else {
+                        arrayList2 = arrayList6;
+                        arrayList3 = groupInfo;
+                        j3 = j;
+                        j4 = j2;
+                        j5 = j7;
+                        bIMValueCallBack = bIMValueCallBack3;
+                        handleGroupReplyMsgUpdate((GroupReplyUpdateMsg) next);
                     }
                     bIMValueCallBack3 = bIMValueCallBack;
                     it = it2;
@@ -1194,11 +1211,11 @@ public class GroupMessageManagerImpl {
                     j = j3;
                     j7 = j5;
                     groupInfo = arrayList3;
-                    z2 = z;
+                    z = z2;
                     arrayList6 = arrayList2;
                 }
                 ArrayList<String> arrayList16 = arrayList6;
-                boolean z3 = z2;
+                boolean z3 = z;
                 long j12 = j;
                 long j13 = j2;
                 long j14 = j7;
@@ -1221,9 +1238,42 @@ public class GroupMessageManagerImpl {
         }
     }
 
+    private void handleGroupReplyMsgUpdate(GroupReplyUpdateMsg groupReplyUpdateMsg) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65556, this, groupReplyUpdateMsg) == null) {
+            long groupId = groupReplyUpdateMsg.getGroupId();
+            long msgId = groupReplyUpdateMsg.getMsgId();
+            if (groupId > 0 && msgId > 0) {
+                int msgRepliedStatus = groupReplyUpdateMsg.getMsgRepliedStatus();
+                String msgRepliedStatusDisplayText = groupReplyUpdateMsg.getMsgRepliedStatusDisplayText();
+                ChatMsg fetchChatMsgByMsgId = GroupMessageDAOImpl.fetchChatMsgByMsgId(mContext, String.valueOf(groupId), msgId);
+                if (fetchChatMsgByMsgId != null && !TextUtils.isEmpty(fetchChatMsgByMsgId.getMsgContent())) {
+                    String updatedMsgContent = MsgRepliedData.getUpdatedMsgContent(fetchChatMsgByMsgId.getMsgContent(), msgRepliedStatus, msgRepliedStatusDisplayText);
+                    if (!TextUtils.isEmpty(updatedMsgContent) && GroupMessageDAOImpl.updateMsgContent(mContext, String.valueOf(groupId), msgId, updatedMsgContent) > 0) {
+                        fetchChatMsgByMsgId.setMsgContent(updatedMsgContent);
+                        ChatMsgManagerImpl.getInstance(mContext).sendMsgUpdatedBroadcast(mContext, fetchChatMsgByMsgId);
+                        return;
+                    }
+                    return;
+                }
+                String str = TAG;
+                StringBuilder sb = new StringBuilder();
+                sb.append("handleGroupReplyMsgUpdate chat msg invalid:");
+                if (fetchChatMsgByMsgId == null) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                sb.append(z);
+                LogUtils.d(str, sb.toString());
+            }
+        }
+    }
+
     private void handleJoinGroupMsg(ChatMsg chatMsg) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65557, this, chatMsg) == null) {
+        if (interceptable == null || interceptable.invokeL(65558, this, chatMsg) == null) {
             GroupMemberJoinMsg groupMemberJoinMsg = (GroupMemberJoinMsg) chatMsg;
             String valueOf = String.valueOf(groupMemberJoinMsg.getContacter());
             String memberBuid = groupMemberJoinMsg.getMemberBuid();
@@ -1244,7 +1294,7 @@ public class GroupMessageManagerImpl {
 
     private void handleQuitGroupMsg(ChatMsg chatMsg) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65561, this, chatMsg) == null) {
+        if (interceptable == null || interceptable.invokeL(65562, this, chatMsg) == null) {
             LogUtils.d(TAG, "STAR handleQuitGroupMsg");
             GroupMemberQuitMsg groupMemberQuitMsg = (GroupMemberQuitMsg) chatMsg;
             String valueOf = String.valueOf(groupMemberQuitMsg.getContacter());
@@ -1288,7 +1338,8 @@ public class GroupMessageManagerImpl {
                         boolean isSendFromGroupCreator = isSendFromGroupCreator(chatMsg);
                         boolean isSendFromGroupAdmin = isSendFromGroupAdmin(chatMsg);
                         boolean isAtCurrentUser = isAtCurrentUser(chatMsg);
-                        if (isAtCurrentUser || isSendFromGroupCreator || isSendFromGroupAdmin) {
+                        boolean isGroupCoupon = isGroupCoupon(chatMsg);
+                        if (isAtCurrentUser || isSendFromGroupCreator || isSendFromGroupAdmin || isGroupCoupon) {
                             long msgId = chatMsg.getMsgId();
                             long longByString = Utility.getLongByString(chatMsg.getSenderUid(), 0L);
                             if (!isSendFromGroupCreator && isAtCurrentUser) {
@@ -1301,6 +1352,9 @@ public class GroupMessageManagerImpl {
                                     i = 5;
                                 } else {
                                     i = 4;
+                                    if (isGroupCoupon) {
+                                        i = 3;
+                                    }
                                 }
                             }
                             return new MultiplePair<>(Integer.valueOf(i), Long.valueOf(msgId), Long.valueOf(longByString), memberRoleDisplayName);
@@ -1356,7 +1410,7 @@ public class GroupMessageManagerImpl {
 
     private void handleMasterChange(ChatMsg chatMsg) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65558, this, chatMsg) == null) {
+        if (interceptable == null || interceptable.invokeL(65559, this, chatMsg) == null) {
             String str = TAG;
             LogUtils.d(str, "STAR handleMasterChange " + chatMsg.toString());
             GroupStarMasterUpdateMsg groupStarMasterUpdateMsg = (GroupStarMasterUpdateMsg) chatMsg;
@@ -1394,7 +1448,7 @@ public class GroupMessageManagerImpl {
 
     private void handleStartJoin(ChatMsg chatMsg) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65563, this, chatMsg) == null) {
+        if (interceptable == null || interceptable.invokeL(65564, this, chatMsg) == null) {
             String str = TAG;
             LogUtils.d(str, "STAR handleStartJoin " + chatMsg.toString());
             GroupStarJoinMsg groupStarJoinMsg = (GroupStarJoinMsg) chatMsg;
@@ -1433,7 +1487,7 @@ public class GroupMessageManagerImpl {
         ChatSession chatRecord;
         String roleDisplayName;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIL(65562, this, i, chatMsg) != null) || (chatRecord = ChatSessionManagerImpl.getInstance(mContext).getChatRecord(1, chatMsg.getContacter())) == null) {
+        if ((interceptable != null && interceptable.invokeIL(65563, this, i, chatMsg) != null) || (chatRecord = ChatSessionManagerImpl.getInstance(mContext).getChatRecord(1, chatMsg.getContacter())) == null) {
             return;
         }
         if (i == 1017) {
@@ -1486,7 +1540,7 @@ public class GroupMessageManagerImpl {
     private void recordLastMsg(String str, ChatObject chatObject, boolean z, int i, long j, long j2, String str2) {
         ArrayList<ChatMsg> fetchAllChatMsg;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65569, this, new Object[]{str, chatObject, Boolean.valueOf(z), Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), str2}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65571, this, new Object[]{str, chatObject, Boolean.valueOf(z), Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), str2}) == null) {
             int unReadCount = GroupMessageDAOImpl.getUnReadCount(mContext, str);
             String str3 = TAG;
             LogUtils.e(str3, str + "   newmsgnum : " + unReadCount);
@@ -1513,7 +1567,7 @@ public class GroupMessageManagerImpl {
     private void removeMemberFromMap(String str, GroupMember groupMember) {
         Map<String, List<GroupMember>> map;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65570, this, str, groupMember) != null) || (map = this.mGroupMemberMap) == null) {
+        if ((interceptable != null && interceptable.invokeLL(65572, this, str, groupMember) != null) || (map = this.mGroupMemberMap) == null) {
             return;
         }
         if (groupMember == null) {

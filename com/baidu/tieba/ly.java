@@ -2,8 +2,8 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.view.View;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.MutiImgSingleHorizontalLayout;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -11,33 +11,19 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ly extends lx<zx4> {
+public class ly extends ow<hw4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MutiImgSingleHorizontalLayout f;
-    public int g;
-
-    @Override // com.baidu.tieba.lx
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public void t(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-        }
-    }
+    public ye6 f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ly(Context context) {
-        super(context);
+    public ly(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -48,50 +34,34 @@ public class ly extends lx<zx4> {
                 return;
             }
         }
-        this.g = 3;
-        this.f = new MutiImgSingleHorizontalLayout(context);
-    }
-
-    @Override // com.baidu.tieba.lx
-    public void p(xf6<zx4> xf6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, xf6Var) == null) {
-            this.f.setSubClickListener(xf6Var);
-        }
+        this.f = new ye6(tbPageContext, bdUniqueId);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.dy
+    @Override // com.baidu.tieba.gx
     /* renamed from: s */
-    public void a(zx4 zx4Var) {
+    public void a(hw4 hw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, zx4Var) == null) {
-            this.f.a(zx4Var);
+        if ((interceptable == null || interceptable.invokeL(1048579, this, hw4Var) == null) && (hw4Var instanceof cg6)) {
+            this.f.a((cg6) hw4Var);
         }
     }
 
-    public void u(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f.setFromCDN(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.lx
+    @Override // com.baidu.tieba.ow
     public View k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
+            return this.f.f();
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ey
+    @Override // com.baidu.tieba.hx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
-            this.g = i;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            this.f.onChangeSkinType(tbPageContext, i);
         }
     }
 }

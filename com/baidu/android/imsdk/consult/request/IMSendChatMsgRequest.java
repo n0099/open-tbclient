@@ -16,7 +16,7 @@ import com.baidu.android.imsdk.ubc.UBCConstants;
 import com.baidu.android.imsdk.utils.BaseHttpRequest;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tieba.e80;
+import com.baidu.tieba.u60;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -110,7 +110,7 @@ public class IMSendChatMsgRequest extends BaseHttpRequest {
             if (iSendMessageListener != null) {
                 iSendMessageListener.onSendMessageResult(((Integer) transErrorCode.first).intValue(), this.mChatMsg);
             }
-            e80.d().f(this.mUbc.generateUBCData(String.valueOf(transErrorCode.first), (String) transErrorCode.second), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+            u60.d().f(this.mUbc.generateUBCData(String.valueOf(transErrorCode.first), (String) transErrorCode.second), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
         }
     }
 
@@ -244,7 +244,7 @@ public class IMSendChatMsgRequest extends BaseHttpRequest {
             if (iSendMessageListener != null) {
                 iSendMessageListener.onSendMessageResult(i, this.mChatMsg);
             }
-            e80.d().f(this.mUbc.generateUBCData(String.valueOf(i), "send_msg_client"), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+            u60.d().f(this.mUbc.generateUBCData(String.valueOf(i), "send_msg_client"), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
         }
     }
 }

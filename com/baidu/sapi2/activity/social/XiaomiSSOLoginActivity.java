@@ -43,12 +43,12 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
 
         /* renamed from: com.baidu.sapi2.activity.social.XiaomiSSOLoginActivity$b$b  reason: collision with other inner class name */
         /* loaded from: classes2.dex */
-        public class RunnableC0135b implements Runnable {
+        public class RunnableC0134b implements Runnable {
             public final /* synthetic */ String a;
             public final /* synthetic */ String b;
             public final /* synthetic */ String c;
 
-            public RunnableC0135b(String str, String str2, String str3) {
+            public RunnableC0134b(String str, String str2, String str3) {
                 this.a = str;
                 this.b = str2;
                 this.c = str3;
@@ -82,7 +82,7 @@ public class XiaomiSSOLoginActivity extends BaseSSOLoginActivity {
                 if (xiaomiOAuthResults.hasError()) {
                     new Handler(Looper.getMainLooper()).post(new a());
                 } else {
-                    new Handler(Looper.getMainLooper()).post(new RunnableC0135b(xiaomiOAuthResults.getCode(), xiaomiOAuthResults.getMacKey(), xiaomiOAuthResults.getMacAlgorithm()));
+                    new Handler(Looper.getMainLooper()).post(new RunnableC0134b(xiaomiOAuthResults.getCode(), xiaomiOAuthResults.getMacKey(), xiaomiOAuthResults.getMacAlgorithm()));
                 }
             } catch (OperationCanceledException e) {
                 new Handler(Looper.getMainLooper()).post(new c());

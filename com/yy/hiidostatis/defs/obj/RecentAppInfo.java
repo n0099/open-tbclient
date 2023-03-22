@@ -2,7 +2,7 @@ package com.yy.hiidostatis.defs.obj;
 
 import com.yy.hiidostatis.inner.util.log.L;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class RecentAppInfo {
     public long lastModified;
     public String name;

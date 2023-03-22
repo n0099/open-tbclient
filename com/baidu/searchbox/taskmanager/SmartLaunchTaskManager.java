@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.Log;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.launch.SmartLaunchController;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SmartLaunchTaskManager {
     public static final boolean DEBUG = AppConfig.isDebug();
     public static final String TAG = "SmartLaunchManager";

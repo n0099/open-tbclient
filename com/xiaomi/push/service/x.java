@@ -18,7 +18,7 @@ public class x {
     public static void a(Context context, int i, String str) {
         synchronized (f1011a) {
             for (String str2 : f1011a.keySet()) {
-                com.xiaomi.channel.commonutils.logger.b.m97a("notify registration error. " + str2);
+                com.xiaomi.channel.commonutils.logger.b.m99a("notify registration error. " + str2);
                 a(context, str2, f1011a.get(str2), i, str);
             }
             f1011a.clear();
@@ -63,7 +63,7 @@ public class x {
         try {
             synchronized (f1011a) {
                 for (String str : f1011a.keySet()) {
-                    com.xiaomi.channel.commonutils.logger.b.m97a("processing pending registration request. " + str);
+                    com.xiaomi.channel.commonutils.logger.b.m99a("processing pending registration request. " + str);
                     ah.a(xMPushService, str, f1011a.get(str));
                     if (z && !com.xiaomi.push.t.a()) {
                         try {
@@ -82,7 +82,7 @@ public class x {
 
     public static void a(String str, byte[] bArr) {
         synchronized (f1011a) {
-            com.xiaomi.channel.commonutils.logger.b.m97a("pending registration request. " + str);
+            com.xiaomi.channel.commonutils.logger.b.m99a("pending registration request. " + str);
             f1011a.put(str, bArr);
         }
     }

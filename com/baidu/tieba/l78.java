@@ -1,25 +1,40 @@
 package com.baidu.tieba;
+
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.live.interfaces.service.BrowserProxyService;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface l78 {
-    void a(int i, String str);
+public class l78 extends pj1<BrowserProxyService> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(int i, String str);
+    public l78() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void c();
-
-    void d();
-
-    void e(String str);
-
-    void f(int i, int i2, String str);
-
-    void g();
-
-    void h(int i, String str);
-
-    void i(int i, String str);
-
-    void j();
-
-    void k(String str);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.pj1
+    /* renamed from: a */
+    public BrowserProxyService createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new m78();
+        }
+        return (BrowserProxyService) invokeV.objValue;
+    }
 }

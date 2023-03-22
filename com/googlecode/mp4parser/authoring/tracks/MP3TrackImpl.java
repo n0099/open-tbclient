@@ -6,6 +6,7 @@ import com.coremedia.iso.boxes.Box;
 import com.coremedia.iso.boxes.SampleDescriptionBox;
 import com.coremedia.iso.boxes.SoundMediaHeaderBox;
 import com.coremedia.iso.boxes.sampleentry.AudioSampleEntry;
+import com.google.android.exoplayer2.extractor.ogg.OpusReader;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.googlecode.mp4parser.DataSource;
 import com.googlecode.mp4parser.authoring.AbstractTrack;
@@ -39,8 +40,8 @@ public class MP3TrackImpl extends AbstractTrack {
     public SampleDescriptionBox sampleDescriptionBox;
     public List<Sample> samples;
     public TrackMetaData trackMetaData;
-    public static final int[] SAMPLE_RATE = {44100, 48000, 32000};
-    public static final int[] BIT_RATE = {0, 32000, SessionCommand.COMMAND_CODE_SESSION_FAST_FORWARD, 48000, 56000, 64000, 80000, 96000, 112000, EncoderParams.AUDIO_BIT_RATE, 160000, 192000, 224000, 256000, 320000};
+    public static final int[] SAMPLE_RATE = {44100, OpusReader.SAMPLE_RATE, 32000};
+    public static final int[] BIT_RATE = {0, 32000, SessionCommand.COMMAND_CODE_SESSION_FAST_FORWARD, OpusReader.SAMPLE_RATE, 56000, 64000, 80000, 96000, 112000, EncoderParams.AUDIO_BIT_RATE, 160000, 192000, 224000, 256000, 320000};
 
     @Override // com.googlecode.mp4parser.authoring.Track
     public String getHandler() {

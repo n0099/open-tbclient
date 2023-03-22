@@ -1,45 +1,45 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ti0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ti0 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "host.scheme");
+    public static final ti0 b = new a();
 
-    public static String a(String str, Map<String, String> map, Map<String, String> map2, String str2) {
-        InterceptResult invokeLLLL;
-        String str3;
-        String str4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, str, map, map2, str2)) == null) {
-            if (map != null) {
-                str3 = map.get(str);
-                if (TextUtils.isEmpty(str3)) {
-                    str3 = map.get("default");
+    String a(String str);
+
+    /* loaded from: classes6.dex */
+    public static class a implements ti0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-            } else {
-                str3 = null;
             }
-            if (!TextUtils.isEmpty(str3)) {
-                str = str3;
-            }
-            if (map2 != null) {
-                str4 = map2.get(str);
-            } else {
-                str4 = null;
-            }
-            if (TextUtils.equals(str4, "__CMD_NONE__")) {
-                return null;
-            }
-            if (!TextUtils.isEmpty(str4)) {
-                return str4;
-            }
-            return str2;
         }
-        return (String) invokeLLLL.objValue;
+
+        @Override // com.baidu.tieba.ti0
+        public String a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return "nadcorevendor://vendor/ad/easybrowse?url=" + str + "&newbrowser=1";
+            }
+            return (String) invokeL.objValue;
+        }
     }
 }

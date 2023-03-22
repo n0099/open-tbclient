@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.BitmapHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.hi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -150,7 +150,7 @@ public class BawuMemberInfoView extends RelativeLayout {
             return;
         }
         this.g = bawuRoleInfoPub;
-        this.c.K(bawuRoleInfoPub.portrait, 12, false);
+        this.c.M(bawuRoleInfoPub.portrait, 12, false);
         TextView textView = this.d;
         if (StringUtils.isNull(bawuRoleInfoPub.name_show)) {
             str = bawuRoleInfoPub.user_name;
@@ -170,7 +170,7 @@ public class BawuMemberInfoView extends RelativeLayout {
             return;
         }
         ImageView imageView = this.e;
-        imageView.setContentDescription(this.a.getString(R.string.obfuscated_res_0x7f0f04cb) + bawuRoleInfoPub.user_level);
+        imageView.setContentDescription(this.a.getString(R.string.obfuscated_res_0x7f0f04ce) + bawuRoleInfoPub.user_level);
         SkinManager.setImageResource(this.e, smallGradeResourceIdNew);
         this.e.setVisibility(0);
     }
@@ -178,17 +178,17 @@ public class BawuMemberInfoView extends RelativeLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d014a, this);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d014c, this);
             this.b = inflate;
-            HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090fe2);
+            HeadImageView headImageView = (HeadImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091013);
             this.c = headImageView;
             headImageView.setIsRound(true);
             this.c.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
-            this.c.setBorderWidth(ej.g(this.a, R.dimen.obfuscated_res_0x7f070198));
+            this.c.setBorderWidth(hi.g(this.a, R.dimen.obfuscated_res_0x7f070198));
             this.b.setOnClickListener(new a(this));
-            this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090fe3);
-            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092302);
-            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092301);
+            this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091014);
+            this.d = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09235a);
+            this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092359);
         }
     }
 

@@ -16,7 +16,7 @@ public class PayMethodProxyFactory {
     public final String TAG = "PayMethodProxyFactory";
     public Map<String, IPaySdkServiceProxy> payMethodProxyMap = new HashMap(5);
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class Holder {
         public static final PayMethodProxyFactory instance = new PayMethodProxyFactory();
     }

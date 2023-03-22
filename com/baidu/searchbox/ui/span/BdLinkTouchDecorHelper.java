@@ -6,7 +6,7 @@ import android.text.Spannable;
 import android.view.MotionEvent;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BdLinkTouchDecorHelper {
     public ITouchableSpan mTouchableSpan;
 

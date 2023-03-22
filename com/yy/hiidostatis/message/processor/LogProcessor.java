@@ -4,7 +4,7 @@ import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.yy.hiidostatis.inner.util.log.L;
 import com.yy.hiidostatis.message.MessageProcessor;
 import com.yy.hiidostatis.message.bean.Message;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class LogProcessor implements MessageProcessor {
     @Override // com.yy.hiidostatis.message.MessageProcessor
     public Message process(Message message) {

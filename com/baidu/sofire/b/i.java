@@ -1069,7 +1069,6 @@ public class i {
 
     public boolean a(ApkInfo apkInfo, boolean z) {
         InterceptResult invokeLZ;
-        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048585, this, apkInfo, z)) == null) {
             System.currentTimeMillis();
@@ -1094,32 +1093,25 @@ public class i {
                     }
                     apkInfo.hostContext = h;
                     if (apkInfo.apkParseSuc == 1) {
-                        try {
-                            if (!TextUtils.isEmpty(apkInfo.packageName) && !TextUtils.isEmpty(apkInfo.pkgPath)) {
-                                if (a(apkInfo.key, apkInfo.versionName, apkInfo.apkMD5, apkInfo.pkgPath)) {
-                                    apkInfo.dataDir = new File(h.getFilesDir(), "sofire_tmp").getCanonicalPath() + i1.j + apkInfo.key;
-                                    String str = apkInfo.dataDir + "/dex";
-                                    String str2 = (apkInfo.dataDir + "/lib/" + this.a) + "/" + t.a();
-                                    a(str);
-                                    com.baidu.sofire.k.b.a(str, false);
-                                    a(str2);
-                                    a(apkInfo, str2, str);
-                                    this.c.put(apkInfo.pkgPath, apkInfo);
-                                    this.d.put(apkInfo.packageName, apkInfo);
-                                    this.e.put(Integer.valueOf(apkInfo.key), apkInfo);
-                                    a(apkInfo, apkInfo.className);
-                                }
-                            } else {
-                                throw new RuntimeException("packageName or pkgPath miss");
+                        if (!TextUtils.isEmpty(apkInfo.packageName) && !TextUtils.isEmpty(apkInfo.pkgPath)) {
+                            if (a(apkInfo.key, apkInfo.versionName, apkInfo.apkMD5, apkInfo.pkgPath)) {
+                                apkInfo.dataDir = new File(h.getFilesDir(), "sofire_tmp").getCanonicalPath() + i1.j + apkInfo.key;
+                                String str = apkInfo.dataDir + "/dex";
+                                String str2 = (apkInfo.dataDir + "/lib/" + this.a) + "/" + t.a();
+                                a(str);
+                                com.baidu.sofire.k.b.a(str, false);
+                                a(str2);
+                                a(apkInfo, str2, str);
+                                this.c.put(apkInfo.pkgPath, apkInfo);
+                                this.d.put(apkInfo.packageName, apkInfo);
+                                this.e.put(Integer.valueOf(apkInfo.key), apkInfo);
+                                a(apkInfo, apkInfo.className);
                             }
-                        } catch (Throwable unused) {
-                            c(apkInfo.pkgPath);
-                            int i2 = com.baidu.sofire.a.b.a;
-                            z2 = true;
+                        } else {
+                            throw new RuntimeException("packageName or pkgPath miss");
                         }
                     }
-                    z2 = false;
-                    if (apkInfo.apkParseSuc != 1 || z2) {
+                    if (apkInfo.apkParseSuc != 1 || 0 != 0) {
                         PackageInfo packageInfo = apkInfo.cloudPkgInfo;
                         if ((packageInfo == null || TextUtils.isEmpty(packageInfo.packageName) || TextUtils.isEmpty(packageInfo.versionName)) && (((packageInfo = h.getPackageManager().getPackageArchiveInfo(apkInfo.pkgPath, 1)) == null || TextUtils.isEmpty(packageInfo.packageName) || TextUtils.isEmpty(packageInfo.versionName)) && ((packageInfo = a(apkInfo.packageName, apkInfo.apkMD5)) == null || TextUtils.isEmpty(packageInfo.packageName) || TextUtils.isEmpty(packageInfo.versionName)))) {
                             throw new Exception("requestCloudPackageInfo failed");

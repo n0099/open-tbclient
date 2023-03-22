@@ -1,94 +1,58 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.os.Message;
-import androidx.annotation.Nullable;
-import com.baidu.searchbox.http.request.HttpRequest;
-import java.util.Map;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public interface wt1 {
-    @Nullable
-    String A();
 
-    String B();
+    /* loaded from: classes6.dex */
+    public interface a {
+    }
 
-    String C();
+    void C(@NonNull Context context, @NonNull xt1 xt1Var, @NonNull a aVar);
 
-    String D();
+    boolean i();
 
-    long E();
+    /* loaded from: classes6.dex */
+    public static class b extends b83 implements wt1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    HttpRequest F(Context context, Map<String, String> map);
+        @Override // com.baidu.tieba.wt1
+        public void C(Context context, xt1 xt1Var, a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, context, xt1Var, aVar) == null) {
+            }
+        }
 
-    String G();
+        @Override // com.baidu.tieba.wt1
+        public boolean i() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
 
-    String H();
-
-    String I();
-
-    boolean J();
-
-    String K();
-
-    String L();
-
-    HttpRequest M(Context context, Map<String, String> map);
-
-    boolean N();
-
-    String O();
-
-    HttpRequest a(Context context, Map<String, String> map);
-
-    String b();
-
-    String c();
-
-    void d();
-
-    String e();
-
-    String f();
-
-    HttpRequest g(Context context, Map<String, String> map);
-
-    String h();
-
-    String i();
-
-    boolean isDebug();
-
-    String j();
-
-    void k();
-
-    String l();
-
-    String m(String str);
-
-    String n();
-
-    HttpRequest o(Context context, Map<String, String> map);
-
-    String p();
-
-    String q();
-
-    int r();
-
-    HttpRequest s(Context context, Map<String, String> map);
-
-    String t();
-
-    HttpRequest u(Context context, Map<String, String> map);
-
-    String v();
-
-    String w();
-
-    void x(Message message, mw2 mw2Var);
-
-    String y();
-
-    String z(Context context);
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
 }

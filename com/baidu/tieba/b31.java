@@ -1,65 +1,84 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.widget.tiejia.TiePlusStat;
+import androidx.annotation.NonNull;
+import com.baidu.nadcore.thread.task.ElasticTask;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class b31 extends z21 {
+public class b31 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile b31 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947593929, "Lcom/baidu/tieba/b31;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947593929, "Lcom/baidu/tieba/b31;");
+        }
+    }
 
     public b31() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        d(TiePlusStat.RichTextType.STAT_KEY, "every");
+        this.a = 0L;
     }
 
-    @Override // com.baidu.tieba.z21, com.baidu.tieba.a31
-    public boolean isValid() {
+    public static b31 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String sb = this.a.toString();
-            if (!TextUtils.isEmpty(sb) && sb.contains("c_id")) {
-                return super.isValid();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (b31.class) {
+                    if (b == null) {
+                        b = new b31();
+                    }
+                }
             }
-            return false;
+            return b;
         }
-        return invokeV.booleanValue;
+        return (b31) invokeV.objValue;
     }
 
-    public b31 g(String str) {
-        InterceptResult invokeL;
+    public ElasticTask a(@NonNull Runnable runnable, @NonNull String str, int i) {
+        InterceptResult invokeLLI;
+        ElasticTask elasticTask;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            d("c_id", str);
-            return this;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, runnable, str, i)) == null) {
+            if (runnable != null && !TextUtils.isEmpty(str)) {
+                synchronized (this) {
+                    long j = this.a + 1;
+                    this.a = j;
+                    elasticTask = new ElasticTask(runnable, str, j, i);
+                }
+                return elasticTask;
+            }
+            throw new IllegalArgumentException("illegal params");
         }
-        return (b31) invokeL.objValue;
-    }
-
-    public b31 h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            d("extra_param", str);
-            return this;
-        }
-        return (b31) invokeL.objValue;
+        return (ElasticTask) invokeLLI.objValue;
     }
 }

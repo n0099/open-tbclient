@@ -22,22 +22,22 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aj0;
-import com.baidu.tieba.an0;
-import com.baidu.tieba.b61;
-import com.baidu.tieba.be1;
-import com.baidu.tieba.d61;
-import com.baidu.tieba.fj0;
-import com.baidu.tieba.j51;
-import com.baidu.tieba.ni0;
-import com.baidu.tieba.oi0;
-import com.baidu.tieba.oj0;
-import com.baidu.tieba.rj0;
-import com.baidu.tieba.sh0;
-import com.baidu.tieba.tq0;
-import com.baidu.tieba.u21;
-import com.baidu.tieba.wm0;
-import com.baidu.tieba.xd1;
+import com.baidu.tieba.dh0;
+import com.baidu.tieba.eh0;
+import com.baidu.tieba.ei0;
+import com.baidu.tieba.hi0;
+import com.baidu.tieba.ig0;
+import com.baidu.tieba.jp0;
+import com.baidu.tieba.k11;
+import com.baidu.tieba.ml0;
+import com.baidu.tieba.nc1;
+import com.baidu.tieba.qh0;
+import com.baidu.tieba.ql0;
+import com.baidu.tieba.r41;
+import com.baidu.tieba.rc1;
+import com.baidu.tieba.t41;
+import com.baidu.tieba.vh0;
+import com.baidu.tieba.z31;
 /* loaded from: classes2.dex */
 public class NadVideoAdOverContainer extends RelativeLayout {
     public static final char[] x = {21704};
@@ -50,9 +50,9 @@ public class NadVideoAdOverContainer extends RelativeLayout {
     public RelativeLayout g;
     public View.OnClickListener h;
     public LinearLayout i;
-    public xd1<View> j;
+    public nc1<View> j;
     public FrameLayout k;
-    public ni0 l;
+    public dh0 l;
     public f m;
     public boolean n;
     public View o;
@@ -60,7 +60,7 @@ public class NadVideoAdOverContainer extends RelativeLayout {
     public SimpleAdInfoView q;
     public boolean r;
     public TextView s;
-    public b61 t;
+    public r41 t;
     public Runnable u;
     public final Object v;
     public String w;
@@ -96,9 +96,9 @@ public class NadVideoAdOverContainer extends RelativeLayout {
             }
             AdBaseModel adBaseModel = this.a;
             String str = adBaseModel.f.c;
-            tq0 tq0Var = adBaseModel.m;
-            if (tq0Var != null && tq0Var.a == 0 && !NadVideoAdOverContainer.this.j(str).booleanValue()) {
-                aj0.c(str, NadVideoAdOverContainer.this.getContext());
+            jp0 jp0Var = adBaseModel.m;
+            if (jp0Var != null && jp0Var.a == 0 && !NadVideoAdOverContainer.this.j(str).booleanValue()) {
+                qh0.c(str, NadVideoAdOverContainer.this.getContext());
             }
             NadVideoAdOverContainer.this.z(ClogBuilder.LogType.CLICK, this.b, this.a);
             if (NadVideoAdOverContainer.this.h != null) {
@@ -108,11 +108,11 @@ public class NadVideoAdOverContainer extends RelativeLayout {
     }
 
     /* loaded from: classes2.dex */
-    public class b extends b61.b {
+    public class b extends r41.b {
         public b() {
         }
 
-        @Override // com.baidu.tieba.b61.b
+        @Override // com.baidu.tieba.r41.b
         public void f(long j) {
             NadVideoAdOverContainer.this.C(Math.round((float) ((100000 - j) / 1000)));
         }
@@ -151,7 +151,7 @@ public class NadVideoAdOverContainer extends RelativeLayout {
     }
 
     /* loaded from: classes2.dex */
-    public class e extends an0<sh0> {
+    public class e extends ql0<ig0> {
         public final /* synthetic */ AdBaseModel b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -161,12 +161,12 @@ public class NadVideoAdOverContainer extends RelativeLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.an0
-        public void onEvent(@NonNull sh0 sh0Var) {
-            xd1<View> xd1Var = NadVideoAdOverContainer.this.j;
-            if (xd1Var != null && xd1Var.getRealView() != null && (NadVideoAdOverContainer.this.j.getRealView() instanceof NadEnhanceButtonDownloadView)) {
+        @Override // com.baidu.tieba.ql0
+        public void onEvent(@NonNull ig0 ig0Var) {
+            nc1<View> nc1Var = NadVideoAdOverContainer.this.j;
+            if (nc1Var != null && nc1Var.getRealView() != null && (NadVideoAdOverContainer.this.j.getRealView() instanceof NadEnhanceButtonDownloadView)) {
                 NadEnhanceButtonDownloadView nadEnhanceButtonDownloadView = (NadEnhanceButtonDownloadView) NadVideoAdOverContainer.this.j.getRealView();
-                if (sh0Var.a == null) {
+                if (ig0Var.a == null) {
                     return;
                 }
                 if (nadEnhanceButtonDownloadView.getDownloadStatus() != AdDownloadStatus.DOWNLOADING) {
@@ -176,7 +176,7 @@ public class NadVideoAdOverContainer extends RelativeLayout {
                 if (adBaseModel == null) {
                     return;
                 }
-                oi0.b(adBaseModel.e);
+                eh0.b(adBaseModel.e);
             }
         }
     }
@@ -186,7 +186,7 @@ public class NadVideoAdOverContainer extends RelativeLayout {
     }
 
     public final void B() {
-        wm0.a().unregister(this.v);
+        ml0.a().unregister(this.v);
     }
 
     public boolean getHotAreaEnabled() {
@@ -194,9 +194,9 @@ public class NadVideoAdOverContainer extends RelativeLayout {
     }
 
     public final void p() {
-        b61 b61Var = new b61(100000L, 1000L);
-        b61Var.d(new b());
-        this.t = b61Var;
+        r41 r41Var = new r41(100000L, 1000L);
+        r41Var.d(new b());
+        this.t = r41Var;
         c cVar = new c();
         this.u = cVar;
         post(cVar);
@@ -241,9 +241,9 @@ public class NadVideoAdOverContainer extends RelativeLayout {
     }
 
     public void C(int i) {
-        xd1<View> xd1Var = this.j;
-        if (xd1Var != null) {
-            xd1Var.update(i);
+        nc1<View> nc1Var = this.j;
+        if (nc1Var != null) {
+            nc1Var.update(i);
         }
     }
 
@@ -251,10 +251,10 @@ public class NadVideoAdOverContainer extends RelativeLayout {
         if (TextUtils.isEmpty(str)) {
             return Boolean.FALSE;
         }
-        if (!oj0.o(str)) {
+        if (!ei0.o(str)) {
             return Boolean.FALSE;
         }
-        return Boolean.valueOf("rewardWebPanel".equals(new fj0(str).a()));
+        return Boolean.valueOf("rewardWebPanel".equals(new vh0(str).a()));
     }
 
     public final void k(boolean z) {
@@ -262,8 +262,8 @@ public class NadVideoAdOverContainer extends RelativeLayout {
         this.a.setClickable(z);
         this.e.setClickable(z);
         this.q.setClickable(z);
-        xd1<View> xd1Var = this.j;
-        if (xd1Var != null && xd1Var.getRealView() != null) {
+        nc1<View> nc1Var = this.j;
+        if (nc1Var != null && nc1Var.getRealView() != null) {
             this.j.getRealView().setClickable(z);
         }
     }
@@ -272,7 +272,7 @@ public class NadVideoAdOverContainer extends RelativeLayout {
         if (getResources() == null) {
             return new SpannableStringBuilder(str);
         }
-        return be1.b(str, 2, this.a, getContext(), ContextCompat.getDrawable(getContext(), R.drawable.nad_tag_icon), (int) getResources().getDimension(R.dimen.nad_dimen_100dp));
+        return rc1.b(str, 2, this.a, getContext(), ContextCompat.getDrawable(getContext(), R.drawable.nad_tag_icon), (int) getResources().getDimension(R.dimen.nad_dimen_100dp));
     }
 
     public final void o(@NonNull AdBaseModel adBaseModel) {
@@ -350,9 +350,9 @@ public class NadVideoAdOverContainer extends RelativeLayout {
         if (portraitVideoTailView != null) {
             portraitVideoTailView.setOnAdClickListener(onClickListener);
         }
-        ni0 ni0Var = this.l;
-        if (ni0Var != null) {
-            ni0Var.h(onClickListener);
+        dh0 dh0Var = this.l;
+        if (dh0Var != null) {
+            dh0Var.h(onClickListener);
         }
     }
 
@@ -380,7 +380,7 @@ public class NadVideoAdOverContainer extends RelativeLayout {
     }
 
     public final void x(AdBaseModel adBaseModel) {
-        wm0.a().c(this.v, 1, new e(sh0.class, adBaseModel));
+        ml0.a().c(this.v, 1, new e(ig0.class, adBaseModel));
     }
 
     public NadVideoAdOverContainer(Context context, AttributeSet attributeSet) {
@@ -393,7 +393,7 @@ public class NadVideoAdOverContainer extends RelativeLayout {
     }
 
     public final String m(@Nullable String str, @Nullable TextPaint textPaint) {
-        return d61.b(str, "", (int) (((int) (j51.c.e(getContext()) - getResources().getDimension(R.dimen.nad_dimen_15dp))) - getResources().getDimension(R.dimen.nad_dimen_11dp)), textPaint);
+        return t41.b(str, "", (int) (((int) (z31.c.e(getContext()) - getResources().getDimension(R.dimen.nad_dimen_15dp))) - getResources().getDimension(R.dimen.nad_dimen_11dp)), textPaint);
     }
 
     public View.OnClickListener s(@NonNull AdBaseModel adBaseModel, String str) {
@@ -423,7 +423,7 @@ public class NadVideoAdOverContainer extends RelativeLayout {
         if (!TextUtils.isEmpty(adBaseModel.f.f)) {
             this.b.setVisibility(0);
             this.c.setVisibility(8);
-            this.b.g(adBaseModel.f.f);
+            this.b.o(adBaseModel.f.f);
         } else if (!TextUtils.isEmpty(adBaseModel.f.e)) {
             this.b.setVisibility(8);
             this.c.setVisibility(0);
@@ -452,9 +452,9 @@ public class NadVideoAdOverContainer extends RelativeLayout {
     }
 
     public final void q(@NonNull AdBaseModel adBaseModel) {
-        xd1<View> xd1Var = this.j;
-        if (xd1Var != null) {
-            xd1Var.a();
+        nc1<View> nc1Var = this.j;
+        if (nc1Var != null) {
+            nc1Var.a();
             this.k.setVisibility(8);
             this.j = null;
         }
@@ -467,11 +467,11 @@ public class NadVideoAdOverContainer extends RelativeLayout {
         if (this.k.getChildCount() > 0) {
             this.k.removeAllViews();
         }
-        AdEnhanceButtonView adEnhanceButtonView = new AdEnhanceButtonView(rj0.b(), this.k, findViewById);
+        AdEnhanceButtonView adEnhanceButtonView = new AdEnhanceButtonView(hi0.b(), this.k, findViewById);
         this.j = adEnhanceButtonView;
-        ni0 ni0Var = new ni0(adBaseModel, adEnhanceButtonView);
-        this.l = ni0Var;
-        ni0Var.h(this.h);
+        dh0 dh0Var = new dh0(adBaseModel, adEnhanceButtonView);
+        this.l = dh0Var;
+        dh0Var.h(this.h);
         this.j.setEnhanceBtnListener(this.l);
         this.j.setData(adBaseModel.m);
         this.j.setBtnIconNightModeEnable(false);
@@ -533,7 +533,7 @@ public class NadVideoAdOverContainer extends RelativeLayout {
                 clogBuilder.l(String.valueOf(this.m.a()));
             }
             clogBuilder.p(adBaseModel.f.d);
-            u21.b(clogBuilder);
+            k11.b(clogBuilder);
         }
     }
 }

@@ -18,9 +18,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dw8;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.ue0;
+import com.baidu.tieba.g19;
+import com.baidu.tieba.hi;
+import com.baidu.tieba.kd0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,18 +44,18 @@ public class McnVideoAdView extends FrameLayout {
     public float g;
     public float h;
     public boolean i;
-    public ue0 j;
+    public kd0 j;
     public c k;
     public final Handler l;
     public ViewParent m;
 
     /* loaded from: classes2.dex */
     public interface c {
-        void a(ue0 ue0Var);
+        void a(kd0 kd0Var);
 
-        void b(ue0 ue0Var);
+        void b(kd0 kd0Var);
 
-        void c(ue0 ue0Var);
+        void c(kd0 kd0Var);
     }
 
     /* loaded from: classes2.dex */
@@ -182,18 +182,18 @@ public class McnVideoAdView extends FrameLayout {
         h();
     }
 
-    private void setData(ue0 ue0Var) {
+    private void setData(kd0 kd0Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65543, this, ue0Var) != null) || ue0Var == null) {
+        if ((interceptable != null && interceptable.invokeL(65543, this, kd0Var) != null) || kd0Var == null) {
             return;
         }
-        this.j = ue0Var;
-        this.b.K(ue0Var.a, 10, false);
-        if (!StringUtils.isNull(ue0Var.b)) {
-            this.c.setText(ue0Var.b);
+        this.j = kd0Var;
+        this.b.M(kd0Var.a, 10, false);
+        if (!StringUtils.isNull(kd0Var.b)) {
+            this.c.setText(kd0Var.b);
         }
-        if (!StringUtils.isNull(ue0Var.c)) {
-            this.d.setText(ue0Var.c);
+        if (!StringUtils.isNull(kd0Var.c)) {
+            this.d.setText(kd0Var.c);
         }
     }
 
@@ -222,11 +222,11 @@ public class McnVideoAdView extends FrameLayout {
         h();
     }
 
-    public void m(ue0 ue0Var, ViewGroup viewGroup) {
+    public void m(kd0 kd0Var, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, ue0Var, viewGroup) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048585, this, kd0Var, viewGroup) == null) {
             this.i = true;
-            setData(ue0Var);
+            setData(kd0Var);
             viewGroup.removeView(this);
             viewGroup.addView(this);
             if (viewGroup instanceof FrameLayout) {
@@ -243,7 +243,7 @@ public class McnVideoAdView extends FrameLayout {
             }
             c cVar = this.k;
             if (cVar != null) {
-                cVar.c(ue0Var);
+                cVar.c(kd0Var);
             }
         }
     }
@@ -280,10 +280,10 @@ public class McnVideoAdView extends FrameLayout {
         }
     }
 
-    public void l(ue0 ue0Var, ViewGroup viewGroup) {
+    public void l(kd0 kd0Var, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ue0Var, viewGroup) == null) {
-            m(ue0Var, viewGroup);
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, kd0Var, viewGroup) == null) {
+            m(kd0Var, viewGroup);
             if (this.e != null) {
                 clearAnimation();
                 startAnimation(this.e);
@@ -300,11 +300,11 @@ public class McnVideoAdView extends FrameLayout {
 
     public final void e() {
         Context context;
-        ue0 ue0Var;
+        kd0 kd0Var;
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (context = this.a) != null && (ue0Var = this.j) != null && (str = ue0Var.d) != null) {
-            dw8.a(context, str, null, null, null);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (context = this.a) != null && (kd0Var = this.j) != null && (str = kd0Var.d) != null) {
+            g19.a(context, str, null, null, null);
             c cVar = this.k;
             if (cVar != null) {
                 cVar.b(this.j);
@@ -363,7 +363,7 @@ public class McnVideoAdView extends FrameLayout {
             this.b.setConrers(5);
             this.b.setDefaultResource(R.drawable.mcn_video_ad_default_img_bg);
             this.b.setDefaultBgResource(R.drawable.mcn_video_ad_default_img_bg);
-            this.b.setRadius(ej.g(this.a, R.dimen.tbds20));
+            this.b.setRadius(hi.g(this.a, R.dimen.tbds20));
             this.e = AnimationUtils.loadAnimation(this.a, R.anim.mcn_video_ad_open_anim);
             Animation loadAnimation = AnimationUtils.loadAnimation(this.a, R.anim.mcn_video_ad_close_anim);
             this.f = loadAnimation;

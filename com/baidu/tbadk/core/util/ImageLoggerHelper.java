@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.hi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,7 +48,7 @@ public class ImageLoggerHelper {
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - this.lastGetTiebaIpTime > AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
-                if (ej.E()) {
+                if (hi.E()) {
                     return "";
                 }
                 this.lastGetTiebaIpTime = currentTimeMillis;
@@ -100,7 +100,7 @@ public class ImageLoggerHelper {
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - this.lastGetCdnIpTime > AppConfig.TIMESTAMP_AVAILABLE_DURATION) {
                 int indexOf = str.indexOf("hiphotos.baidu.com");
-                if (indexOf <= 0 || ej.E()) {
+                if (indexOf <= 0 || hi.E()) {
                     return "";
                 }
                 this.lastGetCdnIpTime = currentTimeMillis;

@@ -12,11 +12,11 @@ import androidx.annotation.NonNull;
 import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b52;
-import com.baidu.tieba.d52;
-import com.baidu.tieba.f62;
-import com.baidu.tieba.gy2;
-import com.baidu.tieba.m62;
+import com.baidu.tieba.i32;
+import com.baidu.tieba.k32;
+import com.baidu.tieba.m42;
+import com.baidu.tieba.nw2;
+import com.baidu.tieba.t42;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.drawable.ScalingUtils;
 import com.facebook.drawee.view.SimpleDraweeView;
@@ -24,7 +24,7 @@ import com.facebook.imagepipeline.common.ResizeOptions;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import java.io.File;
 /* loaded from: classes3.dex */
-public class VideoContainerManager extends b52<VideoHolderWrapper, gy2> {
+public class VideoContainerManager extends i32<VideoHolderWrapper, nw2> {
     public Context i;
     public SwanAppComponentContainerView j;
     public VideoHolderWrapper k;
@@ -73,9 +73,9 @@ public class VideoContainerManager extends b52<VideoHolderWrapper, gy2> {
         public final void c() {
             ImageView imageView = new ImageView(VideoContainerManager.this.i);
             this.b = imageView;
-            imageView.setImageResource(R.drawable.obfuscated_res_0x7f081268);
+            imageView.setImageResource(R.drawable.obfuscated_res_0x7f081281);
             this.b.setScaleType(ImageView.ScaleType.CENTER_INSIDE);
-            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f08125e);
+            this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f081277);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 17;
             addView(this.b, layoutParams);
@@ -146,8 +146,8 @@ public class VideoContainerManager extends b52<VideoHolderWrapper, gy2> {
         }
     }
 
-    public VideoContainerManager(@NonNull Context context, @NonNull gy2 gy2Var) {
-        super(context, gy2Var);
+    public VideoContainerManager(@NonNull Context context, @NonNull nw2 nw2Var) {
+        super(context, nw2Var);
         this.i = context;
         SwanAppComponentContainerView swanAppComponentContainerView = new SwanAppComponentContainerView(this.i);
         this.j = swanAppComponentContainerView;
@@ -167,7 +167,7 @@ public class VideoContainerManager extends b52<VideoHolderWrapper, gy2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.b52
+    @Override // com.baidu.tieba.i32
     @NonNull
     /* renamed from: L */
     public VideoHolderWrapper v(@NonNull Context context) {
@@ -180,14 +180,14 @@ public class VideoContainerManager extends b52<VideoHolderWrapper, gy2> {
         Q(playerIcon, 0);
     }
 
-    public void O(gy2 gy2Var) {
-        if (gy2Var == null) {
+    public void O(nw2 nw2Var) {
+        if (nw2Var == null) {
             return;
         }
-        P(gy2Var);
+        P(nw2Var);
     }
 
-    @Override // com.baidu.tieba.b52
+    @Override // com.baidu.tieba.i32
     @NonNull
     public SwanAppComponentContainerView u(@NonNull Context context) {
         return this.j;
@@ -216,9 +216,9 @@ public class VideoContainerManager extends b52<VideoHolderWrapper, gy2> {
         Q(I().getVideoPoster(), 8);
     }
 
-    public final void P(gy2 gy2Var) {
+    public final void P(nw2 nw2Var) {
         boolean z;
-        if (gy2Var == null) {
+        if (nw2Var == null) {
             return;
         }
         if (m() != null) {
@@ -231,15 +231,15 @@ public class VideoContainerManager extends b52<VideoHolderWrapper, gy2> {
                 ((ViewGroup) I().getParent()).removeView(I());
             }
             G().setDescendantFocusability(393216);
-            d52 insert = insert();
-            m62.b("video", "Add CoverContainerWrapper " + insert.a() + " position " + gy2Var.h);
+            k32 insert = insert();
+            t42.b("video", "Add CoverContainerWrapper " + insert.a() + " position " + nw2Var.h);
             return;
         }
-        gy2 n = n();
-        if (!TextUtils.equals(gy2Var.b, n.b) || !TextUtils.equals(gy2Var.c, n.c) || !TextUtils.equals(gy2Var.d, n.d)) {
-            f62.a("video", "updateCoverContainerPosition with different id");
+        nw2 n = n();
+        if (!TextUtils.equals(nw2Var.b, n.b) || !TextUtils.equals(nw2Var.c, n.c) || !TextUtils.equals(nw2Var.d, n.d)) {
+            m42.a("video", "updateCoverContainerPosition with different id");
         }
-        d52 update = update((VideoContainerManager) gy2Var);
-        m62.b("video", "Update CoverContainerWrapper " + update.a() + " position " + gy2Var.h);
+        k32 update = update((VideoContainerManager) nw2Var);
+        t42.b("video", "Update CoverContainerWrapper " + update.a() + " position " + nw2Var.h);
     }
 }

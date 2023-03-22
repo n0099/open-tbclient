@@ -1,7 +1,7 @@
 package com.baidu.tieba;
-/* loaded from: classes6.dex */
-public interface wu4 {
-    float a();
 
-    int b();
+import android.view.View;
+/* loaded from: classes6.dex */
+public interface wu4<T> {
+    void c(View view2, T t, int i, long j);
 }

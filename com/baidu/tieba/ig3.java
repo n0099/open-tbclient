@@ -1,137 +1,64 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.os.Bundle;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.storage.swankv.AshmemFileDescriptor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ig3 {
+public class ig3 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static volatile boolean b;
-    public static final List<a> c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final mg3 a;
-        public JSONObject b;
-        public final long c;
-        public final String d;
-
-        public a(@NonNull mg3 mg3Var, @NonNull String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mg3Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mg3Var;
-            this.d = str;
-            this.c = mg3Var.l();
-            synchronized (ig3.c) {
-                if (ig3.b) {
-                    ig3.c.add(this);
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947852500, "Lcom/baidu/tieba/ig3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947852500, "Lcom/baidu/tieba/ig3;");
-                return;
-            }
-        }
-        a = wp1.a;
-        b = false;
-        c = new ArrayList();
-    }
-
-    public static void d() {
+    public ig3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            synchronized (c) {
-                b = true;
-                c.clear();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void c(@NonNull HybridUbcFlow hybridUbcFlow) {
-        UbcFlowEvent g;
+    @Nullable
+    public static AshmemFileDescriptor c(@NonNull String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, hybridUbcFlow) != null) || !"670".equals(hybridUbcFlow.l())) {
-            return;
-        }
-        hybridUbcFlow.D("networkStatus", String.valueOf(z03.c()));
-        if (k33.f || (g = hybridUbcFlow.g("na_first_meaningful_paint")) == null) {
-            return;
-        }
-        long g2 = g.g();
-        synchronized (c) {
-            if (a) {
-                Log.d("SwanReqStatisticManager", "size=" + c.size());
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString("name", str);
+            bundle.putInt("size", i);
+            i43 c = g43.c(ig3.class, bundle);
+            if (c.a()) {
+                c.a.setClassLoader(AshmemFileDescriptor.class.getClassLoader());
+                return (AshmemFileDescriptor) c.a.getParcelable("result");
             }
-            b = false;
-            JSONArray jSONArray = new JSONArray();
-            for (a aVar : c) {
-                if (aVar.c <= g2) {
-                    JSONObject jSONObject = new JSONObject();
-                    try {
-                        jSONObject.put("type", aVar.d);
-                        if (aVar.a != null) {
-                            aVar.a.p(jSONObject);
-                        }
-                        if (aVar.b != null) {
-                            Iterator<String> keys = aVar.b.keys();
-                            while (keys.hasNext()) {
-                                String next = keys.next();
-                                jSONObject.put(next, aVar.b.get(next));
-                            }
-                        }
-                        jSONArray.put(jSONObject);
-                    } catch (JSONException e) {
-                        if (a) {
-                            Log.e("SwanReqStatisticManager", "appendRequestRecord", e);
-                        }
-                    }
-                }
-            }
-            if (jSONArray.length() > 0) {
-                hybridUbcFlow.D("requests", jSONArray.toString());
-            }
+            return null;
         }
+        return (AshmemFileDescriptor) invokeLI.objValue;
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            String string = bundle.getString("name", null);
+            int i = bundle.getInt("size", 0);
+            Bundle bundle2 = new Bundle();
+            bundle2.setClassLoader(AshmemFileDescriptor.class.getClassLoader());
+            bundle2.putParcelable("result", ng3.a(string, i));
+            return bundle2;
+        }
+        return (Bundle) invokeL.objValue;
     }
 }

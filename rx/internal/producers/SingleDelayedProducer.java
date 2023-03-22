@@ -1,24 +1,24 @@
 package rx.internal.producers;
 
-import com.baidu.tieba.ena;
-import com.baidu.tieba.uma;
-import com.baidu.tieba.yma;
+import com.baidu.tieba.asa;
+import com.baidu.tieba.qra;
+import com.baidu.tieba.ura;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes9.dex */
-public final class SingleDelayedProducer<T> extends AtomicInteger implements uma {
+public final class SingleDelayedProducer<T> extends AtomicInteger implements qra {
     public static final int HAS_REQUEST_HAS_VALUE = 3;
     public static final int HAS_REQUEST_NO_VALUE = 2;
     public static final int NO_REQUEST_HAS_VALUE = 1;
     public static final int NO_REQUEST_NO_VALUE = 0;
     public static final long serialVersionUID = -2873467947112093874L;
-    public final yma<? super T> child;
+    public final ura<? super T> child;
     public T value;
 
-    public SingleDelayedProducer(yma<? super T> ymaVar) {
-        this.child = ymaVar;
+    public SingleDelayedProducer(ura<? super T> uraVar) {
+        this.child = uraVar;
     }
 
-    @Override // com.baidu.tieba.uma
+    @Override // com.baidu.tieba.qra
     public void request(long j) {
         int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
         if (i >= 0) {
@@ -56,18 +56,18 @@ public final class SingleDelayedProducer<T> extends AtomicInteger implements uma
 
     /* JADX DEBUG: Multi-variable search result rejected for r2v0, resolved type: T */
     /* JADX WARN: Multi-variable type inference failed */
-    public static <T> void emit(yma<? super T> ymaVar, T t) {
-        if (ymaVar.isUnsubscribed()) {
+    public static <T> void emit(ura<? super T> uraVar, T t) {
+        if (uraVar.isUnsubscribed()) {
             return;
         }
         try {
-            ymaVar.onNext(t);
-            if (ymaVar.isUnsubscribed()) {
+            uraVar.onNext(t);
+            if (uraVar.isUnsubscribed()) {
                 return;
             }
-            ymaVar.onCompleted();
+            uraVar.onCompleted();
         } catch (Throwable th) {
-            ena.g(th, ymaVar, t);
+            asa.g(th, uraVar, t);
         }
     }
 }

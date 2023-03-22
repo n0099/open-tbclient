@@ -2,7 +2,7 @@ package com.baidu.tieba.forumsearch.message;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.ku6;
+import com.baidu.tieba.pv6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.SearchPostForum.SearchPostForumResIdl;
 public class SearchPostForumHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ku6 mSearchData;
+    public pv6 mSearchData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SearchPostForumHttpResponseMessage(int i) {
@@ -49,19 +49,19 @@ public class SearchPostForumHttpResponseMessage extends TbHttpResponsedMessage {
                 setErrorString(searchPostForumResIdl.error.usermsg);
             }
             if (getError() == 0 && getOrginalMessage() != null && (getOrginalMessage().getExtra() instanceof SearchPostForumRequestMessage) && searchPostForumResIdl.data != null) {
-                ku6 ku6Var = new ku6(((SearchPostForumRequestMessage) getOrginalMessage().getExtra()).get_word());
-                this.mSearchData = ku6Var;
-                ku6Var.b(searchPostForumResIdl.data);
+                pv6 pv6Var = new pv6(((SearchPostForumRequestMessage) getOrginalMessage().getExtra()).get_word());
+                this.mSearchData = pv6Var;
+                pv6Var.b(searchPostForumResIdl.data);
             }
         }
     }
 
-    public ku6 getSearchData() {
+    public pv6 getSearchData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mSearchData;
         }
-        return (ku6) invokeV.objValue;
+        return (pv6) invokeV.objValue;
     }
 }

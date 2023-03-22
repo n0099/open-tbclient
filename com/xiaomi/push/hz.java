@@ -28,11 +28,11 @@ public class hz implements is<hz, Object>, Serializable, Cloneable {
         int a2;
         int a3;
         if (hz.class.equals(hzVar.getClass())) {
-            int compareTo = Boolean.valueOf(m521a()).compareTo(Boolean.valueOf(hzVar.m521a()));
+            int compareTo = Boolean.valueOf(m523a()).compareTo(Boolean.valueOf(hzVar.m523a()));
             if (compareTo != 0) {
                 return compareTo;
             }
-            if (!m521a() || (a3 = it.a(this.f598a, hzVar.f598a)) == 0) {
+            if (!m523a() || (a3 = it.a(this.f598a, hzVar.f598a)) == 0) {
                 int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(hzVar.b()));
                 if (compareTo2 != 0) {
                     return compareTo2;
@@ -58,17 +58,17 @@ public class hz implements is<hz, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.is
     public void a(jd jdVar) {
-        jdVar.mo617a();
+        jdVar.mo619a();
         while (true) {
-            ja mo613a = jdVar.mo613a();
-            byte b2 = mo613a.a;
+            ja mo615a = jdVar.mo615a();
+            byte b2 = mo615a.a;
             if (b2 == 0) {
                 break;
             }
-            short s = mo613a.f813a;
+            short s = mo615a.f813a;
             if (s != 1) {
                 if (s == 2 && b2 == 8) {
-                    this.f600b = jdVar.mo611a();
+                    this.f600b = jdVar.mo613a();
                     b(true);
                     jdVar.g();
                 }
@@ -76,7 +76,7 @@ public class hz implements is<hz, Object>, Serializable, Cloneable {
                 jdVar.g();
             } else {
                 if (b2 == 8) {
-                    this.f598a = jdVar.mo611a();
+                    this.f598a = jdVar.mo613a();
                     a(true);
                     jdVar.g();
                 }
@@ -85,7 +85,7 @@ public class hz implements is<hz, Object>, Serializable, Cloneable {
             }
         }
         jdVar.f();
-        if (!m521a()) {
+        if (!m523a()) {
             throw new je("Required field 'miscConfigVersion' was not found in serialized data! Struct: " + toString());
         } else if (b()) {
             a();
@@ -99,12 +99,12 @@ public class hz implements is<hz, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m521a() {
+    public boolean m523a() {
         return this.f599a.get(0);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m522a(hz hzVar) {
+    public boolean m524a(hz hzVar) {
         return hzVar != null && this.f598a == hzVar.f598a && this.f600b == hzVar.f600b;
     }
 
@@ -119,13 +119,13 @@ public class hz implements is<hz, Object>, Serializable, Cloneable {
         a();
         jdVar.a(f597a);
         jdVar.a(a);
-        jdVar.mo622a(this.f598a);
+        jdVar.mo624a(this.f598a);
         jdVar.b();
         jdVar.a(b);
-        jdVar.mo622a(this.f600b);
+        jdVar.mo624a(this.f600b);
         jdVar.b();
         jdVar.c();
-        jdVar.mo621a();
+        jdVar.mo623a();
     }
 
     public void b(boolean z) {
@@ -138,7 +138,7 @@ public class hz implements is<hz, Object>, Serializable, Cloneable {
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof hz)) {
-            return m522a((hz) obj);
+            return m524a((hz) obj);
         }
         return false;
     }

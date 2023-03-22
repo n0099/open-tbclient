@@ -8,10 +8,10 @@ import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.BDPTask;
 import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.tieba.tu;
-import com.baidu.tieba.ws;
+import com.baidu.tieba.as;
 import com.baidu.tieba.wt;
-import com.baidu.tieba.xs;
+import com.baidu.tieba.zr;
+import com.baidu.tieba.zs;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,13 +31,13 @@ public final class d {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
-    public static final class a implements ws {
+    public static final class a implements zr {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Function0 a;
         public final /* synthetic */ View b;
         public final /* synthetic */ Function0 c;
-        public final /* synthetic */ tu d;
+        public final /* synthetic */ wt d;
 
         /* renamed from: com.baidu.bdtask.ui.utils.d$a$a  reason: collision with other inner class name */
         /* loaded from: classes.dex */
@@ -125,12 +125,12 @@ public final class d {
             }
         }
 
-        public a(Function0 function0, View view2, Function0 function02, tu tuVar) {
+        public a(Function0 function0, View view2, Function0 function02, wt wtVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {function0, view2, function02, tuVar};
+                Object[] objArr = {function0, view2, function02, wtVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -143,22 +143,22 @@ public final class d {
             this.a = function0;
             this.b = view2;
             this.c = function02;
-            this.d = tuVar;
+            this.d = wtVar;
         }
 
-        @Override // com.baidu.tieba.ws
+        @Override // com.baidu.tieba.zr
         public void a(Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, bitmap) == null) {
-                wt.c(new b(this, bitmap));
+                zs.c(new b(this, bitmap));
             }
         }
 
-        @Override // com.baidu.tieba.ws
+        @Override // com.baidu.tieba.zr
         public void onError() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                wt.c(new RunnableC0080a(this));
+                zs.c(new RunnableC0080a(this));
             }
         }
     }
@@ -208,12 +208,12 @@ public final class d {
             } else if (view2 == null) {
                 function02.invoke();
             } else {
-                tu v = BDPTask.m.v();
+                wt v = BDPTask.m.v();
                 if (v == null) {
                     function02.invoke();
                     return;
                 }
-                xs i = v.i();
+                as i = v.i();
                 if (str == null) {
                     Intrinsics.throwNpe();
                 }

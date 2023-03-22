@@ -8,7 +8,7 @@ import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.hi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -41,7 +41,7 @@ public class CircleView extends View {
                 return;
             }
         }
-        g = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds3);
+        g = hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds3);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -131,8 +131,8 @@ public class CircleView extends View {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            e = ej.g(context, R.dimen.tbds94);
-            f = ej.g(context, R.dimen.tbds94);
+            e = hi.g(context, R.dimen.tbds94);
+            f = hi.g(context, R.dimen.tbds94);
             Paint paint = new Paint();
             this.d = paint;
             paint.setColor(context.getResources().getColor(R.color.CAM_X0314));

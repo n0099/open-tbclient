@@ -2,7 +2,7 @@ package com.baidu.tieba.pb.pb.main;
 
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.hd8;
+import com.baidu.tieba.ki8;
 import com.baidu.tieba.pb.PbPageRequestMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -15,7 +15,7 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean markCache;
-    public hd8 pbData;
+    public ki8 pbData;
     public String postId;
     public int updateType;
 
@@ -37,13 +37,13 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         }
     }
 
-    public hd8 getPbData() {
+    public ki8 getPbData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.pbData;
         }
-        return (hd8) invokeV.objValue;
+        return (ki8) invokeV.objValue;
     }
 
     public int getUpdateType() {
@@ -73,9 +73,9 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         setError(pbPageResIdl.error.errorno.intValue());
         setErrorString(pbPageResIdl.error.usermsg);
         if (getError() == 0 && pbPageResIdl.data != null) {
-            hd8 hd8Var = new hd8();
-            this.pbData = hd8Var;
-            hd8Var.F0(1);
+            ki8 ki8Var = new ki8();
+            this.pbData = ki8Var;
+            ki8Var.F0(1);
             try {
                 this.pbData.E0(pbPageResIdl.data);
                 if (!this.pbData.x0()) {
@@ -95,10 +95,10 @@ public class PbPageReadLocalResponseMessage extends CustomResponsedMessage<Objec
         }
     }
 
-    public void setPbData(hd8 hd8Var) {
+    public void setPbData(ki8 ki8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, hd8Var) == null) {
-            this.pbData = hd8Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, ki8Var) == null) {
+            this.pbData = ki8Var;
         }
     }
 

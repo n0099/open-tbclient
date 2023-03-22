@@ -1,62 +1,48 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.live.business.model.data.LiveSearchResultInfo;
+import com.baidu.live.feed.search.model.data.RequestSearchData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public class z90 {
-    public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface z90 {
+    void a(Context context, String str);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948314648, "Lcom/baidu/tieba/z90;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948314648, "Lcom/baidu/tieba/z90;");
-        }
-    }
+    void b(Context context);
 
-    public static int a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            return ba0.g(context);
-        }
-        return invokeL.intValue;
-    }
+    void c();
 
-    public static boolean b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            return ba0.l(context);
-        }
-        return invokeL.booleanValue;
-    }
+    void d();
 
-    public static void c(Context context, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65539, null, context, z) == null) {
-            ba0.u(context, z);
-        }
-    }
+    void e(Context context);
 
-    public static void d(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i) == null) {
-            ba0.t(context, i);
+    void f(Context context, int i);
+
+    void g(String str, String str2, RequestSearchData requestSearchData);
+
+    void h();
+
+    void i(String str);
+
+    void j(LiveSearchResultInfo liveSearchResultInfo, Context context, int i);
+
+    void onDetach();
+
+    /* loaded from: classes7.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public static /* synthetic */ void a(z90 z90Var, String str, String str2, RequestSearchData requestSearchData, int i, Object obj) {
+            if (obj == null) {
+                if ((i & 4) != 0) {
+                    requestSearchData = new RequestSearchData();
+                }
+                z90Var.g(str, str2, requestSearchData);
+                return;
+            }
+            throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: searchWord");
         }
     }
 }

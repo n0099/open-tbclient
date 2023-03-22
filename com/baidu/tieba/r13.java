@@ -1,26 +1,23 @@
 package com.baidu.tieba;
 
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.exifinterface.media.ExifInterface;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class r13 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
+    public static final boolean a;
+    public static boolean b;
+    public static final int c;
+    public static int d;
+    public static int e;
+    public static final boolean f;
+    public static boolean g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public long b;
-    public long c;
 
     static {
         InterceptResult invokeClinit;
@@ -35,82 +32,83 @@ public class r13 {
                 return;
             }
         }
-        d = wp1.a;
+        a = do1.a;
+        d = -1;
+        e = -1;
+        b = f("swan_get_swan_id_cache");
+        ar2.g0().getSwitch("swan_pms_use_outback_switch", 0);
+        ar2.g0().getSwitch("swan_preload_game_strategy", 0);
+        c = 0;
+        f = f("swan_670_append_request_info");
+        ar2.g0().getSwitch("swan_description_online_control", 0);
+        ak4.a = 0;
+        ar2.g0().getSwitch("swan_bdtls_use_cache", false);
+        g = false;
     }
 
-    public long b() {
+    public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (e == -1) {
+                ar2.g0().getSwitch("swan_use_extra_connect_pool", 0);
+                e = 0;
+            }
+            return e;
         }
-        return invokeV.longValue;
+        return invokeV.intValue;
     }
 
-    @NonNull
-    public String toString() {
+    public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return d().toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public r13(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == -1) {
+                ar2.g0().getSwitch("swan_upgrade_js_thread_priority", 0);
+                d = 0;
             }
+            return d;
         }
-        this.a = str;
-        if (d) {
-            Log.d(ExifInterface.TAG_MODEL, "new model, scope id - " + str);
-        }
+        return invokeV.intValue;
     }
 
-    public void a(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            this.b = j;
-        }
-    }
-
-    public void c(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.c = j;
-        }
-    }
-
-    public JSONObject d() {
+    public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("scope_id", this.a);
-                jSONObject.put("begin_ts", this.b);
-                jSONObject.put("end_ts", this.c);
-            } catch (JSONException e) {
-                if (d) {
-                    e.printStackTrace();
-                }
-            }
-            if (d) {
-                Log.d(ExifInterface.TAG_MODEL, jSONObject.toString());
-            }
-            return jSONObject;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return g;
         }
-        return (JSONObject) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public static int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return c;
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            ar2.g0().getSwitch(str, 0);
+            if (a) {
+                Log.d("SwanApiCostOpt", str + " value : 0");
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

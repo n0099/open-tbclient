@@ -1,25 +1,34 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetBigday.BigdayInfo;
 /* loaded from: classes6.dex */
 public class sx4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public int a;
     public String b;
-    public int c;
-    public long d;
-    public int e;
-    public long f;
-    public long g;
+    public long c;
+    public String d;
+    public String e;
+    public int f;
+    public String g;
+    public long h;
+    public long i;
+    public long j;
+    public int k;
+    public int l;
+    public long m;
+    public long n;
+    public String o;
+    public long p;
+    public int q;
+    public int r;
+    public int s;
 
     public sx4() {
         Interceptable interceptable = $ic;
@@ -35,58 +44,21 @@ public class sx4 {
         }
     }
 
-    public boolean a() {
+    public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!StringUtils.isNULL(this.a) && this.d > 0) {
-                int i = this.e;
-                if (i == 1 || i == 3) {
-                    long j = this.f;
-                    if (j > 0) {
-                        long j2 = this.g;
-                        if (j2 > 0 && j2 > j) {
-                            return true;
-                        }
-                        return false;
-                    }
-                    return false;
-                }
-                return false;
-            }
-            return false;
+            return this.j;
         }
-        return invokeV.booleanValue;
+        return invokeV.longValue;
     }
 
-    public void b(BigdayInfo bigdayInfo) {
+    public long b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bigdayInfo) == null) && bigdayInfo != null && !StringUtils.isNULL(bigdayInfo.img_url) && bigdayInfo.id.longValue() > 0) {
-            if ((bigdayInfo.position.intValue() == 1 || bigdayInfo.position.intValue() == 3) && bigdayInfo.start_time.longValue() > 0 && bigdayInfo.end_time.longValue() > 0 && bigdayInfo.end_time.longValue() > bigdayInfo.start_time.longValue()) {
-                this.a = bigdayInfo.img_url;
-                this.b = bigdayInfo.jump_url;
-                this.c = bigdayInfo.img_colour.intValue();
-                this.d = bigdayInfo.id.longValue();
-                this.e = bigdayInfo.position.intValue();
-                this.f = bigdayInfo.start_time.longValue();
-                this.g = bigdayInfo.end_time.longValue();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (!(obj instanceof sx4)) {
-                return false;
-            }
-            sx4 sx4Var = (sx4) obj;
-            if (!sx4Var.a() || !a() || this.d != sx4Var.d || !StringHelper.equals(this.a, sx4Var.a) || (((this.b != null || sx4Var.b != null) && !StringHelper.equals(this.b, sx4Var.b)) || this.c != sx4Var.c || this.e != sx4Var.e || this.f != sx4Var.f || this.g != sx4Var.g)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
+        return invokeV.longValue;
     }
 }

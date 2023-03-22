@@ -1,36 +1,37 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.pose.PoseAR;
+import com.baidu.tieba.rda;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.hihonor.push.framework.aidl.entity.PushTokenResult;
-import com.hihonor.push.sdk.common.data.ApiException;
-import com.hihonor.push.sdk.common.data.DownMsgType;
-import com.hihonor.push.sdk.common.data.UpMsgType;
-import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
-import java.util.concurrent.Callable;
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
+import com.fun.ad.sdk.internal.api.PidLoaderSession;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes6.dex */
-public class uda {
+public class uda implements TTNativeExpressAd.ExpressAdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public gea b;
+    public boolean a;
+    public boolean b;
+    public final /* synthetic */ vda c;
+    public final /* synthetic */ ExpressAdListenerWrapper d;
+    public final /* synthetic */ String e;
+    public final /* synthetic */ rda.b f;
+    public final /* synthetic */ TTNativeExpressAd g;
+    public final /* synthetic */ rda h;
 
-    public uda(Context context) {
+    public uda(rda rdaVar, vda vdaVar, ExpressAdListenerWrapper expressAdListenerWrapper, String str, rda.b bVar, TTNativeExpressAd tTNativeExpressAd) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {rdaVar, vdaVar, expressAdListenerWrapper, str, bVar, tTNativeExpressAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,149 +41,94 @@ public class uda {
                 return;
             }
         }
-        this.a = context;
-        this.b = new gea();
+        this.h = rdaVar;
+        this.c = vdaVar;
+        this.d = expressAdListenerWrapper;
+        this.e = str;
+        this.f = bVar;
+        this.g = tTNativeExpressAd;
     }
 
-    public static /* synthetic */ void f(hda hdaVar, int i, String str) {
-        if (hdaVar != null) {
-            hdaVar.onFailure(i, str);
-        }
-    }
-
-    public final void b(final hda<?> hdaVar, final int i, final String str) {
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onAdClicked(View view2, int i) {
+        Ssp.Pid pid;
+        Ssp.Pid pid2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hdaVar, i, str) == null) {
-            fea.b(new Runnable() { // from class: com.baidu.tieba.gda
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        uda.f(hda.this, i, str);
-                    }
-                }
-            });
-        }
-    }
-
-    public static /* synthetic */ void g(hda hdaVar, Object obj) {
-        if (hdaVar != null) {
-            hdaVar.onSuccess(obj);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public /* synthetic */ void h(Callable callable, hda hdaVar) {
-        try {
-            c(hdaVar, callable.call());
-        } catch (ApiException e) {
-            b(hdaVar, e.getErrorCode(), e.getMessage());
-        } catch (Exception unused) {
-            HonorPushErrorEnum honorPushErrorEnum = HonorPushErrorEnum.ERROR_INTERNAL_ERROR;
-            b(hdaVar, honorPushErrorEnum.getErrorCode(), honorPushErrorEnum.getMessage());
-        }
-    }
-
-    public final <T> void c(final hda<T> hdaVar, final T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, hdaVar, t) == null) {
-            fea.b(new Runnable() { // from class: com.baidu.tieba.fda
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        uda.g(hda.this, t);
-                    }
-                }
-            });
-        }
-    }
-
-    public void d(hda<String> hdaVar, final boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048579, this, hdaVar, z) == null) {
-            e(new Callable() { // from class: com.baidu.tieba.zca
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.util.concurrent.Callable
-                public final Object call() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? uda.this.a(z) : invokeV.objValue;
-                }
-            }, hdaVar);
-        }
-    }
-
-    public final <T> void e(final Callable<T> callable, final hda<T> hdaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, callable, hdaVar) == null) {
-            Runnable runnable = new Runnable() { // from class: com.baidu.tieba.eda
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        uda.this.h(callable, hdaVar);
-                    }
-                }
-            };
-            fea feaVar = fea.f;
-            if (feaVar.d == null) {
-                synchronized (feaVar.e) {
-                    if (feaVar.d == null) {
-                        feaVar.d = feaVar.c();
-                    }
-                }
-            }
-            feaVar.d.execute(runnable);
-        }
-    }
-
-    public final String a(boolean z) throws Exception {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
-            this.b.getClass();
-            try {
-                lea leaVar = new lea(UpMsgType.REQUEST_PUSH_TOKEN, null);
-                leaVar.d = lda.a();
-                String pushToken = ((PushTokenResult) lda.d(dea.c.a(leaVar))).getPushToken();
-                if (z && !TextUtils.isEmpty(pushToken)) {
-                    Bundle bundle = new Bundle();
-                    bundle.putString(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY, DownMsgType.RECEIVE_TOKEN);
-                    bundle.putString("push_token", pushToken);
-                    pea peaVar = new pea();
-                    Context context = this.a;
-                    Log.i("MessengerSrvConnection", "start bind service.");
-                    try {
-                        Intent intent = new Intent();
-                        intent.setPackage(context.getPackageName());
-                        intent.setAction("com.hihonor.push.action.MESSAGING_EVENT");
-                        Context applicationContext = context.getApplicationContext();
-                        peaVar.c = applicationContext;
-                        peaVar.b = bundle;
-                        if (applicationContext.bindService(intent, peaVar, 1)) {
-                            Log.i("MessengerSrvConnection", "bind service succeeded.");
-                        }
-                    } catch (Exception e) {
-                        String str = "bind service failed." + e.getMessage();
-                    }
-                }
-                return pushToken;
-            } catch (Exception e2) {
-                throw lda.b(e2);
+        if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
+            LogPrinter.d();
+            this.h.onAdClicked(this.c, this.b, new String[0]);
+            this.b = true;
+            FunAdInteractionListener funAdInteractionListener = this.d.funListener;
+            if (funAdInteractionListener != null) {
+                String str = this.e;
+                pid = this.h.mPid;
+                String str2 = pid.ssp.type;
+                pid2 = this.h.mPid;
+                funAdInteractionListener.onAdClicked(str, str2, pid2.pid);
             }
         }
-        return (String) invokeZ.objValue;
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onAdShow(View view2, int i) {
+        Ssp.Pid pid;
+        Ssp.Pid pid2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
+            LogPrinter.d();
+            this.h.onAdShow(this.c, this.a, new String[0]);
+            this.a = true;
+            FunAdInteractionListener funAdInteractionListener = this.d.funListener;
+            if (funAdInteractionListener != null) {
+                String str = this.e;
+                pid = this.h.mPid;
+                String str2 = pid.ssp.type;
+                pid2 = this.h.mPid;
+                funAdInteractionListener.onAdShow(str, str2, pid2.pid);
+            }
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onRenderFail(View view2, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, view2, str, i) == null) {
+            LogPrinter.d();
+            rda.b bVar = this.f;
+            vda vdaVar = this.c;
+            if (!bVar.d) {
+                int i2 = bVar.a + 1;
+                bVar.a = i2;
+                if (i2 == bVar.b) {
+                    bVar.e.onAdError(vdaVar, i, str);
+                }
+            }
+        }
+    }
+
+    @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
+    public void onRenderSuccess(View view2, float f, float f2) {
+        boolean z;
+        PidLoaderSession<vda> session;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{view2, Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            LogPrinter.d();
+            this.g.setCanInterruptVideoPlay(true);
+            this.h.f.put(this.c, this.d);
+            rda.b bVar = this.f;
+            vda vdaVar = this.c;
+            if (!bVar.d) {
+                bVar.e.onAdLoaded((rda) vdaVar);
+                bVar.d = true;
+                session = bVar.e.getSession(vdaVar);
+                bVar.c = session;
+                return;
+            }
+            PidLoaderSession<vda> pidLoaderSession = bVar.c;
+            if (pidLoaderSession != null) {
+                z = bVar.e.isSupportCaching;
+                pidLoaderSession.cacheOrDestroy(vdaVar, z);
+            }
+        }
     }
 }

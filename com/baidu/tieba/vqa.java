@@ -1,30 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.java_websocket.framing.Framedata;
 /* loaded from: classes6.dex */
-public class vqa<T> extends yma<T> {
+public class vqa extends rqa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final tma<T> e;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public vqa(yma<? super T> ymaVar) {
-        this(ymaVar, true);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vqa() {
+        super(Framedata.Opcode.PONG);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ymaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((yma) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
+                super((Framedata.Opcode) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -33,48 +29,23 @@ public class vqa<T> extends yma<T> {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vqa(yma<? super T> ymaVar, boolean z) {
-        super(ymaVar, z);
+    public vqa(uqa uqaVar) {
+        super(Framedata.Opcode.PONG);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ymaVar, Boolean.valueOf(z)};
+            Object[] objArr = {uqaVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((yma) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
+                super((Framedata.Opcode) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.e = new uqa(ymaVar);
-    }
-
-    @Override // com.baidu.tieba.tma
-    public void onCompleted() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e.onCompleted();
-        }
-    }
-
-    @Override // com.baidu.tieba.tma
-    public void onError(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            this.e.onError(th);
-        }
-    }
-
-    @Override // com.baidu.tieba.tma
-    public void onNext(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            this.e.onNext(t);
-        }
+        j(uqaVar.a());
     }
 }

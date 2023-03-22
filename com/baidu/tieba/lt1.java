@@ -3,9 +3,23 @@ package com.baidu.tieba;
 import android.content.Context;
 /* loaded from: classes5.dex */
 public interface lt1 {
-    boolean a(Context context, String str);
+    void b();
 
-    boolean b(Context context, String str);
+    void c();
 
-    boolean c(Context context, String str);
+    lt1 create();
+
+    void d(dx2 dx2Var, boolean z);
+
+    void e(dx2 dx2Var, Context context);
+
+    boolean isPlaying();
+
+    boolean onBackPressed();
+
+    void pause();
+
+    void resume();
+
+    void stop();
 }

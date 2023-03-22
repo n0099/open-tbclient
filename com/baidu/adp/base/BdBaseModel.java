@@ -8,9 +8,9 @@ import com.baidu.adp.framework.message.Message;
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.w9;
-import com.baidu.tieba.wb;
-import com.baidu.tieba.x9;
+import com.baidu.tieba.a9;
+import com.baidu.tieba.z8;
+import com.baidu.tieba.za;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ public abstract class BdBaseModel<T> extends OrmObject {
     public transient /* synthetic */ FieldHolder $fh;
     public int mErrorCode;
     public String mErrorString;
-    public w9 mLoadDataCallBack;
+    public z8 mLoadDataCallBack;
     public int mLoadDataMode;
     public boolean mNeedShowSeverToast;
     public BdUniqueId unique_id;
@@ -96,12 +96,12 @@ public abstract class BdBaseModel<T> extends OrmObject {
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public BdBaseModel(x9<T> x9Var) {
+    public BdBaseModel(a9<T> a9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {x9Var};
+            Object[] objArr = {a9Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -117,10 +117,10 @@ public abstract class BdBaseModel<T> extends OrmObject {
         this.mLoadDataCallBack = null;
         this.mErrorCode = 0;
         this.mErrorString = null;
-        if (x9Var == null) {
+        if (a9Var == null) {
             return;
         }
-        this.unique_id = x9Var.getUniqueId();
+        this.unique_id = a9Var.getUniqueId();
     }
 
     public void registerListener(int i, MessageListener<?> messageListener) {
@@ -133,13 +133,13 @@ public abstract class BdBaseModel<T> extends OrmObject {
         }
     }
 
-    public void registerListener(int i, wb wbVar) {
+    public void registerListener(int i, za zaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, wbVar) == null) {
-            if (wbVar != null && wbVar.getTag() == null) {
-                wbVar.setTag(this.unique_id);
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, zaVar) == null) {
+            if (zaVar != null && zaVar.getTag() == null) {
+                zaVar.setTag(this.unique_id);
             }
-            MessageManager.getInstance().registerListener(i, wbVar);
+            MessageManager.getInstance().registerListener(i, zaVar);
         }
     }
 
@@ -178,10 +178,10 @@ public abstract class BdBaseModel<T> extends OrmObject {
         }
     }
 
-    public void setLoadDataCallBack(w9 w9Var) {
+    public void setLoadDataCallBack(z8 z8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, w9Var) == null) {
-            this.mLoadDataCallBack = w9Var;
+        if (interceptable == null || interceptable.invokeL(1048591, this, z8Var) == null) {
+            this.mLoadDataCallBack = z8Var;
         }
     }
 
@@ -199,13 +199,13 @@ public abstract class BdBaseModel<T> extends OrmObject {
         }
     }
 
-    public void registerListener(wb wbVar) {
+    public void registerListener(za zaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, wbVar) == null) {
-            if (wbVar != null && wbVar.getTag() == null) {
-                wbVar.setTag(this.unique_id);
+        if (interceptable == null || interceptable.invokeL(1048586, this, zaVar) == null) {
+            if (zaVar != null && zaVar.getTag() == null) {
+                zaVar.setTag(this.unique_id);
             }
-            MessageManager.getInstance().registerListener(wbVar);
+            MessageManager.getInstance().registerListener(zaVar);
         }
     }
 

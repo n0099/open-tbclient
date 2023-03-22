@@ -3,85 +3,129 @@ package com.baidu.tieba;
 import android.text.TextUtils;
 import android.util.Pair;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.searchbox.pms.constants.PmsConstant;
+import com.baidu.swan.apps.core.slave.SwanAppSlaveManager;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.tieba.v82;
+import com.baidu.tieba.qs2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.UUID;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ez1 extends dz1 {
+public class ez1 extends sy1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.px1
+    @Override // com.baidu.tieba.wv1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "NavigateBackApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "UbcFlowJarApi" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes4.dex */
-    public class a implements Runnable {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ s82 b;
-        public final /* synthetic */ v82 c;
-        public final /* synthetic */ v82.b d;
-        public final /* synthetic */ ez1 e;
+        public final /* synthetic */ JSONObject a;
+        public final /* synthetic */ t73 b;
 
-        public a(ez1 ez1Var, int i, s82 s82Var, v82 v82Var, v82.b bVar) {
+        public a(JSONObject jSONObject, t73 t73Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ez1Var, Integer.valueOf(i), s82Var, v82Var, bVar};
+                Object[] objArr = {jSONObject, t73Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.e = ez1Var;
-            this.a = i;
-            this.b = s82Var;
-            this.c = v82Var;
-            this.d = bVar;
+            this.a = jSONObject;
+            this.b = t73Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            ez1.y(this.a, this.b);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ HybridUbcFlow b;
+        public final /* synthetic */ zt1 c;
+
+        public b(String str, HybridUbcFlow hybridUbcFlow, zt1 zt1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, hybridUbcFlow, zt1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = hybridUbcFlow;
+            this.c = zt1Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a > 1 && !this.b.E0) {
-                    wl3.b(this.c, this.e.getContext(), 1);
+                if (TextUtils.equals(this.a, "1")) {
+                    this.b.S();
+                } else {
+                    this.b.C(this.c);
                 }
-                this.d.a();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ez1(@NonNull nx1 nx1Var) {
-        super(nx1Var);
+    public ez1(@NonNull uv1 uv1Var) {
+        super(uv1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {nx1Var};
+            Object[] objArr = {uv1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((nx1) newInitContext.callArgs[0]);
+                super((uv1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -89,98 +133,351 @@ public class ez1 extends dz1 {
         }
     }
 
-    public static void y() {
-        m93 b0;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && (b0 = m93.b0()) != null) {
-            b0.B().I(b0.getAppId());
-        }
-    }
-
-    public m12 A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            q("#hideModalPage", false);
-            y();
-            return z(1, "hideModalPage", 10);
-        }
-        return (m12) invokeV.objValue;
-    }
-
-    public m12 B(String str) {
+    public static UbcFlowEvent G(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#navigateBack params=" + str, false);
-            y();
-            Pair<m12, JSONObject> s = s(str);
-            m12 m12Var = (m12) s.first;
-            if (!m12Var.isSuccess()) {
-                return m12Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-            return z(((JSONObject) s.second).optInt("delta", 1), "navigateBack", 1);
+            String optString = jSONObject.optString("actionId");
+            long optLong = jSONObject.optLong("timestamp");
+            if (TextUtils.isEmpty(optString)) {
+                return null;
+            }
+            UbcFlowEvent ubcFlowEvent = new UbcFlowEvent(optString);
+            ubcFlowEvent.h(optLong);
+            return ubcFlowEvent;
         }
-        return (m12) invokeL.objValue;
+        return (UbcFlowEvent) invokeL.objValue;
     }
 
-    public final m12 z(int i, String str, int i2) {
-        InterceptResult invokeCommon;
-        mz2 m3;
-        String str2;
+    public static List<UbcFlowEvent> H(JSONArray jSONArray) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)})) == null) {
-            String uuid = UUID.randomUUID().toString();
-            s23.b(uuid);
-            v82 V = zu2.U().V();
-            if (V == null) {
-                m62.c("NavigateBackApi", "manager is null");
-                return new m12(1001, "manager is null");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, jSONArray)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (jSONArray == null) {
+                return arrayList;
             }
-            int k = V.k();
-            if (k == 1) {
-                m62.c("NavigateBackApi", "navigateBack api can only work when slave's count greater than 1");
-                return new m12(1001, "navigateBack api can only work when slave's count greater than 1");
+            for (int i = 0; i < jSONArray.length(); i++) {
+                UbcFlowEvent G = G(jSONArray.optJSONObject(i));
+                if (G != null) {
+                    G.e("FE");
+                    arrayList.add(G);
+                }
             }
-            if (i >= k) {
-                i = k - 1;
-            }
-            mz2 f = ag3.f(uuid, i);
-            s82 m = V.m();
-            if (m == null) {
-                m62.c("NavigateBackApi", "slave container is null");
-                return new m12(1001, "slave container is null");
-            } else if (TextUtils.equals("hideModalPage", str) && !m.E0) {
-                m62.c("NavigateBackApi", "hideModalPage api can only work after showModalPage");
-                return new m12(1001, "hideModalPage api can only work after showModalPage");
-            } else {
-                s23.c(i2, uuid);
-                v82.b i3 = V.i(str);
-                i3.n(v82.i, v82.h);
-                i3.h(i);
-                gn3.a0(new a(this, k, m, V, i3));
-                u82 o = V.o();
-                if (o == null) {
-                    m3 = null;
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:25:0x004d  */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x005b  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void A(HybridUbcFlow hybridUbcFlow, t73 t73Var, String str, @Nullable zt1 zt1Var) {
+        long j;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(65537, null, hybridUbcFlow, t73Var, str, zt1Var) == null) && hybridUbcFlow != null && t73Var != null) {
+            if (!ne2.U().p0()) {
+                if (TextUtils.equals(str, "1")) {
+                    hybridUbcFlow.S();
+                    return;
                 } else {
-                    m3 = o.m3();
+                    hybridUbcFlow.C(zt1Var);
+                    return;
                 }
-                r23.q("route", uuid).F(new UbcFlowEvent("na_push_page_end"));
-                s23.a(uuid, m3);
-                if (!(V.m() instanceof u82)) {
-                    m62.c("NavigateBackApi", "top fragment error");
-                    ag3.i(f);
-                    return new m12(1001, "top fragment error");
-                }
-                u82 u82Var = (u82) V.m();
-                if (u82Var != null) {
-                    str2 = u82Var.t3();
+            }
+            long H = ar2.g0().H();
+            if (H <= 0) {
+                return;
+            }
+            qs2.a Y = t73Var.Y();
+            boolean z = false;
+            if (Y != null) {
+                long currentTimeMillis = System.currentTimeMillis() - Y.N();
+                if (currentTimeMillis >= H) {
+                    z = true;
                 } else {
-                    str2 = "";
+                    j = H - currentTimeMillis;
+                    if (!z) {
+                        if (TextUtils.equals(str, "1")) {
+                            hybridUbcFlow.S();
+                            return;
+                        } else {
+                            hybridUbcFlow.C(zt1Var);
+                            return;
+                        }
+                    } else if (j <= 0) {
+                        return;
+                    } else {
+                        nk3.c(new b(str, hybridUbcFlow, zt1Var), "waitFcp", j, TimeUnit.MILLISECONDS);
+                        return;
+                    }
                 }
-                return new m12(0, vc3.c(str2));
+            }
+            j = 0;
+            if (!z) {
             }
         }
-        return (m12) invokeCommon.objValue;
+    }
+
+    public static void B(JSONObject jSONObject, t73 t73Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, jSONObject, t73Var) == null) {
+            ExecutorUtilsExt.postOnElastic(new a(jSONObject, t73Var), "handlePerformMsg", 2);
+        }
+    }
+
+    public static void C(JSONObject jSONObject) {
+        JSONArray optJSONArray;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, jSONObject) == null) && (optJSONArray = jSONObject.optJSONArray("data")) != null && optJSONArray.length() >= 1) {
+            a13.e().c(optJSONArray.optJSONObject(0));
+        }
+    }
+
+    public static void D(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject) != null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("ext")) == null) {
+            return;
+        }
+        String optString = optJSONObject.optString("routeId");
+        if (TextUtils.isEmpty(optString)) {
+            return;
+        }
+        HybridUbcFlow q = y03.q("route", optString);
+        if (TextUtils.equals(optJSONObject.optString("hasWebView"), "1")) {
+            q.I(HybridUbcFlow.SubmitStrategy.ROUTE_WEB);
+        }
+        q.G(H(jSONObject.optJSONArray("data")));
+        q.n();
+        bu1 A = gt2.U().A(optJSONObject.optString("slaveId"));
+        if (A instanceof SwanAppSlaveManager) {
+            ((SwanAppSlaveManager) A).j1();
+        }
+    }
+
+    public static void E(@Nullable JSONArray jSONArray) {
+        Object obj;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, jSONArray) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("FlowJarAction-671: ");
+            if (jSONArray == null) {
+                obj = StringUtil.NULL_STRING;
+            } else {
+                obj = jSONArray;
+            }
+            sb.append(obj);
+            t42.k("UbcFlowJarApi", sb.toString());
+            if (jSONArray != null && jSONArray.length() != 0) {
+                int length = jSONArray.length();
+                for (int i = 0; i < length; i++) {
+                    try {
+                        JSONObject jSONObject = jSONArray.getJSONObject(i);
+                        if (TextUtils.equals(jSONObject.optString("type"), "feTraceError")) {
+                            td3.d().h(jSONObject);
+                        } else {
+                            td3.d().k(jSONObject);
+                        }
+                    } catch (JSONException unused) {
+                    }
+                }
+            }
+        }
+    }
+
+    public static void F(JSONArray jSONArray) {
+        b72 H;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65542, null, jSONArray) != null) || (H = gt2.U().H()) == null) {
+            return;
+        }
+        try {
+            JSONObject jSONObject = jSONArray.getJSONObject(0);
+            if (jSONObject != null) {
+                String string = jSONObject.getString("eventId");
+                String optString = jSONObject.optString(PmsConstant.Statistic.Key.REV_TIMESTAMP);
+                long j = 0;
+                if (!TextUtils.isEmpty(optString)) {
+                    try {
+                        j = Long.valueOf(optString).longValue();
+                    } catch (NumberFormatException e) {
+                        e.printStackTrace();
+                    }
+                }
+                H.O3(new xe3(string, j));
+            }
+        } catch (JSONException e2) {
+            e2.printStackTrace();
+        }
+    }
+
+    public static void y(JSONObject jSONObject, t73 t73Var) {
+        int i;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65546, null, jSONObject, t73Var) == null) {
+            p92 W = ne2.U().W();
+            if (W instanceof t92) {
+                i = ((t92) W).i();
+            } else {
+                i = 0;
+            }
+            de3.C(true);
+            de3.r();
+            HybridUbcFlow p = y03.p("startup");
+            JSONObject optJSONObject = jSONObject.optJSONObject("ext");
+            zt1 zt1Var = null;
+            String str2 = "0";
+            if (optJSONObject != null) {
+                str2 = optJSONObject.optString("hasWebView", "0");
+                str = optJSONObject.optString("hasRelaunch");
+                bu1 A = gt2.U().A(optJSONObject.optString("slaveId"));
+                if (A instanceof zt1) {
+                    zt1Var = (zt1) A;
+                }
+            } else {
+                str = "";
+            }
+            if (TextUtils.equals(str2, "1")) {
+                HybridUbcFlow.SubmitStrategy i2 = p.i();
+                if (i2 == HybridUbcFlow.SubmitStrategy.HYBRID) {
+                    p.I(HybridUbcFlow.SubmitStrategy.HYBRID_WEB);
+                } else if (i2 == HybridUbcFlow.SubmitStrategy.RELAUNCH) {
+                    p.I(HybridUbcFlow.SubmitStrategy.RELAUNCH_WEB);
+                }
+            }
+            if (TextUtils.equals(str, "none")) {
+                if (TextUtils.equals(str2, "1")) {
+                    p.S();
+                } else {
+                    p.C(zt1Var);
+                }
+            }
+            A(p, t73Var, str2, zt1Var);
+            JSONArray optJSONArray = jSONObject.optJSONArray("data");
+            p.D("codecache", String.valueOf(i));
+            p.D("slave_codecache", String.valueOf(z()));
+            p.G(H(optJSONArray));
+            p.n();
+        }
+    }
+
+    public static int z() {
+        InterceptResult invokeV;
+        b72 o;
+        zt1 r3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            c72 V = gt2.U().V();
+            if (V == null || (o = V.o()) == null || (r3 = o.r3()) == null) {
+                return 0;
+            }
+            return r3.f0();
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x008a, code lost:
+        if (r2.equals("670") != false) goto L20;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public tz1 I(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            char c = 0;
+            q("#ubcFlowJar", false);
+            t73 b0 = t73.b0();
+            if (b0 == null) {
+                return new tz1(1001, "swan app is null");
+            }
+            Pair<tz1, JSONObject> s = s(str);
+            tz1 tz1Var = (tz1) s.first;
+            if (!tz1Var.isSuccess()) {
+                return tz1Var;
+            }
+            JSONObject jSONObject = (JSONObject) s.second;
+            String optString = jSONObject.optString("flowId");
+            if (TextUtils.isEmpty(optString)) {
+                return new tz1(201, "empty flowId");
+            }
+            switch (optString.hashCode()) {
+                case 53647:
+                    break;
+                case 53648:
+                    if (optString.equals("671")) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 55357:
+                    if (optString.equals("805")) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 56506:
+                    if (optString.equals("967")) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 46733230:
+                    if (optString.equals("10360")) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1529139648:
+                    if (optString.equals("renderMonitorLog")) {
+                        c = 5;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        if (c != 3) {
+                            if (c != 4) {
+                                if (c != 5) {
+                                    return new tz1(201, "unknown flowId");
+                                }
+                                C(jSONObject);
+                            } else {
+                                D(jSONObject);
+                            }
+                        } else {
+                            E(jSONObject.optJSONArray("data"));
+                        }
+                    } else {
+                        on3.a().g(jSONObject.optJSONArray("data"));
+                    }
+                } else {
+                    F(jSONObject.optJSONArray("data"));
+                }
+            } else {
+                B(jSONObject, b0);
+            }
+            return tz1.f();
+        }
+        return (tz1) invokeL.objValue;
     }
 }

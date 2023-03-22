@@ -1,109 +1,93 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
 /* loaded from: classes7.dex */
-public class zb extends bc<CustomMessage<?>, CustomMessageTask, mb, CustomResponsedMessage<?>> {
+public class zb extends DiskFileOperate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public sa i;
+    public String a;
+    public String b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zb(MessageManager messageManager) {
-        super(messageManager);
+    public zb(String str, String str2, DiskFileOperate.Action action) {
+        super(str, str2, action);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {messageManager};
+            Object[] objArr = {str, str2, action};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((MessageManager) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], (DiskFileOperate.Action) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = null;
-        this.i = new sa(messageManager);
-        this.e = ec.c();
+        this.a = null;
+        this.b = "UTF-8";
     }
 
-    public <T> CustomResponsedMessage<T> A(CustomMessage<?> customMessage, CustomMessageTask customMessageTask, Class<T> cls) {
-        InterceptResult invokeLLL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, customMessage, customMessageTask, cls)) == null) {
-            return this.i.k(customMessage, customMessageTask, cls);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (CustomResponsedMessage) invokeLLL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.oa
-    /* renamed from: B */
-    public void f(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
+    @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
+    public byte[] buildFormatData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customMessage, customMessageTask) == null) {
-            this.i.f(customMessage, customMessageTask);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            String str = this.a;
+            if (str != null) {
+                try {
+                    return str.getBytes(this.b);
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                }
+            }
+            return null;
         }
+        return (byte[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.oa
-    public LinkedList<CustomMessage<?>> e(int i, BdUniqueId bdUniqueId) {
-        InterceptResult invokeIL;
+    public void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bdUniqueId)) == null) {
-            return this.i.e(i, bdUniqueId);
-        }
-        return (LinkedList) invokeIL.objValue;
-    }
-
-    @Override // com.baidu.tieba.oa
-    public void h(int i, BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048580, this, i, bdUniqueId) == null) {
-            this.i.h(i, bdUniqueId);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.a = str;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bc
-    /* renamed from: y */
-    public CustomMessage<?> m(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, customMessage, customMessageTask)) == null) {
-            return this.a.getController().e(customMessage, customMessageTask);
-        }
-        return (CustomMessage) invokeLL.objValue;
-    }
-
-    public LinkedList<CustomMessage<?>> x(BdUniqueId bdUniqueId) {
+    @Override // com.baidu.adp.lib.Disk.ops.DiskFileOperate
+    public boolean formatData(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bdUniqueId)) == null) {
-            return this.i.i(bdUniqueId);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bArr)) == null) {
+            if (bArr == null) {
+                return false;
+            }
+            try {
+                this.a = new String(bArr, this.b);
+                return true;
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
+            }
         }
-        return (LinkedList) invokeL.objValue;
-    }
-
-    public void z(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId) == null) {
-            this.i.j(bdUniqueId);
-        }
+        return invokeL.booleanValue;
     }
 }

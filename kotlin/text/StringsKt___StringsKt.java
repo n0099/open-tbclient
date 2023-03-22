@@ -505,11 +505,11 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
     public static final int sumOfUInt(CharSequence charSequence, Function1<? super Character, UInt> selector) {
         Intrinsics.checkNotNullParameter(charSequence, "<this>");
         Intrinsics.checkNotNullParameter(selector, "selector");
-        int m860constructorimpl = UInt.m860constructorimpl(0);
+        int m862constructorimpl = UInt.m862constructorimpl(0);
         for (int i = 0; i < charSequence.length(); i++) {
-            m860constructorimpl = UInt.m860constructorimpl(m860constructorimpl + selector.invoke(Character.valueOf(charSequence.charAt(i))).m911unboximpl());
+            m862constructorimpl = UInt.m862constructorimpl(m862constructorimpl + selector.invoke(Character.valueOf(charSequence.charAt(i))).m913unboximpl());
         }
-        return m860constructorimpl;
+        return m862constructorimpl;
     }
 
     @SinceKotlin(version = "1.5")
@@ -520,11 +520,11 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
     public static final long sumOfULong(CharSequence charSequence, Function1<? super Character, ULong> selector) {
         Intrinsics.checkNotNullParameter(charSequence, "<this>");
         Intrinsics.checkNotNullParameter(selector, "selector");
-        long m938constructorimpl = ULong.m938constructorimpl(0L);
+        long m940constructorimpl = ULong.m940constructorimpl(0L);
         for (int i = 0; i < charSequence.length(); i++) {
-            m938constructorimpl = ULong.m938constructorimpl(m938constructorimpl + selector.invoke(Character.valueOf(charSequence.charAt(i))).m989unboximpl());
+            m940constructorimpl = ULong.m940constructorimpl(m940constructorimpl + selector.invoke(Character.valueOf(charSequence.charAt(i))).m991unboximpl());
         }
-        return m938constructorimpl;
+        return m940constructorimpl;
     }
 
     public static final <C extends Collection<? super Character>> C toCollection(CharSequence charSequence, C destination) {
@@ -2289,7 +2289,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
-    public static final float m2029maxOf(CharSequence charSequence, Function1<? super Character, Float> selector) {
+    public static final float m2045maxOf(CharSequence charSequence, Function1<? super Character, Float> selector) {
         boolean z;
         Intrinsics.checkNotNullParameter(charSequence, "<this>");
         Intrinsics.checkNotNullParameter(selector, "selector");
@@ -2320,7 +2320,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
-    public static final Double m2031maxOfOrNull(CharSequence charSequence, Function1<? super Character, Double> selector) {
+    public static final Double m2047maxOfOrNull(CharSequence charSequence, Function1<? super Character, Double> selector) {
         boolean z;
         Intrinsics.checkNotNullParameter(charSequence, "<this>");
         Intrinsics.checkNotNullParameter(selector, "selector");
@@ -2351,7 +2351,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
-    public static final float m2033minOf(CharSequence charSequence, Function1<? super Character, Float> selector) {
+    public static final float m2049minOf(CharSequence charSequence, Function1<? super Character, Float> selector) {
         boolean z;
         Intrinsics.checkNotNullParameter(charSequence, "<this>");
         Intrinsics.checkNotNullParameter(selector, "selector");
@@ -2382,7 +2382,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
-    public static final Double m2035minOfOrNull(CharSequence charSequence, Function1<? super Character, Double> selector) {
+    public static final Double m2051minOfOrNull(CharSequence charSequence, Function1<? super Character, Double> selector) {
         boolean z;
         Intrinsics.checkNotNullParameter(charSequence, "<this>");
         Intrinsics.checkNotNullParameter(selector, "selector");
@@ -2413,7 +2413,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOf  reason: collision with other method in class */
-    public static final <R extends Comparable<? super R>> R m2030maxOf(CharSequence charSequence, Function1<? super Character, ? extends R> selector) {
+    public static final <R extends Comparable<? super R>> R m2046maxOf(CharSequence charSequence, Function1<? super Character, ? extends R> selector) {
         boolean z;
         Intrinsics.checkNotNullParameter(charSequence, "<this>");
         Intrinsics.checkNotNullParameter(selector, "selector");
@@ -2447,7 +2447,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: maxOfOrNull  reason: collision with other method in class */
-    public static final Float m2032maxOfOrNull(CharSequence charSequence, Function1<? super Character, Float> selector) {
+    public static final Float m2048maxOfOrNull(CharSequence charSequence, Function1<? super Character, Float> selector) {
         boolean z;
         Intrinsics.checkNotNullParameter(charSequence, "<this>");
         Intrinsics.checkNotNullParameter(selector, "selector");
@@ -2478,7 +2478,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOf  reason: collision with other method in class */
-    public static final <R extends Comparable<? super R>> R m2034minOf(CharSequence charSequence, Function1<? super Character, ? extends R> selector) {
+    public static final <R extends Comparable<? super R>> R m2050minOf(CharSequence charSequence, Function1<? super Character, ? extends R> selector) {
         boolean z;
         Intrinsics.checkNotNullParameter(charSequence, "<this>");
         Intrinsics.checkNotNullParameter(selector, "selector");
@@ -2512,7 +2512,7 @@ public class StringsKt___StringsKt extends StringsKt___StringsJvmKt {
     @OverloadResolutionByLambdaReturnType
     @InlineOnly
     /* renamed from: minOfOrNull  reason: collision with other method in class */
-    public static final Float m2036minOfOrNull(CharSequence charSequence, Function1<? super Character, Float> selector) {
+    public static final Float m2052minOfOrNull(CharSequence charSequence, Function1<? super Character, Float> selector) {
         boolean z;
         Intrinsics.checkNotNullParameter(charSequence, "<this>");
         Intrinsics.checkNotNullParameter(selector, "selector");

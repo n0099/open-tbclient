@@ -1,125 +1,59 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.adp.widget.ListView.BdRecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.PbListView;
-import com.baidu.tieba.uo5;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
+import com.baidu.tbadk.core.data.BaijiahaoData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ep5 extends zo5 {
-    public static /* synthetic */ Interceptable $ic;
+public class ep5 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "";
+    public static String b = null;
+    public static String c = null;
+    public static String d = "floor";
     public transient /* synthetic */ FieldHolder $fh;
-    public uo5.c a;
-    public TbPageContext b;
-    public BdRecyclerView c;
-    public PbListView d;
 
-    public ep5(TbPageContext tbPageContext, BdRecyclerView bdRecyclerView, uo5.c cVar) {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947742047, "Lcom/baidu/tieba/ep5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdRecyclerView, cVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947742047, "Lcom/baidu/tieba/ep5;");
+        }
+    }
+
+    public static void a(String str, String str2, String str3, int i, a9 a9Var, BaijiahaoData baijiahaoData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, str2, str3, Integer.valueOf(i), a9Var, baijiahaoData}) == null) {
+            b = str;
+            c = str2;
+            a = str3;
+            if (!StringUtils.isNull(str3) && a9Var != null && a9Var.getPageActivity() != null) {
+                if (d.equals(a)) {
+                    SubPbActivityConfig createSubPbActivityConfig = new SubPbActivityConfig(a9Var.getPageActivity()).createSubPbActivityConfig(b, c, "search_post", true);
+                    createSubPbActivityConfig.setKeyPageStartFrom(8);
+                    createSubPbActivityConfig.setBjhData(baijiahaoData);
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, createSubPbActivityConfig));
+                    return;
+                }
+                PbActivityConfig createNormalCfg = new PbActivityConfig(a9Var.getPageActivity()).createNormalCfg(b, c, "search_post");
+                createNormalCfg.setStartFrom(8);
+                createNormalCfg.setBjhData(baijiahaoData);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createNormalCfg));
             }
-        }
-        this.b = tbPageContext;
-        this.c = bdRecyclerView;
-        this.a = cVar;
-        PbListView pbListView = new PbListView(getActivity());
-        this.d = pbListView;
-        pbListView.c();
-        this.d.r(R.color.transparent);
-        this.d.v(this.a.a);
-        this.d.O(this.a.b);
-        this.d.A();
-        this.d.J(R.dimen.tbfontsize33);
-        this.d.H(SkinManager.getColor(R.color.CAM_X0107));
-        this.d.D(R.color.CAM_X0110);
-        this.d.u();
-    }
-
-    private Activity getActivity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
-            return this.b.getPageActivity();
-        }
-        return (Activity) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.zo5
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.a.g) {
-                e();
-            } else {
-                d();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.zo5
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c.setNextPage(this.d);
-            this.d.T();
-            this.d.F(this.a.c);
-            this.d.E(null);
-        }
-    }
-
-    @Override // com.baidu.tieba.zo5
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.c.setNextPage(this.d);
-            this.d.g();
-            this.d.F(this.a.e);
-            this.d.E(null);
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.c.setNextPage(this.d);
-            this.d.g();
-            this.d.F(this.a.d);
-            this.d.E(null);
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.c.setNextPage(this.d);
-            this.d.g();
-            this.d.F(this.a.f);
-            this.d.E(this.a.h);
-        }
-    }
-
-    @Override // com.baidu.tieba.cp5
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.d.e(i);
         }
     }
 }

@@ -1,37 +1,14 @@
 package com.baidu.tieba;
 
-import android.os.Message;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.app.Activity;
+import android.content.Context;
+import android.net.Uri;
+import com.baidu.tieba.f93;
 /* loaded from: classes4.dex */
-public class fs1 implements mu1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface fs1 {
+    boolean a(Activity activity, String str, f93.b bVar);
 
-    @Override // com.baidu.tieba.mu1
-    public boolean a(Message message) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
+    boolean b(Context context, String str);
 
-    public fs1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    boolean c(Activity activity, Uri uri, String str);
 }

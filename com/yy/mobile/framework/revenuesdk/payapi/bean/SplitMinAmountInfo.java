@@ -1,5 +1,5 @@
 package com.yy.mobile.framework.revenuesdk.payapi.bean;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SplitMinAmountInfo {
     public static final int SPLIT_TYPE_OF_BEFOREE_PAY = 1;
     public static final int SPLIT_TYPE_OF_PAY_FAILED = 2;

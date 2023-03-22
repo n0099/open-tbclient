@@ -13,13 +13,13 @@ import androidx.core.view.InputDeviceCompat;
 import com.badlogic.gdx.Application;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a3;
-import com.baidu.tieba.h3;
-import com.baidu.tieba.i1;
-import com.baidu.tieba.l1;
-import com.baidu.tieba.o2;
-import com.baidu.tieba.q7;
-import com.baidu.tieba.r3;
+import com.baidu.tieba.d2;
+import com.baidu.tieba.k2;
+import com.baidu.tieba.l0;
+import com.baidu.tieba.o0;
+import com.baidu.tieba.r1;
+import com.baidu.tieba.t6;
+import com.baidu.tieba.u2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +33,7 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
     public static boolean DEBUG = false;
     public static final String TAG = "WallpaperService";
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile a3 app;
+    public volatile d2 app;
     public int engines;
     public volatile boolean isPreviewNotified;
     public volatile a linkedEngine;
@@ -106,7 +106,7 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
                     }
                     if (z) {
                         a aVar = this.a;
-                        ((h3) this.a.o.app.g).b(aVar.f, aVar.g);
+                        ((k2) this.a.o.app.g).b(aVar.f, aVar.g);
                     }
                 }
             }
@@ -149,9 +149,9 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
                         }
                     }
                     if (z) {
-                        h3 h3Var = (h3) this.a.o.app.g;
+                        k2 k2Var = (k2) this.a.o.app.g;
                         a aVar = this.a;
-                        h3Var.a(aVar.i, aVar.j, aVar.k, aVar.l, aVar.m, aVar.n);
+                        k2Var.a(aVar.i, aVar.j, aVar.k, aVar.l, aVar.m, aVar.n);
                     }
                 }
             }
@@ -186,7 +186,7 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
             @Override // java.lang.Runnable
             public void run() {
                 boolean z;
-                a3 a3Var;
+                d2 d2Var;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     synchronized (this.b.o.sync) {
@@ -197,8 +197,8 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
                         this.b.o.notifiedPreviewState = this.a;
                         this.b.o.isPreviewNotified = true;
                     }
-                    if (z && (a3Var = this.b.o.app) != null) {
-                        ((h3) a3Var.g).c(this.a);
+                    if (z && (d2Var = this.b.o.app) != null) {
+                        ((k2) d2Var.g).c(this.a);
                     }
                 }
             }
@@ -300,7 +300,7 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
 
         public void a() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.o.linkedEngine == this && (this.o.app.g instanceof h3) && !this.e) {
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.o.linkedEngine == this && (this.o.app.g instanceof k2) && !this.e) {
                 this.e = true;
                 this.o.app.postRunnable(new RunnableC0005a(this));
             }
@@ -316,7 +316,7 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
 
         public void b() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.o.linkedEngine == this && (this.o.app.g instanceof h3) && !this.h) {
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.o.linkedEngine == this && (this.o.app.g instanceof k2) && !this.h) {
                 this.h = true;
                 this.o.app.postRunnable(new b(this));
             }
@@ -324,7 +324,7 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
 
         public void c() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.o.linkedEngine == this && (this.o.app.g instanceof h3)) {
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.o.linkedEngine == this && (this.o.app.g instanceof k2)) {
                 this.o.app.postRunnable(new c(this, this.o.linkedEngine.isPreview()));
             }
         }
@@ -493,8 +493,8 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
                     }
                     c();
                     b();
-                    if (!l1.b.d()) {
-                        l1.b.c();
+                    if (!o0.b.d()) {
+                        o0.b.c();
                     }
                 }
             }
@@ -543,12 +543,12 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
         @Override // android.service.wallpaper.WallpaperService.Engine
         public WallpaperColors onComputeColors() {
             InterceptResult invokeV;
-            r3[] r3VarArr;
+            u2[] u2VarArr;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-                Application application = l1.a;
-                if (Build.VERSION.SDK_INT >= 27 && (application instanceof a3) && (r3VarArr = ((a3) application).n) != null) {
-                    return new WallpaperColors(Color.valueOf(r3VarArr[0].a, r3VarArr[0].b, r3VarArr[0].c, r3VarArr[0].d), Color.valueOf(r3VarArr[1].a, r3VarArr[1].b, r3VarArr[1].c, r3VarArr[1].d), Color.valueOf(r3VarArr[2].a, r3VarArr[2].b, r3VarArr[2].c, r3VarArr[2].d));
+                Application application = o0.a;
+                if (Build.VERSION.SDK_INT >= 27 && (application instanceof d2) && (u2VarArr = ((d2) application).n) != null) {
+                    return new WallpaperColors(Color.valueOf(u2VarArr[0].a, u2VarArr[0].b, u2VarArr[0].c, u2VarArr[0].d), Color.valueOf(u2VarArr[1].a, u2VarArr[1].b, u2VarArr[1].c, u2VarArr[1].d), Color.valueOf(u2VarArr[2].a, u2VarArr[2].b, u2VarArr[2].c, u2VarArr[2].d));
                 }
                 return super.onComputeColors();
             }
@@ -593,8 +593,8 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
                 this.m = i;
                 this.n = i2;
                 b();
-                if (!l1.b.d()) {
-                    l1.b.c();
+                if (!o0.b.d()) {
+                    o0.b.c();
                 }
                 super.onOffsetsChanged(f, f2, f3, f4, i, i2);
             }
@@ -635,7 +635,7 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
                     androidLiveWallpaperService4.viewFormat = 0;
                     androidLiveWallpaperService4.viewWidth = 0;
                     androidLiveWallpaperService4.viewHeight = 0;
-                    androidLiveWallpaperService4.app = new a3(this.o);
+                    androidLiveWallpaperService4.app = new d2(this.o);
                     this.o.onCreateApplication();
                     if (this.o.app.b == null) {
                         throw new Error("You must override 'AndroidLiveWallpaperService.onCreateApplication' method and call 'initialize' from its body.");
@@ -657,8 +657,8 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
                 }
                 c();
                 b();
-                if (!l1.b.d()) {
-                    l1.b.c();
+                if (!o0.b.d()) {
+                    o0.b.c();
                 }
             }
         }
@@ -677,7 +677,7 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
                 return;
             }
         }
-        q7.a();
+        t6.a();
         DEBUG = false;
     }
 
@@ -689,13 +689,13 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
         }
     }
 
-    public a3 getLiveWallpaper() {
+    public d2 getLiveWallpaper() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.app;
         }
-        return (a3) invokeV.objValue;
+        return (d2) invokeV.objValue;
     }
 
     public WindowManager getWindowManager() {
@@ -809,10 +809,10 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
         }
     }
 
-    public void initialize(i1 i1Var) {
+    public void initialize(l0 l0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, i1Var) == null) {
-            initialize(i1Var, new o2());
+        if (interceptable == null || interceptable.invokeL(1048580, this, l0Var) == null) {
+            initialize(l0Var, new r1());
         }
     }
 
@@ -825,14 +825,14 @@ public abstract class AndroidLiveWallpaperService extends WallpaperService {
         }
     }
 
-    public void initialize(i1 i1Var, o2 o2Var) {
+    public void initialize(l0 l0Var, r1 r1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, i1Var, o2Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048581, this, l0Var, r1Var) == null) {
             if (DEBUG) {
                 Log.d(TAG, " > AndroidLiveWallpaperService - initialize()");
             }
-            this.app.g(i1Var, o2Var);
-            if (o2Var.s && Integer.parseInt(Build.VERSION.SDK) >= 7) {
+            this.app.g(l0Var, r1Var);
+            if (r1Var.s && Integer.parseInt(Build.VERSION.SDK) >= 7) {
                 this.linkedEngine.setTouchEventsEnabled(true);
             }
         }

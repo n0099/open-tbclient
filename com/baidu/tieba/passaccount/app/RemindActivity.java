@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.switchs.FaceFeedbackEnableSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xb8;
-import com.baidu.tieba.yb8;
+import com.baidu.tieba.ah8;
+import com.baidu.tieba.bh8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -31,12 +31,12 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
 
         /* renamed from: com.baidu.tieba.passaccount.app.RemindActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0375a implements yb8.e {
+        public class C0371a implements bh8.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0375a(a aVar) {
+            public C0371a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,37 +54,37 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
                 this.a = aVar;
             }
 
-            @Override // com.baidu.tieba.yb8.e
+            @Override // com.baidu.tieba.bh8.e
             public void a(boolean z, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
-                    xb8.f().d(z, str);
-                    this.a.a.w1(true);
+                    ah8.f().d(z, str);
+                    this.a.a.z1(true);
                 }
             }
 
-            @Override // com.baidu.tieba.yb8.e
+            @Override // com.baidu.tieba.bh8.e
             public void b(boolean z, boolean z2, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), str}) == null) {
-                    xb8.f().d(z2, str);
-                    this.a.a.w1(true);
+                    ah8.f().d(z2, str);
+                    this.a.a.z1(true);
                 }
             }
 
-            @Override // com.baidu.tieba.yb8.e
+            @Override // com.baidu.tieba.bh8.e
             public void c() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                    xb8.f().d(false, null);
+                    ah8.f().d(false, null);
                 }
             }
 
-            @Override // com.baidu.tieba.yb8.e
+            @Override // com.baidu.tieba.bh8.e
             public void onFail() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                    xb8.f().d(false, null);
+                    ah8.f().d(false, null);
                 }
             }
         }
@@ -111,7 +111,7 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                yb8.i().g(this.a, new C0375a(this));
+                bh8.i().g(this.a, new C0371a(this));
             }
         }
     }
@@ -167,7 +167,7 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
     public void finish() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            w1(false);
+            z1(false);
         }
     }
 
@@ -177,26 +177,26 @@ public class RemindActivity extends BaseActivity<RemindActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d07d6);
+            setContentView(R.layout.obfuscated_res_0x7f0d07e8);
             ((NavigationBar) findViewById(R.id.view_navigation_bar)).addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            ((Button) findViewById(R.id.obfuscated_res_0x7f091d31)).setOnClickListener(new a(this));
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f090a72);
+            ((Button) findViewById(R.id.obfuscated_res_0x7f091d76)).setOnClickListener(new a(this));
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f090a98);
             if (FaceFeedbackEnableSwitch.isOn()) {
                 i = 0;
             } else {
                 i = 8;
             }
             findViewById.setVisibility(i);
-            ((TextView) findViewById(R.id.obfuscated_res_0x7f090a73)).setOnClickListener(new b(this));
+            ((TextView) findViewById(R.id.obfuscated_res_0x7f090a99)).setOnClickListener(new b(this));
         }
     }
 
-    public void w1(boolean z) {
+    public void z1(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
             super.finish();
             if (!z) {
-                xb8.f().a(null);
+                ah8.f().a(null);
             }
         }
     }

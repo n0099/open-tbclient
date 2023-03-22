@@ -6,8 +6,8 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.text.TextUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.n41;
-import com.baidu.tieba.rj0;
+import com.baidu.tieba.d31;
+import com.baidu.tieba.hi0;
 import java.util.Locale;
 /* loaded from: classes2.dex */
 public class BdNetUtils {
@@ -41,7 +41,7 @@ public class BdNetUtils {
     @SuppressLint({"MissingPermission"})
     public static NetworkInfo b() {
         try {
-            return ((ConnectivityManager) rj0.b().getSystemService("connectivity")).getActiveNetworkInfo();
+            return ((ConnectivityManager) hi0.b().getSystemService("connectivity")).getActiveNetworkInfo();
         } catch (Exception unused) {
             return null;
         }
@@ -92,6 +92,6 @@ public class BdNetUtils {
             sb.append(str);
             sb.append("MB");
         }
-        n41.a().showToast(context, sb.toString());
+        d31.a().showToast(context, sb.toString());
     }
 }

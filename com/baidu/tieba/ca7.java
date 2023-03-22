@@ -1,30 +1,82 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tbadkCore.data.PaymentConfirmRequestData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.mvc.message.MvcHttpMessage;
+import com.baidu.tbadk.mvc.message.MvcHttpResponsedMessage;
+import com.baidu.tbadk.mvc.message.MvcNetMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketMessage;
+import com.baidu.tbadk.mvc.message.MvcSocketResponsedMessage;
+import com.baidu.tbadk.mvc.model.NetModel;
+import com.baidu.tieba.frs.voiceroom.data.VoiceRoomListNetModel;
+import com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper;
+import com.baidu.tieba.ws4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.PlaceOrder.DataRes;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public class ca7 {
+public final class ca7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public long d;
-    public String e;
-    public int f;
-    public String g;
-    public String h;
-    public long i;
-    public int j;
-    public int k;
-    public long l;
-    public int m;
+    public final VoiceRoomListNetModel a;
+
+    /* loaded from: classes3.dex */
+    public static final class a implements NetModel.k<aa7, ba7> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vs4<List<VoiceRoomWrapper>> a;
+
+        public a(vs4<List<VoiceRoomWrapper>> vs4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vs4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = vs4Var;
+        }
+
+        @Override // com.baidu.tbadk.mvc.model.NetModel.l
+        public void F(MvcHttpResponsedMessage<ba7> mvcHttpResponsedMessage, MvcHttpMessage<aa7, ba7> mvcHttpMessage, MvcNetMessage<aa7, ba7> mvcNetMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLLL(1048576, this, mvcHttpResponsedMessage, mvcHttpMessage, mvcNetMessage) == null) && mvcHttpResponsedMessage != null && !mvcHttpResponsedMessage.hasError()) {
+                if (mvcHttpResponsedMessage.getError() == 0) {
+                    this.a.a(new ws4.c(mvcHttpResponsedMessage.getData().a()));
+                    return;
+                }
+                vs4<List<VoiceRoomWrapper>> vs4Var = this.a;
+                String errorString = mvcHttpResponsedMessage.getErrorString();
+                Intrinsics.checkNotNullExpressionValue(errorString, "responsedMessage.errorString");
+                vs4Var.a(new ws4.a(errorString, null, 2, null));
+            }
+        }
+
+        @Override // com.baidu.tbadk.mvc.model.NetModel.m
+        public void u(MvcSocketResponsedMessage<ba7, ?> mvcSocketResponsedMessage, MvcSocketMessage<aa7, ba7> mvcSocketMessage, MvcNetMessage<aa7, ba7> mvcNetMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mvcSocketResponsedMessage, mvcSocketMessage, mvcNetMessage) == null) && mvcSocketResponsedMessage != null && !mvcSocketResponsedMessage.hasError()) {
+                if (mvcSocketResponsedMessage.getError() == 0) {
+                    this.a.a(new ws4.c(mvcSocketResponsedMessage.getData().a()));
+                    return;
+                }
+                vs4<List<VoiceRoomWrapper>> vs4Var = this.a;
+                String errorString = mvcSocketResponsedMessage.getErrorString();
+                Intrinsics.checkNotNullExpressionValue(errorString, "responsedMessage.errorString");
+                vs4Var.a(new ws4.a(errorString, null, 2, null));
+            }
+        }
+    }
 
     public ca7() {
         Interceptable interceptable = $ic;
@@ -36,64 +88,23 @@ public class ca7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new VoiceRoomListNetModel();
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public final void a(TbPageContext<?> tbPageContext, long j, long j2, vs4<List<VoiceRoomWrapper>> callback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{tbPageContext, Long.valueOf(j), Long.valueOf(j2), callback}) == null) {
+            Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
+            Intrinsics.checkNotNullParameter(callback, "callback");
+            aa7 aa7Var = new aa7(j, j2);
+            this.a.setUniqueId(tbPageContext.getUniqueId());
+            this.a.u0(aa7Var);
+            this.a.t0(new a(callback));
+            this.a.loadData();
+            callback.a(new ws4.b(null, 1, null));
         }
-        return (String) invokeV.objValue;
-    }
-
-    public PaymentConfirmRequestData a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            PaymentConfirmRequestData paymentConfirmRequestData = new PaymentConfirmRequestData();
-            paymentConfirmRequestData.setTdou_num(this.i);
-            paymentConfirmRequestData.setOpen_id(this.l);
-            paymentConfirmRequestData.setOrder_id(this.g);
-            paymentConfirmRequestData.setScene_id(this.b);
-            paymentConfirmRequestData.setGoods_name(this.a);
-            paymentConfirmRequestData.setGoods_pic(this.e);
-            paymentConfirmRequestData.setTerminal("" + this.f);
-            paymentConfirmRequestData.setGoods_num((long) this.j);
-            paymentConfirmRequestData.setGoods_unit(this.h);
-            paymentConfirmRequestData.setGoods_duration(this.d);
-            paymentConfirmRequestData.setGoods_user_level(this.c);
-            paymentConfirmRequestData.setPay_type(this.k);
-            paymentConfirmRequestData.setCurrency(this.m);
-            return paymentConfirmRequestData;
-        }
-        return (PaymentConfirmRequestData) invokeV.objValue;
-    }
-
-    public void c(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) != null) || dataRes == null) {
-            return;
-        }
-        dataRes.timestamp.intValue();
-        this.a = dataRes.goods_name;
-        this.b = dataRes.scene_id.intValue();
-        this.c = dataRes.goods_user_level.intValue();
-        this.d = dataRes.goods_duration.intValue();
-        this.e = dataRes.goods_pic;
-        this.f = dataRes.terminal.intValue();
-        this.g = dataRes.order_id;
-        this.h = dataRes.goods_unit;
-        this.i = dataRes.tdou_num.intValue();
-        dataRes.goods_price.intValue();
-        this.j = dataRes.goods_num.intValue();
-        this.k = dataRes.pay_type.intValue();
-        dataRes.user_id.longValue();
-        dataRes.tb_timestamp.intValue();
-        this.l = dataRes.open_id.longValue();
-        dataRes.gift_count.intValue();
-        this.m = dataRes.currency.intValue();
     }
 }

@@ -19,9 +19,9 @@ import com.baidu.tbadk.core.data.ForumData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.dj;
+import com.baidu.tieba.bc9;
+import com.baidu.tieba.gi;
 import com.baidu.tieba.im.data.GroupInfoData;
-import com.baidu.tieba.tbadkCore.data.PostData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -214,10 +214,10 @@ public class ShareItem {
             return (ForwardInfo) invokeLI.objValue;
         }
 
-        public static ForwardInfo generateForwardInfo(ThreadData threadData, int i, PostData postData) {
+        public static ForwardInfo generateForwardInfo(ThreadData threadData, int i, bc9 bc9Var) {
             InterceptResult invokeLIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, threadData, i, postData)) == null) {
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, threadData, i, bc9Var)) == null) {
                 String str = null;
                 if (threadData == null) {
                     return null;
@@ -239,8 +239,8 @@ public class ShareItem {
                     forwardInfo.originalBaijiahaoData = originalThreadInfo.p;
                     forwardInfo.originalTid = originalThreadInfo.f;
                     if (i == 1) {
-                        if (postData != null && postData.Z() != null) {
-                            str = postData.Z().toString();
+                        if (bc9Var != null && bc9Var.Z() != null) {
+                            str = bc9Var.Z().toString();
                         } else if (threadData.getAbstract() != null) {
                             str = threadData.getAbstractText().toString();
                         }
@@ -253,10 +253,10 @@ public class ShareItem {
                     if (threadData.getAuthor() != null && !TextUtils.isEmpty(threadData.getAuthor().getName_show())) {
                         forwardInfo.transmitThreadAuthorNameShow = threadData.getAuthor().getName_show();
                     }
-                    if (i == 1 && postData != null && dj.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && postData.r() != null) {
-                        forwardInfo.transmitThreadAuthorNameShow = postData.r().getName_show();
+                    if (i == 1 && bc9Var != null && gi.isEmpty(forwardInfo.transmitThreadAuthorNameShow) && bc9Var.r() != null) {
+                        forwardInfo.transmitThreadAuthorNameShow = bc9Var.r().getName_show();
                     }
-                    if (i == 2 && dj.isEmpty(forwardInfo.transmitThreadAuthorNameShow)) {
+                    if (i == 2 && gi.isEmpty(forwardInfo.transmitThreadAuthorNameShow)) {
                         forwardInfo.transmitThreadAuthorNameShow = TbadkCoreApplication.getCurrentAccountNameShow();
                     }
                 } else {

@@ -1,97 +1,61 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.client.HttpClient;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes3.dex */
-public class ac extends bc<HttpMessage, HttpMessageTask, ob, HttpResponsedMessage> {
+public class ac extends DiskFileOperate implements rb {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HttpClient i;
-
-    public HttpMessage x(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, httpMessage, httpMessageTask)) == null) ? httpMessage : (HttpMessage) invokeLL.objValue;
-    }
+    public ArrayList<String> a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ac(MessageManager messageManager) {
-        super(messageManager);
+    public ac(String str, String str2, DiskFileOperate.Action action, ArrayList<String> arrayList) {
+        super(str, str2, action);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {messageManager};
+            Object[] objArr = {str, str2, action, arrayList};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((MessageManager) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], (DiskFileOperate.Action) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = null;
-        this.i = new HttpClient(messageManager);
-        this.e = fc.d();
+        this.a = arrayList;
     }
 
-    @Override // com.baidu.tieba.oa
-    public LinkedList<HttpMessage> e(int i, BdUniqueId bdUniqueId) {
-        InterceptResult invokeIL;
+    @Override // com.baidu.tieba.rb
+    public boolean compare(File file) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bdUniqueId)) == null) {
-            return this.i.e(i, bdUniqueId);
-        }
-        return (LinkedList) invokeIL.objValue;
-    }
-
-    @Override // com.baidu.tieba.oa
-    public void h(int i, BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bdUniqueId) == null) {
-            this.i.h(i, bdUniqueId);
-        }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
-    @Override // com.baidu.tieba.bc
-    public /* bridge */ /* synthetic */ HttpMessage m(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        HttpMessage httpMessage2 = httpMessage;
-        x(httpMessage2, httpMessageTask);
-        return httpMessage2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.oa
-    /* renamed from: z */
-    public void f(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, httpMessage, httpMessageTask) == null) {
-            if (httpMessageTask.getConnectTimeOut() == null) {
-                httpMessageTask.setConnectTimeOut(((fc) this.e).c());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
+            if (this.a != null && file != null) {
+                String name = file.getName();
+                if (!TextUtils.isEmpty(name)) {
+                    Iterator<String> it = this.a.iterator();
+                    while (it.hasNext()) {
+                        if (name.equals(it.next())) {
+                            return true;
+                        }
+                    }
+                }
             }
-            this.i.f(httpMessage, httpMessageTask);
+            return false;
         }
-    }
-
-    public void y(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
-            this.i.j(bdUniqueId);
-        }
+        return invokeL.booleanValue;
     }
 }

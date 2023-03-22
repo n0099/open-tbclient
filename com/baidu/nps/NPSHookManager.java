@@ -2,7 +2,7 @@ package com.baidu.nps;
 
 import android.app.Application;
 import android.os.Build;
-import com.baidu.tieba.ce1;
+import com.baidu.tieba.sc1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -29,7 +29,7 @@ public class NPSHookManager {
     public static void init(Application application) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(65537, null, application) == null) && Build.VERSION.SDK_INT < 28) {
-            ce1.a(application);
+            sc1.a(application);
         }
     }
 }

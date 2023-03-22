@@ -1,130 +1,220 @@
 package com.baidu.tieba;
 
+import android.util.LongSparseArray;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import androidx.annotation.RequiresApi;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.eq7;
+import com.baidu.tieba.im.chat.MsgCommonItemAdapter;
+import com.baidu.tieba.im.chat.officialBar.OfficialBarFeedActivity;
+import com.baidu.tieba.im.chat.officialBar.OfficialBarFeedMsglistAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class jo7 {
+public class jo7 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public int d;
-    public int e;
-    public long f;
+    public TbPageContext<OfficialBarFeedActivity> a;
+    public List<fq7> b;
+    public LongSparseArray<tp7> c;
+    public OfficialBarFeedMsglistAdapter.c d;
+    public BdTypeListView e;
+    public boolean f;
 
-    public jo7() {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends MsgCommonItemAdapter.MsgViewHolder<go7> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(jo7 jo7Var, View view2, go7 go7Var) {
+            super(view2, go7Var);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jo7Var, view2, go7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((View) objArr2[0], objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    public jo7(TbPageContext<OfficialBarFeedActivity> tbPageContext, BdTypeListView bdTypeListView, OfficialBarFeedMsglistAdapter.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdTypeListView, cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = null;
+        this.c = null;
+        this.a = tbPageContext;
+        this.d = cVar;
+        this.e = bdTypeListView;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public fq7 getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            List<fq7> list = this.b;
+            if (list == null || list.size() == 0 || i < 0 || i >= getCount()) {
+                return null;
+            }
+            return this.b.get(i);
         }
-        return (String) invokeV.objValue;
+        return (fq7) invokeI.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public void c(List<fq7> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            if (this.b == null) {
+                this.b = new LinkedList();
+            }
+            this.b.clear();
+            this.b.addAll(list);
+            notifyDataSetChanged();
         }
-        return (String) invokeV.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public void d(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.f = z;
         }
-        return (String) invokeV.objValue;
     }
 
-    public int d() {
-        InterceptResult invokeV;
+    public final View b(int i, View view2, ViewGroup viewGroup, fq7 fq7Var, MsgCommonItemAdapter.MsgViewHolder<go7> msgViewHolder) {
+        InterceptResult invokeCommon;
+        tp7 tp7Var;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, fq7Var, msgViewHolder})) == null) {
+            go7 a2 = msgViewHolder.a();
+            eq7.a d = fq7Var.d();
+            d.m = fq7Var.b();
+            LongSparseArray<tp7> longSparseArray = this.c;
+            if (longSparseArray == null) {
+                tp7Var = null;
+            } else {
+                tp7Var = longSparseArray.get(d.h);
+            }
+            a2.q(this.a.getPageActivity().getBaseContext(), d, fq7Var.c(), tp7Var, fq7Var.e(), fq7Var.f(), i);
+            if (this.f) {
+                str = "c13865";
+            } else {
+                str = "c13863";
+            }
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            String str2 = d.n;
+            if (str2 == null) {
+                str2 = "";
+            }
+            statisticItem.param("tid", str2);
+            statisticItem.param("fid", d.e);
+            TiebaStatic.log(statisticItem);
+            return view2;
         }
-        return invokeV.intValue;
+        return (View) invokeCommon.objValue;
     }
 
-    public int e() {
-        InterceptResult invokeV;
+    @RequiresApi(api = 16)
+    public void e(LongSparseArray<tp7> longSparseArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
+        if (interceptable == null || interceptable.invokeL(1048580, this, longSparseArray) == null) {
+            if (this.c == null) {
+                this.c = new LongSparseArray<>();
+            }
+            this.c.clear();
+            for (int i = 0; i < longSparseArray.size(); i++) {
+                this.c.put(longSparseArray.keyAt(i), longSparseArray.valueAt(i));
+            }
+            notifyDataSetChanged();
         }
-        return invokeV.intValue;
     }
 
-    public long f() {
+    @Override // android.widget.Adapter
+    public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f;
+            List<fq7> list = this.b;
+            if (list == null) {
+                return 0;
+            }
+            return list.size();
         }
-        return invokeV.longValue;
+        return invokeV.intValue;
     }
 
-    public void g(String str) {
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        a aVar;
+        a aVar2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.c = str;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
+            if (view2 != null) {
+                aVar = (a) view2.getTag();
+            } else {
+                aVar = null;
+            }
+            if (aVar == null) {
+                go7 go7Var = new go7(this.a, this.f);
+                go7Var.r(this.d);
+                View l = go7Var.l();
+                a aVar3 = new a(this, go7Var.l(), go7Var);
+                l.setTag(aVar3);
+                view2 = l;
+                aVar2 = aVar3;
+            } else {
+                aVar2 = aVar;
+            }
+            b(i, view2, viewGroup, getItem(i), aVar2);
+            return view2;
         }
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void l(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
-            this.f = j;
-        }
+        return (View) invokeILL.objValue;
     }
 }

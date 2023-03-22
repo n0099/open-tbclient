@@ -1,21 +1,17 @@
 package com.baidu.tieba;
-
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
 /* loaded from: classes4.dex */
 public interface i5a {
-    void a();
 
-    void a(int i, String str);
+    /* loaded from: classes4.dex */
+    public interface a {
+        void a(String str, i5a i5aVar);
+    }
 
-    void a(boolean z, int i, String... strArr);
+    void cancel();
 
-    void b();
+    boolean isRunning();
 
-    void b(RippedAd rippedAd, String... strArr);
+    void pause();
 
-    void c();
-
-    void c(int i, String str);
-
-    void d(RippedAd rippedAd, String... strArr);
+    void start();
 }

@@ -6,11 +6,11 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ce5;
-import com.baidu.tieba.de5;
-import com.baidu.tieba.n88;
 import com.baidu.tieba.nearby.model.NearbyFriendsModel;
-import com.baidu.tieba.o88;
+import com.baidu.tieba.pc5;
+import com.baidu.tieba.qc5;
+import com.baidu.tieba.qd8;
+import com.baidu.tieba.rd8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,7 +19,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class NearbyFriendsActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public n88 a;
+    public qd8 a;
     public NearbyFriendsModel b;
     public CustomMessageListener c;
     public CustomMessageListener d;
@@ -93,13 +93,13 @@ public class NearbyFriendsActivity extends BaseFragmentActivity {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null) {
-                de5 de5Var = null;
-                if (customResponsedMessage.getData() instanceof de5) {
-                    de5Var = (de5) customResponsedMessage.getData();
+                qc5 qc5Var = null;
+                if (customResponsedMessage.getData() instanceof qc5) {
+                    qc5Var = (qc5) customResponsedMessage.getData();
                 }
-                if (de5Var != null && de5Var.b() == 1) {
+                if (qc5Var != null && qc5Var.b() == 1) {
                     NearbyFriendsActivity nearbyFriendsActivity = this.a;
-                    new ce5(nearbyFriendsActivity, nearbyFriendsActivity.findViewById(R.id.obfuscated_res_0x7f0917b9), de5Var).m();
+                    new pc5(nearbyFriendsActivity, nearbyFriendsActivity.findViewById(R.id.obfuscated_res_0x7f0917f5), qc5Var).m();
                 }
             }
         }
@@ -137,7 +137,7 @@ public class NearbyFriendsActivity extends BaseFragmentActivity {
         }
     }
 
-    public final void q1() {
+    public final void s1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             a aVar = new a(this, 2921651);
@@ -162,13 +162,13 @@ public class NearbyFriendsActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0045);
-            q1();
-            o88 o88Var = new o88(this);
-            this.a = o88Var;
-            NearbyFriendsModel nearbyFriendsModel = new NearbyFriendsModel(o88Var, getUniqueId());
+            setContentView(R.layout.obfuscated_res_0x7f0d0046);
+            s1();
+            rd8 rd8Var = new rd8(this);
+            this.a = rd8Var;
+            NearbyFriendsModel nearbyFriendsModel = new NearbyFriendsModel(rd8Var, getUniqueId());
             this.b = nearbyFriendsModel;
-            nearbyFriendsModel.V(getIntent());
+            nearbyFriendsModel.Z(getIntent());
             this.a.o(this.b);
             this.a.onCreate();
         }

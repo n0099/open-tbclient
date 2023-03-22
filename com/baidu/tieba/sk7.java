@@ -1,56 +1,76 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.view.View;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pk7;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ThreadInfo;
 /* loaded from: classes6.dex */
-public class sk7 extends pk7.b {
+public class sk7 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId f;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public int b;
+    public long c;
+    public String d;
+    public ThreadData e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sk7(View view2) {
-        super(view2);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948154378, "Lcom/baidu/tieba/sk7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948154378, "Lcom/baidu/tieba/sk7;");
+                return;
+            }
+        }
+        f = BdUniqueId.gen();
+    }
+
+    public sk7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.pk7.b, com.baidu.tieba.pk7.a
-    @TargetApi(11)
-    public boolean a() {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.gn
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.isHardwareAccelerated();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return f;
         }
-        return invokeV.booleanValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pk7.b, com.baidu.tieba.pk7.a
-    @TargetApi(14)
-    public void c(int i) {
+    public void c(ThreadInfo threadInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a.setScrollX(i);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, threadInfo) != null) || threadInfo == null) {
+            return;
         }
+        ThreadData threadData = new ThreadData();
+        this.e = threadData;
+        threadData.parserProtobuf(threadInfo);
+        this.e.parser_title();
     }
 }

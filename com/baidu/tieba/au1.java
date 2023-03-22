@@ -1,22 +1,31 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import java.io.File;
-import java.util.HashMap;
+import android.view.View;
+import android.webkit.ValueCallback;
 /* loaded from: classes3.dex */
-public interface au1 {
+public interface au1 extends r62 {
+    boolean canGoBack();
 
-    /* loaded from: classes3.dex */
-    public interface a {
-        void onResult(String str);
-    }
+    View covertToView();
 
-    void a(HashMap<String, String> hashMap, File file, a aVar, String str);
+    void destroy();
 
-    void b(Context context, String str, String str2, String str3);
+    @Override // com.baidu.tieba.r62
+    void evaluateJavascript(String str, ValueCallback<String> valueCallback);
 
-    void c(HashMap<String, String> hashMap, File file, a aVar);
+    int getContentHeight();
 
-    void d(Bitmap bitmap, HashMap<String, String> hashMap, File[] fileArr, a aVar);
+    View getCurrentWebView();
+
+    float getScale();
+
+    int getWebViewScrollX();
+
+    int getWebViewScrollY();
+
+    void goBack();
+
+    void setDefaultViewSize(int i, int i2, String str);
+
+    void webViewScrollTo(int i, int i2);
 }

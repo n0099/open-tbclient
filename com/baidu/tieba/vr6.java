@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tieba.faceshop.forumpackage.data.ForumEmotionPackageData;
+import android.content.Context;
+import android.content.ContextWrapper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,11 +10,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class vr6 implements Cdo {
+public final class vr6 extends ContextWrapper {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
+    public static final vr6 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public ForumEmotionPackageData a;
 
     static {
         InterceptResult invokeClinit;
@@ -29,10 +28,12 @@ public class vr6 implements Cdo {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        a = new vr6();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public vr6() {
+        super(null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -40,19 +41,11 @@ public class vr6 implements Cdo {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
-        }
-        return (BdUniqueId) invokeV.objValue;
     }
 }

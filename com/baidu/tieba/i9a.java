@@ -1,80 +1,123 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.Build;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.lang.reflect.Field;
-import org.json.JSONObject;
+import com.baidu.validation.utils.ValidationLog;
 /* loaded from: classes4.dex */
-public class i9a extends BaseAdRipper {
+public class i9a {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
+    public static String b;
+    public static String c;
+    public static String d;
+    public static String e;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i9a(Ssp.Pid pid) {
-        super(pid);
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Ssp.Pid) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (TextUtils.isEmpty(b)) {
+                String str = Build.VERSION.RELEASE;
+                b = str;
+                return str == null ? "" : str;
             }
+            return b;
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
-    public RippedAd getRippedAdInternal(Object obj) {
+    public static String b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            if (TextUtils.isEmpty(d)) {
+                try {
+                    PackageManager packageManager = context.getPackageManager();
+                    String charSequence = packageManager.getPackageInfo(context.getPackageName(), 0).applicationInfo.loadLabel(packageManager).toString();
+                    d = charSequence;
+                    return charSequence;
+                } catch (Throwable unused) {
+                    return null;
+                }
             }
-            try {
-                Field declaredField = obj.getClass().getDeclaredField("b");
-                declaredField.setAccessible(true);
-                Object obj2 = declaredField.get(obj);
-                if (obj2 == null) {
-                    return null;
-                }
-                Field declaredField2 = obj2.getClass().getDeclaredField("a");
-                declaredField2.setAccessible(true);
-                Object obj3 = declaredField2.get(obj2);
-                if (obj3 == null) {
-                    return null;
-                }
-                Field declaredField3 = obj3.getClass().getDeclaredField("i");
-                declaredField3.setAccessible(true);
-                Object obj4 = declaredField3.get(obj3);
-                if (obj4 == null) {
-                    return null;
-                }
-                Field declaredField4 = obj4.getClass().getDeclaredField("L");
-                declaredField4.setAccessible(true);
-                Object obj5 = declaredField4.get(obj4);
-                if (obj5 instanceof JSONObject) {
-                    return j8a.a((JSONObject) obj5);
-                }
-                return null;
-            } catch (Exception unused) {
-                LogPrinter.e();
-                return null;
-            }
+            return d;
         }
-        return (RippedAd) invokeL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
+            StringBuilder sb = new StringBuilder(str);
+            sb.append(" ");
+            sb.append("Sapi_");
+            sb.append(d());
+            sb.append("_");
+            sb.append("Android_");
+            sb.append(b(context));
+            sb.append("_");
+            sb.append(e(context));
+            sb.append("_");
+            sb.append(f());
+            sb.append("_");
+            sb.append(a());
+            sb.append("_Sapi");
+            ValidationLog.e(sb.toString(), new Object[0]);
+            return sb.toString();
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (TextUtils.isEmpty(c)) {
+                c = "1.0.5";
+                return "1.0.5";
+            }
+            return c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            if (TextUtils.isEmpty(e)) {
+                try {
+                    String str = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+                    e = str;
+                    return str;
+                } catch (Throwable unused) {
+                    return null;
+                }
+            }
+            return e;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (TextUtils.isEmpty(a)) {
+                String str = Build.MODEL;
+                a = str;
+                return str == null ? "" : str;
+            }
+            return a;
+        }
+        return (String) invokeV.objValue;
     }
 }

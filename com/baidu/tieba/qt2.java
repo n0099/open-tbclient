@@ -1,7 +1,13 @@
 package com.baidu.tieba;
-
-import android.content.Context;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface qt2 {
-    void a(Context context, p12 p12Var);
+    int a();
+
+    boolean b();
+
+    boolean c();
+
+    boolean d();
+
+    boolean e();
 }

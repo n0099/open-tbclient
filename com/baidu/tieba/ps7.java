@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
-import android.text.TextPaint;
-import com.baidu.tbadk.core.util.tbselector.utils.SelectorHelper;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -10,42 +9,37 @@ public class ps7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str, String str2, float f, TextPaint textPaint, String str3) {
-        InterceptResult invokeCommon;
+    public static String a(String str) {
+        InterceptResult invokeL;
+        int indexOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{str, str2, Float.valueOf(f), textPaint, str3})) == null) {
-            if (textPaint == null) {
-                textPaint = new TextPaint();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            String urlDecode = gi.getUrlDecode(str);
+            if (urlDecode == null) {
+                return urlDecode;
             }
-            String b = b(textPaint, str, f - textPaint.measureText(str2), str2);
-            if (str.length() > b.length()) {
-                return b + str2;
+            int lastIndexOf = urlDecode.lastIndexOf("/");
+            if (lastIndexOf == -1 || (indexOf = urlDecode.indexOf(".", lastIndexOf)) == -1) {
+                return null;
             }
-            return b + str3;
+            return urlDecode.substring(lastIndexOf + 1, indexOf);
         }
-        return (String) invokeCommon.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static String b(TextPaint textPaint, String str, float f, String str2) {
-        InterceptResult invokeCommon;
+    public static boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{textPaint, str, Float.valueOf(f), str2})) == null) {
-            float measureText = textPaint.measureText(str);
-            while (str.length() > 0 && measureText > f) {
-                str = fr5.n(str, fr5.f(str) - 1);
-                measureText = textPaint.measureText(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return false;
             }
-            return str;
+            String urlDecode = gi.getUrlDecode(str);
+            if (StringUtils.isNull(urlDecode) || !urlDecode.contains("?t=")) {
+                return false;
+            }
+            return true;
         }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static int c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            return SelectorHelper.getResources().getDisplayMetrics().widthPixels - i;
-        }
-        return invokeI.intValue;
+        return invokeL.booleanValue;
     }
 }

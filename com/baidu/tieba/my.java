@@ -2,38 +2,37 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.MutiImgSingleVerticalLayout;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.kz;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.VoteView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class my extends lx<zx4> {
+public class my extends vw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MutiImgSingleVerticalLayout f;
-    public zx4 g;
-    public int h;
-    public String i;
+    public TbPageContext h;
+    public int i;
+    public VoteView j;
 
     /* loaded from: classes5.dex */
-    public class a implements kz.b {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ my a;
+        public final /* synthetic */ hw4 a;
+        public final /* synthetic */ my b;
 
-        public a(my myVar) {
+        public a(my myVar, hw4 hw4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {myVar};
+                Object[] objArr = {myVar, hw4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -43,24 +42,16 @@ public class my extends lx<zx4> {
                     return;
                 }
             }
-            this.a = myVar;
+            this.b = myVar;
+            this.a = hw4Var;
         }
 
-        @Override // com.baidu.tieba.kz.b
-        public boolean a(kz.a aVar) {
-            InterceptResult invokeL;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-                if (this.a.g != null && this.a.g.getThreadData() != null) {
-                    jf6.a(this.a.g.getThreadData().getId());
-                    my myVar = this.a;
-                    jf6.l(myVar.f.a, myVar.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    my myVar2 = this.a;
-                    jf6.l(myVar2.f.b, myVar2.g.getThreadData().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                }
-                return false;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                ThreadCardUtils.jumpToPB(this.a, (Context) this.b.h.getPageActivity(), this.b.i, false);
             }
-            return invokeL.booleanValue;
         }
     }
 
@@ -82,80 +73,68 @@ public class my extends lx<zx4> {
                 return;
             }
         }
-        this.h = 3;
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().h instanceof MutiImgSingleVerticalLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().h.getParent() == null) {
-            MutiImgSingleVerticalLayout mutiImgSingleVerticalLayout = (MutiImgSingleVerticalLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().h;
-            this.f = mutiImgSingleVerticalLayout;
-            mutiImgSingleVerticalLayout.setRealContext(context);
-            return;
-        }
-        this.f = new MutiImgSingleVerticalLayout(context);
-    }
-
-    @Override // com.baidu.tieba.lx
-    public void p(xf6<zx4> xf6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, xf6Var) == null) {
-            this.f.setSubClickListener(xf6Var);
-        }
+        this.j = new VoteView(context);
+        v(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.dy
-    /* renamed from: t */
-    public void a(zx4 zx4Var) {
+    @Override // com.baidu.tieba.gx
+    /* renamed from: z */
+    public void a(hw4 hw4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, zx4Var) == null) {
-            this.g = zx4Var;
-            this.f.setFrom(this.i);
-            this.f.a(zx4Var);
+        if (interceptable == null || interceptable.invokeL(1048582, this, hw4Var) == null) {
+            if (y(hw4Var)) {
+                this.j.setVisibility(0);
+                this.j.setThreadData(hw4Var.getThreadData());
+                this.j.setOnItemClickListener(new a(this, hw4Var));
+                return;
+            }
+            this.j.setVisibility(8);
         }
     }
 
-    public void u(String str) {
+    public void A(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.i = str;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.i = i;
         }
     }
 
-    public void v(boolean z) {
+    public void B(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.f.setFromCDN(z);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) {
+            this.h = tbPageContext;
+            this.j.setPageContext(tbPageContext);
         }
     }
 
-    public void w(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.f.setNeedFrsTabName(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.lx
+    @Override // com.baidu.tieba.ow
     public View k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.j;
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lx
-    public void l() {
+    @Override // com.baidu.tieba.hx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            m(1, new a(this));
+        if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
+            this.j.D(i);
         }
     }
 
-    @Override // com.baidu.tieba.ey
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+    public final boolean y(hw4 hw4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) {
-            this.h = i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, hw4Var)) == null) {
+            if (hw4Var != null && hw4Var.getThreadData() != null && hw4Var.getThreadData().getPollData() != null && hw4Var.getThreadData().getPollData().getOptions() != null && hw4Var.getThreadData().getPollData().getOptions().size() > 0 && !hw4Var.getThreadData().isVideoThreadType()) {
+                return true;
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 }

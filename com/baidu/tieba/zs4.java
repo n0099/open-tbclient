@@ -1,74 +1,126 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class zs4 {
+public abstract class zs4 {
     public static /* synthetic */ Interceptable $ic;
+    public static WeakReference<TbPageContext<?>> a;
+    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final at4 a;
+
+    /* loaded from: classes7.dex */
+    public interface a {
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948370510, "Lcom/baidu/tieba/zs4;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948370510, "Lcom/baidu/tieba/zs4;");
+        }
+    }
+
+    public abstract void c();
+
+    public abstract void d();
+
+    public abstract void e();
+
+    public abstract void f();
+
+    public abstract void g(int i);
+
+    public abstract void i();
+
+    public abstract void k(a aVar);
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+        }
+    }
+
+    public abstract void m();
 
     public zs4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new at4();
+        new ArrayList(5);
     }
 
-    public ys4 a(String str) {
-        InterceptResult invokeL;
-        String str2;
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String str3 = null;
-            if (dj.isEmpty(str)) {
-                return null;
-            }
-            Matcher matcher = Pattern.compile("\\$[0-9A-Za-z@_]{5,300}[#$]", 2).matcher(str);
-            if (!matcher.find()) {
-                return null;
-            }
-            String group = matcher.group();
-            Matcher matcher2 = Pattern.compile("\\$[0-9A-Za-z@_]{1,100}[!]", 2).matcher(str);
-            if (matcher2.find()) {
-                str2 = ct4.d(matcher2.group());
-            } else {
-                str2 = null;
-            }
-            if (str2 != null && str2.startsWith("Y")) {
-                bt4.a(str2);
-                str3 = b(group);
-            }
-            return new ys4(group, str3, str2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b;
         }
-        return (ys4) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final String b(String str) {
+    public void h() {
+        WeakReference<TbPageContext<?>> weakReference;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (weakReference = a) != null) {
+            weakReference.get();
+            a.clear();
+            a = null;
+        }
+    }
+
+    public static zs4 a(BaseFragmentActivity baseFragmentActivity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseFragmentActivity)) == null) {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2004505, zs4.class, baseFragmentActivity);
+            if (runTask != null && runTask.getData() != null) {
+                return (zs4) runTask.getData();
             }
-            return this.a.a(ct4.f(str.replaceAll("\\$", "")));
+            return null;
         }
-        return (String) invokeL.objValue;
+        return (zs4) invokeL.objValue;
+    }
+
+    public void j(TbPageContext<?> tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tbPageContext) == null) {
+            WeakReference<TbPageContext<?>> weakReference = a;
+            if (weakReference == null) {
+                a = new WeakReference<>(tbPageContext);
+                return;
+            }
+            weakReference.clear();
+            a = null;
+            a = new WeakReference<>(tbPageContext);
+        }
     }
 }

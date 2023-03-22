@@ -7,14 +7,14 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
-import com.baidu.tieba.d11;
-import com.baidu.tieba.t61;
+import com.baidu.tieba.j51;
+import com.baidu.tieba.tz0;
 /* loaded from: classes2.dex */
 public class BdVideoBattery extends View {
-    public static final int d = t61.d(2.0f);
-    public static final int e = t61.d(2.0f);
-    public static final int f = t61.d(2.0f);
-    public static final int g = t61.d(4.0f);
+    public static final int d = j51.d(2.0f);
+    public static final int e = j51.d(2.0f);
+    public static final int f = j51.d(2.0f);
+    public static final int g = j51.d(4.0f);
     public final Context a;
     public Bitmap b;
     public Paint c;
@@ -64,7 +64,7 @@ public class BdVideoBattery extends View {
         if (bitmap != null) {
             canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
         }
-        float f3 = (float) (d11.a / 100.0d);
+        float f3 = (float) (tz0.a / 100.0d);
         if (f3 >= 0.0f) {
             if (f3 > 100.0f) {
                 f2 = 100.0f;

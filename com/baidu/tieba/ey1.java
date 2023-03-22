@@ -1,96 +1,88 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.storage.PathType;
+import com.baidu.tieba.yc3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ey1 extends dy1 {
+public class ey1 extends zx1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.px1
+    @Override // com.baidu.tieba.wv1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ImageApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "DeviceInfoApi" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes4.dex */
-    public class a implements Runnable {
+    public class a implements mm3<wc3<yc3.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ File a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ m93 d;
-        public final /* synthetic */ ey1 e;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ ey1 c;
 
-        public a(ey1 ey1Var, File file, int i, String str, m93 m93Var) {
+        public a(ey1 ey1Var, Context context, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ey1Var, file, Integer.valueOf(i), str, m93Var};
+                Object[] objArr = {ey1Var, context, str};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.e = ey1Var;
-            this.a = file;
-            this.b = i;
-            this.c = str;
-            this.d = m93Var;
+            this.c = ey1Var;
+            this.a = context;
+            this.b = str;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.mm3
+        /* renamed from: b */
+        public void a(wc3<yc3.e> wc3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                File k = km3.k(this.a.getName());
-                if (!km3.b(this.a, k, this.b)) {
-                    m62.c("ImageApi", "compress image failed");
-                    this.e.d(this.c, new m12(1001, "compress image failed"));
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wc3Var) == null) {
+                if (rc3.h(wc3Var)) {
+                    this.c.d(this.b, new tz1(0, this.c.z(this.a)));
                     return;
                 }
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("tempFilePath", ug3.J(k.getAbsolutePath(), this.d.b));
-                } catch (JSONException e) {
-                    m62.c("ImageApi", e.toString());
-                }
-                this.e.d(this.c, new m12(0, jSONObject));
+                int b = wc3Var.b();
+                rc3.f(b);
+                this.c.d(this.b, new tz1(b, rc3.f(b)));
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ey1(@NonNull nx1 nx1Var) {
-        super(nx1Var);
+    public ey1(@NonNull uv1 uv1Var) {
+        super(uv1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {nx1Var};
+            Object[] objArr = {uv1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((nx1) newInitContext.callArgs[0]);
+                super((uv1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -98,64 +90,44 @@ public class ey1 extends dy1 {
         }
     }
 
-    public m12 x(String str) {
+    public final JSONObject z(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("oaid", ys3.b.b(context));
+                jSONObject.put("androidId", ys3.b.a(context));
+            } catch (JSONException e) {
+                p("#getDeviceInfo json put data fail", e, false);
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public tz1 y(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#compressImage", false);
-            Pair<m12, JSONObject> s = s(str);
-            m12 m12Var = (m12) s.first;
-            if (!m12Var.isSuccess()) {
-                return m12Var;
-            }
-            JSONObject jSONObject = (JSONObject) s.second;
-            String optString = jSONObject.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                m62.c("ImageApi", "cb is empty");
-                return new m12(202, "cb is empty");
-            }
-            return y(optString, jSONObject.optString("src"), jSONObject.optInt("quality", 80));
-        }
-        return (m12) invokeL.objValue;
-    }
-
-    public final m12 y(String str, String str2, int i) {
-        InterceptResult invokeLLI;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, str, str2, i)) == null) {
-            m93 b0 = m93.b0();
+            q("#getDeviceInfo", false);
+            t73 b0 = t73.b0();
             if (b0 == null) {
-                return new m12(1001, "swan app is null");
+                return new tz1(1001, "swan app is null");
             }
-            if (i >= 0 && i <= 100) {
-                i2 = i;
-            } else {
-                i2 = 80;
+            Pair<tz1, JSONObject> s = s(str);
+            tz1 tz1Var = (tz1) s.first;
+            if (!tz1Var.isSuccess()) {
+                return tz1Var;
             }
-            if (TextUtils.isEmpty(str2)) {
-                m62.c("ImageApi", "src is null");
-                return new m12(202, "src is null");
+            String optString = ((JSONObject) s.second).optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                return new tz1(202, "cb is empty");
             }
-            PathType s = ug3.s(str2);
-            String str3 = null;
-            if (s == PathType.BD_FILE) {
-                str3 = ug3.M(str2, b0.b);
-            } else if (s == PathType.RELATIVE) {
-                str3 = ug3.L(str2, b0, b0.k0());
-            }
-            if (TextUtils.isEmpty(str3)) {
-                m62.c("ImageApi", "file path error");
-                return new m12(2001, "file path error");
-            }
-            File file = new File(str3);
-            if (!file.exists()) {
-                m62.c("ImageApi", "file does not exist");
-                return new m12(2001, "file does not exist");
-            }
-            gm3.k(new a(this, file, i2, str, b0), "compressImage");
-            return m12.f();
+            Context context = getContext();
+            b0.e0().g(context, "scope_get_device_info", new a(this, context, optString));
+            return tz1.f();
         }
-        return (m12) invokeLLI.objValue;
+        return (tz1) invokeL.objValue;
     }
 }

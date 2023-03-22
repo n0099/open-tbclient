@@ -901,7 +901,7 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
     }
 
     public SearchView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040608);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040613);
     }
 
     private Intent createVoiceWebSearchIntent(Intent intent, SearchableInfo searchableInfo) {
@@ -1052,17 +1052,17 @@ public class SearchView extends LinearLayoutCompat implements CollapsibleActionV
         };
         TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(context, attributeSet, androidx.appcompat.R.styleable.SearchView, i, 0);
         LayoutInflater.from(context).inflate(obtainStyledAttributes.getResourceId(9, R.layout.obfuscated_res_0x7f0d0019), (ViewGroup) this, true);
-        SearchAutoComplete searchAutoComplete = (SearchAutoComplete) findViewById(R.id.obfuscated_res_0x7f091f86);
+        SearchAutoComplete searchAutoComplete = (SearchAutoComplete) findViewById(R.id.obfuscated_res_0x7f091fd2);
         this.mSearchSrcTextView = searchAutoComplete;
         searchAutoComplete.setSearchView(this);
-        this.mSearchEditFrame = findViewById(R.id.obfuscated_res_0x7f091f61);
-        this.mSearchPlate = findViewById(R.id.obfuscated_res_0x7f091f7d);
-        this.mSubmitArea = findViewById(R.id.obfuscated_res_0x7f092136);
-        this.mSearchButton = (ImageView) findViewById(R.id.obfuscated_res_0x7f091f5d);
-        this.mGoButton = (ImageView) findViewById(R.id.obfuscated_res_0x7f091f6c);
-        this.mCloseButton = (ImageView) findViewById(R.id.obfuscated_res_0x7f091f5e);
-        this.mVoiceButton = (ImageView) findViewById(R.id.obfuscated_res_0x7f091f90);
-        this.mCollapsedIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f091f7b);
+        this.mSearchEditFrame = findViewById(R.id.obfuscated_res_0x7f091fac);
+        this.mSearchPlate = findViewById(R.id.obfuscated_res_0x7f091fc9);
+        this.mSubmitArea = findViewById(R.id.obfuscated_res_0x7f092187);
+        this.mSearchButton = (ImageView) findViewById(R.id.obfuscated_res_0x7f091fa8);
+        this.mGoButton = (ImageView) findViewById(R.id.obfuscated_res_0x7f091fb8);
+        this.mCloseButton = (ImageView) findViewById(R.id.obfuscated_res_0x7f091fa9);
+        this.mVoiceButton = (ImageView) findViewById(R.id.obfuscated_res_0x7f091fdc);
+        this.mCollapsedIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f091fc7);
         ViewCompat.setBackground(this.mSearchPlate, obtainStyledAttributes.getDrawable(10));
         ViewCompat.setBackground(this.mSubmitArea, obtainStyledAttributes.getDrawable(14));
         this.mSearchButton.setImageDrawable(obtainStyledAttributes.getDrawable(13));

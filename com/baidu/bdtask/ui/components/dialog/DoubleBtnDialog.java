@@ -7,11 +7,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.BDPTask;
 import com.baidu.bdtask.component.dialog.TaskDialogViewData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.or;
-import com.baidu.tieba.pr;
-import com.baidu.tieba.tu;
-import com.baidu.tieba.uu;
-import com.baidu.tieba.zs;
+import com.baidu.tieba.cs;
+import com.baidu.tieba.rq;
+import com.baidu.tieba.sq;
+import com.baidu.tieba.wt;
+import com.baidu.tieba.xt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -97,20 +97,20 @@ public final class DoubleBtnDialog extends a {
                     /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
                     /* renamed from: invoke  reason: avoid collision after fix types in other method */
                     public final void invoke2() {
-                        zs b;
-                        uu d;
-                        uu d2;
+                        cs b;
+                        xt d;
+                        xt d2;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                            tu v = BDPTask.m.v();
+                            wt v = BDPTask.m.v();
                             if (v != null && (d2 = v.d()) != null) {
-                                d2.b(this.$data.getTaskInfoSingleKey(), pr.c.a());
+                                d2.b(this.$data.getTaskInfoSingleKey(), sq.c.a());
                             }
-                            tu v2 = BDPTask.m.v();
+                            wt v2 = BDPTask.m.v();
                             if (v2 != null && (d = v2.d()) != null) {
                                 d.a(this.$data.getTaskInfoSingleKey());
                             }
-                            tu v3 = BDPTask.m.v();
+                            wt v3 = BDPTask.m.v();
                             if (v3 != null && (b = v3.b()) != null) {
                                 b.a(this.$data.getBackBtnSchema(), 1);
                             }
@@ -161,14 +161,14 @@ public final class DoubleBtnDialog extends a {
                     /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
                     /* renamed from: invoke  reason: avoid collision after fix types in other method */
                     public final void invoke2() {
-                        tu v;
-                        zs b;
-                        uu d;
+                        wt v;
+                        cs b;
+                        xt d;
                         Interceptable interceptable2 = $ic;
                         if (interceptable2 == null || interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                            tu v2 = BDPTask.m.v();
+                            wt v2 = BDPTask.m.v();
                             if (v2 != null && (d = v2.d()) != null) {
-                                d.b(this.$data.getTaskInfoSingleKey(), or.c.a());
+                                d.b(this.$data.getTaskInfoSingleKey(), rq.c.a());
                             }
                             if (!TextUtils.isEmpty(this.$data.getCancelBtnSchema()) && (v = BDPTask.m.v()) != null && (b = v.b()) != null) {
                                 b.a(this.$data.getCancelBtnSchema(), 1);

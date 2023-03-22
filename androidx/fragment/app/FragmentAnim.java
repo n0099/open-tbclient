@@ -22,13 +22,13 @@ public class FragmentAnim {
     @AnimRes
     public static int transitToAnimResourceId(int i, boolean z) {
         if (i == 4097) {
-            return z ? R.anim.obfuscated_res_0x7f010075 : R.anim.obfuscated_res_0x7f010083;
+            return z ? R.anim.obfuscated_res_0x7f010086 : R.anim.obfuscated_res_0x7f010087;
         } else if (i == 4099) {
-            return z ? R.anim.obfuscated_res_0x7f010072 : R.anim.obfuscated_res_0x7f010073;
+            return z ? R.anim.obfuscated_res_0x7f010083 : R.anim.obfuscated_res_0x7f010084;
         } else if (i != 8194) {
             return -1;
         } else {
-            return z ? R.anim.obfuscated_res_0x7f010070 : R.anim.obfuscated_res_0x7f010071;
+            return z ? R.anim.obfuscated_res_0x7f010074 : R.anim.obfuscated_res_0x7f010075;
         }
     }
 
@@ -181,8 +181,8 @@ public class FragmentAnim {
         boolean z2 = false;
         fragment.setNextAnim(0);
         View onFindViewById = fragmentContainer.onFindViewById(fragment.mContainerId);
-        if (onFindViewById != null && onFindViewById.getTag(R.id.obfuscated_res_0x7f0927c1) != null) {
-            onFindViewById.setTag(R.id.obfuscated_res_0x7f0927c1, null);
+        if (onFindViewById != null && onFindViewById.getTag(R.id.obfuscated_res_0x7f092821) != null) {
+            onFindViewById.setTag(R.id.obfuscated_res_0x7f092821, null);
         }
         ViewGroup viewGroup = fragment.mContainer;
         if (viewGroup != null && viewGroup.getLayoutTransition() != null) {

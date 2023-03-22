@@ -2,12 +2,12 @@ package com.baidu.searchbox.retrieve.core.task;
 
 import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.searchbox.retrieve.inter.upload.IUploadTask;
-import com.baidu.tieba.zk1;
+import com.baidu.tieba.pj1;
 /* loaded from: classes2.dex */
-public class UploadTaskFetcher extends zk1<IUploadTask> {
+public class UploadTaskFetcher extends pj1<IUploadTask> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.zk1
+    @Override // com.baidu.tieba.pj1
     public IUploadTask createService() throws ServiceNotFoundException {
         return new UploadTask();
     }

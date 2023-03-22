@@ -10,15 +10,16 @@ import com.baidu.tbadk.core.atomData.AlaMasterLiveRoomActivityConfig;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import com.baidu.tbadk.core.util.PreLoadImageProvider;
-import com.baidu.tieba.Cdo;
-import com.baidu.tieba.bz4;
-import com.baidu.tieba.dz4;
-import com.baidu.tieba.e15;
-import com.baidu.tieba.g15;
-import com.baidu.tieba.gz4;
-import com.baidu.tieba.ly4;
-import com.baidu.tieba.mz4;
-import com.baidu.tieba.n15;
+import com.baidu.tieba.dx4;
+import com.baidu.tieba.gn;
+import com.baidu.tieba.kx4;
+import com.baidu.tieba.mx4;
+import com.baidu.tieba.nz4;
+import com.baidu.tieba.px4;
+import com.baidu.tieba.pz4;
+import com.baidu.tieba.tw4;
+import com.baidu.tieba.vx4;
+import com.baidu.tieba.wz4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -50,7 +51,7 @@ import tbclient.FrsPage.Yule;
 import tbclient.SimpleForum;
 import tbclient.ThemeColorInfo;
 /* loaded from: classes3.dex */
-public class ForumData implements Serializable, PreLoadImageProvider, Cdo {
+public class ForumData implements Serializable, PreLoadImageProvider, gn {
     public static /* synthetic */ Interceptable $ic = null;
     public static BdUniqueId FORUM_FLOOR_TYPE = null;
     public static final String FROM_PAGE_FRS = "frs";
@@ -63,7 +64,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, Cdo {
     public String first_class;
     public String forumGameLabel;
     public String forum_share_link;
-    public ArrayList<mz4> good_classify;
+    public ArrayList<vx4> good_classify;
     public String id;
     public String image_url;
     public boolean isBlockBawuDelete;
@@ -75,18 +76,18 @@ public class ForumData implements Serializable, PreLoadImageProvider, Cdo {
     public int is_like;
     public int is_private_forum;
     public boolean is_sign;
-    public bz4 l;
+    public kx4 l;
     public String level_name;
     public int levelup_score;
     public int locate;
     public AcrossForumIcon mAcrossForumIcon;
-    public final ArrayList<ly4> mBadgeData;
+    public final ArrayList<tw4> mBadgeData;
     public final BannerListData mBannerListData;
     public DeletedReasonInfo mDeletedReasonInfo;
     public String mFromPage;
-    public final gz4 mFrsBannerData;
+    public final px4 mFrsBannerData;
     public int mIsLiveGameForum;
-    public dz4 mMemberShowIconData;
+    public mx4 mMemberShowIconData;
     public PostTopicData mPostTopicData;
     public final PostPrefixData mPrefixData;
     public ArrayList<RecommendForumData> mRecommendForumData;
@@ -96,7 +97,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, Cdo {
     public List<Manager> managers;
     public int member_num;
     public String name;
-    public g15 news_info;
+    public pz4 news_info;
     public int post_num;
     public String riskTipNotice;
     public String riskTipPop;
@@ -108,13 +109,13 @@ public class ForumData implements Serializable, PreLoadImageProvider, Cdo {
     public String tag_name;
     public int thread_num;
     public String topIcon;
-    public e15 top_code;
+    public nz4 top_code;
     public TopNoticeData top_notice_data;
     public String topic_special_icon;
     public String topic_special_icon_right;
     public int user_level;
     public String warning_msg;
-    public n15 yuleData;
+    public wz4 yuleData;
 
     static {
         InterceptResult invokeClinit;
@@ -141,7 +142,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, Cdo {
         return (String) invokeV.objValue;
     }
 
-    public ArrayList<ly4> getBadgeData() {
+    public ArrayList<tw4> getBadgeData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -213,16 +214,16 @@ public class ForumData implements Serializable, PreLoadImageProvider, Cdo {
         return (String) invokeV.objValue;
     }
 
-    public gz4 getFrsBannerData() {
+    public px4 getFrsBannerData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.mFrsBannerData;
         }
-        return (gz4) invokeV.objValue;
+        return (px4) invokeV.objValue;
     }
 
-    public ArrayList<mz4> getGood_classify() {
+    public ArrayList<vx4> getGood_classify() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
@@ -336,13 +337,13 @@ public class ForumData implements Serializable, PreLoadImageProvider, Cdo {
         return (String) invokeV.objValue;
     }
 
-    public g15 getNewsInfo() {
+    public pz4 getNewsInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
             return this.news_info;
         }
-        return (g15) invokeV.objValue;
+        return (pz4) invokeV.objValue;
     }
 
     public int getPost_num() {
@@ -492,13 +493,13 @@ public class ForumData implements Serializable, PreLoadImageProvider, Cdo {
         return (List) invokeV.objValue;
     }
 
-    public e15 getTopCode() {
+    public nz4 getTopCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
             return this.top_code;
         }
-        return (e15) invokeV.objValue;
+        return (nz4) invokeV.objValue;
     }
 
     public String getTopIcon() {
@@ -537,7 +538,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, Cdo {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.Cdo
+    @Override // com.baidu.tieba.gn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -565,13 +566,13 @@ public class ForumData implements Serializable, PreLoadImageProvider, Cdo {
         return (String) invokeV.objValue;
     }
 
-    public n15 getYuleData() {
+    public wz4 getYuleData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
             return this.yuleData;
         }
-        return (n15) invokeV.objValue;
+        return (wz4) invokeV.objValue;
     }
 
     public String getfShareImage() {
@@ -645,15 +646,15 @@ public class ForumData implements Serializable, PreLoadImageProvider, Cdo {
         this.levelup_score = 0;
         this.top_notice_data = new TopNoticeData();
         this.mBadgeData = new ArrayList<>();
-        this.mFrsBannerData = new gz4();
+        this.mFrsBannerData = new px4();
         this.mBannerListData = new BannerListData();
         this.mRecommendForumData = new ArrayList<>();
         this.mPrefixData = new PostPrefixData();
         this.mPostTopicData = new PostTopicData();
-        this.top_code = new e15();
-        this.news_info = new g15();
-        this.mMemberShowIconData = new dz4();
-        this.yuleData = new n15();
+        this.top_code = new nz4();
+        this.news_info = new pz4();
+        this.mMemberShowIconData = new mx4();
+        this.yuleData = new wz4();
         this.mIsLiveGameForum = 0;
         this.warning_msg = null;
         this.special_forum_type = null;
@@ -849,9 +850,9 @@ public class ForumData implements Serializable, PreLoadImageProvider, Cdo {
             JSONArray optJSONArray2 = jSONObject.optJSONArray("good_classify");
             if (optJSONArray2 != null) {
                 for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                    mz4 mz4Var = new mz4();
-                    mz4Var.c(optJSONArray2.optJSONObject(i2));
-                    this.good_classify.add(mz4Var);
+                    vx4 vx4Var = new vx4();
+                    vx4Var.c(optJSONArray2.optJSONObject(i2));
+                    this.good_classify.add(vx4Var);
                 }
             }
             JSONObject optJSONObject3 = jSONObject.optJSONObject("sign_in_info");
@@ -879,9 +880,9 @@ public class ForumData implements Serializable, PreLoadImageProvider, Cdo {
             JSONArray optJSONArray3 = jSONObject.optJSONArray("badges");
             if (optJSONArray3 != null && optJSONArray3.length() > 0) {
                 for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
-                    ly4 ly4Var = new ly4();
-                    ly4Var.a(optJSONArray3.optJSONObject(i3));
-                    this.mBadgeData.add(ly4Var);
+                    tw4 tw4Var = new tw4();
+                    tw4Var.a(optJSONArray3.optJSONObject(i3));
+                    this.mBadgeData.add(tw4Var);
                 }
             }
             JSONArray optJSONArray4 = jSONObject.optJSONArray("recommend_forum");
@@ -959,6 +960,7 @@ public class ForumData implements Serializable, PreLoadImageProvider, Cdo {
         boolean z;
         boolean z2;
         boolean z3;
+        boolean z4;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048630, this, forumInfo) != null) || forumInfo == null) {
             return;
@@ -994,12 +996,12 @@ public class ForumData implements Serializable, PreLoadImageProvider, Cdo {
             setFavo_type(forumInfo.favo_type.intValue());
             this.managers = forumInfo.managers;
             List<Classify> list = forumInfo.good_classify;
-            boolean z4 = false;
+            boolean z5 = false;
             if (list != null) {
                 for (int i = 0; i < list.size(); i++) {
-                    mz4 mz4Var = new mz4();
-                    mz4Var.d(list.get(i));
-                    this.good_classify.add(mz4Var);
+                    vx4 vx4Var = new vx4();
+                    vx4Var.d(list.get(i));
+                    this.good_classify.add(vx4Var);
                 }
             }
             SignInfo signInfo = forumInfo.sign_in_info;
@@ -1023,13 +1025,23 @@ public class ForumData implements Serializable, PreLoadImageProvider, Cdo {
                         }
                     }
                 }
+                SignData signData = this.mSignData;
+                if (signInfo.has_chatroom_sign.intValue() == 1) {
+                    z4 = true;
+                } else {
+                    z4 = false;
+                }
+                signData.showGuideToChatRoom = z4;
+                if (signInfo.chatroom_sign_info != null) {
+                    this.mSignData.chatRoomGuideData = dx4.d.a(signInfo.chatroom_sign_info);
+                }
             }
             List<Badges> list2 = forumInfo.badges;
             if (list2 != null && list2.size() > 0) {
                 for (int i2 = 0; i2 < list2.size(); i2++) {
-                    ly4 ly4Var = new ly4();
-                    ly4Var.b(list2.get(i2));
-                    this.mBadgeData.add(ly4Var);
+                    tw4 tw4Var = new tw4();
+                    tw4Var.b(list2.get(i2));
+                    this.mBadgeData.add(tw4Var);
                 }
             }
             List<RecommendForum> list3 = forumInfo.recommend_forum;
@@ -1090,9 +1102,9 @@ public class ForumData implements Serializable, PreLoadImageProvider, Cdo {
             this.isShowForumRule = z3;
             this.mDeletedReasonInfo = forumInfo.deleted_reason_info;
             if (forumInfo.is_frs_mask.intValue() == 1) {
-                z4 = true;
+                z5 = true;
             }
-            this.isFrsMask = z4;
+            this.isFrsMask = z5;
         } catch (Exception e) {
             BdLog.e(e.getMessage());
         }

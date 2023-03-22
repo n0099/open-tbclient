@@ -4,18 +4,18 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.oe5;
-import com.baidu.tieba.pe5;
-import com.baidu.tieba.ve5;
+import com.baidu.tieba.bd5;
+import com.baidu.tieba.cd5;
+import com.baidu.tieba.id5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class KPSwitchFSPanelFrameLayout extends FrameLayout implements oe5 {
+public class KPSwitchFSPanelFrameLayout extends FrameLayout implements bd5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pe5 a;
+    public cd5 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public KPSwitchFSPanelFrameLayout(Context context) {
@@ -82,7 +82,7 @@ public class KPSwitchFSPanelFrameLayout extends FrameLayout implements oe5 {
         b();
     }
 
-    @Override // com.baidu.tieba.oe5
+    @Override // com.baidu.tieba.bd5
     public void a(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -90,18 +90,18 @@ public class KPSwitchFSPanelFrameLayout extends FrameLayout implements oe5 {
         }
     }
 
-    @Override // com.baidu.tieba.oe5
+    @Override // com.baidu.tieba.bd5
     public void refreshHeight(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            ve5.d(this, i);
+            id5.d(this, i);
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = new pe5(this);
+            this.a = new cd5(this);
         }
     }
 }

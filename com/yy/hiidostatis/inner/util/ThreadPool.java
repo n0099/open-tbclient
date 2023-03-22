@@ -12,7 +12,7 @@ import java.util.concurrent.FutureTask;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ThreadPool {
     public static final String HIIDO_FIXED_THREAD_NAME = "hiido_fixed_thread";
     public static final String HIIDO_SCHEDULED_THREAD_NAME = "hiido_scheduled_thread";

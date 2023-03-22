@@ -1,243 +1,308 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListAdapter;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tieba.themeCenter.MemberRecommendView;
-import com.baidu.tieba.themeCenter.card.category.PersonalCardCategoryActivity;
-import com.baidu.tieba.themeCenter.card.category.PersonalCardItemView;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.data.ErrorData;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.write.message.AddPostHttpResponse;
+import com.baidu.tieba.write.message.AddPostRequest;
+import com.baidu.tieba.write.message.AddThreadHttpResponse;
+import com.baidu.tieba.write.message.AddThreadRequest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class gc9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public PersonalCardCategoryActivity b;
-    public View c;
-    public NavigationBar d;
-    public NoNetworkView e;
-    public MemberRecommendView f;
-    public BdListView g;
-    public fc9 h;
-    public View i;
-    public TextView j;
-    public int k;
+    public e a;
+    public final BdUniqueId b;
+    public HttpMessageListener c;
+    public HttpMessageListener d;
 
-    public gc9(PersonalCardCategoryActivity personalCardCategoryActivity) {
+    /* loaded from: classes4.dex */
+    public interface e {
+        void a(fe9 fe9Var);
+    }
+
+    /* loaded from: classes4.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gc9 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(gc9 gc9Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gc9Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gc9Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                qv4.b("write", "threadRES");
+                if ((httpResponsedMessage instanceof AddThreadHttpResponse) && this.a.a != null) {
+                    JSONObject resultData = ((AddThreadHttpResponse) httpResponsedMessage).getResultData();
+                    fe9 fe9Var = new fe9();
+                    if (httpResponsedMessage.hasError()) {
+                        fe9Var.i(true);
+                        fe9Var.f(httpResponsedMessage.getError());
+                        fe9Var.h(httpResponsedMessage.getErrorString());
+                    } else {
+                        fe9Var.i(false);
+                        ErrorData errorData = new ErrorData();
+                        errorData.parserJson(resultData);
+                        fe9Var.f(errorData.getError_code());
+                        fe9Var.h(errorData.getError_msg());
+                        fe9Var.g(errorData.getError_data());
+                    }
+                    fe9Var.j(resultData);
+                    this.a.a.a(fe9Var);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gc9 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(gc9 gc9Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gc9Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gc9Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) {
+                qv4.b("write", "postRES");
+                if ((httpResponsedMessage instanceof AddPostHttpResponse) && this.a.a != null) {
+                    JSONObject resultData = ((AddPostHttpResponse) httpResponsedMessage).getResultData();
+                    fe9 fe9Var = new fe9();
+                    if (httpResponsedMessage.hasError()) {
+                        fe9Var.i(true);
+                        fe9Var.f(httpResponsedMessage.getError());
+                        fe9Var.h(httpResponsedMessage.getErrorString());
+                    } else {
+                        fe9Var.i(false);
+                        ErrorData errorData = new ErrorData();
+                        errorData.parserJson(resultData);
+                        fe9Var.f(errorData.getError_code());
+                        fe9Var.h(errorData.getError_msg());
+                        fe9Var.g(errorData.getError_data());
+                    }
+                    fe9Var.j(resultData);
+                    this.a.a.a(fe9Var);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AddThreadRequest a;
+
+        public c(gc9 gc9Var, AddThreadRequest addThreadRequest) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gc9Var, addThreadRequest};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = addThreadRequest;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                MessageManager.getInstance().sendMessage(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AddPostRequest a;
+
+        public d(gc9 gc9Var, AddPostRequest addPostRequest) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gc9Var, addPostRequest};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = addPostRequest;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                MessageManager.getInstance().sendMessage(this.a);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947789260, "Lcom/baidu/tieba/gc9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947789260, "Lcom/baidu/tieba/gc9;");
+                return;
+            }
+        }
+        d();
+    }
+
+    public gc9(a9<?> a9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {personalCardCategoryActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {a9Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = 3;
-        this.k = 0;
-        this.b = personalCardCategoryActivity;
-        this.k = ej.g(personalCardCategoryActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07023d);
-        View inflate = LayoutInflater.from(this.b.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d01d4, (ViewGroup) null);
-        this.c = inflate;
-        this.b.setContentView(inflate);
-        this.i = this.c.findViewById(R.id.obfuscated_res_0x7f0903ff);
-        NavigationBar navigationBar = (NavigationBar) this.c.findViewById(R.id.view_navigation_bar);
-        this.d = navigationBar;
-        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.d.setTitleText(R.string.obfuscated_res_0x7f0f0f48);
-        this.e = (NoNetworkView) this.c.findViewById(R.id.view_no_network);
-        MemberRecommendView memberRecommendView = (MemberRecommendView) this.c.findViewById(R.id.obfuscated_res_0x7f090602);
-        this.f = memberRecommendView;
-        memberRecommendView.setFromType(9);
-        TextView textView = new TextView(this.b.getActivity());
-        this.j = textView;
-        textView.setHeight(ej.g(this.b.getActivity(), R.dimen.obfuscated_res_0x7f07019c));
-        this.g = (BdListView) this.c.findViewById(R.id.obfuscated_res_0x7f090601);
-        fc9 fc9Var = new fc9(this.b.getPageContext());
-        this.h = fc9Var;
-        this.g.setAdapter((ListAdapter) fc9Var);
-    }
-
-    public final List<Object> a(List<ec9> list) {
-        InterceptResult invokeL;
-        int size;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (ec9 ec9Var : list) {
-                ArrayList<hb9> a = ec9Var.a();
-                if (a != null && (size = a.size()) != 0) {
-                    arrayList.add(ec9Var.b());
-                    if (size > 6) {
-                        size = 6;
-                    }
-                    int i2 = 0;
-                    while (i2 < size) {
-                        ArrayList arrayList2 = new ArrayList();
-                        int i3 = 0;
-                        while (true) {
-                            i = this.a;
-                            if (i3 < i) {
-                                int i4 = i2 + i3;
-                                if (i4 < size) {
-                                    arrayList2.add(a.get(i4));
-                                }
-                                i3++;
-                            }
-                        }
-                        arrayList.add(arrayList2);
-                        i2 = i2 + (i - 1) + 1;
-                    }
-                }
-            }
-            return arrayList;
+        this.b = BdUniqueId.gen();
+        this.c = new a(this, CmdConfigHttp.CMD_WRITE_THREAD_ADD);
+        this.d = new b(this, CmdConfigHttp.CMD_WRITE_POST_ADD);
+        this.c.setTag(this.b);
+        this.c.setSelfListener(true);
+        this.d.setTag(this.b);
+        this.d.setSelfListener(true);
+        if (a9Var != null) {
+            a9Var.registerListener(this.c);
+            a9Var.registerListener(this.d);
+            return;
         }
-        return (List) invokeL.objValue;
+        MessageManager.getInstance().registerListener(this.c);
+        MessageManager.getInstance().registerListener(this.d);
     }
 
-    public void b() {
+    public void b(NetWork netWork) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b.hideNetRefreshView(this.c);
-            this.i.setVisibility(0);
+        if (interceptable == null || interceptable.invokeL(1048576, this, netWork) == null) {
+            AddPostRequest addPostRequest = new AddPostRequest();
+            addPostRequest.setRequestData(netWork.getPostDataMap());
+            addPostRequest.setNetType(NetMessage.NetType.HTTP);
+            addPostRequest.setTag(this.b);
+            jg.a().post(new d(this, addPostRequest));
         }
     }
 
-    public View c() {
-        InterceptResult invokeV;
+    public void c(NetWork netWork) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public void d() {
-        boolean z;
-        fc9 fc9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            xw4 layoutMode = this.b.getLayoutMode();
-            if (TbadkApplication.getInst().getSkinType() == 4) {
-                z = true;
-            } else {
-                z = false;
-            }
-            layoutMode.l(z);
-            this.b.getLayoutMode().k(this.c);
-            NavigationBar navigationBar = this.d;
-            if (navigationBar != null) {
-                navigationBar.onChangeSkinType(this.b.getPageContext(), TbadkApplication.getInst().getSkinType());
-            }
-            NoNetworkView noNetworkView = this.e;
-            if (noNetworkView != null) {
-                noNetworkView.d(this.b.getPageContext(), TbadkApplication.getInst().getSkinType());
-            }
-            BdListView bdListView = this.g;
-            if (bdListView != null && bdListView.getVisibility() == 0 && (fc9Var = this.h) != null) {
-                fc9Var.notifyDataSetChanged();
-            }
-            MemberRecommendView memberRecommendView = this.f;
-            if (memberRecommendView != null && memberRecommendView.getVisibility() == 0) {
-                this.f.d();
-            }
-            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0204);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, netWork) == null) {
+            AddThreadRequest addThreadRequest = new AddThreadRequest();
+            addThreadRequest.setRequestData(netWork.getPostDataMap());
+            addThreadRequest.setNetType(NetMessage.NetType.HTTP);
+            addThreadRequest.setTag(this.b);
+            jg.a().post(new c(this, addThreadRequest));
         }
     }
 
-    public final void e(List<ec9> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            if (list != null && list.size() > 0) {
-                this.g.setVisibility(0);
-                this.h.b(a(list));
-                this.h.notifyDataSetChanged();
-                return;
-            }
-            this.g.setVisibility(8);
-        }
-    }
-
-    public final boolean f(mc9 mc9Var) {
+    public gc9 e(e eVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, mc9Var)) == null) {
-            if (mc9Var != null && !StringUtils.isNull(mc9Var.c())) {
-                this.f.setVisibility(0);
-                this.f.e(mc9Var);
-                return true;
-            }
-            this.f.setVisibility(8);
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eVar)) == null) {
+            this.a = eVar;
+            return this;
         }
-        return invokeL.booleanValue;
+        return (gc9) invokeL.objValue;
     }
 
-    public void g(PersonalCardItemView.b bVar) {
-        fc9 fc9Var;
+    public static void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) && (fc9Var = this.h) != null) {
-            fc9Var.a(bVar);
-        }
-    }
-
-    public void h(BdListView.p pVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, pVar) == null) {
-            this.g.setOnSrollToBottomListener(pVar);
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.i.setVisibility(8);
-            String string = this.b.getPageContext().getResources().getString(R.string.no_data_text);
-            this.b.setNetRefreshViewTopMargin(this.k);
-            this.b.showNetRefreshView(this.c, string, false);
-        }
-    }
-
-    public void j(int i, mc9 mc9Var, List<ec9> list, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), mc9Var, list, Boolean.valueOf(z)}) == null) {
-            if ((mc9Var != null && !StringUtils.isNull(mc9Var.c())) || (list != null && list.size() > 0)) {
-                if (i != 0) {
-                    return;
-                }
-                b();
-                if (f(mc9Var)) {
-                    this.g.removeHeaderView(this.j);
-                    this.g.addHeaderView(this.j);
-                } else {
-                    this.g.removeHeaderView(this.j);
-                }
-                e(list);
-                return;
-            }
-            i();
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_WRITE_THREAD_ADD, jb9.a(TbConfig.POST_THREAD_ADDRESS, 309730));
+            tbHttpMessageTask.setIsNeedAddCommenParam(true);
+            tbHttpMessageTask.setResponsedClass(AddThreadHttpResponse.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+            TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_WRITE_POST_ADD, jb9.a(TbConfig.REPLY_THREAD_ADDRESS, 309731));
+            tbHttpMessageTask2.setIsNeedAddCommenParam(true);
+            tbHttpMessageTask2.setResponsedClass(AddPostHttpResponse.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask2);
         }
     }
 }

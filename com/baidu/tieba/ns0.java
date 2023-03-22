@@ -1,86 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.util.List;
-import okhttp3.Dns;
+import kotlin.jvm.JvmName;
+@JvmName(name = "InteractiveABConfig")
 /* loaded from: classes5.dex */
-public interface ns0 extends Dns {
-    public static final ServiceReference d = new ServiceReference("nad.core", "httpdns");
+public final class ns0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a implements ns0 {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ns0 a;
-        public static ns0 b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-565368959, "Lcom/baidu/tieba/ns0$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-565368959, "Lcom/baidu/tieba/ns0$a;");
-                    return;
-                }
+    public static final boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (os0.a() != 1) {
+                return true;
             }
-            a = new a();
+            return false;
         }
+        return invokeV.booleanValue;
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
+    public static final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (os0.a() != 0 && os0.a() != 2) {
+                return false;
             }
+            return true;
         }
-
-        public static ns0 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-                if (b == null) {
-                    synchronized (a.class) {
-                        if (b == null) {
-                            b = (ns0) ServiceManager.getService(ns0.d);
-                        }
-                        if (b == null) {
-                            b = a;
-                        }
-                    }
-                }
-                return b;
-            }
-            return (ns0) invokeV.objValue;
-        }
-
-        @Override // okhttp3.Dns
-        public List<InetAddress> lookup(String str) throws UnknownHostException {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                return Dns.SYSTEM.lookup(str);
-            }
-            return (List) invokeL.objValue;
-        }
+        return invokeV.booleanValue;
     }
 }

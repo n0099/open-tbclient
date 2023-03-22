@@ -1,9 +1,9 @@
 package com.baidu.tieba;
+
+import java.util.List;
 /* loaded from: classes5.dex */
 public interface j27 {
-    boolean a(x9 x9Var, String str, int i, int i2);
+    void a(int i, int i2, List<gn> list, List<m27> list2, boolean z, boolean z2, int i3);
 
-    void init();
-
-    void release();
+    void b(int i, int i2, String str);
 }

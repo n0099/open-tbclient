@@ -4,9 +4,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.c58;
-import com.baidu.tieba.jf;
-import com.baidu.tieba.p15;
+import com.baidu.tieba.fa8;
+import com.baidu.tieba.me;
+import com.baidu.tieba.yz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ import tbclient.GetVipInfo.GetVipInfoResIdl;
 public class MembercenterHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public c58 mMembercenter;
+    public fa8 mMembercenter;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public MembercenterHttpResponseMessage() {
@@ -41,13 +41,13 @@ public class MembercenterHttpResponseMessage extends TbHttpResponsedMessage {
         }
     }
 
-    public c58 getMembercenterData() {
+    public fa8 getMembercenterData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mMembercenter;
         }
-        return (c58) invokeV.objValue;
+        return (fa8) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -66,7 +66,7 @@ public class MembercenterHttpResponseMessage extends TbHttpResponsedMessage {
         }
         DataRes dataRes = getVipInfoResIdl.data;
         if (dataRes != null) {
-            this.mMembercenter = new c58(dataRes);
+            this.mMembercenter = new fa8(dataRes);
         }
         if (getError() == 0) {
             if (TbadkCoreApplication.isLogin()) {
@@ -74,8 +74,8 @@ public class MembercenterHttpResponseMessage extends TbHttpResponsedMessage {
             } else {
                 str = SevenZipUtils.FILE_NAME_TEMP;
             }
-            p15.d();
-            jf<byte[]> c = p15.c("tb_member_center", str);
+            yz4.d();
+            me<byte[]> c = yz4.c("tb_member_center", str);
             if (c != null && bArr != null) {
                 c.g("member_center_cache_key", bArr);
             }

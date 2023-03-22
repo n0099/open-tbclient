@@ -1,170 +1,131 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Bundle;
-import android.os.Handler;
+import android.content.Context;
 import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public final class ph0 extends eo0 {
+public class ph0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final List<rh0> d;
+    public static final List<th0> e;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Map<String, rh0> a;
+    public final Map<String, th0> b;
+    public final ArrayList<String> c;
 
-    /* loaded from: classes5.dex */
-    public static final class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ long c;
-        public final /* synthetic */ String d;
-
-        public a(long j, long j2, long j3, String str) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948061905, "Lcom/baidu/tieba/ph0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = j;
-            this.b = j2;
-            this.c = j3;
-            this.d = str;
-        }
-
-        @Override // java.lang.Runnable
-        public final void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a < rh0.c()) {
-                    rh0.z();
-                } else if (rh0.f()) {
-                    return;
-                } else {
-                    rh0.h(this.b, this.c, this.d);
-                }
-                rh0.g(this.b, "boot_from_cold", this.c, this.d);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948061905, "Lcom/baidu/tieba/ph0;");
+                return;
             }
         }
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ String c;
-
-        public b(long j, long j2, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2), str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j;
-            this.b = j2;
-            this.c = str;
-        }
-
-        @Override // java.lang.Runnable
-        public final void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                rh0.g(this.a, "boot_from_background", this.b, this.c);
-            }
-        }
+        ai0 ai0Var = new ai0();
+        d = ai0Var.a.getList();
+        e = ai0Var.b.getList();
     }
 
     public ph0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.eo0, com.baidu.tieba.ho0
-    public void onActivityCreated(Activity activity, Bundle bundle) {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
-            Intrinsics.checkNotNullParameter(activity, "activity");
-            if (!TextUtils.equals(activity.getLocalClassName(), "MainActivity")) {
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            if (!rh0.d()) {
-                rh0.l();
-                return;
-            }
-            String i = rh0.i();
-            long j2 = rh0.j();
-            a aVar = new a(System.currentTimeMillis() - j2, j2, System.currentTimeMillis(), i);
-            Handler handler = new Handler();
-            j = qh0.a;
-            handler.postDelayed(aVar, j);
         }
-    }
-
-    @Override // com.baidu.tieba.eo0, com.baidu.tieba.ho0
-    public void onBackgroundToForeground(Activity activity) {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-            Intrinsics.checkNotNullParameter(activity, "activity");
-            if (!rh0.d()) {
-                rh0.l();
-            } else if (!TextUtils.equals(activity.getLocalClassName(), rh0.k())) {
-            } else {
-                String i = rh0.i();
-                long j2 = rh0.j();
-                long currentTimeMillis = System.currentTimeMillis();
-                if (System.currentTimeMillis() - j2 < rh0.c()) {
-                    rh0.z();
-                    rh0.y();
+        this.a = new HashMap();
+        this.b = Collections.synchronizedMap(new LinkedHashMap());
+        this.c = new ArrayList<>();
+        synchronized (ph0.class) {
+            if (d != null && this.a.isEmpty()) {
+                for (rh0 rh0Var : d) {
+                    if (rh0Var != null) {
+                        if (w01.b(this.a, rh0Var.a()) == null) {
+                            w01.e(this.a, rh0Var.a(), rh0Var);
+                        }
+                        if (!TextUtils.isEmpty(rh0Var.a())) {
+                            u01.b(this.c, rh0Var.a());
+                        }
+                    }
                 }
-                b bVar = new b(j2, currentTimeMillis, i);
-                Handler handler = new Handler();
-                j = qh0.a;
-                handler.postDelayed(bVar, j);
+            }
+            if (e != null && this.b.isEmpty()) {
+                for (th0 th0Var : e) {
+                    this.b.put(th0Var.b(), th0Var);
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.eo0, com.baidu.tieba.ho0
-    public void onForegroundToBackground(Activity activity) {
+    public boolean a(@NonNull Context context, @NonNull vh0 vh0Var, @Nullable Map<String, Object> map, @Nullable zh0 zh0Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-            Intrinsics.checkNotNullParameter(activity, "activity");
-            rh0.w(activity);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, vh0Var, map, zh0Var)) == null) {
+            if (b(context, vh0Var, map, zh0Var)) {
+                ei0.b(zh0Var, vh0Var, 0, true);
+                return true;
+            }
+            rh0 rh0Var = null;
+            if (ei0.f(vh0Var.a())) {
+                rh0Var = (rh0) w01.b(this.a, vh0Var.a());
+            }
+            if (ei0.g(vh0Var.c()) && rh0Var != null) {
+                vh0Var.f();
+                return rh0Var.b(context, vh0Var, map, zh0Var);
+            }
+            return wh0.a().a(context, vh0Var.b(), map, zh0Var);
         }
+        return invokeLLLL.booleanValue;
+    }
+
+    public boolean b(Context context, vh0 vh0Var, @Nullable Map<String, Object> map, @Nullable zh0 zh0Var) {
+        InterceptResult invokeLLLL;
+        String a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, vh0Var, map, zh0Var)) == null) {
+            if (this.b.isEmpty()) {
+                return false;
+            }
+            th0 th0Var = null;
+            try {
+                for (Map.Entry<String, th0> entry : this.b.entrySet()) {
+                    String a2 = vh0Var.a();
+                    if (entry == null || ((th0Var = entry.getValue()) != null && (a = th0Var.a()) != null && TextUtils.equals(a2, a))) {
+                        if (th0Var != null && th0Var.d(context, vh0Var, map, zh0Var)) {
+                            return true;
+                        }
+                    }
+                }
+            } catch (Exception unused) {
+            }
+            return false;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

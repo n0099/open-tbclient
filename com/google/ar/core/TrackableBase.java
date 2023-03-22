@@ -1,8 +1,8 @@
 package com.google.ar.core;
 
-import com.baidu.tieba.hca;
+import com.baidu.tieba.qia;
 /* loaded from: classes8.dex */
-public class TrackableBase implements hca {
+public class TrackableBase implements qia {
     public final long a;
     public final Session b;
 

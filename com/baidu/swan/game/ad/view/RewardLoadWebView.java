@@ -9,12 +9,12 @@ import android.webkit.WebViewClient;
 import android.widget.RelativeLayout;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.swan.game.ad.entity.AdElementInfo;
-import com.baidu.tieba.iy3;
+import com.baidu.tieba.pw3;
 /* loaded from: classes3.dex */
 public class RewardLoadWebView extends RelativeLayout {
     public String a;
     public RewardWebView b;
-    public iy3 c;
+    public pw3 c;
 
     /* loaded from: classes3.dex */
     public class a extends WebViewClient {
@@ -57,7 +57,7 @@ public class RewardLoadWebView extends RelativeLayout {
         this.a = "";
     }
 
-    public void b(String str, AdElementInfo adElementInfo, iy3 iy3Var) {
+    public void b(String str, AdElementInfo adElementInfo, pw3 pw3Var) {
         if (TextUtils.equals("reward_banner_html", str)) {
             this.a = adElementInfo.getBannerHtml();
         } else if (TextUtils.equals("reward_end_frame_html", str)) {
@@ -65,7 +65,7 @@ public class RewardLoadWebView extends RelativeLayout {
         } else if (TextUtils.equals("reward_banner_land_html", str)) {
             this.a = adElementInfo.getLandBannerHtml();
         }
-        this.c = iy3Var;
+        this.c = pw3Var;
         RewardWebView rewardWebView = new RewardWebView(getContext());
         this.b = rewardWebView;
         rewardWebView.setWebViewClient(new a());

@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import com.baidu.searchbox.http.HttpManager;
+import okhttp3.Callback;
+import okhttp3.Request;
 /* loaded from: classes4.dex */
 public interface gp1 {
-    String a();
+    HttpManager a();
 
-    void a(Context context, hp1 hp1Var);
+    void call(HttpManager httpManager, Request request, Callback callback);
 }

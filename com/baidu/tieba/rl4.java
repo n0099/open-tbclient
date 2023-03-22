@@ -1,20 +1,37 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.AnimRes;
+import androidx.annotation.IdRes;
+import androidx.annotation.Nullable;
+import com.baidu.swan.support.v4.app.Fragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class rl4 {
+public abstract class rl4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile rl4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public int b;
+
+    public abstract rl4 a(@IdRes int i, Fragment fragment);
+
+    public abstract rl4 b(@IdRes int i, Fragment fragment, @Nullable String str);
+
+    public abstract rl4 c(Fragment fragment, String str);
+
+    public abstract rl4 d(@Nullable String str);
+
+    public abstract int e();
+
+    public abstract int f();
+
+    public abstract rl4 g(Fragment fragment);
+
+    public abstract rl4 h(Fragment fragment);
+
+    public abstract rl4 i(@AnimRes int i, @AnimRes int i2);
+
+    public abstract rl4 j(Fragment fragment);
 
     public rl4() {
         Interceptable interceptable = $ic;
@@ -26,84 +43,7 @@ public class rl4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = 0;
-        this.a = xg4.b().i().getInt("max_emit_app_close_num", 1);
-    }
-
-    public static rl4 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (rl4.class) {
-                    if (c == null) {
-                        c = new rl4();
-                    }
-                }
-            }
-            return c;
-        }
-        return (rl4) invokeV.objValue;
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65538, null) != null) || c == null) {
-            return;
-        }
-        c = null;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return xg4.b().i().getString("simple_control_item_version", "0");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public synchronized void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                this.b++;
-            }
-        }
-    }
-
-    public synchronized boolean d() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                if (this.b < this.a) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void e(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        String optString = jSONObject.optString("version");
-        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || !optJSONObject.has("max_emit_app_close_num")) {
-            return;
-        }
-        int optInt = optJSONObject.optInt("max_emit_app_close_num", 1);
-        xg4.b().i().putString("simple_control_item_version", optString);
-        xg4.b().i().putInt("max_emit_app_close_num", optInt);
     }
 }

@@ -1,46 +1,21 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.tieba.wg4;
+import okhttp3.Callback;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gr1 implements bt1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface gr1 {
+    void d(byte[] bArr);
 
-    public gr1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    <T> void e(String str, String str2, ResponseCallback<T> responseCallback);
 
-    @Override // com.baidu.tieba.bt1
-    public void a(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, context, i) == null) {
-            ai3.a().putInt("fontSizeLevel", i);
-        }
-    }
+    void f(String str, String str2, wg4.c cVar);
 
-    @Override // com.baidu.tieba.bt1
-    public int b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            return ai3.a().getInt("fontSizeLevel", 1);
-        }
-        return invokeL.intValue;
-    }
+    boolean g(String str);
+
+    boolean h();
+
+    boolean i(@NonNull t73 t73Var, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2, Callback callback, mm3<String> mm3Var);
 }

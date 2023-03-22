@@ -9,9 +9,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.atomData.VideoAggregationActivityConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.ll5;
-import com.baidu.tieba.xw4;
+import com.baidu.tieba.fv4;
+import com.baidu.tieba.gg;
+import com.baidu.tieba.ik5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,7 +39,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.il5
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.fk5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -53,17 +53,17 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public ll5 getPageStayDurationItem() {
+    public ik5 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ll5 pageStayDurationItem = super.getPageStayDurationItem();
+            ik5 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null && StringUtils.isNull(this.b) && VideoAggregationActivityConfig.TYPE_FROM_VIDEO_CARD.equals(this.c)) {
-                pageStayDurationItem.C(dh.g(this.b, 0L));
+                pageStayDurationItem.C(gg.g(this.b, 0L));
             }
             return pageStayDurationItem;
         }
-        return (ll5) invokeV.objValue;
+        return (ik5) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
@@ -71,7 +71,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         boolean z;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && this.a != null) {
-            xw4 layoutMode = getLayoutMode();
+            fv4 layoutMode = getLayoutMode();
             if (i == 4) {
                 z = true;
             } else {
@@ -101,7 +101,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d005a);
+            setContentView(R.layout.obfuscated_res_0x7f0d005c);
             this.c = getIntent().getStringExtra("PARAM_FROM");
             this.b = getIntent().getStringExtra("PARAM_FID");
             String stringExtra = getIntent().getStringExtra("st_type");
@@ -109,8 +109,8 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
             if (TextUtils.isEmpty(this.b)) {
                 finish();
             }
-            this.a = VideoAggregationFragment.G1(this.b, this.c, stringExtra, stringExtra2);
-            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f090755, this.a).commit();
+            this.a = VideoAggregationFragment.I1(this.b, this.c, stringExtra, stringExtra2);
+            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f09076e, this.a).commit();
         }
     }
 
@@ -121,7 +121,7 @@ public class VideoAggregationActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, keyEvent)) == null) {
             if (keyEvent != null && (videoAggregationFragment = this.a) != null) {
-                if (videoAggregationFragment.K1(i)) {
+                if (videoAggregationFragment.M1(i)) {
                     return true;
                 }
                 return super.onKeyDown(i, keyEvent);

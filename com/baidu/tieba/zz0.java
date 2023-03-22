@@ -1,100 +1,83 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationSet;
+import android.view.animation.TranslateAnimation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.JvmStatic;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class zz0 {
+public class zz0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final zz0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public final boolean a(int i) {
-        InterceptResult invokeI;
+    public static Animation a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i == 0 : invokeI.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            AnimationSet animationSet = new AnimationSet(true);
+            TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 2.0f, 1, 0.0f);
+            translateAnimation.setDuration(200L);
+            animationSet.addAnimation(translateAnimation);
+            AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
+            alphaAnimation.setDuration(200L);
+            animationSet.addAnimation(alphaAnimation);
+            animationSet.setInterpolator(new AccelerateInterpolator());
+            return animationSet;
+        }
+        return (Animation) invokeV.objValue;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948377113, "Lcom/baidu/tieba/zz0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948377113, "Lcom/baidu/tieba/zz0;");
-                return;
-            }
+    public static Animation b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            AnimationSet animationSet = new AnimationSet(true);
+            TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, 2.0f);
+            translateAnimation.setDuration(200L);
+            animationSet.addAnimation(translateAnimation);
+            AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
+            alphaAnimation.setDuration(200L);
+            animationSet.addAnimation(alphaAnimation);
+            animationSet.setInterpolator(new AccelerateInterpolator());
+            return animationSet;
         }
-        a = new zz0();
+        return (Animation) invokeV.objValue;
     }
 
-    public zz0() {
+    public static Animation c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            AnimationSet animationSet = new AnimationSet(true);
+            TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, -0.15f, 1, 0.0f);
+            translateAnimation.setDuration(200L);
+            animationSet.addAnimation(translateAnimation);
+            AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
+            alphaAnimation.setDuration(200L);
+            animationSet.addAnimation(alphaAnimation);
+            animationSet.setInterpolator(new AccelerateInterpolator());
+            return animationSet;
         }
+        return (Animation) invokeV.objValue;
     }
 
-    @JvmStatic
-    public static final JSONArray b(String str) {
-        InterceptResult invokeL;
+    public static Animation d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            f01 c = a.c(str);
-            if (c != null) {
-                JSONArray jSONArray = new JSONArray();
-                a01.a(c, jSONArray);
-                yz0.a(c, jSONArray);
-                return jSONArray;
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            AnimationSet animationSet = new AnimationSet(true);
+            TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, -0.15f);
+            translateAnimation.setDuration(200L);
+            animationSet.addAnimation(translateAnimation);
+            AlphaAnimation alphaAnimation = new AlphaAnimation(1.0f, 0.0f);
+            alphaAnimation.setDuration(200L);
+            animationSet.addAnimation(alphaAnimation);
+            animationSet.setInterpolator(new AccelerateInterpolator());
+            return animationSet;
         }
-        return (JSONArray) invokeL.objValue;
-    }
-
-    public final f01 c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                int optInt = jSONObject.optInt("version", -1);
-                if (!a.a(optInt)) {
-                    return null;
-                }
-                f01 f01Var = new f01();
-                f01Var.e(optInt);
-                f01Var.d(jSONObject.optString("mode"));
-                a01.b(f01Var, jSONObject);
-                yz0.b(f01Var, jSONObject);
-                Unit unit = Unit.INSTANCE;
-                return f01Var;
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (f01) invokeL.objValue;
+        return (Animation) invokeV.objValue;
     }
 }

@@ -1,30 +1,83 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
+import android.annotation.SuppressLint;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import com.baidu.adp.lib.cache.BdCacheService;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.fe;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Array;
-import java.lang.reflect.Type;
-import java.util.List;
-import java.util.Map;
-import java.util.Queue;
-import java.util.Set;
-import org.json.JSONArray;
+import java.util.LinkedList;
 /* loaded from: classes4.dex */
-public class de implements be {
+public abstract class de<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONArray a;
+    public final i9 a;
+    public String b;
+    public fe.b c;
+    public fe.a d;
+    public int e;
+    public LinkedList<String> f;
+    public Object g;
 
-    public de(JSONArray jSONArray) {
+    public abstract boolean d(String str);
+
+    public abstract int g();
+
+    public abstract he<T> i(SQLiteDatabase sQLiteDatabase, String str) throws Throwable;
+
+    public abstract void k(String str, String str2, int i, int i2);
+
+    public abstract String l(String str);
+
+    public abstract ContentValues p(he<T> heVar);
+
+    public abstract Cursor q(SQLiteDatabase sQLiteDatabase, String str);
+
+    /* loaded from: classes4.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ de a;
+
+        public a(de deVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {deVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = deVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.m();
+            }
+        }
+    }
+
+    public de(i9 i9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jSONArray};
+            Object[] objArr = {i9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,93 +87,212 @@ public class de implements be {
                 return;
             }
         }
-        this.a = jSONArray;
+        this.f = new LinkedList<>();
+        this.g = new Object();
+        this.a = i9Var;
     }
 
-    @Override // com.baidu.tieba.be
-    public Object a(re reVar) {
+    public synchronized void a(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) {
+            synchronized (this) {
+                synchronized (this.g) {
+                    if (this.f.contains(str)) {
+                        return;
+                    }
+                    this.f.addLast(str);
+                    if (z) {
+                        j();
+                    }
+                }
+            }
+        }
+    }
+
+    public void r(fe feVar, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048593, this, feVar, str) == null) {
+            this.b = str;
+            if (feVar instanceof fe.b) {
+                this.c = (fe.b) feVar;
+            }
+            if (feVar instanceof fe.a) {
+                this.d = (fe.a) feVar;
+            }
+        }
+    }
+
+    public void b(he<T> heVar) {
+        String d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, heVar) == null) {
+            try {
+                synchronized (this.g) {
+                    this.f.remove(heVar.a);
+                }
+                ContentValues p = p(heVar);
+                SQLiteDatabase f = this.a.f();
+                if (f.update(this.b, p, "m_key = ?", new String[]{heVar.a}) == 0) {
+                    f.insert(this.b, null, p);
+                    if (this.d != null) {
+                        j();
+                    }
+                }
+                if (this.c != null && (d = this.c.d(heVar)) != null) {
+                    e(d);
+                }
+            } catch (Throwable th) {
+                this.a.i(th, "addOrUpdateTextCacheItem");
+            }
+        }
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.e = 0;
+            synchronized (this.g) {
+                this.f.clear();
+            }
+            if (d(str)) {
+                BdCacheService.n().g().delete(str);
+            }
+        }
+    }
+
+    public int e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, reVar)) == null) {
-            Class<?> a = reVar.a();
-            Type[] b = reVar.b();
-            if (a.isArray()) {
-                Class<?> componentType = a.getComponentType();
-                Object newInstance = Array.newInstance(componentType, this.a.length());
-                int length = this.a.length();
-                for (int i = 0; i < length; i++) {
-                    Object a2 = ve.a(this.a.opt(i)).a(new re(componentType));
-                    if (a2 != null) {
-                        Array.set(newInstance, i, a2);
-                    }
-                }
-                return newInstance;
-            } else if (b != null && b.length >= 1) {
-                if (yc.e(a, List.class)) {
-                    List<Object> a3 = pe.a(reVar, this.a.length());
-                    if (a3 != null) {
-                        int length2 = this.a.length();
-                        for (int i2 = 0; i2 < length2; i2++) {
-                            Object a4 = ve.a(this.a.opt(i2)).a(new re(b[0]));
-                            if (a4 != null) {
-                                a3.add(a4);
-                            }
-                        }
-                    }
-                    return a3;
-                } else if (yc.e(a, Set.class)) {
-                    Set<Object> d = pe.d(reVar, this.a.length());
-                    if (d != null) {
-                        int length3 = this.a.length();
-                        for (int i3 = 0; i3 < length3; i3++) {
-                            Object a5 = ve.a(this.a.opt(i3)).a(new re(b[0]));
-                            if (a5 != null) {
-                                d.add(a5);
-                            }
-                        }
-                    }
-                    return d;
-                } else if (yc.e(a, Map.class)) {
-                    Map<String, Object> b2 = pe.b(reVar, this.a.length());
-                    if (b2 != null) {
-                        int length4 = this.a.length();
-                        for (int i4 = 0; i4 < length4; i4++) {
-                            Object a6 = ve.a(this.a.opt(i4)).a(new re(b[0]));
-                            if (a6 != null) {
-                                b2.put(String.valueOf(i4), a6);
-                            }
-                        }
-                    }
-                    return b2;
-                } else if (yc.e(a, Queue.class)) {
-                    Queue<Object> c = pe.c(reVar, this.a.length());
-                    if (c != null) {
-                        int length5 = this.a.length();
-                        for (int i5 = 0; i5 < length5; i5++) {
-                            Object a7 = ve.a(this.a.opt(i5)).a(new re(b[0]));
-                            if (a7 != null) {
-                                c.add(a7);
-                            }
-                        }
-                    }
-                    return c;
-                } else if (a == SparseArray.class) {
-                    SparseArray sparseArray = new SparseArray(this.a.length());
-                    int length6 = this.a.length();
-                    for (int i6 = 0; i6 < length6; i6++) {
-                        Object a8 = ve.a(this.a.opt(i6)).a(new re(b[0]));
-                        if (a8 != null) {
-                            sparseArray.put(i6, a8);
-                        }
-                    }
-                    return sparseArray;
-                } else {
-                    return null;
-                }
-            } else {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            try {
+                return this.a.f().delete(this.b, "m_key = ?", new String[]{str});
+            } catch (Throwable th) {
+                this.a.i(th, "deleteCacheItem");
+                return 0;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public he<T> f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            try {
+                return i(this.a.f(), str);
+            } catch (Throwable th) {
+                this.a.i(th, "get");
                 return null;
             }
         }
-        return invokeL.objValue;
+        return (he) invokeL.objValue;
+    }
+
+    public i9 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a;
+        }
+        return (i9) invokeV.objValue;
+    }
+
+    public void j() {
+        fe.a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (aVar = this.d) != null) {
+            this.e++;
+            if (this.e >= ((int) Math.min(aVar.getMaxSize() * 0.2d, 5.0d))) {
+                this.e = 0;
+                mg.a().b(new a(this));
+            }
+        }
+    }
+
+    public void m() {
+        String removeFirst;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || this.f.isEmpty()) {
+            return;
+        }
+        SQLiteDatabase f = this.a.f();
+        f.beginTransaction();
+        while (true) {
+            try {
+                synchronized (this.g) {
+                    if (this.f.isEmpty()) {
+                        break;
+                    }
+                    removeFirst = this.f.removeFirst();
+                }
+                f.delete(this.b, "m_key = ?", new String[]{String.valueOf(removeFirst)});
+            } finally {
+                try {
+                } finally {
+                }
+            }
+        }
+        f.setTransactionSuccessful();
+        this.e = 0;
+    }
+
+    @SuppressLint({"Range"})
+    public void n(String str) {
+        fe.a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048589, this, str) != null) || (aVar = this.d) == null) {
+            return;
+        }
+        Cursor cursor = null;
+        try {
+            aVar.c();
+            cursor = q(this.a.f(), str);
+            while (cursor.moveToNext()) {
+                he<?> heVar = new he<>();
+                heVar.a = cursor.getString(cursor.getColumnIndex("m_key"));
+                heVar.d = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                heVar.e = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
+                heVar.f = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                String h = this.d.h(heVar);
+                if (h != null) {
+                    a(h, false);
+                }
+            }
+            m();
+        } finally {
+            try {
+            } finally {
+            }
+        }
+    }
+
+    @SuppressLint({"Range"})
+    public void o(String str) {
+        fe.b bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048590, this, str) != null) || (bVar = this.c) == null) {
+            return;
+        }
+        Cursor cursor = null;
+        try {
+            bVar.e();
+            cursor = q(this.a.f(), str);
+            while (cursor.moveToNext()) {
+                he<?> heVar = new he<>();
+                heVar.a = cursor.getString(cursor.getColumnIndex("m_key"));
+                heVar.d = cursor.getLong(cursor.getColumnIndex("saveTime"));
+                heVar.e = cursor.getLong(cursor.getColumnIndex("lastHitTime"));
+                heVar.f = cursor.getLong(cursor.getColumnIndex("timeToExpire"));
+                String g = this.c.g(heVar);
+                if (g != null) {
+                    a(g, false);
+                }
+            }
+            m();
+        } finally {
+            try {
+            } finally {
+            }
+        }
     }
 }

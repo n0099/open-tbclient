@@ -1,4 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes4.dex */
-public interface d81 extends t81 {
+public interface d81 {
+    void a(String str);
+
+    void b();
+
+    void cancel();
 }

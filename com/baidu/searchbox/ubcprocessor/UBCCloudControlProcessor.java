@@ -14,14 +14,14 @@ import com.baidu.searchbox.cloudcontrol.data.CloudControlResponseInfo;
 import com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tieba.bu9;
-import com.baidu.tieba.fu9;
+import com.baidu.tieba.k0a;
+import com.baidu.tieba.o0a;
 import com.baidu.ubc.UBCManager;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class UBCCloudControlProcessor implements ICloudControlProcessor {
     public static final String KEY_STATISTIC_DATA_COUNT = "count";
     public static final String KEY_UBC_APP_VERSION = "ubc_app_version";
@@ -134,11 +134,11 @@ public class UBCCloudControlProcessor implements ICloudControlProcessor {
             str = option.optString("version_asc");
         }
         boolean z = !"0".equals(str);
-        fu9 fu9Var = new fu9("", serviceData);
-        if (fu9Var.l()) {
-            final String g = fu9Var.g();
-            ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).registerConfig(fu9Var, z, new bu9() { // from class: com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor.1
-                @Override // com.baidu.tieba.bu9
+        o0a o0aVar = new o0a("", serviceData);
+        if (o0aVar.l()) {
+            final String g = o0aVar.g();
+            ((UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE)).registerConfig(o0aVar, z, new k0a() { // from class: com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor.1
+                @Override // com.baidu.tieba.k0a
                 public void setUBCConfigStatisticData(JSONObject jSONObject) {
                     ICloudControlUBCCallBack iCloudControlUBCCallBack2;
                     if (jSONObject != null && (iCloudControlUBCCallBack2 = iCloudControlUBCCallBack) != null) {

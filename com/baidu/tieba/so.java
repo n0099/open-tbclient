@@ -1,78 +1,87 @@
 package com.baidu.tieba;
 
-import android.view.animation.Interpolator;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.bdhttpdns.BDHttpDns;
+import com.baidu.bdhttpdns.BDHttpDnsResult;
+import com.baidu.tieba.ro;
+import com.baidu.tieba.to;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public abstract class so {
+public class so implements ro.a {
     public static /* synthetic */ Interceptable $ic;
-    public static final Interpolator a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final BDHttpDns.e a;
+    public final BDHttpDns b;
+    public final to c;
 
-    /* loaded from: classes6.dex */
-    public static class a implements Interpolator {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // android.animation.TimeInterpolator
-        public float getInterpolation(float f) {
-            InterceptResult invokeF;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
-                float f2 = f - 1.0f;
-                return (f2 * f2 * f2 * f2 * f2) + 1.0f;
-            }
-            return invokeF.floatValue;
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448317137, "Lcom/baidu/tieba/so;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448317137, "Lcom/baidu/tieba/so;");
+    public so(Context context, BDHttpDns.e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, eVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new a();
+        this.a = eVar;
+        BDHttpDns h = BDHttpDns.h(context);
+        this.b = h;
+        this.c = h.d();
     }
 
-    public static int a(float f, float f2, boolean z) {
-        InterceptResult invokeCommon;
-        float interpolation;
+    @Override // com.baidu.tieba.ro.a
+    public void a(int i, ArrayList<String> arrayList, ArrayList<String> arrayList2, long j, String str) {
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Boolean.valueOf(z)})) == null) {
-            if (z) {
-                interpolation = f - (a.getInterpolation(f2 / (f2 - f)) * f);
-            } else {
-                interpolation = f * a.getInterpolation(f2 / f);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), arrayList, arrayList2, Long.valueOf(j), str}) == null) {
+            if (i != -1) {
+                if (i != 0) {
+                    vo.a("Internal error: async dns resolve completion get error ret(%d)", Integer.valueOf(i));
+                    return;
+                }
+                Object[] objArr = new Object[4];
+                objArr[0] = str;
+                String str3 = null;
+                if (arrayList != null) {
+                    str2 = arrayList.toString();
+                } else {
+                    str2 = null;
+                }
+                objArr[1] = str2;
+                if (arrayList2 != null) {
+                    str3 = arrayList2.toString();
+                }
+                objArr[2] = str3;
+                objArr[3] = BDHttpDnsResult.ResolveType.RESOLVE_FROM_DNS.toString();
+                vo.a("Async resolve successful, host(%s) ipv4List(%s) ipv6List(%s) resolveType(%s)", objArr);
+                to.a aVar = new to.a();
+                aVar.i(60L);
+                aVar.h(System.currentTimeMillis() / 1000);
+                aVar.f(arrayList);
+                aVar.g(arrayList2);
+                this.c.e(str, aVar);
+                BDHttpDns.e eVar = this.a;
+                if (eVar != null) {
+                    eVar.a(new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_FROM_DNS, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveOK, arrayList, arrayList2));
+                    return;
+                }
+                return;
             }
-            return (int) interpolation;
+            vo.a("Async resolve failed, host(%s), dns resolve failed", str);
+            BDHttpDns.e eVar2 = this.a;
+            if (eVar2 != null) {
+                eVar2.a(new BDHttpDnsResult(BDHttpDnsResult.ResolveType.RESOLVE_NONE, BDHttpDnsResult.ResolveStatus.BDHttpDnsResolveErrorDnsResolve, arrayList, arrayList2));
+            }
         }
-        return invokeCommon.intValue;
     }
 }

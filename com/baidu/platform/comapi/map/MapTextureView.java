@@ -31,7 +31,6 @@ import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
-import org.webrtc.EglBase10;
 /* loaded from: classes2.dex */
 public class MapTextureView extends h implements MapRenderModeChangeListener, MapViewInterface, ak {
     public static /* synthetic */ Interceptable $ic;
@@ -186,7 +185,7 @@ public class MapTextureView extends h implements MapRenderModeChangeListener, Ma
                 }
             }
             this.a = mapTextureView;
-            this.b = EglBase10.EGL_CONTEXT_CLIENT_VERSION;
+            this.b = 12440;
         }
 
         public /* synthetic */ a(MapTextureView mapTextureView, y yVar) {

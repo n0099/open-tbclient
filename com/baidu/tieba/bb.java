@@ -1,114 +1,53 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.framework.message.Message;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.fluency.tracer.FpsTracer;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.framework.listener.MessageListener;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.internal.ETAG;
-import java.util.LinkedList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class bb {
+public abstract class bb extends MessageListener<SocketResponsedMessage> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, int i, int i2, String str2, int i3, String str3) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bb(int i) {
+        super(i);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), str2, Integer.valueOf(i3), str3}) == null) {
-            b(str, i, -1L, i2, str2, i3, str3);
-        }
-    }
-
-    public static void b(String str, int i, long j, int i2, String str2, int i3, String str3) {
-        String valueOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i), Long.valueOf(j), Integer.valueOf(i2), str2, Integer.valueOf(i3), str3}) == null) {
-            StringBuilder sb = new StringBuilder(50);
-            if (i != 0 && i2 != 0) {
-                sb.append("cmd = ");
-                sb.append(i);
-                sb.append("\t");
-                sb.append("sequence = ");
-                sb.append(i2);
-                sb.append("\t");
-            }
-            sb.append(str3);
-            try {
-                LinkedList linkedList = new LinkedList();
-                linkedList.add("lib");
-                linkedList.add(str);
-                if (i != 0) {
-                    linkedList.add("cmd");
-                    linkedList.add(Integer.valueOf(i));
-                }
-                if (!TextUtils.isEmpty(str2)) {
-                    linkedList.add("act");
-                    linkedList.add(str2);
-                }
-                if (i3 != 0) {
-                    linkedList.add("result");
-                    linkedList.add(Integer.valueOf(i3));
-                }
-                if (!TextUtils.isEmpty(str3)) {
-                    linkedList.add("comment");
-                    linkedList.add(str3);
-                }
-                BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
-                if (i2 == 0) {
-                    valueOf = null;
-                } else {
-                    valueOf = String.valueOf(i2 & 4294967295L);
-                }
-                bdStatisticsManager.newDebug("socket", j, valueOf, linkedList.toArray());
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static void c(String str, Message<?> message, int i, String str2, int i2, String str3) {
-        long j;
-        int i3;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bb(int i, boolean z) {
+        super(i, z);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, message, Integer.valueOf(i), str2, Integer.valueOf(i2), str3}) == null) {
-            if (message != null) {
-                i3 = message.getCmd();
-                j = message.getClientLogID();
-            } else {
-                j = 0;
-                i3 = 0;
-            }
-            b(str, i3, j, i, str2, i2, str3);
-        }
-    }
-
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            try {
-                BdStatisticsManager.getInstance().debug("socket", "url", ek.j().q(), "dns_cost", Long.valueOf(ek.j().h()), TiebaStatic.CON_COST, Long.valueOf(ek.j().g()), "remote_ip", ek.j().o(), ETAG.KEY_LOCAL_DNS, ek.j().m(), "local_dns_bak", ek.j().n(), "net", BdStatisticsManager.getInstance().getCurNetworkType());
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-    }
-
-    public static void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            try {
-                lh statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
-                statsItem.b("action", "imconn");
-                statsItem.b(TiebaStatic.CON_COST, String.valueOf(ek.j().g()));
-                statsItem.b(FpsTracer.UBC_KEY_NET_TYPE, ph.a(BdBaseApplication.getInst()));
-                BdStatisticsManager.getInstance().performance("im", statsItem);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }

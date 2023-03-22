@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.webkit.ValueCallback;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import com.baidu.tieba.ey3;
+import com.baidu.tieba.lw3;
 /* loaded from: classes3.dex */
 public class RewardWebView extends WebView {
     public boolean a;
@@ -139,7 +139,7 @@ public class RewardWebView extends WebView {
 
     public final void e() {
         WebSettings settings = getSettings();
-        settings.setUserAgentString(ey3.b().i(settings.getUserAgentString()));
+        settings.setUserAgentString(lw3.b().i(settings.getUserAgentString()));
     }
 
     @Override // android.webkit.WebView

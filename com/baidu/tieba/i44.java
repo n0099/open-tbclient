@@ -1,126 +1,121 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.content.res.Resources;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.res.ui.FullScreenFloatView;
+import com.baidu.swan.games.inspector.SwanInspectorEndpoint;
+import com.baidu.tieba.j44;
+import com.baidu.tieba.x63;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes4.dex */
 public class i44 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile boolean a;
-    public static volatile boolean b;
-    public static volatile List<nj2> c;
     public transient /* synthetic */ FieldHolder $fh;
+    public FullScreenFloatView a;
 
-    public static String b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i != 2 ? i != 3 ? i != 4 ? i != 5 ? i != 6 ? "log" : "debug" : "warn" : "error" : "info" : "debug" : (String) invokeI.objValue;
-    }
+    /* loaded from: classes4.dex */
+    public class a implements FullScreenFloatView.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Activity a;
+        public final /* synthetic */ i44 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947803520, "Lcom/baidu/tieba/i44;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947803520, "Lcom/baidu/tieba/i44;");
-                return;
+        @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.c
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
         }
-        c = new ArrayList();
+
+        public a(i44 i44Var, Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i44Var, activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = i44Var;
+            this.a = activity;
+        }
+
+        @Override // com.baidu.swan.apps.res.ui.FullScreenFloatView.c
+        public void onClick() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.b.d(this.a);
+            }
+        }
     }
 
     public i44() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void c() {
+    public void c(j44.c cVar, Activity activity) {
+        h44 h44Var;
+        n74 n74Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            synchronized (i44.class) {
-                c = new ArrayList();
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, activity) == null) && activity != null && this.a == null) {
+            if (cVar != null && (n74Var = cVar.c) != null) {
+                h44Var = n74Var.f;
+            } else {
+                h44Var = null;
             }
-            b = false;
-        }
-    }
-
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && a && !b) {
-            synchronized (i44.class) {
-                if (c != null) {
-                    for (int i = 0; i < c.size(); i++) {
-                        zu2.U().m("console", c.get(i));
-                    }
-                    c.clear();
-                    c = null;
-                }
+            if (h44.f(h44Var).b()) {
+                b(activity);
             }
-            b = true;
         }
     }
 
-    public static void d(int i, String str) {
+    public final void b(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65541, null, i, str) == null) {
-            e(b(i), str);
+        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+            FullScreenFloatView a2 = c63.a(activity, (ViewGroup) activity.findViewById(16908290), 2);
+            this.a = a2;
+            a2.setFloatButtonText(activity.getString(R.string.obfuscated_res_0x7f0f0177));
+            this.a.setFloatImageBackground(R.drawable.obfuscated_res_0x7f08015e);
+            this.a.setAutoAttachEnable(false);
+            this.a.setDragImageListener(new a(this, activity));
+            this.a.setVisibility(0);
         }
     }
 
-    public static void e(String str, String str2) {
+    public final void d(Activity activity) {
+        t73 M;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && a) {
-            f(c44.t(str, str2));
-        }
-    }
-
-    public static void g(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) && a) {
-            f(c44.v(str, str2));
-        }
-    }
-
-    public static void f(nj2 nj2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, nj2Var) == null) {
-            if (!b) {
-                synchronized (i44.class) {
-                    if (c != null) {
-                        c.add(nj2Var);
-                        return;
-                    }
-                }
-            }
-            zu2.U().m("console", nj2Var);
-        }
-    }
-
-    public static void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65545, null, z) == null) {
-            a = z;
-            m62.n(z);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) && (M = t73.M()) != null && M.Y() != null) {
+            Resources resources = activity.getResources();
+            String u = SwanInspectorEndpoint.v().u(resources);
+            x63.a aVar = new x63.a(activity);
+            aVar.V(resources.getString(R.string.obfuscated_res_0x7f0f01dd));
+            aVar.x(u);
+            aVar.n(new bn3());
+            aVar.m(false);
+            aVar.O(R.string.obfuscated_res_0x7f0f01a4, null);
+            aVar.X();
         }
     }
 }

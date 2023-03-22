@@ -1,163 +1,69 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.os.Bundle;
+import android.text.TextUtils;
+import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class xg1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ph1 a;
-
-        /* renamed from: com.baidu.tieba.xg1$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class C0479a extends ph1 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ JSONArray a;
-            public final /* synthetic */ a b;
-
-            public C0479a(a aVar, JSONArray jSONArray) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, jSONArray};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = jSONArray;
-            }
-
-            @Override // com.baidu.tieba.ph1
-            public void a(int i, String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                    ph1 ph1Var = this.b.a;
-                    if (ph1Var != null) {
-                        ph1Var.a(i, str);
-                    }
-                    if (i == 1) {
-                        xg1.e(this.a);
-                    }
-                }
-            }
-        }
-
-        public a(ph1 ph1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ph1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ph1Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            JSONArray a;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (a = xg1.a()) == null) {
-                return;
-            }
-            tg1.d(a, new C0479a(this, a));
-        }
-    }
-
-    public static /* synthetic */ JSONArray a() {
-        return c();
-    }
-
-    public static void f(ph1 ph1Var) {
+    public static void a(Context context, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, ph1Var) == null) {
-            wh1.a(new a(ph1Var));
-        }
-    }
-
-    public static synchronized JSONArray c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (xg1.class) {
-                File file = new File(ii1.a().getFilesDir(), "poly_cashier_commission_record_cache.json");
-                JSONArray jSONArray = null;
-                if (!file.exists()) {
-                    return null;
-                }
-                try {
-                    JSONArray jSONArray2 = new JSONArray(ci1.b(file));
-                    try {
-                        file.delete();
-                    } catch (JSONException unused) {
-                    }
-                    jSONArray = jSONArray2;
-                } catch (JSONException unused2) {
-                }
-                return jSONArray;
-            }
-        }
-        return (JSONArray) invokeV.objValue;
-    }
-
-    public static void d(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeLL(65536, null, context, bundle) != null) || bundle == null) {
             return;
         }
         try {
-            jSONObject.put("operateTime", String.valueOf(System.currentTimeMillis() / 1000));
-        } catch (JSONException unused) {
+            String string = bundle.getString("zid");
+            if (!TextUtils.isEmpty(string)) {
+                bundle.remove("zid");
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("c", bundle.getString("cuid"));
+                jSONObject.put("z", string);
+                jSONObject.put("mac", ng1.c());
+                jSONObject.put("app", "android");
+                jSONObject.put("ver", og1.a(context));
+                bundle.putString(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, jSONObject.toString());
+            }
+        } catch (Exception e) {
+            ug1.b(e.getMessage());
         }
-        JSONArray c = c();
-        if (c == null) {
-            c = new JSONArray();
-        }
-        c.put(jSONObject);
-        if (c.length() > 100) {
-            c.remove(0);
-        }
-        e(c);
     }
 
-    public static synchronized void e(JSONArray jSONArray) {
+    public static Bundle b(Context context, Bundle bundle) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONArray) == null) {
-            synchronized (xg1.class) {
-                if (jSONArray != null) {
-                    if (jSONArray.length() != 0) {
-                        ci1.d(jSONArray.toString(), new File(ii1.a().getFilesDir(), "poly_cashier_commission_record_cache.json"));
-                    }
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, bundle)) == null) {
+            if (bundle == null) {
+                return new Bundle();
             }
+            lg1.a = bundle.getString("bduss");
+            lg1.b = bundle.getString("tpOrderId");
+            lg1.g = bundle.getString("nativeAppId");
+            lg1.h = bundle.getString("sceneSource");
+            lg1.c = bundle.getString("appKey");
+            lg1.d = bundle.getString("dealId");
+            bundle.putString("deviceType", "ANDROID");
+            bundle.putString("channel", "cashiersdk");
+            bundle.putString(com.heytap.mcssdk.constant.b.C, "2.8.7.9");
+            String[] stringArray = bundle.getStringArray("blockedPayChannels");
+            if (stringArray != null && stringArray.length > 0) {
+                bundle.remove("blockedPayChannels");
+                JSONArray jSONArray = new JSONArray();
+                for (String str : stringArray) {
+                    jSONArray.put(str);
+                }
+                bundle.putString("bannedChannels", jSONArray.toString());
+            }
+            a(context, bundle);
+            return bundle;
         }
+        return (Bundle) invokeLL.objValue;
     }
 }

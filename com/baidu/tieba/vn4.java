@@ -1,28 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.content.SharedPreferences;
+import androidx.annotation.NonNull;
+import java.io.File;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public class vn4 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface vn4 extends SharedPreferences, SharedPreferences.Editor {
+    Set<String> a();
 
-    public static void a(Object obj, StringBuilder sb) {
-        int lastIndexOf;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, obj, sb) == null) {
-            if (obj == null) {
-                sb.append(StringUtil.NULL_STRING);
-                return;
-            }
-            String simpleName = obj.getClass().getSimpleName();
-            if ((simpleName == null || simpleName.length() <= 0) && (lastIndexOf = (simpleName = obj.getClass().getName()).lastIndexOf(46)) > 0) {
-                simpleName = simpleName.substring(lastIndexOf + 1);
-            }
-            sb.append(simpleName);
-            sb.append('{');
-            sb.append(Integer.toHexString(System.identityHashCode(obj)));
-        }
-    }
+    boolean b();
+
+    long c();
+
+    @Override // android.content.SharedPreferences
+    @Deprecated
+    Map<String, ?> getAll();
+
+    @NonNull
+    File getFile();
+
+    @Override // android.content.SharedPreferences
+    @Deprecated
+    void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener);
+
+    @Override // android.content.SharedPreferences
+    @Deprecated
+    void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener);
 }

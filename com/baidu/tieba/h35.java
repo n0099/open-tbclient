@@ -1,132 +1,116 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.widget.IndicatorView;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class h35 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static g35 a = null;
+    public static int b = 0;
+    public static int c = 0;
+    public static int d = 0;
+    public static int e = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
 
-    public h35() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public final void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public final void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    public final void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public final void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public final void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void i(IndicatorView indicatorView) {
-        Resources resources;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, indicatorView) != null) || indicatorView == null || (resources = indicatorView.getResources()) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947772799, "Lcom/baidu/tieba/h35;")) == null) {
             return;
         }
-        int i = this.d;
-        if (i > 0) {
-            indicatorView.setSpacing(resources.getDimensionPixelSize(i));
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-        int i2 = this.b;
-        if (i2 > 0) {
-            indicatorView.setDrawable(resources.getDrawable(i2));
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947772799, "Lcom/baidu/tieba/h35;");
         }
-        int i3 = this.c;
-        if (i3 > 0) {
-            indicatorView.setSelector(resources.getDrawable(i3));
-        }
-        ViewGroup.LayoutParams layoutParams = indicatorView.getLayoutParams();
-        if (layoutParams instanceof FrameLayout.LayoutParams) {
-            FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
-            layoutParams2.gravity = this.a;
-            int i4 = this.e;
-            if (i4 > 0) {
-                layoutParams2.bottomMargin = resources.getDimensionPixelSize(i4);
+    }
+
+    public static int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            g35 g35Var = a;
+            if (g35Var == null) {
+                return -1;
             }
-            int i5 = this.f;
-            if (i5 > 0) {
-                layoutParams2.rightMargin = resources.getDimensionPixelSize(i5);
-            }
-            indicatorView.setLayoutParams(layoutParams);
+            return g35Var.getCurrentTabType();
         }
+        return invokeV.intValue;
+    }
+
+    public static Class<?> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            g35 g35Var = a;
+            if (g35Var == null) {
+                return null;
+            }
+            return g35Var.d();
+        }
+        return (Class) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            g35 g35Var = a;
+            if (g35Var == null) {
+                return null;
+            }
+            return g35Var.f();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void d(Context context) {
+        g35 g35Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) != null) || (g35Var = a) == null) {
+            return;
+        }
+        g35Var.a(context);
+    }
+
+    public static void h(g35 g35Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, g35Var) == null) {
+            a = g35Var;
+        }
+    }
+
+    public static void e(Context context, int i) {
+        g35 g35Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(65541, null, context, i) != null) || (g35Var = a) == null) {
+            return;
+        }
+        g35Var.b(context, i);
+    }
+
+    public static void f(Context context, int i, boolean z) {
+        g35 g35Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65542, null, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || (g35Var = a) == null) {
+            return;
+        }
+        g35Var.c(context, i, z);
+    }
+
+    public static void g(Context context, int i, boolean z) {
+        g35 g35Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65543, null, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || (g35Var = a) == null) {
+            return;
+        }
+        g35Var.e(context, i, z);
     }
 }

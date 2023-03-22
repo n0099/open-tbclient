@@ -1,46 +1,72 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
-import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppPhoneLoginDialog;
-import com.baidu.tieba.fs3;
-import com.baidu.tieba.qq3;
-import com.baidu.tieba.uq3;
-import com.baidu.tieba.yp3;
-import java.util.ArrayList;
-import java.util.List;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface pq3 {
-    String a(Context context);
+public class pq3 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    String b(Context context);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948070647, "Lcom/baidu/tieba/pq3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948070647, "Lcom/baidu/tieba/pq3;");
+                return;
+            }
+        }
+        a = do1.a;
+    }
 
-    void c(Context context, Bundle bundle, yp1 yp1Var);
+    public pq3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
-    nq3 d(Context context);
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ar2.g0().getSwitch("game_bdtls_switcher", false);
+            if (a) {
+                t42.i("BDTLS", "isBdtlsSwitch=false");
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
-    void e(Activity activity, String str, String str2, oq3 oq3Var);
-
-    void f(Context context, fs3.d dVar);
-
-    boolean g(Context context);
-
-    String getBduss(Context context);
-
-    void h(aq1 aq1Var);
-
-    void i(Context context, qq3.d dVar);
-
-    void j(Context context, SwanAppPhoneLoginDialog.g gVar, String str);
-
-    String k(Context context);
-
-    void l(Activity activity, String str, String str2, oq3 oq3Var);
-
-    void m(Activity activity, String str, ur3 ur3Var);
-
-    void n(String str, ArrayList<String> arrayList, uq3.c cVar);
-
-    void o(yp3.a aVar, String str, List<String> list);
+    public boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (!TextUtils.isEmpty(str) && (str.contains("ma/game/od/get_user_cloud_storage") || str.contains("ma/game/od/set_user_cloud_storage"))) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
 }

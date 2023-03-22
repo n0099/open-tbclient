@@ -1,46 +1,42 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.tbadkCore.FrsViewData;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class v07 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public View a;
-    public BarImageView b;
-    public TextView c;
-    public TextView d;
-    public TextView e;
-    public EntelechyUserLikeButton f;
-    public View g;
+public interface v07 {
+    void a(String str);
 
-    public v07(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = view2;
-        this.b = (BarImageView) view2.findViewById(R.id.obfuscated_res_0x7f090bee);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090bf1);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090bef);
-        this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090bf0);
-        this.f = (EntelechyUserLikeButton) view2.findViewById(R.id.obfuscated_res_0x7f090bec);
-        this.g = view2.findViewById(R.id.obfuscated_res_0x7f090bed);
-    }
+    void b();
+
+    int c();
+
+    void d(qn qnVar);
+
+    void e();
+
+    List<gn> f();
+
+    void g(ArrayList<gn> arrayList, FrsViewData frsViewData);
+
+    HashMap<Integer, ThreadData> h();
+
+    int i();
+
+    int j();
+
+    boolean k(BdUniqueId bdUniqueId);
+
+    void l(zv6 zv6Var);
+
+    void m(boolean z);
+
+    void notifyDataSetChanged();
+
+    void onDestory();
+
+    void setFromCDN(boolean z);
 }

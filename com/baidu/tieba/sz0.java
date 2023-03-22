@@ -1,69 +1,33 @@
 package com.baidu.tieba;
 
-import androidx.core.app.NotificationCompat;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class sz0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public sz0() {
+    @SuppressLint({"SourceLockedOrientationActivity"})
+    public static void a(@Nullable Activity activity, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if ((interceptable == null || interceptable.invokeLZ(65536, null, activity, z) == null) && activity != null) {
+            if (z) {
+                activity.setRequestedOrientation(8);
+            } else {
+                activity.setRequestedOrientation(0);
             }
+            activity.getWindow().setFlags(1024, 1024);
         }
     }
 
-    public static sz0 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @SuppressLint({"SourceLockedOrientationActivity"})
+    public static void b(@Nullable Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject != null) {
-                sz0 sz0Var = new sz0();
-                jSONObject.optString("type_text");
-                jSONObject.optString("text");
-                jSONObject.optString(NotificationCompat.CarExtender.KEY_AUTHOR);
-                jSONObject.optString("cmd");
-                return sz0Var;
-            }
-            return null;
+        if ((interceptable == null || interceptable.invokeL(65537, null, activity) == null) && activity != null) {
+            activity.setRequestedOrientation(1);
         }
-        return (sz0) invokeL.objValue;
-    }
-
-    public static List<sz0> b(JSONArray jSONArray) {
-        InterceptResult invokeL;
-        sz0 a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONArray)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (jSONArray != null && jSONArray.length() != 0) {
-                int length = jSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    if (optJSONObject != null && (a = a(optJSONObject)) != null) {
-                        arrayList.add(a);
-                    }
-                }
-                return arrayList;
-            }
-            return null;
-        }
-        return (List) invokeL.objValue;
     }
 }

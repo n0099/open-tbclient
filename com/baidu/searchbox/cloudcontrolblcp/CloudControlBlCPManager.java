@@ -15,9 +15,9 @@ import com.baidu.searchbox.cloudcontrol.utils.CloudControlUrlConfig;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.searchbox.v8engine.WebGLImageLoader;
-import com.baidu.tieba.e90;
-import com.baidu.tieba.f90;
-import com.baidu.tieba.z80;
+import com.baidu.tieba.p70;
+import com.baidu.tieba.u70;
+import com.baidu.tieba.v70;
 import java.util.ArrayList;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -33,8 +33,8 @@ public class CloudControlBlCPManager {
     public static final String UBC_CLOUD_CTROL_LCP_ID = "1312";
     public static CloudControlBlCPManager mCloudControlManager;
     public String TAG = "CloudControlBlCPManager";
-    public f90 blcpResponse = new f90() { // from class: com.baidu.searchbox.cloudcontrolblcp.CloudControlBlCPManager.1
-        @Override // com.baidu.tieba.f90
+    public v70 blcpResponse = new v70() { // from class: com.baidu.searchbox.cloudcontrolblcp.CloudControlBlCPManager.1
+        @Override // com.baidu.tieba.v70
         public void onResponse(int i, String str, long j, long j2, long j3, byte[] bArr) {
             String str2;
             if (AppConfig.isDebug()) {
@@ -107,11 +107,11 @@ public class CloudControlBlCPManager {
     }
 
     public void registerConnectStateListener(Context context) {
-        this.isSmallFlow = z80.d(context);
+        this.isSmallFlow = p70.d(context);
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.baidu.lcp.sdk.broadcast");
         LocalBroadcastManager.getInstance(context).registerReceiver(this.iConnectListener, intentFilter);
-        if (z80.b() == 0) {
+        if (p70.b() == 0) {
             invoke();
         }
     }
@@ -153,10 +153,10 @@ public class CloudControlBlCPManager {
         if (bLCPRequest.c.length <= 0) {
             return;
         }
-        z80.c(bLCPRequest, this.blcpResponse);
-        e90 e90Var = new e90();
-        e90Var.a = 4L;
-        e90Var.b = 2L;
-        z80.c(e90Var, this.blcpResponse);
+        p70.c(bLCPRequest, this.blcpResponse);
+        u70 u70Var = new u70();
+        u70Var.a = 4L;
+        u70Var.b = 2L;
+        p70.c(u70Var, this.blcpResponse);
     }
 }

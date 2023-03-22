@@ -4,18 +4,18 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import tbclient.FrsTabInfo;
 /* loaded from: classes6.dex */
-public class vm6 extends xy4 {
+public class vm6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tm6 d;
-    public List<um6> e;
 
-    public vm6() {
+    public vm6(FrsTabInfo frsTabInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsTabInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -25,6 +25,11 @@ public class vm6 extends xy4 {
                 return;
             }
         }
-        f(12);
+        if (frsTabInfo == null) {
+            return;
+        }
+        String str = frsTabInfo.tab_code;
+        String str2 = frsTabInfo.tab_name;
+        frsTabInfo.tab_version.intValue();
     }
 }

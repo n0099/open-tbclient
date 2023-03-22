@@ -1,132 +1,319 @@
 package com.baidu.tieba;
 
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.z96;
+import com.baidu.tieba.aa6;
+import com.baidu.tieba.eq9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public final class ba6 extends z96<ba6> {
+public class ba6 implements aa6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ca6 s;
-    public float t;
-    public boolean u;
+    public eq9 a;
+    public TextView b;
+    public aa6.c c;
+    public aa6.b d;
+    public aa6.a e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public <K> ba6(K k, aa6<K> aa6Var) {
-        super(k, aa6Var);
+    /* loaded from: classes3.dex */
+    public class a implements eq9.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ba6 a;
+
+        public a(ba6 ba6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ba6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ba6Var;
+        }
+
+        @Override // com.baidu.tieba.eq9.a
+        public void onProgress(float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
+                this.a.b.setText(this.a.h(f));
+            }
+        }
+
+        @Override // com.baidu.tieba.eq9.a
+        public void a(float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
+                if (this.a.e != null) {
+                    this.a.e.a(f);
+                }
+                TextView textView = this.a.b;
+                ba6 ba6Var = this.a;
+                textView.setText(ba6Var.h(ba6Var.getProgress()));
+            }
+        }
+
+        @Override // com.baidu.tieba.eq9.a
+        public float getSpeed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.a.d != null) {
+                    return this.a.d.getSpeed();
+                }
+                return 1.0f;
+            }
+            return invokeV.floatValue;
+        }
+
+        @Override // com.baidu.tieba.eq9.a
+        public void onFinish() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a.c != null) {
+                this.a.c.a();
+            }
+        }
+    }
+
+    public ba6(eq9 eq9Var, TextView textView, aa6.c cVar, aa6.b bVar, aa6.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {k, aa6Var};
+            Object[] objArr = {eq9Var, textView, cVar, bVar, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(objArr2[0], (aa6) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.s = null;
-        this.t = Float.MAX_VALUE;
-        this.u = false;
+        this.a = eq9Var;
+        this.b = textView;
+        this.c = cVar;
+        this.d = bVar;
+        this.e = aVar;
+        i();
     }
 
-    @Override // com.baidu.tieba.z96
-    public void h() {
+    @Override // com.baidu.tieba.aa6
+    public boolean setMaxDuration(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            l();
-            this.s.g(e());
-            super.h();
-        }
-    }
-
-    @Override // com.baidu.tieba.z96
-    public boolean j(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            if (this.u) {
-                float f = this.t;
-                if (f != Float.MAX_VALUE) {
-                    this.s.e(f);
-                    this.t = Float.MAX_VALUE;
-                }
-                this.b = this.s.a();
-                this.a = 0.0f;
-                this.u = false;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            eq9 eq9Var = this.a;
+            if (eq9Var != null) {
+                eq9Var.setMaxDuration(i);
+                this.a.invalidate();
                 return true;
             }
-            if (this.t != Float.MAX_VALUE) {
-                this.s.a();
-                long j2 = j / 2;
-                z96.h h = this.s.h(this.b, this.a, j2);
-                this.s.e(this.t);
-                this.t = Float.MAX_VALUE;
-                z96.h h2 = this.s.h(h.a, h.b, j2);
-                this.b = h2.a;
-                this.a = h2.b;
-            } else {
-                z96.h h3 = this.s.h(this.b, this.a, j);
-                this.b = h3.a;
-                this.a = h3.b;
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.aa6
+    public boolean setMinDuration(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
+            eq9 eq9Var = this.a;
+            if (eq9Var != null) {
+                eq9Var.setMinDuration(i);
+                this.a.invalidate();
+                return true;
             }
-            float max = Math.max(this.b, this.h);
-            this.b = max;
-            float min = Math.min(max, this.g);
-            this.b = min;
-            if (!k(min, this.a)) {
-                return false;
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.aa6
+    public boolean setProgress(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
+            eq9 eq9Var = this.a;
+            if (eq9Var != null) {
+                eq9Var.setProgress(j);
+                return true;
             }
-            this.b = this.s.a();
-            this.a = 0.0f;
-            return true;
+            return false;
         }
         return invokeJ.booleanValue;
     }
 
-    public boolean k(float f, float f2) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.aa6
+    public boolean setShowDeleteLastTip(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            return this.s.c(f, f2);
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ca6 ca6Var = this.s;
-            if (ca6Var != null) {
-                double a = ca6Var.a();
-                if (a <= this.g) {
-                    if (a >= this.h) {
-                        return;
-                    }
-                    throw new UnsupportedOperationException("Final position of the spring cannot be less than the min value.");
-                }
-                throw new UnsupportedOperationException("Final position of the spring cannot be greater than the max value.");
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048588, this, z)) == null) {
+            eq9 eq9Var = this.a;
+            if (eq9Var != null) {
+                eq9Var.setShowDeleteLastTip(z);
+                return true;
             }
-            throw new UnsupportedOperationException("Incomplete SpringAnimation: Either final position or a spring force needs to be set.");
+            return false;
         }
+        return invokeZ.booleanValue;
     }
 
-    public ba6 m(ca6 ca6Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.aa6
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, ca6Var)) == null) {
-            this.s = ca6Var;
-            return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            eq9 eq9Var = this.a;
+            if (eq9Var != null) {
+                eq9Var.a();
+                return true;
+            }
+            return false;
         }
-        return (ba6) invokeL.objValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.aa6
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            eq9 eq9Var = this.a;
+            if (eq9Var != null) {
+                return eq9Var.b();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.aa6
+    public int getMaxDuration() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            eq9 eq9Var = this.a;
+            if (eq9Var != null) {
+                return eq9Var.getMaxDuration();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.aa6
+    public float getProgress() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            eq9 eq9Var = this.a;
+            if (eq9Var != null) {
+                return eq9Var.getProgress();
+            }
+            return 0.0f;
+        }
+        return invokeV.floatValue;
+    }
+
+    @Override // com.baidu.tieba.aa6
+    public int getSlideNum() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            eq9 eq9Var = this.a;
+            if (eq9Var != null) {
+                return eq9Var.getSlideNum();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            eq9 eq9Var = this.a;
+            if (eq9Var == null) {
+                return false;
+            }
+            eq9Var.setOnProgressListener(new a(this));
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.aa6
+    public boolean pause() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            eq9 eq9Var = this.a;
+            if (eq9Var != null) {
+                eq9Var.stop();
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.aa6
+    public boolean reset() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            eq9 eq9Var = this.a;
+            if (eq9Var != null) {
+                eq9Var.reset();
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.aa6
+    public boolean start() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            eq9 eq9Var = this.a;
+            if (eq9Var != null) {
+                eq9Var.start();
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final String h(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
+            if (f >= getMaxDuration()) {
+                f = getMaxDuration();
+            }
+            if (f > 60.0f) {
+                return ((int) (f / 60.0f)) + "'" + String.format("%.1f", Float.valueOf(f % 60.0f));
+            }
+            return String.format("%.1f", Float.valueOf(f));
+        }
+        return (String) invokeF.objValue;
     }
 }

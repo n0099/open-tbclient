@@ -20,9 +20,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.util.MaskView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b35;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.fy4;
+import com.baidu.tieba.hi;
+import com.baidu.tieba.n15;
+import com.baidu.tieba.nw4;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -42,21 +42,21 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
 
     public void setPostId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
         }
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void updateReplyStateUI() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
         }
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void updateShareStateUI(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, threadData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048597, this, threadData) == null) {
         }
     }
 
@@ -78,14 +78,14 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
                 return;
             }
         }
-        S();
+        U();
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void M(ThreadData threadData) {
+    public void O(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, threadData) == null) {
-            super.M(threadData);
+        if (interceptable == null || interceptable.invokeL(1048580, this, threadData) == null) {
+            super.O(threadData);
             if (threadData != null && this.h != null && threadData.isVideoWorksInfo()) {
                 if (threadData.getReply_num() == 0) {
                     this.h.setVisibility(0);
@@ -115,23 +115,23 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
                 return;
             }
         }
-        S();
+        U();
     }
 
-    public void R(String str, String str2) {
+    public void T(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) && this.D != null && !TextUtils.isEmpty(str) && str.equals(this.D.getTid())) {
-            fy4 fy4Var = new fy4();
-            fy4Var.b = 4;
-            fy4Var.d = 2;
-            fy4Var.j = str2;
-            this.e.setStatisticData(fy4Var);
+        if ((interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) && this.D != null && !TextUtils.isEmpty(str) && str.equals(this.D.getTid())) {
+            nw4 nw4Var = new nw4();
+            nw4Var.b = 4;
+            nw4Var.d = 2;
+            nw4Var.j = str2;
+            this.e.setStatisticData(nw4Var);
             this.e.N();
         }
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void C(View view2) {
+    public void A(View view2) {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (onClickListener = this.u0) != null) {
@@ -148,10 +148,19 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         }
     }
 
-    public void W(Animator.AnimatorListener animatorListener) {
+    @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
+    public void G(View view2) {
+        View.OnClickListener onClickListener;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && (onClickListener = this.u0) != null) {
+            onClickListener.onClick(view2);
+        }
+    }
+
+    public void Y(Animator.AnimatorListener animatorListener) {
         AgreeView agreeView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, animatorListener) == null) && (agreeView = this.e) != null && agreeView.getImgAgree() != null) {
+        if ((interceptable == null || interceptable.invokeL(1048587, this, animatorListener) == null) && (agreeView = this.e) != null && agreeView.getImgAgree() != null) {
             this.e.setAgreeAnimationListenOnce(true);
             this.e.setAgreeAnimationListener(animatorListener);
             this.e.getImgAgree().performClick();
@@ -160,36 +169,27 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
 
     public void setOnClickOutListener(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, onClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, onClickListener) == null) {
             this.u0 = onClickListener;
         }
     }
 
     public void setTopicId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
             this.y0 = str;
         }
     }
 
     public void setTopicSubjectName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
             this.z0 = str;
         }
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void x(View view2) {
-        View.OnClickListener onClickListener;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048597, this, view2) == null) && (onClickListener = this.u0) != null) {
-            onClickListener.onClick(view2);
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void y(View view2) {
+    public void z(View view2) {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048598, this, view2) == null) && (onClickListener = this.u0) != null) {
@@ -198,19 +198,19 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
-    public void J() {
+    public void L() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             setVisibility(0);
-            Q();
+            S();
             onChangeSkinType();
         }
     }
 
-    public boolean T() {
+    public boolean V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             ThreadData threadData = this.D;
             if (threadData != null && threadData.getCustomFigure() != null) {
                 return true;
@@ -220,10 +220,10 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         return invokeV.booleanValue;
     }
 
-    public boolean U() {
+    public boolean W() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             ThreadData threadData = this.D;
             if (threadData != null && threadData.isVideoThreadType() && this.D.getThreadVideoInfo() != null) {
                 return true;
@@ -233,13 +233,13 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         return invokeV.booleanValue;
     }
 
-    public boolean V() {
+    public boolean X() {
         InterceptResult invokeV;
         ThreadData threadData;
         WorksInfoData worksInfoData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (U() && (threadData = this.D) != null && (worksInfoData = threadData.worksInfoData) != null && worksInfoData.isWorks) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (W() && (threadData = this.D) != null && (worksInfoData = threadData.worksInfoData) != null && worksInfoData.isWorks) {
                 return true;
             }
             return false;
@@ -251,35 +251,35 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     public void setUseDynamicLikeRes() {
         AgreeView agreeView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && (agreeView = this.e) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && (agreeView = this.e) != null) {
             agreeView.setUseDynamicLikeResForPbFirstFloor();
         }
     }
 
-    public final void Q() {
+    public final void S() {
         float f;
         float f2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             View findViewById = findViewById(R.id.thread_comment_layout_root);
             ViewGroup.LayoutParams layoutParams = findViewById.getLayoutParams();
             layoutParams.height = -1;
             findViewById.setLayoutParams(layoutParams);
-            int g = ej.g(getContext(), R.dimen.tbds68);
-            int g2 = ej.g(getContext(), R.dimen.T_X09);
-            int g3 = ej.g(getContext(), R.dimen.tbds15);
-            int g4 = ej.g(getContext(), R.dimen.tbds10);
-            ej.g(getContext(), R.dimen.tbds32);
-            ej.g(getContext(), R.dimen.tbds16);
+            int g = hi.g(getContext(), R.dimen.tbds68);
+            int g2 = hi.g(getContext(), R.dimen.T_X09);
+            int g3 = hi.g(getContext(), R.dimen.tbds15);
+            int g4 = hi.g(getContext(), R.dimen.tbds10);
+            hi.g(getContext(), R.dimen.tbds32);
+            hi.g(getContext(), R.dimen.tbds16);
             this.x0 = (LinearLayout) findViewById(R.id.share_more_container);
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(0, -1);
-            if (T()) {
+            if (V()) {
                 f = 0.25f;
             } else {
                 f = 0.5f;
             }
             layoutParams2.weight = f;
-            if (V()) {
+            if (X()) {
                 layoutParams2.weight = 0.2f;
             }
             this.x0.setLayoutParams(layoutParams2);
@@ -297,8 +297,8 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             textView.setLayoutParams(layoutParams4);
             float f3 = g2;
             textView.setTextSize(0, f3);
-            textView.setText(this.E.getString(R.string.obfuscated_res_0x7f0f1201));
-            if (V()) {
+            textView.setText(this.E.getString(R.string.obfuscated_res_0x7f0f1211));
+            if (X()) {
                 this.K = true;
                 setNeedAddReplyIcon(true);
                 LinearLayout linearLayout = (LinearLayout) findViewById(R.id.thread_info_commont_container);
@@ -308,7 +308,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
                 linearLayout.setOrientation(1);
                 ImageView imageView2 = (ImageView) findViewById(R.id.thread_info_commont_img);
                 RelativeLayout.LayoutParams layoutParams6 = new RelativeLayout.LayoutParams(g, g);
-                layoutParams6.topMargin = ej.g(getContext(), R.dimen.tbds25);
+                layoutParams6.topMargin = hi.g(getContext(), R.dimen.tbds25);
                 layoutParams6.addRule(13, -1);
                 imageView2.setLayoutParams(layoutParams6);
                 WebPManager.setPureDrawable(imageView2, R.drawable.icon_pure_card_comment22, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS_DISABLE);
@@ -319,7 +319,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
                 this.K = false;
                 setNeedAddReplyIcon(false);
             }
-            if (V()) {
+            if (X()) {
                 setCollectVisible(true);
                 LinearLayout linearLayout2 = (LinearLayout) findViewById(R.id.collect_num_container);
                 LinearLayout.LayoutParams layoutParams7 = new LinearLayout.LayoutParams(0, -1);
@@ -339,8 +339,8 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             }
             AgreeView agreeView = (AgreeView) findViewById(R.id.new_agree_view);
             LinearLayout.LayoutParams layoutParams10 = new LinearLayout.LayoutParams(0, -1);
-            layoutParams10.topMargin = ej.g(getContext(), R.dimen.tbds18);
-            if (T()) {
+            layoutParams10.topMargin = hi.g(getContext(), R.dimen.tbds18);
+            if (V()) {
                 f2 = 0.25f;
             } else {
                 f2 = 0.5f;
@@ -353,9 +353,9 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         }
     }
 
-    public void S() {
+    public void U() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             setVisibility(8);
             setReplyTimeVisible(false);
             setIsBarViewVisible(false);
@@ -370,10 +370,10 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         }
     }
 
-    public boolean X(ThreadData threadData, AntiData antiData) {
+    public boolean Z(ThreadData threadData, AntiData antiData) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, threadData, antiData)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, threadData, antiData)) == null) {
             return setData(threadData);
         }
         return invokeLL.booleanValue;
@@ -382,15 +382,15 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void onChangeSkinType() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onChangeSkinType();
             WebPManager.setPureDrawable(this.g, R.drawable.icon_pure_pb_operate_commen, R.color.CAM_X0107, null);
             EMTextView eMTextView = this.h;
             if (eMTextView != null) {
-                b35 d = b35.d(eMTextView);
-                d.A(R.string.F_X02);
-                d.v(R.color.CAM_X0107);
-                SkinManager.setBackgroundShapeDrawable(this.h, ej.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18), R.color.CAM_X0207, R.color.CAM_X0207);
+                n15 d = n15.d(eMTextView);
+                d.B(R.string.F_X02);
+                d.w(R.color.CAM_X0107);
+                SkinManager.setBackgroundShapeDrawable(this.h, hi.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18), R.color.CAM_X0207, R.color.CAM_X0207);
             }
             SkinManager.setViewTextColor(this.v0, (int) R.drawable.selector_comment_and_prise_item_text_color);
             SkinManager.setViewTextColor(this.w0, (int) R.drawable.selector_comment_and_prise_item_text_color);
@@ -404,7 +404,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void setAgreeViewType(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, threadData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, threadData) == null) {
             if (threadData != null) {
                 this.e.setDisagreeShow(threadData.isUgcThreadType());
             }

@@ -1,175 +1,108 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.write.util.PhotoType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Locale;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.nio.BufferUnderflowException;
+import java.nio.MappedByteBuffer;
+import java.nio.channels.FileChannel;
 /* loaded from: classes6.dex */
 public class us9 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948221710, "Lcom/baidu/tieba/us9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948221710, "Lcom/baidu/tieba/us9;");
-        }
-    }
-
-    public us9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            b(str, str2, new Object[0]);
-        }
-    }
-
-    public static String d(String str, Object... objArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, objArr)) == null) {
-            if (objArr != null && objArr.length != 0) {
-                return String.format(Locale.US, str, objArr);
-            }
-            return str;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static void b(String str, String str2, Object... objArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, objArr) == null) {
-            String e = e(str2, objArr);
-            Throwable g = g(objArr);
-            if (g != null) {
-                if (a) {
-                    Log.d(i(str), e, g);
-                }
-            } else if (a) {
-                Log.d(i(str), e);
-            }
-        }
-    }
-
-    public static void c(String str, String str2, Object... objArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, objArr) == null) {
-            String d = d(str2, objArr);
-            Throwable g = g(objArr);
-            if (g != null) {
-                if (a) {
-                    Log.e(i(str), d, g);
-                }
-            } else if (a) {
-                Log.e(i(str), d);
-            }
-        }
-    }
-
-    public static void h(String str, String str2, Object... objArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65545, null, str, str2, objArr) == null) {
-            String d = d(str2, objArr);
-            Throwable g = g(objArr);
-            if (g != null) {
-                if (a) {
-                    Log.i(i(str), d, g);
-                }
-            } else if (a) {
-                Log.i(i(str), d);
-            }
-        }
-    }
-
-    public static String e(String str, Object... objArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, objArr)) == null) {
-            return PreferencesUtil.LEFT_MOUNT + f() + "] " + d(str, objArr);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-            String name = us9.class.getName();
-            int i = 0;
-            while (true) {
-                if (i >= stackTrace.length) {
-                    break;
-                } else if (stackTrace[i].getClassName().equals(name)) {
-                    i += 4;
-                    break;
-                } else {
-                    i++;
-                }
-            }
-            return stackTrace[i].getFileName() + ":" + stackTrace[i].getLineNumber();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static Throwable g(Object[] objArr) {
+    /* JADX WARN: Not initialized variable reg: 1, insn: 0x0072: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:47:0x0072 */
+    /* JADX WARN: Removed duplicated region for block: B:58:0x0075 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:19:0x0044 -> B:61:0x0070). Please submit an issue!!! */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static PhotoType a(String str) {
         InterceptResult invokeL;
+        RandomAccessFile randomAccessFile;
+        RandomAccessFile randomAccessFile2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, objArr)) == null) {
-            if (objArr == null || objArr.length == 0) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            PhotoType photoType = null;
+            photoType = null;
+            photoType = null;
+            photoType = null;
+            photoType = null;
+            photoType = null;
+            photoType = null;
+            photoType = null;
+            photoType = null;
+            photoType = null;
+            photoType = null;
+            RandomAccessFile randomAccessFile3 = null;
+            try {
+                try {
+                    try {
+                        randomAccessFile = new RandomAccessFile(str, "r");
+                        try {
+                            MappedByteBuffer map = randomAccessFile.getChannel().map(FileChannel.MapMode.READ_ONLY, 0L, randomAccessFile.length());
+                            if (map != null && map.getInt() == -1991225785 && map.getInt(4) == 218765834 && map.getInt(37) == 1633899596) {
+                                photoType = PhotoType.APNG;
+                            }
+                            randomAccessFile.close();
+                        } catch (FileNotFoundException e) {
+                            e = e;
+                            e.printStackTrace();
+                            if (randomAccessFile != null) {
+                                randomAccessFile.close();
+                            }
+                            return photoType;
+                        } catch (IOException e2) {
+                            e = e2;
+                            e.printStackTrace();
+                            if (randomAccessFile != null) {
+                                randomAccessFile.close();
+                            }
+                            return photoType;
+                        } catch (BufferUnderflowException e3) {
+                            e = e3;
+                            e.printStackTrace();
+                            if (randomAccessFile != null) {
+                                randomAccessFile.close();
+                            }
+                            return photoType;
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        randomAccessFile3 = randomAccessFile2;
+                        if (randomAccessFile3 != null) {
+                            try {
+                                randomAccessFile3.close();
+                            } catch (IOException e4) {
+                                e4.printStackTrace();
+                            }
+                        }
+                        throw th;
+                    }
+                } catch (FileNotFoundException e5) {
+                    e = e5;
+                    randomAccessFile = null;
+                } catch (IOException e6) {
+                    e = e6;
+                    randomAccessFile = null;
+                } catch (BufferUnderflowException e7) {
+                    e = e7;
+                    randomAccessFile = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    if (randomAccessFile3 != null) {
+                    }
+                    throw th;
+                }
+            } catch (IOException e8) {
+                e8.printStackTrace();
             }
-            Object obj = objArr[objArr.length - 1];
-            if (!(obj instanceof Throwable)) {
-                return null;
-            }
-            return (Throwable) obj;
+            return photoType;
         }
-        return (Throwable) invokeL.objValue;
-    }
-
-    public static String i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            if (str.startsWith("cr_")) {
-                return str;
-            }
-            int i = 0;
-            if (str.startsWith("cr.")) {
-                i = 3;
-            }
-            return "cr_" + str.substring(i, str.length());
-        }
-        return (String) invokeL.objValue;
+        return (PhotoType) invokeL.objValue;
     }
 }

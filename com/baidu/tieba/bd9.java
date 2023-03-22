@@ -1,74 +1,50 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class bd9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static byte[] a(List<String> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (list == null) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder();
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                sb.append(list.get(i));
-                sb.append("\n");
-            }
-            return sb.toString().getBytes();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947641266, "Lcom/baidu/tieba/bd9;")) == null) {
+            return;
         }
-        return (byte[]) invokeL.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947641266, "Lcom/baidu/tieba/bd9;");
+        }
     }
 
-    public static byte[] b(JSONObject jSONObject) {
+    public static String a(String str) {
         InterceptResult invokeL;
+        String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str) || (split = str.split(":")) == null) {
                 return null;
             }
-            return jSONObject.toString().getBytes();
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static boolean c(byte[] bArr, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, str)) == null) {
-            if (bArr == null) {
-                return false;
-            }
-            hg hgVar = new hg();
-            hgVar.b().s(str);
-            hgVar.b().q(HttpMessageTask.HTTP_METHOD.POST);
-            hgVar.b().c("", bArr);
-            new eg(hgVar).m(3, -1, -1);
-            int i = hgVar.c().b;
-            byte[] bArr2 = hgVar.c().i;
-            if (bArr2 == null || i != 200) {
-                return false;
-            }
-            try {
-                if (new JSONObject(new String(bArr2, IMAudioTransRequest.CHARSET)).optJSONObject("error").optInt("errno") != 0) {
-                    return false;
+            for (String str2 : split) {
+                if (!TextUtils.isEmpty(str2) && str2.contains("TBCGameID=")) {
+                    int indexOf = str2.indexOf("=") + 1;
+                    if (indexOf >= str2.length()) {
+                        return "";
+                    }
+                    return str2.substring(indexOf, str2.length());
                 }
-                return true;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
             }
+            return "";
         }
-        return invokeLL.booleanValue;
+        return (String) invokeL.objValue;
     }
 }

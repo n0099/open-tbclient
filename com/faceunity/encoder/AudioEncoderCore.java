@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.extractor.ogg.OpusReader;
 import java.nio.ByteBuffer;
 /* loaded from: classes7.dex */
 public class AudioEncoderCore {
@@ -41,7 +42,7 @@ public class AudioEncoderCore {
             }
         }
         this.mBufferInfo = new MediaCodec.BufferInfo();
-        MediaFormat createAudioFormat = MediaFormat.createAudioFormat("audio/mp4a-latm", 48000, 1);
+        MediaFormat createAudioFormat = MediaFormat.createAudioFormat("audio/mp4a-latm", OpusReader.SAMPLE_RATE, 1);
         createAudioFormat.setInteger("aac-profile", 2);
         createAudioFormat.setInteger("channel-mask", 16);
         createAudioFormat.setInteger("bitrate", EncoderParams.AUDIO_BIT_RATE);

@@ -19,8 +19,8 @@ import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.switchs.BigImageCacheOptimizeSwitch;
 import com.baidu.tbadk.switchs.ImageCacheOptimizeSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.gg;
+import com.baidu.tieba.hi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -154,6 +154,7 @@ public class TbConfig {
     public static final String GET_CHANNEL_ADDRESS = "c/s/channelIconConfig";
     public static final String GET_CHAT_GROUP_ROOM_LIST = "c/f/chat/getRoomListByFid";
     public static final String GET_CHAT_ROOM_DETAIL = "c/f/chat/getChatRoomDetail";
+    public static final String GET_CHAT_ROOM_INIT_INFO = "c/f/chat/getChatRoomInitInfo";
     public static final String GET_DEFAULT_GIFT_LIST = "c/e/present/getGiftList";
     public static final String GET_FEEDBACK_TIP = "mo/q/msg/remindnumber";
     public static final String GET_FESTIVAL_TASK_REPORT = "c/s/commitFestivalTask";
@@ -182,6 +183,7 @@ public class TbConfig {
     public static final String GET_PUSH_DIALOG_TID = "c/s/getLockWindowTid";
     public static final String GET_QM_FILTERS = "c/f/video/qmFilters";
     public static final String GET_QM_STICKERS = "c/f/video/qmStickers";
+    public static final String GET_RELATIVE_MEME_LIST = "c/f/chat/getRelativeMemeList";
     public static final String GET_RN_SYNC_ADDRESS = "c/s/newRnSync";
     public static final String GET_STICKERS = "c/f/video/sticker";
     public static final String GET_SUBSCRIBE_GROUP_CHAT_LIST = "c/u/chat/getChatSubscriptionList";
@@ -349,6 +351,8 @@ public class TbConfig {
     public static final String RELEVANCE_ITEM_SEARCH_URL = "c/f/forum/itemSearchList";
     public static final String REMOVE_MULTI_FANS = "c/c/user/multiRemoveFans";
     public static final String REPLY_THREAD_ADDRESS = "c/c/post/add";
+    public static final String REQUEST_SPRITE_LOOP = "c/f/sprite/getSpriteSpeech";
+    public static final String REQUEST_SPRITE_QUESTION_REPLY = "c/f/sprite/getSpriteBottomChat";
     public static final String SEARCH_FRIEND = "c/r/friend/searchFriend";
     public static final String SEARCH_POST_FORUM = "c/f/forum/searchPostForum";
     public static final String SEND_FREE_GIFT = "c/c/encourage/present/sendFreeGift";
@@ -432,9 +436,7 @@ public class TbConfig {
     public static final String URL_CHECK_SHOW_INIT_NAME_DIALOG = "c/s/initNickname";
     public static final String URL_CHECK_VIDEO_STATUS = "c/c/video/uploadVideoStatus";
     public static final String URL_COMMIT_CARD_INFO = "c/c/bawu/commitCardInfo";
-    public static final String URL_CONCERN_CHECK_RED_NOTIFY = "c/f/concern/rednotify";
     public static final String URL_CONCERN_PAGE = "c/f/concern/userlike";
-    public static final String URL_CONCERN_UNREAD_TIP = "c/f/excellent/unreadtip";
     public static final String URL_CREATE_CENTER = "https://tieba.baidu.com/mo/q/creativeCenter";
     public static final String URL_CREATE_COLLEGE = "https://tieba.baidu.com/mo/q/creativeCenter?local=college";
     public static final String URL_DAILY_PAGE = "c/f/general/dailyPage";
@@ -493,6 +495,7 @@ public class TbConfig {
     public static final String URL_RECOMMEND_SETTING = "https://tieba.baidu.com/mo/q/personality";
     public static final String URL_RELATE_REC_THREAD = "c/f/forum/relateRecThread";
     public static final String URL_REMOVE_FANS = "c/c/user/removeFans";
+    public static String URL_REQUEST_PID = null;
     public static final String URL_SEARCH_MAJOR = "c/f/forum/searchMajor";
     public static final String URL_SET_PRIVACY = "c/c/thread/setPrivacy";
     public static final String URL_SHARE_COMMAND_GENERATE = "mo/q/schemeToken";
@@ -688,8 +691,6 @@ public class TbConfig {
                 sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_GET_PUSH_DIALOG_TID));
                 sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CDN_IPLIST_CMD));
                 sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_GET_STORE_REMIND_TIME));
-                sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_CONCERN_CHECK_RED_NOTIFY));
-                sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_CONCERN_UNREAD_TIP));
                 sInterruptCMDs.add(Integer.valueOf((int) CmdConfigHttp.CMD_GET_USER_INFO));
             }
         }
@@ -697,10 +698,8 @@ public class TbConfig {
         public static void collectSocketCmd() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-                sInterruptCMDs.add(309541);
                 sInterruptCMDs.add(303024);
                 sInterruptCMDs.add(309609);
-                sInterruptCMDs.add(309476);
                 sInterruptCMDs.add(309618);
                 sInterruptCMDs.add(303005);
                 sInterruptCMDs.add(309615);
@@ -781,6 +780,7 @@ public class TbConfig {
         IMAGE_ADDRESS = SERVER_ADDRESS + "c/p/img?";
         FEED_BACK_WEB_VIEW_URL = TIEBA_ADDRESS + "mo/q/feedback";
         UPLOAD_IMG_URL = SERVER_ADDRESS + "c/s/uploadPicture";
+        URL_REQUEST_PID = SERVER_ADDRESS + "c/s/getPidByPicUrl";
         CHANGE_USER_PORTRAIT = SERVER_ADDRESS + "c/c/img/changeportrait";
         SET_USER_PICS = SERVER_ADDRESS + "c/c/img/setuserpic";
         VOTE_ADD = "c/c/post/addPollPost";
@@ -1070,7 +1070,7 @@ public class TbConfig {
             return;
         }
         sThreadImageMaxInited = true;
-        int sqrt = (int) Math.sqrt(ej.l(context) * ej.j(context));
+        int sqrt = (int) Math.sqrt(hi.l(context) * hi.j(context));
         if (sqrt > THREAD_IMAGE_MAX_WIDTH) {
             THREAD_IMAGE_MAX_WIDTH = sqrt;
         }
@@ -1315,7 +1315,7 @@ public class TbConfig {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65556, null, i)) == null) {
-            return ej.g(TbadkCoreApplication.getInst().getContext(), i);
+            return hi.g(TbadkCoreApplication.getInst().getContext(), i);
         }
         return invokeI.intValue;
     }
@@ -1324,7 +1324,7 @@ public class TbConfig {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65579, null, context)) == null) {
-            int d = ej.d(context, 427.0f);
+            int d = hi.d(context, 427.0f);
             if (d > 640) {
                 d = 640;
             }
@@ -1372,7 +1372,7 @@ public class TbConfig {
                 i = 60;
             }
             if (MAX_PHOTO_MEMORY_CACHE != i) {
-                TbImageMemoryCache.p().G(i);
+                TbImageMemoryCache.o().F(i);
             }
             MAX_PHOTO_MEMORY_CACHE = i;
         }
@@ -1415,7 +1415,7 @@ public class TbConfig {
             if (!UbsABTestHelper.isImageCacheOptimize()) {
                 return f2;
             }
-            float d = dh.d(UtilHelper.formalDecimalForTwo(f / 100.0f), 0.0f);
+            float d = gg.d(UtilHelper.formalDecimalForTwo(f / 100.0f), 0.0f);
             if (d >= f3 && d <= f4) {
                 return d;
             }

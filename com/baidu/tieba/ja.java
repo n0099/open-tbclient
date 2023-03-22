@@ -1,21 +1,15 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public interface ja {
-    @NonNull
-    public static final ServiceReference a;
-    @Nullable
-    public static final ja b;
+    void a(String str);
 
-    void a(int i, @NonNull String str, @Nullable Object obj);
+    boolean b(int i, String str);
 
-    static {
-        ServiceReference serviceReference = new ServiceReference("DebugProcessor", "DebugService4Adp");
-        a = serviceReference;
-        b = (ja) ServiceManager.getService(serviceReference);
-    }
+    void c(cj cjVar);
+
+    void d(kj kjVar);
+
+    void g(Map<String, String> map);
 }

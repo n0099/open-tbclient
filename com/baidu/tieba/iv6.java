@@ -1,68 +1,51 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.base.BdBaseFragmentActivity;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.util.PriorityOrganizer;
-import com.baidu.tieba.frs.FrsActivity;
+import android.view.View;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class iv6 extends CustomMessageListener {
+import java.util.ArrayList;
+/* loaded from: classes5.dex */
+public class iv6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final FrsActivity a;
-    public t47 b;
-    public u47 c;
+    public gv6 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public iv6(FrsActivity frsActivity) {
-        super(2921728);
+    public iv6(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsActivity};
+            Object[] objArr = {tbPageContext, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = frsActivity;
-        t47 t47Var = new t47(frsActivity);
-        this.b = t47Var;
-        t47Var.F(true);
-        u47 u47Var = new u47(frsActivity);
-        this.c = u47Var;
-        u47Var.F(true);
-        PriorityOrganizer.n(this.b, this.c);
-        setPriority(1);
+        if (bdTypeListView == null) {
+            return;
+        }
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(new ev6(tbPageContext, nv6.d, tbPageContext.getUniqueId()));
+        gv6 gv6Var = new gv6(tbPageContext, ov6.h, tbPageContext.getUniqueId());
+        this.a = gv6Var;
+        arrayList.add(gv6Var);
+        arrayList.add(new fv6(tbPageContext, nv6.c, tbPageContext.getUniqueId()));
+        arrayList.add(new hv6(tbPageContext, nv6.e, tbPageContext.getUniqueId()));
+        bdTypeListView.addAdapters(arrayList);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    public void a(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921728) {
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            BdUniqueId bdUniqueId = null;
-            if (currentActivity instanceof BdBaseFragmentActivity) {
-                bdUniqueId = ((BdBaseFragmentActivity) currentActivity).getUniqueId();
-            }
-            if (getTag() == bdUniqueId && !this.b.v(true)) {
-                this.b.E(true);
-                this.a.p0().w(this.b);
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
+            this.a.u(onClickListener);
         }
     }
 }

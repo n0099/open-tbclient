@@ -42,7 +42,7 @@ public class PrivateForumPopInfoData extends OrmObject {
         this.f = -1;
     }
 
-    public int N() {
+    public int R() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -51,7 +51,7 @@ public class PrivateForumPopInfoData extends OrmObject {
         return invokeV.intValue;
     }
 
-    public String O() {
+    public String S() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -60,7 +60,7 @@ public class PrivateForumPopInfoData extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public int P() {
+    public int T() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -69,7 +69,7 @@ public class PrivateForumPopInfoData extends OrmObject {
         return invokeV.intValue;
     }
 
-    public String Q() {
+    public String U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -78,7 +78,7 @@ public class PrivateForumPopInfoData extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public String R() {
+    public String V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -96,7 +96,7 @@ public class PrivateForumPopInfoData extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public void S(PrivatePopInfo privatePopInfo) {
+    public void W(PrivatePopInfo privatePopInfo) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048581, this, privatePopInfo) != null) || privatePopInfo == null) {
             return;
@@ -113,28 +113,28 @@ public class PrivateForumPopInfoData extends OrmObject {
         }
     }
 
-    public void T(String str) {
+    public void X(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             this.b = str;
         }
     }
 
-    public void U(int i) {
+    public void Y(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             this.d = i;
         }
     }
 
-    public void V(String str) {
+    public void Z(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             this.a = str;
         }
     }
 
-    public void W(String str) {
+    public void a0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
             this.c = str;

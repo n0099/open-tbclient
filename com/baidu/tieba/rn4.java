@@ -1,30 +1,49 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.res.ColorStateList;
+import android.annotation.SuppressLint;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"StaticFieldLeak"})
 /* loaded from: classes6.dex */
-public class rn4 {
+public final class rn4 extends do4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile rn4 d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(Context context, int i) {
-        InterceptResult invokeLI;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rn4() {
+        super("aiapp_open_stat");
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, context, i)) == null) {
-            return context.getColor(i);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return invokeLI.intValue;
     }
 
-    public static ColorStateList b(Context context, int i) {
-        InterceptResult invokeLI;
+    public static rn4 f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
-            return context.getColorStateList(i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (d == null) {
+                synchronized (rn4.class) {
+                    if (d == null) {
+                        d = new rn4();
+                    }
+                }
+            }
+            return d;
         }
-        return (ColorStateList) invokeLI.objValue;
+        return (rn4) invokeV.objValue;
     }
 }

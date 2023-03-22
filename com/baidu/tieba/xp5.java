@@ -1,30 +1,22 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class xp5 {
     public static /* synthetic */ Interceptable $ic;
-    public static long a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    public static void a(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            long j = a;
-            if (j > currentTimeMillis) {
-                a = currentTimeMillis;
-                return false;
-            } else if (currentTimeMillis - j < 500) {
-                return true;
-            } else {
-                a = currentTimeMillis;
-                return false;
-            }
+        if (interceptable == null || interceptable.invokeL(65536, null, activity) == null) {
         }
-        return invokeV.booleanValue;
+    }
+
+    public static void b(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, activity) == null) {
+        }
     }
 }

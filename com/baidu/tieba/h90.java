@@ -1,75 +1,80 @@
 package com.baidu.tieba;
 
+import android.graphics.Typeface;
+import android.text.TextUtils;
+import com.baidu.live.LiveFeedPageSdk;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.File;
+import java.util.Hashtable;
 /* loaded from: classes4.dex */
 public class h90 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Hashtable<String, Typeface> a;
+    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] a;
-    public long b;
-    public long c;
-    public int d;
-    public String e;
-    public boolean f;
-    public byte[] g;
-    public long h;
-    public long i;
-    public long j;
-    public int k;
-    public boolean l;
-    public boolean m;
-    public boolean n;
-    public long o;
-    public boolean p;
-    public List<c90> q;
 
-    public h90() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947778410, "Lcom/baidu/tieba/h90;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947778410, "Lcom/baidu/tieba/h90;");
                 return;
             }
         }
-        this.a = new byte[0];
-        this.b = -1L;
-        this.c = 5000L;
-        this.d = -1;
-        this.e = "";
-        this.f = false;
-        this.g = new byte[0];
-        this.h = 60000L;
-        this.i = -1L;
-        this.j = -1L;
-        this.k = -1;
-        this.l = false;
-        this.m = false;
-        this.n = false;
-        this.o = -1L;
-        this.p = false;
-        this.q = new ArrayList();
+        a = new Hashtable<>();
+        b = LiveFeedPageSdk.getInstance().getApplication().getFilesDir().getAbsolutePath() + File.separator + "font/";
+        new File(b).mkdirs();
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.n) {
-                return "Request correlationId :" + this.o + ", serviceId :" + this.i + ", methodId :" + this.j + ", connectState :" + this.k + ", isNotify :" + this.f + ", bodySize :" + this.a.length;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
-            return "Response correlationId " + this.o + ", serviceId :" + this.i + ", methodId :" + this.j + ", errorCode :" + this.d + ", errorMsg :" + this.e + ", intervalMs :" + this.h + ", isNotify :" + this.f + ", bodySize :" + this.g.length;
+            try {
+                return new File(str).exists();
+            } catch (Exception unused) {
+                return false;
+            }
         }
-        return (String) invokeV.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public static Typeface b(String str) {
+        InterceptResult invokeL;
+        Typeface typeface;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            synchronized (a) {
+                if (!a.containsKey(str)) {
+                    String str2 = b + str;
+                    if (a(str2)) {
+                        try {
+                            a.put(str, Typeface.createFromFile(str2));
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                if (a.get(str) == null) {
+                    typeface = Typeface.DEFAULT;
+                } else {
+                    typeface = a.get(str);
+                }
+            }
+            return typeface;
+        }
+        return (Typeface) invokeL.objValue;
     }
 }

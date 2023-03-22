@@ -12,8 +12,8 @@ import kotlin.jvm.internal.Intrinsics;
 public final class ds {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public os b;
+    public final Class<? extends ls<? extends ks<?>>> a;
+    public final Class<? extends ks<?>> b;
 
     public boolean equals(Object obj) {
         InterceptResult invokeL;
@@ -35,10 +35,10 @@ public final class ds {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String str = this.a;
-            int hashCode = (str != null ? str.hashCode() : 0) * 31;
-            os osVar = this.b;
-            return hashCode + (osVar != null ? osVar.hashCode() : 0);
+            Class<? extends ls<? extends ks<?>>> cls = this.a;
+            int hashCode = (cls != null ? cls.hashCode() : 0) * 31;
+            Class<? extends ks<?>> cls2 = this.b;
+            return hashCode + (cls2 != null ? cls2.hashCode() : 0);
         }
         return invokeV.intValue;
     }
@@ -47,17 +47,17 @@ public final class ds {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return "BdtlsRequestParams(requestData=" + this.a + ", bdtlsRequest=" + this.b + SmallTailInfo.EMOTION_SUFFIX;
+            return "DialogPlugin(viewClass=" + this.a + ", viewModelClass=" + this.b + SmallTailInfo.EMOTION_SUFFIX;
         }
         return (String) invokeV.objValue;
     }
 
-    public ds(String str, os osVar) {
+    public ds(Class<? extends ls<? extends ks<?>>> cls, Class<? extends ks<?>> cls2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, osVar};
+            Object[] objArr = {cls, cls2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -67,25 +67,25 @@ public final class ds {
                 return;
             }
         }
-        this.a = str;
-        this.b = osVar;
+        this.a = cls;
+        this.b = cls2;
     }
 
-    public final String a() {
+    public final Class<? extends ls<? extends ks<?>>> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (String) invokeV.objValue;
+        return (Class) invokeV.objValue;
     }
 
-    public final os b() {
+    public final Class<? extends ks<?>> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.b;
         }
-        return (os) invokeV.objValue;
+        return (Class) invokeV.objValue;
     }
 }

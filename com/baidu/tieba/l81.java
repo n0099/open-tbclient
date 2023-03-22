@@ -1,42 +1,29 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.os.Build;
-import android.webkit.CookieSyncManager;
-import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.webview.NadNativeBrowserView;
-import com.baidu.nadcore.webview.view.AbsNadBrowserView;
-import com.baidu.tieba.k81;
-import com.baidu.tieba.s91;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
+@Service
 /* loaded from: classes5.dex */
-public final class l81 implements k81.a {
+public final class l81 extends rh0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
 
-    @Override // com.baidu.tieba.k81.a
-    public boolean a(HashMap<String, String> hashMap, int i) {
-        InterceptResult invokeLI;
+    @Override // com.baidu.tieba.rh0
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, hashMap, i)) == null) {
-            return true;
-        }
-        return invokeLI.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.k81.a
-    public void b(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "prerender" : (String) invokeV.objValue;
     }
 
     public l81() {
@@ -49,37 +36,54 @@ public final class l81 implements k81.a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = "PreRenderAction";
     }
 
-    @Override // com.baidu.tieba.k81.a
-    public AbsNadBrowserView c(Context context, u91 u91Var, int i) {
-        InterceptResult invokeLLI;
+    @Override // com.baidu.tieba.rh0
+    public boolean b(Context context, vh0 schemeModel, Map<String, Object> map, zh0 zh0Var) {
+        InterceptResult invokeLLLL;
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, context, u91Var, i)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, schemeModel, map, zh0Var)) == null) {
             Intrinsics.checkNotNullParameter(context, "context");
-            x91.c(context, "创建native内核browserView");
-            return new NadNativeBrowserView(context);
-        }
-        return (AbsNadBrowserView) invokeLLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.k81.a
-    public void d(Context context, boolean z, int i, s91.b listener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, Boolean.valueOf(z), Integer.valueOf(i), listener}) == null) {
-            Intrinsics.checkNotNullParameter(listener, "listener");
-            try {
-                if (Build.VERSION.SDK_INT >= 28) {
-                    WebView.setDataDirectorySuffix(c51.a());
-                }
-                CookieSyncManager.createInstance(context);
-                listener.a();
-            } catch (Exception e) {
-                listener.b();
-                x91.d(e);
+            Intrinsics.checkNotNullParameter(schemeModel, "schemeModel");
+            super.b(context, schemeModel, map, zh0Var);
+            if (bm0.b().a().a("ad_do_prerender", 1) == 1) {
+                z = true;
+            } else {
+                z = false;
             }
+            if (!z) {
+                h81 c = f81.c();
+                if (c != null) {
+                    c.c();
+                }
+                return false;
+            }
+            HashMap<String, String> d = schemeModel.d();
+            Intrinsics.checkNotNullExpressionValue(d, "schemeModel.params");
+            String str = d.get("url");
+            if (str != null && str.length() != 0) {
+                z2 = false;
+            } else {
+                z2 = true;
+            }
+            if (z2) {
+                n81.a("PreRender_" + this.a, "URL 为空，协议错误，无法预渲染");
+                return false;
+            }
+            d.get("web_type");
+            String str2 = d.get(TiebaStatic.Params.REFER);
+            h81 c2 = f81.c();
+            if (c2 != null) {
+                c2.b(str, null, str2);
+            }
+            return true;
         }
+        return invokeLLLL.booleanValue;
     }
 }

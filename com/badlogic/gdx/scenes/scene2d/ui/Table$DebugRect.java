@@ -1,9 +1,9 @@
 package com.badlogic.gdx.scenes.scene2d.ui;
 
 import com.badlogic.gdx.math.Rectangle;
-import com.baidu.tieba.g8;
-import com.baidu.tieba.h8;
-import com.baidu.tieba.r3;
+import com.baidu.tieba.j7;
+import com.baidu.tieba.k7;
+import com.baidu.tieba.u2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,9 +14,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
 public class Table$DebugRect extends Rectangle {
     public static /* synthetic */ Interceptable $ic;
-    public static g8<Table$DebugRect> pool;
+    public static j7<Table$DebugRect> pool;
     public transient /* synthetic */ FieldHolder $fh;
-    public r3 color;
+    public u2 color;
 
     static {
         InterceptResult invokeClinit;
@@ -31,7 +31,7 @@ public class Table$DebugRect extends Rectangle {
                 return;
             }
         }
-        pool = h8.a(Table$DebugRect.class);
+        pool = k7.a(Table$DebugRect.class);
     }
 
     public Table$DebugRect() {

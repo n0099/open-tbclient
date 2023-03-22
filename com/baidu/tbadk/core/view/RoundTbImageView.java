@@ -79,10 +79,10 @@ public class RoundTbImageView extends TbClipImageView {
         }
         this.x0 = R.drawable.transparent_bg;
         this.y0 = R.color.CAM_X0209;
-        v();
+        x();
     }
 
-    public final void v() {
+    public final void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setDrawerType(1);

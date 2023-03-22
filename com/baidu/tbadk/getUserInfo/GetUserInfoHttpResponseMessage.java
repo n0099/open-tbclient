@@ -4,8 +4,8 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.tf5;
-import com.baidu.tieba.uf5;
+import com.baidu.tieba.ge5;
+import com.baidu.tieba.he5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import tbclient.GetUserInfo.GetUserInfoResIdl;
 public class GetUserInfoHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tf5 mData;
+    public ge5 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetUserInfoHttpResponseMessage(int i) {
@@ -46,9 +46,9 @@ public class GetUserInfoHttpResponseMessage extends TbHttpResponsedMessage {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             super.afterDispatchInBackGround(i, (int) bArr);
-            tf5 tf5Var = this.mData;
-            if (tf5Var != null && tf5Var.a() != null) {
-                uf5.d().i(this.mData.a());
+            ge5 ge5Var = this.mData;
+            if (ge5Var != null && ge5Var.a() != null) {
+                he5.d().i(this.mData.a());
             } else {
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001247));
             }
@@ -71,18 +71,18 @@ public class GetUserInfoHttpResponseMessage extends TbHttpResponsedMessage {
             if (getError() != 0) {
                 return;
             }
-            tf5 tf5Var = new tf5();
-            this.mData = tf5Var;
-            tf5Var.b(getUserInfoResIdl.data);
+            ge5 ge5Var = new ge5();
+            this.mData = ge5Var;
+            ge5Var.b(getUserInfoResIdl.data);
         }
     }
 
-    public tf5 getData() {
+    public ge5 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.mData;
         }
-        return (tf5) invokeV.objValue;
+        return (ge5) invokeV.objValue;
     }
 }

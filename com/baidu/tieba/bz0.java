@@ -1,11 +1,18 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import com.baidu.nadcore.player.constants.PlayerStatus;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes3.dex */
-public interface bz0 extends cx0 {
-    View getContentView();
+public final /* synthetic */ class bz0 {
+    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void onContainerDetach();
-
-    void onLayerRelease();
+    static {
+        int[] iArr = new int[PlayerStatus.values().length];
+        $EnumSwitchMapping$0 = iArr;
+        iArr[PlayerStatus.PREPARED.ordinal()] = 1;
+        $EnumSwitchMapping$0[PlayerStatus.COMPLETE.ordinal()] = 2;
+    }
 }

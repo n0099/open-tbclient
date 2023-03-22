@@ -1,156 +1,199 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.os.Environment;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.mobstat.Config;
+import com.baidu.storage.swankv.SwanKV;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SoLoadUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+import com.baidu.turbonet.net.OkHttp3Interceptor;
+import com.baidu.turbonet.net.TurbonetConfig;
+import com.baidu.turbonet.net.TurbonetContext;
+import java.io.File;
+import java.util.concurrent.TimeUnit;
+import okhttp3.OkHttpClient;
+/* loaded from: classes5.dex */
 public class iy8 {
     public static /* synthetic */ Interceptable $ic;
+    public static OkHttpClient a;
+    public static TurbonetContext b;
+    public static long c;
+    public static boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public String c;
-    public ly8 d;
 
-    /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes4.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final iy8 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-702735229, "Lcom/baidu/tieba/iy8$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-702735229, "Lcom/baidu/tieba/iy8$b;");
-                    return;
-                }
-            }
-            a = new iy8(null);
-        }
-    }
-
-    public iy8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static iy8 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (iy8) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String str = this.c;
-            if (str == null) {
-                return "";
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.a && this.b) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public /* synthetic */ iy8(a aVar) {
-        this();
-    }
-
-    public void a(Uri uri) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, uri) == null) && uri != null && b(uri)) {
-            this.c = null;
-        }
-    }
-
-    public final boolean b(Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri)) == null) {
-            if (this.d == null) {
-                this.d = new ly8();
-            }
-            return this.d.a(uri);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.b = true;
-            this.c = str;
-        }
-    }
-
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.a = z;
-        }
-    }
-
-    public void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.b = z;
-        }
-    }
-
-    public void g(Uri uri, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048581, this, uri, str) != null) || !b(uri)) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947869953, "Lcom/baidu/tieba/iy8;")) == null) {
             return;
         }
-        this.b = true;
-        if (!TextUtils.isEmpty(str)) {
-            this.c = ky8.a(str);
-        } else {
-            this.c = null;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947869953, "Lcom/baidu/tieba/iy8;");
+        }
+    }
+
+    public static OkHttpClient a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            b = g();
+            OkHttp3Interceptor okHttp3Interceptor = new OkHttp3Interceptor(b);
+            OkHttpClient.Builder builder = new OkHttpClient.Builder();
+            builder.connectTimeout(15000L, TimeUnit.MILLISECONDS).readTimeout(15000L, TimeUnit.MILLISECONDS).addInterceptor(okHttp3Interceptor);
+            return builder.build();
+        }
+        return (OkHttpClient) invokeV.objValue;
+    }
+
+    public static TurbonetContext g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            TurbonetContext turbonetContext = new TurbonetContext(TbadkCoreApplication.getInst().getContext(), "tieba", TbadkCoreApplication.getInst().getCuid(), d());
+            b = turbonetContext;
+            return turbonetContext;
+        }
+        return (TurbonetContext) invokeV.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:26:0x0057  */
+    /* JADX WARN: Removed duplicated region for block: B:33:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String b() {
+        InterceptResult invokeV;
+        String path;
+        boolean equalsIgnoreCase;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            Context context = TbadkCoreApplication.getInst().getContext();
+            try {
+                String externalStorageState = Environment.getExternalStorageState();
+                equalsIgnoreCase = externalStorageState.equalsIgnoreCase("mounted");
+                if (!equalsIgnoreCase && !Environment.isExternalStorageRemovable() && !externalStorageState.equalsIgnoreCase(SwanKV.FLAVOR_SHARED)) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+            } catch (Exception unused) {
+                File cacheDir = context.getCacheDir();
+                if (cacheDir == null) {
+                    return null;
+                }
+                path = cacheDir.getPath();
+            }
+            if (!equalsIgnoreCase && !z) {
+                path = context.getCacheDir().getPath();
+                if (!path.endsWith(File.separator)) {
+                    return path.substring(0, path.length() - 1);
+                }
+                return path;
+            }
+            path = context.getExternalCacheDir().getPath();
+            if (!path.endsWith(File.separator)) {
+            }
+        } else {
+            return (String) invokeV.objValue;
+        }
+    }
+
+    public static OkHttpClient c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (a == null) {
+                a = a();
+            }
+            return a;
+        }
+        return (OkHttpClient) invokeV.objValue;
+    }
+
+    public static long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            TurbonetContext turbonetContext = b;
+            if (turbonetContext != null && c == 0) {
+                c = turbonetContext.c();
+            }
+            return c;
+        }
+        return invokeV.longValue;
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65542, null) != null) || d) {
+            return;
+        }
+        d = true;
+        try {
+            SoLoadUtils.checkDownloadSo("libturbonet.so", "com.baidu.tieba.soloader.libturbonet", "turbonet");
+            c();
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
+    }
+
+    public static TurbonetConfig d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            TurbonetConfig turbonetConfig = new TurbonetConfig();
+            turbonetConfig.j(15);
+            turbonetConfig.c(true);
+            turbonetConfig.b(true);
+            turbonetConfig.e(true);
+            turbonetConfig.a("http://tb-video.bdstatic.com|2");
+            turbonetConfig.f(true);
+            turbonetConfig.i("bdns", "bce_http_dns_account_id", "119799");
+            turbonetConfig.i("bdns", "bce_http_dns_secret", "87JNTZjGacgUzuMBYvid");
+            turbonetConfig.i("bdbus", "min_trigger_interval", 180);
+            turbonetConfig.i("bdns", "dual_stack_bdns_cache_policy", 1);
+            File file = new File(b(), "turbonetcache");
+            if (file.exists()) {
+                if (file.isFile()) {
+                    file.delete();
+                    file.mkdirs();
+                }
+            } else {
+                file.mkdirs();
+            }
+            turbonetConfig.k(file.getAbsolutePath());
+            turbonetConfig.d(3, Config.FULL_TRACE_LOG_LIMIT);
+            turbonetConfig.i("log", "lite_log_in_response_header", Boolean.TRUE);
+            turbonetConfig.i("app", "app_package_name", "com.baidu.tieba");
+            turbonetConfig.i("nq", "network_quality_enabled", Boolean.TRUE);
+            turbonetConfig.i("nq", "watch_all", Boolean.TRUE);
+            turbonetConfig.i("nq", "rejudge_interval_sec", 10);
+            turbonetConfig.i("nq", "weak_window_sec", 30);
+            turbonetConfig.i("nq", "weak_min_cnt", 10);
+            turbonetConfig.i("nq", "probe_enabled", Boolean.FALSE);
+            turbonetConfig.i("nq", "weak_policy_tcp_retrans_enable", Boolean.TRUE);
+            turbonetConfig.i("nq", "weak_policy_tcp_retrans_percentage", 30);
+            turbonetConfig.i("nq", "weak_policy_tcp_recv_len_enable", Boolean.FALSE);
+            turbonetConfig.i("nq", "weak_policy_http_ttfb_enable", Boolean.TRUE);
+            turbonetConfig.i("nq", "weak_policy_http_ttfb_threshold_ms", 800);
+            turbonetConfig.i("nq", "weak_policy_http_ttfb_percentage", 30);
+            turbonetConfig.i("nq", "weak_policy_tcp_rtt_enable", Boolean.TRUE);
+            turbonetConfig.i("nq", "weak_policy_tcp_rtt_threshold_ms", 500);
+            turbonetConfig.i("nq", "weak_policy_tcp_rtt_percentage", 30);
+            turbonetConfig.i("misc", "preconnect_for_alter_quic", Boolean.TRUE);
+            return turbonetConfig;
+        }
+        return (TurbonetConfig) invokeV.objValue;
     }
 }

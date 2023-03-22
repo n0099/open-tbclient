@@ -2,11 +2,11 @@ package com.yy.hiidostatis.inner.util;
 
 import com.yy.hiidostatis.inner.util.log.L;
 import java.util.Date;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SharedThreadTimer {
     public boolean canceled = false;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class InnerRun implements Runnable {
         public long period;
         public SharedTimerTask task;

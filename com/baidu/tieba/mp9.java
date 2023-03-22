@@ -1,82 +1,13 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.annotations.SerializedName;
-import java.util.List;
+import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
 /* loaded from: classes5.dex */
-public class mp9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    @SerializedName("n")
-    public String a;
-    @SerializedName("t")
-    public String b;
-    @SerializedName("c")
-    public String c;
-    @SerializedName("cs")
-    public List<a> d;
-    @SerializedName("e")
-    public List<String> e;
+public interface mp9 {
+    void G0(boolean z);
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        @SerializedName("id")
-        public String a;
-        @SerializedName("ext")
-        public String b;
+    void Z(CloudMusicData cloudMusicData);
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
+    void d1(lp9 lp9Var);
 
-    public mp9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Nullable
-    public static mp9 a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            try {
-                return (mp9) DataExt.toEntity(str, mp9.class);
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (mp9) invokeL.objValue;
-    }
+    void k(boolean z);
 }

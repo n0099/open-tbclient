@@ -1,428 +1,145 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.graphics.Color;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.payment.PaymentManager;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.re3;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
-import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 /* loaded from: classes4.dex */
 public class f23 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
-    public static final String[] h;
-    public static final Map<String, String> i;
     public transient /* synthetic */ FieldHolder $fh;
-    public d a;
-    public m93 b;
-    public SwanAppActivity c;
-    public PaymentManager d;
-    public String e;
-    public String f;
+    public boolean a;
+    public boolean b;
 
-    /* loaded from: classes4.dex */
-    public interface d {
-        void a(@NonNull m12 m12Var);
-    }
-
-    /* loaded from: classes4.dex */
-    public class a implements fo3<pe3<re3.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ f23 c;
-
-        public a(f23 f23Var, JSONObject jSONObject, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f23Var, jSONObject, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = f23Var;
-            this.a = jSONObject;
-            this.b = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fo3
-        /* renamed from: b */
-        public void a(pe3<re3.e> pe3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pe3Var) == null) {
-                if (!ke3.h(pe3Var)) {
-                    m62.i("SwanAppThirdPayment", "authorize fail");
-                    fg3.H(false, this.c.f, fg3.m("", "authorize fail"));
-                    this.c.i(new m12(pe3Var.b(), ke3.f(pe3Var.b())));
-                    return;
-                }
-                this.c.p(this.a, this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements yp1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ JSONObject b;
-        public final /* synthetic */ f23 c;
-
-        public b(f23 f23Var, String str, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f23Var, str, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = f23Var;
-            this.a = str;
-            this.b = jSONObject;
-        }
-
-        @Override // com.baidu.tieba.yp1
-        public void onResult(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (i == 0) {
-                    fg3.J(this.c.f, true, false);
-                    fg3.S("success", 13, this.a);
-                    this.c.l(this.b);
-                    return;
-                }
-                m62.i("SwanAppThirdPayment", "login fail");
-                fg3.H(false, this.c.f, fg3.m("", "login error"));
-                fg3.S(com.baidu.pass.biometrics.face.liveness.b.a.g0, 13, this.a);
-                fg3.J(this.c.f, false, false);
-                this.c.i(new m12(5, "login error"));
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c implements ag1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONObject a;
-        public final /* synthetic */ f23 b;
-
-        public c(f23 f23Var, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f23Var, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = f23Var;
-            this.a = jSONObject;
-        }
-
-        /* JADX WARN: Removed duplicated region for block: B:29:0x008a  */
-        /* JADX WARN: Removed duplicated region for block: B:30:0x009c  */
-        /* JADX WARN: Removed duplicated region for block: B:32:0x00c9  */
-        /* JADX WARN: Removed duplicated region for block: B:44:0x005b A[EXC_TOP_SPLITTER, SYNTHETIC] */
-        @Override // com.baidu.tieba.ag1
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public void onPayResult(int i, String str) {
-            JSONObject jSONObject;
-            JSONException e;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                m62.b("SwanAppThirdPayment", "pay result from nuomi: code:" + i + ", result: " + str);
-                JSONObject jSONObject2 = new JSONObject();
-                Object obj = null;
-                try {
-                    jSONObject = new JSONObject(str);
-                    try {
-                        obj = jSONObject.remove("returnData");
-                        jSONObject.remove("msg");
-                        jSONObject.remove(HiAnalyticsConstant.HaKey.BI_KEY_RESULT);
-                    } catch (JSONException e2) {
-                        e = e2;
-                        if (f23.g) {
-                            Log.e("SwanAppThirdPayment", Log.getStackTraceString(e));
-                        }
-                        if (obj != null) {
-                        }
-                        if (i != 0) {
-                        }
-                        if (i != 1) {
-                        }
-                        String j = f23.j(i, this.b.c);
-                        if (TextUtils.equals("WeChat", this.b.e)) {
-                            i = 0;
-                        }
-                        this.b.i(new m12(i, j, jSONObject));
-                    }
-                } catch (JSONException e3) {
-                    jSONObject = jSONObject2;
-                    e = e3;
-                }
-                if (obj != null) {
-                    try {
-                        jSONObject.put("returnData", new JSONObject(String.valueOf(obj)));
-                    } catch (JSONException e4) {
-                        if (f23.g) {
-                            Log.e("SwanAppThirdPayment", Log.getStackTraceString(e4));
-                        }
-                        try {
-                            jSONObject.put("returnData", obj);
-                        } catch (JSONException e5) {
-                            if (f23.g) {
-                                Log.e("SwanAppThirdPayment", Log.getStackTraceString(e5));
-                            }
-                        }
-                    }
-                }
-                if (i != 0) {
-                    fg3.H(true, this.b.f, this.b.k(str, this.a));
-                } else {
-                    m62.i("SwanAppThirdPayment", "pay not success: code:" + i + ", result: " + str);
-                    fg3.H(false, this.b.f, this.b.k(str, this.a));
-                }
-                if (i != 1) {
-                    fg3.K(this.b.f, "result", i);
-                }
-                String j2 = f23.j(i, this.b.c);
-                if (TextUtils.equals("WeChat", this.b.e) && i == 1) {
-                    i = 0;
-                }
-                this.b.i(new m12(i, j2, jSONObject));
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947712194, "Lcom/baidu/tieba/f23;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947712194, "Lcom/baidu/tieba/f23;");
-                return;
-            }
-        }
-        g = wp1.a;
-        h = new String[]{"dealId", "appKey", "totalAmount", "tpOrderId", "rsaSign", "dealTitle", "chosenChannel", "payInfo", "tradeNo", "mchIdMd5"};
-        HashMap hashMap = new HashMap();
-        i = hashMap;
-        hashMap.put("WeChat", "thirdPayWechatH5");
-        i.put("Alipay", "thirdPayAlipay");
-    }
-
-    public f23(@NonNull m93 m93Var, @NonNull SwanAppActivity swanAppActivity, @NonNull d dVar) {
+    public f23() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {m93Var, swanAppActivity, dVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.f = "thirdPayUnknown";
-        this.b = m93Var;
-        this.c = swanAppActivity;
-        this.a = dVar;
-        this.d = new PaymentManager();
     }
 
-    public final void i(@NonNull m12 m12Var) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, m12Var) == null) {
-            this.a.a(m12Var);
-            m62.b("SwanAppThirdPayment", "pay result to js: " + m12Var);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = true;
         }
     }
 
-    public final void o(JSONObject jSONObject, String str) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, jSONObject, str) == null) {
-            this.b.e0().g(this.c, "scope_request_thirdpayment", new a(this, jSONObject, str));
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.b) {
+            d();
         }
     }
 
-    public static String j(int i2, Context context) {
-        InterceptResult invokeIL;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65546, null, i2, context)) == null) {
-            if (i2 != 0) {
-                if (i2 != 1) {
-                    if (i2 != 2) {
-                        return context.getString(R.string.obfuscated_res_0x7f0f1331);
-                    }
-                    return context.getString(R.string.obfuscated_res_0x7f0f1330);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a = false;
+            c();
+            k();
+        }
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && !this.b) {
+            b();
+        }
+    }
+
+    public final ViewGroup b() {
+        InterceptResult invokeV;
+        ViewGroup viewGroup;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (t73.b0() != null && t73.b0().w() != null && (viewGroup = (ViewGroup) t73.b0().w().findViewById(16908290)) != null) {
+                ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f09215b);
+                if (viewGroup2 != null) {
+                    return viewGroup2;
                 }
-                return context.getString(R.string.obfuscated_res_0x7f0f1332);
-            }
-            return context.getString(R.string.obfuscated_res_0x7f0f1333);
-        }
-        return (String) invokeIL.objValue;
-    }
-
-    public final String k(String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject)) == null) {
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                JSONObject jSONObject3 = new JSONObject(str);
-                jSONObject2.put("orderId", jSONObject.opt("tpOrderId"));
-                jSONObject2.put("msg", jSONObject3.opt("msg"));
-            } catch (JSONException e) {
-                m62.b("SwanAppThirdPayment", Log.getStackTraceString(e));
-                try {
-                    jSONObject2.put("orderId", jSONObject.opt("tpOrderId"));
-                    jSONObject2.put("msg", str);
-                } catch (JSONException e2) {
-                    m62.b("SwanAppThirdPayment", Log.getStackTraceString(e2));
-                }
-            }
-            return jSONObject2.toString();
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final void l(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            fg3.K(this.f, "intoPayment", 0);
-            try {
-                b23.z(this.b, jSONObject);
-                jSONObject.put("tradeType", "DIRECTPAY");
-                jSONObject.put("panelType", HlsPlaylistParser.METHOD_NONE);
-            } catch (JSONException e) {
-                if (g) {
-                    Log.e("SwanAppThirdPayment", Log.getStackTraceString(e));
-                }
-            }
-            m62.b("SwanAppThirdPayment", "orderInfo to nuomi: " + jSONObject);
-            this.d.j(this.c, jSONObject, null, new c(this, jSONObject));
-        }
-    }
-
-    public final m12 m(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        String[] strArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return new m12(202, "parse orderInfo fail");
-            }
-            for (String str : h) {
-                Object opt = jSONObject.opt(str);
-                if (opt == null) {
-                    return new m12(202, str + " is necessary");
-                } else if (!(opt instanceof String)) {
-                    return new m12(202, str + " must be a string");
-                } else if (TextUtils.isEmpty((String) opt)) {
-                    return new m12(202, str + " is empty");
-                }
-            }
-            Object opt2 = jSONObject.opt("returnData");
-            if (opt2 != null && !(opt2 instanceof JSONObject)) {
-                return new m12(202, "returnData must be a object");
+                ViewGroup viewGroup3 = (ViewGroup) LayoutInflater.from(t73.b0().w()).inflate(R.layout.obfuscated_res_0x7f0d088f, viewGroup);
+                this.b = true;
+                return viewGroup3;
             }
             return null;
         }
-        return (m12) invokeL.objValue;
+        return (ViewGroup) invokeV.objValue;
     }
 
-    public void n(@Nullable JSONObject jSONObject, @NonNull String str) {
+    public final void d() {
+        t73 b0;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, jSONObject, str) == null) {
-            fg3.K(this.f, "create", 0);
-            m12 m = m(jSONObject);
-            if (m != null) {
-                m62.i("SwanAppThirdPayment", "orderInfo param error: " + m);
-                fg3.H(false, this.f, fg3.m("", "orderInfo param error"));
-                i(m);
-                return;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (b0 = t73.b0()) != null && b0.w() != null) {
+            ViewGroup viewGroup = (ViewGroup) b0.w().findViewById(R.id.obfuscated_res_0x7f09215b);
+            if (viewGroup != null && (viewGroup.getParent() instanceof ViewGroup)) {
+                ((ViewGroup) viewGroup.getParent()).removeView(viewGroup);
             }
-            String optString = jSONObject.optString("chosenChannel");
-            this.e = optString;
-            String str2 = i.get(optString);
-            this.f = str2;
-            if (TextUtils.isEmpty(str2)) {
-                m62.i("SwanAppThirdPayment", "orderInfo param error: chosen channel error");
-                fg3.H(false, "thirdPayUnknown", fg3.m("", "orderInfo param error: chosen channel error"));
-                i(new m12(202, "chosenChannel error"));
-                return;
-            }
-            o(jSONObject, str);
+            this.b = false;
         }
     }
 
-    public final void p(JSONObject jSONObject, String str) {
+    public void f(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, jSONObject, str) == null) {
-            if (!vf1.a().b(this.c)) {
-                SwanAppActivity swanAppActivity = this.c;
-                e93.g(swanAppActivity, swanAppActivity.getText(R.string.obfuscated_res_0x7f0f01ec)).G();
-                fg3.H(false, "wechatH5Action", fg3.m("", "Error: wechat not install. "));
-                i(new m12(1002, "had not installed WeChat"));
-                return;
-            }
-            fg3.K(this.f, "login", 0);
-            if (this.b.N().e(this.c)) {
-                fg3.J(this.f, true, true);
-                l(jSONObject);
-                return;
-            }
-            fg3.S("show", 13, str);
-            this.b.N().f(this.c, null, new b(this, str, jSONObject));
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            j(R.id.obfuscated_res_0x7f090a91, j, "#80ff0000", "FCP");
         }
+    }
+
+    public void g(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            j(R.id.obfuscated_res_0x7f090ab1, j, "#80ff0000", "FIP");
+        }
+    }
+
+    public void h(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            j(R.id.obfuscated_res_0x7f090b0b, j, "#8000ff00", "FMP");
+        }
+    }
+
+    public void i(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            j(R.id.obfuscated_res_0x7f090d2a, j, "#80ff0000", "FTP");
+        }
+    }
+
+    public final void j(int i, long j, String str, String str2) {
+        ViewGroup b;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), str, str2}) != null) || this.a || (b = b()) == null) {
+            return;
+        }
+        TextView textView = (TextView) b.findViewById(i);
+        textView.setText(String.format(str2 + ":[%s]ms", Long.valueOf(j)));
+        textView.setBackgroundColor(Color.parseColor(str));
+    }
+
+    public void l(long j, long j2) {
+        ViewGroup b;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) != null) || this.a || (b = b()) == null) {
+            return;
+        }
+        ((TextView) b.findViewById(R.id.obfuscated_res_0x7f092193)).setText(String.format("启动:[%s] 耗时:[%s]ms", new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault()).format(Long.valueOf(j)), Long.valueOf(j2)));
     }
 }

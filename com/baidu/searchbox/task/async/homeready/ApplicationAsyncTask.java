@@ -5,8 +5,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.ImageChangeCacheKeySwitch;
-import com.baidu.tieba.pm5;
-import com.baidu.tieba.zg;
+import com.baidu.tieba.cg;
+import com.baidu.tieba.ml5;
 /* loaded from: classes2.dex */
 public class ApplicationAsyncTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -24,7 +24,7 @@ public class ApplicationAsyncTask extends LaunchTask {
     }
 
     private void trackPushSwitchOpen() {
-        if (pm5.a(TbadkCoreApplication.getInst())) {
+        if (ml5.a(TbadkCoreApplication.getInst())) {
             TiebaStatic.log(new StatisticItem("c13616").param("obj_type", 1));
         } else {
             TiebaStatic.log(new StatisticItem("c13616").param("obj_type", 2));
@@ -34,6 +34,6 @@ public class ApplicationAsyncTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
         initAppAsync();
-        zg.h().q(ImageChangeCacheKeySwitch.isOn());
+        cg.h().q(ImageChangeCacheKeySwitch.isOn());
     }
 }

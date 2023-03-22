@@ -298,7 +298,7 @@ public class QuickLoginDialog extends Dialog implements View.OnClickListener, IP
     }
 
     public QuickLoginDialog(@NonNull Context context, @NonNull Builder builder) {
-        this(context, R.style.obfuscated_res_0x7f1003ea, builder);
+        this(context, R.style.obfuscated_res_0x7f1003ee, builder);
     }
 
     @Override // com.baidu.sapi2.views.logindialog.interf.IPagerLoadCallback

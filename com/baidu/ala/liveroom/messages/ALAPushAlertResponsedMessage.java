@@ -19,9 +19,9 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
-import com.baidu.tieba.on;
-import com.baidu.tieba.yg;
-import com.baidu.tieba.zg;
+import com.baidu.tieba.bg;
+import com.baidu.tieba.cg;
+import com.baidu.tieba.rm;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -104,10 +104,10 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                     if (StringUtils.isNull(str2)) {
                         return alaPushAlertResIdl;
                     }
-                    TbImageMemoryCache p = TbImageMemoryCache.p();
-                    on w = p.w(optString4 + 10);
-                    if (w != null && w.p() != null) {
-                        NotificationHelper.showLargeIconNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), str, str2, str2, service, w.p(), false);
+                    TbImageMemoryCache o = TbImageMemoryCache.o();
+                    rm u = o.u(optString4 + 10);
+                    if (u != null && u.p() != null) {
+                        NotificationHelper.showLargeIconNotification(TbadkCoreApplication.getInst().getApplicationContext(), Long.valueOf(optLong).hashCode(), str, str2, str2, service, u.p(), false);
                     } else if (!StringUtils.isNull(optString4)) {
                         this.mHandler.post(new Runnable(this, optString4, optLong, str, str2, service) { // from class: com.baidu.ala.liveroom.messages.ALAPushAlertResponsedMessage.1
                             public static /* synthetic */ Interceptable $ic;
@@ -146,7 +146,7 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                             public void run() {
                                 Interceptable interceptable2 = $ic;
                                 if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    zg.h().m(this.val$fImage, 10, new yg<on>(this) { // from class: com.baidu.ala.liveroom.messages.ALAPushAlertResponsedMessage.1.1
+                                    cg.h().m(this.val$fImage, 10, new bg<rm>(this) { // from class: com.baidu.ala.liveroom.messages.ALAPushAlertResponsedMessage.1.1
                                         public static /* synthetic */ Interceptable $ic;
                                         public transient /* synthetic */ FieldHolder $fh;
                                         public final /* synthetic */ AnonymousClass1 this$1;
@@ -170,18 +170,18 @@ public class ALAPushAlertResponsedMessage extends SocketResponsedMessage {
                                         }
 
                                         /* JADX DEBUG: Method merged with bridge method */
-                                        @Override // com.baidu.tieba.yg
-                                        public void onLoaded(on onVar, String str3, int i2) {
+                                        @Override // com.baidu.tieba.bg
+                                        public void onLoaded(rm rmVar, String str3, int i2) {
                                             Interceptable interceptable3 = $ic;
-                                            if (interceptable3 == null || interceptable3.invokeLLI(1048576, this, onVar, str3, i2) == null) {
-                                                super.onLoaded((C00061) onVar, str3, i2);
-                                                if (onVar != null && onVar.p() != null) {
+                                            if (interceptable3 == null || interceptable3.invokeLLI(1048576, this, rmVar, str3, i2) == null) {
+                                                super.onLoaded((C00061) rmVar, str3, i2);
+                                                if (rmVar != null && rmVar.p() != null) {
                                                     Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
                                                     int hashCode = Long.valueOf(this.this$1.val$uid).hashCode();
                                                     AnonymousClass1 anonymousClass1 = this.this$1;
                                                     String str4 = anonymousClass1.val$fTitle;
                                                     String str5 = anonymousClass1.val$fContent;
-                                                    NotificationHelper.showLargeIconNotification(applicationContext, hashCode, str4, str5, str5, anonymousClass1.val$fContentIntent, onVar.p(), false);
+                                                    NotificationHelper.showLargeIconNotification(applicationContext, hashCode, str4, str5, str5, anonymousClass1.val$fContentIntent, rmVar.p(), false);
                                                     return;
                                                 }
                                                 Context applicationContext2 = TbadkCoreApplication.getInst().getApplicationContext();

@@ -1,34 +1,21 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.basic.upload.Constant;
-import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
+import android.util.Log;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
-import org.json.JSONArray;
+import java.text.DecimalFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ep4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ConcurrentHashMap<String, String> f;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public String c;
-    public JSONObject d;
-    public List<uo4> e;
 
     static {
         InterceptResult invokeClinit;
@@ -43,125 +30,73 @@ public class ep4 {
                 return;
             }
         }
-        ConcurrentHashMap<String, String> concurrentHashMap = new ConcurrentHashMap<>();
-        f = concurrentHashMap;
-        concurrentHashMap.put("1415", PayUVEventType.PAY_RUBY_ENTRANCE_BANNER_SHOW);
+        a = do1.a;
     }
 
-    public List<uo4> a() {
-        InterceptResult invokeV;
+    public static void a(String str, String str2, String str3, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public ep4(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.e = new ArrayList();
-        this.c = str;
-        this.d = jSONObject;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public boolean e() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            try {
-                JSONObject jSONObject = this.d;
-                this.a = jSONObject.getInt("threshold");
-                this.b = jSONObject.getInt("timeup");
-                JSONArray jSONArray = new JSONArray(jSONObject.getString("item"));
-                int length = jSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    JSONObject jSONObject2 = jSONArray.getJSONObject(i);
-                    String string = jSONObject2.getString("ubcid");
-                    if (!TextUtils.isEmpty(string) && f.containsKey(string)) {
-                        String optString = jSONObject2.optString("bizid");
-                        f.get(string);
-                        str = optString;
-                    } else {
-                        str = string;
-                    }
-                    String string2 = jSONObject2.getString(SetImageWatermarkTypeReqMsg.SWITCH);
-                    String string3 = jSONObject2.getString(Constant.IS_REAL);
-                    String string4 = jSONObject2.getString("isAbtest");
-                    int parseInt = Integer.parseInt(jSONObject2.getString("timeout"));
-                    String string5 = jSONObject2.getString("type");
-                    if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(string2) && !TextUtils.isEmpty(string3) && !TextUtils.isEmpty(string5)) {
-                        uo4 uo4Var = new uo4(str, string2, string3, parseInt, string5, string4);
-                        if (jSONObject2.has("rate")) {
-                            uo4Var.g = Integer.parseInt(jSONObject2.getString("rate"));
-                        }
-                        if (jSONObject2.has("bizid")) {
-                            jSONObject2.getString("bizid");
-                        }
-                        if (jSONObject2.has("c")) {
-                            uo4Var.h = jSONObject2.getString("c");
-                        }
-                        if (jSONObject2.has("limitUnit")) {
-                            uo4Var.i = Integer.parseInt(jSONObject2.getString("limitUnit"));
-                        }
-                        if (jSONObject2.has("limitCnt")) {
-                            uo4Var.j = Integer.parseInt(jSONObject2.getString("limitCnt"));
-                        }
-                        if (jSONObject2.has(Constant.ID_TYPE)) {
-                            uo4Var.k = jSONObject2.getString(Constant.ID_TYPE);
-                        }
-                        if (jSONObject2.has("appblacklist")) {
-                            jSONObject2.getString("appblacklist");
-                        }
-                        this.e.add(uo4Var);
+        if (interceptable == null || interceptable.invokeLLLL(65537, null, str, str2, str3, jSONObject) == null) {
+            if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
+                JSONObject jSONObject2 = new JSONObject();
+                try {
+                    jSONObject2.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, str2);
+                    jSONObject2.put("vtype", str3);
+                    jSONObject.putOpt("videoId", str);
+                    jSONObject2.put("data", jSONObject.toString());
+                } catch (JSONException e) {
+                    if (a) {
+                        e.printStackTrace();
                     }
                 }
-                return true;
-            } catch (NumberFormatException | JSONException unused) {
-                return false;
+                t42.b("VideoStatusEventHelper", "Video dispatch Params : " + jSONObject2.toString());
+                an3.d(str2, str, "video", str3, jSONObject2);
+            } else if (a) {
+                Log.e("VideoStatusEventHelper", "dispatchNetStatusEvent failed slaveId: " + str2 + " ,videoId: " + str);
             }
         }
-        return invokeV.booleanValue;
+    }
+
+    public static void b(String str, String str2, String str3, int i, int i2) {
+        String format;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            if (TextUtils.isEmpty(str3)) {
+                format = "0";
+            } else {
+                format = new DecimalFormat("#.###").format(Double.parseDouble(str3) / 1000.0d);
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.putOpt("duration", Float.valueOf(Float.parseFloat(format)));
+                jSONObject.putOpt("width", Integer.valueOf(kl3.O(i)));
+                jSONObject.putOpt("height", Integer.valueOf(kl3.O(i2)));
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            a(str, str2, "loadedmetadata", jSONObject);
+        }
+    }
+
+    public static void c(String str, String str2, boolean z) {
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(65539, null, str, str2, z) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (z) {
+                str3 = "1";
+            } else {
+                str3 = "0";
+            }
+            try {
+                jSONObject.putOpt("fullscreen", str3);
+            } catch (JSONException e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+            a(str, str2, "fullscreenchange", jSONObject);
+        }
     }
 }

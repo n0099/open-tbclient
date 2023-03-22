@@ -1,42 +1,96 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
-import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
-import com.baidu.minivideo.effect.core.vlogedit.ShaderConfig;
-import java.util.List;
-import java.util.Map;
+import android.app.Activity;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface tg0 {
-    void a(Context context);
+public final class tg0 implements xm0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    long b();
+    @Override // com.baidu.tieba.xm0
+    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
+        }
+    }
 
-    void c(int i, int i2);
+    @Override // com.baidu.tieba.xm0
+    public void onActivityDestroyed(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+        }
+    }
 
-    @Deprecated
-    int d(int i, int i2, Map<String, float[]> map);
+    @Override // com.baidu.tieba.xm0
+    public void onActivityPaused(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+        }
+    }
 
-    int e(MediaTrack mediaTrack, int i, Map<String, float[]> map);
+    @Override // com.baidu.tieba.xm0
+    public void onActivityResumed(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+        }
+    }
 
-    void f(List<MediaTrack> list, Map<String, ShaderConfig> map);
+    @Override // com.baidu.tieba.xm0
+    public void onActivitySaveInstanceState(@NonNull Activity activity, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
+        }
+    }
 
-    int g(MediaTrack mediaTrack, int i, int i2, Map<String, float[]> map);
+    @Override // com.baidu.tieba.xm0
+    public void onActivityStarted(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
+        }
+    }
 
-    void h(int i, long j);
+    @Override // com.baidu.tieba.xm0
+    public void onActivityStopped(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+        }
+    }
 
-    int i(MediaSegment mediaSegment, int i, Map<String, float[]> map);
+    public tg0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    int j(MediaTrack mediaTrack, int i, Map<String, float[]> map);
+    @Override // com.baidu.tieba.xm0
+    public void onBackgroundToForeground(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, activity) == null) {
+            ml0.a().a(new tl0(true));
+        }
+    }
 
-    int k(int i, float[] fArr, float[] fArr2, int i2, int i3, float f);
-
-    List<MediaTrack> l();
-
-    @Deprecated
-    int m(int i, float[] fArr, float[] fArr2, int i2, int i3, int i4, Map<String, float[]> map);
-
-    void n(List<MediaTrack> list);
-
-    void release();
+    @Override // com.baidu.tieba.xm0
+    public void onForegroundToBackground(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity) == null) {
+            ml0.a().a(new tl0(false));
+        }
+    }
 }

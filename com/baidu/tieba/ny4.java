@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,15 +10,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
-import tbclient.BannerImage;
+import tbclient.PbPage.RecommendBook;
 /* loaded from: classes5.dex */
-public class ny4 extends BaseCardInfo implements Cdo {
+public class ny4 extends bc9 {
     public static /* synthetic */ Interceptable $ic;
-    public static BdUniqueId b;
+    public static final BdUniqueId i1;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<my4> a;
+    public String Z0;
+    public String a1;
+    public String b1;
+    public String c1;
+    public String d1;
+    public String e1;
+    public List<String> f1;
+    public String g1;
+    public String h1;
 
     static {
         InterceptResult invokeClinit;
@@ -33,7 +40,7 @@ public class ny4 extends BaseCardInfo implements Cdo {
                 return;
             }
         }
-        b = BdUniqueId.gen();
+        i1 = BdUniqueId.gen();
     }
 
     public ny4() {
@@ -46,31 +53,46 @@ public class ny4 extends BaseCardInfo implements Cdo {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
+    @Override // com.baidu.tieba.bc9, com.baidu.tieba.gn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
+            return i1;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public void parserProtobuf(List<BannerImage> list) {
+    public boolean p1() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || list == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!StringUtils.isNull(this.c1)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void q1(RecommendBook recommendBook) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, recommendBook) != null) || recommendBook == null) {
             return;
         }
-        for (BannerImage bannerImage : list) {
-            my4 my4Var = new my4();
-            my4Var.d(bannerImage);
-            this.a.add(my4Var);
-        }
+        this.Z0 = recommendBook.recommend_text;
+        this.a1 = recommendBook.suggest_text;
+        this.b1 = recommendBook.suggest_url;
+        this.c1 = recommendBook.book_id;
+        recommendBook.book_type.intValue();
+        this.d1 = recommendBook.book_cover;
+        this.e1 = recommendBook.book_title;
+        this.f1 = recommendBook.book_tips;
+        this.g1 = recommendBook.botton_text;
+        this.h1 = recommendBook.subscript_icon;
     }
 }

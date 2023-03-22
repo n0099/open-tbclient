@@ -9,7 +9,6 @@ import android.view.Surface;
 import com.baidu.searchbox.afx.recode.QueuedMuxer;
 import java.io.IOException;
 import java.nio.ByteBuffer;
-import org.webrtc.HardwareVideoEncoder;
 /* loaded from: classes2.dex */
 public class VideoTrackTranscoder {
     public static final int DRAIN_STATE_CONSUMED = 2;
@@ -211,7 +210,7 @@ public class VideoTrackTranscoder {
             createEncoderByType.configure(this.mOutputFormat, (Surface) null, (MediaCrypto) null, 1);
         } catch (IllegalStateException e) {
             e.printStackTrace();
-            this.mOutputFormat.setInteger(HardwareVideoEncoder.KEY_BITRATE_MODE, 1);
+            this.mOutputFormat.setInteger("bitrate-mode", 1);
             this.mOutputFormat.setInteger("bitrate", mp4Info.getBitrate());
             this.mEncoder.configure(this.mOutputFormat, (Surface) null, (MediaCrypto) null, 1);
         }

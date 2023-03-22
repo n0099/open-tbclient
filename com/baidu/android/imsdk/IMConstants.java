@@ -21,6 +21,7 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int ACCOUNT_OTHER = 5;
     public static final int ACCOUNT_XDOMAIN = 4;
     public static final int ACCOUNT_XD_BDUSS = 11;
+    public static final String ACTION_MESSAGE_CHANGE = "com.baidu.android.imsdk.message.change";
     public static final int ACTION_TYPE_AT_GROUP_MEMBER = 9;
     public static final int ADD_FANS_GROUP_WITHOUT_CHECK = 0;
     public static final int ADD_FANS_GROUP_WITH_FOLLOW = 1;
@@ -30,6 +31,7 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int ADVISORY_STATE_DONE = 2;
     public static final int ANOYMOUS_LENGTH = 5;
     public static final String AT_DATA_TYPE_GROUP_ALL = "group_all";
+    public static final String AT_DATA_TYPE_REPLY = "reply_users";
     public static final String AT_DATA_TYPE_TEXT = "text";
     public static final String AT_DATA_TYPE_USER = "users";
     public static final int BJH_TYPE_GFH = 1;
@@ -38,6 +40,7 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int BUSINESS_NOTIFY_TYPE_DELCHATSESSION = 4;
     public static final int BUSINESS_NOTIFY_TYPE_DELMSG = 3;
     public static final int BUSINESS_NOTIFY_TYPE_MSG_CONTENT_CHANGE = 6;
+    public static final int BUSINESS_NOTIFY_TYPE_MSG_REPLY_MSG_CHANGE = 7;
     public static final int BUSINESS_NOTIFY_TYPE_READED = 2;
     public static final int BUSINESS_NOTIFY_TYPE_SESSION_STATE_CHANGE = 5;
     public static final int BUSINESS_NOTIFY_TYPE_WRITING = 1;
@@ -124,6 +127,7 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int CLASS_SHOW_SWITCH_OPEN = 1;
     public static final int CLASS_SHOW_SWITCH_OPEN_TILE = 2;
     public static final int CLASS_TYPE_CONSULT = 10;
+    public static final int CLASS_TYPE_HUDONG = 11;
     public static final int CLASS_TYPE_STRANGER = 12;
     public static final int CLICK_SCENE_CHAT = 0;
     public static final int CLICK_SCENE_PHOTO = 2;
@@ -205,6 +209,7 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int GROUP_TYPE_FANS = 3;
     public static final int GROUP_TYPE_NORMAL = 1;
     public static final int GROUP_TYPE_STAR = 2;
+    public static final String HUDONG_DESC_DEFAULT = "暂无互动消息，快和朋友互动起来吧>";
     public static final int IMPORTANT_LINK_TYPE = 1;
     public static final int IM_ALL_SUBSCRIBED_TYPE = 3;
     public static final String IM_AT_MSG_OPERATION_WELCOME = "welcome_message";
@@ -226,6 +231,8 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int IM_CATEGORY_UNSUBSCRIPTION = 0;
     public static final int IM_CONFIG_MESSAGE = 2;
     public static final String IM_DB_DIR;
+    public static final int IM_DELETE_MODE_ALL = 0;
+    public static final int IM_DELETE_MODE_RETAIN_SESSION_CLEAR_MSG = 1;
     public static final int IM_DEL_RECORD_HIDE = 2;
     public static final int IM_DEL_RECORD_LOCAL = 0;
     public static final int IM_DEL_RECORD_SERVER = 1;
@@ -281,12 +288,16 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final String IM_MSG_FILE_DIR;
     public static final int IM_MSG_NOT_CLICKED = 0;
     public static final int IM_MSG_READED = 1;
+    public static final int IM_MSG_REPLY_TYPE_CLEAR = 1;
+    public static final int IM_MSG_REPLY_TYPE_NORMAL = 0;
     public static final int IM_MSG_RESEND = 1;
     public static final int IM_MSG_SETTING_SWITCH_BLOCK_STRANGER = 0;
     public static final int IM_MSG_SETTING_SWITCH_OFF = 1;
     public static final int IM_MSG_SETTING_SWITCH_ON = 0;
     public static final int IM_MSG_SETTING_SWITCH_PUSH_PRIVACY = 1;
+    public static final int IM_MSG_STATUS_DELETED = 1;
     public static final int IM_MSG_STATUS_DRAFT = 3;
+    public static final int IM_MSG_STATUS_NORMAL = 0;
     public static final int IM_MSG_STATUS_SENDING = 1;
     public static final int IM_MSG_STATUS_SEND_FAIL = 2;
     public static final int IM_MSG_STATUS_SEND_FAKE_SUCCESS = 3;
@@ -354,6 +365,7 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int IM_MSG_TYPE_GROUP_BAN = 1019;
     public static final int IM_MSG_TYPE_GROUP_BRAODCAST = 1006;
     public static final int IM_MSG_TYPE_GROUP_CANCEL_ADMIN = 1018;
+    public static final int IM_MSG_TYPE_GROUP_COUPON = 60;
     public static final int IM_MSG_TYPE_GROUP_DELETE = 1009;
     public static final int IM_MSG_TYPE_GROUP_DISBAND = 1013;
     public static final int IM_MSG_TYPE_GROUP_INFO_UPDATE = 1014;
@@ -389,6 +401,7 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int IM_MSG_TYPE_QUIT_GROUP = 1003;
     public static final int IM_MSG_TYPE_REAL_TIME_AUDIO = 5;
     public static final int IM_MSG_TYPE_REAL_TIME_VIDEO = 6;
+    public static final int IM_MSG_TYPE_REPLY_MSG_UPDATE = 5001;
     public static final int IM_MSG_TYPE_SCHEMA = 22;
     public static final int IM_MSG_TYPE_SETTING_GROUP_NOTICE = 1026;
     public static final int IM_MSG_TYPE_SETTING_REMIND = 36;
@@ -418,6 +431,7 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int IM_NOTIFY_CMD_INIT_CUSTOMER_C = 60;
     public static final int IM_NOTIFY_CMD_MSG_STATUS_SYNC = 21;
     public static final int IM_NOTIFY_CMD_PA_INFO_SYNC = 20;
+    public static final int IM_NOTIFY_CMD_REPLY_UPDATE = 26;
     public static final int IM_NOTIFY_CMD_SWITCH_CUSTOMER_C = 62;
     public static final int IM_NOTIFY_CMD_USER_SETTING_PA = 23;
     public static final int IM_NOT_SHIELD = 0;
@@ -436,10 +450,13 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int IM_REMIND_TYPE_AT_ME_CREATOR = 2;
     public static final int IM_REMIND_TYPE_AT_ME_NOT_CREATOR = 1;
     public static final int IM_REMIND_TYPE_DEFAULT = 0;
+    public static final int IM_REMIND_TYPE_GROUP_COUPON = 3;
     public static final int IM_REMIND_TYPE_JOIN_GROUP_APPLY_TIPS = 6;
     public static final int IM_REMIND_TYPE_SPEAK_ADMIN = 5;
     public static final int IM_REMIND_TYPE_SPEAK_CREATOR = 4;
     public static final int IM_REOCRD_HIDE = 0;
+    public static final int IM_SEND_MSG_TYPE_NORMAL = 0;
+    public static final int IM_SEND_MSG_TYPE_REPLY = 1;
     public static final int IM_SESSION_TYPE_IM = 0;
     public static final int IM_SESSION_TYPE_MEDIA = 1;
     public static final int IM_SESSION_TYPE_VIRTUAL_AGG = 2;
@@ -492,6 +509,7 @@ public class IMConstants implements NoProGuard, ResponseCode {
     public static final int MAX_IMAGE_CACHE_DISC_SIZE = 31457280;
     public static final int MCAST_QUIZ_100_OPT = 100;
     public static final int MCAST_QUIZ_101_OPT = 101;
+    public static final int MEDIA_NOTIFY_TYPE_MSG_CLEAR_MSG_REMAIN_SESSION = 8;
     public static final int MEDIA_NOTIFY_TYPE_MSG_DEL = 3;
     public static final int MEDIA_NOTIFY_TYPE_MSG_NEW = 2;
     public static final int MEDIA_NOTIFY_TYPE_MSG_READ = 1;

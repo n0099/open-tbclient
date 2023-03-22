@@ -1,59 +1,132 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.searchbox.http.NetworkQuality;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.tieba.qs2;
+import com.baidu.tieba.yd2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class z03 extends ProviderDelegation {
+public class z03 {
     public static /* synthetic */ Interceptable $ic;
+    public static long a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public z03() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948306092, "Lcom/baidu/tieba/z03;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948306092, "Lcom/baidu/tieba/z03;");
         }
     }
 
-    public static int c() {
-        InterceptResult invokeV;
+    public static void a(String str, @Nullable tx2 tx2Var) {
+        t73 M;
+        qs2.a Y;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            b63 c = z53.c(z03.class, null);
-            if (!c.a()) {
-                return -1;
-            }
-            return c.a.getInt("net_quality", -1);
+        if ((interceptable != null && interceptable.invokeLL(65537, null, str, tx2Var) != null) || (M = t73.M()) == null || (Y = M.Y()) == null) {
+            return;
         }
-        return invokeV.intValue;
+        HybridUbcFlow q = y03.q("route", str);
+        q.D("appid", Y.H());
+        q.D("swan", yg3.i(Y.j0(), Y.G()));
+        q.D("net", SwanAppNetworkUtils.f().type);
+        q.D("appversion", Y.v1());
+        q.D("thirdversion", Y.w1());
+        q.D("mobile", jk3.c());
+        q.D("scheme", Y.W());
+        q.D("launchid", Y.V());
+        q.E("from", "swan");
+        q.D("web_widget_state", "0");
+        q.A();
+        if (tx2Var != null) {
+            q.E("na_multi_jump_dst_path", tx2Var.a());
+        }
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
-        InterceptResult invokeL;
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            Bundle bundle2 = new Bundle();
-            if (SwanAppNetworkUtils.h()) {
-                bundle2.putInt("net_quality", NetworkQuality.getNetworkQuality());
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            gy2.j(true);
+            y03.s("route", str);
+            HybridUbcFlow q = y03.q("route", str);
+            q.F(new UbcFlowEvent("na_first_receive_action"));
+            q.D("sub_state", "0");
+            a = System.currentTimeMillis();
+        }
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && TextUtils.equals(y03.q("route", str).h("sub_state"), "1")) {
+            y03.q("route", str).F(new UbcFlowEvent("na_end_sub_package_download"));
+        }
+    }
+
+    public static void c(int i, String str) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65539, null, i, str) == null) {
+            yp2.c(i);
+            HybridUbcFlow q = y03.q("route", str);
+            if (i != 6 && i != 4 && i != 1) {
+                q.I(HybridUbcFlow.SubmitStrategy.ROUTE);
             } else {
-                bundle2.putInt("net_quality", 3);
+                q.I(HybridUbcFlow.SubmitStrategy.ROUTE_NA);
             }
-            return bundle2;
+            q.E("type", Integer.valueOf(i));
+            b72 H = gt2.U().H();
+            if (H != null) {
+                str2 = H.p3().a();
+            } else {
+                str2 = "";
+            }
+            q.E("na_multi_jump_src_path", str2);
         }
-        return (Bundle) invokeL.objValue;
+    }
+
+    public static void e(yd2.e eVar, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, eVar, str) == null) {
+            y03.q("route", str).F(new UbcFlowEvent("na_pre_load_slave_ok"));
+            if (eVar == null) {
+                return;
+            }
+            zt1 zt1Var = eVar.a;
+            if (zt1Var != null) {
+                zt1Var.x(str);
+            }
+            HybridUbcFlow q = y03.q("route", str);
+            UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("na_pre_load_slave_start");
+            ubcFlowEvent.h(eVar.d);
+            q.F(ubcFlowEvent);
+            UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("na_pre_load_slave_end");
+            ubcFlowEvent2.h(eVar.e);
+            q.F(ubcFlowEvent2);
+        }
+    }
+
+    public static void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
+            HybridUbcFlow q = y03.q("route", str);
+            q.F(new UbcFlowEvent("web_widget_first_screen_finish"));
+            q.D("web_widget_state", "1");
+            q.T();
+        }
     }
 }

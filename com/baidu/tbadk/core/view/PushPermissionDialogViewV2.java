@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b35;
-import com.baidu.tieba.y55;
+import com.baidu.tieba.j45;
+import com.baidu.tieba.n15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -178,21 +178,21 @@ public class PushPermissionDialogViewV2 extends LinearLayout {
             gradientDrawable.setCornerRadius(getResources().getDimension(R.dimen.tbds31));
             gradientDrawable.setColor(SkinManager.getColor(R.color.CAM_X0213));
             setBackgroundDrawable(gradientDrawable);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0923a4);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0923fe);
             this.a = textView;
             if (textView != null) {
-                b35 d = b35.d(textView);
-                d.v(R.color.CAM_X0105);
-                d.z(R.dimen.T_X05);
-                d.A(R.string.F_X02);
+                n15 d = n15.d(textView);
+                d.w(R.color.CAM_X0105);
+                d.A(R.dimen.T_X05);
+                d.B(R.string.F_X02);
             }
             TextView textView2 = (TextView) findViewById(R.id.description);
             this.b = textView2;
             if (textView2 != null) {
-                b35 d2 = b35.d(textView2);
-                d2.v(R.color.CAM_X0108);
-                d2.z(R.dimen.T_X07);
-                d2.A(R.string.F_X01);
+                n15 d2 = n15.d(textView2);
+                d2.w(R.color.CAM_X0108);
+                d2.A(R.dimen.T_X07);
+                d2.B(R.string.F_X01);
             }
             this.c = (ImageView) findViewById(R.id.emotion_img);
             this.d = (TextView) findViewById(R.id.push_permission_dialog_cancel_button);
@@ -202,7 +202,7 @@ public class PushPermissionDialogViewV2 extends LinearLayout {
             if (tBSpecificationBtn != null) {
                 tBSpecificationBtn.setTextSize(R.dimen.T_X06);
                 this.e.setText(TbadkCoreApplication.getInst().getString(R.string.push_permission_dialog_confirm_button_text_2));
-                this.e.setConfig(new y55());
+                this.e.setConfig(new j45());
             }
             this.f = skinType;
         }

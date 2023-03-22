@@ -7,7 +7,7 @@ import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.widget.FrameLayout;
 import android.widget.OverScroller;
-import com.baidu.tieba.j51;
+import com.baidu.tieba.z31;
 import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
 /* loaded from: classes2.dex */
 public class WebViewContainer extends FrameLayout {
@@ -156,7 +156,7 @@ public class WebViewContainer extends FrameLayout {
     }
 
     public void setMinFlingVelocity(int i) {
-        this.m = j51.c.a(getContext(), i);
+        this.m = z31.c.a(getContext(), i);
     }
 
     public void setMinTopMargin(int i) {

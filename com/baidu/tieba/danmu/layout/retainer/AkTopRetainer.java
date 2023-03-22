@@ -2,13 +2,13 @@ package com.baidu.tieba.danmu.layout.retainer;
 
 import android.graphics.RectF;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ci6;
+import com.baidu.tieba.ck6;
 import com.baidu.tieba.danmu.collection.OrderedRangeList;
 import com.baidu.tieba.danmu.data.state.DrawState;
-import com.baidu.tieba.ei6;
-import com.baidu.tieba.ek6;
-import com.baidu.tieba.mj6;
-import com.baidu.tieba.yh6;
-import com.baidu.tieba.zj6;
+import com.baidu.tieba.kj6;
+import com.baidu.tieba.wh6;
+import com.baidu.tieba.xj6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,12 +24,12 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000@\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0007\n\u0002\b\u0003\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0003\n\u0002\u0010\t\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\b\n\u0002\b\u0002\b\u0000\u0018\u00002\u00020\u0001B\u0019\u0012\b\b\u0002\u0010\u0002\u001a\u00020\u0003\u0012\b\b\u0002\u0010\u0004\u001a\u00020\u0003¢\u0006\u0002\u0010\u0005J\b\u0010\t\u001a\u00020\nH\u0016J(\u0010\u000b\u001a\u00020\u00032\u0006\u0010\f\u001a\u00020\b2\u0006\u0010\r\u001a\u00020\u000e2\u0006\u0010\u000f\u001a\u00020\u00102\u0006\u0010\u0011\u001a\u00020\u0012H\u0016J\u0010\u0010\u0013\u001a\u00020\n2\u0006\u0010\u0014\u001a\u00020\bH\u0016J\u0018\u0010\u0015\u001a\u00020\n2\u0006\u0010\u0016\u001a\u00020\u00172\u0006\u0010\u0018\u001a\u00020\u0017H\u0016R\u000e\u0010\u0004\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000R\u0014\u0010\u0006\u001a\b\u0012\u0004\u0012\u00020\b0\u0007X\u0082\u0004¢\u0006\u0002\n\u0000R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u0019"}, d2 = {"Lcom/baidu/tieba/danmu/layout/retainer/AkTopRetainer;", "Lcom/baidu/tieba/danmu/layout/retainer/DanmakuRetainer;", "startRatio", "", "endRatio", "(FF)V", "ranges", "Lcom/baidu/tieba/danmu/collection/OrderedRangeList;", "Lcom/baidu/tieba/danmu/data/DanmakuItem;", "clear", "", TtmlNode.TAG_LAYOUT, "drawItem", "currentTimeMills", "", "displayer", "Lcom/baidu/tieba/danmu/ui/DanmakuDisplayer;", "config", "Lcom/baidu/tieba/danmu/DanmakuConfig;", "remove", "item", StickerDataChangeType.UPDATE, "start", "", "end", "danmu_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes4.dex */
-public final class AkTopRetainer implements zj6 {
+public final class AkTopRetainer implements xj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final float a;
     public final float b;
-    public final OrderedRangeList<ei6> c;
+    public final OrderedRangeList<ci6> c;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public AkTopRetainer() {
@@ -74,8 +74,8 @@ public final class AkTopRetainer implements zj6 {
         this((i & 1) != 0 ? 1.0f : f, (i & 2) != 0 ? 1.0f : f2);
     }
 
-    @Override // com.baidu.tieba.zj6
-    public float a(final ei6 drawItem, final long j, final ek6 displayer, yh6 config) {
+    @Override // com.baidu.tieba.xj6
+    public float a(final ci6 drawItem, final long j, final ck6 displayer, wh6 config) {
         InterceptResult invokeCommon;
         long k;
         boolean p;
@@ -87,13 +87,13 @@ public final class AkTopRetainer implements zj6 {
             Intrinsics.checkNotNullParameter(config, "config");
             DrawState f = drawItem.f();
             boolean z = true;
-            if (drawItem.e().j() == 1) {
+            if (drawItem.e().k() == 1) {
                 k = config.t();
             } else {
                 k = config.k();
             }
             final long j2 = k;
-            if (mj6.d(drawItem, j)) {
+            if (kj6.d(drawItem, j)) {
                 b(drawItem);
                 return -1.0f;
             }
@@ -102,11 +102,11 @@ public final class AkTopRetainer implements zj6 {
             }
             boolean d = this.c.d(drawItem);
             if (z && !d) {
-                List<OrderedRangeList.a<ei6>> e = this.c.e((int) f.d(), new Function1<ei6, Boolean>(drawItem, displayer, j, j2) { // from class: com.baidu.tieba.danmu.layout.retainer.AkTopRetainer$layout$holder$1
+                List<OrderedRangeList.a<ci6>> e = this.c.e((int) f.d(), new Function1<ci6, Boolean>(drawItem, displayer, j, j2) { // from class: com.baidu.tieba.danmu.layout.retainer.AkTopRetainer$layout$holder$1
                     public static /* synthetic */ Interceptable $ic;
                     public final /* synthetic */ long $currentTimeMills;
-                    public final /* synthetic */ ek6 $displayer;
-                    public final /* synthetic */ ei6 $drawItem;
+                    public final /* synthetic */ ck6 $displayer;
+                    public final /* synthetic */ ci6 $drawItem;
                     public final /* synthetic */ long $duration;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -136,12 +136,12 @@ public final class AkTopRetainer implements zj6 {
 
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // kotlin.jvm.functions.Function1
-                    public final Boolean invoke(ei6 ei6Var) {
+                    public final Boolean invoke(ci6 ci6Var) {
                         InterceptResult invokeL;
                         boolean z2;
                         Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, ei6Var)) == null) {
-                            if (ei6Var != null && mj6.f(ei6Var, this.$drawItem, this.$displayer, this.$currentTimeMills, this.$duration)) {
+                        if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, ci6Var)) == null) {
+                            if (ci6Var != null && kj6.f(ci6Var, this.$drawItem, this.$displayer, this.$currentTimeMills, this.$duration)) {
                                 z2 = false;
                             } else {
                                 z2 = true;
@@ -155,10 +155,10 @@ public final class AkTopRetainer implements zj6 {
                     if (config.e()) {
                         this.c.c();
                         e = this.c.e((int) f.d(), AkTopRetainer$layout$1.INSTANCE);
-                    } else if (drawItem.e().p()) {
-                        e = this.c.f((int) f.d(), new Function1<ei6, Integer>(displayer) { // from class: com.baidu.tieba.danmu.layout.retainer.AkTopRetainer$layout$2
+                    } else if (drawItem.e().q()) {
+                        e = this.c.f((int) f.d(), new Function1<ci6, Integer>(displayer) { // from class: com.baidu.tieba.danmu.layout.retainer.AkTopRetainer$layout$2
                             public static /* synthetic */ Interceptable $ic;
-                            public final /* synthetic */ ek6 $displayer;
+                            public final /* synthetic */ ck6 $displayer;
                             public transient /* synthetic */ FieldHolder $fh;
 
                             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -184,14 +184,14 @@ public final class AkTopRetainer implements zj6 {
 
                             /* JADX DEBUG: Method merged with bridge method */
                             @Override // kotlin.jvm.functions.Function1
-                            public final Integer invoke(ei6 ei6Var) {
+                            public final Integer invoke(ci6 ci6Var) {
                                 InterceptResult invokeL;
                                 Number valueOf;
                                 DrawState f2;
                                 RectF i;
                                 Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, ei6Var)) == null) {
-                                    if (ei6Var != null && (f2 = ei6Var.f()) != null && (i = f2.i()) != null) {
+                                if (interceptable2 == null || (invokeL = interceptable2.invokeL(1048576, this, ci6Var)) == null) {
+                                    if (ci6Var != null && (f2 = ci6Var.f()) != null && (i = f2.i()) != null) {
                                         valueOf = Float.valueOf(i.left);
                                     } else {
                                         valueOf = Integer.valueOf(this.$displayer.getWidth());
@@ -227,8 +227,8 @@ public final class AkTopRetainer implements zj6 {
         return invokeCommon.floatValue;
     }
 
-    @Override // com.baidu.tieba.zj6
-    public void b(ei6 item) {
+    @Override // com.baidu.tieba.xj6
+    public void b(ci6 item) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, item) == null) {
             Intrinsics.checkNotNullParameter(item, "item");
@@ -236,7 +236,7 @@ public final class AkTopRetainer implements zj6 {
         }
     }
 
-    @Override // com.baidu.tieba.zj6
+    @Override // com.baidu.tieba.xj6
     public void clear() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -244,7 +244,7 @@ public final class AkTopRetainer implements zj6 {
         }
     }
 
-    @Override // com.baidu.tieba.zj6
+    @Override // com.baidu.tieba.xj6
     public void update(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {

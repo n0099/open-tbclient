@@ -1,6 +1,7 @@
 package com.baidu.cyberplayer.sdk.rtc;
 
 import com.baidu.cyberplayer.sdk.Keep;
+import com.google.android.exoplayer2.extractor.ogg.OpusReader;
 @Keep
 /* loaded from: classes2.dex */
 public class CyberRTCSetting {
@@ -9,7 +10,7 @@ public class CyberRTCSetting {
     public boolean HasData = false;
     public String VideoCodec = "h264";
     public String AudioCodec = "opus";
-    public int AudioFrequency = 48000;
+    public int AudioFrequency = OpusReader.SAMPLE_RATE;
     public int AudioChannel = 1;
     public String VideoResolution = "640x480";
     public int VideoWidth = 640;

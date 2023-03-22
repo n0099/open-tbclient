@@ -1,33 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.VideoRecommentPlayActivityConfig;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.robotfloor.adapter.RobotItemViewHolder;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.robotfloor.adapter.RobotSkillItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.LinkedList;
-import java.util.List;
-/* loaded from: classes4.dex */
-public class iw7 {
+/* loaded from: classes5.dex */
+public class iw7 implements ut7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdTypeRecyclerView a;
-    public ArrayList<Cdo> b;
-    public List<qn> c;
-    public kw7 d;
-    public kw7 e;
-    public kw7 f;
+    public gw7 a;
 
-    public iw7(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
+    public iw7(gw7 gw7Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
+            Object[] objArr = {gw7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,83 +33,23 @@ public class iw7 {
                 return;
             }
         }
-        this.c = new LinkedList();
-        if (tbPageContext != null && bdTypeRecyclerView != null) {
-            this.a = bdTypeRecyclerView;
-            b(tbPageContext);
-        }
+        this.a = gw7Var;
     }
 
-    public void a(int i) {
-        BdTypeRecyclerView bdTypeRecyclerView;
+    @Override // com.baidu.tieba.ut7
+    @Nullable
+    public BaseItemViewHolder a(@NonNull ViewGroup viewGroup, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (bdTypeRecyclerView = this.a) != null) {
-            bdTypeRecyclerView.G(i);
-        }
-    }
-
-    public void d(no noVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, noVar) == null) {
-            for (qn qnVar : this.c) {
-                if (qnVar != null) {
-                    qnVar.setOnAdapterItemClickListener(noVar);
-                }
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
+            if (i == 5) {
+                return new RobotSkillItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d03aa, viewGroup, false), this.a);
             }
-        }
-    }
-
-    public void e(ArrayList<Cdo> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
-            this.a.setData(arrayList);
-            this.b = arrayList;
-        }
-    }
-
-    public void f(oo ooVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, ooVar) == null) {
-            for (qn qnVar : this.c) {
-                if (qnVar != null) {
-                    qnVar.setOnAdapterItemLongClickListener(ooVar);
-                }
+            if (i == 4) {
+                return new RobotItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d03a8, viewGroup, false));
             }
+            return null;
         }
-    }
-
-    public void g(xf6 xf6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, xf6Var) == null) {
-            this.f.v(xf6Var);
-            this.e.v(xf6Var);
-            this.d.v(xf6Var);
-        }
-    }
-
-    public final void b(TbPageContext tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) {
-            kw7 kw7Var = new kw7(tbPageContext, jw7.F);
-            this.d = kw7Var;
-            kw7Var.u(VideoRecommentPlayActivityConfig.FROM_AT_PAGE);
-            kw7 kw7Var2 = new kw7(tbPageContext, jw7.E);
-            this.e = kw7Var2;
-            kw7Var2.u(VideoRecommentPlayActivityConfig.FROM_AT_PAGE);
-            kw7 kw7Var3 = new kw7(tbPageContext, jw7.D);
-            this.f = kw7Var3;
-            kw7Var3.u(VideoRecommentPlayActivityConfig.FROM_AT_PAGE);
-            this.c.add(this.f);
-            this.c.add(this.e);
-            this.c.add(this.d);
-            this.a.a(this.c);
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.getAdapter().notifyDataSetChanged();
-        }
+        return (BaseItemViewHolder) invokeLI.objValue;
     }
 }

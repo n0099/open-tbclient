@@ -1,102 +1,119 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.graphics.Rect;
-import android.graphics.Typeface;
 import android.text.TextPaint;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class n22 extends j22 {
+public class n22 extends z02 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public int b;
+    public int c;
+    public float d;
+    public float e;
+    public float f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n22(ja3 ja3Var) {
-        super(ja3Var, "/swanAPI/canvas/measureTextSync");
+    public n22() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ja3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((ja3) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.d = -1.0f;
+        this.e = 0.0f;
+        this.f = 1.0f;
     }
 
-    @Override // com.baidu.tieba.jb3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m93 m93Var) {
-        InterceptResult invokeLLLL;
-        int i;
-        int i2;
+    @Override // com.baidu.tieba.z02
+    public void a(a12 a12Var, Canvas canvas) {
+        float f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, m93Var)) == null) {
-            unitedSchemeEntity.result = l(201);
-            m42 m = m(unitedSchemeEntity);
-            if (m == null) {
-                return false;
-            }
-            String str = m.k;
-            if (str != null && str.length() > 0) {
-                if (m.n && m.o) {
-                    i2 = 3;
-                } else if (m.n) {
-                    i2 = 1;
-                } else if (m.o) {
-                    i2 = 2;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, a12Var, canvas) == null) && !TextUtils.isEmpty(this.a)) {
+            TextPaint textPaint = a12Var.e;
+            int i = a12Var.k;
+            Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
+            float f2 = fontMetrics.top;
+            int i2 = this.c;
+            float f3 = i2 + f2;
+            float f4 = fontMetrics.ascent + i2;
+            float f5 = fontMetrics.bottom;
+            float f6 = i2 + f5;
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        f = i2;
+                    } else {
+                        f = i2 - (f4 - f3);
+                    }
                 } else {
-                    i2 = 0;
+                    f = (i2 + ((f5 - f2) / 2.0f)) - f5;
                 }
-                TextPaint textPaint = new TextPaint();
-                textPaint.setTypeface(Typeface.create(m.l, i2));
-                textPaint.setTextSize(m.m);
-                Rect rect = new Rect();
-                String str2 = m.k;
-                textPaint.getTextBounds(str2, 0, str2.length(), rect);
-                i = dn3.O(rect.width());
             } else {
-                i = 0;
+                f = i2 + ((f6 - f3) / 2.0f) + (f4 - f3);
             }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.putOpt("width", Integer.valueOf(i));
-            } catch (JSONException e) {
-                e.printStackTrace();
+            if (this.e == 0.0d) {
+                Rect rect = new Rect();
+                String str = this.a;
+                textPaint.getTextBounds(str, 0, str.length(), rect);
+                if (this.d != -1.0f) {
+                    float f7 = this.d;
+                    if (rect.width() > f7) {
+                        this.e = f7 / rect.width();
+                    }
+                }
+                this.e = 1.0f;
             }
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
-            return true;
+            canvas.save();
+            int alpha = textPaint.getAlpha();
+            int color = textPaint.getColor();
+            textPaint.setStyle(Paint.Style.STROKE);
+            textPaint.setStrokeWidth(this.f);
+            textPaint.setColor(a12Var.m);
+            a12Var.c(textPaint);
+            canvas.scale(this.e, 1.0f);
+            canvas.drawText(this.a, this.b, f, textPaint);
+            textPaint.setStyle(Paint.Style.FILL);
+            textPaint.setAlpha(alpha);
+            textPaint.setColor(color);
+            canvas.restore();
         }
-        return invokeLLLL.booleanValue;
     }
 
-    public m42 m(UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.z02
+    public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity)) == null) {
-            String str = unitedSchemeEntity.getParams().get("params");
-            if (!TextUtils.isEmpty(str)) {
-                return new m42(str);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() > 2) {
+                    this.a = jSONArray.optString(0);
+                    this.b = kl3.g((float) jSONArray.optDouble(1));
+                    this.c = kl3.g((float) jSONArray.optDouble(2));
+                    if (jSONArray.length() > 3) {
+                        this.d = kl3.g((float) jSONArray.optDouble(3));
+                    }
+                    this.f = kl3.g(1.0f);
+                }
+            } catch (Exception e) {
+                if (do1.a) {
+                    e.printStackTrace();
+                }
             }
-            return null;
         }
-        return (m42) invokeL.objValue;
     }
 }

@@ -10,12 +10,13 @@ import android.media.MediaFormat;
 import android.media.MediaMuxer;
 import android.text.TextUtils;
 import android.view.Surface;
-import com.baidu.tieba.d1a;
-import com.baidu.tieba.i1a;
-import com.baidu.tieba.o1a;
+import com.baidu.tieba.m7a;
+import com.baidu.tieba.r7a;
+import com.baidu.tieba.x7a;
 import com.baidu.ugc.editvideo.listener.OnTimeReverseListener;
 import com.baidu.ugc.editvideo.record.RecordConstants;
 import com.baidu.ugc.utils.FileUtils;
+import com.google.android.exoplayer2.video.MediaCodecVideoRenderer;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -396,12 +397,12 @@ public class VideoReverseHelper {
         String str9 = new File(str).getParent() + File.separator + REVERSE_TEMP_SUFFIX + System.currentTimeMillis() + ".temp";
         String str10 = new File(str).getParent() + File.separator + REVERSE_TEMP_SUFFIX + System.currentTimeMillis() + ".temp_reverse";
         List<BuffeInfoWrapper> extractVideoToPath = extractVideoToPath(str, str9);
-        if (i1a.e(extractVideoToPath) || !FileUtils.checkFile(str9)) {
+        if (r7a.e(extractVideoToPath) || !FileUtils.checkFile(str9)) {
             FileUtils.deleteFile(str9);
             return false;
         }
         try {
-            long duration = o1a.d(str).getDuration() * 1000;
+            long duration = x7a.d(str).getDuration() * 1000;
             if (this.mMediaMuxer == null) {
                 this.mMediaMuxer = new MediaMuxer(str10, 0);
             }
@@ -441,7 +442,7 @@ public class VideoReverseHelper {
                                                 e = e;
                                                 str7 = str8;
                                                 e.printStackTrace();
-                                                d1a.d(e.toString());
+                                                m7a.d(e.toString());
                                                 FileUtils.deleteFile(str9);
                                                 FileUtils.deleteFile(str7);
                                                 weakReference3 = this.mOnTimeReverseListenerWeakReference;
@@ -451,7 +452,7 @@ public class VideoReverseHelper {
                                                 e = e2;
                                                 str6 = str8;
                                                 e.printStackTrace();
-                                                d1a.d(e.toString());
+                                                m7a.d(e.toString());
                                                 FileUtils.deleteFile(str9);
                                                 FileUtils.deleteFile(str6);
                                                 weakReference2 = this.mOnTimeReverseListenerWeakReference;
@@ -461,7 +462,7 @@ public class VideoReverseHelper {
                                                 e = e3;
                                                 str5 = str8;
                                                 e.printStackTrace();
-                                                d1a.d(e.toString());
+                                                m7a.d(e.toString());
                                                 FileUtils.deleteFile(str9);
                                                 FileUtils.deleteFile(str5);
                                                 weakReference = this.mOnTimeReverseListenerWeakReference;
@@ -477,10 +478,10 @@ public class VideoReverseHelper {
                                         if (i == i3 || i2 != i4) {
                                             createVideoFormat.setInteger("stride", i);
                                             createVideoFormat.setInteger("slice-height", i2);
-                                            createVideoFormat.setInteger("crop-left", 0);
-                                            createVideoFormat.setInteger("crop-right", i3 - 1);
-                                            createVideoFormat.setInteger("crop-top", 0);
-                                            createVideoFormat.setInteger("crop-bottom", i4 - 1);
+                                            createVideoFormat.setInteger(MediaCodecVideoRenderer.KEY_CROP_LEFT, 0);
+                                            createVideoFormat.setInteger(MediaCodecVideoRenderer.KEY_CROP_RIGHT, i3 - 1);
+                                            createVideoFormat.setInteger(MediaCodecVideoRenderer.KEY_CROP_TOP, 0);
+                                            createVideoFormat.setInteger(MediaCodecVideoRenderer.KEY_CROP_BOTTOM, i4 - 1);
                                         }
                                         setMediaFormatProperty(trackFormat, createVideoFormat, "bitrate", RecordConstants.DEFAULT_BIT_RATE_GTE_API18);
                                         setMediaFormatProperty(trackFormat, createVideoFormat, "frame-rate", 30);
@@ -497,10 +498,10 @@ public class VideoReverseHelper {
                                 }
                                 createVideoFormat.setInteger("stride", i);
                                 createVideoFormat.setInteger("slice-height", i2);
-                                createVideoFormat.setInteger("crop-left", 0);
-                                createVideoFormat.setInteger("crop-right", i3 - 1);
-                                createVideoFormat.setInteger("crop-top", 0);
-                                createVideoFormat.setInteger("crop-bottom", i4 - 1);
+                                createVideoFormat.setInteger(MediaCodecVideoRenderer.KEY_CROP_LEFT, 0);
+                                createVideoFormat.setInteger(MediaCodecVideoRenderer.KEY_CROP_RIGHT, i3 - 1);
+                                createVideoFormat.setInteger(MediaCodecVideoRenderer.KEY_CROP_TOP, 0);
+                                createVideoFormat.setInteger(MediaCodecVideoRenderer.KEY_CROP_BOTTOM, i4 - 1);
                                 setMediaFormatProperty(trackFormat, createVideoFormat, "bitrate", RecordConstants.DEFAULT_BIT_RATE_GTE_API18);
                                 setMediaFormatProperty(trackFormat, createVideoFormat, "frame-rate", 30);
                                 setMediaFormatProperty(trackFormat, createVideoFormat, "i-frame-interval", 5);
@@ -525,10 +526,10 @@ public class VideoReverseHelper {
                         }
                         createVideoFormat2.setInteger("stride", i);
                         createVideoFormat2.setInteger("slice-height", i2);
-                        createVideoFormat2.setInteger("crop-left", 0);
-                        createVideoFormat2.setInteger("crop-right", i3 - 1);
-                        createVideoFormat2.setInteger("crop-top", 0);
-                        createVideoFormat2.setInteger("crop-bottom", i4 - 1);
+                        createVideoFormat2.setInteger(MediaCodecVideoRenderer.KEY_CROP_LEFT, 0);
+                        createVideoFormat2.setInteger(MediaCodecVideoRenderer.KEY_CROP_RIGHT, i3 - 1);
+                        createVideoFormat2.setInteger(MediaCodecVideoRenderer.KEY_CROP_TOP, 0);
+                        createVideoFormat2.setInteger(MediaCodecVideoRenderer.KEY_CROP_BOTTOM, i4 - 1);
                         setMediaFormatProperty(trackFormat, createVideoFormat2, "bitrate", RecordConstants.DEFAULT_BIT_RATE_GTE_API18);
                         setMediaFormatProperty(trackFormat, createVideoFormat2, "frame-rate", 30);
                         setMediaFormatProperty(trackFormat, createVideoFormat2, "i-frame-interval", 5);
@@ -537,7 +538,7 @@ public class VideoReverseHelper {
                         e = e4;
                         str7 = str10;
                         e.printStackTrace();
-                        d1a.d(e.toString());
+                        m7a.d(e.toString());
                         FileUtils.deleteFile(str9);
                         FileUtils.deleteFile(str7);
                         weakReference3 = this.mOnTimeReverseListenerWeakReference;
@@ -549,7 +550,7 @@ public class VideoReverseHelper {
                         e = e5;
                         str6 = str10;
                         e.printStackTrace();
-                        d1a.d(e.toString());
+                        m7a.d(e.toString());
                         FileUtils.deleteFile(str9);
                         FileUtils.deleteFile(str6);
                         weakReference2 = this.mOnTimeReverseListenerWeakReference;
@@ -561,7 +562,7 @@ public class VideoReverseHelper {
                         e = e6;
                         str5 = str10;
                         e.printStackTrace();
-                        d1a.d(e.toString());
+                        m7a.d(e.toString());
                         FileUtils.deleteFile(str9);
                         FileUtils.deleteFile(str5);
                         weakReference = this.mOnTimeReverseListenerWeakReference;
@@ -591,7 +592,7 @@ public class VideoReverseHelper {
                     str4 = "MediaCodec预倒放失败";
                     str7 = str10;
                     e.printStackTrace();
-                    d1a.d(e.toString());
+                    m7a.d(e.toString());
                     FileUtils.deleteFile(str9);
                     FileUtils.deleteFile(str7);
                     weakReference3 = this.mOnTimeReverseListenerWeakReference;
@@ -601,7 +602,7 @@ public class VideoReverseHelper {
                     str4 = "MediaCodec预倒放失败";
                     str6 = str10;
                     e.printStackTrace();
-                    d1a.d(e.toString());
+                    m7a.d(e.toString());
                     FileUtils.deleteFile(str9);
                     FileUtils.deleteFile(str6);
                     weakReference2 = this.mOnTimeReverseListenerWeakReference;
@@ -611,7 +612,7 @@ public class VideoReverseHelper {
                     str4 = "MediaCodec预倒放失败";
                     str5 = str10;
                     e.printStackTrace();
-                    d1a.d(e.toString());
+                    m7a.d(e.toString());
                     FileUtils.deleteFile(str9);
                     FileUtils.deleteFile(str5);
                     weakReference = this.mOnTimeReverseListenerWeakReference;
@@ -722,7 +723,7 @@ public class VideoReverseHelper {
                                                     e = e11;
                                                     i4 = i15;
                                                     i6 = i;
-                                                    d1a.d(e.toString());
+                                                    m7a.d(e.toString());
                                                     if (this.mOnTimeReverseListenerWeakReference != null) {
                                                         onTimeReverseListener4.onTimeReverseError(e);
                                                     }
@@ -745,7 +746,7 @@ public class VideoReverseHelper {
                                             fileChannel2 = channel;
                                             i4 = i15;
                                             i6 = i;
-                                            d1a.d(e.toString());
+                                            m7a.d(e.toString());
                                             if (this.mOnTimeReverseListenerWeakReference != null) {
                                             }
                                             if (bufferInfo4.size > byteBuffer.position()) {
@@ -787,7 +788,7 @@ public class VideoReverseHelper {
                                                             byteBuffer.put(uVPos4[1], b6);
                                                         } catch (Exception e13) {
                                                             e = e13;
-                                                            d1a.d(e.toString());
+                                                            m7a.d(e.toString());
                                                             if (this.mOnTimeReverseListenerWeakReference != null && (onTimeReverseListener4 = this.mOnTimeReverseListenerWeakReference.get()) != null) {
                                                                 onTimeReverseListener4.onTimeReverseError(e);
                                                             }
@@ -804,7 +805,7 @@ public class VideoReverseHelper {
                                                         }
                                                     } catch (Exception e14) {
                                                         e = e14;
-                                                        d1a.d(e.toString());
+                                                        m7a.d(e.toString());
                                                         if (this.mOnTimeReverseListenerWeakReference != null) {
                                                         }
                                                         if (bufferInfo4.size > byteBuffer.position()) {
@@ -830,7 +831,7 @@ public class VideoReverseHelper {
                                         } catch (Exception e15) {
                                             e = e15;
                                             i6 = i;
-                                            d1a.d(e.toString());
+                                            m7a.d(e.toString());
                                             if (this.mOnTimeReverseListenerWeakReference != null) {
                                             }
                                             if (bufferInfo4.size > byteBuffer.position()) {
@@ -931,20 +932,20 @@ public class VideoReverseHelper {
                 this.mMediaMuxer.stop();
                 this.mMediaMuxer.release();
             } catch (Exception e16) {
-                d1a.g(e16);
+                m7a.g(e16);
             }
             try {
                 this.mMediaExtractor.release();
             } catch (Exception e17) {
-                d1a.g(e17);
+                m7a.g(e17);
             }
             try {
                 this.mVideoEncoder.stop();
                 this.mVideoEncoder.release();
             } catch (Exception e18) {
-                d1a.g(e18);
+                m7a.g(e18);
             }
-            d1a.d("finish:" + (System.currentTimeMillis() - j));
+            m7a.d("finish:" + (System.currentTimeMillis() - j));
             FileUtils.deleteFile(str9);
             new File(str8).renameTo(new File(str2));
             return true;

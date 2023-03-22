@@ -1,99 +1,56 @@
 package com.baidu.tieba;
 
-import com.badlogic.gdx.graphics.Mesh;
-import com.badlogic.gdx.math.Vector3;
-import com.badlogic.gdx.math.collision.BoundingBox;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.s4;
+import com.baidu.tieba.v4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class w4 {
+public abstract class w4<D extends v4, T extends s4<D>> extends o4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BoundingBox h;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public int d;
-    public Mesh e;
-    public final Vector3 f;
-    public final Vector3 g;
+    public T a;
+    public D b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448319152, "Lcom/baidu/tieba/w4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448319152, "Lcom/baidu/tieba/w4;");
-                return;
-            }
-        }
-        h = new BoundingBox();
-    }
+    public abstract boolean g(s4<?> s4Var);
 
     public w4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.f = new Vector3();
-        this.g = new Vector3();
     }
 
-    public boolean a(w4 w4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, w4Var)) == null) {
-            if (w4Var != this && (w4Var == null || w4Var.e != this.e || w4Var.b != this.b || w4Var.c != this.c || w4Var.d != this.d)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (obj == null) {
-                return false;
-            }
-            if (obj == this) {
-                return true;
-            }
-            if (!(obj instanceof w4)) {
-                return false;
-            }
-            return a((w4) obj);
-        }
-        return invokeL.booleanValue;
-    }
-
+    @Override // com.baidu.tieba.o4
     public void update() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.e.f(h, this.c, this.d);
-            h.getCenter(this.f);
-            h.getDimensions(this.g).m22scl(0.5f);
-            this.g.len();
+            this.a.a(this.b);
         }
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r5v0, resolved type: com.baidu.tieba.s4<?> */
+    /* JADX WARN: Multi-variable type inference failed */
+    public boolean h(s4<?> s4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, s4Var)) == null) {
+            if (g(s4Var)) {
+                this.a = s4Var;
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

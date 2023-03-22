@@ -15,7 +15,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbClipImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fl;
+import com.baidu.tieba.ik;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -116,7 +116,7 @@ public class BarImageView extends TbClipImageView {
         this.H0 = true;
         this.N0 = new PorterDuffXfermode(PorterDuff.Mode.SRC_IN);
         this.O0 = new PorterDuffXfermode(PorterDuff.Mode.SRC_OUT);
-        v();
+        x();
     }
 
     private int getStrokeColorResId() {
@@ -137,7 +137,7 @@ public class BarImageView extends TbClipImageView {
         return invokeV.intValue;
     }
 
-    public final void v() {
+    public final void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             setDrawerType(0);
@@ -148,7 +148,7 @@ public class BarImageView extends TbClipImageView {
         }
     }
 
-    public final void R(Canvas canvas, int i, float f) {
+    public final void T(Canvas canvas, int i, float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, Integer.valueOf(i), Float.valueOf(f)}) == null) {
             this.A0.reset();
@@ -175,7 +175,7 @@ public class BarImageView extends TbClipImageView {
         }
     }
 
-    public final Bitmap S(int i, int i2, boolean z) {
+    public final Bitmap U(int i, int i2, boolean z) {
         InterceptResult invokeCommon;
         Paint paint;
         Interceptable interceptable = $ic;
@@ -202,8 +202,8 @@ public class BarImageView extends TbClipImageView {
         float f4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
-            fl flVar = this.e;
-            if (flVar != null && flVar.c != null) {
+            ik ikVar = this.e;
+            if (ikVar != null && ikVar.c != null) {
                 if (!this.F0) {
                     super.onDraw(canvas);
                     return;
@@ -228,7 +228,7 @@ public class BarImageView extends TbClipImageView {
                 if (this.D0) {
                     this.e.d.setColor(this.E0);
                 }
-                this.K0 = S(measuredWidth, measuredHeight, true);
+                this.K0 = U(measuredWidth, measuredHeight, true);
                 this.z0.reset();
                 float strokeWith = getStrokeWith();
                 float f11 = measuredWidth / 2;
@@ -253,7 +253,7 @@ public class BarImageView extends TbClipImageView {
                 }
                 this.e.d.setStyle(Paint.Style.STROKE);
                 super.onDraw(this.L0);
-                this.J0 = S(measuredWidth, measuredHeight, false);
+                this.J0 = U(measuredWidth, measuredHeight, false);
                 if (this.H0) {
                     f = f8;
                     f4 = 0.0f;
@@ -287,7 +287,7 @@ public class BarImageView extends TbClipImageView {
                     canvas.restoreToCount(saveLayer2);
                 }
                 if (this.G0) {
-                    R(canvas, measuredWidth, f3);
+                    T(canvas, measuredWidth, f3);
                     return;
                 }
                 return;

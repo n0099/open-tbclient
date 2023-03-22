@@ -85,7 +85,7 @@ public final class k extends a implements View.OnClickListener, com.kwad.compone
         Drawable background = this.nC.getBackground();
         if (background instanceof ColorDrawable) {
             final ColorDrawable colorDrawable = (ColorDrawable) background;
-            valueAnimator = com.kwad.sdk.widget.a.ofArgb(getContext().getResources().getColor(R.color.obfuscated_res_0x7f06061b), getContext().getResources().getColor(R.color.obfuscated_res_0x7f06061c));
+            valueAnimator = com.kwad.sdk.widget.a.ofArgb(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060621), getContext().getResources().getColor(R.color.obfuscated_res_0x7f060622));
             valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.kwad.components.ad.reward.presenter.k.3
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public final void onAnimationUpdate(ValueAnimator valueAnimator2) {
@@ -105,10 +105,10 @@ public final class k extends a implements View.OnClickListener, com.kwad.compone
         if (viewGroup == null) {
             return;
         }
-        ImageView imageView = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091265);
+        ImageView imageView = (ImageView) viewGroup.findViewById(R.id.obfuscated_res_0x7f091297);
         this.nC = imageView;
-        imageView.setBackgroundColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f06061b));
-        this.pW = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091266);
+        imageView.setBackgroundColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060621));
+        this.pW = (TextView) this.pV.findViewById(R.id.obfuscated_res_0x7f091298);
         this.pV.setOnClickListener(this);
     }
 
@@ -145,8 +145,8 @@ public final class k extends a implements View.OnClickListener, com.kwad.compone
     public final void aq() {
         super.aq();
         if (this.pV == null) {
-            ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f09126b);
-            this.pV = (ViewGroup) (viewStub != null ? viewStub.inflate() : findViewById(R.id.obfuscated_res_0x7f09126a));
+            ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f09129d);
+            this.pV = (ViewGroup) (viewStub != null ? viewStub.inflate() : findViewById(R.id.obfuscated_res_0x7f09129c));
             initView();
         }
         if (!this.nM.fy()) {

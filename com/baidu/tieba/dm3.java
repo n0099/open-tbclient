@@ -1,115 +1,191 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.android.util.io.DocumentOpenUtil;
+import android.util.AtomicFile;
+import android.util.SparseArray;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.nio.channels.FileChannel;
+import java.nio.channels.FileLock;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class dm3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
+    /* JADX WARN: Removed duplicated region for block: B:101:0x015e A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:106:0x0158 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x0149  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean a(@NonNull JSONArray jSONArray, @NonNull File file, int i) {
+        InterceptResult invokeLLI;
+        FileOutputStream fileOutputStream;
+        FileChannel fileChannel;
+        FileLock fileLock;
+        AtomicFile atomicFile;
+        JSONArray optJSONArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, jSONArray, file, i)) == null) {
+            StringBuilder sb = new StringBuilder();
+            AtomicFile atomicFile2 = null;
+            r1 = null;
+            FileLock fileLock2 = null;
+            FileChannel fileChannel2 = null;
+            try {
+                try {
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
+                    SparseArray sparseArray = new SparseArray(i);
+                    ArrayList arrayList = new ArrayList();
+                    for (int i2 = 0; i2 < i; i2++) {
+                        arrayList.add(bufferedReader.readLine());
+                    }
+                    for (int i3 = 0; i3 < i; i3++) {
+                        String str = (String) arrayList.get(i3);
+                        if (TextUtils.isEmpty(str) || (optJSONArray = new JSONObject(str).optJSONArray("descriptions")) == null) {
+                            return false;
+                        }
+                        HashMap hashMap = new HashMap();
+                        for (int i4 = 0; i4 < optJSONArray.length(); i4++) {
+                            JSONObject jSONObject = (JSONObject) optJSONArray.get(i4);
+                            hashMap.put(jSONObject.optString("name"), jSONObject);
+                        }
+                        sparseArray.put(i3, hashMap);
+                    }
+                    for (int i5 = 0; i5 < jSONArray.length(); i5++) {
+                        JSONObject jSONObject2 = (JSONObject) jSONArray.get(i5);
+                        String optString = jSONObject2.optString("name");
+                        int i6 = 0;
+                        while (true) {
+                            if (i6 >= i) {
+                                break;
+                            } else if (((Map) sparseArray.get(i6)).containsKey(optString)) {
+                                ((Map) sparseArray.get(i6)).put(optString, jSONObject2);
+                                break;
+                            } else {
+                                if (i6 == i - 1) {
+                                    ((Map) sparseArray.get(i6)).put(optString, jSONObject2);
+                                }
+                                i6++;
+                            }
+                        }
+                    }
+                    for (int i7 = 0; i7 < i; i7++) {
+                        JSONObject jSONObject3 = new JSONObject((String) arrayList.get(i7));
+                        JSONArray jSONArray2 = new JSONArray();
+                        jSONObject3.optJSONArray("descriptions");
+                        for (Map.Entry entry : ((Map) sparseArray.get(i7)).entrySet()) {
+                            jSONArray2.put(entry.getValue());
+                        }
+                        jSONObject3.put("descriptions", jSONArray2);
+                        if (i7 != i - 1) {
+                            sb.append(jSONObject3.toString());
+                            sb.append("\n");
+                        } else {
+                            sb.append(jSONObject3.toString());
+                        }
+                    }
+                    bufferedReader.close();
+                    atomicFile = new AtomicFile(file);
+                    try {
+                        atomicFile.startWrite();
+                        fileOutputStream = atomicFile.startWrite();
+                        try {
+                            fileChannel = fileOutputStream.getChannel();
+                        } catch (IOException | JSONException unused) {
+                            fileChannel = null;
+                            fileLock = fileChannel;
+                            atomicFile2 = atomicFile;
+                            if (atomicFile2 != null) {
+                                if (fileLock != null) {
+                                    try {
+                                        fileLock.release();
+                                    } catch (IOException unused2) {
+                                    }
+                                }
+                                atomicFile2.failWrite(fileOutputStream);
+                            }
+                            if (fileChannel != null) {
+                                try {
+                                    fileChannel.close();
+                                } catch (IOException unused3) {
+                                }
+                            }
+                            return false;
+                        }
+                    } catch (IOException | JSONException unused4) {
+                        fileOutputStream = null;
+                        fileChannel = null;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    if (fileChannel2 != null) {
+                        try {
+                            fileChannel2.close();
+                        } catch (IOException unused5) {
+                        }
+                    }
+                    throw th;
+                }
+                try {
+                    try {
+                        fileLock = fileChannel.lock();
+                    } catch (IOException | JSONException unused6) {
+                        fileLock = fileLock2;
+                    }
+                    try {
+                        fileOutputStream.write(sb.toString().getBytes());
+                        if (fileLock != null) {
+                            fileLock.release();
+                        } else {
+                            fileLock2 = fileLock;
+                        }
+                        atomicFile.finishWrite(fileOutputStream);
+                        if (fileChannel != null) {
+                            try {
+                                fileChannel.close();
+                                return true;
+                            } catch (IOException unused7) {
+                                return true;
+                            }
+                        }
+                        return true;
+                    } catch (IOException | JSONException unused8) {
+                        atomicFile2 = atomicFile;
+                        if (atomicFile2 != null) {
+                        }
+                        if (fileChannel != null) {
+                        }
+                        return false;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileChannel2 = fileChannel;
+                    if (fileChannel2 != null) {
+                    }
+                    throw th;
+                }
+            } catch (IOException | JSONException unused9) {
+                fileOutputStream = null;
+                fileChannel = null;
+                fileLock = null;
             }
-            if (!TextUtils.equals(DocumentOpenUtil.PDF_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.DOCUMENT_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.SHEET_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.PRESENT_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.WORD_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.EXCEL_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.PPT_TYPE, str)) {
-                return false;
-            }
-            return true;
+        } else {
+            return invokeLLI.booleanValue;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            String lowerCase = str.toLowerCase();
-            char c = 65535;
-            switch (lowerCase.hashCode()) {
-                case 99640:
-                    if (lowerCase.equals(DocumentOpenUtil.DOC)) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case 110834:
-                    if (lowerCase.equals(DocumentOpenUtil.PDF)) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case 111220:
-                    if (lowerCase.equals(DocumentOpenUtil.PPT)) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case 118783:
-                    if (lowerCase.equals(DocumentOpenUtil.XLS)) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 3088960:
-                    if (lowerCase.equals(DocumentOpenUtil.DOCX)) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 3447940:
-                    if (lowerCase.equals(DocumentOpenUtil.PPTX)) {
-                        c = 6;
-                        break;
-                    }
-                    break;
-                case 3682393:
-                    if (lowerCase.equals(DocumentOpenUtil.XLSX)) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    str2 = DocumentOpenUtil.PDF_TYPE;
-                    break;
-                case 1:
-                    str2 = DocumentOpenUtil.WORD_TYPE;
-                    break;
-                case 2:
-                    str2 = DocumentOpenUtil.DOCUMENT_TYPE;
-                    break;
-                case 3:
-                    str2 = DocumentOpenUtil.EXCEL_TYPE;
-                    break;
-                case 4:
-                    str2 = DocumentOpenUtil.SHEET_TYPE;
-                    break;
-                case 5:
-                    str2 = DocumentOpenUtil.PPT_TYPE;
-                    break;
-                case 6:
-                    str2 = DocumentOpenUtil.PRESENT_TYPE;
-                    break;
-                default:
-                    str2 = "";
-                    break;
-            }
-            if (!a(str2)) {
-                return "";
-            }
-            return str2;
-        }
-        return (String) invokeL.objValue;
     }
 }

@@ -4,22 +4,22 @@ import android.webkit.JavascriptInterface;
 import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.tieba.az1;
-import com.baidu.tieba.m12;
-import com.baidu.tieba.nx1;
+import com.baidu.tieba.hx1;
+import com.baidu.tieba.tz1;
+import com.baidu.tieba.uv1;
 @Keep
 /* loaded from: classes3.dex */
 public class SwanApiNetworkV8Module {
     public static final String MODULE_NAME = "_naV8Network";
-    public az1 requestApi;
+    public hx1 requestApi;
 
-    public SwanApiNetworkV8Module(@NonNull nx1 nx1Var) {
-        this.requestApi = new az1(nx1Var);
+    public SwanApiNetworkV8Module(@NonNull uv1 uv1Var) {
+        this.requestApi = new hx1(uv1Var);
     }
 
     @JavascriptInterface
     public String request(JsObject jsObject) {
-        m12 T = this.requestApi.T(jsObject);
+        tz1 T = this.requestApi.T(jsObject);
         if (T == null) {
             return "";
         }

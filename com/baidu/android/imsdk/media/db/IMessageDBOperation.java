@@ -8,7 +8,7 @@ import java.util.List;
 public interface IMessageDBOperation {
     int delMsgs(int i, long j, long[] jArr);
 
-    int deleteAllMsgs(ChatObject chatObject);
+    int deleteAllMsgs(ChatObject chatObject, int i);
 
     int deleteChatMsg(ChatMsg chatMsg);
 

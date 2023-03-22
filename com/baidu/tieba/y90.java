@@ -1,131 +1,31 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
-import com.baidu.lcp.sdk.pb.LcmPb$Common;
-import com.baidu.tieba.v80;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import org.json.JSONObject;
+import com.baidu.live.business.model.data.LiveRoomEntity;
+import com.baidu.live.business.model.data.LiveSearchResultInfo;
+import com.baidu.live.feed.search.model.data.LiveSearchSuggestion;
+import com.baidu.live.feed.search.model.data.SearchResultBean;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class y90 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface y90 {
+    void D0();
 
-    public static void a(Context context, long j, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{context, Long.valueOf(j), str, str2}) == null) {
-            try {
-                v80.c cVar = new v80.c(context);
-                cVar.e(str);
-                cVar.f("1");
-                cVar.c(j);
-                cVar.d(str2);
-                cVar.a(501112L);
-                cVar.b();
-            } catch (Exception e) {
-                aa0.c("LCPCommon", "businessEvent exception ", e);
-            }
-        }
-    }
+    void b1(List<String> list);
 
-    @SuppressLint({"DefaultLocale"})
-    public static String e(String str, String str2, String str3, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, Long.valueOf(j)})) == null) {
-            return d(String.format("%s%s%s%d", str, str2, str3, Long.valueOf(j)));
-        }
-        return (String) invokeCommon.objValue;
-    }
+    void g0();
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (PackageManager.NameNotFoundException e) {
-                aa0.c("LCPCommon", "getAppVersionName NameNotFoundException", e);
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
+    void h0(List<? extends LiveSearchResultInfo> list, List<? extends LiveSearchSuggestion> list2);
 
-    public static Object c(Context context, boolean z) {
-        InterceptResult invokeLZ;
-        String b;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, context, z)) == null) {
-            String valueOf = String.valueOf(System.currentTimeMillis());
-            if (TextUtils.isEmpty(b(context))) {
-                b = "";
-            } else {
-                b = b(context);
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            String b2 = ba0.b(context);
-            String e = ba0.e(context);
-            try {
-                if (z) {
-                    if (!TextUtils.isEmpty(b2) && !TextUtils.isEmpty(e)) {
-                        JSONObject jSONObject = new JSONObject();
-                        jSONObject.put(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, valueOf);
-                        jSONObject.put("cuid", e);
-                        jSONObject.put(HttpConstants.DEVICE_TYPE, "android");
-                        jSONObject.put("app_id", b2);
-                        jSONObject.put("app_version", b);
-                        jSONObject.put("sdk_version", "2310016");
-                        jSONObject.put("ts", currentTimeMillis);
-                        jSONObject.put("sign", e(b2, e, "android", currentTimeMillis));
-                        return jSONObject;
-                    }
-                    aa0.b("LCPCommon", "getData appId : " + b2 + ", cuid :" + e);
-                    return null;
-                }
-                LcmPb$Common.b newBuilder = LcmPb$Common.newBuilder();
-                newBuilder.v(e);
-                newBuilder.w("android");
-                newBuilder.t(b2);
-                newBuilder.u(b);
-                newBuilder.x("2310016");
-                return newBuilder.build();
-            } catch (Exception e2) {
-                aa0.c("LCPCommon", "getData :", e2);
-                return null;
-            }
-        }
-        return invokeLZ.objValue;
-    }
+    void l(int i);
 
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            try {
-                byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes());
-                StringBuilder sb = new StringBuilder();
-                for (byte b : digest) {
-                    int i = b & 255;
-                    if (i < 16) {
-                        sb.append(0);
-                    }
-                    sb.append(Integer.toHexString(i));
-                }
-                return sb.toString();
-            } catch (NoSuchAlgorithmException unused) {
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
+    void n();
+
+    void q(z90 z90Var);
+
+    void showToast(String str);
+
+    void t(List<String> list);
+
+    void u(SearchResultBean searchResultBean);
+
+    void y0(List<? extends LiveRoomEntity> list);
 }

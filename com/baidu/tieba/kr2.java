@@ -1,52 +1,27 @@
 package com.baidu.tieba;
 
-import android.view.Surface;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes5.dex */
-public class kr2 extends gn2<xr2> {
+public class kr2 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile jr2 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.gn2
-    @NonNull
-    public String b() {
+    public static synchronized jr2 a() {
         InterceptResult invokeV;
+        jr2 jr2Var;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setSurface" : (String) invokeV.objValue;
-    }
-
-    public kr2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (kr2.class) {
+                if (a == null) {
+                    a = new jr2();
+                }
+                jr2Var = a;
             }
+            return jr2Var;
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gn2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull xr2 xr2Var) {
-        Object obj;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, xr2Var) != null) || (obj = command.obj) == null) {
-            return;
-        }
-        xr2Var.setSurface((Surface) obj);
-        String str = command.what;
-        d(xr2Var, str, "Surface:" + command.obj.hashCode(), false);
+        return (jr2) invokeV.objValue;
     }
 }

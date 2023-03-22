@@ -1,62 +1,52 @@
 package com.baidu.tieba;
 
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.faceshop.CollectEmotionData;
-import com.baidu.tieba.faceshop.EmotionGroupData;
-import com.baidu.tieba.nd5;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tieba.ar6;
+import com.baidu.tieba.faceshop.DiyEmotionData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 /* loaded from: classes3.dex */
-public class br6 extends nd5 {
+public class br6 {
     public static /* synthetic */ Interceptable $ic;
-    public static br6 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<qd5> a;
-    public final CustomMessageListener b;
-
-    @Override // com.baidu.tieba.nd5
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 3;
-        }
-        return invokeV.intValue;
-    }
+    public ar6 a;
+    public Handler b;
 
     /* loaded from: classes3.dex */
-    public class a extends CustomMessageListener {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ br6 a;
+        public final /* synthetic */ List a;
+        public final /* synthetic */ List b;
+        public final /* synthetic */ br6 c;
 
-        /* renamed from: com.baidu.tieba.br6$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0217a implements Runnable {
+        public class a implements ar6.k {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
+            public final /* synthetic */ b a;
 
-            public RunnableC0217a(a aVar) {
+            public a(b bVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
+                    Object[] objArr = {bVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -66,46 +56,115 @@ public class br6 extends nd5 {
                         return;
                     }
                 }
-                this.a = aVar;
+                this.a = bVar;
             }
 
-            @Override // java.lang.Runnable
-            public void run() {
+            @Override // com.baidu.tieba.ar6.k
+            public void a(int i, int i2, int i3, @Nullable Object obj) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.g();
+                if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), obj}) == null) {
+                    b bVar = this.a;
+                    bVar.c.g(bVar.b);
                 }
             }
         }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(br6 br6Var, int i) {
-            super(i);
+        public b(br6 br6Var, List list, List list2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {br6Var, Integer.valueOf(i)};
+                Object[] objArr = {br6Var, list, list2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = br6Var;
+            this.c = br6Var;
+            this.a = list;
+            this.b = list2;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                this.a.d();
-                new Thread(new RunnableC0217a(this)).start();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.c.a.h(this.a, false, new a(this));
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class a implements ar6.k {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ List a;
+        public final /* synthetic */ Map b;
+        public final /* synthetic */ br6 c;
+
+        public a(br6 br6Var, List list, Map map) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {br6Var, list, map};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = br6Var;
+            this.a = list;
+            this.b = map;
+        }
+
+        @Override // com.baidu.tieba.ar6.k
+        public void a(int i, int i2, int i3, @Nullable Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), obj}) == null) {
+                this.c.d(this.a, this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class c implements ar6.k {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c(br6 br6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {br6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.ar6.k
+        public void a(int i, int i2, int i3, @Nullable Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), obj}) == null) {
+                if (i2 > 0) {
+                    BdLog.e("NewFaceSyncUtil setCollectUpdateTime reSortLocalFace Called:" + System.currentTimeMillis());
+                    re8.v(System.currentTimeMillis());
+                }
+                re8.o().x(false);
             }
         }
     }
@@ -123,122 +182,106 @@ public class br6 extends nd5 {
                 return;
             }
         }
-        this.b = new a(this, 2005016);
-        MessageManager.getInstance().registerListener(this.b);
+        this.a = ar6.q();
+        this.b = new Handler(Looper.getMainLooper());
     }
 
-    public synchronized void g() {
+    public final void g(List<DiyEmotionData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                if (this.a == null) {
-                    return;
-                }
-                Iterator<qd5> it = this.a.iterator();
-                while (it.hasNext()) {
-                    qd5 next = it.next();
-                    if (next instanceof zq6) {
-                        ((zq6) next).x();
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+            oe8.a("【表情云同步】：5 - DIY表情：根据云端数据进行排序");
+            this.a.r(list, false, new c(this));
         }
     }
 
-    public static br6 e() {
-        InterceptResult invokeV;
+    public final void d(List<DiyEmotionData> list, Map<String, DiyEmotionData> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (br6.class) {
-                    if (c == null) {
-                        c = new br6();
-                    }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, list, map) == null) {
+            ArrayList<DiyEmotionData> arrayList = new ArrayList();
+            for (DiyEmotionData diyEmotionData : list) {
+                if (diyEmotionData != null && !map.containsKey(diyEmotionData.getPid()) && !TextUtils.isEmpty(diyEmotionData.getPicUrl())) {
+                    arrayList.add(diyEmotionData);
                 }
             }
-            return c;
-        }
-        return (br6) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.nd5
-    public void b(nd5.a aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && FileHelper.checkSD()) {
-            LinkedList<qd5> linkedList = this.a;
-            if (linkedList != null && !linkedList.isEmpty()) {
-                Iterator<qd5> it = this.a.iterator();
-                while (it.hasNext()) {
-                    qd5 next = it.next();
-                    if (aVar != null) {
-                        aVar.a(next);
-                    }
+            if (!arrayList.isEmpty()) {
+                oe8.a("【表情云同步】：4 - DIY表情：下载本地没有的表情");
+                ArrayList arrayList2 = new ArrayList();
+                for (DiyEmotionData diyEmotionData2 : arrayList) {
+                    qe5 qe5Var = new qe5();
+                    qe5Var.f = diyEmotionData2.getPkgId();
+                    qe5Var.a = diyEmotionData2.getPid();
+                    qe5Var.d = diyEmotionData2.getPicUrl();
+                    qe5Var.b = diyEmotionData2.getWidth();
+                    qe5Var.c = diyEmotionData2.getHeight();
+                    qe5Var.e = diyEmotionData2.getThumbnail();
+                    arrayList2.add(qe5Var);
                 }
+                this.b.post(new b(this, arrayList2, list));
                 return;
             }
-            this.a = new LinkedList<>();
-            zq6 zq6Var = new zq6();
-            this.a.add(zq6Var);
-            if (aVar != null) {
-                aVar.a(zq6Var);
-            }
+            g(list);
         }
     }
 
-    @Override // com.baidu.tieba.nd5
-    public void d() {
-        int i;
+    public final void e(List<DiyEmotionData> list, List<DiyEmotionData> list2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-            return;
-        }
-        List<CollectEmotionData> q = qq6.o().q(TbadkCoreApplication.getCurrentAccount());
-        if (q != null && q.size() != 0) {
-            if (q != null && q.size() != 0) {
-                i = q.size() - 1;
-            } else {
-                i = 0;
-            }
-            StatisticItem statisticItem = new StatisticItem("c12224");
-            statisticItem.param("obj_param1", i);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            TiebaStatic.log(statisticItem);
-            return;
-        }
-        CollectEmotionData collectEmotionData = new CollectEmotionData();
-        collectEmotionData.pid = "setting_icon";
-        collectEmotionData.setOrderId(301);
-        collectEmotionData.setSharpText(ag5.f);
-        collectEmotionData.uid = TbadkCoreApplication.getCurrentAccount();
-        qq6.o().a(collectEmotionData);
-        EmotionGroupData emotionGroupData = new EmotionGroupData();
-        emotionGroupData.groupId = ag5.a();
-        emotionGroupData.groupName = "用户收藏表情";
-        emotionGroupData.groupDesc = "用户收藏表情";
-        emotionGroupData.emotionsCount = 301;
-        emotionGroupData.status = 1;
-        emotionGroupData.downloadUrl = "";
-        qq6.o().h(TbadkCoreApplication.getCurrentAccount(), emotionGroupData);
-        qq6.o().g(emotionGroupData);
-    }
-
-    public boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            LinkedList<qd5> linkedList = this.a;
-            if (linkedList == null) {
-                return false;
-            }
-            Iterator<qd5> it = linkedList.iterator();
-            while (it.hasNext()) {
-                qd5 next = it.next();
-                if (next instanceof zq6) {
-                    return ((zq6) next).v(str);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, list2) == null) {
+            ArrayList arrayList = new ArrayList();
+            Map<String, DiyEmotionData> h = h(list2);
+            Map<String, DiyEmotionData> h2 = h(list);
+            for (Map.Entry<String, DiyEmotionData> entry : h.entrySet()) {
+                if (!h2.containsKey(entry.getKey())) {
+                    arrayList.add(entry.getValue());
                 }
             }
-            return false;
+            if (!arrayList.isEmpty()) {
+                oe8.a("【表情云同步】：4 - DIY表情：删除云端没有的表情");
+                this.a.t(arrayList, false, new a(this, list, h));
+                return;
+            }
+            d(list, h);
         }
-        return invokeL.booleanValue;
+    }
+
+    public void f(List<DiyEmotionData> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            ar6.q().j(true);
+            List<DiyEmotionData> r = mq6.o().r(TbadkCoreApplication.getCurrentAccountForEmotion());
+            for (DiyEmotionData diyEmotionData : r) {
+                String n = ar6.n(diyEmotionData.getPid(), false);
+                ImageFileInfo imageFileInfo = new ImageFileInfo();
+                imageFileInfo.setFilePath(n);
+                diyEmotionData.imageFileInfo = imageFileInfo;
+            }
+            BdLog.e("NewFaceSyncUtil MergeCollectFace Called CloudList:");
+            Iterator<DiyEmotionData> it = list.iterator();
+            while (it.hasNext()) {
+                BdLog.e("NewFaceSyncUtil Cloud data:" + it.next().getPkgId());
+            }
+            BdLog.e("NewFaceSyncUtil MergeCollectFace Called localList:");
+            Iterator<DiyEmotionData> it2 = r.iterator();
+            while (it2.hasNext()) {
+                BdLog.e("NewFaceSyncUtil Local data:" + it2.next().getPkgId());
+            }
+            e(list, r);
+        }
+    }
+
+    public final Map<String, DiyEmotionData> h(List<DiyEmotionData> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, list)) == null) {
+            HashMap hashMap = new HashMap();
+            if (list != null) {
+                for (DiyEmotionData diyEmotionData : list) {
+                    if (diyEmotionData != null && !TextUtils.isEmpty(diyEmotionData.getPid())) {
+                        hashMap.put(diyEmotionData.getPid(), diyEmotionData);
+                    }
+                }
+            }
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
     }
 }

@@ -1,141 +1,55 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import androidx.core.view.InputDeviceCompat;
+import bolts.UnobservedTaskException;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.s;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Array;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Field;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class u {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public s<?> a;
 
-    public static t a() {
-        InterceptResult invokeV;
+    public u(s<?> sVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            int i = Build.VERSION.SDK_INT;
-            if (i >= 26) {
-                return new v();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {sVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (i >= 23) {
-                return new x();
-            }
-            if (i >= 14) {
-                return new s();
-            }
-            return new w();
         }
-        return (t) invokeV.objValue;
+        this.a = sVar;
     }
 
-    public static Object b(Class<?> cls, Class<?>[] clsArr, Object[] objArr) {
-        InterceptResult invokeLLL;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, cls, clsArr, objArr)) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = null;
+        }
+    }
+
+    public void finalize() throws Throwable {
+        s.f m;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             try {
-                Constructor<?> declaredConstructor = cls.getDeclaredConstructor(clsArr);
-                declaredConstructor.setAccessible(true);
-                return declaredConstructor.newInstance(objArr);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return invokeLLL.objValue;
-    }
-
-    public static Object c(Class cls, Object[] objArr, Object obj) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, cls, objArr, obj)) == null) {
-            Object newInstance = Array.newInstance(cls, objArr.length + 1);
-            Array.set(newInstance, 0, obj);
-            for (int i = 1; i < objArr.length + 1; i++) {
-                Array.set(newInstance, i, objArr[i - 1]);
-            }
-            return newInstance;
-        }
-        return invokeLLL.objValue;
-    }
-
-    public static void e(Object obj, String str, Object obj2) {
-        Field d;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, str, obj2) == null) && (d = d(obj, str)) != null) {
-            d.setAccessible(true);
-            try {
-                d.set(obj, obj2);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static Field d(Object obj, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, obj, str)) == null) {
-            for (Class<?> cls = obj.getClass(); cls != Object.class; cls = cls.getSuperclass()) {
-                try {
-                    return cls.getDeclaredField(str);
-                } catch (Exception unused) {
+                s<?> sVar = this.a;
+                if (sVar != null && (m = s.m()) != null) {
+                    m.a(sVar, new UnobservedTaskException(sVar.k()));
                 }
+            } finally {
+                super.finalize();
             }
-            return null;
         }
-        return (Field) invokeLL.objValue;
-    }
-
-    public static Object g(Object obj, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, obj, str)) == null) {
-            Field d = d(obj, str);
-            if (d != null) {
-                d.setAccessible(true);
-                try {
-                    return d.get(obj);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return null;
-                }
-            }
-            return null;
-        }
-        return invokeLL.objValue;
-    }
-
-    public static <T> boolean f(T[] tArr, T t) {
-        InterceptResult invokeLL;
-        int i;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, tArr, t)) == null) {
-            if (tArr != null) {
-                i = 0;
-                while (i < tArr.length) {
-                    T t2 = tArr[i];
-                    if (t2 != t && (t2 == null || !t2.equals(t))) {
-                        z = false;
-                    } else {
-                        z = true;
-                    }
-                    if (z) {
-                        break;
-                    }
-                    i++;
-                }
-            }
-            i = -1;
-            if (i != -1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
     }
 }

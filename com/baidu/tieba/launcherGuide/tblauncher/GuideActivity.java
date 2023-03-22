@@ -40,8 +40,8 @@ import com.baidu.tbadk.core.view.BaseViewPager;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b55;
 import com.baidu.tieba.compatible.CompatibleUtile;
+import com.baidu.tieba.m35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -106,9 +106,9 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                     this.a.e.setOnScrollOutListener(null);
                 }
                 if (!this.a.a.equals(GuildActivityConfig.FROM_ABOUT_PAGE)) {
-                    this.a.R1();
+                    this.a.U1();
                 }
-                CompatibleUtile.setAnim(this.a.getPageContext().getPageActivity(), 0, R.anim.obfuscated_res_0x7f010099);
+                CompatibleUtile.setAnim(this.a.getPageContext().getPageActivity(), 0, R.anim.obfuscated_res_0x7f01009f);
                 this.a.closeActivity();
             }
         }
@@ -142,7 +142,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.J1();
+                this.a.M1();
                 if (view2.getId() == this.a.o.getId()) {
                     TiebaStatic.log(new StatisticItem("c13410").param("uid", TbadkCoreApplication.getCurrentAccount()));
                 }
@@ -194,10 +194,10 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
             if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
                 if (i != this.a.k - 1) {
                     this.a.g.setVisibility(8);
-                    this.a.P1(R.dimen.tbds170);
+                    this.a.S1(R.dimen.tbds170);
                     this.a.f.setVisibility(0);
                 } else {
-                    this.a.P1(R.dimen.tbds170);
+                    this.a.S1(R.dimen.tbds170);
                     this.a.g.setVisibility(0);
                     this.a.f.setVisibility(0);
                 }
@@ -248,7 +248,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                             return;
                         }
                         this.a.i = false;
-                        b55.m().w("jump_to_new_user_guide", false);
+                        m35.m().w("jump_to_new_user_guide", false);
                         return;
                     }
                     this.a.i = false;
@@ -288,7 +288,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getId() == this.a.n.getId()) {
                 TbSingleton.getInstance().mStartGameClicked = true;
-                this.a.J1();
+                this.a.M1();
             }
         }
     }
@@ -391,7 +391,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         this.a = null;
         this.h = true;
         this.i = true;
-        this.j = new int[]{R.drawable.obfuscated_res_0x7f0801f0, R.drawable.obfuscated_res_0x7f0801f1, R.drawable.obfuscated_res_0x7f0801f2};
+        this.j = new int[]{R.drawable.obfuscated_res_0x7f0801f1, R.drawable.obfuscated_res_0x7f0801f2, R.drawable.obfuscated_res_0x7f0801f3};
         this.k = 0;
         this.l = new ArrayList<>();
         this.p = new a(this);
@@ -401,37 +401,37 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         this.t = new e(this);
     }
 
-    public final void L1() {
+    public final void O1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.b = new ArrayList<>();
             this.c = new ArrayList<>();
             for (int i = 0; i < this.k; i++) {
-                RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d03a8, (ViewGroup) null, false);
-                ImageView imageView = (ImageView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f090e27);
+                RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d03b2, (ViewGroup) null, false);
+                ImageView imageView = (ImageView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f090e56);
                 imageView.setVisibility(0);
-                ((GifView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f092771)).setVisibility(8);
+                ((GifView) relativeLayout.findViewById(R.id.obfuscated_res_0x7f0927d1)).setVisibility(8);
                 imageView.setBackgroundResource(this.j[i]);
-                Bitmap O1 = O1(imageView, this.j[i]);
-                if (O1 == null) {
-                    J1();
+                Bitmap R1 = R1(imageView, this.j[i]);
+                if (R1 == null) {
+                    M1();
                     return;
                 }
-                this.l.add(O1);
+                this.l.add(R1);
                 this.c.add(imageView);
                 this.b.add(relativeLayout);
             }
         }
     }
 
-    public final void P1(int i) {
+    public final void S1(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            Q1(this.g, i);
+            T1(this.g, i);
         }
     }
 
-    public final void Q1(View view2, int i) {
+    public final void T1(View view2, int i) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLI(1048583, this, view2, i) != null) || view2 == null) {
             return;
@@ -452,24 +452,24 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
             if (i != 4) {
                 return super.onKeyDown(i, keyEvent);
             }
-            J1();
+            M1();
             return true;
         }
         return invokeIL.booleanValue;
     }
 
-    public final void J1() {
+    public final void M1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             String str = this.a;
             if (str != null && !str.equals(GuildActivityConfig.FROM_ABOUT_PAGE)) {
-                R1();
+                U1();
             }
             closeActivity();
         }
     }
 
-    public void K1() {
+    public void N1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
@@ -488,7 +488,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onDestroy();
-            N1();
+            Q1();
         }
     }
 
@@ -508,7 +508,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         }
     }
 
-    public void M1() {
+    public void P1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.JUMP_TO_NEW_GUIDE_HTTP_CMD, TbConfig.SERVER_ADDRESS + TbConfig.JUMP_TO_NEW_USER_CHOOSE_BAR);
@@ -519,7 +519,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         }
     }
 
-    public void N1() {
+    public void Q1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             BaseViewPager baseViewPager = this.e;
@@ -546,7 +546,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         }
     }
 
-    public final Bitmap O1(ImageView imageView, int i) {
+    public final Bitmap R1(ImageView imageView, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, imageView, i)) == null) {
@@ -565,7 +565,7 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
         return (Bitmap) invokeLI.objValue;
     }
 
-    public final void R1() {
+    public final void U1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             boolean isFirstUse = TbadkApplication.getInst().getIsFirstUse();
@@ -607,26 +607,26 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
             }
             this.k = this.j.length;
             try {
-                setContentView(R.layout.obfuscated_res_0x7f0d03a7);
-                M1();
-                boolean i = b55.m().i("jump_to_new_user_guide", true);
+                setContentView(R.layout.obfuscated_res_0x7f0d03b1);
+                P1();
+                boolean i = m35.m().i("jump_to_new_user_guide", true);
                 this.i = i;
                 if (i) {
-                    K1();
+                    N1();
                 }
                 try {
-                    L1();
+                    O1();
                     this.d = new f(this, null);
-                    BaseViewPager baseViewPager = (BaseViewPager) findViewById(R.id.obfuscated_res_0x7f090e2a);
+                    BaseViewPager baseViewPager = (BaseViewPager) findViewById(R.id.obfuscated_res_0x7f090e59);
                     this.e = baseViewPager;
                     baseViewPager.setAdapter(this.d);
-                    IndicatorView indicatorView = (IndicatorView) findViewById(R.id.obfuscated_res_0x7f090e29);
+                    IndicatorView indicatorView = (IndicatorView) findViewById(R.id.obfuscated_res_0x7f090e58);
                     this.f = indicatorView;
                     indicatorView.setCount(this.k);
-                    Q1(this.f, R.dimen.tbds46);
+                    T1(this.f, R.dimen.tbds46);
                     this.f.setSpacing(getResources().getDimensionPixelSize(R.dimen.tbds35));
-                    this.f.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ff3));
-                    this.f.setDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080ff5));
+                    this.f.setSelector(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08100a));
+                    this.f.setDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08100c));
                     this.f.setPosition(0.0f);
                     if (this.k <= 1) {
                         this.f.setVisibility(4);
@@ -636,19 +636,19 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                     this.e.setOnScrollOutListener(this.p);
                     this.e.setOnFlipOutListener(this.p);
                     this.e.setOnPageChangeListener(this.r);
-                    this.g = findViewById(R.id.obfuscated_res_0x7f092105);
-                    TBSelector.makeDrawableSelector().setType(2).defaultDrawable(R.drawable.obfuscated_res_0x7f0803c8).pressedDrawable(R.drawable.obfuscated_res_0x7f0803b2).into(this.g);
-                    this.m = findViewById(R.id.obfuscated_res_0x7f091895);
-                    View findViewById = findViewById(R.id.obfuscated_res_0x7f09103a);
+                    this.g = findViewById(R.id.obfuscated_res_0x7f092156);
+                    TBSelector.makeDrawableSelector().setType(2).defaultDrawable(R.drawable.obfuscated_res_0x7f0803cb).pressedDrawable(R.drawable.obfuscated_res_0x7f0803b5).into(this.g);
+                    this.m = findViewById(R.id.obfuscated_res_0x7f0918d7);
+                    View findViewById = findViewById(R.id.obfuscated_res_0x7f09106b);
                     this.n = findViewById;
                     findViewById.setOnClickListener(this.t);
-                    View findViewById2 = findViewById(R.id.obfuscated_res_0x7f0922d8);
+                    View findViewById2 = findViewById(R.id.obfuscated_res_0x7f092330);
                     this.o = findViewById2;
                     findViewById2.setOnClickListener(this.q);
                     this.m.setVisibility(8);
                     this.g.setVisibility(0);
                     if (this.k <= 1) {
-                        P1(R.dimen.obfuscated_res_0x7f070309);
+                        S1(R.dimen.obfuscated_res_0x7f070309);
                         this.g.setVisibility(0);
                         this.g.requestFocus();
                     } else {
@@ -657,24 +657,24 @@ public class GuideActivity extends BaseActivity<GuideActivity> {
                     this.g.setOnClickListener(this.q);
                     TiebaStatic.log("new_user_guide_pv");
                 } catch (OutOfMemoryError e2) {
-                    N1();
+                    Q1();
                     TbadkApplication.getInst().onAppMemoryLow();
                     BdLog.detailException(e2);
                     this.h = true;
                     this.i = false;
-                    J1();
+                    M1();
                 } catch (RuntimeException e3) {
-                    N1();
+                    Q1();
                     TbadkApplication.getInst().onAppMemoryLow();
                     BdLog.detailException(e3);
                     this.h = true;
                     this.i = false;
-                    J1();
+                    M1();
                 }
             } catch (RuntimeException unused) {
                 this.h = true;
                 this.i = false;
-                J1();
+                M1();
             }
         }
     }

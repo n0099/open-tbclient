@@ -1,134 +1,128 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.f67;
-import com.baidu.tieba.frs.TabMenuPopView;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.ThirdStatisticHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class h67 implements b67 {
+public class h67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public f67.e b;
-    public List<xw6> c;
-    public View d;
-    public View e;
-    public TabMenuPopView f;
-    public f67 g;
-    public TabMenuPopView.c h;
 
-    /* loaded from: classes4.dex */
-    public class a implements TabMenuPopView.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ h67 a;
-
-        public a(h67 h67Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {h67Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = h67Var;
-        }
-
-        @Override // com.baidu.tieba.frs.TabMenuPopView.c
-        public void a(View view2, xw6 xw6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, xw6Var) == null) {
-                if (this.a.g != null) {
-                    this.a.g.c();
-                }
-                this.a.b.a(xw6Var.b);
-            }
+    public static void a(StatisticItem statisticItem, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, statisticItem, str) == null) && YYLiveUtil.isYYLiveLink(str)) {
+            YYLiveUtil.addYyExtData(statisticItem, str);
         }
     }
 
-    public h67() {
+    public static void b(Context context, hb9 hb9Var) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.h = new a(this);
-    }
-
-    @Override // com.baidu.tieba.b67
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            this.d.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
-            return this.d.getMeasuredHeight();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.b67
-    public View getView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.b67
-    public void a(Context context, f67 f67Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, context, f67Var) == null) && context != null && f67Var != null) {
-            this.a = context;
-            this.g = f67Var;
-            this.b = f67Var.d();
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08a1, (ViewGroup) null);
-            this.d = inflate;
-            this.e = inflate.findViewById(R.id.top_line);
-            TabMenuPopView tabMenuPopView = (TabMenuPopView) this.d.findViewById(R.id.obfuscated_res_0x7f090607);
-            this.f = tabMenuPopView;
-            tabMenuPopView.setOnItemClickCallBack(this.h);
-        }
-    }
-
-    @Override // com.baidu.tieba.b67
-    public void setData(List<xw6> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, list) != null) || list == null) {
+        if ((interceptable != null && interceptable.invokeLL(65537, null, context, hb9Var) != null) || hb9Var == null) {
             return;
         }
-        this.c = list;
-        xw6 xw6Var = new xw6();
-        xw6Var.b = 0;
-        xw6Var.a = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0272);
-        xw6Var.c = false;
-        SkinManager.setBackgroundColor(this.d, R.color.CAM_X0201);
-        SkinManager.setBackgroundColor(this.e, R.color.CAM_X0204);
-        this.f.setData(this.c, xw6Var);
+        TbPageContext<BaseFragmentActivity> tbPageContext = null;
+        if (context instanceof BaseActivity) {
+            tbPageContext = ((BaseActivity) context).getPageContext();
+        } else if (context instanceof BaseFragmentActivity) {
+            tbPageContext = ((BaseFragmentActivity) context).getPageContext();
+        }
+        if (tbPageContext == null) {
+            return;
+        }
+        ib9 ib9Var = hb9Var.f;
+        if (ib9Var != null) {
+            n06.b(ib9Var.b, ib9Var.c, "1191003700000000", ib9Var.d);
+        } else {
+            if (YYLiveUtil.isYYLiveLink(hb9Var.d)) {
+                str = hb9Var.d + "&source=" + YYLiveUtil.SOURCE_FRS_SERVICE_AREA;
+            } else {
+                str = hb9Var.d;
+            }
+            UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{str});
+        }
+        k87.a(tbPageContext, hb9Var.e);
+    }
+
+    public static void c(hb9 hb9Var) {
+        int i;
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65538, null, hb9Var) != null) || hb9Var == null) {
+            return;
+        }
+        StatisticItem statisticItem = new StatisticItem("c13626");
+        statisticItem.param("fid", hb9Var.g);
+        if (hb9Var.f == null) {
+            i = 1;
+        } else {
+            i = 2;
+        }
+        statisticItem.param("obj_type", i);
+        statisticItem.param("obj_locate", hb9Var.h);
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+        ib9 ib9Var = hb9Var.f;
+        if (ib9Var != null) {
+            str = ib9Var.c;
+        } else {
+            str = hb9Var.d;
+        }
+        ib9 ib9Var2 = hb9Var.f;
+        if (ib9Var2 != null) {
+            String str2 = ib9Var2.a;
+        } else {
+            String str3 = hb9Var.c;
+        }
+        statisticItem.param("obj_name", hb9Var.c);
+        statisticItem.param("obj_param1", hb9Var.d);
+        a(statisticItem, str);
+        TiebaStatic.log(statisticItem);
+        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(hb9Var.i, 1));
+    }
+
+    public static void d(hb9 hb9Var) {
+        int i;
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65539, null, hb9Var) != null) || hb9Var == null) {
+            return;
+        }
+        StatisticItem statisticItem = new StatisticItem("c13627");
+        statisticItem.param("fid", hb9Var.g);
+        if (hb9Var.f == null) {
+            i = 1;
+        } else {
+            i = 2;
+        }
+        statisticItem.param("obj_type", i);
+        statisticItem.param("obj_locate", hb9Var.h);
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+        ib9 ib9Var = hb9Var.f;
+        if (ib9Var != null) {
+            str = ib9Var.c;
+        } else {
+            str = hb9Var.d;
+        }
+        ib9 ib9Var2 = hb9Var.f;
+        if (ib9Var2 != null) {
+            String str2 = ib9Var2.a;
+        } else {
+            String str3 = hb9Var.c;
+        }
+        statisticItem.param("obj_name", hb9Var.c);
+        statisticItem.param("obj_param1", hb9Var.d);
+        a(statisticItem, str);
+        TiebaStatic.log(statisticItem);
+        ThirdStatisticHelper.sendReq((String) ListUtils.getItem(hb9Var.i, 0));
     }
 }

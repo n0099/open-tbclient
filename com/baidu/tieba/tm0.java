@@ -1,102 +1,96 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.bn0;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
-public class tm0 implements zm0, Runnable {
+public final class tm0 {
     public static /* synthetic */ Interceptable $ic;
+    public static ym0 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ConcurrentLinkedQueue<bn0.b<?>> a;
-    public final AtomicBoolean b;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final tm0 a;
-        public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public static wm0 a(ym0 ym0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, ym0Var)) == null) {
+            if (ym0Var instanceof wm0) {
+                return (wm0) ym0Var;
+            }
+            return null;
+        }
+        return (wm0) invokeL.objValue;
+    }
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-399135179, "Lcom/baidu/tieba/tm0$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-399135179, "Lcom/baidu/tieba/tm0$a;");
+    public static zm0 b(ym0 ym0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, ym0Var)) == null) {
+            if (ym0Var instanceof zm0) {
+                return (zm0) ym0Var;
+            }
+            return null;
+        }
+        return (zm0) invokeL.objValue;
+    }
+
+    public static void c(@NonNull ym0 ym0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, ym0Var) == null) {
+            synchronized (ym0.class) {
+                if (a != null) {
                     return;
                 }
+                a = ym0Var;
             }
-            a = new tm0();
         }
     }
 
-    public tm0() {
+    public static void f(xm0 xm0Var) {
+        zm0 b;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if ((interceptable == null || interceptable.invokeL(65541, null, xm0Var) == null) && (b = b(a)) != null) {
+            b.b(xm0Var);
         }
-        this.a = new ConcurrentLinkedQueue<>();
-        this.b = new AtomicBoolean(false);
     }
 
-    public static zm0 b() {
+    public static void g(xm0 xm0Var) {
+        zm0 b;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65542, null, xm0Var) == null) && (b = b(a)) != null) {
+            b.d(xm0Var);
+        }
+    }
+
+    @Nullable
+    public static Activity d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            wm0 a2 = a(a);
+            if (a2 == null) {
+                return null;
+            }
+            return a2.a();
         }
-        return (zm0) invokeV.objValue;
+        return (Activity) invokeV.objValue;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
+    @Nullable
+    public static Activity e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
-            return;
-        }
-        while (true) {
-            bn0.b<?> poll = this.a.poll();
-            if (poll != null) {
-                poll.a.onEvent(poll.b);
-            } else {
-                this.b.set(false);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            wm0 a2 = a(a);
+            if (a2 == null) {
+                return null;
             }
+            return a2.c();
         }
-    }
-
-    @Override // com.baidu.tieba.zm0
-    public <T extends xm0> void a(cn0 cn0Var, an0<T> an0Var, T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, cn0Var, an0Var, t) == null) {
-            if (gk0.a()) {
-                this.a.offer(new bn0.b<>(cn0Var, an0Var, t));
-                if (this.b.compareAndSet(false, true)) {
-                    v31.c(this, "BackgroundDeliver", 3);
-                    return;
-                }
-                return;
-            }
-            an0Var.onEvent(t);
-        }
+        return (Activity) invokeV.objValue;
     }
 }

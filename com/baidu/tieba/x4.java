@@ -1,31 +1,22 @@
 package com.baidu.tieba;
 
-import com.badlogic.gdx.math.Matrix4;
-import com.badlogic.gdx.math.Quaternion;
-import com.badlogic.gdx.math.Vector3;
-import com.badlogic.gdx.utils.GdxRuntimeException;
+import com.badlogic.gdx.graphics.Texture;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.h7;
+import com.baidu.tieba.y2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class x4 {
+public class x4<T extends y2> implements Comparable<x4<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public boolean b;
-    public boolean c;
-    public final Vector3 d;
-    public final Quaternion e;
-    public final Vector3 f;
-    public final Matrix4 g;
-    public final Matrix4 h;
-    public h7<a5> i;
-    public x4 j;
-    public final h7<x4> k;
+    public T a;
+    public Texture.TextureFilter b;
+    public Texture.TextureFilter c;
+    public Texture.TextureWrap d;
+    public Texture.TextureWrap e;
 
     public x4() {
         Interceptable interceptable = $ic;
@@ -40,174 +31,252 @@ public class x4 {
                 return;
             }
         }
-        this.b = true;
-        this.d = new Vector3();
-        this.e = new Quaternion(0.0f, 0.0f, 0.0f, 1.0f);
-        this.f = new Vector3(1.0f, 1.0f, 1.0f);
-        this.g = new Matrix4();
-        this.h = new Matrix4();
-        this.i = new h7<>(2);
-        this.k = new h7<>(2);
+        this.a = null;
     }
 
-    public static x4 f(h7<x4> h7Var, String str, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public x4(T t) {
+        this(t, null, null, null, null);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{h7Var, str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            int i = h7Var.b;
-            if (z2) {
-                for (int i2 = 0; i2 < i; i2++) {
-                    x4 x4Var = h7Var.get(i2);
-                    if (x4Var.a.equalsIgnoreCase(str)) {
-                        return x4Var;
-                    }
-                }
-            } else {
-                for (int i3 = 0; i3 < i; i3++) {
-                    x4 x4Var2 = h7Var.get(i3);
-                    if (x4Var2.a.equals(str)) {
-                        return x4Var2;
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((y2) objArr2[0], (Texture.TextureFilter) objArr2[1], (Texture.TextureFilter) objArr2[2], (Texture.TextureWrap) objArr2[3], (Texture.TextureWrap) objArr2[4]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            if (z) {
-                for (int i4 = 0; i4 < i; i4++) {
-                    x4 f = f(h7Var.get(i4).k, str, true, z2);
-                    if (f != null) {
-                        return f;
-                    }
-                }
-                return null;
-            }
-            return null;
         }
-        return (x4) invokeCommon.objValue;
     }
 
-    public <T extends x4> int a(T t) {
-        InterceptResult invokeL;
+    public x4(T t, Texture.TextureFilter textureFilter, Texture.TextureFilter textureFilter2, Texture.TextureWrap textureWrap, Texture.TextureWrap textureWrap2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
-            return h(-1, t);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t, textureFilter, textureFilter2, textureWrap, textureWrap2};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.a = null;
+        b(t, textureFilter, textureFilter2, textureWrap, textureWrap2);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(x4<T> x4Var) {
+        InterceptResult invokeL;
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        int gLEnum;
+        int gLEnum2;
+        int gLEnum3;
+        int gLEnum4;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, x4Var)) == null) {
+            int i5 = 0;
+            if (x4Var == this) {
+                return 0;
+            }
+            T t = this.a;
+            if (t == null) {
+                i = 0;
+            } else {
+                i = t.a;
+            }
+            T t2 = x4Var.a;
+            if (t2 == null) {
+                i2 = 0;
+            } else {
+                i2 = t2.a;
+            }
+            if (i != i2) {
+                return i - i2;
+            }
+            T t3 = this.a;
+            if (t3 == null) {
+                i3 = 0;
+            } else {
+                i3 = t3.i();
+            }
+            T t4 = x4Var.a;
+            if (t4 == null) {
+                i4 = 0;
+            } else {
+                i4 = t4.i();
+            }
+            if (i3 != i4) {
+                return i3 - i4;
+            }
+            Texture.TextureFilter textureFilter = this.b;
+            if (textureFilter != x4Var.b) {
+                if (textureFilter == null) {
+                    gLEnum4 = 0;
+                } else {
+                    gLEnum4 = textureFilter.getGLEnum();
+                }
+                Texture.TextureFilter textureFilter2 = x4Var.b;
+                if (textureFilter2 != null) {
+                    i5 = textureFilter2.getGLEnum();
+                }
+                return gLEnum4 - i5;
+            }
+            Texture.TextureFilter textureFilter3 = this.c;
+            if (textureFilter3 != x4Var.c) {
+                if (textureFilter3 == null) {
+                    gLEnum3 = 0;
+                } else {
+                    gLEnum3 = textureFilter3.getGLEnum();
+                }
+                Texture.TextureFilter textureFilter4 = x4Var.c;
+                if (textureFilter4 != null) {
+                    i5 = textureFilter4.getGLEnum();
+                }
+                return gLEnum3 - i5;
+            }
+            Texture.TextureWrap textureWrap = this.d;
+            if (textureWrap != x4Var.d) {
+                if (textureWrap == null) {
+                    gLEnum2 = 0;
+                } else {
+                    gLEnum2 = textureWrap.getGLEnum();
+                }
+                Texture.TextureWrap textureWrap2 = x4Var.d;
+                if (textureWrap2 != null) {
+                    i5 = textureWrap2.getGLEnum();
+                }
+                return gLEnum2 - i5;
+            }
+            Texture.TextureWrap textureWrap3 = this.e;
+            if (textureWrap3 == x4Var.e) {
+                return 0;
+            }
+            if (textureWrap3 == null) {
+                gLEnum = 0;
+            } else {
+                gLEnum = textureWrap3.getGLEnum();
+            }
+            Texture.TextureWrap textureWrap4 = x4Var.e;
+            if (textureWrap4 != null) {
+                i5 = textureWrap4.getGLEnum();
+            }
+            return gLEnum - i5;
         }
         return invokeL.intValue;
     }
 
-    public void d(boolean z) {
+    public void b(T t, Texture.TextureFilter textureFilter, Texture.TextureFilter textureFilter2, Texture.TextureWrap textureWrap, Texture.TextureWrap textureWrap2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            c();
-            e();
-            if (z) {
-                h7.b<x4> it = this.k.iterator();
-                while (it.hasNext()) {
-                    it.next().d(true);
-                }
-            }
+        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t, textureFilter, textureFilter2, textureWrap, textureWrap2) == null) {
+            this.a = t;
+            this.b = textureFilter;
+            this.c = textureFilter2;
+            this.d = textureWrap;
+            this.e = textureWrap2;
         }
     }
 
-    public <T extends x4> boolean i(T t) {
+    /* JADX WARN: Type inference failed for: r0v2, types: [T extends com.baidu.tieba.y2] */
+    public <V extends T> void c(x4<V> x4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, x4Var) == null) {
+            this.a = x4Var.a;
+            this.b = x4Var.b;
+            this.c = x4Var.c;
+            this.d = x4Var.d;
+            this.e = x4Var.e;
+        }
+    }
+
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, t)) == null) {
-            if (!this.k.i(t, true)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+            if (obj == null) {
                 return false;
             }
-            t.j = null;
+            if (obj == this) {
+                return true;
+            }
+            if (!(obj instanceof x4)) {
+                return false;
+            }
+            x4 x4Var = (x4) obj;
+            if (x4Var.a != this.a || x4Var.b != this.b || x4Var.c != this.c || x4Var.d != this.d || x4Var.e != this.e) {
+                return false;
+            }
             return true;
         }
         return invokeL.booleanValue;
     }
 
-    public void b(boolean z) {
-        Matrix4[] matrix4Arr;
+    public int hashCode() {
+        InterceptResult invokeV;
         int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            h7.b<a5> it = this.i.iterator();
-            while (it.hasNext()) {
-                a5 next = it.next();
-                i7<x4, Matrix4> i7Var = next.a;
-                if (i7Var != null && (matrix4Arr = next.b) != null && (i = i7Var.c) == matrix4Arr.length) {
-                    for (int i2 = 0; i2 < i; i2++) {
-                        next.b[i2].set(next.a.a[i2].h).mul(next.a.b[i2]);
-                    }
-                }
-            }
-            if (z) {
-                h7.b<x4> it2 = this.k.iterator();
-                while (it2.hasNext()) {
-                    it2.next().b(true);
-                }
-            }
-        }
-    }
-
-    public Matrix4 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!this.c) {
-                this.g.set(this.d, this.e, this.f);
-            }
-            return this.g;
-        }
-        return (Matrix4) invokeV.objValue;
-    }
-
-    public x4 g() {
-        InterceptResult invokeV;
+        int i2;
+        int gLEnum;
+        int gLEnum2;
+        int gLEnum3;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.j;
-        }
-        return (x4) invokeV.objValue;
-    }
-
-    public Matrix4 e() {
-        InterceptResult invokeV;
-        x4 x4Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.b && (x4Var = this.j) != null) {
-                this.h.set(x4Var.h).mul(this.g);
+            T t = this.a;
+            int i3 = 0;
+            if (t == null) {
+                i = 0;
             } else {
-                this.h.set(this.g);
+                i = t.a;
             }
-            return this.h;
+            long j = i * 811;
+            T t2 = this.a;
+            if (t2 == null) {
+                i2 = 0;
+            } else {
+                i2 = t2.i();
+            }
+            long j2 = (j + i2) * 811;
+            Texture.TextureFilter textureFilter = this.b;
+            if (textureFilter == null) {
+                gLEnum = 0;
+            } else {
+                gLEnum = textureFilter.getGLEnum();
+            }
+            long j3 = (j2 + gLEnum) * 811;
+            Texture.TextureFilter textureFilter2 = this.c;
+            if (textureFilter2 == null) {
+                gLEnum2 = 0;
+            } else {
+                gLEnum2 = textureFilter2.getGLEnum();
+            }
+            long j4 = (j3 + gLEnum2) * 811;
+            Texture.TextureWrap textureWrap = this.d;
+            if (textureWrap == null) {
+                gLEnum3 = 0;
+            } else {
+                gLEnum3 = textureWrap.getGLEnum();
+            }
+            long j5 = (j4 + gLEnum3) * 811;
+            Texture.TextureWrap textureWrap2 = this.e;
+            if (textureWrap2 != null) {
+                i3 = textureWrap2.getGLEnum();
+            }
+            long j6 = j5 + i3;
+            return (int) ((j6 >> 32) ^ j6);
         }
-        return (Matrix4) invokeV.objValue;
-    }
-
-    public <T extends x4> int h(int i, T t) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048582, this, i, t)) == null) {
-            for (x4 x4Var = this; x4Var != null; x4Var = x4Var.g()) {
-                if (x4Var == t) {
-                    throw new GdxRuntimeException("Cannot add a parent as a child");
-                }
-            }
-            x4 g = t.g();
-            if (g != null && !g.i(t)) {
-                throw new GdxRuntimeException("Could not remove child from its current parent");
-            }
-            if (i >= 0) {
-                h7<x4> h7Var = this.k;
-                if (i < h7Var.b) {
-                    h7Var.insert(i, t);
-                    t.j = this;
-                    return i;
-                }
-            }
-            h7<x4> h7Var2 = this.k;
-            int i2 = h7Var2.b;
-            h7Var2.a(t);
-            i = i2;
-            t.j = this;
-            return i;
-        }
-        return invokeIL.intValue;
+        return invokeV.intValue;
     }
 }

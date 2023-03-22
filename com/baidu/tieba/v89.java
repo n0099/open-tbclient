@@ -1,122 +1,143 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tieba.square.ForumSquareActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class v89 {
+public class v89 extends tm<x89, CardViewHolder<o99>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final m89 b;
-    public nh6 c;
-    public nh6 d;
-    public nh6 e;
+    public TbPageContext<?> a;
+    public lf6<x89> b;
 
-    public v89(MainTabActivity mainTabActivity, m89 m89Var) {
+    /* loaded from: classes6.dex */
+    public class a extends lf6<x89> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ v89 b;
+
+        public a(v89 v89Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v89Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = v89Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.lf6
+        /* renamed from: d */
+        public void a(View view2, x89 x89Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, x89Var) == null) && x89Var != null && (this.b.a.getPageActivity() instanceof ForumSquareActivity)) {
+                String className = ((ForumSquareActivity) this.b.a.getPageActivity()).z1().getClassName();
+                if (!"推荐".equals(className)) {
+                    StatisticItem statisticItem = new StatisticItem("c13652");
+                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                    statisticItem.param("fid", x89Var.a);
+                    statisticItem.param("resource_id", className);
+                    TiebaStatic.log(statisticItem);
+                    return;
+                }
+                StatisticItem statisticItem2 = new StatisticItem("c13643");
+                statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                statisticItem2.param("fid", x89Var.a);
+                statisticItem2.param("obj_locate", 3);
+                TiebaStatic.log(statisticItem2);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v89(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), x89.h);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, m89Var};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = mainTabActivity;
-        this.b = m89Var;
+        this.b = new a(this);
+        this.a = tbPageContext;
     }
 
-    public void a() {
-        nh6 nh6Var;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.tm
+    /* renamed from: t */
+    public CardViewHolder<o99> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (nh6Var = this.e) != null && nh6Var.i()) {
-            this.e.h();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            o99 o99Var = new o99(this.a);
+            o99Var.o(this.mPageId);
+            return new CardViewHolder<>(o99Var);
         }
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    public void b() {
-        nh6 nh6Var;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.tm
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, x89 x89Var, CardViewHolder<o99> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (nh6Var = this.d) != null && nh6Var.i()) {
-            this.d.h();
-            this.d = null;
-        }
-    }
-
-    public void c() {
-        nh6 nh6Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (nh6Var = this.c) != null && nh6Var.i()) {
-            this.c.h();
-            this.c = null;
-        }
-    }
-
-    public void d() {
-        m89 m89Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (m89Var = this.b) != null && m89Var.y() != null) {
-            FragmentTabWidget fragmentTabWidget = this.b.y().getFragmentTabWidget();
-            if (fragmentTabWidget.getChildCount() < 2) {
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, x89Var, cardViewHolder})) == null) {
+            if (x89Var != null && cardViewHolder != null && cardViewHolder.a() != null) {
+                cardViewHolder.a().l(x89Var);
+                cardViewHolder.a().n(this.b);
+                if (this.a.getPageActivity() instanceof ForumSquareActivity) {
+                    String className = ((ForumSquareActivity) this.a.getPageActivity()).z1().getClassName();
+                    if (!"推荐".equals(className)) {
+                        StatisticItem statisticItem = new StatisticItem("c13651");
+                        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                        statisticItem.param("fid", x89Var.a);
+                        statisticItem.param("resource_id", className);
+                        TiebaStatic.log(statisticItem);
+                    } else {
+                        StatisticItem statisticItem2 = new StatisticItem("c13642");
+                        statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                        statisticItem2.param("fid", x89Var.f());
+                        statisticItem2.param("obj_locate", 3);
+                        TiebaStatic.log(statisticItem2);
+                    }
+                }
+                return cardViewHolder.getView();
             }
-            nh6 nh6Var = new nh6(this.a.getPageContext(), fragmentTabWidget.getChildAt(1));
-            this.e = nh6Var;
-            nh6Var.L(R.drawable.bg_tip_blue_down);
-            this.e.l(2);
-            this.e.o(32);
-            this.e.N(true);
-            this.e.R(-ej.g(this.a, R.dimen.tbds10));
-            this.e.C(R.color.CAM_X0101);
-            this.e.p(R.dimen.tbds54);
-            this.e.w(1);
-            this.e.n(4000);
-            this.e.F(ej.g(this.a, R.dimen.tbds44));
+            return null;
         }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && !TextUtils.isEmpty(str)) {
-            FragmentTabWidget fragmentTabWidget = this.b.y().getFragmentTabWidget();
-            if (fragmentTabWidget.getChildCount() < 2) {
-                return;
-            }
-            nh6 nh6Var = new nh6(this.a.getPageContext(), fragmentTabWidget.getChildAt(2));
-            this.c = nh6Var;
-            nh6Var.L(R.drawable.bg_tip_blue_down);
-            this.c.l(2);
-            this.c.o(32);
-            this.c.N(true);
-            this.c.R(-ej.g(this.a, R.dimen.tbds10));
-            this.c.C(R.color.CAM_X0101);
-            this.c.p(R.dimen.tbds54);
-            this.c.w(999);
-            this.c.n(5000);
-            this.c.F(ej.g(this.a, R.dimen.tbds44));
-            this.c.V(str, "categoryUpdate", false, true);
-        }
-    }
-
-    public void f() {
-        nh6 nh6Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (nh6Var = this.e) != null && !nh6Var.i()) {
-            nh6 nh6Var2 = this.e;
-            String string = this.a.getString(R.string.obfuscated_res_0x7f0f05c0);
-            nh6Var2.T(string, "first_like_forum_enterforumtab_tips" + TbadkCoreApplication.getCurrentAccount());
-        }
+        return (View) invokeCommon.objValue;
     }
 }

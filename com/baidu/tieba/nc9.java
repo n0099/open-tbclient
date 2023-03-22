@@ -1,7 +1,14 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface nc9 {
-    void a(View view2);
+public class nc9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Bitmap a;
+
+    public abstract void a(Canvas canvas);
 }

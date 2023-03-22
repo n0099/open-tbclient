@@ -1,76 +1,44 @@
 package com.baidu.tieba;
 
-import android.animation.ObjectAnimator;
-import android.view.View;
-import android.view.animation.LinearInterpolator;
-import androidx.constraintlayout.motion.widget.Key;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.menu.BaseMenuView;
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.Arrays;
+import java.util.HashSet;
 /* loaded from: classes5.dex */
-public class pf4 {
+public final class pf4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static long a(BaseMenuView baseMenuView) {
-        InterceptResult invokeL;
+    @NonNull
+    @SuppressLint({"LambdaLast"})
+    public static Bundle a(@NonNull mf4 mf4Var, @Nullable Bundle bundle, String... strArr) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, baseMenuView)) == null) {
-            if (baseMenuView.a()) {
-                return 240L;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, mf4Var, bundle, strArr)) == null) {
+            if (bundle == null) {
+                bundle = new Bundle();
             }
-            return 200L;
+            if (bundle.getLong("timestamp", -1L) < 0) {
+                bundle.putLong("timestamp", System.currentTimeMillis());
+            }
+            return mf4Var.m(bundle, new HashSet(Arrays.asList(strArr)));
         }
-        return invokeL.longValue;
+        return (Bundle) invokeLLL.objValue;
     }
 
-    public static ObjectAnimator c(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.ALPHA, 0.0f);
-            ofFloat.setDuration(160L);
-            ofFloat.setInterpolator(new LinearInterpolator());
-            return ofFloat;
-        }
-        return (ObjectAnimator) invokeL.objValue;
-    }
-
-    public static ObjectAnimator b(BaseMenuView baseMenuView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, baseMenuView)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(baseMenuView, Key.TRANSLATION_Y, 0.0f);
-            ofFloat.setDuration(a(baseMenuView));
-            ofFloat.setInterpolator(new qf4(0.32f, 0.6f, 0.1f, 1.0f));
-            return ofFloat;
-        }
-        return (ObjectAnimator) invokeL.objValue;
-    }
-
-    public static ObjectAnimator e(BaseMenuView baseMenuView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, baseMenuView)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(baseMenuView, Key.TRANSLATION_Y, baseMenuView.getHeight());
-            ofFloat.setDuration(160L);
-            ofFloat.setInterpolator(new qf4(0.32f, 0.6f, 0.1f, 1.0f));
-            return ofFloat;
-        }
-        return (ObjectAnimator) invokeL.objValue;
-    }
-
-    public static ObjectAnimator d(View view2, BaseMenuView baseMenuView) {
+    @NonNull
+    @SuppressLint({"LambdaLast"})
+    public static Bundle b(@NonNull mf4 mf4Var, @NonNull String... strArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, view2, baseMenuView)) == null) {
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.ALPHA, 1.0f);
-            ofFloat.setDuration(a(baseMenuView));
-            ofFloat.setInterpolator(new LinearInterpolator());
-            return ofFloat;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, mf4Var, strArr)) == null) {
+            return a(mf4Var, null, strArr);
         }
-        return (ObjectAnimator) invokeLL.objValue;
+        return (Bundle) invokeLL.objValue;
     }
 }

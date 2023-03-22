@@ -1,5 +1,5 @@
 package com.google.android.material.transition;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class FadeModeEvaluators {
     public static final FadeModeEvaluator IN = new FadeModeEvaluator() { // from class: com.google.android.material.transition.FadeModeEvaluators.1
         @Override // com.google.android.material.transition.FadeModeEvaluator

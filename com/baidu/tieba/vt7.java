@@ -1,9 +1,12 @@
 package com.baidu.tieba;
+
+import androidx.annotation.NonNull;
+import java.util.List;
 /* loaded from: classes6.dex */
 public interface vt7 {
-    void a(int i, int i2, String str);
+    void b(int i, int i2);
 
-    void b(int i);
+    void c(int i, @NonNull List<rt7> list);
 
-    void c(int i, String str, String str2);
+    void g(int i, @NonNull List<rt7> list);
 }

@@ -1,46 +1,93 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.text.TextUtils;
+import android.app.Application;
+import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.account.contants.AccountConstants;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.utils.FileUtils;
+import java.io.File;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class jk9 implements Runnable {
+public final class jk9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bitmap a;
-    public String b;
-    public String c;
 
-    public jk9(String str, String str2, Bitmap bitmap) {
+    public static final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, bitmap};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            zj9.b();
         }
-        this.b = str;
-        this.c = str2;
-        this.a = bitmap;
     }
 
-    @Override // java.lang.Runnable
-    public void run() {
-        Bitmap bitmap;
+    public static final void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.c) && (bitmap = this.a) != null && !bitmap.isRecycled()) {
-            FileUtils.saveBitmap2JPG(this.b, ak9.a(this.c), this.a, 100);
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            if (Build.VERSION.SDK_INT >= 24) {
+                d().deleteSharedPreferences(AccountConstants.LOGOUT_TYPE_NATIVE_SRC_SETTINGS);
+            } else {
+                m35.m().d();
+            }
         }
+    }
+
+    public static final Application d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return kk9.a();
+        }
+        return (Application) invokeV.objValue;
+    }
+
+    public static final String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return xj9.a();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            String cacheDir = FileHelper.getCacheDir();
+            Intrinsics.checkNotNullExpressionValue(cacheDir, "getCacheDir()");
+            return cacheDir;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return fk9.a();
+        }
+        return invokeV.intValue;
+    }
+
+    public static final boolean c(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
+            return FileHelper.deleteFileOrDir(file);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static final File g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            File GetFileByAbsolutePath = FileHelper.GetFileByAbsolutePath(str);
+            Intrinsics.checkNotNullExpressionValue(GetFileByAbsolutePath, "GetFileByAbsolutePath(filePath)");
+            return GetFileByAbsolutePath;
+        }
+        return (File) invokeL.objValue;
     }
 }

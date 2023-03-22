@@ -30,7 +30,7 @@ import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 /* loaded from: classes7.dex */
 public class MaterialCardView extends CardView implements Checkable, Shapeable {
     public static final String ACCESSIBILITY_CLASS_NAME = "androidx.cardview.widget.CardView";
-    public static final int DEF_STYLE_RES = 2131755870;
+    public static final int DEF_STYLE_RES = 2131755874;
     public static final String LOG_TAG = "MaterialCardView";
     @NonNull
     public final MaterialCardViewHelper cardViewHelper;
@@ -40,7 +40,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
     public OnCheckedChangeListener onCheckedChangeListener;
     public static final int[] CHECKABLE_STATE_SET = {16842911};
     public static final int[] CHECKED_STATE_SET = {16842912};
-    public static final int[] DRAGGED_STATE_SET = {R.attr.obfuscated_res_0x7f04065f};
+    public static final int[] DRAGGED_STATE_SET = {R.attr.obfuscated_res_0x7f04066a};
 
     /* loaded from: classes7.dex */
     public interface OnCheckedChangeListener {

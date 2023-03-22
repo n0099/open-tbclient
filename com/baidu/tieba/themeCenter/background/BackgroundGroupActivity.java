@@ -5,12 +5,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ll5;
-import com.baidu.tieba.mc9;
-import com.baidu.tieba.pb9;
-import com.baidu.tieba.qb9;
-import com.baidu.tieba.rb9;
+import com.baidu.tieba.ik5;
+import com.baidu.tieba.ri9;
 import com.baidu.tieba.themeCenter.background.BackgroundGroupModel;
+import com.baidu.tieba.uh9;
+import com.baidu.tieba.vh9;
+import com.baidu.tieba.wh9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,15 +23,15 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
     public BackgroundGroupModel b;
-    public qb9 c;
-    public rb9 d;
+    public vh9 c;
+    public wh9 d;
     public BackgroundGroupModel.c e;
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.il5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.fk5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "b007" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "b007" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes6.dex */
@@ -59,9 +59,9 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         }
 
         @Override // com.baidu.tieba.themeCenter.background.BackgroundGroupModel.c
-        public void a(int i, String str, mc9 mc9Var, List<pb9> list) {
+        public void a(int i, String str, ri9 ri9Var, List<uh9> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, mc9Var, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, ri9Var, list}) == null) {
                 BackgroundGroupActivity backgroundGroupActivity = this.a;
                 backgroundGroupActivity.hideLoadingView(backgroundGroupActivity.c.d());
                 this.a.c.i();
@@ -70,7 +70,7 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
                     this.a.c.j();
                     return;
                 }
-                this.a.c.k(mc9Var, list, this.a.b.W());
+                this.a.c.k(ri9Var, list, this.a.b.a0());
             }
         }
     }
@@ -91,55 +91,55 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
         this.e = new a(this);
     }
 
-    @Override // com.baidu.tbadk.BaseActivity
-    public ll5 getPageStayDurationItem() {
+    public int B1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ll5 pageStayDurationItem = super.getPageStayDurationItem();
-            if (pageStayDurationItem != null) {
-                pageStayDurationItem.a = true;
-            }
-            return pageStayDurationItem;
-        }
-        return (ll5) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onDestroy();
-        }
-    }
-
-    @Override // com.baidu.tbadk.BaseActivity
-    public void onNetRefreshButtonClicked() {
-        qb9 qb9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.b != null && (qb9Var = this.c) != null) {
-            showLoadingView(qb9Var.d());
-            this.b.loadData();
-        }
-    }
-
-    public int y1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.d.a();
         }
         return invokeV.intValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity
+    public ik5 getPageStayDurationItem() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ik5 pageStayDurationItem = super.getPageStayDurationItem();
+            if (pageStayDurationItem != null) {
+                pageStayDurationItem.a = true;
+            }
+            return pageStayDurationItem;
+        }
+        return (ik5) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.onDestroy();
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
+    public void onNetRefreshButtonClicked() {
+        vh9 vh9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.b != null && (vh9Var = this.c) != null) {
+            showLoadingView(vh9Var.d());
+            this.b.loadData();
+        }
+    }
+
+    @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            qb9 qb9Var = this.c;
-            if (qb9Var != null) {
-                qb9Var.f();
+            vh9 vh9Var = this.c;
+            if (vh9Var != null) {
+                vh9Var.f();
             }
         }
     }
@@ -147,19 +147,19 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
             TbadkCoreApplication.getInst().setThemeWebviewOpen(false);
             this.a = getPageContext();
             BackgroundGroupModel backgroundGroupModel = new BackgroundGroupModel(this);
             this.b = backgroundGroupModel;
-            backgroundGroupModel.Z(this.e);
-            rb9 rb9Var = new rb9(this.a, this.b.getUniqueId());
-            this.d = rb9Var;
-            rb9Var.c(1);
-            qb9 qb9Var = new qb9(this, this.d);
-            this.c = qb9Var;
-            qb9Var.e();
+            backgroundGroupModel.d0(this.e);
+            wh9 wh9Var = new wh9(this.a, this.b.getUniqueId());
+            this.d = wh9Var;
+            wh9Var.c(1);
+            vh9 vh9Var = new vh9(this, this.d);
+            this.c = vh9Var;
+            vh9Var.e();
             showLoadingView(this.c.d());
             this.b.loadData();
         }
@@ -168,7 +168,7 @@ public class BackgroundGroupActivity extends BaseActivity<BackgroundGroupActivit
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onResume();
             if (TbadkCoreApplication.getInst().getThemeWebviewOpen()) {
                 TbadkCoreApplication.getInst().setThemeWebviewOpen(false);

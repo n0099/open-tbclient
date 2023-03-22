@@ -1,55 +1,26 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import org.json.JSONArray;
-/* loaded from: classes4.dex */
-public class is1 implements su1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.tieba.bl2;
+/* loaded from: classes5.dex */
+public interface is1 {
+    boolean a(@Nullable Activity activity);
 
-    @Override // com.baidu.tieba.su1
-    public void a(@NonNull JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
-        }
-    }
+    void b(@NonNull Context context);
 
-    @Override // com.baidu.tieba.su1
-    public pd2 b(Context context, File file, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, file, Long.valueOf(j)})) == null) {
-            return null;
-        }
-        return (pd2) invokeCommon.objValue;
-    }
+    void c(@NonNull String str);
 
-    @Override // com.baidu.tieba.su1
-    public void c(@NonNull JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray) == null) {
-        }
-    }
+    void d(CallbackHandler callbackHandler);
 
-    public is1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void e(t73 t73Var);
+
+    String f(@NonNull Context context);
+
+    void g(t73 t73Var);
+
+    void h(@NonNull Activity activity, String str, String str2, al2 al2Var, bl2.b bVar);
 }

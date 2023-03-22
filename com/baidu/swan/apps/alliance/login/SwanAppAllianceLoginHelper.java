@@ -1,22 +1,22 @@
 package com.baidu.swan.apps.alliance.login;
 
 import android.os.Bundle;
-import com.baidu.tieba.a92;
-import com.baidu.tieba.aq1;
-import com.baidu.tieba.ax1;
-import com.baidu.tieba.fg3;
-import com.baidu.tieba.l93;
-import com.baidu.tieba.mz2;
-import com.baidu.tieba.og3;
-import com.baidu.tieba.ts2;
-import com.baidu.tieba.tt2;
-import com.baidu.tieba.vp4;
-import com.baidu.tieba.ww1;
-import com.baidu.tieba.xw1;
-import com.baidu.tieba.yp1;
-import com.baidu.tieba.yu1;
-import com.baidu.tieba.z53;
-import com.baidu.tieba.zw1;
+import com.baidu.tieba.ar2;
+import com.baidu.tieba.as2;
+import com.baidu.tieba.co4;
+import com.baidu.tieba.dv1;
+import com.baidu.tieba.ev1;
+import com.baidu.tieba.fo1;
+import com.baidu.tieba.ft1;
+import com.baidu.tieba.g43;
+import com.baidu.tieba.gv1;
+import com.baidu.tieba.h72;
+import com.baidu.tieba.ho1;
+import com.baidu.tieba.hv1;
+import com.baidu.tieba.me3;
+import com.baidu.tieba.s73;
+import com.baidu.tieba.tx2;
+import com.baidu.tieba.ve3;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,12 +29,12 @@ import kotlin.text.StringsKt__StringsJVMKt;
 @Metadata(bv = {1, 0, 3}, d1 = {"\u00000\n\u0002\u0018\u0002\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0010\u000b\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0013\n\u0002\u0010!\n\u0002\u0018\u0002\n\u0002\b\u0007\bÆ\u0002\u0018\u0000B\t\b\u0002¢\u0006\u0004\b)\u0010\bJ\u001d\u0010\u0005\u001a\u00020\u00042\u0006\u0010\u0002\u001a\u00020\u00012\u0006\u0010\u0003\u001a\u00020\u0001¢\u0006\u0004\b\u0005\u0010\u0006J\r\u0010\u0007\u001a\u00020\u0004¢\u0006\u0004\b\u0007\u0010\bJ\r\u0010\n\u001a\u00020\t¢\u0006\u0004\b\n\u0010\u000bJ\r\u0010\f\u001a\u00020\t¢\u0006\u0004\b\f\u0010\u000bJ\r\u0010\r\u001a\u00020\t¢\u0006\u0004\b\r\u0010\u000bJ\u0015\u0010\u0010\u001a\u00020\u00042\u0006\u0010\u000f\u001a\u00020\u000e¢\u0006\u0004\b\u0010\u0010\u0011J\u0015\u0010\u0012\u001a\u00020\u00042\u0006\u0010\u0010\u001a\u00020\t¢\u0006\u0004\b\u0012\u0010\u0013J\u000f\u0010\u0014\u001a\u00020\u0004H\u0002¢\u0006\u0004\b\u0014\u0010\bR\u0019\u0010\u0015\u001a\u00020\u00018\u0006@\u0006¢\u0006\f\n\u0004\b\u0015\u0010\u0016\u001a\u0004\b\u0017\u0010\u0018R\"\u0010\u0019\u001a\u00020\t8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u0019\u0010\u001a\u001a\u0004\b\u001b\u0010\u000b\"\u0004\b\u001c\u0010\u0013R$\u0010\u001d\u001a\u0004\u0018\u00010\u000e8\u0006@\u0006X\u0086\u000e¢\u0006\u0012\n\u0004\b\u001d\u0010\u001e\u001a\u0004\b\u001f\u0010 \"\u0004\b!\u0010\u0011R#\u0010(\u001a\b\u0012\u0004\u0012\u00020#0\"8F@\u0006X\u0086\u0084\u0002¢\u0006\f\n\u0004\b$\u0010%\u001a\u0004\b&\u0010'¨\u0006*"}, d2 = {"Lcom/baidu/swan/apps/alliance/login/SwanAppAllianceLoginHelper;", "", "value", "ceresId", "", "allianceLoginStatisticEvent", "(Ljava/lang/String;Ljava/lang/String;)V", "allianceLogout", "()V", "", "isAllianceLogin", "()Z", "isLogin", "isUseSapiLogin", "Lcom/baidu/swan/apps/account/OnSwanAppLoginResultListener;", ServiceSpecificExtraArgs.CastExtraArgs.LISTENER, "login", "(Lcom/baidu/swan/apps/account/OnSwanAppLoginResultListener;)V", "onLoginStatusChanged", "(Z)V", "readAllianceLoginStatus", "TAG", "Ljava/lang/String;", "getTAG", "()Ljava/lang/String;", "callBacked", "Z", "getCallBacked", "setCallBacked", "loginResultCallback", "Lcom/baidu/swan/apps/account/OnSwanAppLoginResultListener;", "getLoginResultCallback", "()Lcom/baidu/swan/apps/account/OnSwanAppLoginResultListener;", "setLoginResultCallback", "", "Lcom/baidu/swan/apps/account/SwanAppAccountStatusChangedListener;", "loginStatusChangeCallbacks$delegate", "Lkotlin/Lazy;", "getLoginStatusChangeCallbacks", "()Ljava/util/List;", "loginStatusChangeCallbacks", "<init>", "core_release"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes3.dex */
 public final class SwanAppAllianceLoginHelper {
-    public static yp1 a;
+    public static fo1 a;
     public static final Lazy b;
     public static boolean c;
     public static final SwanAppAllianceLoginHelper d;
 
-    public final List<aq1> e() {
+    public final List<ho1> e() {
         return (List) b.getValue();
     }
 
@@ -42,18 +42,18 @@ public final class SwanAppAllianceLoginHelper {
         SwanAppAllianceLoginHelper swanAppAllianceLoginHelper = new SwanAppAllianceLoginHelper();
         d = swanAppAllianceLoginHelper;
         Intrinsics.checkNotNullExpressionValue(swanAppAllianceLoginHelper.getClass().getSimpleName(), "SwanAppAllianceLoginHelper.javaClass.simpleName");
-        b = LazyKt__LazyJVMKt.lazy(new Function0<List<aq1>>() { // from class: com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper$loginStatusChangeCallbacks$2
+        b = LazyKt__LazyJVMKt.lazy(new Function0<List<ho1>>() { // from class: com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper$loginStatusChangeCallbacks$2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // kotlin.jvm.functions.Function0
-            public final List<aq1> invoke() {
+            public final List<ho1> invoke() {
                 return new ArrayList();
             }
         });
     }
 
     public final void b() {
-        xw1.a.b();
-        ax1.b.d();
+        ev1.a.b();
+        hv1.b.d();
         j(false);
     }
 
@@ -61,15 +61,15 @@ public final class SwanAppAllianceLoginHelper {
         return c;
     }
 
-    public final yp1 d() {
+    public final fo1 d() {
         return a;
     }
 
     public final boolean f() {
-        if (zw1.i() == null) {
+        if (gv1.i() == null) {
             k();
         }
-        Boolean i = zw1.i();
+        Boolean i = gv1.i();
         Intrinsics.checkNotNull(i);
         return i.booleanValue();
     }
@@ -91,36 +91,36 @@ public final class SwanAppAllianceLoginHelper {
         } catch (ClassNotFoundException unused) {
             bool = Boolean.TRUE;
         }
-        zw1.j(bool);
+        gv1.j(bool);
     }
 
     public final void a(String value, String ceresId) {
         Intrinsics.checkNotNullParameter(value, "value");
         Intrinsics.checkNotNullParameter(ceresId, "ceresId");
-        og3 og3Var = new og3();
-        og3Var.b = zw1.h();
-        og3Var.e = value;
-        l93 K = l93.K();
+        ve3 ve3Var = new ve3();
+        ve3Var.b = gv1.h();
+        ve3Var.e = value;
+        s73 K = s73.K();
         Intrinsics.checkNotNullExpressionValue(K, "Swan.get()");
-        og3Var.a("appkey", K.getAppId());
-        fg3.y(zw1.g(), ceresId, og3Var);
+        ve3Var.a("appkey", K.getAppId());
+        me3.y(gv1.g(), ceresId, ve3Var);
     }
 
     public final boolean g() {
         boolean z;
         boolean z2;
-        if (zw1.i() == null) {
+        if (gv1.i() == null) {
             k();
         }
-        if (!Intrinsics.areEqual(zw1.i(), Boolean.FALSE)) {
-            String a2 = xw1.a.a();
+        if (!Intrinsics.areEqual(gv1.i(), Boolean.FALSE)) {
+            String a2 = ev1.a.a();
             if (a2 != null && !StringsKt__StringsJVMKt.isBlank(a2)) {
                 z = false;
             } else {
                 z = true;
             }
             if (!z) {
-                String a3 = ax1.b.a();
+                String a3 = hv1.b.a();
                 if (a3 != null && !StringsKt__StringsJVMKt.isBlank(a3)) {
                     z2 = false;
                 } else {
@@ -134,35 +134,35 @@ public final class SwanAppAllianceLoginHelper {
         return false;
     }
 
-    public final void i(yp1 listener) {
+    public final void i(fo1 listener) {
         Intrinsics.checkNotNullParameter(listener, "listener");
-        if (zw1.i() == null) {
+        if (gv1.i() == null) {
             k();
         }
-        Intrinsics.areEqual(zw1.i(), Boolean.FALSE);
+        Intrinsics.areEqual(gv1.i(), Boolean.FALSE);
         if (g()) {
             listener.onResult(0);
             return;
         }
-        yu1 n = ts2.n();
+        ft1 n = ar2.n();
         Intrinsics.checkNotNullExpressionValue(n, "SwanAppRuntime.getConfig()");
-        String a2 = vp4.a("https://ossapi.baidu.com/oss/static/open_source_login_v3.html", "hostName", n.a());
-        tt2 G0 = ts2.G0();
+        String a2 = co4.a("https://ossapi.baidu.com/oss/static/open_source_login_v3.html", "hostName", n.a());
+        as2 G0 = ar2.G0();
         Intrinsics.checkNotNull(G0);
-        String a3 = vp4.a(a2, "zid", G0.a(ts2.c()));
-        yu1 n2 = ts2.n();
+        String a3 = co4.a(a2, "zid", G0.a(ar2.c()));
+        ft1 n2 = ar2.n();
         Intrinsics.checkNotNullExpressionValue(n2, "SwanAppRuntime.getConfig()");
-        String a4 = vp4.a(a3, "appKey", n2.b());
-        a92.d3("allianceLogin", mz2.d(a4, a4));
+        String a4 = co4.a(a3, "appKey", n2.b());
+        h72.g3("allianceLogin", tx2.d(a4, a4));
         a = listener;
         c = false;
-        a(zw1.e(), zw1.b());
+        a(gv1.e(), gv1.b());
     }
 
     public final void j(boolean z) {
         Bundle bundle = new Bundle();
         bundle.putBoolean("status", z);
-        z53.b(ww1.class, bundle);
+        g43.b(dv1.class, bundle);
     }
 
     public final void l(boolean z) {

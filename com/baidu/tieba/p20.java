@@ -1,13 +1,9 @@
 package com.baidu.tieba;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface p20 {
-    String a(String str, String... strArr);
-
-    String b();
-
-    boolean c();
-
-    boolean d();
-
-    String getSchemeHeader();
+public class p20 implements Runnable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 }

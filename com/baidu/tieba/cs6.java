@@ -1,19 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.download.DownloadData;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes3.dex */
-public interface cs6 {
-    void a(ds6 ds6Var);
+public final class cs6 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b(DownloadData downloadData, ds6 ds6Var);
+    public final String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            throw null;
+        }
+        return (String) invokeV.objValue;
+    }
 
-    void c(DownloadData downloadData);
-
-    int d(DownloadData downloadData);
-
-    void e(DownloadData downloadData);
-
-    int f(DownloadData downloadData);
-
-    void g(ds6 ds6Var);
+    public final boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            throw null;
+        }
+        return invokeV.booleanValue;
+    }
 }

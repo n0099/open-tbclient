@@ -1,32 +1,114 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+@Autowired
 /* loaded from: classes5.dex */
-public abstract class k44 {
+public class k44 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public abstract File a();
-
-    public abstract void b(@NonNull String str, long j);
-
-    public k44() {
+    @Inject(force = false)
+    public static a54 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return b16.a();
         }
+        return (a54) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static f54 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new o44();
+        }
+        return (f54) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static e54 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new n44();
+        }
+        return (e54) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static b54 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return ux3.a();
+        }
+        return (b54) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static d54 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return zx3.a();
+        }
+        return (d54) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static c54 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return wx3.a();
+        }
+        return (c54) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static g54 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return new p44();
+        }
+        return (g54) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static h54 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return new q44();
+        }
+        return (h54) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static i54 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return new r44();
+        }
+        return (i54) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static j54 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return new s44();
+        }
+        return (j54) invokeV.objValue;
     }
 }

@@ -1,231 +1,77 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.http.request.HttpRequestBuilder;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.security.ISchemeIoc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
-import java.util.concurrent.TimeUnit;
-import okhttp3.FormBody;
-import okhttp3.Request;
-import okhttp3.Response;
-import okhttp3.ResponseBody;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 @Singleton
 @Service
 /* loaded from: classes6.dex */
-public class tu3 implements qt1 {
+public class tu3 implements ISchemeIoc {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final vw3<JSONObject> b;
-    public static final long c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.qt1
-    public void a(String str, String str2) {
+    @Override // com.baidu.searchbox.unitedscheme.security.ISchemeIoc
+    public boolean needShowConfirmWindow(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler)) == null) {
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.unitedscheme.security.ISchemeIoc
+    public void processSchemeFromMobsdk(UnitedSchemeEntity unitedSchemeEntity, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, unitedSchemeEntity, i) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.qt1
-    public File b(Context context, String str) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.searchbox.unitedscheme.security.ISchemeIoc
+    public void showSchemeNotSupportDialog(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
-            return null;
+        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
         }
-        return (File) invokeLL.objValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948193655, "Lcom/baidu/tieba/tu3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948193655, "Lcom/baidu/tieba/tu3;");
-                return;
-            }
-        }
-        a = wp1.a;
-        b = new vw3<>();
-        c = TimeUnit.MINUTES.toMillis(2L);
     }
 
     public tu3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.qt1
-    public void d() {
+    @Override // com.baidu.searchbox.unitedscheme.security.ISchemeIoc
+    public void doStatistic(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            b.b();
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            ae3.h(str, str2);
         }
     }
 
-    @Override // com.baidu.tieba.qt1
-    public JSONObject c(Context context, String str) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.searchbox.unitedscheme.security.ISchemeIoc
+    public void showConfirmDialog(Context context, UnitedSchemeBaseDispatcher.ConfirmDialogCallback confirmDialogCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str)) == null) {
-            if (a) {
-                Log.i("BoxPrivateBehavior", "getIMUnReadMessageList params=" + str);
-            }
-            String str2 = l93.K().getAppId() + l93.K().q().N().c(context);
-            JSONObject c2 = b.c(str2);
-            if (a) {
-                Log.i("BoxPrivateBehavior", "getIMUnReadMessageList k=" + str2);
-            }
-            if (c2 != null) {
-                if (a) {
-                    Log.i("BoxPrivateBehavior", "getIMUnReadMessageList ret with cache=" + c2);
-                }
-                return c2;
-            } else if (gn3.O()) {
-                return null;
-            } else {
-                JSONObject f = f(context, str);
-                if (a) {
-                    Log.i("BoxPrivateBehavior", "getIMUnReadMessageList ret with request=" + f);
-                }
-                return b.a(str2, f, c);
-            }
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, context, confirmDialogCallback) != null) || confirmDialogCallback == null) {
+            return;
         }
-        return (JSONObject) invokeLL.objValue;
-    }
-
-    public final JSONObject e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            JSONArray jSONArray = new JSONArray();
-            JSONObject jSONObject2 = new JSONObject();
-            mm3.f(jSONObject2, Constants.EXTRA_PA_TYPE, 7);
-            mm3.f(jSONObject2, "pa_unread_sums", Integer.valueOf(i));
-            jSONArray.put(jSONObject2);
-            mm3.f(jSONObject, "un_read_list", jSONArray);
-            return jSONObject;
-        }
-        return (JSONObject) invokeI.objValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:11:0x0026, code lost:
-        r9 = r4.optString(com.baidu.android.imsdk.internal.Constants.EXTRA_PAUID_TYPE);
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public JSONObject f(Context context, String str) {
-        InterceptResult invokeLL;
-        String str2;
-        ResponseBody responseBody;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, context, str)) == null) {
-            m93 b0 = m93.b0();
-            ResponseBody responseBody2 = null;
-            if (b0 == null) {
-                return null;
-            }
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                int length = jSONArray.length();
-                int i = 0;
-                int i2 = 0;
-                while (true) {
-                    if (i2 < length) {
-                        JSONObject optJSONObject = jSONArray.optJSONObject(i2);
-                        if (optJSONObject.optInt(Constants.EXTRA_PA_TYPE) == 7) {
-                            break;
-                        }
-                        i2++;
-                    } else {
-                        str2 = null;
-                        break;
-                    }
-                }
-                if (TextUtils.isEmpty(str2)) {
-                    return null;
-                }
-                String n = ts2.o().n();
-                pg4 pg4Var = new pg4(n, new Request.Builder().url(n).post(new FormBody.Builder().add("appkey", b0.O()).add("pa", str2).build()).build().body(), null);
-                pg4Var.f = true;
-                pg4Var.g = true;
-                pg4Var.h = true;
-                pg4Var.b = "POST";
-                HttpRequestBuilder a2 = rg4.a(pg4Var);
-                qg4.g().u(a2, pg4Var);
-                try {
-                    Response executeSync = a2.build().executeSync();
-                    if (!executeSync.isSuccessful()) {
-                        qp4.d(null);
-                        return null;
-                    }
-                    responseBody = executeSync.body();
-                    if (responseBody == null) {
-                        qp4.d(responseBody);
-                        return null;
-                    }
-                    try {
-                        JSONObject jSONObject = new JSONObject(responseBody.string());
-                        if (!"0".equals(jSONObject.optString("errno"))) {
-                            qp4.d(responseBody);
-                            return null;
-                        }
-                        JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
-                        if (optJSONObject2 != null) {
-                            i = optJSONObject2.optInt("num");
-                        }
-                        JSONObject e = e(i);
-                        ts2.K().i(e);
-                        qp4.d(responseBody);
-                        return e;
-                    } catch (IOException | JSONException unused) {
-                        qp4.d(responseBody);
-                        return null;
-                    } catch (Throwable th) {
-                        th = th;
-                        responseBody2 = responseBody;
-                        qp4.d(responseBody2);
-                        throw th;
-                    }
-                } catch (IOException | JSONException unused2) {
-                    responseBody = null;
-                } catch (Throwable th2) {
-                    th = th2;
-                }
-            } catch (JSONException unused3) {
-            }
-        } else {
-            return (JSONObject) invokeLL.objValue;
-        }
+        confirmDialogCallback.onConfirm();
     }
 }

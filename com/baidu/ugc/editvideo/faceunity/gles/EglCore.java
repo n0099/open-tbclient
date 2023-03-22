@@ -10,9 +10,8 @@ import android.opengl.EGLExt;
 import android.opengl.EGLSurface;
 import android.os.Build;
 import android.view.Surface;
-import com.baidu.tieba.d1a;
+import com.baidu.tieba.m7a;
 import com.baidu.webkit.internal.monitor.MonitorType;
-import org.webrtc.EglBase10;
 @TargetApi(18)
 /* loaded from: classes7.dex */
 public final class EglCore {
@@ -32,7 +31,7 @@ public final class EglCore {
     public void finalize() throws Throwable {
         try {
             if (this.mEGLDisplay != EGL14.EGL_NO_DISPLAY) {
-                d1a.l("Grafika", "WARNING: EglCore was not explicitly released -- state may be leaked");
+                m7a.l("Grafika", "WARNING: EglCore was not explicitly released -- state may be leaked");
                 release();
             }
         } finally {
@@ -82,7 +81,7 @@ public final class EglCore {
                 int[] iArr = new int[2];
                 if (EGL14.eglInitialize(eglGetDisplay, iArr, 0, iArr, 1)) {
                     if ((i & 2) != 0 && Build.VERSION.SDK_INT >= 23 && (config = getConfig(i, 3)) != null) {
-                        EGLContext eglCreateContext = EGL14.eglCreateContext(this.mEGLDisplay, config, eGLContext, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 3, 12344}, 0);
+                        EGLContext eglCreateContext = EGL14.eglCreateContext(this.mEGLDisplay, config, eGLContext, new int[]{12440, 3, 12344}, 0);
                         if (EGL14.eglGetError() == 12288) {
                             this.mEGLConfig = config;
                             this.mEGLContext = eglCreateContext;
@@ -92,7 +91,7 @@ public final class EglCore {
                     if (this.mEGLContext == EGL14.EGL_NO_CONTEXT) {
                         EGLConfig config2 = getConfig(i, 2);
                         if (config2 != null) {
-                            EGLContext eglCreateContext2 = EGL14.eglCreateContext(this.mEGLDisplay, config2, eGLContext, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, 12344}, 0);
+                            EGLContext eglCreateContext2 = EGL14.eglCreateContext(this.mEGLDisplay, config2, eGLContext, new int[]{12440, 2, 12344}, 0);
                             checkEglError("eglCreateContext");
                             this.mEGLConfig = config2;
                             this.mEGLContext = eglCreateContext2;
@@ -102,8 +101,8 @@ public final class EglCore {
                         }
                     }
                     int[] iArr2 = new int[1];
-                    EGL14.eglQueryContext(this.mEGLDisplay, this.mEGLContext, EglBase10.EGL_CONTEXT_CLIENT_VERSION, iArr2, 0);
-                    d1a.c("Grafika", "EGLContext created, client version " + iArr2[0]);
+                    EGL14.eglQueryContext(this.mEGLDisplay, this.mEGLContext, 12440, iArr2, 0);
+                    m7a.c("Grafika", "EGLContext created, client version " + iArr2[0]);
                     return;
                 }
                 this.mEGLDisplay = null;
@@ -131,7 +130,7 @@ public final class EglCore {
 
     public void makeCurrent(EGLSurface eGLSurface) {
         if (this.mEGLDisplay == EGL14.EGL_NO_DISPLAY) {
-            d1a.c("Grafika", "NOTE: makeCurrent w/o display");
+            m7a.c("Grafika", "NOTE: makeCurrent w/o display");
         }
         if (EGL14.eglMakeCurrent(this.mEGLDisplay, eGLSurface, eGLSurface, this.mEGLContext)) {
             return;
@@ -165,7 +164,7 @@ public final class EglCore {
         }
         EGLConfig[] eGLConfigArr = new EGLConfig[1];
         if (!EGL14.eglChooseConfig(this.mEGLDisplay, iArr, 0, eGLConfigArr, 0, 1, new int[1], 0)) {
-            d1a.l("Grafika", "unable to find RGB8888 / " + i2 + " EGLConfig");
+            m7a.l("Grafika", "unable to find RGB8888 / " + i2 + " EGLConfig");
             return null;
         }
         return eGLConfigArr[0];
@@ -175,7 +174,7 @@ public final class EglCore {
         EGLDisplay eglGetCurrentDisplay = EGL14.eglGetCurrentDisplay();
         EGLContext eglGetCurrentContext = EGL14.eglGetCurrentContext();
         EGLSurface eglGetCurrentSurface = EGL14.eglGetCurrentSurface(12377);
-        d1a.j("Grafika", "Current EGL (" + str + "): display=" + eglGetCurrentDisplay + ", context=" + eglGetCurrentContext + ", surface=" + eglGetCurrentSurface);
+        m7a.j("Grafika", "Current EGL (" + str + "): display=" + eglGetCurrentDisplay + ", context=" + eglGetCurrentContext + ", surface=" + eglGetCurrentSurface);
     }
 
     public EGLSurface createWindowSurface(Object obj) {
@@ -201,7 +200,7 @@ public final class EglCore {
 
     public void makeCurrent(EGLSurface eGLSurface, EGLSurface eGLSurface2) {
         if (this.mEGLDisplay == EGL14.EGL_NO_DISPLAY) {
-            d1a.c("Grafika", "NOTE: makeCurrent w/o display");
+            m7a.c("Grafika", "NOTE: makeCurrent w/o display");
         }
         if (EGL14.eglMakeCurrent(this.mEGLDisplay, eGLSurface, eGLSurface2, this.mEGLContext)) {
             return;

@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.ChatObject;
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.IMListener;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.AccountManagerImpl;
@@ -32,7 +33,7 @@ import com.baidu.android.imsdk.pubaccount.db.PaInfoDBManager;
 import com.baidu.android.imsdk.ubc.ScreenUbc;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tieba.q80;
+import com.baidu.tieba.g70;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,6 +41,8 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
 import org.json.JSONObject;
@@ -78,7 +81,7 @@ public class MediaSessionManager extends BaseManager {
         this.mClientMaxSortTime = 0L;
         this.mClientCredibleSortTime = Long.MAX_VALUE;
         this.mFetchHasMore = true;
-        this.dispatchMsgCallBack = new BIMValueCallBack<FetchMsgResponse>(this) { // from class: com.baidu.android.imsdk.media.MediaSessionManager.7
+        this.dispatchMsgCallBack = new BIMValueCallBack<FetchMsgResponse>(this) { // from class: com.baidu.android.imsdk.media.MediaSessionManager.8
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ MediaSessionManager this$0;
@@ -122,14 +125,34 @@ public class MediaSessionManager extends BaseManager {
         }
     }
 
+    private ChatSession hasHudongSession(List<ChatSession> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, this, list)) == null) {
+            if (list != null && list.size() != 0) {
+                ChatSession chatSession = new ChatSession();
+                for (ChatSession chatSession2 : list) {
+                    if (chatSession2 != null && chatSession2.getClassType() == 11) {
+                        chatSession2.setMarkTop(1);
+                        chatSession2.setMarkTopTime(9223372036854765807L);
+                        return chatSession2;
+                    }
+                }
+                return chatSession;
+            }
+            return null;
+        }
+        return (ChatSession) invokeL.objValue;
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void fetchNotifyStrangerList(SessionParam sessionParam) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65546, this, sessionParam) != null) || sessionParam == null) {
+        if ((interceptable != null && interceptable.invokeL(65547, this, sessionParam) != null) || sessionParam == null) {
             return;
         }
         sessionParam.mode = 2;
-        getChatSessionFromServer(sessionParam, new BIMValuesCallBack<GetSessionResult, SessionParam>(this) { // from class: com.baidu.android.imsdk.media.MediaSessionManager.5
+        getChatSessionFromServer(sessionParam, new BIMValuesCallBack<GetSessionResult, SessionParam>(this) { // from class: com.baidu.android.imsdk.media.MediaSessionManager.6
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ MediaSessionManager this$0;
@@ -167,7 +190,7 @@ public class MediaSessionManager extends BaseManager {
     public static MediaSessionManager getInstance(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, context)) == null) {
             if (mInstance == null) {
                 synchronized (MediaSessionManager.class) {
                     if (mInstance == null) {
@@ -182,21 +205,21 @@ public class MediaSessionManager extends BaseManager {
 
     public void setMediaPaid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
             this.mCurrentPaid = j;
         }
     }
 
     public void setMediaTotalUnread(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048591, this, i) == null) && i >= 0) {
+        if ((interceptable == null || interceptable.invokeI(1048592, this, i) == null) && i >= 0) {
             this.mMediaTotalUnread = i;
         }
     }
 
     public void setStrangerUnread(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048593, this, i) == null) && i >= 0) {
+        if ((interceptable == null || interceptable.invokeI(1048594, this, i) == null) && i >= 0) {
             this.mStrangerUnread = i;
         }
     }
@@ -213,12 +236,14 @@ public class MediaSessionManager extends BaseManager {
             j = Long.MAX_VALUE;
             j2 = Long.MAX_VALUE;
             for (ChatSession chatSession : list) {
-                long sortTime = chatSession.getSortTime();
-                j3 = Math.max(sortTime, j3);
-                if (chatSession.getMarkTop() == 1) {
-                    j = Math.min(sortTime, j);
-                } else {
-                    j2 = Math.min(sortTime, j2);
+                if (!BIMManager.hudongTop || chatSession.getClassType() != 11) {
+                    long sortTime = chatSession.getSortTime();
+                    j3 = Math.max(sortTime, j3);
+                    if (chatSession.getMarkTop() == 1) {
+                        j = Math.min(sortTime, j);
+                    } else {
+                        j2 = Math.min(sortTime, j2);
+                    }
                 }
             }
         } else {
@@ -230,6 +255,33 @@ public class MediaSessionManager extends BaseManager {
         }
         this.mClientCredibleSortTime = Math.min(this.mClientCredibleSortTime, j);
         this.mClientMaxSortTime = Math.max(this.mClientMaxSortTime, j3);
+    }
+
+    public void getChatSessionFromServer(SessionParam sessionParam, BIMValuesCallBack<GetSessionResult, SessionParam> bIMValuesCallBack) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, sessionParam, bIMValuesCallBack) == null) {
+            LogUtils.d("MediaSessionManager", "getChatSessionFromServer start");
+            if (sessionParam == null) {
+                if (bIMValuesCallBack != null) {
+                    bIMValuesCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, GetSessionResult.getFailResult(), null);
+                    return;
+                }
+                return;
+            }
+            String addListener = ListenerManager.getInstance().addListener(bIMValuesCallBack);
+            Intent creatMethodIntent = Utility.creatMethodIntent(this.mContext, 206);
+            creatMethodIntent.putExtra(Constants.EXTRA_BUSINESS_TYPE, sessionParam.businessType);
+            creatMethodIntent.putExtra(Constants.EXTRA_BEGIN_MSGID, sessionParam.sortUpdateTimeBegin);
+            creatMethodIntent.putExtra(Constants.EXTRA_END_MSGID, sessionParam.sortUpdateTimeEnd);
+            creatMethodIntent.putExtra("count", sessionParam.count);
+            creatMethodIntent.putExtra(Constants.EXTRA_FETCH_SESSION_MODE, sessionParam.mode);
+            creatMethodIntent.putExtra("session_type", sessionParam.sessionType);
+            creatMethodIntent.putExtra(Constants.EXTRA_FETCH_SESSION_TOP, sessionParam.needTop);
+            creatMethodIntent.putExtra(Constants.EXTRA_TRIGGER_REASON, sessionParam.reason);
+            creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
+            creatMethodIntent.putExtra(Constants.EXTRA_SCREEN_KEY, sessionParam.screenKey);
+            g70.e(this.mContext).d(this.mContext, creatMethodIntent);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -247,11 +299,27 @@ public class MediaSessionManager extends BaseManager {
         }
     }
 
+    private ChatSession creatTopAndNullHudongSession() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
+            ChatSession chatSession = new ChatSession(0, -1L, -1L, "互动消息");
+            chatSession.setMarkTop(1);
+            chatSession.setMarkTopTime(9223372036854765807L);
+            chatSession.setChatType(19);
+            chatSession.setClassType(11);
+            chatSession.setLastMsg(IMConstants.HUDONG_DESC_DEFAULT);
+            chatSession.setIsClicked(1);
+            return chatSession;
+        }
+        return (ChatSession) invokeV.objValue;
+    }
+
     private void doNewMsgNotify() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65545, this) == null) {
             SessionParam notifyRequestParam = SessionParam.getNotifyRequestParam(this.mContext);
-            getChatSessionFromServer(notifyRequestParam, new BIMValuesCallBack<GetSessionResult, SessionParam>(this, notifyRequestParam) { // from class: com.baidu.android.imsdk.media.MediaSessionManager.4
+            getChatSessionFromServer(notifyRequestParam, new BIMValuesCallBack<GetSessionResult, SessionParam>(this, notifyRequestParam) { // from class: com.baidu.android.imsdk.media.MediaSessionManager.5
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ MediaSessionManager this$0;
@@ -299,9 +367,21 @@ public class MediaSessionManager extends BaseManager {
         }
     }
 
+    private boolean hasResponseHudong() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65553, this)) == null) {
+            if (BIMManager.hasReturenTopSession.containsKey(11) && BIMManager.hasReturenTopSession.get(11).booleanValue()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     private void registerListeners() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65552, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65555, this) == null) {
             AccountManagerImpl.getInstance(this.mContext).registerToDoAfterLoginListener(new TodoAfterLogin(this) { // from class: com.baidu.android.imsdk.media.MediaSessionManager.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -417,7 +497,7 @@ public class MediaSessionManager extends BaseManager {
 
     public void handleMediaStrangerAllRead() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
             setStrangerUnread(0);
             MediaMessageDBManager.getInstance(this.mContext).setAllStrangersRead();
         }
@@ -429,7 +509,7 @@ public class MediaSessionManager extends BaseManager {
         long paid;
         long j;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65545, this, list) == null) && list != null && list.size() != 0) {
+        if ((interceptable == null || interceptable.invokeL(65546, this, list) == null) && list != null && list.size() != 0) {
             for (ChatSession chatSession : list) {
                 long contacter = chatSession.getContacter();
                 if (chatSession.getPaid() > 0) {
@@ -444,7 +524,7 @@ public class MediaSessionManager extends BaseManager {
                     paid = chatSession.getPaid();
                     j = 0;
                 }
-                FetchMsgParam.FetchMsgParamConstruct fetchMsgParamConstruct = new FetchMsgParam.FetchMsgParamConstruct(this) { // from class: com.baidu.android.imsdk.media.MediaSessionManager.6
+                FetchMsgParam.FetchMsgParamConstruct fetchMsgParamConstruct = new FetchMsgParam.FetchMsgParamConstruct(this) { // from class: com.baidu.android.imsdk.media.MediaSessionManager.7
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ MediaSessionManager this$0;
@@ -486,38 +566,11 @@ public class MediaSessionManager extends BaseManager {
         }
     }
 
-    public void handleMediaNotify(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, jSONObject) == null) {
-            int optInt = jSONObject.optInt("type", -1);
-            JSONObject optJSONObject = jSONObject.optJSONObject("content");
-            optJSONObject.optLong("contacter_bduid", -1L);
-            int optInt2 = optJSONObject.optInt("contacter_type", -1);
-            long optLong = optJSONObject.optLong("contacter_pauid", -1L);
-            optJSONObject.optString("contacter_third_id", "");
-            long optLong2 = optJSONObject.optLong("contacter_uk");
-            long optLong3 = optJSONObject.optLong("msgid", -1L);
-            if (optInt == 2) {
-                doNewMsgNotify();
-            } else if (optInt == 1) {
-                if (optInt2 == -1) {
-                    handleMediaAllRead();
-                } else {
-                    handleMediaSessionRead(0, optLong2, Long.MAX_VALUE);
-                }
-            } else if (optInt == 3) {
-                MediaMessageDBManager.getInstance(this.mContext).delMsgs(0, optLong2, new long[]{optLong3});
-            } else if (optInt == 4) {
-                handleMediaDeleteSession(0, optLong2, optLong, 0, 0, 0);
-            }
-        }
-    }
-
     private SessionParam getNextRequestParam(int i, int i2, int i3, int i4, List<ChatSession> list) {
         InterceptResult invokeCommon;
         long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), list})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65549, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), list})) == null) {
             if (list != null && list.size() > i) {
                 list = list.subList(0, i);
             }
@@ -534,7 +587,7 @@ public class MediaSessionManager extends BaseManager {
     /* JADX INFO: Access modifiers changed from: private */
     public void getSessionListForLogin(int i, SessionParam sessionParam) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(65549, this, i, sessionParam) == null) && !AccountManager.isCuidLogin(this.mContext) && AccountManager.getMediaRole(this.mContext) && i > 0 && sessionParam != null) {
+        if ((interceptable == null || interceptable.invokeIL(65550, this, i, sessionParam) == null) && !AccountManager.isCuidLogin(this.mContext) && AccountManager.getMediaRole(this.mContext) && i > 0 && sessionParam != null) {
             LogUtils.d("MediaSessionManager", "getSessionListForLogin count = " + i);
             getChatSessionFromServer(sessionParam, new BIMValuesCallBack<GetSessionResult, SessionParam>(this, i) { // from class: com.baidu.android.imsdk.media.MediaSessionManager.3
                 public static /* synthetic */ Interceptable $ic;
@@ -577,7 +630,7 @@ public class MediaSessionManager extends BaseManager {
         InterceptResult invokeCommon;
         int size;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65550, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), list})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65551, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), list})) == null) {
             GetSessionResult getSessionResult = new GetSessionResult();
             int i3 = 0;
             if (list == null) {
@@ -622,7 +675,7 @@ public class MediaSessionManager extends BaseManager {
         long j5;
         long j6;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65551, this, new Object[]{list, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), Long.valueOf(j), Long.valueOf(j2)}) == null) && list != null && list.size() != 0) {
+        if ((interceptable == null || interceptable.invokeCommon(65554, this, new Object[]{list, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), Long.valueOf(j), Long.valueOf(j2)}) == null) && list != null && list.size() != 0) {
             ArrayList<ChatSession> arrayList = new ArrayList();
             ArrayList<ChatSession> arrayList2 = new ArrayList();
             Iterator<ChatSession> it = list.iterator();
@@ -693,12 +746,12 @@ public class MediaSessionManager extends BaseManager {
         boolean z;
         boolean z2;
         ChatSession chatRecord;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, this, sessionParam)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65556, this, sessionParam)) == null) {
             if (sessionParam.category == 9 || sessionParam.businessType == 27) {
                 return false;
             }
-            int i = 1;
             if (sessionParam.classType > 0 && sessionParam.type == 0) {
                 return true;
             }
@@ -731,13 +784,18 @@ public class MediaSessionManager extends BaseManager {
             if (chatRecord != null) {
                 sessionParam.contacterPaid = chatRecord.getPaid();
                 sessionParam.clientMaxMsgid = chatRecord.getLastMsgId();
-                if (sessionParam.contacterPaid <= 0) {
+                if (sessionParam.contacterPaid > 0) {
+                    i = 1;
+                } else {
                     i = 0;
                 }
                 sessionParam.contacterUserType = i;
                 sessionParam.businessType = chatRecord.getBusinessType();
                 sessionParam.isStranger = chatRecord.getIsStranger();
                 sessionParam.contacterImUk = chatRecord.getContacterImuk();
+                if (sessionParam.category == 1 && chatRecord.getContacterImuk() <= 0) {
+                    sessionParam.contacterImUk = chatRecord.getContacter();
+                }
             }
             return false;
         }
@@ -752,7 +810,7 @@ public class MediaSessionManager extends BaseManager {
         boolean z4;
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65554, this, sessionParam)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65557, this, sessionParam)) == null) {
             if (sessionParam.businessType != 27 && sessionParam.category != 9) {
                 if (sessionParam.isStranger == 1) {
                     z = true;
@@ -811,6 +869,35 @@ public class MediaSessionManager extends BaseManager {
         return invokeL.booleanValue;
     }
 
+    public void handleMediaNotify(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, jSONObject) == null) {
+            int optInt = jSONObject.optInt("type", -1);
+            JSONObject optJSONObject = jSONObject.optJSONObject("content");
+            optJSONObject.optLong("contacter_bduid", -1L);
+            int optInt2 = optJSONObject.optInt("contacter_type", -1);
+            long optLong = optJSONObject.optLong("contacter_pauid", -1L);
+            optJSONObject.optString("contacter_third_id", "");
+            long optLong2 = optJSONObject.optLong("contacter_uk");
+            long optLong3 = optJSONObject.optLong("msgid", -1L);
+            if (optInt == 2) {
+                doNewMsgNotify();
+            } else if (optInt == 1) {
+                if (optInt2 == -1) {
+                    handleMediaAllRead();
+                } else {
+                    handleMediaSessionRead(0, optLong2, Long.MAX_VALUE);
+                }
+            } else if (optInt == 3) {
+                MediaMessageDBManager.getInstance(this.mContext).delMsgs(0, optLong2, new long[]{optLong3});
+            } else if (optInt == 4) {
+                handleMediaDeleteSession(0, optLong2, optLong, 0, 0, 0);
+            } else if (optInt == 8) {
+                handleMediaDeleteSession(0, optLong2, optLong, 0, 0, 0, 1);
+            }
+        }
+    }
+
     public void deleteSession(@NonNull SessionParam sessionParam, BIMValueCallBack<Object> bIMValueCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048576, this, sessionParam, bIMValueCallBack) == null) {
@@ -828,11 +915,12 @@ public class MediaSessionManager extends BaseManager {
             creatMethodIntent.putExtra(Constants.EXTRA_CLASS_TYPE, sessionParam.classType);
             creatMethodIntent.putExtra(Constants.EXTRA_IS_STRANGER, sessionParam.isStranger);
             creatMethodIntent.putExtra("type", sessionParam.type);
+            creatMethodIntent.putExtra(Constants.EXTRA_REMAIN_EMPTY_SESSION, sessionParam.deleteMode);
             if (!TextUtils.isEmpty(addListener)) {
                 creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
             }
             try {
-                q80.e(this.mContext).d(this.mContext, creatMethodIntent);
+                g70.e(this.mContext).d(this.mContext, creatMethodIntent);
             } catch (Exception e) {
                 LogUtils.e("MediaSessionManager", "setServerBCMsgRead Exception ", e);
                 if (bIMValueCallBack != null) {
@@ -842,30 +930,38 @@ public class MediaSessionManager extends BaseManager {
         }
     }
 
-    public void getChatSessionFromServer(SessionParam sessionParam, BIMValuesCallBack<GetSessionResult, SessionParam> bIMValuesCallBack) {
+    public void setSessionRead(@NonNull SessionParam sessionParam, BIMValueCallBack<Object> bIMValueCallBack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, sessionParam, bIMValuesCallBack) == null) {
-            LogUtils.d("MediaSessionManager", "getChatSessionFromServer start");
-            if (sessionParam == null) {
-                if (bIMValuesCallBack != null) {
-                    bIMValuesCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, GetSessionResult.getFailResult(), null);
-                    return;
-                }
+        if (interceptable == null || interceptable.invokeLL(1048593, this, sessionParam, bIMValueCallBack) == null) {
+            if (shouldReadSendToUser(sessionParam)) {
+                ChatSessionManagerImpl.getInstance(this.mContext).setSessionRead(sessionParam, bIMValueCallBack);
                 return;
             }
-            String addListener = ListenerManager.getInstance().addListener(bIMValuesCallBack);
-            Intent creatMethodIntent = Utility.creatMethodIntent(this.mContext, 206);
+            String addListener = ListenerManager.getInstance().addListener(bIMValueCallBack);
+            Intent creatMethodIntent = Utility.creatMethodIntent(this.mContext, 207);
+            creatMethodIntent.putExtra("category", sessionParam.category);
+            creatMethodIntent.putExtra("contacter", sessionParam.contacterImUk);
+            creatMethodIntent.putExtra(Constants.EXTRA_CLIENT_MAX_MSGID, sessionParam.clientMaxMsgid);
+            creatMethodIntent.putExtra(Constants.EXTRA_BEGIN_MSGID, sessionParam.beginMsgid);
+            creatMethodIntent.putExtra(Constants.EXTRA_PA_ID, sessionParam.contacterPaid);
+            creatMethodIntent.putExtra("type", sessionParam.type);
+            creatMethodIntent.putExtra(Constants.EXTRA_IS_STRANGER, sessionParam.isStranger);
+            if (!TextUtils.isEmpty(addListener)) {
+                creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
+            }
             creatMethodIntent.putExtra(Constants.EXTRA_BUSINESS_TYPE, sessionParam.businessType);
-            creatMethodIntent.putExtra(Constants.EXTRA_BEGIN_MSGID, sessionParam.sortUpdateTimeBegin);
-            creatMethodIntent.putExtra(Constants.EXTRA_END_MSGID, sessionParam.sortUpdateTimeEnd);
-            creatMethodIntent.putExtra("count", sessionParam.count);
-            creatMethodIntent.putExtra(Constants.EXTRA_FETCH_SESSION_MODE, sessionParam.mode);
-            creatMethodIntent.putExtra("session_type", sessionParam.sessionType);
-            creatMethodIntent.putExtra(Constants.EXTRA_FETCH_SESSION_TOP, sessionParam.needTop);
-            creatMethodIntent.putExtra(Constants.EXTRA_TRIGGER_REASON, sessionParam.reason);
-            creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
-            creatMethodIntent.putExtra(Constants.EXTRA_SCREEN_KEY, sessionParam.screenKey);
-            q80.e(this.mContext).d(this.mContext, creatMethodIntent);
+            int i = sessionParam.sessionType;
+            if (i >= 0) {
+                creatMethodIntent.putExtra("session_type", i);
+            }
+            try {
+                g70.e(this.mContext).d(this.mContext, creatMethodIntent);
+            } catch (Exception e) {
+                LogUtils.e("MediaSessionManager", "setServerBCMsgRead Exception ", e);
+                if (bIMValueCallBack != null) {
+                    bIMValueCallBack.onResult(1003, Constants.ERROR_MSG_SERVICE_ERROR, null);
+                }
+            }
         }
     }
 
@@ -878,28 +974,110 @@ public class MediaSessionManager extends BaseManager {
                     bIMValuesCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, GetSessionResult.getFailResult(), null);
                 }
             } else if (sessionParam.reason == 3 && sessionParam.mode == 1 && this.mClientMaxSortTime >= this.mClientCredibleSortTime) {
-                List<ChatSession> mediaSessionList = MediaMessageDBManager.getInstance(this.mContext).getMediaSessionList(Math.max(sessionParam.sortUpdateTimeBegin, this.mClientCredibleSortTime), sessionParam.sortUpdateTimeEnd, sessionParam.count + 1, sessionParam.mode, sessionParam.needTop);
+                long max = Math.max(sessionParam.sortUpdateTimeBegin, this.mClientCredibleSortTime);
+                Utility.addEventList(methodInfo.eventList, "getMediaSessionList_begin");
+                List<ChatSession> mediaSessionList = MediaMessageDBManager.getInstance(this.mContext).getMediaSessionList(max, sessionParam.sortUpdateTimeEnd, sessionParam.count + 1, sessionParam.mode, sessionParam.needTop);
+                Utility.addEventList(methodInfo.eventList, "getMediaSessionList_end");
+                if (sessionParam.hudongNeedTop && !hasResponseHudong()) {
+                    ChatSession hasHudongSession = hasHudongSession(mediaSessionList);
+                    if (hasHudongSession == null || hasHudongSession.getClassType() != 11) {
+                        ChatSession mediaChatSessionByClassType = MediaMessageDBManager.getInstance(this.mContext).getMediaChatSessionByClassType(11);
+                        Utility.addEventList(methodInfo.eventList, "hudong_end");
+                        if (mediaChatSessionByClassType == null || mediaChatSessionByClassType.getClassType() != 11) {
+                            mediaChatSessionByClassType = creatTopAndNullHudongSession();
+                        }
+                        mediaChatSessionByClassType.setMarkTop(1);
+                        mediaChatSessionByClassType.setMarkTopTime(9223372036854765807L);
+                        mediaSessionList.add(mediaChatSessionByClassType);
+                    }
+                    BIMManager.hasReturenTopSession.put(11, Boolean.TRUE);
+                }
                 Utility.addEventList(methodInfo.eventList, "getMediaSessionList");
                 LogUtils.d("MediaSessionManager", "getChatSessionFromDb start");
                 if (mediaSessionList != null && mediaSessionList.size() > sessionParam.count) {
                     LogUtils.d("MediaSessionManager", "getChatSessionFromDb size = " + mediaSessionList.size());
-                    bIMValuesCallBack.onResult(0, Constants.ERROR_MSG_SUCCESS, getSessionResult(0, sessionParam.count, true, mediaSessionList), getNextRequestParam(sessionParam.count, sessionParam.mode, sessionParam.businessType, mediaSessionList.get(mediaSessionList.size() - 1).getMarkTop(), mediaSessionList));
+                    Collections.sort(mediaSessionList, new Comparator<ChatSession>(this) { // from class: com.baidu.android.imsdk.media.MediaSessionManager.4
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ MediaSessionManager this$0;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.this$0 = this;
+                        }
+
+                        /* JADX DEBUG: Method merged with bridge method */
+                        @Override // java.util.Comparator
+                        public int compare(ChatSession chatSession, ChatSession chatSession2) {
+                            InterceptResult invokeLL;
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || (invokeLL = interceptable2.invokeLL(1048576, this, chatSession, chatSession2)) == null) {
+                                if (chatSession.getMarkTop() == 1 && chatSession2.getMarkTop() == 1) {
+                                    int i = ((chatSession2.getMarkTopTime() - chatSession.getMarkTopTime()) > 0L ? 1 : ((chatSession2.getMarkTopTime() - chatSession.getMarkTopTime()) == 0L ? 0 : -1));
+                                    if (i > 0) {
+                                        return 1;
+                                    }
+                                    if (i < 0) {
+                                        return -1;
+                                    }
+                                    return 0;
+                                } else if (chatSession.getMarkTop() == 0 && chatSession2.getMarkTop() == 0) {
+                                    int i2 = ((chatSession2.getLastMsgTime() - chatSession.getLastMsgTime()) > 0L ? 1 : ((chatSession2.getLastMsgTime() - chatSession.getLastMsgTime()) == 0L ? 0 : -1));
+                                    if (i2 > 0) {
+                                        return 1;
+                                    }
+                                    if (i2 < 0) {
+                                        return -1;
+                                    }
+                                    return 0;
+                                } else {
+                                    return chatSession2.getMarkTop() - chatSession.getMarkTop();
+                                }
+                            }
+                            return invokeLL.intValue;
+                        }
+                    });
+                    Utility.addEventList(methodInfo.eventList, "getMediaSessionList_result");
+                    int markTop = mediaSessionList.get(mediaSessionList.size() - 1).getMarkTop();
+                    GetSessionResult sessionResult = getSessionResult(0, sessionParam.count, true, mediaSessionList);
+                    Utility.addEventList(methodInfo.eventList, "getSessionResult_end");
+                    SessionParam nextRequestParam = getNextRequestParam(sessionParam.count, sessionParam.mode, sessionParam.businessType, markTop, mediaSessionList);
+                    Utility.addEventList(methodInfo.eventList, "getNextRequestParam_end");
+                    bIMValuesCallBack.onResult(0, Constants.ERROR_MSG_SUCCESS, sessionResult, nextRequestParam);
                     methodInfo.errCode = 0;
-                    methodInfo.errMsg = Constants.ERROR_MSG_SUCCESS;
+                    methodInfo.errMsg = "getChatSession_ifSucess!";
                     methodInfo.endTime = System.currentTimeMillis();
                     ScreenUbc.onEvent(this.mContext, sessionParam.screenKey, methodInfo);
                 } else if (!this.mFetchHasMore) {
                     LogUtils.d("MediaSessionManager", "getChatSession mFetchHasMore = false, call back");
-                    bIMValuesCallBack.onResult(0, Constants.ERROR_MSG_SUCCESS, getSessionResult(0, sessionParam.count, false, mediaSessionList), getNextRequestParam(sessionParam.count, sessionParam.mode, sessionParam.businessType, 0, mediaSessionList));
+                    GetSessionResult sessionResult2 = getSessionResult(0, sessionParam.count, false, mediaSessionList);
+                    Utility.addEventList(methodInfo.eventList, "GetSessionResult_end_noMore");
+                    SessionParam nextRequestParam2 = getNextRequestParam(sessionParam.count, sessionParam.mode, sessionParam.businessType, 0, mediaSessionList);
+                    Utility.addEventList(methodInfo.eventList, "getNextRequestParam_end_noMore");
+                    bIMValuesCallBack.onResult(0, Constants.ERROR_MSG_SUCCESS, sessionResult2, nextRequestParam2);
                     methodInfo.errCode = 0;
-                    methodInfo.errMsg = Constants.ERROR_MSG_SUCCESS;
+                    methodInfo.errMsg = "getChatSession_no_has_more_Sucess!";
                     methodInfo.endTime = System.currentTimeMillis();
                     ScreenUbc.onEvent(this.mContext, sessionParam.screenKey, methodInfo);
                 } else {
+                    Utility.addEventList(methodInfo.eventList, "has_more_getChatSessionFromServer");
                     getChatSessionFromServer(sessionParam, bIMValuesCallBack);
                 }
             } else {
-                Utility.addEventList(methodInfo.eventList, "getChatSessionFromServer");
+                Utility.addEventList(methodInfo.eventList, "else_getChatSessionFromServer");
                 getChatSessionFromServer(sessionParam, bIMValuesCallBack);
             }
         }
@@ -997,6 +1175,14 @@ public class MediaSessionManager extends BaseManager {
     public void handleMediaDeleteSession(int i, long j, long j2, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            handleMediaDeleteSession(i, j, j2, i2, i3, i4, 0);
+        }
+    }
+
+    public void handleMediaDeleteSession(int i, long j, long j2, int i2, int i3, int i4, int i5) {
+        long j3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
             if (i2 > 0 && i3 == 1) {
                 MediaMessageDBManager.getInstance(this.mContext).delChatRecordByClassType(i2);
                 BIMManager.removeSessionByClasstype(this.mContext, i2);
@@ -1004,7 +1190,14 @@ public class MediaSessionManager extends BaseManager {
                 getInstance(this.mContext).setStrangerUnread(0);
                 MediaMessageDBManager.getInstance(this.mContext).delAllStrangerSession();
             } else {
-                ChatSession chatRecord = MediaMessageDBManager.getInstance(this.mContext).getChatRecord(i, j);
+                MediaMessageDBManager mediaMessageDBManager = MediaMessageDBManager.getInstance(this.mContext);
+                int i6 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
+                if (i6 > 0) {
+                    j3 = j2;
+                } else {
+                    j3 = j;
+                }
+                ChatSession chatRecord = mediaMessageDBManager.getChatRecord(i, j3);
                 if (chatRecord == null) {
                     return;
                 }
@@ -1014,12 +1207,12 @@ public class MediaSessionManager extends BaseManager {
                     getInstance(this.mContext).setMediaTotalUnread((int) (this.mMediaTotalUnread - chatRecord.getNewMsgSum()));
                 }
                 if (i == 1) {
-                    ChatMessageDBManager.getInstance(this.mContext).deleteAllMsg(new ChatObject(this.mContext, 1, j));
+                    ChatMessageDBManager.getInstance(this.mContext).deleteAllMsg(new ChatObject(this.mContext, 1, j), i5);
                 } else if (i != 9) {
-                    if (j2 > 0) {
+                    if (i6 > 0) {
                         j = j2;
                     }
-                    MediaMessageDBManager.getInstance(this.mContext).deleteAllMsgs(new ChatObject(this.mContext, i, j));
+                    MediaMessageDBManager.getInstance(this.mContext).deleteAllMsgs(new ChatObject(this.mContext, i, j), i5);
                 }
             }
         }
@@ -1027,7 +1220,7 @@ public class MediaSessionManager extends BaseManager {
 
     public void handleMediaSessionRead(int i, long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)}) == null) {
             ChatSession mediaChatSession = MediaMessageDBManager.getInstance(this.mContext).getMediaChatSession(i, j);
             if (mediaChatSession == null) {
                 getChatSessionFromServer(SessionParam.getNotifyRequestParam(this.mContext), null);
@@ -1044,44 +1237,9 @@ public class MediaSessionManager extends BaseManager {
         }
     }
 
-    public void setSessionRead(@NonNull SessionParam sessionParam, BIMValueCallBack<Object> bIMValueCallBack) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048592, this, sessionParam, bIMValueCallBack) == null) {
-            if (shouldReadSendToUser(sessionParam)) {
-                ChatSessionManagerImpl.getInstance(this.mContext).setSessionRead(sessionParam, bIMValueCallBack);
-                return;
-            }
-            String addListener = ListenerManager.getInstance().addListener(bIMValueCallBack);
-            Intent creatMethodIntent = Utility.creatMethodIntent(this.mContext, 207);
-            creatMethodIntent.putExtra("category", sessionParam.category);
-            creatMethodIntent.putExtra("contacter", sessionParam.contacterImUk);
-            creatMethodIntent.putExtra(Constants.EXTRA_CLIENT_MAX_MSGID, sessionParam.clientMaxMsgid);
-            creatMethodIntent.putExtra(Constants.EXTRA_BEGIN_MSGID, sessionParam.beginMsgid);
-            creatMethodIntent.putExtra(Constants.EXTRA_PA_ID, sessionParam.contacterPaid);
-            creatMethodIntent.putExtra("type", sessionParam.type);
-            creatMethodIntent.putExtra(Constants.EXTRA_IS_STRANGER, sessionParam.isStranger);
-            if (!TextUtils.isEmpty(addListener)) {
-                creatMethodIntent.putExtra(Constants.EXTRA_LISTENER_ID, addListener);
-            }
-            creatMethodIntent.putExtra(Constants.EXTRA_BUSINESS_TYPE, sessionParam.businessType);
-            int i = sessionParam.sessionType;
-            if (i >= 0) {
-                creatMethodIntent.putExtra("session_type", i);
-            }
-            try {
-                q80.e(this.mContext).d(this.mContext, creatMethodIntent);
-            } catch (Exception e) {
-                LogUtils.e("MediaSessionManager", "setServerBCMsgRead Exception ", e);
-                if (bIMValueCallBack != null) {
-                    bIMValueCallBack.onResult(1003, Constants.ERROR_MSG_SERVICE_ERROR, null);
-                }
-            }
-        }
-    }
-
     public void updateStrangerFolderCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
             LogUtils.d("MediaSessionManager", "updateStrangerFolderCount count = " + i);
             getInstance(this.mContext).setStrangerUnread(this.mStrangerUnread + i);
             getInstance(this.mContext).setMediaTotalUnread(this.mMediaTotalUnread - i);

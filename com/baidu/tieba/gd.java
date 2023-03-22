@@ -1,23 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.SparseArray;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Array;
+import java.lang.reflect.Type;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Set;
+import org.json.JSONArray;
 /* loaded from: classes4.dex */
-public class gd implements id {
+public class gd implements ed {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public double a;
+    public JSONArray a;
 
-    public gd(double d) {
+    public gd(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Double.valueOf(d)};
+            Object[] objArr = {jSONArray};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,65 +34,92 @@ public class gd implements id {
                 return;
             }
         }
-        this.a = d;
+        this.a = jSONArray;
     }
 
-    @Override // com.baidu.tieba.id
-    public Object a(re reVar) {
+    @Override // com.baidu.tieba.ed
+    public Object a(ud udVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, reVar)) == null) {
-            return Double.valueOf(this.a);
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.id
-    public Object b(re reVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, reVar)) == null) {
-            return Double.valueOf(this.a);
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.id
-    public Object c(re reVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, reVar)) == null) {
-            return Double.valueOf(this.a);
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.id
-    public Object d(re reVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, reVar)) == null) {
-            return Double.valueOf(this.a);
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.id
-    public Object e(re reVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, reVar)) == null) {
-            return d(reVar);
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.id
-    public Object f(re reVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, reVar)) == null) {
-            return Double.valueOf(this.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, udVar)) == null) {
+            Class<?> a = udVar.a();
+            Type[] b = udVar.b();
+            if (a.isArray()) {
+                Class<?> componentType = a.getComponentType();
+                Object newInstance = Array.newInstance(componentType, this.a.length());
+                int length = this.a.length();
+                for (int i = 0; i < length; i++) {
+                    Object a2 = yd.a(this.a.opt(i)).a(new ud(componentType));
+                    if (a2 != null) {
+                        Array.set(newInstance, i, a2);
+                    }
+                }
+                return newInstance;
+            } else if (b != null && b.length >= 1) {
+                if (bc.e(a, List.class)) {
+                    List<Object> a3 = sd.a(udVar, this.a.length());
+                    if (a3 != null) {
+                        int length2 = this.a.length();
+                        for (int i2 = 0; i2 < length2; i2++) {
+                            Object a4 = yd.a(this.a.opt(i2)).a(new ud(b[0]));
+                            if (a4 != null) {
+                                a3.add(a4);
+                            }
+                        }
+                    }
+                    return a3;
+                } else if (bc.e(a, Set.class)) {
+                    Set<Object> d = sd.d(udVar, this.a.length());
+                    if (d != null) {
+                        int length3 = this.a.length();
+                        for (int i3 = 0; i3 < length3; i3++) {
+                            Object a5 = yd.a(this.a.opt(i3)).a(new ud(b[0]));
+                            if (a5 != null) {
+                                d.add(a5);
+                            }
+                        }
+                    }
+                    return d;
+                } else if (bc.e(a, Map.class)) {
+                    Map<String, Object> b2 = sd.b(udVar, this.a.length());
+                    if (b2 != null) {
+                        int length4 = this.a.length();
+                        for (int i4 = 0; i4 < length4; i4++) {
+                            Object a6 = yd.a(this.a.opt(i4)).a(new ud(b[0]));
+                            if (a6 != null) {
+                                b2.put(String.valueOf(i4), a6);
+                            }
+                        }
+                    }
+                    return b2;
+                } else if (bc.e(a, Queue.class)) {
+                    Queue<Object> c = sd.c(udVar, this.a.length());
+                    if (c != null) {
+                        int length5 = this.a.length();
+                        for (int i5 = 0; i5 < length5; i5++) {
+                            Object a7 = yd.a(this.a.opt(i5)).a(new ud(b[0]));
+                            if (a7 != null) {
+                                c.add(a7);
+                            }
+                        }
+                    }
+                    return c;
+                } else if (a == SparseArray.class) {
+                    SparseArray sparseArray = new SparseArray(this.a.length());
+                    int length6 = this.a.length();
+                    for (int i6 = 0; i6 < length6; i6++) {
+                        Object a8 = yd.a(this.a.opt(i6)).a(new ud(b[0]));
+                        if (a8 != null) {
+                            sparseArray.put(i6, a8);
+                        }
+                    }
+                    return sparseArray;
+                } else {
+                    return null;
+                }
+            } else {
+                return null;
+            }
         }
         return invokeL.objValue;
     }

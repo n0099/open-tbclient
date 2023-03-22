@@ -1,262 +1,356 @@
 package com.baidu.tieba;
 
-import android.media.MediaCodec;
-import android.media.MediaFormat;
+import android.content.Context;
+import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.pe0;
+import com.baidu.tieba.zd0;
+import com.baidu.tieba.ze0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.ByteBuffer;
+import java.io.File;
 /* loaded from: classes5.dex */
-public abstract class ne0 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String i = "ne0";
-    public static long j = 0;
-    public static int k = 10000;
+public class ne0 {
+    public static /* synthetic */ Interceptable $ic;
+    public static ne0 b;
+    public static ve0 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public boolean b;
-    public qe0 c;
-    public MediaCodec d;
-    public MediaCodec.BufferInfo e;
-    public oe0 f;
-    public boolean g;
-    public long h;
+    public Boolean a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947999440, "Lcom/baidu/tieba/ne0;")) == null) {
-            return;
+    /* loaded from: classes5.dex */
+    public class a extends pe0.c<he0> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zd0.a a;
+
+        public a(ne0 ne0Var, zd0.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ne0Var, aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.pe0.c
+        /* renamed from: e */
+        public void a(he0 he0Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048579, this, he0Var, str) == null) {
+                if (zd0.m()) {
+                    ne0.c("loadSDK onCompleted filePath: " + str);
+                }
+                super.a(he0Var, str);
+                zd0.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onResult(true, str);
+                }
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947999440, "Lcom/baidu/tieba/ne0;");
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.pe0.c
+        /* renamed from: f */
+        public void b(he0 he0Var, Exception exc) {
+            String message;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048580, this, he0Var, exc) == null) {
+                if (zd0.m()) {
+                    ne0.c("loadSDK onFailed failed: " + exc);
+                }
+                super.b(he0Var, exc);
+                zd0.a aVar = this.a;
+                if (aVar != null) {
+                    if (exc == null) {
+                        message = "unkown";
+                    } else {
+                        message = exc.getMessage();
+                    }
+                    aVar.onResult(false, message);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.pe0.c
+        /* renamed from: g */
+        public void c(he0 he0Var, long j, long j2, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{he0Var, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
+                super.c(he0Var, j, j2, i);
+                zd0.a aVar = this.a;
+                if (aVar != null) {
+                    aVar.onProgress((int) j2, i);
+                }
+            }
         }
     }
 
-    public abstract void j();
+    /* loaded from: classes5.dex */
+    public class b implements ze0.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ zd0.a a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ File c;
+
+        public b(ne0 ne0Var, zd0.a aVar, String str, File file) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ne0Var, aVar, str, file};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = aVar;
+            this.b = str;
+            this.c = file;
+        }
+
+        /* JADX WARN: Code restructure failed: missing block: B:23:0x0068, code lost:
+            if (r1 == false) goto L22;
+         */
+        @Override // com.baidu.tieba.ze0.a
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public void a(int i, ze0 ze0Var) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, ze0Var) == null) {
+                boolean z2 = false;
+                if (i == 2) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (zd0.m()) {
+                    ne0.c("onLoadAssets " + z + ", state " + i);
+                }
+                if (this.a != null) {
+                    String str = null;
+                    if (!z) {
+                        str = this.b;
+                    }
+                    if (this.c != null) {
+                        zd0.s(new ae0(this.c.getAbsolutePath()));
+                    }
+                    if (z) {
+                        boolean k0 = yd0.k0();
+                        if (zd0.m()) {
+                            ne0.c("loadAssets ARControllerProxy.loadSoFile " + k0);
+                        }
+                    }
+                    z2 = z;
+                    this.a.onResult(z2, str);
+                }
+            }
+        }
+    }
 
     public ne0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-        this.a = -1;
-        this.b = false;
-        this.h = 0L;
-        this.e = new MediaCodec.BufferInfo();
-    }
-
-    public void a(boolean z, ByteBuffer byteBuffer, int i2, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), byteBuffer, Integer.valueOf(i2), Long.valueOf(j2)}) == null) {
-            if (this.b && this.a == -1) {
-                return;
-            }
-            int dequeueInputBuffer = this.d.dequeueInputBuffer(10000L);
-            if (dequeueInputBuffer >= 0) {
-                if (z) {
-                    Log.d(i, "drainBuffer sending EOS to drainBufferEncoder");
-                    this.d.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
-                } else if (!g(dequeueInputBuffer, byteBuffer, i2, j2)) {
-                    return;
-                } else {
-                    MediaCodec mediaCodec = this.d;
-                    MediaCodec.BufferInfo bufferInfo = this.e;
-                    mediaCodec.queueInputBuffer(dequeueInputBuffer, bufferInfo.offset, bufferInfo.size, bufferInfo.presentationTimeUs, 0);
-                }
-            } else {
-                Log.d(i, "drainBuffer encode input buffer not available");
-            }
-            b(z, k);
         }
     }
 
-    public final void b(boolean z, int i2) {
+    public static synchronized void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i2)}) == null) {
-            ByteBuffer[] outputBuffers = this.d.getOutputBuffers();
-            while (true) {
-                try {
-                    int dequeueOutputBuffer = this.d.dequeueOutputBuffer(this.e, i2);
-                    if (dequeueOutputBuffer == -1) {
-                        if (z) {
-                            Log.d(i, "no output available, spinning to await EOS");
-                        } else {
-                            return;
-                        }
-                    } else if (dequeueOutputBuffer == -3) {
-                        outputBuffers = this.d.getOutputBuffers();
-                    } else if (dequeueOutputBuffer == -2) {
-                        if (this.c.c()) {
-                            Log.e(i, "format changed twice!!!!");
-                            return;
-                        }
-                        MediaFormat outputFormat = this.d.getOutputFormat();
-                        String str = i;
-                        Log.d(str, "encoder output format changed: " + outputFormat);
-                        this.a = this.c.a(outputFormat);
-                        this.b = true;
-                        oe0 oe0Var = this.f;
-                        if (oe0Var != null) {
-                            oe0Var.c(true);
-                        }
-                        if (this.g) {
-                            this.c.e();
-                        }
-                    } else if (dequeueOutputBuffer < 0) {
-                        String str2 = i;
-                        Log.w(str2, "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
-                    } else {
-                        ByteBuffer byteBuffer = outputBuffers[dequeueOutputBuffer];
-                        if (byteBuffer != null) {
-                            if ((this.e.flags & 2) != 0) {
-                                Log.d(i, "ignoring BUFFER_FLAG_CODEC_CONFIG");
-                                this.e.size = 0;
-                            }
-                            if (this.e.size != 0) {
-                                if (this.c.c()) {
-                                    byteBuffer.position(this.e.offset);
-                                    MediaCodec.BufferInfo bufferInfo = this.e;
-                                    byteBuffer.limit(bufferInfo.offset + bufferInfo.size);
-                                    j();
-                                    this.c.g(this.a, byteBuffer, this.e);
-                                } else {
-                                    Log.d(i, "drainEncoder wait for mMuxer start !!!");
-                                }
-                            }
-                            this.d.releaseOutputBuffer(dequeueOutputBuffer, false);
-                            if ((this.e.flags & 4) != 0) {
-                                if (z) {
-                                    if (this.g) {
-                                        this.c.f();
-                                    }
-                                    oe0 oe0Var2 = this.f;
-                                    if (oe0Var2 != null) {
-                                        oe0Var2.a(true);
-                                        return;
-                                    }
-                                    return;
-                                }
-                                Log.e(i, "reached end of stream unexpectedly");
-                                return;
-                            }
-                        } else {
-                            throw new RuntimeException("encoderOutputBuffer " + dequeueOutputBuffer + " was null");
-                        }
-                    }
-                } catch (IllegalStateException unused) {
-                    System.getProperty("ro.board.platform");
-                    String str3 = i;
-                    Log.i(str3, "mEncoder.dequeueOutputBuffer IllegalStateException error hard:" + System.getProperty("ro.board.platform"));
-                    return;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            synchronized (ne0.class) {
+                if (b == null) {
+                    b = new ne0();
                 }
             }
         }
     }
 
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            if (z) {
-                qe0 qe0Var = this.c;
-                if (qe0Var != null && qe0Var.c()) {
-                    this.d.signalEndOfInputStream();
-                } else {
-                    oe0 oe0Var = this.f;
-                    if (oe0Var != null) {
-                        oe0Var.a(true);
-                        return;
-                    }
-                    return;
-                }
-            }
-            b(z, 10000);
-        }
-    }
-
-    public void f(oe0 oe0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, oe0Var) == null) {
-            this.f = oe0Var;
-        }
-    }
-
-    public long d() {
+    public static ne0 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (b == null) {
+                b();
+            }
+            return b;
+        }
+        return (ne0) invokeV.objValue;
+    }
+
+    public static void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            Log.e("DuAr_SDKLoader", "ar->" + str);
+        }
+    }
+
+    public final ve0 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (c == null) {
+                ve0 k = ve0.k();
+                zd0.g();
+                k.m(zd0.getContext(), "arsource", new File(ae0.a()));
+                c = k;
+            }
+            return c;
+        }
+        return (ve0) invokeV.objValue;
+    }
+
+    public File f() {
+        InterceptResult invokeV;
+        boolean z;
+        File l;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (zd0.o() && g()) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                l = ke0.d().h();
+            } else {
+                l = he0.j(zd0.e()).l();
+            }
+            if (zd0.m()) {
+                c("sdkPath useLocal " + z + ", SDKPath " + l);
+            }
+            return l;
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        boolean z;
+        boolean q;
+        Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.h * 1000;
+            if (zd0.o() && g()) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                q = d().o();
+            } else {
+                q = he0.j("live").q();
+            }
+            if (zd0.m()) {
+                c("isLocal " + z + ", isSDKLoaded " + q);
+            }
+            return q;
         }
-        return invokeV.longValue;
+        return invokeV.booleanValue;
     }
 
-    public void e() {
+    public final boolean g() {
+        InterceptResult invokeV;
+        boolean z;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.d.release();
-            this.d = null;
-            this.c = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.a == null) {
+                this.a = Boolean.FALSE;
+                try {
+                    String[] list = zd0.getContext().getAssets().list("arsource");
+                    if (list != null && list.length > 0) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    this.a = Boolean.valueOf(z);
+                    if (zd0.m()) {
+                        if (list == null) {
+                            str = StringUtil.NULL_STRING;
+                        } else {
+                            str = "" + list.length;
+                        }
+                        c("hasAssetsResource: " + str);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+            return this.a.booleanValue();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void i(Context context, String str, File file, zd0.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048580, this, context, str, file, aVar) == null) {
+            String str2 = "loadAssets context=" + context + ", assetPath=" + str + ", SDcardFile=" + file;
+            if (zd0.m()) {
+                c(str2);
+            }
+            if ((context == null || TextUtils.isEmpty(str) || file == null || TextUtils.isEmpty(file.getAbsolutePath())) && aVar != null) {
+                aVar.onResult(false, str2);
+            }
+            d().r(context, str, file, new b(this, aVar, str2, file));
         }
     }
 
-    public void h() {
+    public void j(zd0.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.d.start();
-            oe0 oe0Var = this.f;
-            if (oe0Var != null) {
-                oe0Var.d(true);
+        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
+            if (zd0.m()) {
+                c("loadAssets hasAssetsResource=" + g());
+            }
+            if (zd0.g() == null) {
+                c("DuArResConfig null when loadAssets");
+            } else if (TextUtils.isEmpty(ae0.a())) {
+                c("DuArResConfig data empty when loadAssets");
+            } else {
+                i(zd0.getContext(), "arsource", new File(ae0.a()), aVar);
             }
         }
     }
 
-    public void i() {
+    public void k(zd0.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            try {
-                this.d.stop();
-            } catch (Exception unused) {
-                Log.e(i, "MediaCodec IllegalStateException Exception ");
+        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
+            if (zd0.o() && g()) {
+                j(aVar);
+            } else if (zd0.c() == null) {
+                c("loadSDK with Downlader==null");
+            } else {
+                he0.j(zd0.e()).u(zd0.getContext(), new a(this, aVar));
             }
         }
-    }
-
-    public final boolean g(int i2, ByteBuffer byteBuffer, int i3, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i2), byteBuffer, Integer.valueOf(i3), Long.valueOf(j2)})) == null) {
-            ByteBuffer byteBuffer2 = this.d.getInputBuffers()[i2];
-            if (byteBuffer2.capacity() < byteBuffer.capacity()) {
-                return false;
-            }
-            byteBuffer2.position(0);
-            byteBuffer2.put(byteBuffer);
-            byteBuffer2.flip();
-            MediaCodec.BufferInfo bufferInfo = this.e;
-            bufferInfo.offset = 0;
-            bufferInfo.size = i3;
-            bufferInfo.presentationTimeUs = j2 / 1000;
-            return true;
-        }
-        return invokeCommon.booleanValue;
     }
 }

@@ -44,7 +44,7 @@ import com.google.android.material.shape.MaterialShapeUtils;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
 /* loaded from: classes7.dex */
 public class BottomNavigationView extends FrameLayout {
-    public static final int DEF_STYLE_RES = 2131755828;
+    public static final int DEF_STYLE_RES = 2131755832;
     public static final int MENU_PRESENTER_ID = 1;
     @Nullable
     public ColorStateList itemRippleColor;
@@ -78,7 +78,7 @@ public class BottomNavigationView extends FrameLayout {
 
     private void addCompatibilityTopDivider(Context context) {
         View view2 = new View(context);
-        view2.setBackgroundColor(ContextCompat.getColor(context, R.color.obfuscated_res_0x7f060597));
+        view2.setBackgroundColor(ContextCompat.getColor(context, R.color.obfuscated_res_0x7f06059d));
         view2.setLayoutParams(new FrameLayout.LayoutParams(-1, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701fc)));
         addView(view2);
     }
@@ -261,7 +261,7 @@ public class BottomNavigationView extends FrameLayout {
         this.menuView.setPresenter(this.presenter);
         this.menu.addMenuPresenter(this.presenter);
         this.presenter.initForMenu(getContext(), this.menu);
-        TintTypedArray obtainTintedStyledAttributes = ThemeEnforcement.obtainTintedStyledAttributes(context2, attributeSet, com.google.android.material.R.styleable.BottomNavigationView, i, R.style.obfuscated_res_0x7f100334, 8, 7);
+        TintTypedArray obtainTintedStyledAttributes = ThemeEnforcement.obtainTintedStyledAttributes(context2, attributeSet, com.google.android.material.R.styleable.BottomNavigationView, i, R.style.obfuscated_res_0x7f100338, 8, 7);
         if (obtainTintedStyledAttributes.hasValue(5)) {
             this.menuView.setIconTintList(obtainTintedStyledAttributes.getColorStateList(5));
         } else {

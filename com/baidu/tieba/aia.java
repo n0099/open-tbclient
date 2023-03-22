@@ -1,74 +1,24 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.widget.ImageView;
+import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.opensource.svgaplayer.SVGAVideoEntity;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedHashMap;
 /* loaded from: classes3.dex */
 public class aia {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final nia a;
-    public final SVGAVideoEntity b;
+    public final LinkedHashMap<Long, StackTraceElement[]> a;
+    public int b;
 
-    /* loaded from: classes3.dex */
-    public final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public final iia b;
-
-        public a(aia aiaVar, String str, iia iiaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {aiaVar, str, iiaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = iiaVar;
-        }
-
-        public final iia a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.b;
-            }
-            return (iia) invokeV.objValue;
-        }
-
-        public final String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a;
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    public aia(SVGAVideoEntity sVGAVideoEntity) {
+    public aia() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {sVGAVideoEntity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -78,52 +28,29 @@ public class aia {
                 return;
             }
         }
-        this.b = sVGAVideoEntity;
-        this.a = new nia();
+        this.a = new LinkedHashMap<>();
+        this.b = 100;
     }
 
-    public void a(Canvas canvas, int i, ImageView.ScaleType scaleType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, canvas, i, scaleType) == null) {
-            this.a.f(canvas.getWidth(), canvas.getHeight(), (float) this.b.h().b(), (float) this.b.h().a(), scaleType);
-        }
-    }
-
-    public final nia b() {
+    public LinkedHashMap<Long, StackTraceElement[]> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
-        return (nia) invokeV.objValue;
+        return (LinkedHashMap) invokeV.objValue;
     }
 
-    public final SVGAVideoEntity c() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (SVGAVideoEntity) invokeV.objValue;
-    }
-
-    public final List<a> d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            List<hia> g = this.b.g();
-            ArrayList arrayList = new ArrayList();
-            for (hia hiaVar : g) {
-                a aVar = null;
-                if (i >= 0 && i < hiaVar.a().size() && hiaVar.a().get(i).a() > 0.0d) {
-                    aVar = new a(this, hiaVar.b(), hiaVar.a().get(i));
-                }
-                if (aVar != null) {
-                    arrayList.add(aVar);
-                }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            int size = this.a.size();
+            int i = this.b;
+            if (size == i && i > 0) {
+                LinkedHashMap<Long, StackTraceElement[]> linkedHashMap = this.a;
+                linkedHashMap.remove(linkedHashMap.keySet().iterator().next());
             }
-            return arrayList;
+            this.a.put(Long.valueOf(System.currentTimeMillis()), Looper.getMainLooper().getThread().getStackTrace());
         }
-        return (List) invokeI.objValue;
     }
 }

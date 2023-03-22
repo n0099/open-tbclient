@@ -1,70 +1,68 @@
 package com.baidu.tieba;
 
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.BubbleInfo;
 /* loaded from: classes5.dex */
-public class ps8 implements SensorEventListener {
+public class ps8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
+    public int a;
+    public String b;
+    public String c;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(int i);
-    }
-
-    @Override // android.hardware.SensorEventListener
-    public void onAccuracyChanged(Sensor sensor, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, sensor, i) == null) {
-        }
-    }
-
-    public ps8(a aVar) {
+    public ps8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = aVar;
     }
 
-    @Override // android.hardware.SensorEventListener
-    public void onSensorChanged(SensorEvent sensorEvent) {
-        float[] fArr;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sensorEvent) == null) && sensorEvent != null && (fArr = sensorEvent.values) != null && fArr.length >= 3) {
-            float f = -fArr[0];
-            float f2 = -fArr[1];
-            float f3 = -fArr[2];
-            if ((f * f) + (f2 * f2) >= f3 * f3) {
-                int round = 90 - Math.round(((float) Math.atan2(-f2, f)) * 57.29578f);
-                if (round >= 360) {
-                    round -= 360;
-                }
-                if (round < 0) {
-                    round += 360;
-                }
-                a aVar = this.a;
-                if (aVar != null) {
-                    aVar.a(round);
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return invokeV.intValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void d(BubbleInfo bubbleInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, bubbleInfo) != null) || bubbleInfo == null) {
+            return;
+        }
+        this.a = bubbleInfo.bubble_id.intValue();
+        this.b = bubbleInfo.bubble_text;
+        this.c = bubbleInfo.bubble_pic;
     }
 }

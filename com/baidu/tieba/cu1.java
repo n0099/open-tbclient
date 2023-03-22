@@ -1,10 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
 import androidx.annotation.Nullable;
-import java.util.List;
+import com.baidu.tieba.au1;
 /* loaded from: classes3.dex */
-public interface cu1 {
+public interface cu1<T extends au1> extends zt1<T> {
     @Nullable
-    List<ContentValues> a();
+    rb3 getParams();
 }

@@ -1,168 +1,301 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tbadk.switchs.RepostToDynamicDefaultSwitch;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.FestivalTipData;
+import tbclient.IconUrlInfo;
 /* loaded from: classes6.dex */
-public class vp9 {
+public final class vp9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a d;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final b b;
+    public final String c;
 
-    public static void a(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull zc5 zc5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, tbPageContext, editorTools, zc5Var) == null) {
-            editorTools.d(new ld5(tbPageContext.getPageActivity(), 7));
-            editorTools.setActionListener(16, zc5Var);
-        }
-    }
-
-    public static void c(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull zc5 zc5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, tbPageContext, editorTools, zc5Var) == null) {
-            editorTools.d(new bd5(tbPageContext.getPageActivity(), 10));
-            editorTools.setActionListener(59, zc5Var);
-        }
-    }
-
-    public static void e(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull zc5 zc5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext, editorTools, zc5Var) == null) {
-            editorTools.d(new rd5(tbPageContext.getPageActivity(), 12));
-            editorTools.setActionListener(69, zc5Var);
-        }
-    }
-
-    public static void f(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull zc5 zc5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, tbPageContext, editorTools, zc5Var) == null) {
-            editorTools.d(new wd5(tbPageContext.getPageActivity(), 11));
-            editorTools.setActionListener(61, zc5Var);
-        }
-    }
-
-    public static xd5 g(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull zc5 zc5Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, tbPageContext, editorTools, zc5Var)) == null) {
-            xd5 xd5Var = new xd5(tbPageContext.getPageActivity(), 4);
-            editorTools.d(xd5Var);
-            editorTools.setActionListener(21, zc5Var);
-            return xd5Var;
-        }
-        return (xd5) invokeLLL.objValue;
-    }
-
-    public static void j(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull zc5 zc5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65545, null, tbPageContext, editorTools, zc5Var) == null) {
-            editorTools.d(new kf5(tbPageContext.getPageActivity(), 2));
-            editorTools.setActionListener(60, zc5Var);
-        }
-    }
-
-    public static void l(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull zc5 zc5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65547, null, tbPageContext, editorTools, zc5Var) == null) {
-            editorTools.d(new mf5(tbPageContext.getPageActivity(), 8));
-            editorTools.setActionListener(22, zc5Var);
-        }
-    }
-
-    public static void b(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull zc5 zc5Var) {
-        CustomResponsedMessage runTask;
-        jd5 jd5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65537, null, tbPageContext, editorTools, zc5Var) == null) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001339, tbPageContext.getPageActivity()), jd5.class)) != null && (jd5Var = (jd5) runTask.getData()) != null) {
-            jd5Var.o = true;
-            jd5Var.l = 9;
-            editorTools.d(jd5Var);
-            editorTools.setActionListener(25, zc5Var);
-        }
-    }
-
-    public static void d(@NonNull EditorTools editorTools, @NonNull zc5 zc5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, editorTools, zc5Var) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(5);
-            editorTools.h(arrayList);
-            jd5 p = editorTools.p(5);
-            if (p != null) {
-                p.l = 5;
-                p.d(true);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948248618, "Lcom/baidu/tieba/vp9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            editorTools.setActionListener(24, zc5Var);
-            editorTools.setActionListener(3, zc5Var);
-        }
-    }
-
-    public static void i(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools) {
-        CustomResponsedMessage runTask;
-        jd5 jd5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65544, null, tbPageContext, editorTools) == null) && (runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001342, tbPageContext.getPageActivity()), jd5.class)) != null && (jd5Var = (jd5) runTask.getData()) != null) {
-            jd5Var.o = true;
-            jd5Var.l = 10;
-            editorTools.d(jd5Var);
-        }
-    }
-
-    public static void h(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull zc5 zc5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65543, null, tbPageContext, editorTools, zc5Var) == null) {
-            editorTools.d(new ud5(tbPageContext.getPageActivity(), 1));
-            editorTools.setActionListener(14, zc5Var);
-            editorTools.setActionListener(12, zc5Var);
-            editorTools.setActionListener(13, zc5Var);
-            editorTools.setActionListener(15, zc5Var);
-            editorTools.setActionListener(48, zc5Var);
-            editorTools.setActionListener(46, zc5Var);
-            editorTools.setActionListener(49, zc5Var);
-            editorTools.setActionListener(47, zc5Var);
-        }
-    }
-
-    public static void k(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull zc5 zc5Var) {
-        jd5 jd5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65546, null, tbPageContext, editorTools, zc5Var) == null) && p79.a()) {
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001448, tbPageContext.getPageActivity()), jd5.class);
-            if (runTask != null && (jd5Var = (jd5) runTask.getData()) != null) {
-                jd5Var.l = 3;
-                editorTools.d(jd5Var);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948248618, "Lcom/baidu/tieba/vp9;");
+                return;
             }
-            editorTools.setActionListener(10, zc5Var);
-            editorTools.setActionListener(11, zc5Var);
+        }
+        d = new a(null);
+    }
+
+    @JvmStatic
+    public static final vp9 a(FestivalTipData festivalTipData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, festivalTipData)) == null) ? d.a(festivalTipData) : (vp9) invokeL.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof vp9) {
+                vp9 vp9Var = (vp9) obj;
+                return Intrinsics.areEqual(this.a, vp9Var.a) && Intrinsics.areEqual(this.b, vp9Var.b) && Intrinsics.areEqual(this.c, vp9Var.c);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? (((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode() : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "FestivalTipViewData(text=" + this.a + ", iconUrl=" + this.b + ", jumpUrl=" + this.c + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @JvmStatic
+        public final vp9 a(FestivalTipData festivalTipData) {
+            InterceptResult invokeL;
+            b bVar;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, festivalTipData)) == null) {
+                Intrinsics.checkNotNullParameter(festivalTipData, "festivalTipData");
+                String str = festivalTipData.text;
+                String str2 = "";
+                if (str == null) {
+                    str = "";
+                }
+                IconUrlInfo iconUrlInfo = festivalTipData.icon_url;
+                if (iconUrlInfo != null) {
+                    String str3 = iconUrlInfo.day;
+                    if (str3 == null) {
+                        str3 = "";
+                    } else {
+                        Intrinsics.checkNotNullExpressionValue(str3, "it.day ?: \"\"");
+                    }
+                    String str4 = iconUrlInfo.night;
+                    if (str4 == null) {
+                        str4 = "";
+                    } else {
+                        Intrinsics.checkNotNullExpressionValue(str4, "it.night ?: \"\"");
+                    }
+                    String str5 = iconUrlInfo.dark;
+                    if (str5 == null) {
+                        str5 = "";
+                    } else {
+                        Intrinsics.checkNotNullExpressionValue(str5, "it.dark ?: \"\"");
+                    }
+                    bVar = new b(str3, str4, str5);
+                } else {
+                    bVar = new b(null, null, null, 7, null);
+                }
+                String str6 = festivalTipData.jump_url;
+                if (str6 != null) {
+                    str2 = str6;
+                }
+                return new vp9(str, bVar, str2);
+            }
+            return (vp9) invokeL.objValue;
         }
     }
 
-    public static am9 m(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, String str, @NonNull zc5 zc5Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65548, null, tbPageContext, editorTools, str, zc5Var)) == null) {
-            am9 am9Var = new am9(tbPageContext.getPageActivity(), str);
-            boolean z = false;
-            am9Var.k(0);
-            if (SwitchManager.getInstance().findType(RepostToDynamicDefaultSwitch.KEY) == 1) {
-                z = true;
+    /* loaded from: classes6.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final String a;
+        public final String b;
+        public final String c;
+
+        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+        public b() {
+            this(null, null, null, 7, null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    Object[] objArr = newInitContext.callArgs;
+                    this((String) objArr[0], (String) objArr[1], (String) objArr[2], ((Integer) objArr[3]).intValue(), (DefaultConstructorMarker) objArr[4]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            am9Var.l(z);
-            editorTools.d(am9Var);
-            editorTools.setActionListener(43, zc5Var);
-            editorTools.setActionListener(55, zc5Var);
-            editorTools.setActionListener(66, zc5Var);
-            return am9Var;
         }
-        return (am9) invokeLLLL.objValue;
+
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+                if (this == obj) {
+                    return true;
+                }
+                if (obj instanceof b) {
+                    b bVar = (b) obj;
+                    return Intrinsics.areEqual(this.a, bVar.a) && Intrinsics.areEqual(this.b, bVar.b) && Intrinsics.areEqual(this.c, bVar.c);
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? (((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode() : invokeV.intValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return "IconUrl(dayUrl=" + this.a + ", nightUrl=" + this.b + ", darkUrl=" + this.c + ')';
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public b(String dayUrl, String nightUrl, String darkUrl) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dayUrl, nightUrl, darkUrl};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            Intrinsics.checkNotNullParameter(dayUrl, "dayUrl");
+            Intrinsics.checkNotNullParameter(nightUrl, "nightUrl");
+            Intrinsics.checkNotNullParameter(darkUrl, "darkUrl");
+            this.a = dayUrl;
+            this.b = nightUrl;
+            this.c = darkUrl;
+        }
+
+        public /* synthetic */ b(String str, String str2, String str3, int i, DefaultConstructorMarker defaultConstructorMarker) {
+            this((i & 1) != 0 ? "" : str, (i & 2) != 0 ? "" : str2, (i & 4) != 0 ? "" : str3);
+        }
+
+        public final String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.c;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.a;
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    public vp9(String text, b iconUrl, String jumpUrl) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {text, iconUrl, jumpUrl};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(text, "text");
+        Intrinsics.checkNotNullParameter(iconUrl, "iconUrl");
+        Intrinsics.checkNotNullParameter(jumpUrl, "jumpUrl");
+        this.a = text;
+        this.b = iconUrl;
+        this.c = jumpUrl;
+    }
+
+    public final b b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (b) invokeV.objValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -1,20 +1,17 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.MapStatus;
+import android.util.SparseArray;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class de4 extends yd4<yv2> {
+public class de4 {
     public static /* synthetic */ Interceptable $ic;
+    public static SparseArray<be4> a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,73 +27,89 @@ public class de4 extends yd4<yv2> {
                 return;
             }
         }
-        boolean z = wp1.a;
+        SparseArray<be4> sparseArray = new SparseArray<>();
+        a = sparseArray;
+        sparseArray.put(5, new be4(5, R.string.obfuscated_res_0x7f0f00fe, R.drawable.obfuscated_res_0x7f0800f6, true));
+        a.put(35, new be4(35, R.string.obfuscated_res_0x7f0f00f1, R.drawable.obfuscated_res_0x7f0800d6, true));
+        a.put(39, new be4(39, R.string.obfuscated_res_0x7f0f00f8, R.drawable.obfuscated_res_0x7f0800f9, true));
+        a.put(4, new be4(4, R.string.obfuscated_res_0x7f0f00ff, R.drawable.obfuscated_res_0x7f0800fc, true));
+        a.put(37, new be4(37, R.string.obfuscated_res_0x7f0f00f3, R.drawable.obfuscated_res_0x7f0800d9, true));
+        a.put(38, new be4(38, R.string.obfuscated_res_0x7f0f00fc, R.drawable.obfuscated_res_0x7f0800d5, true));
+        a.put(42, new be4(42, R.string.obfuscated_res_0x7f0f00f4, R.drawable.obfuscated_res_0x7f0800f9, true));
+        a.put(49, new be4(49, R.string.obfuscated_res_0x7f0f1342, R.drawable.obfuscated_res_0x7f0811ff, true));
+        a.put(50, new be4(50, R.string.obfuscated_res_0x7f0f13c6, R.drawable.obfuscated_res_0x7f0811fe, true));
+        a.put(43, new be4(43, R.string.obfuscated_res_0x7f0f00f2, R.drawable.obfuscated_res_0x7f0800da, true));
+        a.put(9, new be4(9, R.string.obfuscated_res_0x7f0f00fd, R.drawable.obfuscated_res_0x7f0800e6, true));
+        a.put(46, new be4(46, R.string.obfuscated_res_0x7f0f00f5, R.drawable.obfuscated_res_0x7f0800eb, true));
+        a.put(47, new be4(47, R.string.obfuscated_res_0x7f0f00f6, R.drawable.obfuscated_res_0x7f0800ee, true));
     }
 
-    public de4() {
+    public static be4 a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            return be4.k(a.get(i));
         }
+        return (be4) invokeI.objValue;
     }
 
-    public static de4 d() {
-        InterceptResult invokeV;
+    public static List<be4> b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new de4();
-        }
-        return (de4) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.yd4
-    public boolean b(Context context, yv2 yv2Var, vv2 vv2Var, m93 m93Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, yv2Var, vv2Var, m93Var, jSONObject)) == null) {
-            return e(context, yv2Var, vv2Var, m93Var, jSONObject);
-        }
-        return invokeLLLLL.booleanValue;
-    }
-
-    public final boolean e(Context context, yv2 yv2Var, vv2 vv2Var, m93 m93Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, yv2Var, vv2Var, m93Var, jSONObject)) == null) {
-            m62.i("map", "GetRegionAction start");
-            uv1 A = zu2.U().A(yv2Var.c);
-            if (!(A instanceof sv1)) {
-                m62.c("map", "WebViewManager is null");
-                return false;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (i != 0) {
+                if (i != 12) {
+                    if (i != 13) {
+                        switch (i) {
+                            case 16:
+                                arrayList.add(be4.k(a.get(5)));
+                                break;
+                            case 17:
+                            case 18:
+                                arrayList.add(be4.k(a.get(38)));
+                                arrayList.add(be4.k(a.get(4)));
+                                arrayList.add(be4.k(a.get(39)));
+                                arrayList.add(be4.k(a.get(35)));
+                                arrayList.add(be4.k(a.get(5)));
+                                arrayList.add(be4.k(a.get(49)));
+                                break;
+                            case 19:
+                                arrayList.add(be4.l(a.get(38), false));
+                                arrayList.add(be4.l(a.get(4), false));
+                                arrayList.add(be4.k(a.get(39)));
+                                arrayList.add(be4.l(a.get(35), false));
+                                arrayList.add(be4.k(a.get(5)));
+                                arrayList.add(be4.l(a.get(49), false));
+                                break;
+                            case 20:
+                                arrayList.add(be4.k(a.get(38)));
+                                arrayList.add(be4.k(a.get(4)));
+                                arrayList.add(be4.k(a.get(39)));
+                                arrayList.add(be4.k(a.get(35)));
+                                arrayList.add(be4.k(a.get(5)));
+                                arrayList.add(be4.k(a.get(49)));
+                                break;
+                        }
+                    } else {
+                        arrayList.add(be4.k(a.get(43)));
+                    }
+                }
+                arrayList.add(be4.k(a.get(38)));
+                arrayList.add(be4.k(a.get(4)));
+                arrayList.add(be4.k(a.get(39)));
+                arrayList.add(be4.k(a.get(35)));
+                arrayList.add(be4.k(a.get(5)));
+                arrayList.add(be4.k(a.get(49)));
+            } else {
+                arrayList.add(be4.k(a.get(38)));
+                arrayList.add(be4.k(a.get(5)));
+                arrayList.add(be4.k(a.get(4)));
+                arrayList.add(be4.k(a.get(35)));
+                arrayList.add(be4.k(a.get(42)));
             }
-            we4 d = vd4.b().c((sv1) A).d(yv2Var.b);
-            if (d == null) {
-                m62.c("map", "can not find map by id " + yv2Var.b);
-                return false;
-            }
-            MapStatus mapStatus = d.l.getMap().getMapStatus();
-            JSONObject jSONObject2 = new JSONObject();
-            JSONObject jSONObject3 = new JSONObject();
-            try {
-                jSONObject3.put("latitude", mapStatus.bound.southwest.latitude);
-                jSONObject3.put("longitude", mapStatus.bound.southwest.longitude);
-                jSONObject2.put("latitude", mapStatus.bound.northeast.latitude);
-                jSONObject2.put("longitude", mapStatus.bound.northeast.longitude);
-                jSONObject.put("southwest", jSONObject3);
-                jSONObject.put("northeast", jSONObject2);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            m62.i("map", "GetRegionAction end");
-            return true;
+            return arrayList;
         }
-        return invokeLLLLL.booleanValue;
+        return (List) invokeI.objValue;
     }
 }

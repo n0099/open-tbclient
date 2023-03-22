@@ -1,47 +1,27 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ActBtn;
 /* loaded from: classes5.dex */
 public class o59 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile n59 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
-    public o59(ActBtn actBtn) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {actBtn};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = 0;
-        if (actBtn == null) {
-            return;
-        }
-        this.a = actBtn.type.intValue();
-        String str = actBtn.url;
-        String str2 = actBtn.text;
-    }
-
-    public int getType() {
+    public static synchronized n59 a() {
         InterceptResult invokeV;
+        n59 n59Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (o59.class) {
+                if (a == null) {
+                    a = new n59();
+                }
+                n59Var = a;
+            }
+            return n59Var;
         }
-        return invokeV.intValue;
+        return (n59) invokeV.objValue;
     }
 }

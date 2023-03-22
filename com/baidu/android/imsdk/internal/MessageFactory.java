@@ -19,7 +19,7 @@ import java.util.Map;
 public class MessageFactory {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "MessageFactory";
-    public static MessageFactory mInstance;
+    public static volatile MessageFactory mInstance;
     public transient /* synthetic */ FieldHolder $fh;
     public Map<Integer, Class<?>> classMap;
 
@@ -61,7 +61,11 @@ public class MessageFactory {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             if (mInstance == null) {
-                mInstance = new MessageFactory();
+                synchronized (MessageFactory.class) {
+                    if (mInstance == null) {
+                        mInstance = new MessageFactory();
+                    }
+                }
             }
             return mInstance;
         }

@@ -1,80 +1,111 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.searchbox.v8engine.net.NetRequest;
-import com.baidu.searchbox.v8engine.net.NetRequestParam;
-import com.baidu.searchbox.v8engine.net.NetRequestResult;
+import android.util.Pair;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class vy1 implements NetRequest.RequestInterceptor {
+public class vy1 extends sy1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public vy1() {
+    @Override // com.baidu.tieba.wv1
+    public String j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "CloseAppApi" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(vy1 vy1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vy1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                c72 V = gt2.U().V();
+                if (V == null) {
+                    t42.c("CloseAppApi", "close fail by getSwanAppFragmentManager() return null");
+                    return;
+                }
+                b72 o = V.o();
+                if (o == null) {
+                    t42.c("CloseAppApi", "close fail by getTopFragment() return null");
+                } else {
+                    o.p2();
+                }
             }
         }
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, IF, IF] complete} */
-    @Override // com.baidu.searchbox.v8engine.net.NetRequest.RequestInterceptor
-    public boolean shouldInterceptRequest(NetRequestResult netRequestResult, NetRequestParam netRequestParam) {
-        InterceptResult invokeLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vy1(@NonNull uv1 uv1Var) {
+        super(uv1Var);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, netRequestResult, netRequestParam)) == null) {
-            if (netRequestParam == null) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {uv1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((uv1) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            String url = netRequestParam.getUrl();
-            if (TextUtils.isEmpty(url)) {
-                if (netRequestResult != null) {
-                    netRequestResult.setStatusCodeAndMsg(1001, "illegal url");
-                }
-                return true;
-            }
-            String str = null;
-            JsObject jsObject = netRequestParam.getJsObject();
-            if (jsObject != null) {
-                try {
-                    int propertyIndex = jsObject.getPropertyIndex("__plugin__");
-                    if (propertyIndex > 0) {
-                        str = jsObject.toString(propertyIndex);
-                    }
-                    int c = da3.c("request", url, str);
-                    if (c != 0) {
-                        m12 Y = az1.Y(c);
-                        netRequestResult.setStatusCodeAndMsg(Y.b, Y.c);
-                        return true;
-                    }
-                } finally {
-                    if (wy1.e() && jsObject != null) {
-                        jsObject.release();
-                    }
-                }
-            }
-            if (wy1.e() && jsObject != null) {
-                jsObject.release();
-            }
-            if (!TextUtils.isEmpty(str)) {
-                netRequestParam.addHeader("X-SWAN-HOSTSIGN", j53.b(k53.h(str)));
-            }
-            netRequestParam.addHeader("Referer", bz1.d());
-            netRequestParam.addHeader("User-Agent", eg4.b().getUserAgent());
-            return false;
         }
-        return invokeLL.booleanValue;
+    }
+
+    public final void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            nl3.e0(new a(this));
+        }
+    }
+
+    public tz1 y(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#hasCloseHandler", false);
+            Pair<tz1, JSONObject> s = s(str);
+            tz1 tz1Var = (tz1) s.first;
+            if (!tz1Var.isSuccess()) {
+                x();
+                return tz1Var;
+            }
+            if (((JSONObject) s.second).optBoolean("hasCloseHandler", false)) {
+                yj4.a().c();
+            } else {
+                x();
+            }
+            return tz1.f();
+        }
+        return (tz1) invokeL.objValue;
     }
 }

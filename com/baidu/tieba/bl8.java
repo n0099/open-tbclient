@@ -1,31 +1,46 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.util.SparseArray;
+import android.util.SparseIntArray;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.adp.widget.ListView.TypeAdapter.ViewHolder;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.CardForumHeadLayout;
-import com.baidu.tieba.pb.videopb.viewholder.VideoPbEnterForumViewHolder;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.pb.pb.main.AbsPbActivity;
+import com.baidu.tieba.pb.pb.main.PbFragment;
+import com.baidu.tieba.pb.videopb.AbsVideoPbFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class bl8 extends qn<ce8, VideoPbEnterForumViewHolder> {
+public abstract class bl8<T, V extends TypeAdapter.ViewHolder> extends tm<T, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public wp8 a;
+    public PbFragment b;
+    public AbsVideoPbFragment c;
+    public int d;
+    public boolean e;
+    public SparseIntArray f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bl8(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public bl8(wp8 wp8Var, BdUniqueId bdUniqueId) {
+        super(r0, bdUniqueId);
+        AbsPbActivity M;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
+            Object[] objArr = {wp8Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,45 +52,67 @@ public class bl8 extends qn<ce8, VideoPbEnterForumViewHolder> {
                 return;
             }
         }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.qn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ce8 ce8Var, VideoPbEnterForumViewHolder videoPbEnterForumViewHolder) {
-        t(i, view2, viewGroup, ce8Var, videoPbEnterForumViewHolder);
-        return view2;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: s */
-    public VideoPbEnterForumViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            FrameLayout frameLayout = new FrameLayout(this.mContext);
-            CardForumHeadLayout cardForumHeadLayout = new CardForumHeadLayout(this.mContext);
-            cardForumHeadLayout.setPadding(ej.g(this.mContext, R.dimen.tbds32), 0, 0, 0);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, ej.g(this.mContext, R.dimen.tbds156));
-            layoutParams.leftMargin = ej.g(this.mContext, R.dimen.tbds44);
-            layoutParams.rightMargin = ej.g(this.mContext, R.dimen.tbds44);
-            layoutParams.bottomMargin = ej.g(this.mContext, R.dimen.tbds76);
-            frameLayout.addView(cardForumHeadLayout, layoutParams);
-            return new VideoPbEnterForumViewHolder(frameLayout);
+        if (wp8Var == null) {
+            M = null;
+        } else {
+            M = wp8Var.M();
         }
-        return (VideoPbEnterForumViewHolder) invokeL.objValue;
+        this.d = 3;
+        this.e = false;
+        new SparseArray();
+        this.f = new SparseIntArray();
+        t(wp8Var);
     }
 
-    public View t(int i, View view2, ViewGroup viewGroup, ce8 ce8Var, VideoPbEnterForumViewHolder videoPbEnterForumViewHolder) {
+    @Override // com.baidu.tieba.tm
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, T t, V v) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ce8Var, videoPbEnterForumViewHolder})) == null) {
-            if (ce8Var != null) {
-                videoPbEnterForumViewHolder.setData(ce8Var.a);
-            }
-            videoPbEnterForumViewHolder.a();
-            return view2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t, v})) == null) {
+            this.d = TbadkCoreApplication.getInst().getSkinType();
+            in inVar = (in) viewGroup;
+            return null;
         }
         return (View) invokeCommon.objValue;
+    }
+
+    public int s(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            int i2 = this.f.get(i, -1);
+            if (i2 != -1) {
+                return i2;
+            }
+            int dimensionPixelSize = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(i);
+            this.f.put(i, dimensionPixelSize);
+            return dimensionPixelSize;
+        }
+        return invokeI.intValue;
+    }
+
+    public void setFromCDN(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.e = z;
+        }
+    }
+
+    public void t(wp8 wp8Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, wp8Var) == null) && wp8Var != null) {
+            this.a = wp8Var;
+            this.b = wp8Var.w1();
+            AbsVideoPbFragment D = wp8Var.D();
+            this.c = D;
+            PbFragment pbFragment = this.b;
+            if (pbFragment != null) {
+                this.mContext = pbFragment.getActivity();
+            } else if (D != null) {
+                this.mContext = D.getActivity();
+            } else {
+                this.mContext = null;
+            }
+        }
     }
 }

@@ -107,14 +107,14 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i)) == null) {
-            View inflate = this.b.inflate(R.layout.obfuscated_res_0x7f0d0117, (ViewGroup) null);
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0903d0);
+            View inflate = this.b.inflate(R.layout.obfuscated_res_0x7f0d0119, (ViewGroup) null);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0903d8);
             tbImageView.setTag(null);
             tbImageView.setDefaultBgResource(0);
             tbImageView.setDefaultResource(0);
             tbImageView.setGifIconSupport(false);
             tbImageView.setLongIconSupport(false);
-            TbImageView tbImageView2 = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092358);
+            TbImageView tbImageView2 = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0923b2);
             tbImageView2.setTag(null);
             tbImageView2.setDefaultBgResource(0);
             tbImageView2.setDefaultResource(0);
@@ -122,8 +122,8 @@ public class AlbumImagePagerAdapter extends PagerAdapter {
             tbImageView2.setLongIconSupport(false);
             ImageFileInfo b = b(i);
             if (b != null) {
-                tbImageView2.L(b.getFilePath(), 35, false, true);
-                tbImageView.K(b.getFilePath(), 36, false);
+                tbImageView2.N(b.getFilePath(), 35, false, true);
+                tbImageView.M(b.getFilePath(), 36, false);
                 this.d.put(Integer.valueOf(i), Boolean.TRUE);
             }
             viewGroup.addView(inflate, 0);

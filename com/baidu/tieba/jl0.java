@@ -1,20 +1,45 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.rl0;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
-public class jl0 {
+public class jl0 implements pl0, Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
+    public final ConcurrentLinkedQueue<rl0.b<?>> a;
+    public final AtomicBoolean b;
+
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final jl0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-686350210, "Lcom/baidu/tieba/jl0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-686350210, "Lcom/baidu/tieba/jl0$a;");
+                    return;
+                }
+            }
+            a = new jl0();
+        }
+    }
 
     public jl0() {
         Interceptable interceptable = $ic;
@@ -29,39 +54,49 @@ public class jl0 {
                 return;
             }
         }
-        this.a = "";
-        this.b = "";
-        this.c = "";
+        this.a = new ConcurrentLinkedQueue<>();
+        this.b = new AtomicBoolean(false);
     }
 
-    @NonNull
-    public static jl0 a(String str) {
-        InterceptResult invokeL;
+    public static pl0 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            jl0 jl0Var = new jl0();
-            JSONObject c = f21.c(str);
-            jl0Var.a = c.optString("ext1");
-            jl0Var.b = c.optString("ext2");
-            jl0Var.c = c.optString("ext3");
-            return jl0Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.a;
         }
-        return (jl0) invokeL.objValue;
+        return (pl0) invokeV.objValue;
     }
 
-    public static String b(@NonNull jl0 jl0Var) {
-        InterceptResult invokeL;
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jl0Var)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("ext1", jl0Var.a);
-                jSONObject.put("ext2", jl0Var.b);
-                jSONObject.put("ext3", jl0Var.c);
-            } catch (JSONException unused) {
+        if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
+            return;
+        }
+        while (true) {
+            rl0.b<?> poll = this.a.poll();
+            if (poll != null) {
+                poll.a.onEvent(poll.b);
+            } else {
+                this.b.set(false);
+                return;
             }
-            return jSONObject.toString();
         }
-        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.pl0
+    public <T extends nl0> void a(sl0 sl0Var, ql0<T> ql0Var, T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, sl0Var, ql0Var, t) == null) {
+            if (wi0.a()) {
+                this.a.offer(new rl0.b<>(sl0Var, ql0Var, t));
+                if (this.b.compareAndSet(false, true)) {
+                    l21.c(this, "BackgroundDeliver", 3);
+                    return;
+                }
+                return;
+            }
+            ql0Var.onEvent(t);
+        }
     }
 }

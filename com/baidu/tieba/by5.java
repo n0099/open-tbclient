@@ -1,30 +1,33 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.view.ViewGroup;
+import android.webkit.JsPromptResult;
+import android.webkit.JsResult;
+import android.webkit.WebChromeClient;
+import android.webkit.WebStorage;
+import android.webkit.WebView;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tieba.ad.browser.newstyle.AdWebViewActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 /* loaded from: classes3.dex */
-public class by5 {
+public class by5 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile by5 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<Integer> a;
-    public yx5 b;
-    public ay5 c;
-    public List<StatisticItem> d;
+    public AdWebViewActivity a;
+    public qc9 b;
 
-    public by5() {
+    public by5(AdWebViewActivity adWebViewActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {adWebViewActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,138 +37,91 @@ public class by5 {
                 return;
             }
         }
-        ArrayList<Integer> arrayList = new ArrayList<>();
-        this.a = arrayList;
-        arrayList.add(1);
-        this.a.add(2);
-        ay5 ay5Var = new ay5();
-        this.c = ay5Var;
-        this.b = new yx5(ay5Var, this.a);
-        g(b55.m().n("key_abtest_channel", 0));
+        this.a = adWebViewActivity;
     }
 
-    public static by5 c() {
+    public void a(qc9 qc9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, qc9Var) == null) {
+            this.b = qc9Var;
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public View getVideoLoadingProgressView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (e == null) {
-                synchronized (ay5.class) {
-                    if (e == null) {
-                        e = new by5();
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            FrameLayout frameLayout = new FrameLayout(this.a.getPageContext().getPageActivity());
+            frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+            return frameLayout;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
+            super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
+            quotaUpdater.updateQuota(j2 * 2);
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, webView, str, str2, jsResult)) == null) {
+            AdWebViewActivity adWebViewActivity = this.a;
+            if (adWebViewActivity != null && lg.f(adWebViewActivity.getPageContext())) {
+                return super.onJsAlert(webView, str, str2, jsResult);
             }
-            return e;
+            return true;
         }
-        return (by5) invokeV.objValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public void a(StatisticItem statisticItem) {
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, statisticItem) != null) || statisticItem == null) {
-            return;
-        }
-        if (this.d == null) {
-            this.d = new ArrayList();
-        }
-        this.d.add(statisticItem);
-    }
-
-    public void d(String str) {
-        ay5 ay5Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (dj.isEmpty(str) || (ay5Var = this.c) == null || !ay5Var.g()) {
-                sv9.d(str);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, webView, str, str2, jsResult)) == null) {
+            AdWebViewActivity adWebViewActivity = this.a;
+            if (adWebViewActivity != null && lg.f(adWebViewActivity.getPageContext())) {
+                return super.onJsBeforeUnload(webView, str, str2, jsResult);
             }
+            return true;
         }
+        return invokeLLLL.booleanValue;
     }
 
-    public void e(String str) {
-        ay5 ay5Var;
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            if (dj.isEmpty(str) || (ay5Var = this.c) == null || !ay5Var.g()) {
-                sv9.e(str);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, webView, str, str2, jsResult)) == null) {
+            AdWebViewActivity adWebViewActivity = this.a;
+            if (adWebViewActivity != null && lg.f(adWebViewActivity.getPageContext())) {
+                return super.onJsConfirm(webView, str, str2, jsResult);
             }
+            return true;
         }
+        return invokeLLLL.booleanValue;
     }
 
-    public void f(String str) {
-        yx5 yx5Var;
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
+        AdWebViewActivity adWebViewActivity;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && (yx5Var = this.b) != null) {
-            yx5Var.b(str);
-        }
-    }
-
-    public void g(int i) {
-        ay5 ay5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048581, this, i) == null) && (ay5Var = this.c) != null) {
-            ay5Var.k(i);
-        }
-    }
-
-    public int b(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
-            yx5 yx5Var = this.b;
-            if (yx5Var == null) {
-                return 0;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048582, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            qc9 qc9Var = this.b;
+            if ((qc9Var != null && qc9Var.onJsPrompt(str2, jsPromptResult)) || (adWebViewActivity = this.a) == null || !lg.f(adWebViewActivity.getPageContext())) {
+                return true;
             }
-            return yx5Var.a(str, i);
+            return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
         }
-        return invokeLI.intValue;
-    }
-
-    public void h(String str, String str2) {
-        ay5 ay5Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) && !ListUtils.isEmpty(this.d) && (ay5Var = this.c) != null && ay5Var.g()) {
-            int i = -1;
-            for (StatisticItem statisticItem : this.d) {
-                if (statisticItem != null) {
-                    if (statisticItem.getPosition() == 0) {
-                        i(str, str2, statisticItem);
-                    } else if (i != statisticItem.getPosition()) {
-                        i = statisticItem.getPosition();
-                        i(str, str2, statisticItem);
-                    }
-                }
-            }
-            this.d.clear();
-        }
-    }
-
-    public void i(String str, String str2, StatisticItem statisticItem) {
-        ay5 ay5Var;
-        String str3;
-        String str4;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048583, this, str, str2, statisticItem) == null) && statisticItem != null && (ay5Var = this.c) != null && ay5Var.g()) {
-            HashMap hashMap = new HashMap();
-            List<Object> params = statisticItem.getParams();
-            if (params != null) {
-                int size = params.size();
-                for (int i = 0; i < size; i += 2) {
-                    Object obj = params.get(i);
-                    if (obj == null) {
-                        str3 = "";
-                    } else {
-                        str3 = obj.toString();
-                    }
-                    Object obj2 = params.get(i + 1);
-                    if (obj2 == null) {
-                        str4 = "";
-                    } else {
-                        str4 = obj2.toString();
-                    }
-                    hashMap.put(str3, str4);
-                }
-            }
-            sv9.c(str2 + statisticItem.getKey(), str, "", hashMap);
-        }
+        return invokeLLLLL.booleanValue;
     }
 }

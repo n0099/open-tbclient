@@ -1,44 +1,83 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.app.Activity;
 import android.content.Context;
-import android.os.Build;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
+import android.opengl.EGLContext;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.mario.audio.AudioParams;
+import com.baidu.mario.gldraw2d.params.MirrorType;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.protobuf.CodedInputStream;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
+import java.lang.ref.WeakReference;
+import java.nio.ByteBuffer;
+import java.util.Timer;
+import java.util.TimerTask;
+import kotlin.jvm.internal.ShortCompanionObject;
 /* loaded from: classes6.dex */
 public class wc0 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String A = "wc0";
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public Window c;
-    public View d;
+    public int a;
+    public sc0 b;
+    public int c;
+    public boolean d;
+    public long e;
+    public long f;
+    public long g;
+    public boolean h;
+    public yc0 i;
+    public zc0 j;
+    public fd0 k;
+    public boolean l;
+    public Context m;
+    public int n;
+    public xc0 o;
+    public vc0 p;
+    public dc0 q;
+    public int r;
+    public int s;
+    public byte[] t;
+    public ByteBuffer u;
+    public Timer v;
+    public TimerTask w;
+    public boolean x;
+    public boolean y;
+    public long z;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948265637, "Lcom/baidu/tieba/wc0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948265637, "Lcom/baidu/tieba/wc0;");
+        }
+    }
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public class a implements zc0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
+        public final /* synthetic */ wc0 a;
 
-        public a(wc0 wc0Var, View view2) {
+        public a(wc0 wc0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {wc0Var, view2};
+                Object[] objArr = {wc0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,32 +87,69 @@ public class wc0 {
                     return;
                 }
             }
-            this.a = view2;
+            this.a = wc0Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.zc0
+        public void a(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                View view2 = this.a;
-                view2.setPadding(view2.getPaddingLeft(), this.a.getPaddingTop() + wc0.b(this.a.getContext()), this.a.getPaddingRight(), this.a.getPaddingBottom());
-                this.a.getLayoutParams().height += wc0.b(this.a.getContext());
+            if (interceptable != null && interceptable.invokeJ(1048576, this, j) != null) {
+                return;
+            }
+            this.a.g = j;
+            if (j > this.a.a && this.a.l) {
+                this.a.I();
+            }
+        }
+
+        @Override // com.baidu.tieba.zc0
+        public void onRecorderStart(boolean z) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && this.a.o != null) {
+                this.a.o.onStart();
+                this.a.x = true;
+            }
+        }
+
+        @Override // com.baidu.tieba.zc0
+        public void onRecorderComplete(boolean z, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str) != null) {
+                return;
+            }
+            String str2 = wc0.A;
+            Log.i(str2, "on RecorderComplete record time :" + this.a.g);
+            if (this.a.o != null) {
+                this.a.o.w((int) this.a.g, str);
+            }
+        }
+
+        @Override // com.baidu.tieba.zc0
+        public void onRecorderError(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) {
+                return;
+            }
+            String str = wc0.A;
+            Log.i(str, "onRecorderError:" + i);
+            if (this.a.o != null) {
+                this.a.o.onError(i);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public static final class b {
+    public class b extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Window a;
-        public boolean b;
-        public View c;
+        public final /* synthetic */ wc0 a;
 
-        public b() {
+        public b(wc0 wc0Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wc0Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -83,260 +159,448 @@ public class wc0 {
                     return;
                 }
             }
-            this.b = false;
+            this.a = wc0Var;
         }
 
-        public boolean b() {
-            InterceptResult invokeV;
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new wc0(this.a, this.b, true, this.c).d();
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a.x && !this.a.y) {
+                    Log.i(wc0.A, "cancel audio time");
+                    this.a.H();
+                    this.a.y = false;
+                    return;
+                }
+                wc0 wc0Var = this.a;
+                wc0Var.K(wc0Var.u, 3840, System.nanoTime() - this.a.z);
+                this.a.y = true;
             }
-            return invokeV.booleanValue;
-        }
-
-        /*  JADX ERROR: NullPointerException in pass: MarkMethodsForInline
-            java.lang.NullPointerException: Cannot invoke "jadx.core.dex.instructions.args.InsnArg.isRegister()" because "arg" is null
-            	at jadx.core.dex.instructions.args.RegisterArg.sameRegAndSVar(RegisterArg.java:173)
-            	at jadx.core.dex.instructions.args.InsnArg.isSameVar(InsnArg.java:269)
-            	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:118)
-            	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
-            	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
-            	at jadx.core.dex.visitors.MarkMethodsForInline.visit(MarkMethodsForInline.java:37)
-            */
-        public static /* synthetic */ com.baidu.tieba.wc0.b a(com.baidu.tieba.wc0.b r0, android.app.Activity r1) {
-            /*
-                r0.d(r1)
-                return r0
-            */
-            throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.wc0.b.a(com.baidu.tieba.wc0$b, android.app.Activity):com.baidu.tieba.wc0$b");
-        }
-
-        public b c(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-                this.b = z;
-                return this;
-            }
-            return (b) invokeZ.objValue;
-        }
-
-        public final b d(Activity activity) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity)) == null) {
-                this.a = activity.getWindow();
-                return this;
-            }
-            return (b) invokeL.objValue;
         }
     }
 
-    public wc0(Window window, boolean z, boolean z2, View view2) {
+    /* loaded from: classes6.dex */
+    public static class c implements dc0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public WeakReference<wc0> a;
+
+        public c(wc0 wc0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wc0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new WeakReference<>(wc0Var);
+            String str = wc0.A;
+            Log.i(str, "gameRecorderRef is:" + this.a.get());
+        }
+
+        @Override // com.baidu.tieba.dc0
+        public void a(boolean z, AudioParams audioParams) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeZL(1048576, this, z, audioParams) != null) || this.a.get() == null) {
+                return;
+            }
+            this.a.get().G(z, audioParams);
+            Log.i(wc0.A, "onAudioStart");
+        }
+
+        @Override // com.baidu.tieba.dc0
+        public void onAudioFrameAvailable(ByteBuffer byteBuffer, int i, long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{byteBuffer, Integer.valueOf(i), Long.valueOf(j)}) == null) && this.a.get() != null) {
+                this.a.get().y = false;
+                this.a.get().K(byteBuffer, i, j);
+            }
+        }
+
+        @Override // com.baidu.tieba.dc0
+        public void onAudioStop(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+                Log.i(wc0.A, "onAudioStop");
+                if (this.a.get() != null) {
+                    this.a.get().H();
+                }
+            }
+        }
+    }
+
+    public wc0(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {window, Boolean.valueOf(z), Boolean.valueOf(z2), view2};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = z;
-        this.b = z2;
-        this.c = window;
-        this.d = view2;
+        this.a = 120000;
+        this.c = -1;
+        this.d = false;
+        this.h = false;
+        this.r = 0;
+        this.s = 0;
+        this.t = ByteBuffer.allocate(3840).putShort(ShortCompanionObject.MIN_VALUE).array();
+        this.u = ByteBuffer.allocate(3840).put(this.t);
+        this.v = null;
+        this.w = null;
+        this.x = false;
+        this.y = false;
+        this.z = 0L;
+        this.m = context;
+        this.i = yc0.x();
+        this.p = null;
+        this.j = new a(this);
+        D(new fd0(), this.j);
     }
 
-    /*  JADX ERROR: JadxRuntimeException in pass: InlineMethods
-        jadx.core.utils.exceptions.JadxRuntimeException: Failed to process method for inline: com.baidu.tieba.wc0.b.a(com.baidu.tieba.wc0$b, android.app.Activity):com.baidu.tieba.wc0$b
-        	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:76)
-        	at jadx.core.dex.visitors.InlineMethods.visit(InlineMethods.java:51)
-        Caused by: java.lang.NullPointerException: Cannot invoke "jadx.core.dex.instructions.args.InsnArg.isRegister()" because "arg" is null
-        	at jadx.core.dex.instructions.args.RegisterArg.sameRegAndSVar(RegisterArg.java:173)
-        	at jadx.core.dex.instructions.args.InsnArg.isSameVar(InsnArg.java:269)
-        	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:118)
-        	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
-        	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
-        	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:65)
-        	... 1 more
-        */
-    public static com.baidu.tieba.wc0.b a(android.app.Activity r4) {
-        /*
-            com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.tieba.wc0.$ic
-            if (r0 != 0) goto Ld
-        L4:
-            com.baidu.tieba.wc0$b r0 = new com.baidu.tieba.wc0$b
-            r0.<init>()
-            com.baidu.tieba.wc0.b.a(r0, r4)
-            return r0
-        Ld:
-            r1 = r0
-            r2 = 65537(0x10001, float:9.1837E-41)
-            r3 = 0
-            com.baidu.titan.sdk.runtime.InterceptResult r0 = r1.invokeL(r2, r3, r4)
-            if (r0 == 0) goto L4
-            java.lang.Object r1 = r0.objValue
-            com.baidu.tieba.wc0$b r1 = (com.baidu.tieba.wc0.b) r1
-            return r1
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.wc0.a(android.app.Activity):com.baidu.tieba.wc0$b");
-    }
-
-    public void e(View view2) {
+    public void A(vc0 vc0Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) && view2 != null && this.b && !c()) {
-            view2.post(new a(this, view2));
+        if (interceptable == null || interceptable.invokeL(1048576, this, vc0Var) == null) {
+            this.p = vc0Var;
         }
     }
 
-    public static int b(Context context) {
-        InterceptResult invokeL;
-        int identifier;
+    public void B(fd0 fd0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (c() || (identifier = context.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.g, EMABTest.TYPE_DIMEN, "android")) <= 0) {
-                return 0;
-            }
-            return context.getResources().getDimensionPixelSize(identifier);
-        }
-        return invokeL.intValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (Build.VERSION.SDK_INT < 19) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i = Build.VERSION.SDK_INT;
-            if (!j() && !h()) {
-                return false;
-            }
-            if (i == 19) {
-                g();
-            }
-            e(this.d);
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @TargetApi(19)
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            WindowManager.LayoutParams attributes = this.c.getAttributes();
-            if (this.b) {
-                attributes.flags |= CodedInputStream.DEFAULT_SIZE_LIMIT;
-            } else {
-                attributes.flags &= -67108865;
-            }
-            this.c.setAttributes(attributes);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fd0Var) == null) {
+            this.k = fd0Var;
         }
     }
 
-    public boolean j() {
-        InterceptResult invokeV;
+    public void C(xc0 xc0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (!f(this.a) && !i(this.a)) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xc0Var) == null) {
+            this.o = xc0Var;
         }
-        return invokeV.booleanValue;
     }
 
-    public final boolean f(boolean z) {
-        InterceptResult invokeZ;
+    public void D(fd0 fd0Var, zc0 zc0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            WindowManager.LayoutParams attributes = this.c.getAttributes();
-            try {
-                Class<?> cls = Class.forName("android.view.WindowManager$LayoutParams");
-                int i = cls.getDeclaredField("MEIZU_FLAG_DARK_STATUS_BAR_ICON").getInt(attributes);
-                Field declaredField = cls.getDeclaredField("meizuFlags");
-                declaredField.setAccessible(true);
-                int i2 = declaredField.getInt(attributes);
-                if (z) {
-                    declaredField.set(attributes, Integer.valueOf(i2 | i));
-                } else {
-                    declaredField.set(attributes, Integer.valueOf((~i) & i2));
+        if (interceptable == null || interceptable.invokeLL(1048579, this, fd0Var, zc0Var) == null) {
+            B(fd0Var);
+            this.j = zc0Var;
+        }
+    }
+
+    public final synchronized void H() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            synchronized (this) {
+                if (this.v != null) {
+                    this.v.cancel();
+                    this.v = null;
+                    this.w = null;
                 }
-                return true;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
             }
         }
-        return invokeZ.booleanValue;
     }
 
-    public final boolean i(boolean z) {
-        InterceptResult invokeZ;
-        int i;
+    public final void q() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
-            Class<?> cls = this.c.getClass();
-            try {
-                Class<?> cls2 = Class.forName("android.view.MiuiWindowManager$LayoutParams");
-                int i2 = cls2.getField("EXTRA_FLAG_STATUS_BAR_DARK_MODE").getInt(cls2);
-                Method method = cls.getMethod("setExtraFlags", Integer.TYPE, Integer.TYPE);
-                Window window = this.c;
-                Object[] objArr = new Object[2];
-                if (z) {
-                    i = i2;
-                } else {
-                    i = 0;
-                }
-                objArr[0] = Integer.valueOf(i);
-                objArr[1] = Integer.valueOf(i2);
-                method.invoke(window, objArr);
-                return true;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
-            }
+        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || this.q != null) {
+            return;
         }
-        return invokeZ.booleanValue;
+        this.q = new c(this);
     }
 
-    @TargetApi(21)
-    public final boolean h() {
+    public final void r() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && this.d) {
+            this.e += System.nanoTime() - this.f;
+            this.d = false;
+        }
+    }
+
+    public long s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (Build.VERSION.SDK_INT < 23) {
-                return false;
-            }
-            int systemUiVisibility = this.c.getDecorView().getSystemUiVisibility();
-            if (this.a) {
-                systemUiVisibility |= -2147475456;
-            }
-            if (this.b) {
-                systemUiVisibility |= 1280;
-            }
-            this.c.getDecorView().setSystemUiVisibility(systemUiVisibility);
-            this.c.setStatusBarColor(0);
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.g;
         }
-        return invokeV.booleanValue;
+        return invokeV.longValue;
+    }
+
+    public void w() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            if (!this.d) {
+                this.h = true;
+                v();
+                return;
+            }
+            this.h = false;
+        }
+    }
+
+    public void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+            yc0 yc0Var = this.i;
+            if (yc0Var != null) {
+                yc0Var.G();
+                this.i = null;
+            }
+            if (this.j != null) {
+                this.j = null;
+            }
+        }
+    }
+
+    public void y() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048596, this) == null) && this.d) {
+            this.e += System.nanoTime() - this.f;
+            this.d = false;
+            E(null);
+            xc0 xc0Var = this.o;
+            if (xc0Var != null) {
+                xc0Var.onResume();
+            }
+        }
+    }
+
+    public void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            if (this.d && this.h) {
+                y();
+            }
+            this.h = false;
+        }
+    }
+
+    public final void E(AudioParams audioParams) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, audioParams) == null) {
+            if (this.q == null) {
+                q();
+            }
+            if (audioParams == null) {
+                Log.i(A, "audioParams is null,start to create AudioPams");
+                new AudioParams();
+            }
+            if (this.p != null) {
+                String str = A;
+                Log.i(str, "set audio engie:" + this.p);
+                this.p.a(this.q);
+            }
+        }
+    }
+
+    public void F(boolean z, int i, String str, boolean z2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), str, Boolean.valueOf(z2)}) != null) || this.l) {
+            return;
+        }
+        Log.i(A, "startRecored");
+        this.z = System.nanoTime();
+        this.k.u(str);
+        this.k.s(z);
+        int i2 = i * 1000;
+        this.k.v(i2);
+        this.k.x(this.r);
+        this.k.w(this.s);
+        this.e = 0L;
+        this.g = 0L;
+        if (i > 0 && i < 120) {
+            this.a = i2;
+        } else {
+            this.a = 120000;
+        }
+        E(null);
+    }
+
+    public final void G(boolean z, AudioParams audioParams) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048582, this, z, audioParams) == null) {
+            if (audioParams != null) {
+                this.k.t(audioParams.getSampleRate());
+                this.k.r(audioParams.getFrameSize());
+                this.k.q(audioParams.getChannelConfig());
+            }
+            this.x = false;
+            this.l = true;
+            H();
+            this.v = new Timer();
+            b bVar = new b(this);
+            this.w = bVar;
+            this.v.schedule(bVar, 300L, 20L);
+        }
+    }
+
+    public void I() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            Log.i(A, "stopRecored");
+            r();
+            this.l = false;
+            this.x = false;
+            this.y = false;
+            int i = this.n;
+            if (i != 0) {
+                if (i != 1 && i != 2) {
+                    throw new RuntimeException("unknown status " + this.n);
+                }
+                this.n = 0;
+                yc0 yc0Var = this.i;
+                if (yc0Var != null) {
+                    yc0Var.U();
+                }
+            }
+        }
+    }
+
+    public void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            if (this.d) {
+                Log.i(A, "pauseRecord cmd has executed, please run resumeRecord!");
+            } else if (this.l) {
+                this.d = true;
+                Log.i(A, "pauseRecord");
+                this.f = System.nanoTime();
+                this.e = 0L;
+                yc0 yc0Var = this.i;
+                if (yc0Var != null) {
+                    yc0Var.I();
+                    long y = (this.f - (this.g * 1000000)) - this.i.y();
+                    this.e = y;
+                    if (y < 0) {
+                        this.e = 0L;
+                    }
+                }
+                xc0 xc0Var = this.o;
+                if (xc0Var != null) {
+                    xc0Var.onPause();
+                }
+                H();
+            }
+        }
+    }
+
+    public final void J(int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (this.l && this.k != null) {
+                int i2 = this.n;
+                if (i2 != 0) {
+                    if (i2 != 1) {
+                        if (i2 == 2) {
+                            this.b.k().f(i);
+                            yc0 yc0Var = this.i;
+                            if (yc0Var != null) {
+                                yc0Var.W(this.b);
+                            }
+                            this.n = 1;
+                        } else {
+                            throw new RuntimeException("unknown status " + this.n);
+                        }
+                    }
+                } else {
+                    p();
+                    yc0 yc0Var2 = this.i;
+                    if (yc0Var2 != null) {
+                        yc0Var2.S(this.m, this.k, this.j);
+                    }
+                    this.n = 1;
+                }
+            }
+            yc0 yc0Var3 = this.i;
+            if (yc0Var3 != null && !this.d) {
+                yc0Var3.H(j - this.e);
+            }
+        }
+    }
+
+    public final void K(ByteBuffer byteBuffer, int i, long j) {
+        yc0 yc0Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{byteBuffer, Integer.valueOf(i), Long.valueOf(j)}) == null) && (yc0Var = this.i) != null && this.l && byteBuffer != null && i > 0 && !this.d) {
+            yc0Var.F(byteBuffer, i, j - this.e);
+        }
+    }
+
+    public final void p() {
+        fd0 fd0Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (fd0Var = this.k) != null && this.b != null) {
+            int l = fd0Var.l();
+            int n = this.k.n();
+            if (l >= 1920 || n >= 1920) {
+                l = (int) ((l * 2) / 3.0f);
+                n = (int) ((n * 2) / 3.0f);
+            }
+            if (l % 2 == 1) {
+                l++;
+            }
+            if (n % 2 == 1) {
+                n++;
+            }
+            String str = A;
+            Log.i(str, "Record video width:" + n + " ;video height:" + l);
+            this.k.x(n);
+            this.k.w(l);
+        }
+    }
+
+    public void t(boolean z, EGLContext eGLContext, int i, int i2, Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048591, this, new Object[]{Boolean.valueOf(z), eGLContext, Integer.valueOf(i), Integer.valueOf(i2), context}) != null) || eGLContext == null) {
+            return;
+        }
+        this.m = context;
+        String str = A;
+        Log.i(str, "onContextChanged:" + eGLContext + "; w:" + i + "; h:" + i2 + "; isFlip:" + z);
+        sc0 sc0Var = this.b;
+        if (sc0Var == null) {
+            this.b = new sc0(eGLContext, 0, true);
+        } else {
+            sc0Var.o(eGLContext);
+        }
+        this.b.j().e(i);
+        this.b.j().d(i2);
+        if (z) {
+            this.b.c().j(MirrorType.VERTICALLY);
+        }
+        this.r = i;
+        this.s = i2;
+        this.k.x(i);
+        this.k.w(i2);
+    }
+
+    public void u(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048592, this, i) != null) || this.b == null) {
+            return;
+        }
+        if (this.c != i) {
+            pc0 pc0Var = new pc0();
+            pc0Var.f(i);
+            this.b.r(pc0Var);
+            yc0 yc0Var = this.i;
+            if (yc0Var != null) {
+                yc0Var.s(this.b);
+            }
+            this.c = i;
+        }
+        J(this.c, System.nanoTime());
     }
 }

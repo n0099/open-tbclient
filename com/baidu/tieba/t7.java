@@ -1,518 +1,163 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
-import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.NoSuchElementException;
+import com.google.android.exoplayer2.extractor.ogg.DefaultOggSeeker;
+import com.google.android.material.slider.BasicLabelFormatter;
+import com.huawei.hms.common.internal.TransactionIdCreater;
+import com.huawei.hms.framework.common.ExceptionCode;
+import java.io.IOException;
+import java.util.Arrays;
+import org.aspectj.runtime.reflect.SignatureImpl;
 /* loaded from: classes6.dex */
-public class t7<V> implements Iterable<b<V>> {
+public class t7 implements Appendable, CharSequence {
     public static /* synthetic */ Interceptable $ic;
+    public static final char[] c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int[] b;
-    public V[] c;
-    public V d;
-    public boolean e;
-    public final float f;
-    public int g;
-    public int h;
-    public int i;
-    public transient a j;
-    public transient a k;
+    public char[] a;
+    public int b;
 
-    /* loaded from: classes6.dex */
-    public static class a<V> extends c<V> implements Iterable<b<V>>, Iterator<b<V>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final b<V> f;
-
-        @Override // java.lang.Iterable
-        public Iterator<b<V>> iterator() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (Iterator) invokeV.objValue;
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(t7 t7Var) {
-            super(t7Var);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448316362, "Lcom/baidu/tieba/t7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((t7) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.f = new b<>();
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Iterator
-        /* renamed from: c */
-        public b<V> next() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.a) {
-                    if (this.e) {
-                        t7<V> t7Var = this.b;
-                        int[] iArr = t7Var.b;
-                        int i = this.c;
-                        if (i == -1) {
-                            b<V> bVar = this.f;
-                            bVar.a = 0;
-                            bVar.b = t7Var.d;
-                        } else {
-                            b<V> bVar2 = this.f;
-                            bVar2.a = iArr[i];
-                            bVar2.b = t7Var.c[i];
-                        }
-                        this.d = this.c;
-                        a();
-                        return this.f;
-                    }
-                    throw new GdxRuntimeException("#iterator() cannot be used nested.");
-                }
-                throw new NoSuchElementException();
-            }
-            return (b) invokeV.objValue;
-        }
-
-        @Override // java.util.Iterator
-        public boolean hasNext() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.e) {
-                    return this.a;
-                }
-                throw new GdxRuntimeException("#iterator() cannot be used nested.");
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b<V> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public V b;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a + "=" + this.b;
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class c<V> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public final t7<V> b;
-        public int c;
-        public int d;
-        public boolean e;
-
-        public c(t7<V> t7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = true;
-            this.b = t7Var;
-            b();
-        }
-
-        public void a() {
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int[] iArr = this.b.b;
-                int length = iArr.length;
-                do {
-                    i = this.c + 1;
-                    this.c = i;
-                    if (i >= length) {
-                        this.a = false;
-                        return;
-                    }
-                } while (iArr[i] == 0);
-                this.a = true;
-            }
-        }
-
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.d = -2;
-                this.c = -1;
-                if (this.b.e) {
-                    this.a = true;
-                } else {
-                    a();
-                }
-            }
-        }
-
-        public void remove() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                int i = this.d;
-                if (i == -1) {
-                    t7<V> t7Var = this.b;
-                    if (t7Var.e) {
-                        t7Var.e = false;
-                        t7Var.d = null;
-                        this.d = -2;
-                        t7<V> t7Var2 = this.b;
-                        t7Var2.a--;
-                        return;
-                    }
-                }
-                if (i >= 0) {
-                    t7<V> t7Var3 = this.b;
-                    int[] iArr = t7Var3.b;
-                    V[] vArr = t7Var3.c;
-                    int i2 = t7Var3.i;
-                    int i3 = i + 1;
-                    while (true) {
-                        int i4 = i3 & i2;
-                        int i5 = iArr[i4];
-                        if (i5 == 0) {
-                            break;
-                        }
-                        int d = this.b.d(i5);
-                        if (((i4 - d) & i2) > ((i - d) & i2)) {
-                            iArr[i] = i5;
-                            vArr[i] = vArr[i4];
-                            i = i4;
-                        }
-                        i3 = i4 + 1;
-                    }
-                    iArr[i] = 0;
-                    vArr[i] = null;
-                    if (i != this.d) {
-                        this.c--;
-                    }
-                    this.d = -2;
-                    t7<V> t7Var22 = this.b;
-                    t7Var22.a--;
-                    return;
-                }
-                throw new IllegalStateException("next must be called before remove.");
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public t7() {
-        this(51, 0.8f);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this(((Integer) objArr[0]).intValue(), ((Float) objArr[1]).floatValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448316362, "Lcom/baidu/tieba/t7;");
                 return;
             }
         }
+        c = new char[]{TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9'};
+    }
+
+    public final void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048627, this) == null) {
+            int i = this.b + 4;
+            if (i > this.a.length) {
+                x(i);
+            }
+            char[] cArr = this.a;
+            int i2 = this.b;
+            int i3 = i2 + 1;
+            this.b = i3;
+            cArr[i2] = 'n';
+            int i4 = i3 + 1;
+            this.b = i4;
+            cArr[i3] = 'u';
+            int i5 = i4 + 1;
+            this.b = i5;
+            cArr[i4] = 'l';
+            this.b = i5 + 1;
+            cArr[i5] = 'l';
+        }
+    }
+
+    public t7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new char[16];
     }
 
     public int hashCode() {
         InterceptResult invokeV;
-        V v;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            int i = this.a;
-            if (this.e && (v = this.d) != null) {
-                i += v.hashCode();
-            }
-            int[] iArr = this.b;
-            V[] vArr = this.c;
-            int length = iArr.length;
-            for (int i2 = 0; i2 < length; i2++) {
-                int i3 = iArr[i2];
-                if (i3 != 0) {
-                    i += i3 * 31;
-                    V v2 = vArr[i2];
-                    if (v2 != null) {
-                        i += v2.hashCode();
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            int i = this.b + 31;
+            for (int i2 = 0; i2 < this.b; i2++) {
+                i = (i * 31) + this.a[i2];
             }
             return i;
         }
         return invokeV.intValue;
     }
 
-    public t7(int i, float f) {
+    @Override // java.lang.CharSequence
+    public int length() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // java.lang.CharSequence
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
+            if (this.b == 0) {
+                return "";
+            }
+            return new String(this.a, 0, this.b);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public t7(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Float.valueOf(f)};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
         }
-        if (f > 0.0f && f < 1.0f) {
-            this.f = f;
-            int h = e8.h(i, f);
-            this.g = (int) (h * f);
-            int i4 = h - 1;
-            this.i = i4;
-            this.h = Long.numberOfLeadingZeros(i4);
-            this.b = new int[h];
-            this.c = (V[]) new Object[h];
+        if (i >= 0) {
+            this.a = new char[i];
             return;
         }
-        throw new IllegalArgumentException("loadFactor must be > 0 and < 1: " + f);
+        throw new NegativeArraySizeException();
     }
 
-    public a<V> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (m7.a) {
-                return new a<>(this);
-            }
-            if (this.j == null) {
-                this.j = new a(this);
-                this.k = new a(this);
-            }
-            a aVar = this.j;
-            if (!aVar.e) {
-                aVar.b();
-                a<V> aVar2 = this.j;
-                aVar2.e = true;
-                this.k.e = false;
-                return aVar2;
-            }
-            this.k.b();
-            a<V> aVar3 = this.k;
-            aVar3.e = true;
-            this.j.e = false;
-            return aVar3;
-        }
-        return (a) invokeV.objValue;
-    }
-
-    public V b(int i, V v) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, v)) == null) {
-            if (i == 0) {
-                if (this.e) {
-                    return this.d;
-                }
-                return v;
-            }
-            int c2 = c(i);
-            if (c2 >= 0) {
-                return this.c[c2];
-            }
-            return v;
-        }
-        return (V) invokeIL.objValue;
-    }
-
-    public final void f(int i, V v) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048582, this, i, v) == null) {
-            int[] iArr = this.b;
-            int d = d(i);
-            while (iArr[d] != 0) {
-                d = (d + 1) & this.i;
-            }
-            iArr[d] = i;
-            this.c[d] = v;
-        }
-    }
-
-    public final int c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            int[] iArr = this.b;
-            int d = d(i);
-            while (true) {
-                int i2 = iArr[d];
-                if (i2 == 0) {
-                    return -(d + 1);
-                }
-                if (i2 == i) {
-                    return d;
-                }
-                d = (d + 1) & this.i;
-            }
-        } else {
-            return invokeI.intValue;
-        }
-    }
-
-    public int d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            return (int) ((i * (-7046029254386353131L)) >>> this.h);
-        }
-        return invokeI.intValue;
-    }
-
-    public V get(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            if (i == 0) {
-                if (!this.e) {
-                    return null;
-                }
-                return this.d;
-            }
-            int c2 = c(i);
-            if (c2 < 0) {
-                return null;
-            }
-            return this.c[c2];
-        }
-        return (V) invokeI.objValue;
-    }
-
-    public V e(int i, V v) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, v)) == null) {
-            if (i == 0) {
-                V v2 = this.d;
-                this.d = v;
-                if (!this.e) {
-                    this.e = true;
-                    this.a++;
-                }
-                return v2;
-            }
-            int c2 = c(i);
-            if (c2 >= 0) {
-                V[] vArr = this.c;
-                V v3 = vArr[c2];
-                vArr[c2] = v;
-                return v3;
-            }
-            int i2 = -(c2 + 1);
-            int[] iArr = this.b;
-            iArr[i2] = i;
-            this.c[i2] = v;
-            int i3 = this.a + 1;
-            this.a = i3;
-            if (i3 >= this.g) {
-                g(iArr.length << 1);
-                return null;
-            }
-            return null;
-        }
-        return (V) invokeIL.objValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r9v1, resolved type: com.baidu.tieba.t7 */
-    /* JADX WARN: Multi-variable type inference failed */
     public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (obj == this) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, obj)) == null) {
+            if (this == obj) {
                 return true;
             }
-            if (!(obj instanceof t7)) {
+            if (obj == null || t7.class != obj.getClass()) {
                 return false;
             }
             t7 t7Var = (t7) obj;
-            if (t7Var.a != this.a) {
+            int i = this.b;
+            if (i != t7Var.b) {
                 return false;
             }
-            boolean z = t7Var.e;
-            boolean z2 = this.e;
-            if (z != z2) {
-                return false;
-            }
-            if (z2) {
-                V v = t7Var.d;
-                if (v == null) {
-                    if (this.d != null) {
-                        return false;
-                    }
-                } else if (!v.equals(this.d)) {
+            char[] cArr = this.a;
+            char[] cArr2 = t7Var.a;
+            for (int i2 = 0; i2 < i; i2++) {
+                if (cArr[i2] != cArr2[i2]) {
                     return false;
-                }
-            }
-            int[] iArr = this.b;
-            V[] vArr = this.c;
-            int length = iArr.length;
-            for (int i = 0; i < length; i++) {
-                int i2 = iArr[i];
-                if (i2 != 0) {
-                    V v2 = vArr[i];
-                    if (v2 == null) {
-                        if (t7Var.b(i2, d8.n) != null) {
-                            return false;
-                        }
-                    } else if (!v2.equals(t7Var.get(i2))) {
-                        return false;
-                    }
                 }
             }
             return true;
@@ -520,102 +165,853 @@ public class t7<V> implements Iterable<b<V>> {
         return invokeL.booleanValue;
     }
 
-    public final void g(int i) {
+    public t7(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            int length = this.b.length;
-            this.g = (int) (i * this.f);
-            int i2 = i - 1;
-            this.i = i2;
-            this.h = Long.numberOfLeadingZeros(i2);
-            int[] iArr = this.b;
-            V[] vArr = this.c;
-            this.b = new int[i];
-            this.c = (V[]) new Object[i];
-            if (this.a > 0) {
-                for (int i3 = 0; i3 < length; i3++) {
-                    int i4 = iArr[i3];
-                    if (i4 != 0) {
-                        f(i4, vArr[i3]);
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
             }
         }
+        int length = str.length();
+        this.b = length;
+        char[] cArr = new char[length + 16];
+        this.a = cArr;
+        str.getChars(0, length, cArr, 0);
     }
 
-    @Override // java.lang.Iterable
-    public Iterator<b<V>> iterator() {
-        InterceptResult invokeV;
+    public static int E(int i, int i2) {
+        InterceptResult invokeII;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return a();
-        }
-        return (Iterator) invokeV.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:20:0x0047  */
-    /* JADX WARN: Removed duplicated region for block: B:24:0x005d  */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:17:0x0042 -> B:18:0x0043). Please submit an issue!!! */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public String toString() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            if (this.a == 0) {
-                return "[]";
-            }
-            StringBuilder sb = new StringBuilder(32);
-            sb.append('[');
-            int[] iArr = this.b;
-            V[] vArr = this.c;
-            int length = iArr.length;
-            if (this.e) {
-                sb.append("0=");
-                sb.append(this.d);
-                i = length - 1;
-                if (length > 0) {
-                    int i2 = iArr[i];
-                    if (i2 != 0) {
-                        sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                        sb.append(i2);
-                        sb.append('=');
-                        sb.append(vArr[i]);
-                    }
-                    length = i;
-                    i = length - 1;
-                    if (length > 0) {
-                    }
-                } else {
-                    sb.append(']');
-                    return sb.toString();
-                }
+        if (interceptable == null || (invokeII = interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2)) == null) {
+            if (i < 0) {
+                i3 = 2;
             } else {
-                while (true) {
-                    i = length - 1;
-                    if (length > 0) {
-                        int i3 = iArr[i];
-                        if (i3 == 0) {
-                            length = i;
-                        } else {
-                            sb.append(i3);
-                            sb.append('=');
-                            sb.append(vArr[i]);
-                            break;
-                        }
-                    } else {
-                        break;
-                    }
-                }
-                length = i;
-                i = length - 1;
-                if (length > 0) {
+                i3 = 1;
+            }
+            while (true) {
+                i /= i2;
+                if (i != 0) {
+                    i3++;
+                } else {
+                    return i3;
                 }
             }
         } else {
-            return (String) invokeV.objValue;
+            return invokeII.intValue;
+        }
+    }
+
+    public final void B(int i, char[] cArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, cArr) == null) {
+            if (i >= 0 && i <= this.b) {
+                if (cArr.length != 0) {
+                    D(cArr.length, i);
+                    System.arraycopy(cArr, 0, cArr, i, cArr.length);
+                    this.b += cArr.length;
+                    return;
+                }
+                return;
+            }
+            throw new StringIndexOutOfBoundsException(i);
+        }
+    }
+
+    public String J(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048583, this, i, i2)) == null) {
+            if (i >= 0 && i <= i2 && i2 <= this.b) {
+                if (i == i2) {
+                    return "";
+                }
+                return new String(this.a, i, i2 - i);
+            }
+            throw new StringIndexOutOfBoundsException();
+        }
+        return (String) invokeII.objValue;
+    }
+
+    public t7 delete(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048592, this, i, i2)) == null) {
+            w(i, i2);
+            return this;
+        }
+        return (t7) invokeII.objValue;
+    }
+
+    public t7 e(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048593, this, i, i2)) == null) {
+            f(i, i2, TransactionIdCreater.FILL_BYTE);
+            return this;
+        }
+        return (t7) invokeII.objValue;
+    }
+
+    public t7 h(long j, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048597, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) {
+            i(j, i, TransactionIdCreater.FILL_BYTE);
+            return this;
+        }
+        return (t7) invokeCommon.objValue;
+    }
+
+    public t7 insert(int i, char c2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{Integer.valueOf(i), Character.valueOf(c2)})) == null) {
+            y(i, c2);
+            return this;
+        }
+        return (t7) invokeCommon.objValue;
+    }
+
+    @Override // java.lang.CharSequence
+    public CharSequence subSequence(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048623, this, i, i2)) == null) {
+            return J(i, i2);
+        }
+        return (CharSequence) invokeII.objValue;
+    }
+
+    public final void w(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048628, this, i, i2) == null) {
+            if (i >= 0) {
+                int i3 = this.b;
+                if (i2 > i3) {
+                    i2 = i3;
+                }
+                if (i2 == i) {
+                    return;
+                }
+                if (i2 > i) {
+                    int i4 = this.b - i2;
+                    if (i4 >= 0) {
+                        char[] cArr = this.a;
+                        System.arraycopy(cArr, i2, cArr, i, i4);
+                    }
+                    this.b -= i2 - i;
+                    return;
+                }
+            }
+            throw new StringIndexOutOfBoundsException();
+        }
+    }
+
+    public static int F(long j, int i) {
+        InterceptResult invokeCommon;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) {
+            if (j < 0) {
+                i2 = 2;
+            } else {
+                i2 = 1;
+            }
+            while (true) {
+                j /= i;
+                if (j != 0) {
+                    i2++;
+                } else {
+                    return i2;
+                }
+            }
+        } else {
+            return invokeCommon.intValue;
+        }
+    }
+
+    public final void A(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+            if (i >= 0 && i <= this.b) {
+                if (str == null) {
+                    str = StringUtil.NULL_STRING;
+                }
+                int length = str.length();
+                if (length != 0) {
+                    D(length, i);
+                    str.getChars(0, length, this.a, i);
+                    this.b += length;
+                    return;
+                }
+                return;
+            }
+            throw new StringIndexOutOfBoundsException(i);
+        }
+    }
+
+    public final void D(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            char[] cArr = this.a;
+            int length = cArr.length;
+            int i3 = this.b;
+            if (length - i3 >= i) {
+                System.arraycopy(cArr, i2, cArr, i + i2, i3 - i2);
+                return;
+            }
+            int i4 = i3 + i;
+            int length2 = (cArr.length << 1) + 2;
+            if (i4 <= length2) {
+                i4 = length2;
+            }
+            char[] cArr2 = new char[i4];
+            System.arraycopy(this.a, 0, cArr2, 0, i2);
+            System.arraycopy(this.a, i2, cArr2, i + i2, this.b - i2);
+            this.a = cArr2;
+        }
+    }
+
+    public t7 G(char c2, String str) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Character.valueOf(c2), str})) == null) {
+            int length = str.length();
+            int i = 0;
+            while (i != this.b) {
+                if (this.a[i] == c2) {
+                    H(i, i + 1, str);
+                    i += length;
+                } else {
+                    i++;
+                }
+            }
+            return this;
+        }
+        return (t7) invokeCommon.objValue;
+    }
+
+    public final void y(int i, char c2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048630, this, new Object[]{Integer.valueOf(i), Character.valueOf(c2)}) == null) {
+            if (i >= 0 && i <= this.b) {
+                D(1, i);
+                this.a[i] = c2;
+                this.b++;
+                return;
+            }
+            throw new ArrayIndexOutOfBoundsException(i);
+        }
+    }
+
+    public final void C(int i, char[] cArr, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), cArr, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            if (i >= 0 && i <= i3) {
+                if (i2 >= 0 && i3 >= 0 && i3 <= cArr.length - i2) {
+                    if (i3 != 0) {
+                        D(i3, i);
+                        System.arraycopy(cArr, i2, this.a, i, i3);
+                        this.b += i3;
+                        return;
+                    }
+                    return;
+                }
+                throw new StringIndexOutOfBoundsException("offset " + i2 + ", length " + i3 + ", char[].length " + cArr.length);
+            }
+            throw new StringIndexOutOfBoundsException(i);
+        }
+    }
+
+    public final void H(int i, int i2, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, str) == null) {
+            if (i >= 0) {
+                int i3 = this.b;
+                if (i2 > i3) {
+                    i2 = i3;
+                }
+                if (i2 > i) {
+                    int length = str.length();
+                    int i4 = (i2 - i) - length;
+                    if (i4 > 0) {
+                        char[] cArr = this.a;
+                        System.arraycopy(cArr, i2, cArr, i + length, this.b - i2);
+                    } else if (i4 < 0) {
+                        D(-i4, i2);
+                    }
+                    str.getChars(0, length, this.a, i);
+                    this.b -= i4;
+                    return;
+                } else if (i == i2) {
+                    if (str != null) {
+                        A(i, str);
+                        return;
+                    }
+                    throw null;
+                }
+            }
+            throw new StringIndexOutOfBoundsException();
+        }
+    }
+
+    public final void u(char[] cArr, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048626, this, cArr, i, i2) == null) {
+            if (i <= cArr.length && i >= 0) {
+                if (i2 >= 0 && cArr.length - i >= i2) {
+                    int i3 = this.b + i2;
+                    if (i3 > this.a.length) {
+                        x(i3);
+                    }
+                    System.arraycopy(cArr, i, this.a, this.b, i2);
+                    this.b = i3;
+                    return;
+                }
+                throw new ArrayIndexOutOfBoundsException("Length out of bounds: " + i2);
+            }
+            throw new ArrayIndexOutOfBoundsException("Offset out of bounds: " + i);
+        }
+    }
+
+    public void I(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            if (i >= 0) {
+                char[] cArr = this.a;
+                if (i > cArr.length) {
+                    x(i);
+                } else {
+                    int i2 = this.b;
+                    if (i2 < i) {
+                        Arrays.fill(cArr, i2, i, (char) 0);
+                    }
+                }
+                this.b = i;
+                return;
+            }
+            throw new StringIndexOutOfBoundsException(i);
+        }
+    }
+
+    public t7 a(char c2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Character.valueOf(c2)})) == null) {
+            q(c2);
+            return this;
+        }
+        return (t7) invokeCommon.objValue;
+    }
+
+    @Override // java.lang.Appendable
+    public /* bridge */ /* synthetic */ Appendable append(char c2) throws IOException {
+        a(c2);
+        return this;
+    }
+
+    public t7 b(double d) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048588, this, new Object[]{Double.valueOf(d)})) == null) {
+            s(Double.toString(d));
+            return this;
+        }
+        return (t7) invokeCommon.objValue;
+    }
+
+    public t7 c(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048589, this, f)) == null) {
+            s(Float.toString(f));
+            return this;
+        }
+        return (t7) invokeF.objValue;
+    }
+
+    @Override // java.lang.CharSequence
+    public char charAt(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
+            if (i >= 0 && i < this.b) {
+                return this.a[i];
+            }
+            throw new StringIndexOutOfBoundsException(i);
+        }
+        return invokeI.charValue;
+    }
+
+    public t7 d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
+            e(i, 0);
+            return this;
+        }
+        return (t7) invokeI.objValue;
+    }
+
+    public t7 g(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048596, this, j)) == null) {
+            h(j, 0);
+            return this;
+        }
+        return (t7) invokeJ.objValue;
+    }
+
+    public t7 j(t7 t7Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, t7Var)) == null) {
+            if (t7Var == null) {
+                v();
+            } else {
+                u(t7Var.a, 0, t7Var.b);
+            }
+            return this;
+        }
+        return (t7) invokeL.objValue;
+    }
+
+    public t7 k(CharSequence charSequence) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048613, this, charSequence)) == null) {
+            if (charSequence == null) {
+                v();
+            } else if (charSequence instanceof t7) {
+                t7 t7Var = (t7) charSequence;
+                u(t7Var.a, 0, t7Var.b);
+            } else {
+                s(charSequence.toString());
+            }
+            return this;
+        }
+        return (t7) invokeL.objValue;
+    }
+
+    public t7 m(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048616, this, obj)) == null) {
+            if (obj == null) {
+                v();
+            } else {
+                s(obj.toString());
+            }
+            return this;
+        }
+        return (t7) invokeL.objValue;
+    }
+
+    public t7 n(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048617, this, str)) == null) {
+            s(str);
+            return this;
+        }
+        return (t7) invokeL.objValue;
+    }
+
+    public t7 o(boolean z) {
+        InterceptResult invokeZ;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048618, this, z)) == null) {
+            if (z) {
+                str = "true";
+            } else {
+                str = "false";
+            }
+            s(str);
+            return this;
+        }
+        return (t7) invokeZ.objValue;
+    }
+
+    public t7 p(char[] cArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048619, this, cArr)) == null) {
+            t(cArr);
+            return this;
+        }
+        return (t7) invokeL.objValue;
+    }
+
+    public final void q(char c2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048620, this, new Object[]{Character.valueOf(c2)}) == null) {
+            int i = this.b;
+            if (i == this.a.length) {
+                x(i + 1);
+            }
+            char[] cArr = this.a;
+            int i2 = this.b;
+            this.b = i2 + 1;
+            cArr[i2] = c2;
+        }
+    }
+
+    public final void s(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048622, this, str) == null) {
+            if (str == null) {
+                v();
+                return;
+            }
+            int length = str.length();
+            int i = this.b + length;
+            if (i > this.a.length) {
+                x(i);
+            }
+            str.getChars(0, length, this.a, this.b);
+            this.b = i;
+        }
+    }
+
+    public final void t(char[] cArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048624, this, cArr) == null) {
+            int length = this.b + cArr.length;
+            if (length > this.a.length) {
+                x(length);
+            }
+            System.arraycopy(cArr, 0, this.a, this.b, cArr.length);
+            this.b = length;
+        }
+    }
+
+    public final void x(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048629, this, i) == null) {
+            char[] cArr = this.a;
+            int length = (cArr.length >> 1) + cArr.length + 2;
+            if (i <= length) {
+                i = length;
+            }
+            char[] cArr2 = new char[i];
+            System.arraycopy(this.a, 0, cArr2, 0, this.b);
+            this.a = cArr2;
+        }
+    }
+
+    @Override // java.lang.Appendable
+    public /* bridge */ /* synthetic */ Appendable append(CharSequence charSequence) throws IOException {
+        k(charSequence);
+        return this;
+    }
+
+    @Override // java.lang.Appendable
+    public /* bridge */ /* synthetic */ Appendable append(CharSequence charSequence, int i, int i2) throws IOException {
+        l(charSequence, i, i2);
+        return this;
+    }
+
+    public t7 l(CharSequence charSequence, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048614, this, charSequence, i, i2)) == null) {
+            r(charSequence, i, i2);
+            return this;
+        }
+        return (t7) invokeLII.objValue;
+    }
+
+    public final void r(CharSequence charSequence, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048621, this, charSequence, i, i2) == null) {
+            if (charSequence == null) {
+                charSequence = StringUtil.NULL_STRING;
+            }
+            if (i >= 0 && i2 >= 0 && i <= i2 && i2 <= charSequence.length()) {
+                s(charSequence.subSequence(i, i2).toString());
+                return;
+            }
+            throw new IndexOutOfBoundsException();
+        }
+    }
+
+    public t7 f(int i, int i2, char c2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Character.valueOf(c2)})) == null) {
+            if (i == Integer.MIN_VALUE) {
+                s("-2147483648");
+                return this;
+            }
+            if (i < 0) {
+                q(SignatureImpl.SEP);
+                i = -i;
+            }
+            if (i2 > 1) {
+                for (int E = i2 - E(i, 10); E > 0; E--) {
+                    a(c2);
+                }
+            }
+            if (i >= 10000) {
+                if (i >= 1000000000) {
+                    q(c[(int) ((i % 10000000000L) / 1000000000)]);
+                }
+                if (i >= 100000000) {
+                    q(c[(i % 1000000000) / 100000000]);
+                }
+                if (i >= 10000000) {
+                    q(c[(i % 100000000) / ExceptionCode.CRASH_EXCEPTION]);
+                }
+                if (i >= 1000000) {
+                    q(c[(i % ExceptionCode.CRASH_EXCEPTION) / 1000000]);
+                }
+                if (i >= 100000) {
+                    q(c[(i % 1000000) / DefaultOggSeeker.MATCH_BYTE_RANGE]);
+                }
+                q(c[(i % DefaultOggSeeker.MATCH_BYTE_RANGE) / 10000]);
+            }
+            if (i >= 1000) {
+                q(c[(i % 10000) / 1000]);
+            }
+            if (i >= 100) {
+                q(c[(i % 1000) / 100]);
+            }
+            if (i >= 10) {
+                q(c[(i % 100) / 10]);
+            }
+            q(c[i % 10]);
+            return this;
+        }
+        return (t7) invokeCommon.objValue;
+    }
+
+    public t7 i(long j, int i, char c2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048599, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Character.valueOf(c2)})) == null) {
+            if (j == Long.MIN_VALUE) {
+                s("-9223372036854775808");
+                return this;
+            }
+            if (j < 0) {
+                q(SignatureImpl.SEP);
+                j = -j;
+            }
+            if (i > 1) {
+                for (int F = i - F(j, 10); F > 0; F--) {
+                    a(c2);
+                }
+            }
+            if (j >= 10000) {
+                if (j >= 1000000000000000000L) {
+                    q(c[(int) ((j % 1.0E19d) / 1.0E18d)]);
+                }
+                if (j >= 100000000000000000L) {
+                    q(c[(int) ((j % 1000000000000000000L) / 100000000000000000L)]);
+                }
+                if (j >= 10000000000000000L) {
+                    q(c[(int) ((j % 100000000000000000L) / 10000000000000000L)]);
+                }
+                if (j >= 1000000000000000L) {
+                    q(c[(int) ((j % 10000000000000000L) / 1000000000000000L)]);
+                }
+                if (j >= 100000000000000L) {
+                    q(c[(int) ((j % 1000000000000000L) / 100000000000000L)]);
+                }
+                if (j >= 10000000000000L) {
+                    q(c[(int) ((j % 100000000000000L) / 10000000000000L)]);
+                }
+                if (j >= BasicLabelFormatter.TRILLION) {
+                    q(c[(int) ((j % 10000000000000L) / BasicLabelFormatter.TRILLION)]);
+                }
+                if (j >= 100000000000L) {
+                    q(c[(int) ((j % BasicLabelFormatter.TRILLION) / 100000000000L)]);
+                }
+                if (j >= 10000000000L) {
+                    q(c[(int) ((j % 100000000000L) / 10000000000L)]);
+                }
+                if (j >= 1000000000) {
+                    q(c[(int) ((j % 10000000000L) / 1000000000)]);
+                }
+                if (j >= 100000000) {
+                    q(c[(int) ((j % 1000000000) / 100000000)]);
+                }
+                if (j >= 10000000) {
+                    q(c[(int) ((j % 100000000) / 10000000)]);
+                }
+                if (j >= 1000000) {
+                    q(c[(int) ((j % 10000000) / 1000000)]);
+                }
+                if (j >= 100000) {
+                    q(c[(int) ((j % 1000000) / 100000)]);
+                }
+                q(c[(int) ((j % 100000) / 10000)]);
+            }
+            if (j >= 1000) {
+                q(c[(int) ((j % 10000) / 1000)]);
+            }
+            if (j >= 100) {
+                q(c[(int) ((j % 1000) / 100)]);
+            }
+            if (j >= 10) {
+                q(c[(int) ((j % 100) / 10)]);
+            }
+            q(c[(int) (j % 10)]);
+            return this;
+        }
+        return (t7) invokeCommon.objValue;
+    }
+
+    public t7 insert(int i, double d) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048601, this, new Object[]{Integer.valueOf(i), Double.valueOf(d)})) == null) {
+            A(i, Double.toString(d));
+            return this;
+        }
+        return (t7) invokeCommon.objValue;
+    }
+
+    public t7 insert(int i, float f) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048602, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) {
+            A(i, Float.toString(f));
+            return this;
+        }
+        return (t7) invokeCommon.objValue;
+    }
+
+    public t7 insert(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048603, this, i, i2)) == null) {
+            A(i, Integer.toString(i2));
+            return this;
+        }
+        return (t7) invokeII.objValue;
+    }
+
+    public t7 insert(int i, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048604, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            A(i, Long.toString(j));
+            return this;
+        }
+        return (t7) invokeCommon.objValue;
+    }
+
+    public t7 insert(int i, CharSequence charSequence) {
+        InterceptResult invokeIL;
+        String charSequence2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048605, this, i, charSequence)) == null) {
+            if (charSequence == null) {
+                charSequence2 = StringUtil.NULL_STRING;
+            } else {
+                charSequence2 = charSequence.toString();
+            }
+            A(i, charSequence2);
+            return this;
+        }
+        return (t7) invokeIL.objValue;
+    }
+
+    public t7 insert(int i, CharSequence charSequence, int i2, int i3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048606, this, new Object[]{Integer.valueOf(i), charSequence, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            z(i, charSequence, i2, i3);
+            return this;
+        }
+        return (t7) invokeCommon.objValue;
+    }
+
+    public t7 insert(int i, Object obj) {
+        InterceptResult invokeIL;
+        String obj2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048607, this, i, obj)) == null) {
+            if (obj == null) {
+                obj2 = StringUtil.NULL_STRING;
+            } else {
+                obj2 = obj.toString();
+            }
+            A(i, obj2);
+            return this;
+        }
+        return (t7) invokeIL.objValue;
+    }
+
+    public t7 insert(int i, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048608, this, i, str)) == null) {
+            A(i, str);
+            return this;
+        }
+        return (t7) invokeIL.objValue;
+    }
+
+    public t7 insert(int i, boolean z) {
+        InterceptResult invokeCommon;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048609, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (z) {
+                str = "true";
+            } else {
+                str = "false";
+            }
+            A(i, str);
+            return this;
+        }
+        return (t7) invokeCommon.objValue;
+    }
+
+    public t7 insert(int i, char[] cArr) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048610, this, i, cArr)) == null) {
+            B(i, cArr);
+            return this;
+        }
+        return (t7) invokeIL.objValue;
+    }
+
+    public t7 insert(int i, char[] cArr, int i2, int i3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048611, this, new Object[]{Integer.valueOf(i), cArr, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            C(i, cArr, i2, i3);
+            return this;
+        }
+        return (t7) invokeCommon.objValue;
+    }
+
+    public final void z(int i, CharSequence charSequence, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048631, this, new Object[]{Integer.valueOf(i), charSequence, Integer.valueOf(i2), Integer.valueOf(i3)}) == null) {
+            if (charSequence == null) {
+                charSequence = StringUtil.NULL_STRING;
+            }
+            if (i >= 0 && i <= this.b && i2 >= 0 && i3 >= 0 && i2 <= i3 && i3 <= charSequence.length()) {
+                A(i, charSequence.subSequence(i2, i3).toString());
+                return;
+            }
+            throw new IndexOutOfBoundsException();
         }
     }
 }

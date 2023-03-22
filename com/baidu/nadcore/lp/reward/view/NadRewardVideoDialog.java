@@ -35,15 +35,15 @@ import com.baidu.nadcore.utils.ExtensionsKt;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aj0;
-import com.baidu.tieba.fj0;
-import com.baidu.tieba.j51;
-import com.baidu.tieba.ko0;
-import com.baidu.tieba.lo0;
-import com.baidu.tieba.oj0;
-import com.baidu.tieba.ro0;
-import com.baidu.tieba.so0;
-import com.baidu.tieba.u21;
+import com.baidu.tieba.an0;
+import com.baidu.tieba.bn0;
+import com.baidu.tieba.ei0;
+import com.baidu.tieba.hn0;
+import com.baidu.tieba.in0;
+import com.baidu.tieba.k11;
+import com.baidu.tieba.qh0;
+import com.baidu.tieba.vh0;
+import com.baidu.tieba.z31;
 import com.baidu.util.Base64Encoder;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.google.android.gms.common.internal.ServiceSpecificExtraArgs;
@@ -72,7 +72,7 @@ public class NadRewardVideoDialog extends DialogFragment {
     public Function1<? super String, Unit> k;
     public Function0<Unit> l;
     public Function0<Unit> m;
-    public so0 n;
+    public in0 n;
     public Handler o = new Handler(Looper.getMainLooper());
     public String p = "";
     public boolean q;
@@ -83,7 +83,7 @@ public class NadRewardVideoDialog extends DialogFragment {
         void a();
     }
 
-    public void C1() {
+    public void E1() {
         HashMap hashMap = this.r;
         if (hashMap != null) {
             hashMap.clear();
@@ -93,16 +93,16 @@ public class NadRewardVideoDialog extends DialogFragment {
     @Override // androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
     public /* synthetic */ void onDestroyView() {
         super.onDestroyView();
-        C1();
+        E1();
     }
 
     /* loaded from: classes2.dex */
-    public static final class b implements lo0 {
+    public static final class b implements bn0 {
         public final /* synthetic */ Context a;
         public final /* synthetic */ Context b;
         public final /* synthetic */ TextView c;
 
-        @Override // com.baidu.tieba.lo0
+        @Override // com.baidu.tieba.bn0
         public void a() {
         }
 
@@ -112,7 +112,7 @@ public class NadRewardVideoDialog extends DialogFragment {
             this.c = textView;
         }
 
-        @Override // com.baidu.tieba.lo0
+        @Override // com.baidu.tieba.bn0
         public void b(Bitmap bitmap) {
             if (bitmap != null) {
                 BitmapDrawable bitmapDrawable = new BitmapDrawable(this.a.getResources(), bitmap);
@@ -126,11 +126,11 @@ public class NadRewardVideoDialog extends DialogFragment {
     }
 
     /* loaded from: classes2.dex */
-    public static final class c implements lo0 {
+    public static final class c implements bn0 {
         public final /* synthetic */ Context a;
         public final /* synthetic */ View b;
 
-        @Override // com.baidu.tieba.lo0
+        @Override // com.baidu.tieba.bn0
         public void a() {
         }
 
@@ -139,7 +139,7 @@ public class NadRewardVideoDialog extends DialogFragment {
             this.b = view2;
         }
 
-        @Override // com.baidu.tieba.lo0
+        @Override // com.baidu.tieba.bn0
         public void b(Bitmap bitmap) {
             if (bitmap != null) {
                 this.b.setBackground(new BitmapDrawable(this.a.getResources(), bitmap));
@@ -154,15 +154,15 @@ public class NadRewardVideoDialog extends DialogFragment {
         public final /* synthetic */ String b;
         public final /* synthetic */ String c;
         public final /* synthetic */ String d;
-        public final /* synthetic */ ro0 e;
+        public final /* synthetic */ hn0 e;
         public final /* synthetic */ boolean f;
         public final /* synthetic */ boolean g;
 
-        public d(String str, String str2, String str3, ro0 ro0Var, boolean z, boolean z2) {
+        public d(String str, String str2, String str3, hn0 hn0Var, boolean z, boolean z2) {
             this.b = str;
             this.c = str2;
             this.d = str3;
-            this.e = ro0Var;
+            this.e = hn0Var;
             this.f = z;
             this.g = z2;
         }
@@ -171,16 +171,16 @@ public class NadRewardVideoDialog extends DialogFragment {
         public final void onClick(View view2) {
             a aVar;
             String str;
-            NadRewardVideoDialog.this.W1(this.b, this.c, this.d);
-            if (!NadRewardVideoDialog.this.T1(this.e.b())) {
-                if (!NadRewardVideoDialog.this.L1(this.e.b())) {
-                    aj0.c(this.e.b(), NadRewardVideoDialog.this.getContext());
+            NadRewardVideoDialog.this.Y1(this.b, this.c, this.d);
+            if (!NadRewardVideoDialog.this.V1(this.e.b())) {
+                if (!NadRewardVideoDialog.this.N1(this.e.b())) {
+                    qh0.c(this.e.b(), NadRewardVideoDialog.this.getContext());
                 } else {
                     Function1 function1 = NadRewardVideoDialog.this.k;
                     if (function1 != null) {
-                        so0 O1 = NadRewardVideoDialog.this.O1();
-                        if (O1 != null) {
-                            str = O1.k();
+                        in0 Q1 = NadRewardVideoDialog.this.Q1();
+                        if (Q1 != null) {
+                            str = Q1.k();
                         } else {
                             str = null;
                         }
@@ -207,7 +207,7 @@ public class NadRewardVideoDialog extends DialogFragment {
             NadRewardVideoDialog nadRewardVideoDialog = NadRewardVideoDialog.this;
             String str = ClogBuilder.LogType.FREE_CLICK.type;
             Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.LogType.FREE_CLICK.type");
-            NadRewardVideoDialog.X1(nadRewardVideoDialog, str, "close", null, 4, null);
+            NadRewardVideoDialog.Z1(nadRewardVideoDialog, str, "close", null, 4, null);
             NadRewardVideoDialog.this.dismiss();
         }
     }
@@ -222,7 +222,7 @@ public class NadRewardVideoDialog extends DialogFragment {
             NadRewardVideoDialog nadRewardVideoDialog = NadRewardVideoDialog.this;
             String str = ClogBuilder.Area.AVATAR.type;
             Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.Area.AVATAR.type");
-            nadRewardVideoDialog.Y1(str);
+            nadRewardVideoDialog.a2(str);
         }
     }
 
@@ -236,7 +236,7 @@ public class NadRewardVideoDialog extends DialogFragment {
             NadRewardVideoDialog nadRewardVideoDialog = NadRewardVideoDialog.this;
             String str = ClogBuilder.Area.NAME.type;
             Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.Area.NAME.type");
-            nadRewardVideoDialog.Y1(str);
+            nadRewardVideoDialog.a2(str);
         }
     }
 
@@ -250,7 +250,7 @@ public class NadRewardVideoDialog extends DialogFragment {
             NadRewardVideoDialog nadRewardVideoDialog = NadRewardVideoDialog.this;
             String str = ClogBuilder.Area.TITTLE.type;
             Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.Area.TITTLE.type");
-            nadRewardVideoDialog.Y1(str);
+            nadRewardVideoDialog.a2(str);
         }
     }
 
@@ -266,9 +266,9 @@ public class NadRewardVideoDialog extends DialogFragment {
         @Override // com.airbnb.lottie.LottieListener
         /* renamed from: a */
         public final void onResult(LottieComposition lottieComposition) {
-            NadRewardVideoDialog.this.M1().setComposition(lottieComposition);
-            NadRewardVideoDialog.this.M1().playAnimation();
-            NadRewardVideoDialog.this.M1().setVisibility(0);
+            NadRewardVideoDialog.this.O1().setComposition(lottieComposition);
+            NadRewardVideoDialog.this.O1().playAnimation();
+            NadRewardVideoDialog.this.O1().setVisibility(0);
         }
     }
 
@@ -284,11 +284,11 @@ public class NadRewardVideoDialog extends DialogFragment {
         @Override // com.airbnb.lottie.LottieListener
         /* renamed from: a */
         public final void onResult(Throwable th) {
-            NadRewardVideoDialog.this.M1().setVisibility(8);
+            NadRewardVideoDialog.this.O1().setVisibility(8);
         }
     }
 
-    public final LottieAnimationView M1() {
+    public final LottieAnimationView O1() {
         LottieAnimationView lottieAnimationView = this.d;
         if (lottieAnimationView == null) {
             Intrinsics.throwUninitializedPropertyAccessException("dialogBgLottie");
@@ -296,7 +296,7 @@ public class NadRewardVideoDialog extends DialogFragment {
         return lottieAnimationView;
     }
 
-    public final View N1() {
+    public final View P1() {
         View view2 = this.f;
         if (view2 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("dialogContent");
@@ -304,11 +304,11 @@ public class NadRewardVideoDialog extends DialogFragment {
         return view2;
     }
 
-    public final so0 O1() {
+    public final in0 Q1() {
         return this.n;
     }
 
-    public final ViewStub P1() {
+    public final ViewStub R1() {
         ViewStub viewStub = this.e;
         if (viewStub == null) {
             Intrinsics.throwUninitializedPropertyAccessException("dialogStub");
@@ -316,11 +316,11 @@ public class NadRewardVideoDialog extends DialogFragment {
         return viewStub;
     }
 
-    public final Handler Q1() {
+    public final Handler S1() {
         return this.o;
     }
 
-    public final AdImageView S1() {
+    public final AdImageView U1() {
         AdImageView adImageView = this.b;
         if (adImageView == null) {
             Intrinsics.throwUninitializedPropertyAccessException("topImg");
@@ -333,7 +333,7 @@ public class NadRewardVideoDialog extends DialogFragment {
         dismissAllowingStateLoss();
     }
 
-    public final void l2() {
+    public final void n2() {
         LottieAnimationView lottieAnimationView = this.d;
         if (lottieAnimationView == null) {
             Intrinsics.throwUninitializedPropertyAccessException("dialogBgLottie");
@@ -354,10 +354,10 @@ public class NadRewardVideoDialog extends DialogFragment {
             function0.invoke();
         }
         this.o.removeCallbacksAndMessages(null);
-        l2();
+        n2();
     }
 
-    public final void a2(TextView textView, FrameLayout frameLayout) {
+    public final void c2(TextView textView, FrameLayout frameLayout) {
         textView.setTypeface(Typeface.defaultFromStyle(1));
         textView.setTextSize(1, 14.0f);
         textView.setGravity(17);
@@ -375,14 +375,14 @@ public class NadRewardVideoDialog extends DialogFragment {
         frameLayout.setVisibility(0);
     }
 
-    public void d2(String rewardDataJson, String ext) {
+    public void f2(String rewardDataJson, String ext) {
         Intrinsics.checkNotNullParameter(rewardDataJson, "rewardDataJson");
         Intrinsics.checkNotNullParameter(ext, "ext");
-        so0 so0Var = new so0(rewardDataJson);
-        this.n = so0Var;
+        in0 in0Var = new in0(rewardDataJson);
+        this.n = in0Var;
         this.p = ext;
-        Intrinsics.checkNotNull(so0Var);
-        this.q = so0Var.A();
+        Intrinsics.checkNotNull(in0Var);
+        this.q = in0Var.A();
     }
 
     @Override // androidx.fragment.app.DialogFragment
@@ -395,70 +395,70 @@ public class NadRewardVideoDialog extends DialogFragment {
         }
         String str2 = ClogBuilder.LogType.FREE_SHOW.type;
         Intrinsics.checkNotNullExpressionValue(str2, "ClogBuilder.LogType.FREE_SHOW.type");
-        X1(this, str2, null, null, 6, null);
+        Z1(this, str2, null, null, 6, null);
     }
 
-    public final boolean L1(String str) {
+    public final boolean N1(String str) {
         boolean z;
         if (str != null && str.length() != 0) {
             z = false;
         } else {
             z = true;
         }
-        if (z || !oj0.o(str)) {
+        if (z || !ei0.o(str)) {
             return false;
         }
-        return Intrinsics.areEqual(new fj0(str).a(), "rewardWebPanel");
+        return Intrinsics.areEqual(new vh0(str).a(), "rewardWebPanel");
     }
 
-    public final void Z1(a listener) {
+    public final void b2(a listener) {
         Intrinsics.checkNotNullParameter(listener, "listener");
         this.j = listener;
     }
 
-    public final void b2(View.OnClickListener listener) {
+    public final void d2(View.OnClickListener listener) {
         Intrinsics.checkNotNullParameter(listener, "listener");
         this.g = listener;
     }
 
-    public final void c2(Function1<? super String, Unit> listener) {
+    public final void e2(Function1<? super String, Unit> listener) {
         Intrinsics.checkNotNullParameter(listener, "listener");
         this.k = listener;
     }
 
-    public final void e2(View view2) {
+    public final void g2(View view2) {
         Intrinsics.checkNotNullParameter(view2, "<set-?>");
         this.f = view2;
     }
 
-    public final void g2(Function0<Unit> listener) {
+    public final void i2(Function0<Unit> listener) {
         Intrinsics.checkNotNullParameter(listener, "listener");
         this.h = listener;
     }
 
-    public final void h2(View.OnClickListener listener) {
+    public final void j2(View.OnClickListener listener) {
         Intrinsics.checkNotNullParameter(listener, "listener");
         this.i = listener;
     }
 
-    public final void i2(Function0<Unit> callback) {
+    public final void k2(Function0<Unit> callback) {
         Intrinsics.checkNotNullParameter(callback, "callback");
         this.m = callback;
     }
 
-    public final void j2(Function0<Unit> callback) {
+    public final void l2(Function0<Unit> callback) {
         Intrinsics.checkNotNullParameter(callback, "callback");
         this.l = callback;
     }
 
-    public final void k2(Context context) {
+    public final void m2(Context context) {
         String str;
         int i2;
         if (context != null) {
-            l2();
-            so0 so0Var = this.n;
-            if (so0Var != null) {
-                str = so0Var.c();
+            n2();
+            in0 in0Var = this.n;
+            if (in0Var != null) {
+                str = in0Var.c();
             } else {
                 str = null;
             }
@@ -477,13 +477,13 @@ public class NadRewardVideoDialog extends DialogFragment {
         super.onCancel(dialog);
         String str = ClogBuilder.LogType.FREE_CLICK.type;
         Intrinsics.checkNotNullExpressionValue(str, "ClogBuilder.LogType.FREE_CLICK.type");
-        X1(this, str, "blank", null, 4, null);
+        Z1(this, str, "blank", null, 4, null);
     }
 
     @Override // androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setStyle(0, R.style.obfuscated_res_0x7f1003ce);
+        setStyle(0, R.style.obfuscated_res_0x7f1003d4);
     }
 
     @Override // androidx.fragment.app.DialogFragment
@@ -507,7 +507,7 @@ public class NadRewardVideoDialog extends DialogFragment {
         return onCreateDialog;
     }
 
-    public static /* synthetic */ TextView K1(NadRewardVideoDialog nadRewardVideoDialog, ro0 ro0Var, String str, String str2, String str3, boolean z, boolean z2, boolean z3, int i2, Object obj) {
+    public static /* synthetic */ TextView M1(NadRewardVideoDialog nadRewardVideoDialog, hn0 hn0Var, String str, String str2, String str3, boolean z, boolean z2, boolean z3, int i2, Object obj) {
         String str4;
         String str5;
         boolean z4;
@@ -542,12 +542,12 @@ public class NadRewardVideoDialog extends DialogFragment {
             if ((i2 & 64) == 0) {
                 z6 = z3;
             }
-            return nadRewardVideoDialog.J1(ro0Var, str4, str5, str6, z4, z5, z6);
+            return nadRewardVideoDialog.L1(hn0Var, str4, str5, str6, z4, z5, z6);
         }
         throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: buildButton");
     }
 
-    public static /* synthetic */ void X1(NadRewardVideoDialog nadRewardVideoDialog, String str, String str2, String str3, int i2, Object obj) {
+    public static /* synthetic */ void Z1(NadRewardVideoDialog nadRewardVideoDialog, String str, String str2, String str3, int i2, Object obj) {
         if (obj == null) {
             if ((i2 & 2) != 0) {
                 str2 = "";
@@ -555,13 +555,13 @@ public class NadRewardVideoDialog extends DialogFragment {
             if ((i2 & 4) != 0) {
                 str3 = "";
             }
-            nadRewardVideoDialog.W1(str, str2, str3);
+            nadRewardVideoDialog.Y1(str, str2, str3);
             return;
         }
         throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: logWelfareDialog");
     }
 
-    public final TextView J1(ro0 buttonData, String type, String area, String btnIndex, boolean z, boolean z2, boolean z3) {
+    public final TextView L1(hn0 buttonData, String type, String area, String btnIndex, boolean z, boolean z2, boolean z3) {
         boolean z4;
         Function0<Unit> function0;
         Intrinsics.checkNotNullParameter(buttonData, "buttonData");
@@ -579,7 +579,7 @@ public class NadRewardVideoDialog extends DialogFragment {
             z4 = true;
         }
         if (!z4) {
-            ko0.a().c(a2, new c(context, textView));
+            an0.a().c(a2, new c(context, textView));
         }
         if (!TextUtils.isEmpty(buttonData.e())) {
             textView.setTextColor(Color.parseColor(buttonData.e()));
@@ -591,7 +591,7 @@ public class NadRewardVideoDialog extends DialogFragment {
                 z5 = false;
             }
             if (!z5) {
-                ko0.a().c(c2, new b(context2, context2, textView));
+                an0.a().c(c2, new b(context2, context2, textView));
             }
         }
         textView.setText(buttonData.d());
@@ -603,14 +603,14 @@ public class NadRewardVideoDialog extends DialogFragment {
         return textView;
     }
 
-    public final String R1() {
+    public final String T1() {
         String q;
-        so0 so0Var;
+        in0 in0Var;
         String w;
         String replace$default;
-        so0 so0Var2 = this.n;
+        in0 in0Var2 = this.n;
         byte[] bArr = null;
-        if (so0Var2 != null && (q = so0Var2.q()) != null && (so0Var = this.n) != null && (w = so0Var.w()) != null && (replace$default = StringsKt__StringsJVMKt.replace$default(w, "__INVOKECOIN__", q, false, 4, (Object) null)) != null) {
+        if (in0Var2 != null && (q = in0Var2.q()) != null && (in0Var = this.n) != null && (w = in0Var.w()) != null && (replace$default = StringsKt__StringsJVMKt.replace$default(w, "__INVOKECOIN__", q, false, 4, (Object) null)) != null) {
             Charset charset = Charsets.UTF_8;
             if (replace$default != null) {
                 byte[] bytes = replace$default.getBytes(charset);
@@ -625,7 +625,7 @@ public class NadRewardVideoDialog extends DialogFragment {
         return new String(B64Encode, Charsets.UTF_8);
     }
 
-    public final boolean T1(String str) {
+    public final boolean V1(String str) {
         if (TextUtils.isEmpty(str)) {
             return true;
         }
@@ -645,9 +645,9 @@ public class NadRewardVideoDialog extends DialogFragment {
                 case 72359676:
                     if (str.equals("__RIGHT__")) {
                         Context context = getContext();
-                        so0 so0Var = this.n;
-                        if (so0Var != null) {
-                            str2 = so0Var.t();
+                        in0 in0Var = this.n;
+                        if (in0Var != null) {
+                            str2 = in0Var.t();
                         }
                         Toast.makeText(context, str2, 0).show();
                         Function0<Unit> function0 = this.l;
@@ -666,9 +666,9 @@ public class NadRewardVideoDialog extends DialogFragment {
                 case 480127565:
                     if (str.equals("__WRONG__")) {
                         Context context2 = getContext();
-                        so0 so0Var2 = this.n;
-                        if (so0Var2 != null) {
-                            str2 = so0Var2.B();
+                        in0 in0Var2 = this.n;
+                        if (in0Var2 != null) {
+                            str2 = in0Var2.B();
                         }
                         Toast.makeText(context2, str2, 0).show();
                         return true;
@@ -689,14 +689,14 @@ public class NadRewardVideoDialog extends DialogFragment {
         return false;
     }
 
-    public final void U1(AdImageView icon) {
+    public final void W1(AdImageView icon) {
         String str;
         boolean z;
         Intrinsics.checkNotNullParameter(icon, "icon");
-        so0 so0Var = this.n;
+        in0 in0Var = this.n;
         String str2 = null;
-        if (so0Var != null) {
-            str = so0Var.h();
+        if (in0Var != null) {
+            str = in0Var.h();
         } else {
             str = null;
         }
@@ -708,25 +708,25 @@ public class NadRewardVideoDialog extends DialogFragment {
         if (z) {
             icon.setImageDrawable(ContextCompat.getDrawable(icon.getContext(), R.drawable.nad_reward_video_lp_close_btn));
         } else {
-            so0 so0Var2 = this.n;
-            if (so0Var2 != null) {
-                str2 = so0Var2.h();
+            in0 in0Var2 = this.n;
+            if (in0Var2 != null) {
+                str2 = in0Var2.h();
             }
-            icon.g(str2);
+            icon.o(str2);
         }
         icon.setOnClickListener(new e());
     }
 
-    public void V1() {
+    public void X1() {
         boolean z;
         boolean z2;
-        so0 so0Var = this.n;
-        if (so0Var != null) {
+        in0 in0Var = this.n;
+        if (in0Var != null) {
             AdImageView adImageView = this.b;
             if (adImageView == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("topImg");
             }
-            String z3 = so0Var.z();
+            String z3 = in0Var.z();
             if (z3 != null && z3.length() != 0) {
                 z = false;
             } else {
@@ -740,13 +740,13 @@ public class NadRewardVideoDialog extends DialogFragment {
                 adImageView = null;
             }
             if (adImageView != null) {
-                adImageView.g(so0Var.z());
+                adImageView.o(in0Var.z());
             }
             AdImageView adImageView3 = this.c;
             if (adImageView3 == null) {
                 Intrinsics.throwUninitializedPropertyAccessException("dialogTopImg");
             }
-            String o = so0Var.o();
+            String o = in0Var.o();
             if (o != null && o.length() != 0) {
                 z2 = false;
             } else {
@@ -759,7 +759,7 @@ public class NadRewardVideoDialog extends DialogFragment {
                 adImageView3.setVisibility(8);
             }
             if (adImageView2 != null) {
-                adImageView2.g(so0Var.o());
+                adImageView2.o(in0Var.o());
             }
             View view2 = this.f;
             if (view2 == null) {
@@ -767,15 +767,15 @@ public class NadRewardVideoDialog extends DialogFragment {
             }
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setOrientation(GradientDrawable.Orientation.TL_BR);
-            gradientDrawable.setCornerRadius(j51.c.a(getContext(), 18.0f));
-            gradientDrawable.setColors(new int[]{so0Var.d(), so0Var.b()});
-            gradientDrawable.setStroke(j51.c.a(getContext(), 2.0f), so0Var.e());
+            gradientDrawable.setCornerRadius(z31.c.a(getContext(), 18.0f));
+            gradientDrawable.setColors(new int[]{in0Var.d(), in0Var.b()});
+            gradientDrawable.setStroke(z31.c.a(getContext(), 2.0f), in0Var.e());
             Unit unit = Unit.INSTANCE;
             view2.setBackground(gradientDrawable);
         }
     }
 
-    public final void W1(String str, String str2, String str3) {
+    public final void Y1(String str, String str2, String str3) {
         boolean z;
         String str4;
         if (this.p.length() == 0) {
@@ -790,61 +790,61 @@ public class NadRewardVideoDialog extends DialogFragment {
             clogBuilder.p(this.p);
             clogBuilder.j(str2);
             clogBuilder.k(str3);
-            so0 so0Var = this.n;
-            if (so0Var != null) {
-                str4 = so0Var.p();
+            in0 in0Var = this.n;
+            if (in0Var != null) {
+                str4 = in0Var.p();
             } else {
                 str4 = null;
             }
             clogBuilder.l(String.valueOf(str4));
-            u21.b(clogBuilder);
+            k11.b(clogBuilder);
         }
     }
 
-    public final void Y1(String str) {
+    public final void a2(String str) {
         String str2;
         String str3;
         View.OnClickListener onClickListener;
         String str4 = ClogBuilder.LogType.CLICK.type;
         Intrinsics.checkNotNullExpressionValue(str4, "ClogBuilder.LogType.CLICK.type");
-        X1(this, str4, str, null, 4, null);
+        Z1(this, str4, str, null, 4, null);
         a aVar = this.j;
         if (aVar != null) {
             aVar.a();
         }
-        so0 so0Var = this.n;
-        if (so0Var != null && so0Var.E()) {
-            so0 so0Var2 = this.n;
-            if (so0Var2 != null && so0Var2.D() && (onClickListener = this.i) != null) {
+        in0 in0Var = this.n;
+        if (in0Var != null && in0Var.E()) {
+            in0 in0Var2 = this.n;
+            if (in0Var2 != null && in0Var2.D() && (onClickListener = this.i) != null) {
                 onClickListener.onClick(getView());
             }
             dismiss();
             return;
         }
-        so0 so0Var3 = this.n;
+        in0 in0Var3 = this.n;
         String str5 = null;
-        if (so0Var3 != null && so0Var3.C()) {
-            so0 so0Var4 = this.n;
-            if (so0Var4 != null) {
-                str2 = so0Var4.k();
+        if (in0Var3 != null && in0Var3.C()) {
+            in0 in0Var4 = this.n;
+            if (in0Var4 != null) {
+                str2 = in0Var4.k();
             } else {
                 str2 = null;
             }
-            if (!L1(str2)) {
-                so0 so0Var5 = this.n;
-                if (so0Var5 != null) {
-                    str3 = so0Var5.k();
+            if (!N1(str2)) {
+                in0 in0Var5 = this.n;
+                if (in0Var5 != null) {
+                    str3 = in0Var5.k();
                 } else {
                     str3 = null;
                 }
-                aj0.c(str3, getContext());
+                qh0.c(str3, getContext());
             }
         }
         Function1<? super String, Unit> function1 = this.k;
         if (function1 != null) {
-            so0 so0Var6 = this.n;
-            if (so0Var6 != null) {
-                str5 = so0Var6.k();
+            in0 in0Var6 = this.n;
+            if (in0Var6 != null) {
+                str5 = in0Var6.k();
             }
             function1.invoke(str5);
         }
@@ -877,7 +877,7 @@ public class NadRewardVideoDialog extends DialogFragment {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void f2() {
+    public void h2() {
         View view2;
         FrameLayout frameLayout;
         FrameLayout frameLayout2;
@@ -890,18 +890,18 @@ public class NadRewardVideoDialog extends DialogFragment {
         TextView textView4;
         TextView textView5;
         TextView textView6;
-        so0 so0Var;
+        in0 in0Var;
         TextView textView7;
         TextView textView8;
-        so0 so0Var2;
+        in0 in0Var2;
         String str;
         int i2;
         boolean z;
         int i3;
-        so0 so0Var3;
+        in0 in0Var3;
         String str2;
         boolean z2;
-        so0 so0Var4;
+        in0 in0Var4;
         String str3;
         boolean z3;
         TextView textView9;
@@ -909,13 +909,13 @@ public class NadRewardVideoDialog extends DialogFragment {
         LinearLayout linearLayout3;
         String str4;
         String str5;
-        ro0 f2;
-        ro0 g2;
-        so0 so0Var5;
-        ro0 g3;
+        hn0 f2;
+        hn0 g2;
+        in0 in0Var5;
+        hn0 g3;
         String b2;
-        ro0 s;
-        ro0 j2;
+        hn0 s;
+        hn0 j2;
         String str6;
         boolean z5;
         ViewStub viewStub = this.e;
@@ -940,14 +940,14 @@ public class NadRewardVideoDialog extends DialogFragment {
         if (view3 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("dialogContent");
         }
-        View findViewById2 = view3.findViewById(R.id.obfuscated_res_0x7f09030e);
+        View findViewById2 = view3.findViewById(R.id.obfuscated_res_0x7f090316);
         Intrinsics.checkNotNullExpressionValue(findViewById2, "dialogContent.findViewById(R.id.avatar)");
         AdImageView adImageView3 = (AdImageView) findViewById2;
         View view4 = this.f;
         if (view4 == null) {
             Intrinsics.throwUninitializedPropertyAccessException("dialogContent");
         }
-        View findViewById3 = view4.findViewById(R.id.obfuscated_res_0x7f0923a4);
+        View findViewById3 = view4.findViewById(R.id.obfuscated_res_0x7f0923fe);
         Intrinsics.checkNotNullExpressionValue(findViewById3, "dialogContent.findViewById(R.id.title)");
         TextView textView10 = (TextView) findViewById3;
         View view5 = this.f;
@@ -991,15 +991,15 @@ public class NadRewardVideoDialog extends DialogFragment {
         }
         View findViewById9 = view10.findViewById(R.id.bottom_divider);
         Intrinsics.checkNotNullExpressionValue(findViewById9, "dialogContent.findViewById(R.id.bottom_divider)");
-        so0 so0Var6 = this.n;
+        in0 in0Var6 = this.n;
         String str7 = null;
-        if (so0Var6 != null && (j2 = so0Var6.j()) != null) {
-            so0 so0Var7 = this.n;
-            Intrinsics.checkNotNull(so0Var7);
-            boolean z6 = !so0Var7.D();
-            so0 so0Var8 = this.n;
-            Intrinsics.checkNotNull(so0Var8);
-            if (so0Var8.D()) {
+        if (in0Var6 != null && (j2 = in0Var6.j()) != null) {
+            in0 in0Var7 = this.n;
+            Intrinsics.checkNotNull(in0Var7);
+            boolean z6 = !in0Var7.D();
+            in0 in0Var8 = this.n;
+            Intrinsics.checkNotNull(in0Var8);
+            if (in0Var8.D()) {
                 str6 = ClogBuilder.LogType.FREE_CLICK.type;
             } else {
                 str6 = ClogBuilder.LogType.CLICK.type;
@@ -1008,19 +1008,19 @@ public class NadRewardVideoDialog extends DialogFragment {
             Intrinsics.checkNotNullExpressionValue(str8, "if (dialogData!!.isDownl…CK.type\n                }");
             String str9 = ClogBuilder.Area.AD_BTN_DETAIL.type;
             Intrinsics.checkNotNullExpressionValue(str9, "ClogBuilder.Area.AD_BTN_DETAIL.type");
-            so0 so0Var9 = this.n;
-            Intrinsics.checkNotNull(so0Var9);
-            if (!so0Var9.D()) {
-                so0 so0Var10 = this.n;
-                Intrinsics.checkNotNull(so0Var10);
-                if (!so0Var10.E()) {
+            in0 in0Var9 = this.n;
+            Intrinsics.checkNotNull(in0Var9);
+            if (!in0Var9.D()) {
+                in0 in0Var10 = this.n;
+                Intrinsics.checkNotNull(in0Var10);
+                if (!in0Var10.E()) {
                     z5 = false;
                     view2 = findViewById9;
                     frameLayout = frameLayout4;
                     frameLayout2 = frameLayout3;
                     adImageView = adImageView2;
                     linearLayout = linearLayout5;
-                    textView = K1(this, j2, str8, str9, null, z6, z5, false, 72, null);
+                    textView = M1(this, j2, str8, str9, null, z6, z5, false, 72, null);
                 }
             }
             z5 = true;
@@ -1029,7 +1029,7 @@ public class NadRewardVideoDialog extends DialogFragment {
             frameLayout2 = frameLayout3;
             adImageView = adImageView2;
             linearLayout = linearLayout5;
-            textView = K1(this, j2, str8, str9, null, z6, z5, false, 72, null);
+            textView = M1(this, j2, str8, str9, null, z6, z5, false, 72, null);
         } else {
             view2 = findViewById9;
             frameLayout = frameLayout4;
@@ -1038,39 +1038,39 @@ public class NadRewardVideoDialog extends DialogFragment {
             linearLayout = linearLayout5;
             textView = null;
         }
-        so0 so0Var11 = this.n;
-        if (so0Var11 != null && (s = so0Var11.s()) != null) {
+        in0 in0Var11 = this.n;
+        if (in0Var11 != null && (s = in0Var11.s()) != null) {
             linearLayout2 = linearLayout;
             textView2 = textView;
-            textView3 = K1(this, s, null, null, "1", false, false, false, 118, null);
+            textView3 = M1(this, s, null, null, "1", false, false, false, 118, null);
         } else {
             linearLayout2 = linearLayout;
             textView2 = textView;
             textView3 = null;
         }
         if (!this.q) {
-            so0 so0Var12 = this.n;
-            if (so0Var12 != null && so0Var12.w() != null && (so0Var5 = this.n) != null && (g3 = so0Var5.g()) != null && (b2 = g3.b()) != null) {
-                StringsKt__StringsJVMKt.replace$default(b2, "__TASKCENTERPOLICY__", R1(), false, 4, (Object) null);
+            in0 in0Var12 = this.n;
+            if (in0Var12 != null && in0Var12.w() != null && (in0Var5 = this.n) != null && (g3 = in0Var5.g()) != null && (b2 = g3.b()) != null) {
+                StringsKt__StringsJVMKt.replace$default(b2, "__TASKCENTERPOLICY__", T1(), false, 4, (Object) null);
             }
-            so0 so0Var13 = this.n;
-            if (so0Var13 != null && (g2 = so0Var13.g()) != null) {
+            in0 in0Var13 = this.n;
+            if (in0Var13 != null && (g2 = in0Var13.g()) != null) {
                 textView4 = textView2;
                 textView5 = textView3;
-                textView6 = K1(this, g2, null, null, "2", false, false, false, 118, null);
-                so0Var = this.n;
-                if (so0Var == null && (f2 = so0Var.f()) != null) {
+                textView6 = M1(this, g2, null, null, "2", false, false, false, 118, null);
+                in0Var = this.n;
+                if (in0Var == null && (f2 = in0Var.f()) != null) {
                     String str10 = ClogBuilder.Area.AD_LEAVE.type;
                     Intrinsics.checkNotNullExpressionValue(str10, "ClogBuilder.Area.AD_LEAVE.type");
                     textView7 = textView6;
-                    textView8 = K1(this, f2, null, str10, null, false, false, false, 122, null);
+                    textView8 = M1(this, f2, null, str10, null, false, false, false, 122, null);
                 } else {
                     textView7 = textView6;
                     textView8 = null;
                 }
-                so0Var2 = this.n;
-                if (so0Var2 == null) {
-                    str = so0Var2.a();
+                in0Var2 = this.n;
+                if (in0Var2 == null) {
+                    str = in0Var2.a();
                 } else {
                     str = null;
                 }
@@ -1090,19 +1090,19 @@ public class NadRewardVideoDialog extends DialogFragment {
                     adImageView3 = null;
                 }
                 if (adImageView3 != null) {
-                    so0 so0Var14 = this.n;
-                    if (so0Var14 != null) {
-                        str5 = so0Var14.a();
+                    in0 in0Var14 = this.n;
+                    if (in0Var14 != null) {
+                        str5 = in0Var14.a();
                     } else {
                         str5 = null;
                     }
-                    adImageView3.g(str5);
+                    adImageView3.o(str5);
                     adImageView3.setOnClickListener(new f());
                     Unit unit = Unit.INSTANCE;
                 }
-                so0Var3 = this.n;
-                if (so0Var3 == null) {
-                    str2 = so0Var3.x();
+                in0Var3 = this.n;
+                if (in0Var3 == null) {
+                    str2 = in0Var3.x();
                 } else {
                     str2 = null;
                 }
@@ -1118,9 +1118,9 @@ public class NadRewardVideoDialog extends DialogFragment {
                     textView10 = null;
                 }
                 if (textView10 != null) {
-                    so0 so0Var15 = this.n;
-                    if (so0Var15 != null) {
-                        str4 = so0Var15.x();
+                    in0 in0Var15 = this.n;
+                    if (in0Var15 != null) {
+                        str4 = in0Var15.x();
                     } else {
                         str4 = null;
                     }
@@ -1128,9 +1128,9 @@ public class NadRewardVideoDialog extends DialogFragment {
                     textView10.setOnClickListener(new g());
                     Unit unit2 = Unit.INSTANCE;
                 }
-                so0Var4 = this.n;
-                if (so0Var4 == null) {
-                    str3 = so0Var4.v();
+                in0Var4 = this.n;
+                if (in0Var4 == null) {
+                    str3 = in0Var4.v();
                 } else {
                     str3 = null;
                 }
@@ -1146,9 +1146,9 @@ public class NadRewardVideoDialog extends DialogFragment {
                     textView11 = null;
                 }
                 if (textView11 != null) {
-                    so0 so0Var16 = this.n;
-                    if (so0Var16 != null) {
-                        str7 = so0Var16.v();
+                    in0 in0Var16 = this.n;
+                    if (in0Var16 != null) {
+                        str7 = in0Var16.v();
                     }
                     textView11.setText(str7);
                     textView11.setOnClickListener(new h());
@@ -1158,10 +1158,10 @@ public class NadRewardVideoDialog extends DialogFragment {
                     textView5.setTypeface(Typeface.defaultFromStyle(i2));
                     textView5.setTextSize(i2, 17.0f);
                     textView5.setGravity(17);
-                    textView5.setHeight(j51.c.a(textView5.getContext(), 50.0f));
-                    textView5.setWidth(j51.c.a(textView5.getContext(), 219.0f));
+                    textView5.setHeight(z31.c.a(textView5.getContext(), 50.0f));
+                    textView5.setWidth(z31.c.a(textView5.getContext(), 219.0f));
                     LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                    layoutParams.topMargin = j51.c.a(textView5.getContext(), 15.0f);
+                    layoutParams.topMargin = z31.c.a(textView5.getContext(), 15.0f);
                     linearLayout4.addView(textView5, i3, layoutParams);
                     Unit unit4 = Unit.INSTANCE;
                 }
@@ -1186,7 +1186,7 @@ public class NadRewardVideoDialog extends DialogFragment {
                     view2.setVisibility(8);
                 }
                 if (textView8 == null) {
-                    a2(textView8, frameLayout2);
+                    c2(textView8, frameLayout2);
                     linearLayout3 = linearLayout2;
                     linearLayout3.setVisibility(i3);
                     Unit unit6 = Unit.INSTANCE;
@@ -1194,23 +1194,23 @@ public class NadRewardVideoDialog extends DialogFragment {
                     linearLayout3 = linearLayout2;
                 }
                 if (textView9 != null) {
-                    a2(textView9, frameLayout);
+                    c2(textView9, frameLayout);
                     linearLayout3.setVisibility(i3);
                     Unit unit7 = Unit.INSTANCE;
                 }
-                U1(adImageView);
+                W1(adImageView);
             }
         }
         textView4 = textView2;
         textView5 = textView3;
         textView6 = null;
-        so0Var = this.n;
-        if (so0Var == null) {
+        in0Var = this.n;
+        if (in0Var == null) {
         }
         textView7 = textView6;
         textView8 = null;
-        so0Var2 = this.n;
-        if (so0Var2 == null) {
+        in0Var2 = this.n;
+        if (in0Var2 == null) {
         }
         if (str == null) {
         }
@@ -1220,8 +1220,8 @@ public class NadRewardVideoDialog extends DialogFragment {
         }
         if (adImageView3 != null) {
         }
-        so0Var3 = this.n;
-        if (so0Var3 == null) {
+        in0Var3 = this.n;
+        if (in0Var3 == null) {
         }
         if (str2 == null) {
         }
@@ -1230,8 +1230,8 @@ public class NadRewardVideoDialog extends DialogFragment {
         }
         if (textView10 != null) {
         }
-        so0Var4 = this.n;
-        if (so0Var4 == null) {
+        in0Var4 = this.n;
+        if (in0Var4 == null) {
         }
         if (str3 == null) {
         }
@@ -1253,7 +1253,7 @@ public class NadRewardVideoDialog extends DialogFragment {
         }
         if (textView9 != null) {
         }
-        U1(adImageView);
+        W1(adImageView);
     }
 
     @Override // androidx.fragment.app.Fragment
@@ -1261,7 +1261,7 @@ public class NadRewardVideoDialog extends DialogFragment {
         Intrinsics.checkNotNullParameter(inflater, "inflater");
         boolean z = true;
         View rootView = inflater.inflate(R.layout.nad_reward_video_dialog, viewGroup, true);
-        View findViewById = rootView.findViewById(R.id.obfuscated_res_0x7f091dfa);
+        View findViewById = rootView.findViewById(R.id.obfuscated_res_0x7f091e45);
         Intrinsics.checkNotNullExpressionValue(findViewById, "rootView.findViewById(R.id.root_view)");
         this.a = findViewById;
         View findViewById2 = rootView.findViewById(R.id.top_img);
@@ -1280,8 +1280,8 @@ public class NadRewardVideoDialog extends DialogFragment {
             z = false;
         }
         if (!z && this.n != null) {
-            f2();
-            V1();
+            h2();
+            X1();
             Intrinsics.checkNotNullExpressionValue(rootView, "rootView");
             return rootView;
         }

@@ -1,173 +1,145 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.DialogInterface;
-import android.net.Uri;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.CheckBox;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cd1;
+import com.baidu.tieba.qb1;
+import com.baidu.tieba.sb1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ub1 {
+public class ub1 extends qb1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CheckBox a;
-    public TextView b;
-    public String c;
-    public Context d;
-    public cd1 e;
-    public pb1 f;
+    public FrameLayout i;
+    public a j;
 
     /* loaded from: classes6.dex */
-    public class a implements DialogInterface.OnClickListener {
+    public static class a extends qb1.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ub1 a;
+        public View g;
 
-        public a(ub1 ub1Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(Context context) {
+            super(context);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ub1Var};
+                Object[] objArr = {context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((Context) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = ub1Var;
         }
 
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
+        @Override // com.baidu.tieba.sb1.a
+        public sb1 f(Context context) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                dialogInterface.dismiss();
-                this.a.d(true);
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+                return new ub1(context);
             }
+            return (sb1) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.sb1.a
+        public /* bridge */ /* synthetic */ sb1.a q(int i) {
+            y(i);
+            return this;
+        }
+
+        public a x(View view2) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
+                this.g = view2;
+                return this;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public a y(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+                super.q(i);
+                return this;
+            }
+            return (a) invokeI.objValue;
+        }
+
+        @Override // com.baidu.tieba.qb1.b, com.baidu.tieba.sb1.a
+        public sb1 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                ub1 ub1Var = (ub1) super.a();
+                ub1Var.o(this);
+                return ub1Var;
+            }
+            return (sb1) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ub1 a;
-
-        public b(ub1 ub1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ub1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ub1Var;
-        }
-
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                dialogInterface.dismiss();
-                this.a.d(false);
-            }
-        }
-    }
-
-    public ub1(Context context, String str, @NonNull pb1 pb1Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ub1(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, pb1Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = context;
-        this.f = pb1Var;
-        this.c = str;
-        b();
     }
 
-    public final void b() {
+    @Override // com.baidu.tieba.qb1
+    public View i(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = View.inflate(this.d, R.layout.nad_light_browser_geolocation_dialog, null);
-            this.a = (CheckBox) inflate.findViewById(R.id.obfuscated_res_0x7f091d30);
-            TextView textView = (TextView) inflate.findViewById(R.id.message_text);
-            this.b = textView;
-            textView.setTextColor(this.d.getResources().getColor(R.color.nad_box_dialog_message_text_color));
-            this.b.setText(c());
-            cd1.a aVar = new cd1.a(this.d);
-            aVar.q(R.string.nad_geolocation_permissions_prompt_title);
-            aVar.s(inflate);
-            aVar.l(R.string.nad_geolocation_permissions_prompt_dont_share, new b(this));
-            aVar.o(R.string.nad_geolocation_permissions_prompt_share, new a(this));
-            this.e = aVar.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.e).inflate(R.layout.nad_view_ssl_certificate_dialog, viewGroup, false);
+            this.i = (FrameLayout) inflate.findViewById(R.id.ssl_certificate_container);
+            n();
+            return inflate;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    public void o(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
+            this.j = aVar;
         }
     }
 
-    public final String c() {
-        InterceptResult invokeV;
+    public final void n() {
+        a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Uri parse = Uri.parse(this.c);
-            String str = this.c;
-            if ("http".equals(parse.getScheme())) {
-                str = this.c.substring(7);
-            }
-            return String.format(this.d.getResources().getString(R.string.nad_geolocation_permissions_prompt_message), str);
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void d(boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            boolean isChecked = this.a.isChecked();
-            if (isChecked) {
-                if (z) {
-                    i = R.string.nad_geolocation_permissions_prompt_toast_allowed;
-                } else {
-                    i = R.string.nad_geolocation_permissions_prompt_toast_disallowed;
-                }
-                n41.a().a(this.d.getApplicationContext(), i);
-            }
-            this.f.a(this.c, z, isChecked);
-        }
-    }
-
-    public void e() {
-        cd1 cd1Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (cd1Var = this.e) != null) {
-            b51.b(cd1Var);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (aVar = this.j) != null) {
+            this.i.addView(aVar.g);
         }
     }
 }

@@ -1,33 +1,247 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.max.event.PanelEventTypeEnum;
-import com.baidu.nadcore.max.event.PopEventTypeEnum;
-import com.baidu.nadcore.max.event.VideoEventTypeEnum;
-import com.baidu.nadcore.max.event.WebEventTypeEnum;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmField;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public final /* synthetic */ class bq0 {
-    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
-    public static final /* synthetic */ int[] $EnumSwitchMapping$1;
-    public static final /* synthetic */ int[] $EnumSwitchMapping$2;
-    public static final /* synthetic */ int[] $EnumSwitchMapping$3;
+public final class bq0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a e;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
+    @JvmField
+    public String c;
+    public final String d;
 
     static {
-        int[] iArr = new int[WebEventTypeEnum.values().length];
-        $EnumSwitchMapping$0 = iArr;
-        iArr[WebEventTypeEnum.WEB_INIT_SUCCESS.ordinal()] = 1;
-        int[] iArr2 = new int[VideoEventTypeEnum.values().length];
-        $EnumSwitchMapping$1 = iArr2;
-        iArr2[VideoEventTypeEnum.PLAY_SEEK_TO_END.ordinal()] = 1;
-        $EnumSwitchMapping$1[VideoEventTypeEnum.LEFT_SLIDE_ON_VIDEO.ordinal()] = 2;
-        int[] iArr3 = new int[PanelEventTypeEnum.values().length];
-        $EnumSwitchMapping$2 = iArr3;
-        iArr3[PanelEventTypeEnum.CLICK_PANEL_UI.ordinal()] = 1;
-        int[] iArr4 = new int[PopEventTypeEnum.values().length];
-        $EnumSwitchMapping$3 = iArr4;
-        iArr4[PopEventTypeEnum.CLICK_POP_UI.ordinal()] = 1;
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947653480, "Lcom/baidu/tieba/bq0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947653480, "Lcom/baidu/tieba/bq0;");
+                return;
+            }
+        }
+        e = new a(null);
+    }
+
+    @JvmStatic
+    public static final bq0 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) ? e.a(jSONObject) : (bq0) invokeL.objValue;
+    }
+
+    @JvmStatic
+    public static final bq0 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? e.b() : (bq0) invokeV.objValue;
+    }
+
+    @JvmStatic
+    public static final JSONObject f(bq0 bq0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bq0Var)) == null) ? e.c(bq0Var) : (JSONObject) invokeL.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this != obj) {
+                if (obj instanceof bq0) {
+                    bq0 bq0Var = (bq0) obj;
+                    return Intrinsics.areEqual(this.a, bq0Var.a) && Intrinsics.areEqual(this.b, bq0Var.b) && Intrinsics.areEqual(this.c, bq0Var.c) && Intrinsics.areEqual(this.d, bq0Var.d);
+                }
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            String str = this.a;
+            int hashCode = (str != null ? str.hashCode() : 0) * 31;
+            String str2 = this.b;
+            int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
+            String str3 = this.c;
+            int hashCode3 = (hashCode2 + (str3 != null ? str3.hashCode() : 0)) * 31;
+            String str4 = this.d;
+            return hashCode3 + (str4 != null ? str4.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "ExtPolicy(invokeTaskId=" + this.a + ", backCmd=" + this.b + ", sdkSwitch=" + this.c + ", defaultLimit=" + this.d + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes3.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @JvmStatic
+        public final bq0 b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return new bq0("", "", "0", "1");
+            }
+            return (bq0) invokeV.objValue;
+        }
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        @JvmStatic
+        public final bq0 a(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+                if (jSONObject != null) {
+                    String optString = jSONObject.optString("invoke_task_id");
+                    Intrinsics.checkNotNullExpressionValue(optString, "optString(\"invoke_task_id\")");
+                    String optString2 = jSONObject.optString("back_cmd");
+                    Intrinsics.checkNotNullExpressionValue(optString2, "optString(\"back_cmd\")");
+                    String optString3 = jSONObject.optString("sdk_switch", "0");
+                    Intrinsics.checkNotNullExpressionValue(optString3, "optString(\"sdk_switch\", \"0\")");
+                    String optString4 = jSONObject.optString("default_upper_limit", "1");
+                    Intrinsics.checkNotNullExpressionValue(optString4, "optString(\"default_upper_limit\", \"1\")");
+                    return new bq0(optString, optString2, optString3, optString4);
+                }
+                return null;
+            }
+            return (bq0) invokeL.objValue;
+        }
+
+        @JvmStatic
+        public final JSONObject c(bq0 bq0Var) {
+            InterceptResult invokeL;
+            String d;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bq0Var)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                String str2 = null;
+                if (bq0Var != null) {
+                    try {
+                        d = bq0Var.d();
+                    } catch (JSONException unused) {
+                    }
+                } else {
+                    d = null;
+                }
+                JSONObject put = jSONObject.put("invoke_task_id", d);
+                if (bq0Var != null) {
+                    str = bq0Var.b();
+                } else {
+                    str = null;
+                }
+                JSONObject put2 = put.put("back_cmd", str);
+                if (bq0Var != null) {
+                    str2 = bq0Var.c;
+                }
+                put2.put("sdk_switch", str2);
+                return jSONObject;
+            }
+            return (JSONObject) invokeL.objValue;
+        }
+    }
+
+    public bq0(String invokeTaskId, String backCmd, String sdkSwitch, String defaultLimit) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {invokeTaskId, backCmd, sdkSwitch, defaultLimit};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(invokeTaskId, "invokeTaskId");
+        Intrinsics.checkNotNullParameter(backCmd, "backCmd");
+        Intrinsics.checkNotNullParameter(sdkSwitch, "sdkSwitch");
+        Intrinsics.checkNotNullParameter(defaultLimit, "defaultLimit");
+        this.a = invokeTaskId;
+        this.b = backCmd;
+        this.c = sdkSwitch;
+        this.d = defaultLimit;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -15,7 +15,7 @@ public class az implements at {
 
     public az(Context context) {
         this.f130a = ay.a(context);
-        com.xiaomi.channel.commonutils.logger.b.m97a("create id manager is: " + this.f129a);
+        com.xiaomi.channel.commonutils.logger.b.m99a("create id manager is: " + this.f129a);
     }
 
     public static az a(Context context) {
@@ -35,8 +35,8 @@ public class az implements at {
 
     @Override // com.xiaomi.push.at
     /* renamed from: a */
-    public String mo182a() {
-        return a(this.f130a.mo182a());
+    public String mo184a() {
+        return a(this.f130a.mo184a());
     }
 
     /* JADX DEBUG: Possible override for method com.xiaomi.push.at.a()Ljava/lang/String; */
@@ -52,9 +52,9 @@ public class az implements at {
         if (!TextUtils.isEmpty(b)) {
             map.put("udid", b);
         }
-        String mo182a = mo182a();
-        if (!TextUtils.isEmpty(mo182a)) {
-            map.put("oaid", mo182a);
+        String mo184a = mo184a();
+        if (!TextUtils.isEmpty(mo184a)) {
+            map.put("oaid", mo184a);
         }
         String c = c();
         if (!TextUtils.isEmpty(c)) {
@@ -69,8 +69,8 @@ public class az implements at {
 
     @Override // com.xiaomi.push.at
     /* renamed from: a */
-    public boolean mo183a() {
-        return this.f130a.mo183a();
+    public boolean mo185a() {
+        return this.f130a.mo185a();
     }
 
     public String b() {

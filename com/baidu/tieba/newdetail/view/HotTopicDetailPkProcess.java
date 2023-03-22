@@ -16,7 +16,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.hi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -87,8 +87,8 @@ public class HotTopicDetailPkProcess extends View {
                 return;
             }
         }
-        k = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds22);
-        l = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds10);
+        k = hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds22);
+        l = hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds10);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */

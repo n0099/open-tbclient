@@ -1,86 +1,90 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.swan.apps.scheme.actions.forbidden.ForbiddenInfo;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.ala.alasquare.live_tab.view.SdkDoubleLiveViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes6.dex */
-public class v26 implements pt2 {
+public class v26 extends tm<z26, SdkDoubleLiveViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public d46 b;
+    public int c;
+    public boolean d;
 
-    public v26() {
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public v26(TbPageContext tbPageContext, int i, boolean z) {
+        super(r0, r1);
+        BdUniqueId bdUniqueId;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, Integer.valueOf(i), Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Activity pageActivity = tbPageContext.getPageActivity();
+        if (z) {
+            bdUniqueId = z26.d;
+        } else {
+            bdUniqueId = z26.c;
+        }
+        this.a = tbPageContext;
+        this.c = i;
+        this.d = z;
     }
 
-    @Override // com.baidu.tieba.pt2
-    public boolean a(Context context, String str, fl3 fl3Var) {
-        InterceptResult invokeLLL;
-        String p;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.tm
+    /* renamed from: s */
+    public SdkDoubleLiveViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, fl3Var)) == null) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_AIAPPS_START_FAIL);
-            if (k16.l().p() == null) {
-                p = "";
-            } else {
-                p = k16.l().p();
-            }
-            statisticItem.param("uid", p);
-            statisticItem.param("obj_param1", fl3Var.h());
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, fl3Var.e());
-            TiebaStatic.log(statisticItem);
-            if (fl3Var.j() == 10 && fl3Var.h() == 1013) {
-                b(context, fl3Var);
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            this.b = new d46(this.a, viewGroup, this.c, this.d);
+            return new SdkDoubleLiveViewHolder(this.b);
         }
-        return invokeLLL.booleanValue;
+        return (SdkDoubleLiveViewHolder) invokeL.objValue;
     }
 
-    public final void b(Context context, fl3 fl3Var) {
-        boolean z;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.tm
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, z26 z26Var, SdkDoubleLiveViewHolder sdkDoubleLiveViewHolder) {
+        InterceptResult invokeCommon;
+        d46 d46Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, fl3Var) == null) {
-            m93 b0 = m93.b0();
-            if (context != null && b0 != null) {
-                String i = ri3.i(zu2.U().M(), b0.Y().G());
-                long h = fl3Var.h();
-                String r = fl3Var.r();
-                if (1020 == h && !TextUtils.isEmpty(r)) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (!z) {
-                    r = kl4.b().a(h);
-                }
-                ForbiddenInfo forbiddenInfo = new ForbiddenInfo(b0.W(), r, "v" + gn3.D() + "/" + i + "/" + fl3Var.a());
-                forbiddenInfo.enableSlidingFlag = -1;
-                gu2.l(context, "type_need_update_sdk", fl3Var, forbiddenInfo, b0.Y().D());
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, z26Var, sdkDoubleLiveViewHolder})) == null) {
+            if (sdkDoubleLiveViewHolder != null && (d46Var = sdkDoubleLiveViewHolder.a) != null) {
+                d46Var.l(z26Var);
+                sdkDoubleLiveViewHolder.a.m(this.a, TbadkCoreApplication.getInst().getSkinType());
+                return sdkDoubleLiveViewHolder.getView();
             }
+            return null;
         }
+        return (View) invokeCommon.objValue;
     }
 }

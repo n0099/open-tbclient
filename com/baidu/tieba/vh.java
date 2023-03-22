@@ -1,81 +1,65 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.os.Build;
 import android.text.TextUtils;
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
-import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class vh {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(ArrayList<String> arrayList, boolean z) {
+    public static void a(@Nullable File file) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65536, null, arrayList, z) == null) {
-            xc xcVar = new xc(BdStatisticsManager.getInstance().getWriteDir(), null, DiskFileOperate.Action.DELETE_FILES, arrayList);
-            xcVar.setSdCard(z);
-            xcVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
-            rc.f().a(xcVar);
+        if ((interceptable == null || interceptable.invokeL(65536, null, file) == null) && file != null && file.exists()) {
+            if (file.isDirectory()) {
+                File[] listFiles = file.listFiles();
+                if (listFiles != null) {
+                    for (File file2 : listFiles) {
+                        a(file2);
+                    }
+                    return;
+                }
+                return;
+            }
+            String absolutePath = file.getAbsolutePath();
+            if (file.delete()) {
+                BdLog.v("Abi64WebViewCompat:Delete[" + absolutePath + PreferencesUtil.RIGHT_MOUNT);
+                return;
+            }
+            BdLog.e("Abi64WebViewCompat:Delete[" + absolutePath + "]Error!");
         }
     }
 
-    public static File[] b(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        File[] fileArr;
+    public static void b(@NonNull Context context) {
         File[] listFiles;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            DiskFileOperate diskFileOperate = new DiskFileOperate(BdStatisticsManager.getInstance().getWriteDir(), null, DiskFileOperate.Action.INFO);
-            diskFileOperate.setSdCard(z);
-            diskFileOperate.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
-            rc.f().call(diskFileOperate);
-            if (diskFileOperate.getFileInfo() != null && diskFileOperate.getFileInfo().listFiles() != null) {
-                fileArr = diskFileOperate.getFileInfo().listFiles();
-            } else {
-                fileArr = null;
-            }
-            if (z2) {
-                DiskFileOperate diskFileOperate2 = new DiskFileOperate(BdStatisticsManager.getInstance().getNotUploadWriteDir(), null, DiskFileOperate.Action.INFO);
-                diskFileOperate2.setSdCard(z);
-                diskFileOperate2.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
-                rc.f().call(diskFileOperate2);
-                if (diskFileOperate2.getFileInfo() != null && (listFiles = diskFileOperate2.getFileInfo().listFiles()) != null && listFiles.length != 0) {
-                    if (fileArr != null && fileArr.length != 0) {
-                        File[] fileArr2 = new File[listFiles.length + fileArr.length];
-                        System.arraycopy(fileArr, 0, fileArr2, 0, fileArr.length);
-                        System.arraycopy(listFiles, 0, fileArr2, fileArr.length, listFiles.length);
-                        return fileArr2;
-                    }
-                    return listFiles;
-                }
-            }
-            return fileArr;
+        if ((interceptable != null && interceptable.invokeL(65537, null, context) != null) || Build.VERSION.SDK_INT < 24) {
+            return;
         }
-        return (File[]) invokeCommon.objValue;
-    }
-
-    public static ArrayList<xh> c(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            ArrayList<xh> arrayList = new ArrayList<>();
-            File[] b = b(z, true);
-            if (b != null) {
-                for (File file : b) {
-                    if (file.isFile()) {
-                        String name = file.getName();
-                        if (!TextUtils.isEmpty(name)) {
-                            arrayList.add(new xh(name, file.length(), file.lastModified()));
+        try {
+            context.getApplicationContext().getSharedPreferences("WebViewChromiumPrefs", 0).edit().clear().apply();
+            File filesDir = context.getFilesDir();
+            if (filesDir != null && filesDir.getParent() != null) {
+                File file = new File(filesDir.getParent());
+                if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
+                    for (File file2 : listFiles) {
+                        String absolutePath = file2.getAbsolutePath();
+                        if (!TextUtils.isEmpty(absolutePath) && absolutePath.toLowerCase().contains(AlbumActivityConfig.FROM_WEB_VIEW)) {
+                            a(file2);
                         }
                     }
                 }
             }
-            return arrayList;
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
-        return (ArrayList) invokeZ.objValue;
     }
 }

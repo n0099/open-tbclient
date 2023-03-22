@@ -1,7 +1,9 @@
 package com.baidu.tieba;
-/* loaded from: classes4.dex */
-public interface h80 {
-    void a(int i, byte[] bArr);
 
-    void onSuccess(int i, byte[] bArr);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes4.dex */
+public /* synthetic */ class h80 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 }

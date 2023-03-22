@@ -700,7 +700,7 @@ public class DTSTrackImpl extends AbstractTrack {
         return false;
      */
     /* JADX WARN: Code restructure failed: missing block: B:237:0x02fa, code lost:
-        r22.samplerate = 48000;
+        r22.samplerate = com.google.android.exoplayer2.extractor.ogg.OpusReader.SAMPLE_RATE;
      */
     /* JADX WARN: Code restructure failed: missing block: B:238:0x0300, code lost:
         r22.samplerate = 24000;

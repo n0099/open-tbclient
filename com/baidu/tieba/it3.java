@@ -1,20 +1,33 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
+@Autowired
+/* loaded from: classes5.dex */
 public class it3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static SharedPreferences a() {
+    @Inject(force = false)
+    public static jt3 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return new wp4("swan_config_sp_name");
+            return p16.a();
         }
-        return (SharedPreferences) invokeV.objValue;
+        return (jt3) invokeV.objValue;
+    }
+
+    @Inject(force = false)
+    public static kt3 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new rn3();
+        }
+        return (kt3) invokeV.objValue;
     }
 }

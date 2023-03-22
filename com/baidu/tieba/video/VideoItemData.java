@@ -26,14 +26,14 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.module.hottopic.HotTopicStat;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b05;
-import com.baidu.tieba.ci5;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.ou5;
+import com.baidu.tieba.fy4;
+import com.baidu.tieba.gg;
+import com.baidu.tieba.ky4;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
-import com.baidu.tieba.wz4;
+import com.baidu.tieba.ut5;
+import com.baidu.tieba.zg5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -409,96 +409,6 @@ public class VideoItemData implements Serializable, Parcelable {
         this.feedBackExtraMap = parcel.readSparseArray(SparseArray.class.getClassLoader());
     }
 
-    public VideoItemData buildWithFlutterMap(Map<String, Object> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
-            if (map != null && !map.isEmpty()) {
-                this.thread_id = (String) map.get("tid");
-                Object obj = map.get("rich_title");
-                if (obj != null) {
-                    this.richTitle = DataExt.toEntityList(DataExt.toJson(obj), PbContent.class);
-                }
-                try {
-                    Object obj2 = map.get("rich_abstract");
-                    if (obj2 != null) {
-                        this.mRichAbstractList = b05.a(new JSONArray(DataExt.toJson(obj2)));
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                boolean z = false;
-                this.is_manager = dh.e((String) map.get("is_manager"), 0);
-                this.is_origin_manager = dh.e((String) map.get("is_origin_manager"), 0);
-                this.nid = (String) map.get("nid");
-                this.post_id = (String) map.get("first_post_id");
-                if (map.get(WriteActivityConfig.VIDEO_INFO) instanceof Map) {
-                    Map map2 = (Map) map.get(WriteActivityConfig.VIDEO_INFO);
-                    this.thumbnail_width = String.valueOf(map2.get("thumbnail_width"));
-                    this.thumbnail_height = String.valueOf(map2.get("thumbnail_height"));
-                    this.mMd5 = (String) map2.get(VideoFinishResult.KEY_VIDEO_MD5);
-                    this.video_url = (String) map2.get("video_url");
-                    this.video_duration = dh.e((String) map2.get(AdWebVideoActivityConfig.KEY_VIDEO_DURATION), 0);
-                    this.video_width = String.valueOf(map2.get("video_width"));
-                    this.video_height = String.valueOf(map2.get("video_height"));
-                    this.isVerticalVideo = dh.a(map2.get(TiebaStatic.Params.IS_VERTICAL), false) ? 1 : 0;
-                    this.thumbnail_url = (String) map2.get("thumbnail_url");
-                    this.play_count = dh.e((String) map2.get("play_count"), 0);
-                }
-                this.comment_num = (String) map.get("reply_num");
-                this.share_num = (String) map.get("share_num");
-                this.title = (String) map.get("title");
-                this.forum_id = String.valueOf(map.get("fid"));
-                this.forum_name = (String) map.get("fname");
-                if (map.get("agree") instanceof Map) {
-                    Map map3 = (Map) map.get("agree");
-                    this.agree_num = (String) map3.get("agree_num");
-                    this.is_agreed = (String) map3.get("has_agree");
-                }
-                if (map.get(Constants.PAGE_BAIJIAHAO_NAME) instanceof Map) {
-                    Map map4 = (Map) map.get(Constants.PAGE_BAIJIAHAO_NAME);
-                    BaijiahaoData baijiahaoData = new BaijiahaoData();
-                    baijiahaoData.oriUgcNid = (String) map4.get("ori_ugc_nid");
-                    baijiahaoData.oriUgcTid = (String) map4.get("ori_ugc_tid");
-                    baijiahaoData.oriUgcType = dh.e((String) map4.get(TiebaStatic.Params.UGC_TYPE), 0);
-                    baijiahaoData.oriUgcVid = (String) map4.get("ori_ugc_vid");
-                    baijiahaoData.forwardUrl = (String) map4.get("forward_url");
-                    this.baijiahaoData = baijiahaoData;
-                }
-                if (map.get(NotificationCompat.CarExtender.KEY_AUTHOR) instanceof Map) {
-                    Map map5 = (Map) map.get(NotificationCompat.CarExtender.KEY_AUTHOR);
-                    UserItemData userItemData = new UserItemData();
-                    userItemData.user_name = (String) map5.get("name");
-                    userItemData.name_show = (String) map5.get("name_show");
-                    userItemData.portrait = (String) map5.get("portrait");
-                    userItemData.user_id = (String) map5.get("id");
-                    userItemData.is_follow = (String) map5.get("has_concerned");
-                    if (map5.get("baijiahao_info") instanceof Map) {
-                        userItemData.bjhAvatar = (String) ((Map) map5.get("baijiahao_info")).get("avatar");
-                    }
-                    if (map5.get("work_creator_info") instanceof Map) {
-                        userItemData.auth = (String) ((Map) map5.get("work_creator_info")).get(IMUserExtraData.KEY_AUTH_DESC);
-                    }
-                    this.author_info = userItemData;
-                }
-                ThreadData threadData = new ThreadData();
-                this.threadData = threadData;
-                try {
-                    threadData.parserJson(new JSONObject(DataExt.toJson(map)));
-                } catch (JSONException e2) {
-                    BdLog.e(e2);
-                }
-                BaijiahaoData baijiahaoData2 = this.baijiahaoData;
-                if (baijiahaoData2 != null && UtilHelper.isUgcThreadType(baijiahaoData2.oriUgcType)) {
-                    z = true;
-                }
-                this.isBjhVideo = z;
-            }
-            return this;
-        }
-        return (VideoItemData) invokeL.objValue;
-    }
-
     public VideoItemData buildWithThreadData(ThreadData threadData) {
         InterceptResult invokeL;
         String str;
@@ -602,7 +512,7 @@ public class VideoItemData implements Serializable, Parcelable {
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("rich_abstract");
                 if (optJSONArray2 != null) {
-                    this.mRichAbstractList = b05.a(optJSONArray2);
+                    this.mRichAbstractList = ky4.a(optJSONArray2);
                 }
                 StringBuilder sb = new StringBuilder();
                 JSONArray optJSONArray3 = jSONObject.optJSONArray("abstract");
@@ -679,7 +589,7 @@ public class VideoItemData implements Serializable, Parcelable {
                 threadData.parserJson(jSONObject);
                 this.threadData.tid = this.thread_id;
                 this.threadData.threadType = 40;
-                this.threadData.setReply_num(dh.e(this.comment_num, 0));
+                this.threadData.setReply_num(gg.e(this.comment_num, 0));
                 VideoInfo.Builder builder = new VideoInfo.Builder();
                 builder.video_width = Integer.valueOf(this.video_width);
                 builder.video_height = Integer.valueOf(this.video_height);
@@ -707,6 +617,107 @@ public class VideoItemData implements Serializable, Parcelable {
             return Objects.equals(str, str2);
         }
         return invokeLL.booleanValue;
+    }
+
+    public VideoItemData buildWithFlutterMap(Map<String, Object> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, map)) == null) {
+            if (map != null && !map.isEmpty()) {
+                this.thread_id = (String) map.get("tid");
+                Object obj = map.get("rich_title");
+                if (obj != null) {
+                    this.richTitle = DataExt.toEntityList(DataExt.toJson(obj), PbContent.class);
+                }
+                try {
+                    Object obj2 = map.get("rich_abstract");
+                    if (obj2 != null) {
+                        this.mRichAbstractList = ky4.a(new JSONArray(DataExt.toJson(obj2)));
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                boolean z = false;
+                this.is_manager = gg.e((String) map.get("is_manager"), 0);
+                this.is_origin_manager = gg.e((String) map.get("is_origin_manager"), 0);
+                this.nid = (String) map.get("nid");
+                this.post_id = (String) map.get("first_post_id");
+                if (map.get(WriteActivityConfig.VIDEO_INFO) instanceof Map) {
+                    Map map2 = (Map) map.get(WriteActivityConfig.VIDEO_INFO);
+                    this.thumbnail_width = String.valueOf(map2.get("thumbnail_width"));
+                    this.thumbnail_height = String.valueOf(map2.get("thumbnail_height"));
+                    this.mMd5 = (String) map2.get(VideoFinishResult.KEY_VIDEO_MD5);
+                    this.video_url = (String) map2.get("video_url");
+                    this.video_duration = gg.e((String) map2.get(AdWebVideoActivityConfig.KEY_VIDEO_DURATION), 0);
+                    this.video_width = String.valueOf(map2.get("video_width"));
+                    this.video_height = String.valueOf(map2.get("video_height"));
+                    this.isVerticalVideo = gg.a(map2.get(TiebaStatic.Params.IS_VERTICAL), false) ? 1 : 0;
+                    this.thumbnail_url = (String) map2.get("thumbnail_url");
+                    this.play_count = gg.e((String) map2.get("play_count"), 0);
+                }
+                this.comment_num = (String) map.get("reply_num");
+                this.share_num = (String) map.get("share_num");
+                this.title = (String) map.get("title");
+                this.forum_id = String.valueOf(map.get("fid"));
+                this.forum_name = (String) map.get("fname");
+                if (map.get("agree") instanceof Map) {
+                    Map map3 = (Map) map.get("agree");
+                    this.agree_num = (String) map3.get("agree_num");
+                    this.is_agreed = (String) map3.get("has_agree");
+                }
+                if (map.get(Constants.PAGE_BAIJIAHAO_NAME) instanceof Map) {
+                    Map map4 = (Map) map.get(Constants.PAGE_BAIJIAHAO_NAME);
+                    BaijiahaoData baijiahaoData = new BaijiahaoData();
+                    baijiahaoData.oriUgcNid = (String) map4.get("ori_ugc_nid");
+                    baijiahaoData.oriUgcTid = (String) map4.get("ori_ugc_tid");
+                    baijiahaoData.oriUgcType = gg.e((String) map4.get(TiebaStatic.Params.UGC_TYPE), 0);
+                    baijiahaoData.oriUgcVid = (String) map4.get("ori_ugc_vid");
+                    baijiahaoData.forwardUrl = (String) map4.get("forward_url");
+                    this.baijiahaoData = baijiahaoData;
+                }
+                if (map.get(NotificationCompat.CarExtender.KEY_AUTHOR) instanceof Map) {
+                    Map map5 = (Map) map.get(NotificationCompat.CarExtender.KEY_AUTHOR);
+                    UserItemData userItemData = new UserItemData();
+                    userItemData.user_name = (String) map5.get("name");
+                    userItemData.name_show = (String) map5.get("name_show");
+                    userItemData.portrait = (String) map5.get("portrait");
+                    userItemData.user_id = (String) map5.get("id");
+                    userItemData.is_follow = (String) map5.get("has_concerned");
+                    if (map5.get("baijiahao_info") instanceof Map) {
+                        userItemData.bjhAvatar = (String) ((Map) map5.get("baijiahao_info")).get("avatar");
+                    }
+                    if (map5.get("work_creator_info") instanceof Map) {
+                        userItemData.auth = (String) ((Map) map5.get("work_creator_info")).get(IMUserExtraData.KEY_AUTH_DESC);
+                    }
+                    this.author_info = userItemData;
+                    try {
+                        AlaInfoData alaInfoData = new AlaInfoData();
+                        if (map5.containsKey("ala_info")) {
+                            alaInfoData.parserJson(DataExt.toJson(map5.get("ala_info")));
+                            if (alaInfoData.live_status == 1 && alaInfoData.isLegalYYLiveData()) {
+                                this.mAlaInfoData = alaInfoData;
+                            }
+                        }
+                    } catch (Exception e2) {
+                        BdLog.e(e2);
+                    }
+                }
+                ThreadData threadData = new ThreadData();
+                this.threadData = threadData;
+                try {
+                    threadData.parserJson(new JSONObject(DataExt.toJson(map)));
+                } catch (JSONException e3) {
+                    BdLog.e(e3);
+                }
+                BaijiahaoData baijiahaoData2 = this.baijiahaoData;
+                if (baijiahaoData2 != null && UtilHelper.isUgcThreadType(baijiahaoData2.oriUgcType)) {
+                    z = true;
+                }
+                this.isBjhVideo = z;
+            }
+            return this;
+        }
+        return (VideoItemData) invokeL.objValue;
     }
 
     public VideoItemData buildWithOriginThreadData(OriginalThreadInfo originalThreadInfo) {
@@ -787,27 +798,27 @@ public class VideoItemData implements Serializable, Parcelable {
         return invokeL.booleanValue;
     }
 
-    public wz4 getNegFeedBackData() {
+    public fy4 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             SparseArray<String> sparseArray = this.feedBackReasonMap;
             if (sparseArray != null && sparseArray.size() > 0) {
-                wz4 wz4Var = new wz4();
-                wz4Var.n(this.nid);
-                wz4Var.o(this.thread_id);
-                wz4Var.l(this.forum_id);
-                wz4Var.j(this.feedBackReasonMap);
-                wz4Var.g = this.feedBackExtraMap;
-                wz4Var.p = this.mRecomAbTag;
-                wz4Var.k = this.mRecomWeight;
-                wz4Var.m = this.mRecomExtra;
-                wz4Var.l = this.mRecomSource;
-                return wz4Var;
+                fy4 fy4Var = new fy4();
+                fy4Var.n(this.nid);
+                fy4Var.o(this.thread_id);
+                fy4Var.l(this.forum_id);
+                fy4Var.j(this.feedBackReasonMap);
+                fy4Var.g = this.feedBackExtraMap;
+                fy4Var.p = this.mRecomAbTag;
+                fy4Var.k = this.mRecomWeight;
+                fy4Var.m = this.mRecomExtra;
+                fy4Var.l = this.mRecomSource;
+                return fy4Var;
             }
             return null;
         }
-        return (wz4) invokeV.objValue;
+        return (fy4) invokeV.objValue;
     }
 
     public void parseFeedJson(String str, String str2) {
@@ -835,7 +846,7 @@ public class VideoItemData implements Serializable, Parcelable {
                 this.title = jSONObject.optString("title");
                 JSONArray optJSONArray = jSONObject.optJSONArray("rich_abstract");
                 if (optJSONArray != null) {
-                    this.mRichAbstractList = b05.a(optJSONArray);
+                    this.mRichAbstractList = ky4.a(optJSONArray);
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("rich_title");
                 if (optJSONArray2 != null) {
@@ -1022,22 +1033,22 @@ public class VideoItemData implements Serializable, Parcelable {
 
     public void reGenerateTitle() {
         List<PbContent> list;
-        CharSequence o;
+        CharSequence p;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             this.titleSsb = new SpannableStringBuilder();
             if (this.threadData != null && (list = this.richTitle) != null && !list.isEmpty()) {
                 for (PbContent pbContent : this.richTitle) {
                     if (pbContent.type.intValue() == 18) {
-                        ci5 f = ci5.f(this.threadData, pbContent);
+                        zg5 f = zg5.f(this.threadData, pbContent);
                         f.d(R.color.CAM_X0101);
                         f.e(R.color.CAM_X0113);
                         f.b(HotTopicStat.Locate.VIDEO_MIDDLE);
-                        o = ou5.p(f);
+                        p = ut5.q(f);
                     } else {
-                        o = ou5.o(this.threadData, pbContent);
+                        p = ut5.p(this.threadData, pbContent);
                     }
-                    this.titleSsb.append(o);
+                    this.titleSsb.append(p);
                 }
             } else if (!TextUtils.isEmpty(this.title)) {
                 this.titleSsb.append((CharSequence) this.title);

@@ -1,54 +1,44 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.os.Environment;
-import android.provider.MediaStore;
-import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.core.app.NotificationCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.io.FileUtils;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.re3;
+import com.baidu.searchbox.bdeventbus.Action;
+import com.baidu.searchbox.bdeventbus.BdEventBus;
+import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
+import com.baidu.searchbox.logsystem.basic.upload.Constant;
+import com.baidu.tieba.qs2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.util.MimeTypes;
-import java.io.File;
-import java.net.URI;
-import org.json.JSONObject;
-import rx.schedulers.Schedulers;
 /* loaded from: classes4.dex */
-public class hy2 extends jb3 {
+public class hy2 implements g92, i92 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
+    public static volatile hy2 e;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public ay2 c;
 
     /* loaded from: classes4.dex */
-    public class a implements fo3<pe3<re3.e>> {
+    public class a implements Action<q63> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ Context c;
-        public final /* synthetic */ File d;
-        public final /* synthetic */ UnitedSchemeEntity e;
-        public final /* synthetic */ hy2 f;
+        public final /* synthetic */ hy2 a;
 
-        public a(hy2 hy2Var, CallbackHandler callbackHandler, String str, Context context, File file, UnitedSchemeEntity unitedSchemeEntity) {
+        public a(hy2 hy2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hy2Var, callbackHandler, str, context, file, unitedSchemeEntity};
+                Object[] objArr = {hy2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -58,385 +48,253 @@ public class hy2 extends jb3 {
                     return;
                 }
             }
-            this.f = hy2Var;
-            this.a = callbackHandler;
-            this.b = str;
-            this.c = context;
-            this.d = file;
-            this.e = unitedSchemeEntity;
+            this.a = hy2Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fo3
-        /* renamed from: b */
-        public void a(pe3<re3.e> pe3Var) {
+        @Override // com.baidu.searchbox.bdeventbus.Action
+        public void call(q63 q63Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pe3Var) == null) {
-                if (ke3.h(pe3Var)) {
-                    this.f.u(this.c, this.d, this.e, this.a, this.b);
-                } else {
-                    ke3.q(pe3Var, this.a, this.b);
-                }
+            if (interceptable == null || interceptable.invokeL(1048576, this, q63Var) == null) {
+                this.a.f(new iy2(q63Var));
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b implements p43 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ File b;
-        public final /* synthetic */ CallbackHandler c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ UnitedSchemeEntity e;
-        public final /* synthetic */ hy2 f;
-
-        public b(hy2 hy2Var, Context context, File file, CallbackHandler callbackHandler, String str, UnitedSchemeEntity unitedSchemeEntity) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947839976, "Lcom/baidu/tieba/hy2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hy2Var, context, file, callbackHandler, str, unitedSchemeEntity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.f = hy2Var;
-            this.a = context;
-            this.b = file;
-            this.c = callbackHandler;
-            this.d = str;
-            this.e = unitedSchemeEntity;
-        }
-
-        @Override // com.baidu.tieba.p43
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                if (jb3.b) {
-                    Log.d("SwanAppAction", str + "");
-                }
-                this.f.x(this.a, this.b, this.c, this.d);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947839976, "Lcom/baidu/tieba/hy2;");
+                return;
             }
         }
+        d = t73.v;
+    }
 
-        @Override // com.baidu.tieba.p43
-        public void b(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                UnitedSchemeUtility.safeCallback(this.c, this.e, UnitedSchemeUtility.wrapCallbackParams(10005, str).toString(), this.d);
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            cy2.a();
+        }
+    }
+
+    @NonNull
+    public static hy2 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (e == null) {
+                synchronized (hy2.class) {
+                    if (e == null) {
+                        e = new hy2();
+                    }
+                }
+            }
+            return e;
+        }
+        return (hy2) invokeV.objValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            f(new ky2(11));
+        }
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.b = true;
+            f(new ky2(12, null, 0L, false));
+            if (d) {
+                Log.d("SwanAPPPageMonitor-Route", "**************** page onPause cancel route monitor");
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class c implements gna<File> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ Context c;
-        public final /* synthetic */ hy2 d;
-
-        public c(hy2 hy2Var, CallbackHandler callbackHandler, String str, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hy2Var, callbackHandler, str, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = hy2Var;
-            this.a = callbackHandler;
-            this.b = str;
-            this.c = context;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.gna
-        public void call(File file) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, file) == null) {
-                if (file == null) {
-                    this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1001, "output file create fail").toString());
-                    return;
-                }
-                Uri fromFile = Uri.fromFile(file);
-                this.d.w(this.c, file.getPath(), -1L);
-                this.c.sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", fromFile));
-                if (jb3.b) {
-                    Log.i("SaveVideoAction", "saveToAlbum : file = " + file);
-                }
-                this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(0).toString());
-            }
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            f(new ky2(9, null, LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION));
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class d implements kna<File, File> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ hy2 b;
-
-        public d(hy2 hy2Var, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hy2Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            if (d) {
+                Log.d("SwanAppPageMonitor", "stop page monitoring");
             }
-            this.b = hy2Var;
-            this.a = context;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.kna
-        public File call(File file) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
-                String x = ug3.x(m93.g0());
-                if (TextUtils.isEmpty(x) || !file.getPath().startsWith(x)) {
-                    return null;
-                }
-                return this.b.q(this.a, file);
-            }
-            return (File) invokeL.objValue;
+            f(new ky2(7));
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hy2(ja3 ja3Var) {
-        super(ja3Var, "/swanAPI/saveVideoToPhotosAlbum");
+    public hy2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ja3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.b = false;
+        this.c = new by2();
+        BdEventBus.Companion.getDefault().lazyRegister("dialog_event_tag", q63.class, 0, new a(this));
     }
 
-    public final String s(String str) {
-        InterceptResult invokeL;
+    public final void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            String lowerCase = str.toLowerCase();
-            if (lowerCase.endsWith("mp4") || lowerCase.endsWith("mpeg4") || !lowerCase.endsWith("3gp")) {
-                return MimeTypes.VIDEO_MP4;
-            }
-            return "video/3gp";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final void u(@NonNull Context context, @NonNull File file, @NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull CallbackHandler callbackHandler, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048581, this, context, file, unitedSchemeEntity, callbackHandler, str) == null) {
-            o43.e("android.permission.WRITE_EXTERNAL_STORAGE", new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 3, context, new b(this, context, file, callbackHandler, str, unitedSchemeEntity));
-        }
-    }
-
-    public static File t(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
-            File file = new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM).getPath());
-            if (file.exists()) {
-                String str = "video";
-                File file2 = new File(file, (new File(file, "Video").exists() || !new File(file, "video").exists()) ? "Video" : "Video");
-                if ((file2.exists() || file2.mkdirs()) && file2.canWrite()) {
-                    return file2;
-                }
-            }
-            File file3 = new File(Environment.getExternalStorageDirectory().getPath() + File.separator + "baidu" + File.separator + FileUtils.SEARCHBOX_FOLDER + File.separator + "Video");
-            if (!file3.exists() && !file3.mkdirs()) {
-                File externalFilesDir = context.getExternalFilesDir(null);
-                if (externalFilesDir != null) {
-                    File file4 = new File(externalFilesDir.getPath() + File.separator + "Video");
-                    if (file4.exists() || file4.mkdirs()) {
-                        return file4;
-                    }
-                }
-                File file5 = new File(context.getFilesDir().getPath() + File.separator + "Video");
-                if (!file5.exists() && !file5.mkdirs()) {
-                    return null;
-                }
-                return file5;
-            }
-            return file3;
-        }
-        return (File) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.jb3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m93 m93Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, m93Var)) == null) {
-            if (m93Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
-                return false;
-            } else if (m93Var.n0()) {
-                if (jb3.b) {
-                    Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
-                }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
-                return false;
-            } else {
-                JSONObject a2 = jb3.a(unitedSchemeEntity, "params");
-                if (a2 == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal params");
-                    return false;
-                }
-                String optString = a2.optString("filePath");
-                try {
-                    File file = null;
-                    if ("bdfile".equalsIgnoreCase(URI.create(optString).getScheme())) {
-                        String M = ug3.M(optString, m93Var.b);
-                        if (!TextUtils.isEmpty(M)) {
-                            file = new File(M);
-                        }
-                    } else {
-                        String L = ug3.L(optString, m93Var, m93Var.k0());
-                        if (!TextUtils.isEmpty(L)) {
-                            file = new File(L);
-                        }
-                    }
-                    if (file != null && file.exists() && file.isFile()) {
-                        String optString2 = a2.optString("cb");
-                        if (TextUtils.isEmpty(optString2)) {
-                            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
-                            return false;
-                        }
-                        m93Var.e0().g(context, "mapp_images", new a(this, callbackHandler, optString2, context, file, unitedSchemeEntity));
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                        return true;
-                    }
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "can not find such file : " + file);
-                    return false;
-                } catch (Exception e) {
-                    if (jb3.b) {
-                        e.printStackTrace();
-                    }
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "Illegal file_path : " + optString);
-                    return false;
-                }
-            }
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final boolean p(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            return new File(str).exists();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final long r(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
-            if (j <= 0) {
-                return System.currentTimeMillis();
-            }
-            return j;
-        }
-        return invokeJ.longValue;
-    }
-
-    public final File q(Context context, @NonNull File file) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, file)) == null) {
-            File t = t(context);
-            if (t == null) {
-                return null;
-            }
-            File file2 = new File(t, file.getName());
-            if (qp4.f(file, file2) <= 0) {
-                return null;
-            }
-            return file2;
-        }
-        return (File) invokeLL.objValue;
-    }
-
-    public final ContentValues v(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, str, j)) == null) {
-            ContentValues contentValues = new ContentValues();
-            File file = new File(str);
-            long r = r(j);
-            contentValues.put("title", file.getName());
-            contentValues.put("_display_name", file.getName());
-            contentValues.put("date_modified", Long.valueOf(r));
-            contentValues.put("date_added", Long.valueOf(r));
-            contentValues.put("_data", file.getAbsolutePath());
-            contentValues.put("_size", Long.valueOf(file.length()));
-            return contentValues;
-        }
-        return (ContentValues) invokeLJ.objValue;
-    }
-
-    public final void w(Context context, String str, long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048583, this, new Object[]{context, str, Long.valueOf(j)}) != null) || !p(str)) {
+        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || !this.b) {
             return;
         }
-        long r = r(j);
-        ContentValues v = v(str, r);
-        v.put("datetaken", Long.valueOf(r));
-        v.put("mime_type", s(str));
-        context.getContentResolver().insert(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, v);
+        f(new ky2(13, null, 4000L, false));
+        if (d) {
+            Log.d("SwanAPPPageMonitor-Route", "**************** page onResume start route monitor, time=4000");
+        }
     }
 
-    public final void x(@NonNull Context context, @NonNull File file, @NonNull CallbackHandler callbackHandler, @NonNull String str) {
+    @Override // com.baidu.tieba.i92
+    public void a(cu1 cu1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context, file, callbackHandler, str) == null) {
-            if (file == null) {
-                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, "can not save to album : " + file).toString());
+        if (interceptable == null || interceptable.invokeL(1048576, this, cu1Var) == null) {
+            if (d) {
+                Log.d("SwanAppPageMonitor", "webview insert event");
+            }
+            f(new my2(cu1Var, true));
+        }
+    }
+
+    @Override // com.baidu.tieba.i92
+    public void b(cu1 cu1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cu1Var) == null) {
+            if (d) {
+                Log.d("SwanAppPageMonitor", "webview remove event");
+            }
+            f(new my2(cu1Var, false));
+        }
+    }
+
+    public final void f(ky2 ky2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ky2Var) == null) {
+            this.c.a(ky2Var);
+        }
+    }
+
+    public void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(1048581, this, z) != null) || !he3.d) {
+            return;
+        }
+        if (z) {
+            k();
+        } else {
+            j();
+        }
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.a = z;
+            if (z) {
+                gy2.k();
+                de3.z();
+                this.b = false;
+            }
+        }
+    }
+
+    public void h(boolean z) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            if (d) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("change to ");
+                if (z) {
+                    str = NotificationCompat.WearableExtender.KEY_BACKGROUND;
+                } else {
+                    str = Constant.FOREGROUND;
+                }
+                sb.append(str);
+                Log.d("SwanAppPageMonitor", sb.toString());
+            }
+            f(new jy2(z));
+        }
+    }
+
+    public void m() {
+        ky2 ky2Var;
+        qs2.a W;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            long n = ar2.g0().n();
+            if (d) {
+                Log.d("SwanAppPageMonitor", "start page monitoring, delay: " + n);
+            }
+            if (this.a) {
+                if (gt2.U().getActivity() != null && (W = s73.K().q().W()) != null) {
+                    long currentTimeMillis = System.currentTimeMillis() - W.N();
+                    n -= currentTimeMillis;
+                    if (n < 0) {
+                        if (d) {
+                            Log.d("SwanAppPageMonitor", "WhiteScreenMonitor out of time: time=" + currentTimeMillis);
+                        }
+                        mj3 mj3Var = new mj3();
+                        mj3Var.k(5L);
+                        mj3Var.i(40L);
+                        mj3Var.f("whitescreen monitor out of time: time=" + currentTimeMillis);
+                        ue3 ue3Var = new ue3();
+                        ue3Var.q(me3.n(W.G()));
+                        ue3Var.p(mj3Var);
+                        ue3Var.r(W);
+                        me3.R(ue3Var);
+                    }
+                }
+                ky2Var = new ky2(1, null, n, true);
+                this.a = false;
+                i82.b().e(n);
+                this.b = false;
+                if (he3.d) {
+                    f(ky2Var);
+                }
+            } else {
+                ky2Var = null;
+            }
+            if (d) {
+                Log.d("SwanAppPageMonitor", "WhiteScreenMonitor monitortime: " + n);
+            }
+            if (!he3.d) {
+                if (ky2Var == null) {
+                    ky2Var = new ky2(1, null, n);
+                }
+                f(ky2Var);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.g92
+    public void onScrollChanged(int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048588, this, i, i2, i3, i4) == null) {
+            if (i3 == 0 && i4 == 0 && i == 0 && i2 == 1) {
                 return;
             }
-            sma.f(file).h(new d(this, context)).y(Schedulers.io()).k(cna.b()).w(new c(this, callbackHandler, str, context));
+            f(new ky2(3));
         }
     }
 }

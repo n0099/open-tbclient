@@ -1,9 +1,17 @@
 package com.baidu.tieba;
+
+import android.app.Activity;
+import android.content.Intent;
+import androidx.annotation.NonNull;
 /* loaded from: classes4.dex */
 public interface i91 {
-    boolean g();
+    void c();
 
-    boolean h1();
+    boolean d();
 
-    boolean s0();
+    @NonNull
+    Activity getActivity();
+
+    @NonNull
+    Intent getIntent();
 }

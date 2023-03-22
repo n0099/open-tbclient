@@ -1,311 +1,199 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.content.ContentProvider;
+import android.content.ContentProviderOperation;
+import android.content.ContentProviderResult;
+import android.content.ContentValues;
+import android.content.Context;
+import android.content.OperationApplicationException;
+import android.content.UriMatcher;
+import android.content.res.AssetFileDescriptor;
+import android.content.res.Configuration;
+import android.database.Cursor;
+import android.net.Uri;
+import android.os.Binder;
+import android.os.Bundle;
+import android.os.CancellationSignal;
+import android.os.ParcelFileDescriptor;
+import android.os.Process;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.prologue.business.data.BaseVM;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class mj1 implements cm1, em1 {
+public abstract class mj1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final dm1 a;
-    @NonNull
-    public ViewGroup b;
-    @NonNull
-    public final vj1 c;
-    @NonNull
-    public final BaseVM d;
-    @Nullable
-    public lj1 e;
-    public long f;
-    public long g;
-    public final long h;
-    public long i;
-    public boolean j;
-    public qj1 k;
+    public ContentProvider a;
+    public final int b;
+    public final int c;
 
-    @Override // com.baidu.tieba.cm1
-    public void b() {
+    public Bundle call(String str, String str2, Bundle bundle) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, str2, bundle)) == null) {
+            return null;
         }
+        return (Bundle) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.cm1
-    public void c() {
+    public boolean d(String str, String str2, Bundle bundle) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, str, str2, bundle)) == null) {
+            return false;
         }
+        return invokeLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.cm1
-    public void f() {
+    public abstract int delete(int i, Uri uri, String str, String[] strArr);
+
+    public abstract void f(UriMatcher uriMatcher, String str);
+
+    public abstract String getType(int i, Uri uri);
+
+    public void i(Configuration configuration) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, configuration) == null) {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class a implements zj1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mj1 a;
+    public abstract Uri insert(int i, Uri uri, ContentValues contentValues);
 
-        @Override // com.baidu.tieba.zj1
-        public void handleSchemeDispatchCallback(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
-            }
-        }
+    public abstract boolean j();
 
-        public a(mj1 mj1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mj1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mj1Var;
-        }
+    public abstract Cursor query(int i, Uri uri, String[] strArr, String str, String[] strArr2, String str2);
 
-        @Override // com.baidu.tieba.zj1
-        public boolean c(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                if (this.a.e != null) {
-                    return this.a.e.c(str);
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-    }
+    public abstract int update(int i, Uri uri, ContentValues contentValues, String str, String[] strArr);
 
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mj1 a;
-
-        public b(mj1 mj1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mj1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mj1Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.e.d();
-            }
-        }
-    }
-
-    public mj1(@NonNull dm1 dm1Var, @NonNull ViewGroup viewGroup, @NonNull vj1 vj1Var) {
+    public mj1(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {dm1Var, viewGroup, vj1Var};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.j = true;
-        this.h = System.currentTimeMillis();
-        this.a = dm1Var;
-        this.b = viewGroup;
-        this.c = vj1Var;
-        this.d = new BaseVM(vj1Var);
-        pj1.b(vj1Var);
+        this.b = i;
+        this.c = i2;
     }
 
-    public final void j(String str) {
+    public ContentProviderResult[] a(ArrayList<ContentProviderOperation> arrayList) throws OperationApplicationException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            d9.f().e();
-            if (!this.j) {
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, arrayList)) == null) {
+            int size = arrayList.size();
+            ContentProviderResult[] contentProviderResultArr = new ContentProviderResult[size];
+            for (int i = 0; i < size; i++) {
+                contentProviderResultArr[i] = arrayList.get(i).apply(this.a, contentProviderResultArr, i);
             }
-            this.j = false;
-            this.d.e(str, this.i);
+            return contentProviderResultArr;
+        }
+        return (ContentProviderResult[]) invokeL.objValue;
+    }
+
+    public void b(ContentProvider contentProvider) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, contentProvider) == null) && this.a == null) {
+            this.a = contentProvider;
         }
     }
 
-    public void l(qj1 qj1Var) {
+    public int c(int i, Uri uri, ContentValues[] contentValuesArr) {
+        InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, qj1Var) == null) {
-            this.k = qj1Var;
-            dm1 dm1Var = this.a;
-            if (dm1Var != null) {
-                qj1Var.l(dm1Var);
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, uri, contentValuesArr)) == null) {
+            int length = contentValuesArr.length;
+            for (ContentValues contentValues : contentValuesArr) {
+                insert(i, uri, contentValues);
             }
+            return length;
         }
+        return invokeILL.intValue;
     }
 
-    public void m(@NonNull lj1 lj1Var) {
+    public AssetFileDescriptor k(int i, Uri uri, String str) throws FileNotFoundException {
+        InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, lj1Var) == null) {
-            this.e = lj1Var;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048591, this, i, uri, str)) == null) {
+            m(i, uri, str);
+            throw null;
         }
+        return (AssetFileDescriptor) invokeILL.objValue;
     }
 
-    @Override // com.baidu.tieba.em1
-    public void onAdError(String str) {
+    public ParcelFileDescriptor m(int i, Uri uri, String str) throws FileNotFoundException {
+        InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.i = System.currentTimeMillis() - this.f;
-            lj1 lj1Var = this.e;
-            if (lj1Var != null) {
-                lj1Var.f();
-            }
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048593, this, i, uri, str)) == null) {
+            throw new FileNotFoundException("No files supported by provider at " + uri);
         }
+        return (ParcelFileDescriptor) invokeILL.objValue;
     }
 
-    @Override // com.baidu.tieba.cm1
-    public void a() {
+    public void e(Uri uri, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (uj1.r() && !TextUtils.isEmpty(this.c.p)) {
-                aj0.b(this.c.p);
-                if (ch0.a) {
-                    n41.a().showToast(this.a.getAdView().getContext(), "执行nad统一新协议跳转");
-                }
-            } else {
-                ck1.a(rj0.b(), this.c.o, new a(this));
-                if (ch0.a) {
-                    n41.a().showToast(this.a.getAdView().getContext(), "执行splash旧协议跳转");
-                }
-            }
-            j(BaseVM.CloseType.CLICK_AD_AREA.value);
-            this.d.b("");
-            lj1 lj1Var = this.e;
-            if (lj1Var != null) {
-                lj1Var.a();
-            }
+        if ((interceptable != null && interceptable.invokeLI(1048582, this, uri, i) != null) || Binder.getCallingUid() == Process.myUid()) {
+            return;
         }
+        throw new SecurityException();
     }
 
-    @Override // com.baidu.tieba.em1
-    public void g() {
+    public final int g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.f = System.currentTimeMillis();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("adShowScene", this.c.D);
-                jSONObject.put("adSplashType", this.c.e);
-                if (this.c.D == 1) {
-                    long j = this.g - this.h;
-                    if (j > 0) {
-                        jSONObject.put("adLoadCostTime", j);
-                    }
-                }
-                jSONObject.put("adRenderCostTime", this.f - this.h);
-                long currentTimeMillis = System.currentTimeMillis();
-                jSONObject.put("show_time", currentTimeMillis);
-                k(currentTimeMillis);
-            } catch (JSONException unused) {
-            }
-            this.d.c(jSONObject);
-            tj1.D(this.c);
-            xj1.e(this.c);
-            lj1 lj1Var = this.e;
-            if (lj1Var != null) {
-                lj1Var.onAdShow();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.c;
         }
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.em1
-    public void d() {
+    public final Context getContext() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.g = System.currentTimeMillis();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.a.getContext();
         }
+        return (Context) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.cm1
-    public void e() {
+    public final int h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            lj1 lj1Var = this.e;
-            if (lj1Var != null) {
-                lj1Var.onSkip();
-            }
-            j(BaseVM.CloseType.CLICK_SKIP_BUTTON.value);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.b;
         }
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.em1
-    public void h(String str) {
+    public AssetFileDescriptor l(int i, Uri uri, String str, CancellationSignal cancellationSignal) throws FileNotFoundException {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            this.i = System.currentTimeMillis() - this.f;
-            if ("time_end".equals(str)) {
-                j(BaseVM.CloseType.COUNTDOWN_TIME_FINISH.value);
-            } else if ("click_skip_button".equals(str)) {
-                j(BaseVM.CloseType.CLICK_SKIP_BUTTON.value);
-            } else if ("click_ad_area".equals(str)) {
-                j(BaseVM.CloseType.CLICK_AD_AREA.value);
-            } else {
-                j(BaseVM.CloseType.OTHER.value);
-            }
-            if (this.e != null) {
-                gk0.b(new b(this));
-            }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048592, this, new Object[]{Integer.valueOf(i), uri, str, cancellationSignal})) == null) {
+            k(i, uri, str);
+            throw null;
         }
+        return (AssetFileDescriptor) invokeCommon.objValue;
     }
 
-    public final void k(long j) {
+    public Cursor query(int i, Uri uri, String[] strArr, String str, String[] strArr2, String str2, CancellationSignal cancellationSignal) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            String str = this.c.p;
-            if (!TextUtils.isEmpty(str)) {
-                this.c.p = str.replace("SplashShowTime", String.valueOf(j));
-            }
-            String str2 = this.c.O;
-            if (!TextUtils.isEmpty(str2)) {
-                this.c.O = str2.replace("SplashShowTime", String.valueOf(j));
-            }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048595, this, new Object[]{Integer.valueOf(i), uri, strArr, str, strArr2, str2, cancellationSignal})) == null) {
+            return query(i, uri, strArr, str, strArr2, str2);
         }
+        return (Cursor) invokeCommon.objValue;
     }
 }

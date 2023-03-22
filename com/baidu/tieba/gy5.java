@@ -1,208 +1,148 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.os.IBinder;
 import android.view.View;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.account.safeManage.AccountSafeModel;
-import com.baidu.tieba.setting.im.more.ResponsedPrivacyHttpMessage;
-import com.baidu.tieba.setting.im.more.ResponsedPrivacySocketMessage;
-import com.baidu.tieba.tbadkCore.util.AntiHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.Window;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.core.util.GreyUtil;
+import com.baidu.tieba.ad.download.rectify.DownloadRectifyView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class gy5 implements View.OnClickListener {
+public class gy5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BaseActivity a;
-    public hy5 b;
-    public AccountSafeModel c;
-    public wb d;
 
     /* loaded from: classes4.dex */
-    public class a extends wb {
+    public static class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gy5 a;
+        public final /* synthetic */ AlertDialog a;
+        public final /* synthetic */ Activity b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(gy5 gy5Var, int i, int i2) {
-            super(i, i2);
+        public a(AlertDialog alertDialog, Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gy5Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                Object[] objArr = {alertDialog, activity};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = gy5Var;
+            this.a = alertDialog;
+            this.b = activity;
         }
 
-        @Override // com.baidu.tieba.wb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            String errorString;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
-                if (this.a.c != null) {
-                    this.a.c.U(false);
-                }
-                this.a.a.closeLoadingDialog();
-                if (responsedMessage == null) {
-                    return;
-                }
-                if (!responsedMessage.hasError() && responsedMessage.getError() == 0) {
-                    sy8 sy8Var = null;
-                    if (responsedMessage instanceof ResponsedPrivacyHttpMessage) {
-                        sy8Var = ((ResponsedPrivacyHttpMessage) responsedMessage).getPrivacyData();
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                gy5.a(this.a, this.b);
+            }
+        }
+    }
+
+    public static final boolean a(Dialog dialog, Activity activity) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dialog, activity)) == null) {
+            if (dialog == null || activity == null || activity.isFinishing() || activity.getWindow() == null || !b(activity.getWindow().getDecorView())) {
+                return false;
+            }
+            dialog.dismiss();
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static final boolean b(View view2) {
+        InterceptResult invokeL;
+        IBinder windowToken;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            if (view2 != null && (windowToken = view2.getWindowToken()) != null) {
+                try {
+                    if (windowToken.isBinderAlive()) {
+                        if (windowToken.pingBinder()) {
+                            return true;
+                        }
+                        return false;
                     }
-                    if (responsedMessage instanceof ResponsedPrivacySocketMessage) {
-                        sy8Var = ((ResponsedPrivacySocketMessage) responsedMessage).getPrivacyData();
-                    }
-                    if (this.a.c != null) {
-                        this.a.c.T(sy8Var);
-                    }
-                    if (this.a.b != null && this.a.c != null && this.a.c.O() != null) {
-                        this.a.b.d(this.a.c.O().f());
-                        return;
-                    }
-                    return;
+                    return false;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return false;
                 }
-                if (StringUtils.isNull(responsedMessage.getErrorString())) {
-                    errorString = this.a.a.getString(R.string.obfuscated_res_0x7f0f0d11);
-                } else {
-                    errorString = responsedMessage.getErrorString();
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static final boolean c(Dialog dialog, Activity activity) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, dialog, activity)) == null) {
+            if (dialog == null || activity == null || activity.isFinishing()) {
+                return false;
+            }
+            if (activity.getWindow() != null && !activity.getWindow().isActive()) {
+                try {
+                    dialog.show();
+                    return true;
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-                this.a.a.showToast(errorString);
             }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947810278, "Lcom/baidu/tieba/gy5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947810278, "Lcom/baidu/tieba/gy5;");
-                return;
-            }
-        }
-        e = TbConfig.TIEBA_ADDRESS + "mo/q/accountSecurity/accountOption";
-    }
-
-    public gy5(BaseActivity baseActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        a aVar = new a(this, CmdConfigHttp.GET_PRIVATE_INFO_CMD, 303016);
-        this.d = aVar;
-        this.a = baseActivity;
-        baseActivity.registerListener(aVar);
-        this.b = new hy5(this.a, this);
-        this.c = new AccountSafeModel(this.a);
-        if (BdNetTypeUtil.isNetWorkAvailable()) {
-            g();
-        } else {
-            this.a.showToast(R.string.obfuscated_res_0x7f0f0d11);
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f09034b) {
-                TiebaStatic.log("c10013");
-                if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0d11);
-                } else {
-                    UrlManager.getInstance().dealOneLink(this.a.getPageContext(), new String[]{e});
+            if (activity.getWindow() != null && b(activity.getWindow().getDecorView())) {
+                try {
+                    dialog.show();
+                    return true;
+                } catch (Exception e2) {
+                    e2.printStackTrace();
                 }
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f090057) {
-                AccountSafeModel accountSafeModel = this.c;
-                if (accountSafeModel != null) {
-                    str = accountSafeModel.getJumpUrl();
-                } else {
-                    str = "";
-                }
-                AntiHelper.p(this.a, str);
             }
+            return false;
         }
+        return invokeLL.booleanValue;
     }
 
-    public void e(int i) {
-        hy5 hy5Var;
+    public static Dialog d(@NonNull fy5 fy5Var, @NonNull View view2, @NonNull Activity activity, @Nullable DialogInterface.OnDismissListener onDismissListener, @Nullable DialogInterface.OnShowListener onShowListener) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (hy5Var = this.b) != null) {
-            hy5Var.e(i);
-        }
-    }
-
-    public View d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b.a();
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.closeLoadingDialog();
-            AccountSafeModel accountSafeModel = this.c;
-            if (accountSafeModel != null) {
-                accountSafeModel.cancelLoadData();
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65539, null, fy5Var, view2, activity, onDismissListener, onShowListener)) == null) {
+            AlertDialog create = new AlertDialog.Builder(activity, R.style.obfuscated_res_0x7f100108).create();
+            GreyUtil.grey(create);
+            create.setCanceledOnTouchOutside(true);
+            create.setOnDismissListener(onDismissListener);
+            create.setOnShowListener(onShowListener);
+            DownloadRectifyView downloadRectifyView = new DownloadRectifyView(activity);
+            downloadRectifyView.a(fy5Var);
+            downloadRectifyView.setDownloadView(view2);
+            downloadRectifyView.setOnCloseClickListener(new a(create, activity));
+            c(create, activity);
+            Window window = create.getWindow();
+            if (window != null) {
+                window.setGravity(80);
+                window.setLayout(-1, -2);
+                window.setContentView(downloadRectifyView);
             }
-            hy5 hy5Var = this.b;
-            if (hy5Var != null) {
-                hy5Var.c();
-            }
+            return create;
         }
-    }
-
-    public final void g() {
-        AccountSafeModel accountSafeModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (accountSafeModel = this.c) != null && !accountSafeModel.Q()) {
-            this.c.S();
-        }
+        return (Dialog) invokeLLLLL.objValue;
     }
 }

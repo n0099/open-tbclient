@@ -8,7 +8,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dh;
+import com.baidu.tieba.gg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.effect.ChatEggRainData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -40,7 +40,7 @@ public abstract class BaseSysMsg extends BaseMsg {
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "" : (CharSequence) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.Cdo
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.gn
     public abstract /* synthetic */ BdUniqueId getType();
 
     public boolean isConvertToNormalMsg() {
@@ -76,6 +76,10 @@ public abstract class BaseSysMsg extends BaseMsg {
         public transient /* synthetic */ FieldHolder $fh;
         @SerializedName("chatroom_view_type")
         public int chatroomViewType;
+        @SerializedName("notice_bubble_version_key")
+        public String noticeBubbleVersionKey;
+        @SerializedName("notice_content")
+        public String noticeContent;
         @SerializedName("notice_url")
         public String noticeUrl;
         @SerializedName("talk_threshold_level")
@@ -106,10 +110,28 @@ public abstract class BaseSysMsg extends BaseMsg {
             return invokeV.intValue;
         }
 
-        public String getNoticeUrl() {
+        public String getNoticeBubbleVersionKey() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.noticeBubbleVersionKey;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public String getNoticeContent() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.noticeContent;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public String getNoticeUrl() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 return this.noticeUrl;
             }
             return (String) invokeV.objValue;
@@ -118,7 +140,7 @@ public abstract class BaseSysMsg extends BaseMsg {
         public int getTalkThresholdLevel() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                 return this.talkThresholdLevel;
             }
             return invokeV.intValue;
@@ -127,7 +149,7 @@ public abstract class BaseSysMsg extends BaseMsg {
         public int getTalkType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
                 return this.talkType;
             }
             return invokeV.intValue;
@@ -323,7 +345,7 @@ public abstract class BaseSysMsg extends BaseMsg {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return dh.g(BIMManager.getBdUidFromBdUK(this.bduk), 0L);
+                return gg.g(BIMManager.getBdUidFromBdUK(this.bduk), 0L);
             }
             return invokeV.longValue;
         }

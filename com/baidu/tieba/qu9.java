@@ -1,724 +1,447 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.os.RemoteException;
-import android.preference.PreferenceManager;
-import android.text.TextUtils;
-import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
-import com.baidu.tieba.st9;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.PostPrefixData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.data.SelectForumData;
+import com.baidu.tieba.sr9;
+import com.baidu.tieba.write.WritePrefixItemLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.Flow;
-import com.baidu.ubc.IRemoteUBCService;
-import com.baidu.ubc.Slot;
-import com.baidu.ubc.UBC;
-import com.baidu.ubc.UBCManager;
 import java.util.ArrayList;
-import java.util.Locale;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes5.dex */
-public class qu9 implements UBCManager {
+/* loaded from: classes6.dex */
+public class qu9 extends uu9<qv9> implements wu9, sr9.a, PopupWindow.OnDismissListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
+    @Nullable
+    public LinearLayout g;
+    @Nullable
+    public TextView h;
+    @Nullable
+    public View i;
+    @Nullable
+    public ImageView j;
+    @Nullable
+    public sr9 k;
+    @Nullable
+    public ch6 l;
+    public ArrayList<WritePrefixItemLayout> m;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948104468, "Lcom/baidu/tieba/qu9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948104468, "Lcom/baidu/tieba/qu9;");
-                return;
-            }
+    @Override // com.baidu.tieba.zu9
+    public void a(@NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, writeData) == null) {
         }
-        c = ku9.m();
     }
 
-    public qu9() {
+    @Override // com.baidu.tieba.zu9
+    public void c(WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, writeData) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.zu9
+    public void e(@NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, writeData) == null) {
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TextView a;
+        public final /* synthetic */ LinearLayout b;
+        public final /* synthetic */ ImageView c;
+        public final /* synthetic */ sr9 d;
+        public final /* synthetic */ qu9 e;
+
+        public a(qu9 qu9Var, TextView textView, LinearLayout linearLayout, ImageView imageView, sr9 sr9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qu9Var, textView, linearLayout, imageView, sr9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = qu9Var;
+            this.a = textView;
+            this.b = linearLayout;
+            this.c = imageView;
+            this.d = sr9Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                StatisticItem statisticItem = new StatisticItem("c13013");
+                if (this.e.e != null) {
+                    str = this.e.e.getForumId();
+                } else {
+                    str = "";
+                }
+                TiebaStatic.log(statisticItem.param("fid", str).param("uid", TbadkCoreApplication.getCurrentAccountId()));
+                this.a.setVisibility(0);
+                this.b.setSelected(true);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.c, R.drawable.icon_pure_fold12_svg, R.color.CAM_X0105, null);
+                if (this.e.b != null) {
+                    this.e.b.B();
+                    this.e.b.p(false);
+                }
+                lg.l(this.d, view2, 0, hi.d(this.e.a.getPageActivity(), 1.0f));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TextView a;
+        public final /* synthetic */ ImageView b;
+        public final /* synthetic */ sr9 c;
+        public final /* synthetic */ qu9 d;
+
+        public b(qu9 qu9Var, TextView textView, ImageView imageView, sr9 sr9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qu9Var, textView, imageView, sr9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = qu9Var;
+            this.a = textView;
+            this.b = imageView;
+            this.c = sr9Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                StatisticItem statisticItem = new StatisticItem("c13013");
+                if (this.d.e != null) {
+                    str = this.d.e.getForumId();
+                } else {
+                    str = "";
+                }
+                TiebaStatic.log(statisticItem.param("fid", str).param("uid", TbadkCoreApplication.getCurrentAccountId()));
+                this.a.setSelected(true);
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.b, R.drawable.icon_pure_fold12_svg, R.color.CAM_X0105, null);
+                if (this.d.b != null) {
+                    this.d.b.B();
+                    this.d.b.p(false);
+                }
+                lg.l(this.c, view2, 0, hi.d(this.d.a.getPageActivity(), 1.0f));
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qu9(TbPageContext<?> tbPageContext) {
+        super(tbPageContext, qv9.class);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = "";
-        this.b = "";
+        this.m = new ArrayList<>();
     }
 
-    public final IRemoteUBCService a() throws RemoteException {
-        InterceptResult invokeV;
+    public void R(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return UBC.getProxy();
+        if ((interceptable != null && interceptable.invokeI(1048582, this, i) != null) || i >= this.m.size()) {
+            return;
         }
-        return (IRemoteUBCService) invokeV.objValue;
+        for (int i2 = 0; i2 < this.m.size(); i2++) {
+            this.m.get(i2).b(false);
+        }
+        this.m.get(i).b(true);
     }
 
-    @Override // com.baidu.ubc.UBCManager
-    public void flush() {
+    public final void L(@NonNull WriteData writeData, @NonNull sr9 sr9Var, @NonNull TextView textView) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            if (c) {
-                Log.d("UBCServiceManager", "flush");
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, writeData, sr9Var, textView) == null) {
+            this.m.clear();
+            ArrayList<String> prefixs = writeData.getPrefixData().getPrefixs();
+            int size = prefixs.size();
+            int color = SkinManager.getColor(R.color.CAM_X0105);
+            for (int i = 0; i < size; i++) {
+                WritePrefixItemLayout writePrefixItemLayout = new WritePrefixItemLayout(this.a.getPageActivity());
+                this.m.add(writePrefixItemLayout);
+                writePrefixItemLayout.setPrefixText(prefixs.get(i));
+                writePrefixItemLayout.setPrefixTextColor(color);
+                int i2 = size - 1;
+                boolean z2 = true;
+                if (i == i2) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                writePrefixItemLayout.c(z);
+                if (i != i2) {
+                    z2 = false;
+                }
+                writePrefixItemLayout.setDividerStyle(z2);
+                sr9Var.a(writePrefixItemLayout);
             }
-            mt9.w().v();
+            sr9Var.c(0);
+            textView.setText(prefixs.get(0));
         }
     }
 
-    @Override // com.baidu.ubc.UBCManager
-    public boolean isUBCDebug() {
+    public final void M(@NonNull TextView textView, @NonNull ImageView imageView, @NonNull sr9 sr9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textView, imageView, sr9Var) == null) {
+            textView.setOnClickListener(new b(this, textView, imageView, sr9Var));
+        }
+    }
+
+    public final void N() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            Q();
+            P();
+            if (this.h != null && this.g != null && this.i != null && this.j != null && this.k != null) {
+                WriteData writeData = this.e;
+                if (writeData != null && writeData.getPrefixData() != null) {
+                    if (this.e.getPrefixData().getPrefixs().size() > 1) {
+                        this.g.setVisibility(0);
+                        this.i.setVisibility(0);
+                        S();
+                        O(this.g, this.h, this.j, this.k);
+                        M(this.h, this.j, this.k);
+                        L(this.e, this.k, this.h);
+                        R(0);
+                        return;
+                    }
+                    this.g.setVisibility(8);
+                    this.i.setVisibility(8);
+                    return;
+                }
+                this.g.setVisibility(8);
+                this.i.setVisibility(8);
+            }
+        }
+    }
+
+    public final void Q() {
+        WriteData writeData;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a.getPageActivity() != null && (writeData = this.e) != null && writeData.getPrefixData() != null && this.e.getPrefixData().getPrefixs().size() > 1) {
+            sr9 sr9Var = new sr9(this.a.getPageActivity());
+            this.k = sr9Var;
+            sr9Var.e(this);
+            this.k.d(hi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f0702d7));
+            this.k.setOutsideTouchable(true);
+            this.k.setFocusable(true);
+            this.k.setOnDismissListener(this);
+            this.k.setBackgroundDrawable(SkinManager.getDrawable(R.color.CAM_X0201));
+        }
+    }
+
+    public final void O(@NonNull LinearLayout linearLayout, @NonNull TextView textView, @NonNull ImageView imageView, @NonNull sr9 sr9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048579, this, linearLayout, textView, imageView, sr9Var) == null) {
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(imageView, R.drawable.icon_pure_unfold12_svg, R.color.CAM_X0105, null);
+            linearLayout.setOnClickListener(new a(this, textView, linearLayout, imageView, sr9Var));
+        }
+    }
+
+    public final void P() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.a.getPageActivity() != null && this.l == null) {
+            ch6 ch6Var = new ch6(this.a, this.g);
+            this.l = ch6Var;
+            ch6Var.C(R.drawable.bg_tip_blue_up_left);
+            this.l.k(16);
+            this.l.q(true);
+            this.l.E(true);
+            this.l.H(hi.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070207));
+        }
+    }
+
+    public final void S() {
+        ch6 ch6Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (ch6Var = this.l) != null) {
+            ch6Var.L(this.a.getString(R.string.obfuscated_res_0x7f0f172d), "write_title_prefix_tip_key", true);
+        }
+    }
+
+    @Override // com.baidu.tieba.uu9, com.baidu.tieba.zu9
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            super.d();
+            ch6 ch6Var = this.l;
+            if (ch6Var != null) {
+                ch6Var.d();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.uu9, com.baidu.tieba.zu9
+    public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            if (c) {
-                return PreferenceManager.getDefaultSharedPreferences(ku9.b()).getBoolean("KEY_UBC_DEBUG", c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            sr9 sr9Var = this.k;
+            if (sr9Var != null && sr9Var.isShowing()) {
+                lg.d(this.k, this.a.getPageActivity());
+                return true;
             }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.ubc.UBCManager
-    public boolean isUBCSample() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.sr9.a
+    public void T0(int i) {
+        WriteData writeData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            if (c) {
-                return PreferenceManager.getDefaultSharedPreferences(ku9.b()).getBoolean("KEY_UBC_SAMPLE", false);
+        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && this.k != null && this.h != null && (writeData = this.e) != null && writeData.getPrefixData() != null) {
+            if (i == ListUtils.getCount(this.e.getPrefixData().getPrefixs()) - 1) {
+                TiebaStatic.log(new StatisticItem("c13014").param("obj_type", 1));
+            } else {
+                TiebaStatic.log(new StatisticItem("c13014").param("obj_type", 2));
             }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.ubc.UBCManager
-    public void upload() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048613, this) == null) {
-            if (c) {
-                Log.d("UBCServiceManager", "upload all data");
+            this.k.c(i);
+            R(i);
+            if (this.h.getText() != null) {
+                this.h.setText(this.e.getPrefixData().getPrefixs().get(i));
+                if (this.h.getText() != null && !this.h.getText().toString().equals(this.a.getString(R.string.write_no_prefix))) {
+                    this.e.setPostPrefix(this.h.getText().toString());
+                }
             }
-            mt9.w().O();
-            mt9.w().K();
-        }
-    }
-
-    @Override // com.baidu.ubc.UBCManager
-    public void uploadFailedData() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
-            if (c) {
-                Log.d("UBCServiceManager", "uploadFailedData and quality data");
+            bv9 bv9Var = this.b;
+            if (bv9Var != null) {
+                bv9Var.i();
             }
-            mt9.w().E();
-            mt9.w().L();
+            lg.d(this.k, this.a.getPageActivity());
         }
     }
 
-    @Override // com.baidu.ubc.UBCManager
-    public void uploadLocalDatas() {
+    @Override // com.baidu.tieba.zu9
+    public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
-            if (ok1.g()) {
-                mt9.w().W();
-                return;
-            }
-            try {
-                UBC.getProxy().uploadLocalDatas();
-            } catch (RemoteException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public final Flow b(String str, String str2, int i) {
-        InterceptResult invokeLLI;
-        Flow ubcBeginFlowWithBizInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, i)) == null) {
-            Flow flow = null;
-            try {
-                if (TextUtils.isEmpty(this.a)) {
-                    ubcBeginFlowWithBizInfo = a().ubcBeginFlow(str, str2, i);
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            SkinManager.setBackgroundColor(this.i, R.color.CAM_X0210);
+            n15 d = n15.d(this.h);
+            d.w(R.color.CAM_X0105);
+            d.B(R.string.F_X02);
+            d.f(R.color.CAM_X0201);
+            if (this.j != null) {
+                sr9 sr9Var = this.k;
+                if (sr9Var != null && sr9Var.isShowing()) {
+                    SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.j, R.drawable.icon_pure_fold12_svg, R.color.CAM_X0105, null);
                 } else {
-                    ubcBeginFlowWithBizInfo = a().ubcBeginFlowWithBizInfo(str, str2, i, this.a);
+                    SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.j, R.drawable.icon_pure_unfold12_svg, R.color.CAM_X0105, null);
                 }
-                flow = ubcBeginFlowWithBizInfo;
-                if (c) {
-                    Log.d("UBCServiceManager", "flow id " + str + " beginFlow  process name " + ok1.b() + "flow hashCode " + flow.hashCode() + " handle id " + flow.getHandle());
-                }
-            } catch (RemoteException e) {
-                e.printStackTrace();
             }
-            if (flow == null) {
-                return new Flow();
-            }
-            return flow;
         }
-        return (Flow) invokeLLI.objValue;
     }
 
-    @Override // com.baidu.ubc.UBCManager
-    public Flow beginFlow(String str, String str2, int i) {
-        InterceptResult invokeLLI;
+    @Override // com.baidu.tieba.wu9
+    public void onUpdate(Object obj) {
+        WriteData writeData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048581, this, str, str2, i)) == null) {
-            if (ok1.g()) {
-                if (TextUtils.isEmpty(str)) {
-                    if (!c) {
-                        return null;
-                    }
-                    throw new IllegalArgumentException("UBC beginFlow#flowId must not be null.");
-                }
-                if (c) {
-                    Log.d("UBCServiceManager", "begin flow id:" + str + " value:" + str2);
-                }
-                if (TextUtils.isEmpty(this.a)) {
-                    return mt9.w().o(str, str2, i);
-                }
-                return mt9.w().p(str, str2, i, this.b);
+        if ((interceptable == null || interceptable.invokeL(1048592, this, obj) == null) && (obj instanceof SelectForumData) && (writeData = this.e) != null) {
+            writeData.setPrefixData(null);
+            SelectForumData selectForumData = (SelectForumData) obj;
+            PostPrefixData postPrefixData = selectForumData.postPrefix;
+            if (postPrefixData != null && !ListUtils.isEmpty(postPrefixData.getPrefixs())) {
+                selectForumData.postPrefix.getPrefixs().add(this.a.getString(R.string.write_no_prefix));
+                this.e.setPrefixData(selectForumData.postPrefix);
             }
-            return b(str, str2, i);
-        }
-        return (Flow) invokeLLI.objValue;
-    }
-
-    @Override // com.baidu.ubc.UBCManager
-    public void flowAddEvent(Flow flow, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048587, this, flow, str, str2) == null) {
-            if (c) {
-                Log.d("UBCServiceManager", " flow addEvent, mId:" + flow.getId() + " handle" + flow.getHandle() + " eventId:" + str + " value:" + str2 + " mValid:" + flow.getValid());
-            }
-            if (flow != null && flow.getValid()) {
-                if (ok1.g()) {
-                    mt9.w().F(flow.getId(), str, flow.getHandle(), str2, flow.getOption());
-                    return;
-                }
-                try {
-                    UBC.getProxy().flowAddEvent(flow, str, str2);
-                } catch (RemoteException e) {
-                    e.printStackTrace();
-                }
-            }
+            N();
         }
     }
 
-    @Override // com.baidu.ubc.UBCManager
-    public void onEvent(String str, String str2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048603, this, str, str2, i) == null) {
-            if (ok1.g()) {
-                if (TextUtils.isEmpty(str)) {
-                    if (!c) {
-                        return;
-                    }
-                    throw new IllegalArgumentException("UBC onEvent#eventId must not be null.");
-                }
-                if (c) {
-                    Log.d("UBCServiceManager", "on event id:" + str + " value:" + str2);
-                }
-                if (TextUtils.isEmpty(this.a)) {
-                    mt9.w().A(str, str2, i);
-                    return;
-                } else {
-                    mt9.w().B(str, str2, i, this.b);
-                    return;
-                }
-            }
-            try {
-                IRemoteUBCService a = a();
-                if (TextUtils.isEmpty(this.a)) {
-                    a.ubcOnEvent(str, str2, i);
-                } else {
-                    a.ubcOnEventWithBizInfo(str, str2, i, this.a);
-                }
-            } catch (RemoteException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    @Override // com.baidu.ubc.UBCManager
-    public final Flow beginFlow(String str) {
+    @Override // com.baidu.tieba.zu9
+    public View s(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return beginFlow(str, "", 0);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0503, viewGroup, false);
+            this.c = inflate;
+            this.g = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091be5);
+            this.h = (TextView) this.c.findViewById(R.id.obfuscated_res_0x7f091be4);
+            this.i = this.c.findViewById(R.id.obfuscated_res_0x7f091c04);
+            this.j = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f091c05);
+            N();
+            return this.c;
         }
-        return (Flow) invokeL.objValue;
+        return (View) invokeL.objValue;
     }
 
-    @Override // com.baidu.ubc.UBCManager
-    @Deprecated
-    public String getUploadType(String str) {
-        InterceptResult invokeL;
+    @Override // android.widget.PopupWindow.OnDismissListener
+    public void onDismiss() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
-            if (ok1.g()) {
-                return mt9.w().x(str);
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            LinearLayout linearLayout = this.g;
+            if (linearLayout != null) {
+                linearLayout.setSelected(false);
             }
-            try {
-                return UBC.getProxy().getUploadType(str);
-            } catch (RemoteException e) {
-                e.printStackTrace();
-                return "";
+            if (this.j != null) {
+                SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.j, R.drawable.icon_pure_unfold12_svg, R.color.CAM_X0105, null);
             }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.ubc.UBCManager
-    public final void onEvent(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
-            onEvent(str, "", 0);
-        }
-    }
-
-    @Override // com.baidu.ubc.UBCManager
-    public void registerConfig(fu9 fu9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048608, this, fu9Var) == null) {
-            registerConfig(fu9Var, false, null);
-        }
-    }
-
-    @Override // com.baidu.ubc.UBCManager
-    public void setUBCDebug(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048611, this, z) == null) {
-            SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(ku9.b()).edit();
-            edit.putBoolean("KEY_UBC_DEBUG", z);
-            edit.commit();
-        }
-    }
-
-    @Override // com.baidu.ubc.UBCManager
-    public void setUBCSample(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048612, this, z) == null) {
-            SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(ku9.b()).edit();
-            edit.putBoolean("KEY_UBC_SAMPLE", z);
-            edit.commit();
-        }
-    }
-
-    @Override // com.baidu.ubc.UBCManager
-    public final Flow beginFlow(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i)) == null) {
-            return beginFlow(str, "", i);
-        }
-        return (Flow) invokeLI.objValue;
-    }
-
-    @Override // com.baidu.ubc.UBCManager
-    public void flowAddEvent(Flow flow, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, flow, str) == null) {
-            flowAddEvent(flow, str, null);
-        }
-    }
-
-    @Override // com.baidu.ubc.UBCManager
-    public final void onEvent(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048601, this, str, i) == null) {
-            onEvent(str, "", i);
-        }
-    }
-
-    @Override // com.baidu.ubc.UBCManager
-    public final Flow beginFlow(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            return beginFlow(str, str2, 0);
-        }
-        return (Flow) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.ubc.UBCManager
-    public final void onEvent(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048602, this, str, str2) == null) {
-            onEvent(str, str2, 0);
-        }
-    }
-
-    @Override // com.baidu.ubc.UBCManager
-    public final Flow beginFlow(String str, Map<String, String> map) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, str, map)) == null) {
-            return beginFlow(str, map, 0);
-        }
-        return (Flow) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.ubc.UBCManager
-    public final void onEvent(String str, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048604, this, str, map) == null) {
-            onEvent(str, map, 0);
-        }
-    }
-
-    @Override // com.baidu.ubc.UBCManager
-    public final Flow beginFlow(String str, Map<String, String> map, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048583, this, str, map, i)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    jSONObject.put(entry.getKey(), entry.getValue());
-                }
-            } catch (JSONException e) {
-                if (c) {
-                    Log.d("UBCServiceManager", "UBC beginFlow# exception:" + e.getMessage());
-                }
-            }
-            return beginFlow(str, jSONObject.toString(), i);
-        }
-        return (Flow) invokeLLI.objValue;
-    }
-
-    @Override // com.baidu.ubc.UBCManager
-    public final void onEvent(String str, Map<String, String> map, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048605, this, str, map, i) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    jSONObject.put(entry.getKey(), entry.getValue());
-                }
-            } catch (JSONException e) {
-                if (c) {
-                    Log.d("UBCServiceManager", "UBC onEvent# exception:" + e.getMessage());
-                }
-            }
-            onEvent(str, jSONObject.toString(), i);
-        }
-    }
-
-    @Override // com.baidu.ubc.UBCManager
-    public final Flow beginFlow(String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, jSONObject)) == null) {
-            return beginFlow(str, jSONObject, 0);
-        }
-        return (Flow) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.ubc.UBCManager
-    public final void onEvent(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048606, this, str, jSONObject) == null) {
-            onEvent(str, jSONObject, 0);
-        }
-    }
-
-    @Override // com.baidu.ubc.UBCManager
-    public Flow beginFlow(String str, JSONObject jSONObject, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048585, this, str, jSONObject, i)) == null) {
-            if (ok1.g()) {
-                if (TextUtils.isEmpty(str)) {
-                    return null;
-                }
-                if (c) {
-                    Log.d("UBCServiceManager", "begin flow id:" + str + " value:" + jSONObject);
-                }
-                if (TextUtils.isEmpty(this.a)) {
-                    return mt9.w().q(str, jSONObject, i);
-                }
-                return mt9.w().r(str, jSONObject, i, this.b);
-            }
-            return b(str, jSONObject.toString(), i);
-        }
-        return (Flow) invokeLLI.objValue;
-    }
-
-    @Override // com.baidu.ubc.UBCManager
-    public void onEvent(String str, JSONObject jSONObject, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048607, this, str, jSONObject, i) == null) {
-            if (ok1.g()) {
-                if (TextUtils.isEmpty(str)) {
-                    return;
-                }
-                if (c) {
-                    Log.d("UBCServiceManager", "on event id:" + str + " value:" + jSONObject.toString());
-                }
-                if (TextUtils.isEmpty(this.a)) {
-                    mt9.w().C(str, jSONObject, i);
-                    return;
-                } else {
-                    mt9.w().D(str, jSONObject, i, this.b);
-                    return;
-                }
-            }
-            try {
-                IRemoteUBCService a = a();
-                if (TextUtils.isEmpty(this.a)) {
-                    a.ubcOnEvent(str, jSONObject.toString(), i);
-                } else {
-                    a.ubcOnEventWithBizInfo(str, jSONObject.toString(), i, this.a);
-                }
-            } catch (RemoteException e) {
-                e.printStackTrace();
+            bv9 bv9Var = this.b;
+            if (bv9Var != null) {
+                bv9Var.p(true);
             }
         }
-    }
-
-    @Override // com.baidu.ubc.UBCManager
-    public void flowAddEventWithDate(Flow flow, String str, String str2, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{flow, str, str2, Long.valueOf(j)}) == null) {
-            if (c) {
-                Log.d("UBCServiceManager", " flow addEvent, mId:" + flow.getId() + " handle" + flow.getHandle() + " eventId:" + str + " value:" + str2 + " mValid:" + flow.getValid());
-            }
-            if (flow != null && flow.getValid()) {
-                if (ok1.g()) {
-                    mt9.w().G(flow.getId(), str, flow.getHandle(), str2, j, flow.getOption());
-                    return;
-                }
-                try {
-                    UBC.getProxy().flowAddEventWithTime(flow, str, str2, j);
-                } catch (RemoteException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.ubc.UBCManager
-    public void flowCancel(Flow flow) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, flow) == null) {
-            if (c) {
-                Log.d("UBCServiceManager", "cancel flow, mId:" + flow.getId() + " handle" + flow.getHandle() + " mValid:" + flow.getValid());
-            }
-            if (flow != null && flow.getValid()) {
-                if (ku9.i().l() && flow.hasEnd()) {
-                    if (c) {
-                        Log.d("UBCServiceManager", "flow has end, should not end again!!! ubc id=" + flow.getId() + ", flow handle=" + flow.getHandle());
-                        return;
-                    }
-                    return;
-                }
-                flow.markEnd();
-                if (ok1.g()) {
-                    mt9.w().s(flow.getId(), flow.getHandle());
-                    return;
-                }
-                try {
-                    UBC.getProxy().flowCancel(flow);
-                } catch (RemoteException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.ubc.UBCManager
-    public void flowEnd(Flow flow) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, flow) == null) {
-            if (c) {
-                Log.d("UBCServiceManager", "end flow, mId:" + flow.getId() + " handle" + flow.getHandle() + " mValid:" + flow.getValid());
-            }
-            if (flow != null && flow.getValid()) {
-                if (ku9.i().l() && flow.hasEnd()) {
-                    if (c) {
-                        Log.d("UBCServiceManager", "flow has end, should not end again!!! ubc id=" + flow.getId() + ", flow handle=" + flow.getHandle());
-                        return;
-                    }
-                    return;
-                }
-                flow.markEnd();
-                if (ok1.g()) {
-                    JSONArray jSONArray = new JSONArray();
-                    if (flow.getSlotMaps() != null && (r1 = flow.getSlotMaps().entrySet().iterator()) != null) {
-                        for (Map.Entry<String, Slot> entry : flow.getSlotMaps().entrySet()) {
-                            Slot value = entry.getValue();
-                            if (value.isBegin() && !value.isEnded()) {
-                                value.setEnd(System.currentTimeMillis());
-                            }
-                            JSONObject jSONObject = entry.getValue().getJSONObject();
-                            if (jSONObject != null) {
-                                jSONArray.put(jSONObject);
-                            }
-                        }
-                    }
-                    mt9.w().u(flow.getId(), flow.getHandle(), flow.getOption(), jSONArray);
-                    return;
-                }
-                try {
-                    UBC.getProxy().flowEnd(flow);
-                } catch (RemoteException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.ubc.UBCManager
-    public void flowEndSlot(Flow flow, String str) {
-        Slot slot;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048591, this, flow, str) == null) && flow != null && flow.getValid() && !TextUtils.isEmpty(str) && (slot = flow.getSlotMaps().get(str)) != null && slot.isBegin() && !slot.isEnded()) {
-            slot.setEnd(System.currentTimeMillis());
-        }
-    }
-
-    @Override // com.baidu.ubc.UBCManager
-    public void flowSetValue(Flow flow, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048592, this, flow, str) == null) {
-            if (c) {
-                Log.d("UBCServiceManager", " flow setValue, mId:" + flow.getId() + " handle" + flow.getHandle() + " value:" + str + " mValid:" + flow.getValid());
-            }
-            if (flow != null && flow.getValid()) {
-                if (ok1.g()) {
-                    mt9.w().N(flow.getId(), flow.getHandle(), str);
-                    return;
-                }
-                try {
-                    UBC.getProxy().flowSetValue(flow, str);
-                } catch (RemoteException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.ubc.UBCManager
-    public void flowSetValue(Flow flow, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048593, this, flow, map) == null) && flow != null && flow.getValid()) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    jSONObject.put(entry.getKey(), entry.getValue());
-                }
-            } catch (JSONException e) {
-                if (c) {
-                    Log.d("UBCServiceManager", "UBC beginFlow# exception:" + e.getMessage());
-                }
-            }
-            if (c) {
-                Log.d("UBCServiceManager", " flow setValue, mId:" + flow.getId() + " handle" + flow.getHandle() + " value:" + jSONObject.toString());
-            }
-            flowSetValue(flow, jSONObject.toString());
-        }
-    }
-
-    @Override // com.baidu.ubc.UBCManager
-    public void flowSetValueWithDuration(Flow flow, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048594, this, flow, str) == null) {
-            if (c) {
-                Log.d("UBCServiceManager", " flow setValueWithDuration, mId:" + flow.getId() + " handle: " + flow.getHandle() + " value:" + str + " mValid:" + flow.getValid());
-            }
-            if (flow != null && flow.getValid()) {
-                if (ok1.g()) {
-                    JSONObject jSONObject = new JSONObject();
-                    try {
-                        float currentTimeMillis = ((float) (System.currentTimeMillis() - flow.getStartTime())) / 1000.0f;
-                        if (currentTimeMillis < 0.0f) {
-                            currentTimeMillis = 0.0f;
-                        }
-                        jSONObject.put("duration", String.format(Locale.ENGLISH, "%.3f", Float.valueOf(currentTimeMillis)));
-                        if (!TextUtils.isEmpty(str)) {
-                            jSONObject.put(SpeedStatsUtils.UBC_KEY_OPTION, str);
-                        }
-                        if (c) {
-                            Log.d("UBCServiceManager", " flow setValueWithDuration, mId:" + flow.getId() + ", duration: " + jSONObject.toString());
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                    mt9.w().N(flow.getId(), flow.getHandle(), jSONObject.toString());
-                    return;
-                }
-                try {
-                    UBC.getProxy().flowSetValueWithDuration(flow, str);
-                } catch (RemoteException e2) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.ubc.UBCManager
-    public void flowStartSlot(Flow flow, String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(1048595, this, flow, str, jSONObject) == null) && flow != null && flow.getValid() && !TextUtils.isEmpty(str)) {
-            Slot slot = flow.getSlotMaps().get(str);
-            if (slot == null) {
-                flow.getSlotMaps().put(str, new Slot(str, System.currentTimeMillis(), jSONObject));
-                return;
-            }
-            slot.setOption(jSONObject);
-        }
-    }
-
-    @Override // com.baidu.ubc.UBCManager
-    public void registerConfig(fu9 fu9Var, boolean z, bu9 bu9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048609, this, new Object[]{fu9Var, Boolean.valueOf(z), bu9Var}) == null) {
-            mt9.w().M(fu9Var, z, bu9Var);
-        }
-    }
-
-    @Override // com.baidu.ubc.UBCManager
-    public void setDefaultConfig(vt9 vt9Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048610, this, vt9Var) != null) || vt9Var == null || !ok1.g()) {
-            return;
-        }
-        st9.a aVar = new st9.a();
-        aVar.c(vt9Var.f);
-        aVar.f(vt9Var.a);
-        aVar.e(vt9Var.b);
-        aVar.d(vt9Var.d);
-        aVar.g(vt9Var.c);
-        aVar.b(true);
-        st9 a = aVar.a();
-        if (!vt9.a(vt9Var.f)) {
-            a.D(vt9Var.e);
-        }
-        ArrayList arrayList = new ArrayList(1);
-        arrayList.add(a);
-        registerConfig(new fu9(arrayList));
     }
 }

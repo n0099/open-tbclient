@@ -1,11 +1,8 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,9 +10,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class sy2 extends oy2 {
+public final class sy2 extends ry2<String, JSONObject> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,22 +30,20 @@ public class sy2 extends oy2 {
                 return;
             }
         }
-        boolean z = wp1.a;
+        b = t73.v;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sy2(@NonNull String str) {
-        super(str);
+    public sy2() {
+        super("swanCookie");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
+                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -54,23 +51,33 @@ public class sy2 extends oy2 {
         }
     }
 
-    @Override // com.baidu.tieba.oy2
-    public boolean a(ey2 ey2Var, gy2 gy2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m93 m93Var) {
-        InterceptResult invokeCommon;
+    public final boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{ey2Var, gy2Var, context, unitedSchemeEntity, callbackHandler, m93Var})) == null) {
-            m62.i("video", "stop, video id:" + gy2Var.j + " slave id: " + gy2Var.c);
-            d(ey2Var, unitedSchemeEntity, callbackHandler);
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return pg3.l().o();
         }
-        return invokeCommon.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public final void d(ey2 ey2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ty2
+    /* renamed from: c */
+    public boolean a(@NonNull String str) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ey2Var, unitedSchemeEntity, callbackHandler) == null) {
-            ey2Var.y();
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.equals(str, (CharSequence) this.a) && !b()) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (b) {
+                t42.b("SwanCookieInterceptor", ">>> NAUseMap apiName=", str, " , should intercept ", Boolean.valueOf(z));
+            }
+            return z;
         }
+        return invokeL.booleanValue;
     }
 }

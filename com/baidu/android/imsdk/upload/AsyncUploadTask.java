@@ -45,6 +45,7 @@ public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
     public String mFilePath;
     public IUploadTransferListener mListener;
     public String mRemoteUrl;
+    public String mThumbUrl;
     public int mType;
     public String mUrl;
     public String mXbcs;
@@ -63,19 +64,6 @@ public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
             }
         }
         TAG = AsyncUploadTask.class.getSimpleName();
-    }
-
-    private void notifyFinished() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
-            try {
-                if (this.mListener != null) {
-                    this.mListener.onFinished(this.mType, this.mRemoteUrl);
-                }
-            } catch (Exception e) {
-                LogUtils.e(TAG, "notifyFinished", e);
-            }
-        }
     }
 
     public String showTime() {
@@ -135,12 +123,35 @@ public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
         this.mRemoteUrl = str2;
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public AsyncUploadTask(Context context, int i, String str, String str2, String str3, String str4, String str5, String str6, String str7, IUploadTransferListener iUploadTransferListener) {
+        this(context, i, str, str4, str5, str6, str7, iUploadTransferListener);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i), str, str2, str3, str4, str5, str6, str7, iUploadTransferListener};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((Context) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2], (String) objArr2[3], (String) objArr2[4], (String) objArr2[5], (String) objArr2[6], (IUploadTransferListener) objArr2[7]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.mRemoteUrl = str2;
+        this.mThumbUrl = str3;
+    }
+
     private Integer doUpload() {
         InterceptResult invokeV;
         long length;
         InputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
             try {
                 long j = 0;
                 if (Utility.isMediaUri(this.mFilePath)) {
@@ -212,7 +223,7 @@ public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
 
     private void notifyFailed(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(65541, this, i) == null) {
             try {
                 if (this.mListener != null) {
                     this.mListener.onFailed(i, this.mType, this.mFilePath);
@@ -257,6 +268,23 @@ public class AsyncUploadTask extends AsyncTask<Void, Integer, Integer> {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, numArr) == null) && (iUploadTransferListener = this.mListener) != null) {
             iUploadTransferListener.onProgress(numArr[0].intValue());
+        }
+    }
+
+    private void notifyFinished() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
+            try {
+                if (this.mListener != null) {
+                    if (this.mListener instanceof IUploadTransferMultipleParamListener) {
+                        ((IUploadTransferMultipleParamListener) this.mListener).onFinished(this.mType, this.mRemoteUrl, this.mThumbUrl);
+                    } else {
+                        this.mListener.onFinished(this.mType, this.mRemoteUrl);
+                    }
+                }
+            } catch (Exception e) {
+                LogUtils.e(TAG, "notifyFinished", e);
+            }
         }
     }
 }

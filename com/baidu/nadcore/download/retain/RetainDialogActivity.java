@@ -3,64 +3,64 @@ package com.baidu.nadcore.download.retain;
 import android.content.Intent;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fl0;
-import com.baidu.tieba.fm0;
+import com.baidu.tieba.vj0;
+import com.baidu.tieba.vk0;
 /* loaded from: classes2.dex */
 public class RetainDialogActivity extends NadDialogActivity {
     public int C;
 
     @Override // com.baidu.nadcore.download.retain.NadDialogActivity
-    public boolean c2() {
+    public boolean f2() {
         return true;
     }
 
     @Override // com.baidu.nadcore.download.retain.NadDialogActivity
-    public boolean d2() {
+    public boolean g2() {
         return true;
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
     public void C1() {
         super.C1();
-        if (fm0.c().a()) {
+    }
+
+    @Override // com.baidu.nadcore.appframework.BaseActivity
+    public void F1() {
+        super.F1();
+        if (vk0.c().a()) {
             finish();
         }
     }
 
     @Override // com.baidu.nadcore.download.retain.NadDialogActivity
-    public void X1() {
-        fm0.c().f();
+    public void a2() {
+        vk0.c().f();
         finish();
-    }
-
-    @Override // com.baidu.nadcore.download.retain.NadDialogActivity
-    public void Y1() {
-        fm0.c().g();
-        finish();
-    }
-
-    @Override // com.baidu.nadcore.download.retain.NadDialogActivity
-    public int Z1() {
-        return fl0.a().b();
-    }
-
-    @Override // com.baidu.nadcore.download.retain.NadDialogActivity
-    public String e2() {
-        return getResources().getString(R.string.nad_download_pause);
-    }
-
-    @Override // com.baidu.nadcore.download.retain.NadDialogActivity
-    public String f2() {
-        return getResources().getString(R.string.nad_download_resume);
-    }
-
-    @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void z1() {
-        super.z1();
     }
 
     @Override // com.baidu.nadcore.download.retain.NadDialogActivity
     public void b2() {
+        vk0.c().g();
+        finish();
+    }
+
+    @Override // com.baidu.nadcore.download.retain.NadDialogActivity
+    public int c2() {
+        return vj0.a().b();
+    }
+
+    @Override // com.baidu.nadcore.download.retain.NadDialogActivity
+    public String h2() {
+        return getResources().getString(R.string.nad_download_pause);
+    }
+
+    @Override // com.baidu.nadcore.download.retain.NadDialogActivity
+    public String i2() {
+        return getResources().getString(R.string.nad_download_resume);
+    }
+
+    @Override // com.baidu.nadcore.download.retain.NadDialogActivity
+    public void e2() {
         Intent intent = this.B;
         if (intent != null) {
             this.C = intent.getIntExtra("percent", 50);

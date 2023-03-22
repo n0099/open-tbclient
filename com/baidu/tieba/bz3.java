@@ -1,18 +1,20 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import androidx.core.view.InputDeviceCompat;
+import android.content.IntentFilter;
+import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class bz3 {
+public class bz3 extends zz3 {
     public static /* synthetic */ Interceptable $ic;
-    public static Handler a;
     public transient /* synthetic */ FieldHolder $fh;
+    public AppDownloadNetworkStateReceiver c;
 
     static {
         InterceptResult invokeClinit;
@@ -27,38 +29,45 @@ public class bz3 {
                 return;
             }
         }
-        a = new Handler(Looper.getMainLooper());
+        boolean z = do1.a;
     }
 
-    public static void a(Runnable runnable, long j) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bz3() {
+        super("resumeAllDownloadWhileWifi");
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65537, null, runnable, j) == null) {
-            a.postDelayed(runnable, j);
-        }
-    }
-
-    public static void d(Runnable runnable, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable, j) == null) {
-            if (Thread.currentThread() != Looper.getMainLooper().getThread()) {
-                a.postDelayed(runnable, j);
-            } else {
-                runnable.run();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    public static void b(Runnable runnable) {
+    @Override // com.baidu.tieba.zz3
+    public tz1 a(JSONObject jSONObject, xk2 xk2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, runnable) == null) {
-            a.removeCallbacks(runnable);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, xk2Var)) == null) {
+            if (jSONObject == null) {
+                xk2Var.onFail(202, "params may be error");
+                return null;
+            }
+            if (this.c == null) {
+                this.c = new AppDownloadNetworkStateReceiver();
+            }
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+            ar2.c().registerReceiver(this.c, intentFilter);
+            xk2Var.a(null);
+            return null;
         }
-    }
-
-    public static void c(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, runnable) == null) {
-            d(runnable, 0L);
-        }
+        return (tz1) invokeLL.objValue;
     }
 }

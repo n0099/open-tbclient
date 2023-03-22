@@ -1,8 +1,5 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.smallgame.sdk.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,35 +7,36 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
-public class ym1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int d = 1;
-    public static int e = 2;
-    public static int f = 3;
+public class ym1 implements ThreadFactory {
+    public static /* synthetic */ Interceptable $ic;
+    public static final AtomicInteger d;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, String> a;
-    public Map<String, String> b;
-    public SharedPreferences c;
+    public final AtomicInteger a;
+    public String b;
+    public int c;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948334860, "Lcom/baidu/tieba/ym1;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948334860, "Lcom/baidu/tieba/ym1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948334860, "Lcom/baidu/tieba/ym1;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948334860, "Lcom/baidu/tieba/ym1;");
-        }
+        d = new AtomicInteger(1);
     }
 
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ym1() {
+        this(5);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,72 +44,51 @@ public class ym1 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                this(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap();
-        this.b = new HashMap();
     }
 
-    public void a() {
+    public ym1(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.clear();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
+        this.a = new AtomicInteger(1);
+        this.b = "sso-" + d.getAndIncrement() + "-thread-";
+        this.c = i;
     }
 
-    public String b(int i, String str) {
-        InterceptResult invokeIL;
-        String str2;
+    @Override // java.util.concurrent.ThreadFactory
+    public Thread newThread(Runnable runnable) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str)) == null) {
-            if (i == d) {
-                str2 = this.a.get(str);
-            } else if (i == e) {
-                str2 = this.b.get(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+            Thread thread = new Thread(runnable, this.b + this.a.getAndIncrement());
+            if (thread.isDaemon()) {
+                thread.setDaemon(false);
+            }
+            int i = this.c;
+            if (i != 5) {
+                thread.setPriority(i);
             } else {
-                if (i == f) {
-                    SharedPreferences sharedPreferences = this.c;
-                    if (sharedPreferences != null) {
-                        str2 = sharedPreferences.getString(str, "");
-                    } else {
-                        Log.e("TAG", "prefs data store is null");
-                    }
-                }
-                str2 = null;
+                thread.setPriority(5);
             }
-            if (str2 == null) {
-                return "";
-            }
-            return str2;
+            return thread;
         }
-        return (String) invokeIL.objValue;
-    }
-
-    public void c(SharedPreferences sharedPreferences) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sharedPreferences) == null) {
-            this.c = sharedPreferences;
-        }
-    }
-
-    public void d(int i, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048579, this, i, str, str2) == null) {
-            if (i == d) {
-                this.a.put(str, str2);
-            } else if (i == e) {
-                this.b.put(str, str2);
-            } else if (i == f) {
-                SharedPreferences sharedPreferences = this.c;
-                if (sharedPreferences != null) {
-                    sharedPreferences.edit().putString(str, str2).commit();
-                } else {
-                    Log.e("TAG", "prefs data store is null");
-                }
-            }
-        }
+        return (Thread) invokeL.objValue;
     }
 }

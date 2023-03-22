@@ -1,34 +1,79 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.text.TextUtils;
+import android.app.Activity;
+import android.webkit.JsPromptResult;
+import android.webkit.WebView;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.browser.BaseWebViewActivity;
+import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class yt4 {
+public class yt4 implements jd6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        String queryParameter;
+    @Override // com.baidu.tieba.jd6
+    public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
+        id6.a(this, webView, str, jSONObject);
+    }
+
+    public yt4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            Uri parse = Uri.parse(str);
-            if (parse.isOpaque()) {
-                queryParameter = "";
-            } else {
-                queryParameter = parse.getQueryParameter("key");
-            }
-            if (queryParameter == null) {
-                return "";
-            }
-            return queryParameter;
         }
-        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.jd6
+    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            if (CommonTbJsBridge.IS_DISABLE_GO_BACK.equals(str2)) {
+                jsPromptResult.confirm(c(webView).a());
+                return false;
+            }
+            return false;
+        }
+        return invokeLLLLL.booleanValue;
+    }
+
+    public tc9 c(WebView webView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webView)) == null) {
+            tc9 tc9Var = new tc9();
+            Activity a = zc6.a(webView.getContext());
+            int i = 1;
+            if (a instanceof BaseWebViewActivity) {
+                ((BaseWebViewActivity) a).isDisableGoBack = true;
+            } else {
+                i = 0;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("resultCode", i);
+                tc9Var.o(jSONObject.toString());
+                return tc9Var;
+            } catch (JSONException e) {
+                BdLog.e(e);
+                return tc9Var;
+            }
+        }
+        return (tc9) invokeL.objValue;
     }
 }

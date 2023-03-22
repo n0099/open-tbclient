@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.BdGridView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i17;
-import com.baidu.tieba.m17;
+import com.baidu.tieba.n27;
+import com.baidu.tieba.r27;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +26,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class FoldedGridView extends BdGridView implements m17, AdapterView.OnItemClickListener {
+public class FoldedGridView extends BdGridView implements r27, AdapterView.OnItemClickListener {
     public static /* synthetic */ Interceptable $ic;
     public static final int i;
     public transient /* synthetic */ FieldHolder $fh;
@@ -34,7 +34,7 @@ public class FoldedGridView extends BdGridView implements m17, AdapterView.OnIte
     public int b;
     public int c;
     public boolean d;
-    public i17 e;
+    public n27 e;
     public a f;
     public int g;
     public Drawable h;
@@ -60,7 +60,7 @@ public class FoldedGridView extends BdGridView implements m17, AdapterView.OnIte
         i = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702cc);
     }
 
-    @Override // com.baidu.tieba.m17
+    @Override // com.baidu.tieba.r27
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -86,16 +86,16 @@ public class FoldedGridView extends BdGridView implements m17, AdapterView.OnIte
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.d = !this.d;
             a(this.a);
-            i17 i17Var = this.e;
-            if (i17Var != null) {
-                i17Var.k(this.d);
+            n27 n27Var = this.e;
+            if (n27Var != null) {
+                n27Var.k(this.d);
                 this.e.notifyDataSetChanged();
                 invalidate();
             }
         }
     }
 
-    @Override // com.baidu.tieba.m17
+    @Override // com.baidu.tieba.r27
     public int getArrowIndex() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -133,7 +133,7 @@ public class FoldedGridView extends BdGridView implements m17, AdapterView.OnIte
         c();
     }
 
-    @Override // com.baidu.tieba.m17
+    @Override // com.baidu.tieba.r27
     public void a(View view2) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || !(view2 instanceof FrameLayout)) {
@@ -242,14 +242,14 @@ public class FoldedGridView extends BdGridView implements m17, AdapterView.OnIte
         }
     }
 
-    public void setFoldAdapter(i17 i17Var) {
+    public void setFoldAdapter(n27 n27Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, i17Var) == null) {
-            this.e = i17Var;
-            if (i17Var != null) {
-                i17Var.i(this);
+        if (interceptable == null || interceptable.invokeL(1048587, this, n27Var) == null) {
+            this.e = n27Var;
+            if (n27Var != null) {
+                n27Var.i(this);
             }
-            setAdapter((ListAdapter) i17Var);
+            setAdapter((ListAdapter) n27Var);
         }
     }
 
@@ -260,7 +260,7 @@ public class FoldedGridView extends BdGridView implements m17, AdapterView.OnIte
         }
     }
 
-    @Override // com.baidu.tieba.m17
+    @Override // com.baidu.tieba.r27
     public View getArrowView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -280,16 +280,16 @@ public class FoldedGridView extends BdGridView implements m17, AdapterView.OnIte
 
     @Override // android.widget.AdapterView.OnItemClickListener
     public void onItemClick(AdapterView<?> adapterView, View view2, int i2, long j) {
-        i17 i17Var;
+        n27 n27Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{adapterView, view2, Integer.valueOf(i2), Long.valueOf(j)}) == null) {
             if (view2 == this.a) {
-                i17 i17Var2 = this.e;
-                if (i17Var2 != null && i17Var2.h()) {
+                n27 n27Var2 = this.e;
+                if (n27Var2 != null && n27Var2.h()) {
                     e();
                 }
-            } else if (this.f != null && (i17Var = this.e) != null) {
-                int f = i17Var.f(i2);
+            } else if (this.f != null && (n27Var = this.e) != null) {
+                int f = n27Var.f(i2);
                 this.e.j(f);
                 this.f.a(f, this.e.getItem(i2));
             }

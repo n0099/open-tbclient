@@ -1,40 +1,43 @@
 package com.baidu.tieba;
 
-import java.net.InetSocketAddress;
-import java.nio.ByteBuffer;
-import org.java_websocket.WebSocket;
-import org.java_websocket.drafts.Draft;
-import org.java_websocket.exceptions.InvalidDataException;
-import org.java_websocket.framing.Framedata;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Executor;
 /* loaded from: classes3.dex */
-public interface aka {
-    InetSocketAddress getLocalSocketAddress(WebSocket webSocket);
+public final class aka<TResult> implements bla<TResult> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public cla<TResult> a;
+    public Executor b;
+    public final Object c;
 
-    InetSocketAddress getRemoteSocketAddress(WebSocket webSocket);
+    public aka(Executor executor, cla<TResult> claVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {executor, claVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = new Object();
+        this.a = claVar;
+        this.b = executor;
+    }
 
-    void onWebsocketClose(WebSocket webSocket, int i, String str, boolean z);
-
-    void onWebsocketCloseInitiated(WebSocket webSocket, int i, String str);
-
-    void onWebsocketClosing(WebSocket webSocket, int i, String str, boolean z);
-
-    void onWebsocketError(WebSocket webSocket, Exception exc);
-
-    void onWebsocketHandshakeReceivedAsClient(WebSocket webSocket, oka okaVar, vka vkaVar) throws InvalidDataException;
-
-    wka onWebsocketHandshakeReceivedAsServer(WebSocket webSocket, Draft draft, oka okaVar) throws InvalidDataException;
-
-    void onWebsocketHandshakeSentAsClient(WebSocket webSocket, oka okaVar) throws InvalidDataException;
-
-    void onWebsocketMessage(WebSocket webSocket, String str);
-
-    void onWebsocketMessage(WebSocket webSocket, ByteBuffer byteBuffer);
-
-    void onWebsocketOpen(WebSocket webSocket, tka tkaVar);
-
-    void onWebsocketPing(WebSocket webSocket, Framedata framedata);
-
-    void onWebsocketPong(WebSocket webSocket, Framedata framedata);
-
-    void onWriteDemand(WebSocket webSocket);
+    @Override // com.baidu.tieba.bla
+    public final void a(nka<TResult> nkaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, nkaVar) == null) {
+            this.b.execute(new yja(this, nkaVar));
+        }
+    }
 }

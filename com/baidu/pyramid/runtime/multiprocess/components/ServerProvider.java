@@ -1,10 +1,10 @@
 package com.baidu.pyramid.runtime.multiprocess.components;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.sk1;
-import com.baidu.tieba.wk1;
-import com.baidu.tieba.xk1;
-import com.baidu.tieba.yk1;
+import com.baidu.tieba.ij1;
+import com.baidu.tieba.mj1;
+import com.baidu.tieba.nj1;
+import com.baidu.tieba.oj1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -35,7 +35,7 @@ public class ServerProvider extends DispatchableContentProvider {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return sk1.a().getPackageName() + ".provider.ipc.server";
+            return ij1.a().getPackageName() + ".provider.ipc.server";
         }
         return (String) invokeV.objValue;
     }
@@ -51,15 +51,15 @@ public class ServerProvider extends DispatchableContentProvider {
     }
 
     @Override // com.baidu.pyramid.runtime.multiprocess.components.DispatchableContentProvider
-    public List<wk1> c() {
+    public List<mj1> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            List<wk1> a = yk1.a(b());
+            List<mj1> a = oj1.a(b());
             if (a == null) {
                 a = new ArrayList<>();
             }
-            a.add(0, new xk1());
+            a.add(0, new nj1());
             return a;
         }
         return (List) invokeV.objValue;

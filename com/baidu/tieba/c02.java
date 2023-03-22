@@ -1,48 +1,54 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.net.Uri;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.os.Build;
 import android.text.TextUtils;
-import android.util.Pair;
-import androidx.annotation.NonNull;
+import android.util.Log;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.re3;
+import com.baidu.swan.apps.camera.view.CameraPreview;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import org.json.JSONArray;
+import com.baidu.webkit.sdk.PermissionRequest;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.HashMap;
+import java.util.Timer;
+import java.util.TimerTask;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class c02 extends sz1 {
+public class c02 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int f;
-
-    @Override // com.baidu.tieba.px1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "ShowSMSPanelApi" : (String) invokeV.objValue;
-    }
+    public Timer a;
+    public l02 b;
 
     /* loaded from: classes3.dex */
-    public class a implements fo3<pe3<re3.e>> {
+    public class a extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ c02 d;
+        public final /* synthetic */ l02 a;
+        public final /* synthetic */ c02 b;
 
-        public a(c02 c02Var, String str, String str2, String str3) {
+        public a(c02 c02Var, l02 l02Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {c02Var, str, str2, str3};
+                Object[] objArr = {c02Var, l02Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,124 +58,253 @@ public class c02 extends sz1 {
                     return;
                 }
             }
-            this.d = c02Var;
-            this.a = str;
-            this.b = str2;
-            this.c = str3;
+            this.b = c02Var;
+            this.a = l02Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fo3
-        /* renamed from: b */
-        public void a(pe3<re3.e> pe3Var) {
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pe3Var) == null) {
-                if (!ke3.h(pe3Var)) {
-                    int b = pe3Var.b();
-                    this.d.d(this.a, new m12(b, ke3.f(b)));
-                    return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                l02 l02Var = this.a;
+                if (l02Var != null) {
+                    l02Var.a();
                 }
-                this.d.z(this.b, this.c);
-                this.d.d(this.a, new m12(0));
+                this.b.j();
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c02(@NonNull nx1 nx1Var) {
-        super(nx1Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {nx1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((nx1) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes3.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final c02 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-942105914, "Lcom/baidu/tieba/c02$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-942105914, "Lcom/baidu/tieba/c02$b;");
+                    return;
+                }
+            }
+            a = new c02(null);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947620868, "Lcom/baidu/tieba/c02;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947620868, "Lcom/baidu/tieba/c02;");
                 return;
             }
         }
+        c = do1.a;
     }
 
-    public m12 A(String str) {
+    public c02() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static c02 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
+        }
+        return (c02) invokeV.objValue;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            l02 l02Var = this.b;
+            if (l02Var != null) {
+                l02Var.cancel();
+            }
+            j();
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            try {
+                CameraPreview.r();
+            } catch (Exception e) {
+                if (c) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.b = null;
+            Timer timer = this.a;
+            if (timer != null) {
+                timer.cancel();
+            }
+        }
+    }
+
+    public /* synthetic */ c02(a aVar) {
+        this();
+    }
+
+    public boolean c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            q("#openSystemSMSPanel", false);
-            Pair<m12, JSONObject> s = s(str);
-            m12 m12Var = (m12) s.first;
-            if (!m12Var.isSuccess()) {
-                return m12Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            if (Build.VERSION.SDK_INT < 23 || ContextCompat.checkSelfPermission(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE) == 0) {
+                return true;
             }
-            JSONObject jSONObject = (JSONObject) s.second;
-            m62.b("ShowSMSPanelApi", "params: ", jSONObject);
-            String optString = jSONObject.optString("content");
-            JSONArray optJSONArray = jSONObject.optJSONArray("recipients");
-            if (optJSONArray == null) {
-                return new m12(202);
-            }
-            String y = y(optJSONArray);
-            if (!TextUtils.isEmpty(y) && !TextUtils.isEmpty(optString)) {
-                String optString2 = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString2)) {
-                    return new m12(202);
-                }
-                l93.K().q().e0().g(getContext(), "scope_show_sms_panel", new a(this, optString2, y, optString));
-                return m12.f();
-            }
-            return new m12(202);
+            return false;
         }
-        return (m12) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public final void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            pg3 pg3Var = new pg3();
-            pg3Var.b = "sms_panel";
-            pg3Var.e = String.valueOf(this.f);
-            pg3Var.a("appid", l93.K().getAppId());
-            fg3.x("1639", pg3Var);
-        }
-    }
-
-    public final String y(JSONArray jSONArray) {
+    public boolean d(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONArray)) == null) {
-            if (jSONArray == null || jSONArray.length() <= 0) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            if (Build.VERSION.SDK_INT < 23 || ContextCompat.checkSelfPermission(context, PermissionRequest.RESOURCE_AUDIO_CAPTURE) == 0) {
+                return true;
             }
-            StringBuilder sb = new StringBuilder();
-            this.f = jSONArray.length();
-            for (int i = 0; i < this.f; i++) {
-                String optString = jSONArray.optString(i);
-                if (TextUtils.isEmpty(optString)) {
-                    return null;
-                }
-                sb.append(optString);
-                if (i != this.f - 1) {
-                    sb.append(ParamableElem.DIVIDE_PARAM);
-                }
-            }
-            return sb.toString();
+            return false;
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public void z(@NonNull String str, @NonNull String str2) {
+    public void g(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            Intent intent = new Intent();
-            intent.setAction("android.intent.action.SENDTO");
-            intent.setData(Uri.parse("smsto:" + str));
-            intent.putExtra("sms_body", str2);
-            getContext().startActivity(intent);
-            x();
+        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && z) {
+            a();
+        }
+    }
+
+    public void e(String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048579, this, str, str2, z) == null) {
+            String str3 = "error";
+            if (il3.f("1.13.0")) {
+                HashMap hashMap = new HashMap();
+                hashMap.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, str);
+                hashMap.put("cameraId", str2);
+                if (!z) {
+                    str3 = "stop";
+                }
+                hashMap.put("eType", str3);
+                gt2.U().u(new uh2("camera", hashMap));
+                return;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, str);
+                jSONObject.put("cameraId", str2);
+                if (!z) {
+                    str3 = "stop";
+                }
+                jSONObject.put("eType", str3);
+            } catch (JSONException e) {
+                if (c) {
+                    e.printStackTrace();
+                }
+            }
+            an3.d(str, str2, "camera", jSONObject.optString("eType"), jSONObject);
+        }
+    }
+
+    public boolean h(byte[] bArr, String str, int i, int i2, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{bArr, str, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            if (bArr == null || bArr.length == 0 || TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                File file = new File(str);
+                if (file.exists()) {
+                    boolean delete = file.delete();
+                    if (c) {
+                        Log.d("SwanAppCameraManager", "delete = " + delete);
+                    }
+                }
+                if (file.getParentFile() != null) {
+                    boolean mkdirs = file.getParentFile().mkdirs();
+                    if (c) {
+                        Log.d("SwanAppCameraManager", "mkdirs = " + mkdirs);
+                    }
+                }
+                boolean createNewFile = file.createNewFile();
+                if (c) {
+                    Log.d("SwanAppCameraManager", "createNewFile = " + createNewFile);
+                }
+                Bitmap decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length);
+                if (i2 != 0 || z) {
+                    Matrix matrix = new Matrix();
+                    matrix.reset();
+                    if (i2 != 0) {
+                        matrix.postRotate(i2);
+                    }
+                    if (z) {
+                        matrix.postScale(-1.0f, 1.0f);
+                    }
+                    decodeByteArray = Bitmap.createBitmap(decodeByteArray, 0, 0, decodeByteArray.getWidth(), decodeByteArray.getHeight(), matrix, true);
+                }
+                BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file));
+                decodeByteArray.compress(Bitmap.CompressFormat.JPEG, i, bufferedOutputStream);
+                bufferedOutputStream.flush();
+                xn4.d(bufferedOutputStream);
+                return true;
+            } catch (Exception e) {
+                if (!c) {
+                    return false;
+                }
+                e.printStackTrace();
+                return false;
+            } catch (OutOfMemoryError e2) {
+                if (!c) {
+                    return false;
+                }
+                e2.printStackTrace();
+                return false;
+            }
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public void i(int i, l02 l02Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i, l02Var) == null) {
+            this.b = l02Var;
+            Timer timer = new Timer();
+            this.a = timer;
+            timer.schedule(new a(this, l02Var), i);
         }
     }
 }

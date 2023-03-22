@@ -1,53 +1,32 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.InvocationHandler;
-import java.lang.reflect.Method;
 /* loaded from: classes5.dex */
-public class kc1 implements InvocationHandler {
+public class kc1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hc1 a;
 
-    public kc1(hc1 hc1Var) {
+    public abstract void a(boolean z, long j);
+
+    public abstract void b(@NonNull tp0 tp0Var);
+
+    public abstract void c();
+
+    public kc1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {hc1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = hc1Var;
-    }
-
-    @Override // java.lang.reflect.InvocationHandler
-    public Object invoke(Object obj, Method method, Object[] objArr) throws Throwable {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, obj, method, objArr)) == null) {
-            if (this.a != null) {
-                try {
-                    this.a.onTranslucent(((Boolean) objArr[0]).booleanValue());
-                    return null;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    this.a.onTranslucent(false);
-                    return null;
-                }
-            }
-            return null;
-        }
-        return invokeLLL.objValue;
     }
 }

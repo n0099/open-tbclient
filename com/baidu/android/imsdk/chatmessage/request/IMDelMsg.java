@@ -39,6 +39,7 @@ public class IMDelMsg extends Message {
     public long contacterPaUid;
     public long contacterUk;
     public int contacterUserType;
+    public int delSessionMode;
     public int mBusinessType;
     public int mCategory;
     public int mChatType;
@@ -84,6 +85,7 @@ public class IMDelMsg extends Message {
         }
         this.mClientMaxMsgid = -1L;
         this.mReSendCount = 0;
+        this.delSessionMode = -1;
         initCommonParameter(context);
         this.mContext = context;
         this.mToId = j;
@@ -134,12 +136,27 @@ public class IMDelMsg extends Message {
         }
     }
 
+    private int updateDB(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context)) == null) {
+            if (!this.mIsFromMedia) {
+                long[] jArr = this.mMsgIds;
+                if (jArr != null && jArr.length > 0) {
+                    return ChatMessageDBManager.getInstance(context).deleteMsgBatch(new ChatObject(context, this.mCategory, this.mToId, this.mPaid, -1), this.mMsgIds);
+                }
+                String str = TAG;
+                LogUtils.e(str, "删除会话模式" + this.delSessionMode);
+                return ChatMessageDBManager.getInstance(context).delMsgsOfCertainContacter(new ChatObject(context, this.mCategory, this.mToId, this.mPaid, -1), this.mClientMaxMsgid, this.delSessionMode);
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
     public static IMDelMsg newInstance(Context context, Intent intent) {
         InterceptResult invokeLL;
         long j;
-        long j2;
-        long j3;
-        long j4;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, intent)) == null) {
             if (intent.hasExtra("contacter") && intent.hasExtra("category")) {
@@ -157,26 +174,22 @@ public class IMDelMsg extends Message {
                 long longExtra4 = intent.getLongExtra(RequestContants.EXTRA_CONTACTER_PA_UID, 0L);
                 long longExtra5 = intent.getLongExtra("contacter_bduid", 0L);
                 int intExtra5 = intent.getIntExtra(RequestContants.EXTRA_CONTACTER_USER_TYPE, 0);
+                int intExtra6 = intent.getIntExtra(Constants.EXTRA_REMAIN_EMPTY_SESSION, -1);
                 if (intent.hasExtra(Constants.EXTRA_PA_ID)) {
-                    j = longExtra3;
-                    j2 = -1;
-                    j4 = intent.getLongExtra(Constants.EXTRA_PA_ID, -1L);
-                    j3 = longExtra5;
+                    j = intent.getLongExtra(Constants.EXTRA_PA_ID, -1L);
                 } else {
-                    j = longExtra3;
-                    j2 = -1;
-                    j3 = longExtra5;
-                    j4 = -1;
+                    j = -1;
                 }
-                if (j2 != longExtra && -1 != intExtra) {
+                if (-1 != longExtra && -1 != intExtra) {
                     IMDelMsg iMDelMsg = new IMDelMsg(context, longExtra, intExtra, intExtra4, intExtra3, longArrayExtra, longExtra2, booleanExtra2, stringExtra);
-                    iMDelMsg.setPaid(j4);
+                    iMDelMsg.setPaid(j);
                     iMDelMsg.setChatType(intExtra2);
-                    iMDelMsg.setContacterUk(j);
+                    iMDelMsg.setContacterUk(longExtra3);
                     iMDelMsg.setContacterPaUid(longExtra4);
                     iMDelMsg.setContacterUserType(intExtra5);
-                    iMDelMsg.contacterBduid = j3;
+                    iMDelMsg.contacterBduid = longExtra5;
                     iMDelMsg.mIsFromMedia = booleanExtra;
+                    iMDelMsg.delSessionMode = intExtra6;
                     Message.saveCmdMessage(context, iMDelMsg, null, iMDelMsg.getPriority());
                     return iMDelMsg;
                 }
@@ -185,22 +198,6 @@ public class IMDelMsg extends Message {
             return null;
         }
         return (IMDelMsg) invokeLL.objValue;
-    }
-
-    private int updateDB(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, context)) == null) {
-            if (!this.mIsFromMedia) {
-                long[] jArr = this.mMsgIds;
-                if (jArr != null && jArr.length > 0) {
-                    return ChatMessageDBManager.getInstance(context).deleteMsgBatch(new ChatObject(context, this.mCategory, this.mToId, this.mPaid, -1), this.mMsgIds);
-                }
-                return ChatMessageDBManager.getInstance(context).delMsgsOfCertainContacter(new ChatObject(context, this.mCategory, this.mToId, this.mPaid, -1), this.mClientMaxMsgid);
-            }
-            return -1;
-        }
-        return invokeL.intValue;
     }
 
     @Override // com.baidu.android.imsdk.request.Message
@@ -243,6 +240,9 @@ public class IMDelMsg extends Message {
                 if (this.mIsFromMedia) {
                     appendMediaParams(jSONObject);
                 }
+                if (this.delSessionMode != -1) {
+                    jSONObject.put(Constants.EXTRA_REMAIN_EMPTY_SESSION, this.delSessionMode);
+                }
                 this.mBody = jSONObject.toString();
                 LogUtils.d(TAG, "params:" + this.mBody);
             } catch (JSONException e) {
@@ -273,7 +273,7 @@ public class IMDelMsg extends Message {
     public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(1048579, this, context, jSONObject, i, str) == null) {
-            LogUtils.d(TAG, "handleMessageResult: errorCode:" + i + ";errorMsg:" + str + ";obj:" + jSONObject.toString());
+            LogUtils.d(TAG, "handleMessageResult: errorCode:" + i + ";errorMsg:" + str + ";obj:" + jSONObject);
             try {
                 if (TextUtils.isEmpty(this.mListenerKey)) {
                     if (i == 0) {

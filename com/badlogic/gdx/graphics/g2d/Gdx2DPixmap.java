@@ -5,7 +5,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.o7;
+import com.baidu.tieba.r6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import com.faceunity.gles.GeneratedTexture;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 /* loaded from: classes.dex */
-public class Gdx2DPixmap implements o7 {
+public class Gdx2DPixmap implements r6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
@@ -203,7 +203,7 @@ public class Gdx2DPixmap implements o7 {
         }
     }
 
-    @Override // com.baidu.tieba.o7
+    @Override // com.baidu.tieba.r6
     public void dispose() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {

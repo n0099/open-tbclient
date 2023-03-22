@@ -5,8 +5,8 @@ import android.content.pm.ApplicationInfo;
 import android.content.pm.PackageManager;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.bfa;
-import com.baidu.tieba.dfa;
+import com.baidu.tieba.kla;
+import com.baidu.tieba.mla;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -110,9 +110,9 @@ public class AGCUtils {
             }
             String str = null;
             try {
-                bfa b = bfa.b();
+                kla b = kla.b();
                 if (b.getContext() != context) {
-                    b = bfa.a(new dfa().a(context));
+                    b = kla.a(new mla().a(context));
                 }
                 str = b.c().a("client/cp_id");
             } catch (NullPointerException unused) {
@@ -143,10 +143,10 @@ public class AGCUtils {
             InputStream inputStream = null;
             try {
                 try {
-                    dfa dfaVar = new dfa();
+                    mla mlaVar = new mla();
                     inputStream = context.getResources().getAssets().open("agconnect-services.json");
-                    dfaVar.b(inputStream);
-                    str2 = dfaVar.a(context).a(str);
+                    mlaVar.b(inputStream);
+                    str2 = mlaVar.a(context).a(str);
                 } catch (IOException e) {
                     HMSLog.e("AGCUtils", "Get " + str + " failed: " + e);
                     str2 = "";
@@ -197,9 +197,9 @@ public class AGCUtils {
                 str = null;
             }
             try {
-                bfa b = bfa.b();
+                kla b = kla.b();
                 if (b.getContext() != context) {
-                    b = bfa.a(new dfa().a(context));
+                    b = kla.a(new mla().a(context));
                 }
                 str = b.c().a("client/app_id");
             } catch (NullPointerException unused) {

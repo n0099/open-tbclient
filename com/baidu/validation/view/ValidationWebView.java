@@ -14,8 +14,8 @@ import android.util.AttributeSet;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.uf1;
-import com.baidu.tieba.z2a;
+import com.baidu.tieba.i9a;
+import com.baidu.tieba.ke1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -145,7 +145,7 @@ public class ValidationWebView extends WebView {
             this.j = paint2;
             paint2.setXfermode(null);
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, uf1.ValidationWebView);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ke1.ValidationWebView);
                 this.a = obtainStyledAttributes.getDimension(2, 0.0f);
                 this.b = obtainStyledAttributes.getDimension(3, 0.0f);
                 this.c = obtainStyledAttributes.getDimension(0, 0.0f);
@@ -162,7 +162,7 @@ public class ValidationWebView extends WebView {
             settings.setAllowFileAccess(false);
             settings.setDomStorageEnabled(true);
             settings.setAllowContentAccess(false);
-            settings.setUserAgentString(z2a.c(context, settings.getUserAgentString()));
+            settings.setUserAgentString(i9a.c(context, settings.getUserAgentString()));
             if (Build.VERSION.SDK_INT >= 29) {
                 settings.setForceDark(0);
             }

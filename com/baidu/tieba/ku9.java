@@ -1,201 +1,145 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.IBinder;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.LocalChannelTopicListActivityConfig;
+import com.baidu.tbadk.core.atomData.WriteActivityConfig;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.write.view.LocalChannelTopicSelectView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ku9 {
+public class ku9 extends uu9<lv9> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public LocalChannelTopicSelectView g;
+    @Nullable
+    public String h;
 
-    public static void a() {
-        zu9 c;
+    @Override // com.baidu.tieba.zu9
+    public void a(@NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65536, null) == null) && (c = fv9.c()) != null) {
-            c.b();
+        if (interceptable == null || interceptable.invokeL(1048576, this, writeData) == null) {
         }
     }
 
-    public static Context b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.zu9
+    public void e(@NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            xu9 a = fv9.a();
-            if (a != null) {
-                return a.getAppContext();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, writeData) == null) {
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ku9(TbPageContext<?> tbPageContext) {
+        super(tbPageContext, lv9.class);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return null;
         }
-        return (Context) invokeV.objValue;
     }
 
-    public static int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            xu9 a = fv9.a();
-            if (a != null) {
-                return a.d();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public static zt9 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return fv9.e();
-        }
-        return (zt9) invokeV.objValue;
-    }
-
-    public static du9 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return fv9.f();
-        }
-        return (du9) invokeV.objValue;
-    }
-
-    public static boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            yu9 b = fv9.b();
-            if (b != null) {
-                return b.isAgreePrivacy();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            xu9 a = fv9.a();
-            if (a != null) {
-                return a.isDebug();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static String c(String str) {
+    @Override // com.baidu.tieba.zu9
+    public View s(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            xu9 a = fv9.a();
-            if (a != null) {
-                return a.c(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d04e8, viewGroup, false);
+            this.c = inflate;
+            LocalChannelTopicSelectView localChannelTopicSelectView = (LocalChannelTopicSelectView) inflate.findViewById(R.id.obfuscated_res_0x7f0928d2);
+            this.g = localChannelTopicSelectView;
+            if (localChannelTopicSelectView != null) {
+                localChannelTopicSelectView.setLocalChannelTopic(this.h);
             }
-            return str;
+            return this.c;
         }
-        return (String) invokeL.objValue;
+        return (View) invokeL.objValue;
     }
 
-    public static IBinder e(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.zu9
+    public void c(WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            zu9 c = fv9.c();
-            if (c != null) {
-                return c.a(str);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, writeData) == null) {
+            writeData.setLocalChannelDynamic(true);
+            writeData.setLocalChannelTopic(this.h);
+        }
+    }
+
+    @Override // com.baidu.tieba.zu9
+    public void onChangeSkinType(int i) {
+        LocalChannelTopicSelectView localChannelTopicSelectView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048582, this, i) == null) && (localChannelTopicSelectView = this.g) != null) {
+            localChannelTopicSelectView.b();
+        }
+    }
+
+    @Override // com.baidu.tieba.uu9, com.baidu.tieba.zu9
+    public void h(@Nullable String str, @NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, str, writeData) != null) || StringUtils.isNull(str)) {
+            return;
+        }
+        try {
+            writeData.setLocalChannelTopic(new JSONObject(str).optString("t"));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @Override // com.baidu.tieba.uu9, com.baidu.tieba.zu9
+    public void m(Bundle bundle, Intent intent, @NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, bundle, intent, writeData) == null) {
+            super.m(bundle, intent, writeData);
+            if (bundle != null) {
+                this.h = bundle.getString(WriteActivityConfig.KEY_LOCAL_CHANNEL_TOPIC);
+            } else if (intent != null) {
+                this.h = intent.getStringExtra(WriteActivityConfig.KEY_LOCAL_CHANNEL_TOPIC);
             }
-            return null;
-        }
-        return (IBinder) invokeL.objValue;
-    }
-
-    public static String h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            xu9 a = fv9.a();
-            if (a != null) {
-                return a.e(str);
+            if (StringUtils.isNull(this.h)) {
+                this.h = writeData.getLocalChannelTopic();
             }
-            return str;
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String k(boolean z) {
-        InterceptResult invokeZ;
+    @Override // com.baidu.tieba.uu9, com.baidu.tieba.zu9
+    public void onActivityResult(int i, int i2, Intent intent) {
+        LocalChannelTopicSelectView localChannelTopicSelectView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65546, null, z)) == null) {
-            xu9 a = fv9.a();
-            if (a != null) {
-                return a.b(z);
+        if (interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, intent) == null) {
+            super.onActivityResult(i, i2, intent);
+            if (i2 == -1 && i == 25068 && intent != null && (localChannelTopicSelectView = this.g) != null && localChannelTopicSelectView.getVisibility() == 0) {
+                String stringExtra = intent.getStringExtra(LocalChannelTopicListActivityConfig.KEY_RESPONSE_TOPIC);
+                this.h = stringExtra;
+                this.g.setLocalChannelTopic(stringExtra);
             }
-            return "";
-        }
-        return (String) invokeZ.objValue;
-    }
-
-    public static void q(int i) {
-        xu9 a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(65552, null, i) == null) && (a = fv9.a()) != null) {
-            a.a(i);
-        }
-    }
-
-    public static int f(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, str, i)) == null) {
-            xu9 a = fv9.a();
-            if (a != null) {
-                return a.getInt(str, i);
-            }
-            return i;
-        }
-        return invokeLI.intValue;
-    }
-
-    public static long g(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, str, j)) == null) {
-            xu9 a = fv9.a();
-            if (a != null) {
-                return a.getLong(str, j);
-            }
-            return j;
-        }
-        return invokeLJ.longValue;
-    }
-
-    public static void n(String str, int i) {
-        xu9 a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65549, null, str, i) == null) && (a = fv9.a()) != null) {
-            a.putInt(str, i);
-        }
-    }
-
-    public static void o(String str, long j) {
-        xu9 a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLJ(65550, null, str, j) == null) && (a = fv9.a()) != null) {
-            a.putLong(str, j);
-        }
-    }
-
-    public static void p(String str, String str2) {
-        xu9 a;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65551, null, str, str2) == null) && (a = fv9.a()) != null) {
-            a.putString(str, str2);
         }
     }
 }

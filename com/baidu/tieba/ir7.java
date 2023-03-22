@@ -1,45 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tieba.hr7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
-public class ir7 {
+/* compiled from: ImShareDialog.java */
+/* loaded from: classes5.dex */
+public final /* synthetic */ class ir7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        int indexOf;
+    public static void a(hr7.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            String urlDecode = dj.getUrlDecode(str);
-            if (urlDecode == null) {
-                return urlDecode;
-            }
-            int lastIndexOf = urlDecode.lastIndexOf("/");
-            if (lastIndexOf == -1 || (indexOf = urlDecode.indexOf(".", lastIndexOf)) == -1) {
-                return null;
-            }
-            return urlDecode.substring(lastIndexOf + 1, indexOf);
+        if (interceptable == null || interceptable.invokeL(65536, null, bVar) == null) {
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return false;
-            }
-            String urlDecode = dj.getUrlDecode(str);
-            if (StringUtils.isNull(urlDecode) || !urlDecode.contains("?t=")) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 }

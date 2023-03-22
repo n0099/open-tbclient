@@ -1,7 +1,26 @@
 package com.baidu.tieba;
 
-import androidx.collection.ArraySet;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface li2 {
-    ArraySet<String> a();
+public class li2 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return hg3.a().getBoolean("SP-DebugPerformanceTest", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
+            hg3.a().putBoolean("SP-DebugPerformanceTest", z);
+        }
+    }
 }

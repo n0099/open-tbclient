@@ -1,69 +1,112 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LcUpdateDialogActivityConfig;
-import com.baidu.tbadk.core.atomData.UpdateDialogConfig;
-import com.baidu.tbadk.coreExtra.data.VersionData;
+import android.net.Uri;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Date;
+import com.baidu.webkit.sdk.WebChromeClient;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class xc9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(ga5 ga5Var) {
+    public static String a(String str) {
+        InterceptResult invokeL;
+        String[] split;
+        String[] split2;
+        String[] split3;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65536, null, ga5Var) != null) || ga5Var == null) {
-            return;
-        }
-        VersionData u = ga5Var.u();
-        TbadkCoreApplication.getInst().setVersionData(u);
-        TbadkCoreApplication.getInst().refreshNewVersion(true);
-        if (u.forceUpdate()) {
-            if (ga5Var.k() != null && TbadkCoreApplication.getInst().getResumeNum() > 0) {
-                TbSingleton.getInstance();
-                TbSingleton.setExceptInsertAdDiaShow(true);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), u, ga5Var.j())));
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (gi.isEmpty(str) || (split = str.split("\\?")) == null || split.length == 0 || (split2 = split[0].split("\\/\\/")) == null || split2.length < 2 || (split3 = split2[1].split("\\/")) == null || split2.length < 2) {
+                return null;
             }
-            return;
+            return split3[split3.length - 1];
         }
-        Long valueOf = Long.valueOf(TbadkCoreApplication.getInst().getUpdateNotifyTime());
-        Long valueOf2 = Long.valueOf(new Date().getTime());
-        if (valueOf2.longValue() - valueOf.longValue() > 86400000 && u.getStrategy() == 0 && ga5Var.k() != null && TbadkCoreApplication.getInst().getResumeNum() > 0) {
-            TbSingleton.getInstance().setSyncModel(ga5Var);
-            if (TbSingleton.getInstance().hasPerformedFirstLoginTest()) {
-                TbSingleton.getInstance();
-                TbSingleton.setExceptInsertAdDiaShow(true);
-                xx5.d();
-            }
-            TbadkCoreApplication.getInst().setUpdateNotifyTime(valueOf2.longValue());
-        }
+        return (String) invokeL.objValue;
     }
 
-    public static void b(VersionData versionData, ClientUpdateInfo clientUpdateInfo, String str, boolean z) {
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Uri parse;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65537, null, new Object[]{versionData, clientUpdateInfo, str, Boolean.valueOf(z)}) != null) || versionData == null) {
-            return;
-        }
-        TbadkCoreApplication.getInst().setVersionData(versionData);
-        TbadkCoreApplication.getInst().refreshNewVersion(true);
-        if (TbadkCoreApplication.getInst().getResumeNum() > 0) {
-            if (versionData.forceUpdate()) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LcUpdateDialogActivityConfig(TbadkCoreApplication.getInst().getApp(), clientUpdateInfo, str)));
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (gi.isEmpty(str) || (parse = Uri.parse(str)) == null) {
+                return null;
             }
-            Long valueOf = Long.valueOf(TbadkCoreApplication.getInst().getUpdateNotifyTime());
-            Long valueOf2 = Long.valueOf(new Date().getTime());
-            if ((valueOf2.longValue() - valueOf.longValue() > 86400000 || z) && versionData.getStrategy() == 0) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LcUpdateDialogActivityConfig(TbadkCoreApplication.getInst().getApp(), clientUpdateInfo, str)));
-                TbadkCoreApplication.getInst().setUpdateNotifyTime(valueOf2.longValue());
+            return parse.getQueryParameter(WebChromeClient.KEY_ARG_CALLBACK);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        Uri parse;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (gi.isEmpty(str) || (parse = Uri.parse(str)) == null) {
+                return null;
+            }
+            return parse.getQueryParameter("upgrade");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String e(String str) {
+        InterceptResult invokeL;
+        Uri parse;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (gi.isEmpty(str) || (parse = Uri.parse(str)) == null) {
+                return null;
+            }
+            return parse.getQueryParameter("notificationName");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d(String str) {
+        InterceptResult invokeL;
+        String[] split;
+        String[] split2;
+        String str2;
+        String[] split3;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            try {
+                if (!gi.isEmpty(str) && (split = str.split("\\?")) != null && split.length != 0 && (split2 = split[0].split("\\/\\/")) != null && split2.length >= 2 && (split3 = (str2 = split2[1]).split("\\/")) != null && split2.length >= 2 && (str3 = split3[split3.length - 1]) != null && str3.length() != 0) {
+                    return str2.substring(0, (str2.length() - str3.length()) - 1);
+                }
+                return null;
+            } catch (Exception e) {
+                BdLog.e(e);
+                return null;
             }
         }
+        return (String) invokeL.objValue;
+    }
+
+    public static JSONObject f(String str) throws JSONException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (gi.isEmpty(str)) {
+                return new JSONObject();
+            }
+            Uri parse = Uri.parse(str);
+            if (parse == null) {
+                return new JSONObject();
+            }
+            String queryParameter = parse.getQueryParameter("params");
+            if (gi.isEmpty(queryParameter)) {
+                return new JSONObject();
+            }
+            return new JSONObject(queryParameter);
+        }
+        return (JSONObject) invokeL.objValue;
     }
 }

@@ -1,30 +1,40 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.PackageInfo;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.network.outback.core.internal.Util;
+import com.baidu.tieba.d60;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.Iterator;
+import java.util.concurrent.Executor;
+import java.util.concurrent.SynchronousQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
 public final class y50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String[] b;
-    public int c;
-    public String d;
-    public long e;
-    public long f;
+    public int a;
+    public int b;
+    @Nullable
+    public Runnable c;
+    @Nullable
+    public Executor d;
+    public final Deque<d60.a> e;
+    public final Deque<d60.a> f;
+    public final Deque<d60> g;
 
-    public y50(Context context, String str) {
+    public y50() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,28 +44,155 @@ public final class y50 {
                 return;
             }
         }
-        this.a = str;
-        try {
-            PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 64);
-            this.d = packageInfo.versionName;
-            this.c = packageInfo.versionCode;
-            this.e = packageInfo.firstInstallTime;
-            this.f = packageInfo.lastUpdateTime;
-            this.b = new String[packageInfo.signatures.length];
-            for (int i3 = 0; i3 < this.b.length; i3++) {
-                this.b[i3] = u50.c(packageInfo.signatures[i3].toByteArray());
+        this.a = 64;
+        this.b = 5;
+        this.e = new ArrayDeque();
+        this.f = new ArrayDeque();
+        this.g = new ArrayDeque();
+    }
+
+    public synchronized Executor c() {
+        InterceptResult invokeV;
+        Executor executor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                if (this.d == null) {
+                    this.d = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), Util.threadFactory("BaiduNetwork Dispatcher", false));
+                }
+                executor = this.d;
             }
-        } catch (Exception e) {
-            e.printStackTrace();
+            return executor;
+        }
+        return (Executor) invokeV.objValue;
+    }
+
+    public y50(Executor executor) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {executor};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = 64;
+        this.b = 5;
+        this.e = new ArrayDeque();
+        this.f = new ArrayDeque();
+        this.g = new ArrayDeque();
+        this.d = executor;
+    }
+
+    public synchronized void a(d60.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            synchronized (this) {
+                if (this.f.size() < this.a && i(aVar) < this.b) {
+                    this.f.add(aVar);
+                    c().execute(aVar);
+                } else {
+                    this.e.add(aVar);
+                }
+            }
         }
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public final int i(d60.a aVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SappInfo{pkg='" + this.a + "', sigs=" + Arrays.toString(this.b) + ", vc=" + this.c + ", va=" + this.d + ", installts=" + this.e + ", lstupdatets=" + this.f + '}';
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar)) == null) {
+            int i = 0;
+            for (d60.a aVar2 : this.f) {
+                if (!aVar2.b().c && aVar2.c().equals(aVar.c())) {
+                    i++;
+                }
+            }
+            return i;
         }
-        return (String) invokeV.objValue;
+        return invokeL.intValue;
+    }
+
+    public synchronized void b(d60 d60Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, d60Var) == null) {
+            synchronized (this) {
+                this.g.add(d60Var);
+            }
+        }
+    }
+
+    public void d(d60.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            f(this.f, aVar, true);
+        }
+    }
+
+    public void e(d60 d60Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, d60Var) == null) {
+            f(this.g, d60Var, false);
+        }
+    }
+
+    public final <T> void f(Deque<T> deque, T t, boolean z) {
+        int h;
+        Runnable runnable;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048581, this, deque, t, z) == null) {
+            synchronized (this) {
+                if (deque.remove(t)) {
+                    if (z) {
+                        g();
+                    }
+                    h = h();
+                    runnable = this.c;
+                } else {
+                    throw new AssertionError("Call wasn't in-flight!");
+                }
+            }
+            if (h == 0 && runnable != null) {
+                runnable.run();
+            }
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || this.f.size() >= this.a || this.e.isEmpty()) {
+            return;
+        }
+        Iterator<d60.a> it = this.e.iterator();
+        while (it.hasNext()) {
+            d60.a next = it.next();
+            if (i(next) < this.b) {
+                it.remove();
+                this.f.add(next);
+                c().execute(next);
+            }
+            if (this.f.size() >= this.a) {
+                return;
+            }
+        }
+    }
+
+    public synchronized int h() {
+        InterceptResult invokeV;
+        int size;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            synchronized (this) {
+                size = this.f.size() + this.g.size();
+            }
+            return size;
+        }
+        return invokeV.intValue;
     }
 }

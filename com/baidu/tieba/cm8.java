@@ -1,52 +1,118 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
-import java.util.List;
-import tbclient.Anti;
-import tbclient.DynamicInfo;
-import tbclient.ForumDynamic;
-import tbclient.HotUserRankEntry;
-import tbclient.PostInfoList;
-import tbclient.Profile.NicknameInfo;
-import tbclient.Profile.TAInfo;
-import tbclient.Profile.UserAgreeInfo;
-import tbclient.Profile.UserGodInfo;
-import tbclient.TbBookrack;
-import tbclient.ThreadInfo;
-import tbclient.User;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.pb.pb.main.PbFragment;
+import com.baidu.tieba.pb.pb.main.PbRecommendNovelHolder;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public interface cm8 {
-    Anti GetAntiStat();
+public class cm8 extends bl8<ny4, PbRecommendNovelHolder> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public ki8 g;
+    public PbRecommendNovelHolder.b h;
 
-    List<PostInfoList> GetPostList();
+    /* loaded from: classes3.dex */
+    public class a implements PbRecommendNovelHolder.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cm8 a;
 
-    User GetUser();
+        public a(cm8 cm8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cm8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cm8Var;
+        }
 
-    TbBookrack getBookrackData();
+        @Override // com.baidu.tieba.pb.pb.main.PbRecommendNovelHolder.b
+        public void a(ny4 ny4Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, ny4Var) == null) && ny4Var != null) {
+                mp8.a(this.a.g, ny4Var, ny4Var.d0, 6);
+            }
+        }
+    }
 
-    List<ForumDynamic> getConcernedForumList();
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cm8(PbFragment pbFragment, BdUniqueId bdUniqueId) {
+        super(pbFragment, bdUniqueId);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pbFragment, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((wp8) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.h = new a(this);
+    }
 
-    List<DynamicInfo> getDynamicInfoList();
+    public void r(ki8 ki8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ki8Var) == null) {
+            this.g = ki8Var;
+        }
+    }
 
-    int getErrorCode();
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.tm
+    /* renamed from: x */
+    public PbRecommendNovelHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            return new PbRecommendNovelHolder(this.b.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d073b, viewGroup, false), this.h);
+        }
+        return (PbRecommendNovelHolder) invokeL.objValue;
+    }
 
-    ea7 getGoodsWindowInfo();
+    @Override // com.baidu.tieba.bl8, com.baidu.tieba.tm
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        y(i, view2, viewGroup, (ny4) obj, (PbRecommendNovelHolder) viewHolder);
+        return view2;
+    }
 
-    HotUserRankEntry getHotRankEntry();
-
-    AlaLiveInfoCoreData getLiveInfo();
-
-    List<AlaLiveInfoCoreData> getLiveReplayInfo();
-
-    int getMaskType();
-
-    List<ThreadInfo> getNewestThreadList();
-
-    NicknameInfo getNicknameInfo();
-
-    TAInfo getTaInfo();
-
-    UserAgreeInfo getUserAgreeInfo();
-
-    UserGodInfo getUserGodInfo();
+    public View y(int i, View view2, ViewGroup viewGroup, ny4 ny4Var, PbRecommendNovelHolder pbRecommendNovelHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ny4Var, pbRecommendNovelHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) ny4Var, (ny4) pbRecommendNovelHolder);
+            if (ny4Var == null) {
+                return view2;
+            }
+            ny4Var.d0 = i + 1;
+            mp8.d(this.b.getUniqueId(), this.g, ny4Var, ny4Var.d0, 6);
+            pbRecommendNovelHolder.d(ny4Var);
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
+    }
 }

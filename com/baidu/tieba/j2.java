@@ -1,167 +1,207 @@
 package com.baidu.tieba;
 
-import com.badlogic.gdx.graphics.Pixmap;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.TextureData;
+import android.content.Context;
+import android.view.MotionEvent;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.o2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class j2 extends v1<Texture, b> {
+public class j2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a b;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.u1
-    /* renamed from: f */
-    public h7<p1> a(String str, q3 q3Var, b bVar) {
-        InterceptResult invokeLLL;
+    public final int d(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, q3Var, bVar)) == null) {
-            return null;
-        }
-        return (h7) invokeLLL.objValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public TextureData b;
-        public Texture c;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            if (i == 0 || i == 1) {
+                return 0;
             }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b extends r1<Texture> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Pixmap.Format b;
-        public boolean c;
-        public Texture d;
-        public TextureData e;
-        public Texture.TextureFilter f;
-        public Texture.TextureFilter g;
-        public Texture.TextureWrap h;
-        public Texture.TextureWrap i;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+            if (i == 2) {
+                return 1;
             }
-            this.b = null;
-            this.c = false;
-            this.d = null;
-            this.e = null;
-            Texture.TextureFilter textureFilter = Texture.TextureFilter.Nearest;
-            this.f = textureFilter;
-            this.g = textureFilter;
-            Texture.TextureWrap textureWrap = Texture.TextureWrap.ClampToEdge;
-            this.h = textureWrap;
-            this.i = textureWrap;
+            if (i == 4) {
+                return 2;
+            }
+            if (i == 8) {
+                return 3;
+            }
+            return i == 16 ? 4 : -1;
         }
+        return invokeI.intValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j2(y1 y1Var) {
-        super(y1Var);
+    public j2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {y1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((y1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = new a();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.v1
-    /* renamed from: g */
-    public void c(t1 t1Var, String str, q3 q3Var, b bVar) {
-        TextureData textureData;
+    public void a(MotionEvent motionEvent, o2 o2Var) {
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        int i5;
+        int i6;
+        int i7;
+        int i8;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, t1Var, str, q3Var, bVar) == null) {
-            a aVar = this.b;
-            aVar.a = str;
-            if (bVar != null && (textureData = bVar.e) != null) {
-                aVar.b = textureData;
-                aVar.c = bVar.d;
-            } else {
+        if (interceptable == null || interceptable.invokeLL(1048576, this, motionEvent, o2Var) == null) {
+            int action = motionEvent.getAction() & 255;
+            int action2 = (motionEvent.getAction() & 65280) >> 8;
+            int pointerId = motionEvent.getPointerId(action2);
+            long nanoTime = System.nanoTime();
+            synchronized (o2Var) {
+                int i9 = 20;
                 boolean z = false;
-                a aVar2 = this.b;
-                Pixmap.Format format = null;
-                aVar2.c = null;
-                if (bVar != null) {
-                    format = bVar.b;
-                    z = bVar.c;
-                    aVar2.c = bVar.d;
+                switch (action) {
+                    case 0:
+                    case 5:
+                        int d = o2Var.d();
+                        if (d >= 20) {
+                            break;
+                        } else {
+                            o2Var.q[d] = pointerId;
+                            int x = (int) motionEvent.getX(action2);
+                            int y = (int) motionEvent.getY(action2);
+                            int d2 = d(motionEvent.getButtonState());
+                            if (d2 != -1) {
+                                i = d2;
+                                i2 = x;
+                                i3 = y;
+                                b(o2Var, 0, x, y, d, i, nanoTime);
+                            } else {
+                                i = d2;
+                                i2 = x;
+                                i3 = y;
+                            }
+                            o2Var.k[d] = i2;
+                            o2Var.l[d] = i3;
+                            o2Var.m[d] = 0;
+                            o2Var.n[d] = 0;
+                            boolean[] zArr = o2Var.o;
+                            int i10 = i;
+                            if (i10 != -1) {
+                                z = true;
+                            }
+                            zArr[d] = z;
+                            o2Var.p[d] = i10;
+                            o2Var.r[d] = motionEvent.getPressure(action2);
+                            break;
+                        }
+                    case 1:
+                    case 4:
+                    case 6:
+                        int f = o2Var.f(pointerId);
+                        if (f != -1 && f < 20) {
+                            o2Var.q[f] = -1;
+                            int x2 = (int) motionEvent.getX(action2);
+                            int y2 = (int) motionEvent.getY(action2);
+                            int i11 = o2Var.p[f];
+                            if (i11 != -1) {
+                                i4 = x2;
+                                b(o2Var, 1, x2, y2, f, i11, nanoTime);
+                            } else {
+                                i4 = x2;
+                            }
+                            o2Var.k[f] = i4;
+                            o2Var.l[f] = y2;
+                            o2Var.m[f] = 0;
+                            o2Var.n[f] = 0;
+                            o2Var.o[f] = false;
+                            o2Var.p[f] = 0;
+                            o2Var.r[f] = 0.0f;
+                            break;
+                        }
+                        break;
+                    case 2:
+                        int pointerCount = motionEvent.getPointerCount();
+                        int i12 = 0;
+                        while (i12 < pointerCount) {
+                            int pointerId2 = motionEvent.getPointerId(i12);
+                            int x3 = (int) motionEvent.getX(i12);
+                            int y3 = (int) motionEvent.getY(i12);
+                            int f2 = o2Var.f(pointerId2);
+                            if (f2 == -1) {
+                                i7 = i12;
+                            } else if (f2 >= i9) {
+                                break;
+                            } else {
+                                int i13 = o2Var.p[f2];
+                                if (i13 != -1) {
+                                    i5 = f2;
+                                    i6 = y3;
+                                    i7 = i12;
+                                    i8 = x3;
+                                    b(o2Var, 2, x3, y3, f2, i13, nanoTime);
+                                } else {
+                                    i5 = f2;
+                                    i6 = y3;
+                                    i7 = i12;
+                                    i8 = x3;
+                                    b(o2Var, 4, i8, i6, f2, 0, nanoTime);
+                                }
+                                o2Var.m[i5] = i8 - o2Var.k[i5];
+                                o2Var.n[i5] = i6 - o2Var.l[i5];
+                                o2Var.k[i5] = i8;
+                                o2Var.l[i5] = i6;
+                                o2Var.r[i5] = motionEvent.getPressure(i7);
+                            }
+                            i12 = i7 + 1;
+                            i9 = 20;
+                        }
+                        break;
+                    case 3:
+                        for (int i14 = 0; i14 < o2Var.q.length; i14++) {
+                            o2Var.q[i14] = -1;
+                            o2Var.k[i14] = 0;
+                            o2Var.l[i14] = 0;
+                            o2Var.m[i14] = 0;
+                            o2Var.n[i14] = 0;
+                            o2Var.o[i14] = false;
+                            o2Var.p[i14] = 0;
+                            o2Var.r[i14] = 0.0f;
+                        }
+                        break;
                 }
-                this.b.b = TextureData.a.a(q3Var, format, z);
             }
-            if (!this.b.b.isPrepared()) {
-                this.b.b.prepare();
-            }
+            o0.a.getGraphics().c();
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.v1
-    /* renamed from: h */
-    public Texture d(t1 t1Var, String str, q3 q3Var, b bVar) {
-        InterceptResult invokeLLLL;
+    public final void b(o2 o2Var, int i, int i2, int i3, int i4, int i5, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, t1Var, str, q3Var, bVar)) == null) {
-            a aVar = this.b;
-            if (aVar == null) {
-                return null;
-            }
-            Texture texture = aVar.c;
-            if (texture != null) {
-                texture.A(aVar.b);
-            } else {
-                texture = new Texture(this.b.b);
-            }
-            if (bVar != null) {
-                texture.l(bVar.f, bVar.g);
-                texture.m(bVar.h, bVar.i);
-            }
-            return texture;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{o2Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Long.valueOf(j)}) == null) {
+            o2.f e = o2Var.g.e();
+            e.a = j;
+            e.h = i4;
+            e.c = i2;
+            e.d = i3;
+            e.b = i;
+            e.g = i5;
+            o2Var.j.add(e);
         }
-        return (Texture) invokeLLLL.objValue;
+    }
+
+    public boolean c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            return context.getPackageManager().hasSystemFeature("android.hardware.touchscreen.multitouch");
+        }
+        return invokeL.booleanValue;
     }
 }

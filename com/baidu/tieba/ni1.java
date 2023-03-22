@@ -1,175 +1,176 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
-import java.util.ArrayList;
-import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public interface ni1 {
-    void a(a aVar);
+public class ni1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public String b;
-        public long c;
-        public long d;
-        public long e;
-        public String f;
-        public int g;
-        public List<C0355a> h;
-
-        /* renamed from: com.baidu.tieba.ni1$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public static class C0355a {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public String a;
-            public String b;
-
-            public C0355a() {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
+    public static int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            String b = b();
+            if (TextUtils.isEmpty(b)) {
+                return 0;
+            }
+            try {
+                long currentTimeMillis = System.currentTimeMillis();
+                JSONArray jSONArray = new JSONArray();
+                JSONArray jSONArray2 = new JSONArray(b);
+                for (int i = 0; i < jSONArray2.length(); i++) {
+                    long optLong = jSONArray2.optLong(i);
+                    if (y31.d(optLong, currentTimeMillis)) {
+                        jSONArray.put(optLong);
                     }
                 }
+                g(jSONArray.toString());
+                return jSONArray.length();
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return 0;
             }
+        }
+        return invokeV.intValue;
+    }
 
-            public static C0355a a(JSONObject jSONObject) {
-                InterceptResult invokeL;
-                String optString;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                    if (jSONObject == null) {
-                        return null;
-                    }
-                    C0355a c0355a = new C0355a();
-                    String str = "";
-                    if (jSONObject.isNull("promotionInsId")) {
-                        optString = "";
-                    } else {
-                        optString = jSONObject.optString("promotionInsId");
-                    }
-                    c0355a.a = optString;
-                    if (!jSONObject.isNull("valid")) {
-                        str = jSONObject.optString("valid");
-                    }
-                    c0355a.b = str;
-                    return c0355a;
-                }
-                return (C0355a) invokeL.objValue;
+    @NonNull
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return h11.a().b("splash_sp_name").getString("today_cpc_show_list", "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return h11.a().b("splash_sp_name").getLong(TableDefine.BusiAdvAdBtnShowColumns.COLUMN_LAST_SHOW_TIME, 0L);
+        }
+        return invokeV.longValue;
+    }
+
+    public static JSONArray d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String string = h11.a().b("splash_sp_name").getString("today_show_list", "");
+            JSONArray jSONArray = new JSONArray();
+            if (TextUtils.isEmpty(string)) {
+                return jSONArray;
             }
-
-            public static JSONObject b(C0355a c0355a) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, c0355a)) == null) {
-                    if (c0355a == null) {
-                        return null;
-                    }
-                    JSONObject jSONObject = new JSONObject();
+            try {
+                JSONArray jSONArray2 = new JSONArray(string);
+                for (int i = 0; i < jSONArray2.length(); i++) {
+                    JSONObject optJSONObject = jSONArray2.optJSONObject(i);
                     try {
-                        jSONObject.put("promotionInsId", c0355a.a);
-                        jSONObject.put("valid", c0355a.b);
-                    } catch (JSONException e) {
-                        ei1.d(e.getMessage());
-                    }
-                    return jSONObject;
-                }
-                return (JSONObject) invokeL.objValue;
-            }
-
-            public static List<C0355a> c(JSONArray jSONArray) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONArray)) == null) {
-                    if (jSONArray == null) {
-                        return null;
-                    }
-                    ArrayList arrayList = new ArrayList();
-                    try {
-                        jSONArray.get(0);
-                        for (int i = 0; i < jSONArray.length(); i++) {
-                            arrayList.add(a((JSONObject) jSONArray.opt(i)));
+                        if (y31.d(Long.valueOf(optJSONObject.optString("t").split("_")[0]).longValue() * 1000, System.currentTimeMillis())) {
+                            jSONArray.put(optJSONObject);
                         }
-                    } catch (JSONException e) {
+                    } catch (NumberFormatException e) {
                         e.printStackTrace();
                     }
-                    return arrayList;
                 }
-                return (List) invokeL.objValue;
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+            h11.a().b("splash_sp_name").j("today_show_list", jSONArray.toString(), false);
+            return jSONArray;
+        }
+        return (JSONArray) invokeV.objValue;
+    }
+
+    public static void e(li1 li1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, li1Var) == null) {
+            h11.a().b("splash_sp_name").h(TableDefine.BusiAdvAdBtnShowColumns.COLUMN_LAST_SHOW_TIME, System.currentTimeMillis() / 1000);
+            h(li1Var);
+            ii1.m().g();
+        }
+    }
+
+    public static void g(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
+            h11.a().b("splash_sp_name").j("today_cpc_show_list", str, false);
+        }
+    }
+
+    public static void f() {
+        JSONArray jSONArray;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            String b = b();
+            try {
+                if (TextUtils.isEmpty(b)) {
+                    jSONArray = new JSONArray();
+                } else {
+                    jSONArray = new JSONArray(b);
+                }
+                jSONArray.put(System.currentTimeMillis());
+                g(jSONArray.toString());
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = 2;
+    public static void h(li1 li1Var) {
+        JSONArray jSONArray;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65543, null, li1Var) != null) || li1Var == null) {
+            return;
         }
-
-        public static JSONObject a(a aVar) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, aVar)) == null) {
-                if (aVar == null) {
-                    return null;
-                }
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put(HiAnalyticsConstant.HaKey.BI_KEY_RESULT, aVar.a);
-                    jSONObject.put("msg", aVar.b);
-                    jSONObject.put("totalAmount", aVar.c);
-                    jSONObject.put("userPayAmount", aVar.d);
-                    jSONObject.put("reduceAmount", aVar.e);
-                    jSONObject.put("overdueStatus", aVar.g);
-                    jSONObject.put("usedHostMarketingDetail", aVar.f);
-                    if (aVar.h != null && !aVar.h.isEmpty()) {
-                        JSONArray jSONArray = new JSONArray();
-                        for (C0355a c0355a : aVar.h) {
-                            jSONArray.put(C0355a.b(c0355a));
-                        }
-                        jSONObject.put("promotionStatus", jSONArray);
+        if (li1Var.k()) {
+            f();
+            return;
+        }
+        String valueOf = String.valueOf(System.currentTimeMillis() / 1000);
+        String string = h11.a().b("splash_sp_name").getString("today_show_list", "");
+        try {
+            if (TextUtils.isEmpty(string)) {
+                jSONArray = new JSONArray();
+            } else {
+                jSONArray = new JSONArray(string);
+            }
+            boolean z = true;
+            if (jSONArray.length() > 0) {
+                int i = 0;
+                while (true) {
+                    if (i >= jSONArray.length()) {
+                        break;
                     }
-                } catch (JSONException e) {
-                    ei1.d(e.getMessage());
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                    if (TextUtils.equals(optJSONObject.optString("k"), li1Var.c)) {
+                        optJSONObject.put("t", TextUtils.concat(valueOf, "_", optJSONObject.optString("t")).toString());
+                        jSONArray.put(i, optJSONObject);
+                        z = false;
+                        break;
+                    }
+                    i++;
                 }
-                return jSONObject;
             }
-            return (JSONObject) invokeL.objValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "Data{statusCode=" + this.a + ", message='" + this.b + "', totalAmount=" + this.c + ", userPayAmount=" + this.d + ", reduceAmount=" + this.e + ", usedHostMarketingDetail='" + this.f + "', overdueStatus='" + this.g + "'}";
+            if (z) {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("k", li1Var.c);
+                jSONObject.put("t", valueOf);
+                jSONArray.put(jSONObject);
             }
-            return (String) invokeV.objValue;
+            h11.a().b("splash_sp_name").j("today_show_list", jSONArray.toString(), false);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 }

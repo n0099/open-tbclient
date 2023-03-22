@@ -173,8 +173,8 @@ public class FeedbackEditActivity extends Activity {
             this.G = getIntent().getIntExtra("come_from", -1);
             getIntent().getIntExtra("extend_feedback_channel", -1);
             this.L = getIntent().getIntExtra("showProblem", 0) == 1;
-            this.M = getResources().getStringArray(R.array.obfuscated_res_0x7f030014);
-            this.N = getResources().getStringArray(R.array.obfuscated_res_0x7f030013);
+            this.M = getResources().getStringArray(R.array.obfuscated_res_0x7f030015);
+            this.N = getResources().getStringArray(R.array.obfuscated_res_0x7f030014);
             if (TextUtils.isEmpty(this.v)) {
                 this.v = "newMessage";
             }

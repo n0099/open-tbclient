@@ -1,201 +1,138 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.tbadk.core.atomData.WriteActivityConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class er0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final int c;
-    public final String d;
-    public String e;
-    public final float f;
-    public boolean g;
-    public String h;
-    @Nullable
-    public final gr0 i;
-    @NonNull
-    public String j;
-    @NonNull
-    public final HashMap<String, String> k;
+    public final int a;
+    public final int b;
 
-    public er0(@NonNull JSONObject jSONObject, boolean z) {
-        Object opt;
-        Object opt2;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public er0() {
+        this(hi0.b());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                this((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = new HashMap<>();
-        this.g = TextUtils.equals(jSONObject.optString("video_stretch_switch"), "1");
-        this.f = (float) jSONObject.optDouble("video_aspect_ratio", 0.0d);
-        if (z) {
-            this.a = jSONObject.optString(TiebaStatic.Params.VID);
-            jSONObject.optString("video_id");
-            this.b = jSONObject.optString("video_url");
-            this.e = jSONObject.optString("title");
-            this.c = jSONObject.optInt("duration");
-            jSONObject.optInt("width");
-            jSONObject.optInt("height");
-            jSONObject.optDouble("whRatio", 0.0d);
-            this.d = jSONObject.optString("poster_image");
-            this.i = gr0.a(jSONObject.optJSONObject(AdWebVideoActivityConfig.KEY_TAIL_FRAME));
-            try {
-                jSONObject.putOpt("videoUrl", this.b);
-            } catch (JSONException e) {
-                e.printStackTrace();
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (c() == 1) {
+                return true;
             }
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                if (!TextUtils.isEmpty(next) && (opt2 = jSONObject.opt(next)) != null && !(opt2 instanceof JSONObject) && !(opt2 instanceof JSONArray)) {
-                    this.k.put(next, jSONObject.optString(next));
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int i = this.a;
+            if (i != 0) {
+                if (i == 1) {
+                    return 1;
                 }
+                return 0;
             }
+            return b();
+        }
+        return invokeV.intValue;
+    }
+
+    public er0(Context context) {
+        int type;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        ConnectivityManager connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity");
+        NetworkInfo networkInfo = null;
+        if (connectivityManager != null) {
+            try {
+                networkInfo = connectivityManager.getActiveNetworkInfo();
+            } catch (Exception unused) {
+            }
+        }
+        if (networkInfo == null) {
+            type = -1;
         } else {
-            this.a = jSONObject.optString(TiebaStatic.Params.VID);
-            jSONObject.optString("videoId");
-            this.b = jSONObject.optString("videoUrl");
-            this.e = jSONObject.optString("title");
-            this.c = jSONObject.optInt("duration");
-            jSONObject.optInt("width");
-            jSONObject.optInt("height");
-            this.d = jSONObject.optString("posterImage");
-            jSONObject.optDouble("whRatio", 0.0d);
-            this.i = gr0.a(jSONObject.optJSONObject(AdWebVideoActivityConfig.KEY_TAIL_FRAME));
-            try {
-                jSONObject.putOpt("video_url", this.b);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
-            Iterator<String> keys2 = jSONObject.keys();
-            while (keys2.hasNext()) {
-                String next2 = keys2.next();
-                if (!TextUtils.isEmpty(next2) && (opt = jSONObject.opt(next2)) != null && !(opt instanceof JSONObject) && !(opt instanceof JSONArray)) {
-                    this.k.put(next2, jSONObject.optString(next2));
-                }
-            }
+            type = networkInfo.getType();
         }
-        this.j = jSONObject.toString();
+        this.a = type;
+        if (networkInfo != null && type == 0) {
+            i = networkInfo.getSubtype();
+        } else {
+            i = 0;
+        }
+        this.b = i;
     }
 
-    @Nullable
-    public static er0 b(JSONObject jSONObject, boolean z) {
-        InterceptResult invokeLZ;
+    public final int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, jSONObject, z)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            return new er0(jSONObject, z);
-        }
-        return (er0) invokeLZ.objValue;
-    }
-
-    @Nullable
-    public static er0 c(HashMap hashMap) {
-        InterceptResult invokeL;
-        Object obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, hashMap)) == null) {
-            if (hashMap == null || (obj = hashMap.get(WriteActivityConfig.VIDEO_INFO)) == null) {
-                return null;
-            }
-            er0 er0Var = new er0(f21.c(obj.toString()), true);
-            if (hashMap.get("ext_info") != null) {
-                er0Var.h = hashMap.get("ext_info").toString();
-            }
-            er0Var.a();
-            return er0Var;
-        }
-        return (er0) invokeL.objValue;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !TextUtils.isEmpty(this.j)) {
-            JSONObject c = f21.c(this.j);
-            f21.f(c, "videoId", c.optString("video_id"));
-            f21.f(c, PrefetchEvent.EVENT_KEY_PAGE_URL, c.optString("page_url"));
-            f21.f(c, "videoUrl", c.optString("video_url"));
-            f21.f(c, "posterImage", c.optString("poster_image"));
-            this.j = c.toString();
-        }
-    }
-
-    public void d(@NonNull AdBaseModel adBaseModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adBaseModel) == null) {
-            if (TextUtils.isEmpty(this.e) && !TextUtils.isEmpty(adBaseModel.f.g)) {
-                String str = adBaseModel.f.g;
-                this.e = str;
-                this.k.put("title", str);
-            }
-            if (TextUtils.isEmpty(this.h)) {
-                this.h = adBaseModel.f.d;
-            }
-            e();
-            gr0 gr0Var = this.i;
-            if (gr0Var != null) {
-                gr0Var.d(adBaseModel);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            switch (this.b) {
+                case 1:
+                case 2:
+                case 4:
+                case 7:
+                case 11:
+                case 16:
+                    return 2;
+                case 3:
+                case 5:
+                case 6:
+                case 8:
+                case 9:
+                case 10:
+                case 12:
+                case 14:
+                case 15:
+                case 17:
+                    return 3;
+                case 13:
+                case 18:
+                case 19:
+                default:
+                    return 4;
+                case 20:
+                    return 5;
             }
         }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !TextUtils.isEmpty(this.j)) {
-            JSONObject c = f21.c(this.j);
-            if (!TextUtils.isEmpty(this.e) && TextUtils.isEmpty(c.optString("title"))) {
-                f21.f(c, "title", this.e);
-            }
-            JSONObject optJSONObject = c.optJSONObject("ext_log");
-            if (optJSONObject == null) {
-                optJSONObject = new JSONObject();
-            }
-            if (TextUtils.isEmpty(optJSONObject.optString("curVid"))) {
-                f21.f(optJSONObject, "curVid", this.a);
-            }
-            if (!optJSONObject.has("mt")) {
-                f21.d(optJSONObject, "mt", 2);
-            }
-            if (!optJSONObject.has("vType")) {
-                f21.d(optJSONObject, "vType", 2);
-            }
-            if (!TextUtils.isEmpty(this.h) && TextUtils.isEmpty(optJSONObject.optString("ad_extra_param"))) {
-                f21.f(optJSONObject, "ad_extra_param", this.h);
-            }
-            f21.f(c, "ext_log", optJSONObject);
-            this.j = c.toString();
-        }
+        return invokeV.intValue;
     }
 }

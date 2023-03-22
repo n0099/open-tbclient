@@ -1,229 +1,85 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.http.statistics.NetworkStatRecord;
-import com.baidu.searchbox.retrieve.inter.upload.IUploadTask;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.recapp.adapter.FrsAppEmptyHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.yalog.Logger;
-import com.baidu.yalog.LoggerManager;
-import java.util.ArrayList;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class k19 {
+public class k19 extends ew6<ThreadData, FrsAppEmptyHolder> implements b19 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
-    public static final String e;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public volatile boolean b;
-    public long c;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final k19 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-711940648, "Lcom/baidu/tieba/k19$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-711940648, "Lcom/baidu/tieba/k19$b;");
-                    return;
-                }
-            }
-            a = new k19(null);
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947860374, "Lcom/baidu/tieba/k19;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947860374, "Lcom/baidu/tieba/k19;");
-                return;
-            }
-        }
-        d = z09.a;
-        e = k19.class.getSimpleName();
-    }
-
-    public static k19 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.b19
+    public void setIsFromCDN(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
         }
-        return (k19) invokeV.objValue;
     }
 
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (!this.b || System.currentTimeMillis() - this.c > 172800000) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public k19() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k19(c19 c19Var, BdUniqueId bdUniqueId) {
+        super(c19Var.n(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {c19Var, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        String b2 = a19.b("fulllog_switch", null);
-        if (!TextUtils.isEmpty(b2)) {
-            this.b = Boolean.valueOf(b2).booleanValue();
-        }
-        this.c = Long.parseLong(a19.b("fulllog_switch_push_time", Long.toString(System.currentTimeMillis())));
     }
 
-    public /* synthetic */ k19(a aVar) {
-        this();
-    }
-
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            Logger logger = LoggerManager.getLogger("net");
-            logger.e("1809", "netLog", str);
-            logger.flush(true);
-            if (g()) {
-                e(false);
-            }
-        }
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && g()) {
-            Logger logger = LoggerManager.getLogger("net");
-            logger.d("1809", "netLog", str);
-            logger.flush(true);
-            e(false);
-        }
-    }
-
-    public final boolean d(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
-            if (j - this.a > 60000) {
-                return true;
-            }
-            return false;
-        }
-        return invokeJ.booleanValue;
-    }
-
-    public final void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            boolean d2 = d(currentTimeMillis);
-            if (d2) {
-                this.a = currentTimeMillis;
-            }
-            if (z || d2) {
-                String b2 = a19.b("fulllog_switch_push_time", Long.toString(System.currentTimeMillis()));
-                ArrayList arrayList = new ArrayList();
-                arrayList.add("net");
-                IUploadTask iUploadTask = (IUploadTask) ServiceManager.getService(IUploadTask.SERVICE_REFERENCE);
-                if (iUploadTask != null) {
-                    long j = currentTimeMillis - 5184000000L;
-                    long j2 = currentTimeMillis + 3600000;
-                    iUploadTask.activeUploadSnapShot("netLog", b2, arrayList, null, 10240L, j, j2, true, null);
-                    if (d) {
-                        String str = e;
-                        Log.i(str, "dataId" + b2 + "   isMatchTimeInterval(curTime) == true");
-                        String str2 = e;
-                        Log.i(str2, "startTime==" + j + "endTime==" + j2);
-                    }
-                }
-            }
-        }
-    }
-
-    public boolean f(NetworkStatRecord networkStatRecord) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.tm
+    /* renamed from: G */
+    public FrsAppEmptyHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, networkStatRecord)) == null) {
-            int c = a19.c();
-            if (networkStatRecord.exception == null && networkStatRecord.receiveHeaderTs - networkStatRecord.sendHeaderTs < c && networkStatRecord.realResponseLength <= 1048576 && networkStatRecord.requestBodyLength <= 1048576) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View view2 = new View(this.c.getPageActivity());
+            view2.setVisibility(8);
+            return new FrsAppEmptyHolder(view2);
         }
-        return invokeL.booleanValue;
+        return (FrsAppEmptyHolder) invokeL.objValue;
     }
 
-    public synchronized boolean h(JSONObject jSONObject, JSONObject jSONObject2) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ew6, com.baidu.tieba.tm
+    /* renamed from: H */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ThreadData threadData, FrsAppEmptyHolder frsAppEmptyHolder) {
+        InterceptResult invokeCommon;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, jSONObject, jSONObject2)) == null) {
-            synchronized (this) {
-                if (jSONObject != null) {
-                    String optString = jSONObject.optString("type");
-                    String optString2 = jSONObject.optString("fulllog");
-                    if (TextUtils.equals(optString, "fulllog_network")) {
-                        if (TextUtils.equals(optString2, "1")) {
-                            long currentTimeMillis = System.currentTimeMillis();
-                            this.a = currentTimeMillis;
-                            this.c = currentTimeMillis;
-                            this.b = true;
-                            e(true);
-                            if (d) {
-                                Log.i(e, "Start online real full network log!");
-                            }
-                            a19.e("fulllog_switch_push_time", Long.toString(System.currentTimeMillis()));
-                        } else if (TextUtils.equals(optString2, "0")) {
-                            this.b = false;
-                            if (d) {
-                                Log.i(e, "Stop online real full network log!");
-                            }
-                        }
-                        a19.e("fulllog_switch", String.valueOf(this.b));
-                    }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, threadData, frsAppEmptyHolder})) == null) {
+            if (threadData instanceof AdvertAppInfo) {
+                AdvertAppInfo advertAppInfo = (AdvertAppInfo) threadData;
+                mw4 mw4Var = advertAppInfo.i;
+                if (advertAppInfo.c == -1001) {
+                    z = true;
+                } else {
+                    z = false;
                 }
+                mw4.c(mw4Var, threadData.position, z);
             }
-            return true;
+            return frsAppEmptyHolder.getView();
         }
-        return invokeLL.booleanValue;
+        return (View) invokeCommon.objValue;
     }
 }

@@ -1,73 +1,60 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.framework.message.Message;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.im.data.GroupInfoData;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ia9 extends HttpMessageListener {
+public class ia9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public boolean b;
+    public int c;
+    public String d;
+    public long e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ia9(MainTabActivity mainTabActivity) {
-        super(CmdConfigHttp.CMD_HTTP_SHARE_CONTENT_TO_CHAT_GROUP);
+    public ia9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = false;
+        this.b = false;
+        this.c = 0;
+        this.d = "";
+        this.e = 0L;
     }
 
-    public final void a(Message<?> message, String str, boolean z) {
+    public static ia9 a(ResponsedMessage responsedMessage) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048576, this, message, str, z) == null) {
-            int i = 4;
-            if (message instanceof HttpMessage) {
-                HttpMessage httpMessage = (HttpMessage) message;
-                if (httpMessage.getParams() != null) {
-                    Object obj = httpMessage.getParams().get(GroupInfoData.SHARE_KEY_TYPE);
-                    if (obj instanceof String) {
-                        i = h1a.b((String) obj, 4);
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, responsedMessage)) == null) {
+            ia9 ia9Var = new ia9();
+            if (BdNetTypeUtil.isNetWorkAvailable() && (responsedMessage.getError() < -13 || responsedMessage.getError() > -10)) {
+                z = true;
+            } else {
+                z = false;
             }
-            dr7.a(str, z, i, 2, true);
+            ia9Var.a = z;
+            ia9Var.b = !responsedMessage.hasError();
+            ia9Var.c = responsedMessage.getError();
+            ia9Var.d = responsedMessage.getErrorString();
+            ia9Var.e = responsedMessage.getDownSize();
+            return ia9Var;
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof JsonHttpResponsedMessage)) {
-            return;
-        }
-        JsonHttpResponsedMessage jsonHttpResponsedMessage = (JsonHttpResponsedMessage) httpResponsedMessage;
-        if (jsonHttpResponsedMessage.getError() != 0) {
-            a(httpResponsedMessage.getOrginalMessage(), po7.a(jsonHttpResponsedMessage.getError(), jsonHttpResponsedMessage.getErrorString()), false);
-        } else {
-            a(httpResponsedMessage.getOrginalMessage(), TbadkCoreApplication.getInst().getResources().getString(R.string.share_success), true);
-        }
+        return (ia9) invokeL.objValue;
     }
 }

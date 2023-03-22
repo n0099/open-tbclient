@@ -1,25 +1,22 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class d42 extends s22 {
+public final class d42 extends a32 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String L;
+    public boolean M;
+    public boolean N;
 
-    @Override // com.baidu.tieba.s22
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-        }
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d42() {
+        super("input", "viewId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -27,20 +24,38 @@ public class d42 extends s22 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (String) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.s22
-    public void a(t22 t22Var, Canvas canvas) {
+    @Override // com.baidu.tieba.a32, com.baidu.tieba.f32, com.baidu.tieba.h32, com.baidu.tieba.j32, com.baidu.tieba.sx2
+    public void a(JSONObject jSONObject) throws JSONException {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, t22Var, canvas) == null) {
-            int alpha = t22Var.c.getAlpha();
-            t22Var.c(t22Var.c);
-            canvas.drawPath(t22Var.f, t22Var.c);
-            t22Var.c.setAlpha(alpha);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
+        super.a(jSONObject);
+        if (this.h == null) {
+            this.h = new zx2();
+        }
+        this.t = jSONObject.optString("value");
+        this.L = jSONObject.optString("type");
+        boolean z2 = false;
+        if (jSONObject.optInt("confirmHold") == 1) {
+            z = true;
+        } else {
+            z = false;
+        }
+        this.M = z;
+        if (jSONObject.optInt("adjustPosition", 1) == 1) {
+            z2 = true;
+        }
+        this.N = z2;
     }
 }

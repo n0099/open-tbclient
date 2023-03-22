@@ -1,30 +1,36 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.BIMManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmName;
+import kotlin.jvm.internal.Intrinsics;
+@JvmName(name = "ChatUtil")
 /* loaded from: classes5.dex */
-public class jv7 extends iq7 {
+public final class jv7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jv7() {
-        super(up7.j(), 2001149);
+    public static final long a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((pp7) objArr[0], ((Integer) objArr[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            Intrinsics.checkNotNullParameter(str, "<this>");
+            String bdUidFromBdUK = BIMManager.getBdUidFromBdUK(str);
+            Intrinsics.checkNotNullExpressionValue(bdUidFromBdUK, "getBdUidFromBdUK(this)");
+            return Long.parseLong(bdUidFromBdUK);
         }
+        return invokeL.longValue;
+    }
+
+    public static final String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            Intrinsics.checkNotNullParameter(str, "<this>");
+            return BIMManager.getBdUKFromBdUid(str);
+        }
+        return (String) invokeL.objValue;
     }
 }

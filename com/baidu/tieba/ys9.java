@@ -1,26 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.nio.ByteBuffer;
+import android.webkit.WebView;
+import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 /* loaded from: classes7.dex */
-public final class ys9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ys9 {
+    void a(boolean z);
 
-    public static void a(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65536, null, byteBuffer) != null) || byteBuffer.isDirect()) {
-            return;
-        }
-        throw new IllegalArgumentException("byteBuffer must be a direct ByteBuffer.");
-    }
+    boolean b(WebView webView, String str);
 
-    public static void b(ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, byteBuffer) != null) || byteBuffer.hasRemaining()) {
-            return;
-        }
-        throw new IllegalArgumentException("ByteBuffer is already full.");
-    }
+    void c(NewWriteModel.d dVar);
+
+    void d();
+
+    void e(boolean z, String str);
+
+    void onDestroy();
+
+    void onPageFinished(WebView webView, String str);
 }

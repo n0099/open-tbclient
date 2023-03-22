@@ -21,7 +21,6 @@ import java.util.Locale;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-import org.webrtc.RtcCertificatePem;
 /* loaded from: classes8.dex */
 public class d {
     public static /* synthetic */ Interceptable $ic = null;
@@ -138,7 +137,7 @@ public class d {
                         } catch (NumberFormatException e) {
                             e = e;
                             Logger.w(o, "getExpireTime addHeadersToResult NumberFormatException", e);
-                            long j = ((time > 0 || time > RtcCertificatePem.DEFAULT_EXPIRY) ? 86400L : 86400L) * 1000;
+                            long j = ((time > 0 || time > 2592000) ? 86400L : 86400L) * 1000;
                             Logger.i(o, "convert expireTime{%s}", Long.valueOf(j));
                             c(String.valueOf(j + System.currentTimeMillis()));
                         }
@@ -164,7 +163,7 @@ public class d {
                 }
                 time = 0;
             }
-            long j2 = ((time > 0 || time > RtcCertificatePem.DEFAULT_EXPIRY) ? 86400L : 86400L) * 1000;
+            long j2 = ((time > 0 || time > 2592000) ? 86400L : 86400L) * 1000;
             Logger.i(o, "convert expireTime{%s}", Long.valueOf(j2));
             c(String.valueOf(j2 + System.currentTimeMillis()));
         }

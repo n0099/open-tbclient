@@ -1,12 +1,11 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.v8engine.V8ExceptionInfo;
-import com.baidu.searchbox.v8engine.util.TimeUtils;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.tieba.ju2;
+import android.graphics.Rect;
+import android.view.View;
+import android.view.ViewTreeObserver;
+import android.widget.FrameLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,25 +13,33 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
 /* loaded from: classes7.dex */
 public class ya4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final int g;
+    public static volatile ya4 h;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public boolean d;
+    public int e;
+    public ViewTreeObserver.OnGlobalLayoutListener f;
 
     /* loaded from: classes7.dex */
-    public static class a extends s53 {
+    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xa4 c;
+        public final /* synthetic */ View a;
+        public final /* synthetic */ xa4 b;
+        public final /* synthetic */ ya4 c;
 
-        public a(xa4 xa4Var) {
+        public a(ya4 ya4Var, View view2, xa4 xa4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xa4Var};
+                Object[] objArr = {ya4Var, view2, xa4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,28 +49,51 @@ public class ya4 {
                     return;
                 }
             }
-            this.c = xa4Var;
+            this.c = ya4Var;
+            this.a = view2;
+            this.b = xa4Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.s53, com.baidu.tieba.t53, com.baidu.tieba.r53
-        public void onEvent(@NonNull p53 p53Var) {
-            int i;
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, p53Var) == null) {
-                if (!SwanAppNetworkUtils.i(null)) {
-                    i = -2;
-                } else if (p53Var.a() != null) {
-                    i = p53Var.a().getInt("net_quality");
-                } else {
-                    i = -1;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Rect rect = new Rect();
+                View view2 = this.a;
+                if (view2 == null) {
+                    return;
                 }
-                if (ya4.a) {
-                    Log.d("StuckScreenReporter", "get NetworkQuality: " + i);
+                view2.getWindowVisibleDisplayFrame(rect);
+                int i = rect.bottom - rect.top;
+                int n = kl3.n(AppRuntime.getAppContext());
+                int t = kl3.t();
+                if (!this.c.d) {
+                    this.c.d = true;
+                    this.c.c = (n - i) - t;
+                    if (this.c.c < 0) {
+                        this.c.c = 0;
+                    }
                 }
-                xa4 xa4Var = this.c;
-                xa4Var.m = i;
-                fg3.x("976", xa4Var);
+                if (i > 0) {
+                    if (i >= this.c.e || this.a.getHeight() - i <= 200) {
+                        if (i <= this.c.e || this.a.getHeight() - i >= 200) {
+                            return;
+                        }
+                        this.c.e = i;
+                        this.c.s(this.b);
+                        return;
+                    }
+                    this.c.e = i;
+                    this.c.b = i - ya4.g;
+                    ya4 ya4Var = this.c;
+                    ya4Var.a = ((n - i) - t) - ya4Var.c;
+                    if (this.c.a > 0) {
+                        ya4 ya4Var2 = this.c;
+                        if (!ya4Var2.t(this.b, ya4Var2.a, this.c.b)) {
+                            this.c.s(this.b);
+                        }
+                    }
+                }
             }
         }
     }
@@ -81,53 +111,153 @@ public class ya4 {
                 return;
             }
         }
-        a = wp1.a;
+        g = ja4.a(42.0f);
+        h = null;
     }
 
-    public static void b(xa4 xa4Var) {
+    public ya4() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, xa4Var) != null) || xa4Var == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        h63.Q().X(null, a13.class, new a(xa4Var));
+        this.f = null;
     }
 
-    public static void c(an1 an1Var) {
-        V8ExceptionInfo a2;
-        int i;
+    public static ya4 p() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, an1Var) != null) || an1Var == null || (a2 = an1Var.a()) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+            if (h == null) {
+                synchronized (ya4.class) {
+                    if (h == null) {
+                        h = new ya4();
+                    }
+                }
+            }
+            return h;
         }
-        String str = a2.exceptionMsg;
-        String str2 = a2.exceptionTrace;
-        if (TextUtils.isEmpty(str) && TextUtils.isEmpty(str2)) {
-            return;
+        return (ya4) invokeV.objValue;
+    }
+
+    public final zx2 o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            zx2 zx2Var = new zx2();
+            zx2Var.k(true);
+            zx2Var.n(-1);
+            zx2Var.j(-2);
+            return zx2Var;
         }
-        if (a) {
-            Log.d("StuckScreenReporter", String.format("LastTouchTime %s; exceptionTime %s", TimeUtils.logTimeOfDay(w54.a()), TimeUtils.logTimeOfDay(a2.exceptionTime)));
+        return (zx2) invokeV.objValue;
+    }
+
+    public final zx2 q(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            zx2 zx2Var = new zx2();
+            zx2Var.k(true);
+            zx2Var.m(i);
+            zx2Var.n(-1);
+            zx2Var.j(-2);
+            return zx2Var;
         }
-        if (a2.exceptionTime >= w54.a()) {
-            return;
+        return (zx2) invokeI.objValue;
+    }
+
+    public final boolean r(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, view2)) == null) {
+            kp1 X = gt2.U().X();
+            if (X != null && X.d(view2)) {
+                return true;
+            }
+            return false;
         }
-        xa4 xa4Var = new xa4();
-        xa4Var.b = "stuck";
-        xa4Var.e = "jserror";
-        xa4Var.f = m93.g0();
-        if (m93.M() != null && m93.M().Y() != null) {
-            ju2.a Y = m93.M().Y();
-            xa4Var.c = Y.T();
-            xa4Var.a = fg3.n(Y.G());
+        return invokeL.booleanValue;
+    }
+
+    public final void m(View view2, xa4 xa4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, view2, xa4Var) == null) && view2 != null && xa4Var != null) {
+            this.e = view2.getHeight();
+            this.f = new a(this, view2, xa4Var);
+            view2.getViewTreeObserver().addOnGlobalLayoutListener(this.f);
         }
-        xa4Var.l = str + ParamableElem.DIVIDE_PARAM + str2;
-        if (ja4.d()) {
-            i = 20;
-        } else {
-            i = 10;
+    }
+
+    public boolean n(xa4 xa4Var) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xa4Var)) == null) {
+            kp1 X = gt2.U().X();
+            if (X != null && !r(xa4Var.f()) && X.c(xa4Var.f(), o())) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                if (!xa4Var.l() || X == null) {
+                    return false;
+                }
+                m(X.getRootView(), xa4Var);
+            }
+            return z;
         }
-        xa4Var.k = i;
-        xa4Var.n = w54.b();
-        xa4Var.o = System.currentTimeMillis() - a2.exceptionTime;
-        b(xa4Var);
+        return invokeL.booleanValue;
+    }
+
+    public boolean s(xa4 xa4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, xa4Var)) == null) {
+            kp1 X = gt2.U().X();
+            if (X == null) {
+                return false;
+            }
+            FrameLayout rootView = X.getRootView();
+            if (rootView != null && this.f != null) {
+                rootView.getViewTreeObserver().removeOnGlobalLayoutListener(this.f);
+            }
+            xa4Var.h();
+            this.f = null;
+            this.a = -1;
+            this.b = -1;
+            this.c = -1;
+            this.d = false;
+            this.e = -1;
+            return X.removeView(xa4Var.f());
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean t(xa4 xa4Var, int i, int i2) {
+        InterceptResult invokeLII;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048582, this, xa4Var, i, i2)) == null) {
+            kp1 X = gt2.U().X();
+            if (X != null && X.a(xa4Var.f(), q(i2))) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                xa4Var.k(i);
+            }
+            return z;
+        }
+        return invokeLII.booleanValue;
     }
 }

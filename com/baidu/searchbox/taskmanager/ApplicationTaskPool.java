@@ -32,6 +32,7 @@ import com.baidu.searchbox.task.async.homeready.InitUnionIDTask;
 import com.baidu.searchbox.task.async.homeready.LaunchStatTask;
 import com.baidu.searchbox.task.async.homeready.MainTabLoadFinishTask;
 import com.baidu.searchbox.task.async.homeready.MaintabAsyncInitTask;
+import com.baidu.searchbox.task.async.privacy.AsyncTaskCollector;
 import com.baidu.searchbox.task.async.privacy.DeleteApkTask;
 import com.baidu.searchbox.task.async.privacy.LaunchWithPrivacyTask;
 import com.baidu.searchbox.task.async.privacy.LogoTask;
@@ -75,7 +76,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.DelayInitNightPluginSwitch;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class ApplicationTaskPool extends BaseTaskPool {
     @Override // com.baidu.searchbox.performance.speed.task.BaseTaskPool
     public List<LaunchTask> viewOnActivity() {
@@ -125,6 +126,36 @@ public class ApplicationTaskPool extends BaseTaskPool {
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.BaseTaskPool
+    public List<LaunchTask> onPrivacyPolicyGranted(int i) {
+        ArrayList arrayList = new ArrayList();
+        if (i == 2) {
+            arrayList.add(new LaunchWithPrivacyTask());
+            arrayList.add(new DeleteApkTask());
+            if (!DelayInitNightPluginSwitch.isOn()) {
+                arrayList.add(new NightPluginTask());
+            }
+            arrayList.add(new LogoTask());
+            arrayList.addAll(new AsyncTaskCollector().asyncList());
+        } else if (i == 1) {
+            arrayList.add(new InitSDKWithPrivacyTask());
+        } else if (i == 3) {
+            arrayList.add(new MainTabLoadFinishTask());
+            arrayList.add(new GetYYCloudTask());
+            arrayList.add(new InitCookieTask());
+            arrayList.add(new InitUnionIDTask());
+            arrayList.add(new MaintabAsyncInitTask());
+            arrayList.add(new LaunchStatTask());
+            arrayList.add(new InitSDKIdleTask());
+            if (DelayInitNightPluginSwitch.isOn()) {
+                arrayList.add(new NightPluginTask());
+            }
+            arrayList.add(new InitCyberPlayerTask());
+            arrayList.add(new InitSwanAppTask());
+        }
+        return arrayList;
+    }
+
+    @Override // com.baidu.searchbox.performance.speed.task.BaseTaskPool
     public List<LaunchTask> onAppCreateSecond(int i) {
         ArrayList arrayList = new ArrayList();
         if (i == 2) {
@@ -161,35 +192,6 @@ public class ApplicationTaskPool extends BaseTaskPool {
             arrayList.add(new InitEmotionsTask());
             arrayList.add(new InitDiskStatTask());
             arrayList.add(new InitFlutterNpsPluginTask());
-        }
-        return arrayList;
-    }
-
-    @Override // com.baidu.searchbox.performance.speed.task.BaseTaskPool
-    public List<LaunchTask> onPrivacyPolicyGranted(int i) {
-        ArrayList arrayList = new ArrayList();
-        if (i == 2) {
-            arrayList.add(new LaunchWithPrivacyTask());
-            arrayList.add(new DeleteApkTask());
-            if (!DelayInitNightPluginSwitch.isOn()) {
-                arrayList.add(new NightPluginTask());
-            }
-            arrayList.add(new LogoTask());
-        } else if (i == 1) {
-            arrayList.add(new InitSDKWithPrivacyTask());
-        } else if (i == 3) {
-            arrayList.add(new MainTabLoadFinishTask());
-            arrayList.add(new GetYYCloudTask());
-            arrayList.add(new InitCookieTask());
-            arrayList.add(new InitUnionIDTask());
-            arrayList.add(new MaintabAsyncInitTask());
-            arrayList.add(new LaunchStatTask());
-            arrayList.add(new InitSDKIdleTask());
-            if (DelayInitNightPluginSwitch.isOn()) {
-                arrayList.add(new NightPluginTask());
-            }
-            arrayList.add(new InitCyberPlayerTask());
-            arrayList.add(new InitSwanAppTask());
         }
         return arrayList;
     }

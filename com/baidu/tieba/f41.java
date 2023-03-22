@@ -1,89 +1,135 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.os.Build;
+import android.provider.Settings;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.thread.task.ElasticTask;
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.util.devices.RomUtils;
+import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedList;
 /* loaded from: classes4.dex */
 public class f41 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<ElasticTask> a;
 
-    public f41() {
+    public static int a(@NonNull Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
+            if (g(activity)) {
+                return c(activity);
             }
+            return 0;
         }
-        this.a = new LinkedList<>();
+        return invokeL.intValue;
     }
 
-    public long a() {
-        InterceptResult invokeV;
+    public static int c(@NonNull Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Iterator<ElasticTask> it = this.a.iterator();
-            long j = 0;
-            while (it.hasNext()) {
-                j += it.next().d();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            int identifier = context.getResources().getIdentifier(SapiSystemBarTintManager.SystemBarConfig.h, EMABTest.TYPE_DIMEN, "android");
+            if (identifier > 0) {
+                return context.getResources().getDimensionPixelSize(identifier);
             }
-            return j;
+            return 0;
         }
-        return invokeV.longValue;
+        return invokeL.intValue;
     }
 
-    public ElasticTask b() {
-        InterceptResult invokeV;
+    @RequiresApi(api = 17)
+    public static int d(@NonNull Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a.isEmpty()) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (h(context)) {
+                return 0;
             }
-            return this.a.get(0);
+            return a((Activity) context);
         }
-        return (ElasticTask) invokeV.objValue;
+        return invokeL.intValue;
     }
 
-    public boolean d() {
+    public static boolean g(@NonNull Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, activity)) == null) {
+            View findViewById = activity.findViewById(16908336);
+            if (findViewById == null || findViewById.getVisibility() != 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @RequiresApi(api = 17)
+    public static boolean h(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            if (Settings.Global.getInt(context.getContentResolver(), b(), 0) == 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @NonNull
+    public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.isEmpty();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            String str = Build.BRAND;
+            if (TextUtils.isEmpty(str) || str.equalsIgnoreCase("HUAWEI")) {
+                return "navigationbar_is_min";
+            }
+            if (str.equalsIgnoreCase(RomUtils.ROM_XIAOMI)) {
+                return "force_fsg_nav_bar";
+            }
+            if (!str.equalsIgnoreCase("VIVO") && !str.equalsIgnoreCase("OPPO")) {
+                return "navigationbar_is_min";
+            }
+            return "navigation_gesture_on";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (i != 29 && i != 30) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
     }
 
-    public void c(Runnable runnable, String str, int i) {
+    public static boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, runnable, str, i) == null) {
-            if (runnable != null && !TextUtils.isEmpty(str)) {
-                ElasticTask a = l41.b().a(runnable, str, i);
-                this.a.add(a);
-                a.f();
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            String d = hi0.c().a().d();
+            if (TextUtils.isEmpty(d)) {
+                return false;
             }
-            throw new IllegalArgumentException("illegal params");
+            if (!d.contains("MI 8") && !d.contains("MI 9")) {
+                return false;
+            }
+            return true;
         }
-    }
-
-    public void e(ElasticTask elasticTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, elasticTask) == null) {
-            this.a.remove(elasticTask);
-        }
+        return invokeV.booleanValue;
     }
 }

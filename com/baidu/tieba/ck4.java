@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,87 +9,75 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class ck4 extends si4<ik4> {
+public class ck4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ck4 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    @Override // com.baidu.tieba.si4
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getplugin" : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ck4(hh4 hh4Var, sk4 sk4Var) {
-        super(hh4Var, sk4Var);
+    public ck4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {hh4Var, sk4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((hh4) objArr2[0], (sk4) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.si4
-    /* renamed from: v */
-    public boolean f(ik4 ik4Var) {
-        InterceptResult invokeL;
+    public static ck4 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, ik4Var)) == null) {
-            if (ik4Var == null) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (ck4.class) {
+                    if (b == null) {
+                        b = new ck4();
+                    }
+                }
             }
-            ni4 ni4Var = ik4Var.a;
-            if (ni4Var != null && !ni4Var.a()) {
-                return false;
-            }
-            return true;
+            return b;
         }
-        return invokeL.booleanValue;
+        return (ck4) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.si4
-    /* renamed from: x */
-    public ik4 u(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) {
-            return tm4.h(jSONObject);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (TextUtils.isEmpty(this.a)) {
+                this.a = ef4.b().i().getString("extract_js_url", null);
+            }
+            return this.a;
         }
-        return (ik4) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.si4
-    /* renamed from: w */
-    public gi4 t(ik4 ik4Var) {
-        InterceptResult invokeL;
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, ik4Var)) == null) {
-            this.a.E();
-            um4 um4Var = new um4();
-            q(ik4Var.a, um4Var);
-            if (um4Var.n() == 0) {
-                this.a.F();
-                return null;
-            }
-            this.a.G(um4Var);
-            xi4.c(ik4Var, this.a);
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return ef4.b().i().getString("tts_node_version", "0");
         }
-        return (gi4) invokeL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public void d(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        String optString = jSONObject.optString("version");
+        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || !optJSONObject.has("extract_js_url")) {
+            return;
+        }
+        String optString2 = optJSONObject.optString("extract_js_url");
+        ef4.b().i().putString("tts_node_version", optString);
+        ef4.b().i().putString("extract_js_url", optString2);
     }
 }

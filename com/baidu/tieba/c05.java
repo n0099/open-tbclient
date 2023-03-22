@@ -1,108 +1,104 @@
 package com.baidu.tieba;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.view.View;
+import android.view.Window;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.dialog.CircleView1080;
+import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.PbPresent;
-import tbclient.PbPresentList;
 /* loaded from: classes3.dex */
-public class c05 {
+public class c05 extends AlertDialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public ArrayList<a> b;
+    public String a;
+    public TextView b;
+    public TextView c;
+    public CircleView1080 d;
+    public int e;
 
-    /* loaded from: classes3.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public c05() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c05(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public ArrayList<a> a() {
-        InterceptResult invokeV;
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public void c(PbPresent pbPresent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pbPresent) != null) || pbPresent == null) {
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || i == this.e) {
             return;
         }
-        this.a = pbPresent.total.intValue();
-        List<PbPresentList> list = pbPresent.list;
-        if (list != null && list.size() > 0) {
-            this.b = new ArrayList<>();
-            for (PbPresentList pbPresentList : pbPresent.list) {
-                if (pbPresentList != null) {
-                    a aVar = new a();
-                    pbPresentList.gift_id.intValue();
-                    String str = pbPresentList.gift_name;
-                    aVar.a = pbPresentList.thumbnail_url;
-                    pbPresentList.num.intValue();
-                    this.b.add(aVar);
-                }
+        this.e = i;
+        TextView textView = this.b;
+        if (textView != null) {
+            textView.setText(i + "%");
+        }
+        CircleView1080 circleView1080 = this.d;
+        if (circleView1080 != null) {
+            circleView1080.setProgress(i);
+        }
+    }
+
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.a = str;
+            TextView textView = this.c;
+            if (textView != null) {
+                textView.setText(str);
             }
         }
     }
 
-    public void d(ArrayList<a> arrayList) {
+    @Override // android.app.Dialog
+    public void show() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
-            this.b = arrayList;
-        }
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.a = i;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.show();
+            Window window = getWindow();
+            if (window != null) {
+                window.setContentView(R.layout.progress_dialog_1080);
+                GreyUtil.grey(window);
+                View findViewById = findViewById(R.id.frame_progress_dialog);
+                if (findViewById.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+                    RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) findViewById.getLayoutParams();
+                    layoutParams.topMargin = hi.g(getContext(), R.dimen.tbds50);
+                    findViewById.setLayoutParams(layoutParams);
+                }
+                TextView textView = (TextView) window.findViewById(R.id.text_progress_dialog_message);
+                this.c = textView;
+                if (textView.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
+                    RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.c.getLayoutParams();
+                    layoutParams2.topMargin = hi.g(getContext(), R.dimen.tbds35);
+                    this.c.setLayoutParams(layoutParams2);
+                }
+                if (!StringUtils.isNull(this.a)) {
+                    this.c.setText(this.a);
+                }
+                this.b = (TextView) window.findViewById(R.id.text_progress_dialog_percent);
+                this.d = (CircleView1080) window.findViewById(R.id.circle_progress_dialog);
+            }
         }
     }
 }

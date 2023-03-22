@@ -1,13 +1,7 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.model.AdOperator;
-import com.baidu.nadcore.widget.view.NadExpressNaBaseView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,141 +11,57 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class od1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public final View b;
-    public String c;
-    public gd1 d;
-    public fd1 e;
+    public boolean a;
 
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
+    public abstract boolean b(SQLiteDatabase sQLiteDatabase);
 
-    public od1(int i, View view2) {
+    public od1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), view2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = null;
-        this.a = i;
-        this.b = view2;
+        this.a = false;
     }
 
-    public static boolean c(AdBaseModel adBaseModel) {
-        InterceptResult invokeL;
-        pq0 pq0Var;
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, adBaseModel)) == null) {
-            if (d(adBaseModel) && adBaseModel.h.a == AdOperator.TYPE.DOWNLOAD && (pq0Var = adBaseModel.l) != null && pq0Var.e) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void c(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
+            this.a = false;
+            try {
+                sQLiteDatabase.beginTransaction();
+                if (b(sQLiteDatabase)) {
+                    sQLiteDatabase.setTransactionSuccessful();
+                    this.a = true;
+                }
+            } catch (Exception unused) {
+            } catch (Throwable th) {
+                try {
+                    sQLiteDatabase.endTransaction();
+                } catch (Exception unused2) {
+                }
+                throw th;
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean d(AdBaseModel adBaseModel) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, adBaseModel)) == null) {
-            if (adBaseModel != null && adBaseModel.h != null) {
-                return true;
+            try {
+                sQLiteDatabase.endTransaction();
+            } catch (Exception unused3) {
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final <T> T a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return (T) this.b.findViewById(i);
-        }
-        return (T) invokeI.objValue;
-    }
-
-    public void f(gd1 gd1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, gd1Var) == null) {
-            this.d = gd1Var;
-        }
-    }
-
-    public final <T> void g(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, t) == null) {
-            this.b.setTag(t);
-        }
-    }
-
-    public void h(fd1 fd1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, fd1Var) == null) {
-            this.e = fd1Var;
-        }
-    }
-
-    public final void i(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.b.setVisibility(i);
-        }
-    }
-
-    public final <T> T b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return (T) this.b.getTag();
-        }
-        return (T) invokeV.objValue;
-    }
-
-    public final Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b.getContext();
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public final Resources getResources() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.b.getResources();
-        }
-        return (Resources) invokeV.objValue;
-    }
-
-    public void j() {
-        View view2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && (view2 = this.b) != null && view2.getLayoutParams() != null) {
-            this.b.getLayoutParams().height = -2;
-            View view3 = this.b;
-            view3.setLayoutParams(view3.getLayoutParams());
-        }
-    }
-
-    public void update(AdBaseModel adBaseModel, NadExpressNaBaseView nadExpressNaBaseView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, adBaseModel, nadExpressNaBaseView) == null) {
-            g(adBaseModel);
         }
     }
 }

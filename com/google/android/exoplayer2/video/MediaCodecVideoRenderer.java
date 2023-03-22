@@ -416,19 +416,19 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
         boolean z;
         int integer;
         int integer2;
-        if (mediaFormat.containsKey("crop-right") && mediaFormat.containsKey("crop-left") && mediaFormat.containsKey("crop-bottom") && mediaFormat.containsKey("crop-top")) {
+        if (mediaFormat.containsKey(KEY_CROP_RIGHT) && mediaFormat.containsKey(KEY_CROP_LEFT) && mediaFormat.containsKey(KEY_CROP_BOTTOM) && mediaFormat.containsKey(KEY_CROP_TOP)) {
             z = true;
         } else {
             z = false;
         }
         if (z) {
-            integer = (mediaFormat.getInteger("crop-right") - mediaFormat.getInteger("crop-left")) + 1;
+            integer = (mediaFormat.getInteger(KEY_CROP_RIGHT) - mediaFormat.getInteger(KEY_CROP_LEFT)) + 1;
         } else {
             integer = mediaFormat.getInteger("width");
         }
         this.currentWidth = integer;
         if (z) {
-            integer2 = (mediaFormat.getInteger("crop-bottom") - mediaFormat.getInteger("crop-top")) + 1;
+            integer2 = (mediaFormat.getInteger(KEY_CROP_BOTTOM) - mediaFormat.getInteger(KEY_CROP_TOP)) + 1;
         } else {
             integer2 = mediaFormat.getInteger("height");
         }
@@ -580,14 +580,14 @@ public class MediaCodecVideoRenderer extends MediaCodecRenderer {
                 c = 65535;
                 break;
             case 1599127256:
-                if (str.equals("video/x-vnd.on2.vp8")) {
+                if (str.equals(MimeTypes.VIDEO_VP8)) {
                     c = 3;
                     break;
                 }
                 c = 65535;
                 break;
             case 1599127257:
-                if (str.equals("video/x-vnd.on2.vp9")) {
+                if (str.equals(MimeTypes.VIDEO_VP9)) {
                     c = 5;
                     break;
                 }

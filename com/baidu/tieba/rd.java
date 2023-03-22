@@ -1,28 +1,32 @@
 package com.baidu.tieba;
 
 import android.util.SparseArray;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Type;
+import java.io.IOException;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class rd implements id {
+public class rd implements ed {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<?> a;
+    public String a;
 
-    public rd(SparseArray<?> sparseArray) {
+    public rd(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sparseArray};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,102 +36,109 @@ public class rd implements id {
                 return;
             }
         }
-        this.a = sparseArray;
+        this.a = str;
     }
 
-    @Override // com.baidu.tieba.id
-    public Object a(re reVar) {
+    @Override // com.baidu.tieba.ed
+    public Object a(ud udVar) {
+        Class<?> a;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, reVar)) == null) {
-            Object f = f(reVar);
-            if (f != null) {
-                if (f instanceof JSONObject) {
-                    return f.toString();
-                }
-                if (f instanceof JSONArray) {
-                    return f.toString();
-                }
-                return f;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, udVar)) == null) {
+            try {
+                a = udVar.a();
+            } catch (NumberFormatException e) {
+                e.printStackTrace();
+                return null;
             }
-            return null;
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.id
-    public Object b(re reVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, reVar)) == null) {
-            return this.a;
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.id
-    public Object c(re reVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, reVar)) == null) {
-            return this.a;
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.id
-    public Object d(re reVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, reVar)) == null) {
-            Object f = f(reVar);
-            if (f != null && (f instanceof JSONObject)) {
-                return f.toString();
-            }
-            return null;
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.id
-    public Object e(re reVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, reVar)) == null) {
-            return d(reVar);
-        }
-        return invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.id
-    public Object f(re reVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, reVar)) == null) {
-            Type[] b = reVar.b();
-            JSONObject jSONObject = new JSONObject();
-            int size = this.a.size();
-            for (int i = 0; i < size; i++) {
-                int keyAt = this.a.keyAt(i);
-                Object obj = this.a.get(keyAt);
-                if (obj != null) {
-                    if (b != null && b.length >= 1) {
-                        Object f = ue.a(obj).f(new re(b[0]));
-                        if (f != null) {
-                            try {
-                                jSONObject.put(String.valueOf(keyAt), f);
-                            } catch (JSONException unused) {
+            if (a != Byte.class && a != Byte.TYPE) {
+                if (a != Short.class && a != Short.TYPE) {
+                    if (a != Integer.class && a != Integer.TYPE) {
+                        if (a != Long.class && a != Long.TYPE) {
+                            if (a != Float.class && a != Float.TYPE) {
+                                if (a != Double.class && a != Double.TYPE) {
+                                    if (a != Character.class && a != Character.TYPE) {
+                                        if (a != Boolean.class && a != Boolean.TYPE) {
+                                            if (a == String.class) {
+                                                return this.a;
+                                            }
+                                            if (a == char[].class) {
+                                                return this.a.toCharArray();
+                                            }
+                                            if (a == byte[].class) {
+                                                try {
+                                                    return zh.e(this.a, 0);
+                                                } catch (IOException e2) {
+                                                    e2.printStackTrace();
+                                                    return null;
+                                                }
+                                            } else if (bc.e(a, OrmObject.class)) {
+                                                return OrmObject.objectWithJsonStr(this.a, a);
+                                            } else {
+                                                if (bc.e(a, List.class)) {
+                                                    try {
+                                                        return new gd(new JSONArray(this.a)).a(udVar);
+                                                    } catch (JSONException e3) {
+                                                        e3.printStackTrace();
+                                                        return null;
+                                                    }
+                                                } else if (a.isArray()) {
+                                                    try {
+                                                        return new gd(new JSONArray(this.a)).a(udVar);
+                                                    } catch (JSONException e4) {
+                                                        e4.printStackTrace();
+                                                        return null;
+                                                    }
+                                                } else if (bc.e(a, Queue.class)) {
+                                                    try {
+                                                        return new gd(new JSONArray(this.a)).a(udVar);
+                                                    } catch (JSONException e5) {
+                                                        e5.printStackTrace();
+                                                        return null;
+                                                    }
+                                                } else if (bc.e(a, Set.class)) {
+                                                    try {
+                                                        return new gd(new JSONArray(this.a)).a(udVar);
+                                                    } catch (JSONException e6) {
+                                                        e6.printStackTrace();
+                                                        return null;
+                                                    }
+                                                } else if (bc.e(a, Map.class)) {
+                                                    try {
+                                                        return new hd(new JSONObject(this.a)).a(udVar);
+                                                    } catch (JSONException e7) {
+                                                        e7.printStackTrace();
+                                                        return null;
+                                                    }
+                                                } else if (bc.e(a, SparseArray.class)) {
+                                                    try {
+                                                        return new hd(new JSONObject(this.a)).a(udVar);
+                                                    } catch (JSONException e8) {
+                                                        e8.printStackTrace();
+                                                        return null;
+                                                    }
+                                                } else {
+                                                    return null;
+                                                }
+                                            }
+                                            e.printStackTrace();
+                                            return null;
+                                        }
+                                        return Boolean.valueOf(Boolean.parseBoolean(this.a));
+                                    }
+                                    return Character.valueOf(this.a.charAt(0));
+                                }
+                                return Double.valueOf(Double.parseDouble(this.a));
                             }
+                            return Float.valueOf(Float.parseFloat(this.a));
                         }
-                    } else {
-                        Object f2 = ue.a(obj).f(new re(reVar.a()));
-                        if (f2 != null) {
-                            jSONObject.put(String.valueOf(keyAt), f2);
-                        }
+                        return Long.valueOf(Long.parseLong(this.a));
                     }
+                    return Integer.valueOf(Integer.parseInt(this.a));
                 }
+                return Short.valueOf(Short.parseShort(this.a));
             }
-            return jSONObject;
+            return Byte.valueOf(Byte.parseByte(this.a));
         }
         return invokeL.objValue;
     }

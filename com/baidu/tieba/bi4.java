@@ -1,65 +1,114 @@
 package com.baidu.tieba;
 
-import android.database.sqlite.SQLiteDatabase;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.db.PackageTable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
+import java.util.Iterator;
+import java.util.Vector;
 /* loaded from: classes3.dex */
-public class bi4 implements uh4<oi4> {
+public class bi4 implements rh4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final vk4 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public Vector<rh4> a;
+    public Object b;
 
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "so_lib" : (String) invokeV.objValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947645916, "Lcom/baidu/tieba/bi4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947645916, "Lcom/baidu/tieba/bi4;");
+                return;
+            }
+        }
+        c = vk4.e();
     }
 
-    public bi4() {
+    public bi4(rh4 rh4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {rh4Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = new Object();
+        this.a = new Vector<>();
+        c(rh4Var);
+    }
+
+    @Override // com.baidu.tieba.rh4
+    public <T> void a(vh4<T> vh4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, vh4Var) == null) {
+            try {
+                synchronized (this.b) {
+                    Iterator<rh4> it = this.a.iterator();
+                    while (it.hasNext()) {
+                        it.next().a(vh4Var);
+                    }
+                }
+            } catch (Throwable th) {
+                c.g("RuntimeTaskObserver", "#notifyTaskRunning error", th);
             }
         }
     }
 
-    @Override // com.baidu.tieba.uh4
-    public void a(SQLiteDatabase sQLiteDatabase) {
+    @Override // com.baidu.tieba.rh4
+    public <T> void b(vh4<T> vh4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            sQLiteDatabase.execSQL(b());
-        }
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "CREATE TABLE IF NOT EXISTS " + c() + "(_id INTEGER PRIMARY KEY AUTOINCREMENT,bundle_id TEXT NOT NULL,category INT NOT NULL,version_name TEXT NOT NULL,version_code INT DEFAULT 0,size LONG DEFAULT 0," + PackageTable.MD5 + " TEXT NOT NULL,sign TEXT NOT NULL," + TTDownloadField.TT_DOWNLOAD_URL + " TEXT NOT NULL," + PackageTable.FILE_PATH + " TEXT," + PackageTable.CURRENT_SIZE + " LONG DEFAULT 0,create_time LONG DEFAULT 0,update_time LONG DEFAULT 0,state INT DEFAULT 0,max_age LONG DEFAULT 0," + PackageTable.ABI + " TEXT,lib_name TEXT NOT NULL UNIQUE);";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.uh4
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) {
-            while (i < i2) {
-                if (i == 9) {
-                    sQLiteDatabase.execSQL(b());
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vh4Var) == null) {
+            Vector vector = new Vector();
+            try {
+                synchronized (this.b) {
+                    Iterator<rh4> it = this.a.iterator();
+                    while (it.hasNext()) {
+                        vector.add(it.next());
+                    }
                 }
-                i++;
+                Iterator it2 = vector.iterator();
+                while (it2.hasNext()) {
+                    ((rh4) it2.next()).b(vh4Var);
+                }
+            } catch (Throwable th) {
+                c.g("RuntimeTaskObserver", "#notifyTaskEnd error", th);
+            }
+        }
+    }
+
+    public void c(rh4 rh4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rh4Var) == null) && rh4Var != null) {
+            synchronized (this.b) {
+                this.a.add(rh4Var);
+            }
+        }
+    }
+
+    public void d(rh4 rh4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, rh4Var) == null) && rh4Var != null) {
+            synchronized (this.b) {
+                if (!this.a.remove(rh4Var)) {
+                    this.a.remove(this.a.indexOf(rh4Var));
+                }
             }
         }
     }

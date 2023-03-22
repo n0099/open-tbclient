@@ -1,51 +1,64 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONObject;
+import java.io.File;
 /* loaded from: classes4.dex */
-public interface gj2 {
-    public static final boolean n0 = wp1.a;
+public class gj2 extends fj2<aj2> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        String a();
-
-        JSONObject b();
-
-        boolean isValid();
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gj2() {
+        super(new aj2());
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((cj2) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
-    /* loaded from: classes4.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Map<String, a> a;
-        public boolean b;
-        public int c;
-        public int d;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    @Override // com.baidu.tieba.fj2
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (r(h().extensionCorePath) && !super.k()) {
+                return false;
             }
-            this.a = new HashMap();
-            this.b = true;
-            this.c = 0;
-            this.d = 0;
+            return true;
         }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean r(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            t42.k("ExtCore-SwanAppPresetControl", "isExtensionFileAvailable extensionPath:" + str);
+            boolean z = false;
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            File file = new File(str, "extension.js");
+            if (file.exists() && file.length() > 0) {
+                z = true;
+            }
+            t42.k("ExtCore-SwanAppPresetControl", "isExtensionFileAvailable: " + z);
+            return z;
+        }
+        return invokeL.booleanValue;
     }
 }

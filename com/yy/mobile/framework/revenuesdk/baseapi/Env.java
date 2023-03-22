@@ -3,7 +3,7 @@ package com.yy.mobile.framework.revenuesdk.baseapi;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.IMConstants;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class Env {
     public String[] BACKUP_DOMAIN_POOL;
     public final String PRODUCE_REVENUE_HTTP_URL;
@@ -15,7 +15,7 @@ public class Env {
     public final long YY_RESPONSE_HREADER_URI;
     public boolean isTestEnv;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class Holder {
         public static final Env instance = new Env();
     }

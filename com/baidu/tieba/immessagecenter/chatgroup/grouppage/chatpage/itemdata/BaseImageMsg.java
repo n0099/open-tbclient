@@ -10,9 +10,9 @@ import com.baidu.android.imsdk.chatmessage.messages.ImageMsg;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dh;
+import com.baidu.tieba.gg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg;
-import com.baidu.tieba.yp5;
+import com.baidu.tieba.vo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,20 +27,19 @@ public abstract class BaseImageMsg<SdkMsg extends com.baidu.android.imsdk.chatme
     @SerializedName("big_size")
     public String bigSize;
     @SerializedName("big_src")
-    @yp5(serialize = false)
+    @vo5(serialize = false)
     public String bigSrc;
-    public LocalCacheData cacheData;
     @SerializedName("bsize")
     public String thumbSize;
     @SerializedName("src")
-    @yp5(serialize = false)
+    @vo5(serialize = false)
     public String thumbUrl;
 
     public abstract SdkMsg createSdkMsgByChildClass();
 
     public abstract void fromSdkMsgToChildClass(@NonNull SdkMsg sdkmsg);
 
-    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.Cdo
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.gn
     public abstract /* synthetic */ BdUniqueId getType();
 
     public BaseImageMsg() {
@@ -77,19 +76,10 @@ public abstract class BaseImageMsg<SdkMsg extends com.baidu.android.imsdk.chatme
         return (String) invokeV.objValue;
     }
 
-    public LocalCacheData getCacheData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.cacheData;
-        }
-        return (LocalCacheData) invokeV.objValue;
-    }
-
     public String getThumbSize() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.thumbSize;
         }
         return (String) invokeV.objValue;
@@ -98,7 +88,7 @@ public abstract class BaseImageMsg<SdkMsg extends com.baidu.android.imsdk.chatme
     public String getThumbUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.thumbUrl;
         }
         return (String) invokeV.objValue;
@@ -107,7 +97,7 @@ public abstract class BaseImageMsg<SdkMsg extends com.baidu.android.imsdk.chatme
     public boolean isInvalidAddress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             if (StringUtils.isNull(this.thumbUrl)) {
                 return true;
             }
@@ -138,35 +128,28 @@ public abstract class BaseImageMsg<SdkMsg extends com.baidu.android.imsdk.chatme
 
     public void setBigSize(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
             this.bigSize = str;
         }
     }
 
     public void setBigSrc(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
             this.bigSrc = str;
-        }
-    }
-
-    public void setCacheData(LocalCacheData localCacheData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, localCacheData) == null) {
-            this.cacheData = localCacheData;
         }
     }
 
     public void setThumbSize(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
             this.thumbSize = str;
         }
     }
 
     public void setThumbUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
             this.thumbUrl = str;
         }
     }
@@ -180,9 +163,10 @@ public abstract class BaseImageMsg<SdkMsg extends com.baidu.android.imsdk.chatme
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             SdkMsg createSdkMsgByChildClass = createSdkMsgByChildClass();
             createSdkMsgByChildClass.setThumbUrl(this.thumbUrl);
+            createSdkMsgByChildClass.setContent(this.bigSrc);
             String[] parseImageSize = parseImageSize(this.thumbSize);
             if (parseImageSize != null && parseImageSize.length > 1) {
-                createSdkMsgByChildClass.setImgWH(dh.e(parseImageSize[0], 0), dh.e(parseImageSize[1], 0));
+                createSdkMsgByChildClass.setImgWH(gg.e(parseImageSize[0], 0), gg.e(parseImageSize[1], 0));
             }
             return createSdkMsgByChildClass;
         }
@@ -200,7 +184,7 @@ public abstract class BaseImageMsg<SdkMsg extends com.baidu.android.imsdk.chatme
 
     public void setSdkMsg(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048592, this, str, str2) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048590, this, str, str2) == null) {
             ((com.baidu.android.imsdk.chatmessage.messages.ImageMsg) getSdkMsg()).setThumbUrl(str);
             ((com.baidu.android.imsdk.chatmessage.messages.ImageMsg) getSdkMsg()).setContent(str2);
         }

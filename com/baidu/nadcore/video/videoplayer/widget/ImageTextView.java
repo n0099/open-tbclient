@@ -5,10 +5,10 @@ import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import com.baidu.tieba.t61;
+import com.baidu.tieba.j51;
 /* loaded from: classes2.dex */
 public class ImageTextView extends LinearLayout {
-    public static final int d = t61.a(4.0f);
+    public static final int d = j51.a(4.0f);
     public int a;
     public ImageView b;
     public TextView c;

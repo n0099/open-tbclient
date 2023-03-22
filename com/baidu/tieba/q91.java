@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.webkit.WebView;
+import android.app.Activity;
 import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +13,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public interface q91 {
     public static final q91 a = new a();
 
-    WebView a(@NonNull Context context);
+    void a(Activity activity);
 
     /* loaded from: classes5.dex */
     public static class a implements q91 {
@@ -34,13 +35,47 @@ public interface q91 {
         }
 
         @Override // com.baidu.tieba.q91
-        public WebView a(@NonNull Context context) {
-            InterceptResult invokeL;
+        public void a(Activity activity) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                return new WebView(context);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && activity != null) {
+                activity.finish();
             }
-            return (WebView) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static q91 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-533015902, "Lcom/baidu/tieba/q91$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-533015902, "Lcom/baidu/tieba/q91$b;");
+                    return;
+                }
+            }
+            a = m91.c();
+        }
+
+        @NonNull
+        public static q91 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                if (a == null) {
+                    a = q91.a;
+                }
+                return a;
+            }
+            return (q91) invokeV.objValue;
         }
     }
 }

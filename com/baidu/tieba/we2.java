@@ -1,27 +1,26 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.content.ContentResolver;
+import android.content.ContentValues;
+import android.database.ContentObserver;
+import android.database.Cursor;
+import android.database.MatrixCursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.AnyThread;
-import androidx.annotation.IntRange;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
-import androidx.collection.ArrayMap;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.searchbox.http.callback.StatResponseCallback;
-import com.baidu.searchbox.http.request.HttpRequest;
-import com.baidu.searchbox.http.request.HttpRequestBuilder;
-import com.baidu.searchbox.http.statistics.NetworkStatRecord;
-import com.baidu.searchbox.v8engine.net.NetInfo;
-import com.baidu.searchbox.v8engine.net.NetRequestCallback;
-import com.baidu.searchbox.v8engine.net.NetRequestParam;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.database.SwanAppDbControl;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tieba.ha3;
+import com.baidu.tieba.nh2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,52 +28,41 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.xiaomi.mipush.sdk.Constants;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.LinkedHashMap;
+import java.util.Iterator;
 import java.util.List;
-import java.util.Map;
 import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.atomic.AtomicInteger;
-import okhttp3.HttpUrl;
-import okhttp3.Response;
+import java.util.concurrent.atomic.AtomicLong;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+import rx.schedulers.Schedulers;
 /* loaded from: classes6.dex */
-public class we2 {
+public class we2 implements nh2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean h;
-    public static volatile we2 i;
-    public static final Map<String, yy1> j;
-    public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final List<String> a;
-    public List<String> b;
-    public Map<String, JSONObject> c;
+    public static final boolean a;
     @Nullable
-    public Map<String, String> d;
-    public Map<String, String> e;
-    public boolean f;
-    public AtomicInteger g;
+    public static AtomicLong b;
+    public static final String[] c;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public static class a implements csa<Cursor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ boolean b;
-        public final /* synthetic */ we2 c;
+        public final /* synthetic */ ha3.c a;
 
-        public a(we2 we2Var, String str, boolean z) {
+        public a(ha3.c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {we2Var, str, Boolean.valueOf(z)};
+                Object[] objArr = {cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -84,212 +72,176 @@ public class we2 {
                     return;
                 }
             }
-            this.c = we2Var;
-            this.a = str;
-            this.b = z;
+            this.a = cVar;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            int size;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.csa
+        public void call(Cursor cursor) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Set<String> g = ea3.g(this.a);
-                if (we2.h) {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("startPreLink appId=");
-                    sb.append(this.a);
-                    sb.append(" preLinkSet=");
-                    if (g == null) {
-                        size = 0;
-                    } else {
-                        size = g.size();
+            if (interceptable == null || interceptable.invokeL(1048576, this, cursor) == null) {
+                if (cursor == null || !cursor.moveToFirst()) {
+                    if (we2.a) {
+                        Log.d("SwanAppHistoryHelper", "historyList == null || historyList.size() == 0");
                     }
-                    sb.append(size);
-                    sb.append(", hotLaunch=");
-                    sb.append(this.b);
-                    Log.d("SwanPrelink", sb.toString());
-                }
-                if (g == null || g.isEmpty()) {
-                    this.c.z("校验失败", "请在开发者后台配置 prelink");
+                    vv2.a(cursor);
+                    this.a.a(null);
                     return;
                 }
-                this.c.u(true);
-                this.c.a.clear();
-                this.c.g.set(0);
-                we2.j.clear();
-                this.c.b = new ArrayList(g);
-                int i = 0;
-                for (String str : g) {
-                    if (!TextUtils.isEmpty(str)) {
-                        if (i < 5) {
-                            String e = bz1.e(str);
-                            if (!TextUtils.isEmpty(e)) {
-                                this.c.a.add(e);
-                                this.c.j(this.a, i, str, e, true);
-                                i++;
-                            }
-                        } else {
-                            return;
-                        }
-                    }
-                }
+                this.a.a(we2.k(cursor));
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements StatResponseCallback {
+    public static class b implements gsa<String, Cursor> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ boolean c;
-        public final /* synthetic */ int d;
-        public final /* synthetic */ we2 e;
 
-        public b(we2 we2Var, String str, long j, boolean z, int i) {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {we2Var, str, Long.valueOf(j), Boolean.valueOf(z), Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
-            }
-            this.e = we2Var;
-            this.a = str;
-            this.b = j;
-            this.c = z;
-            this.d = i;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.StatResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, exc) == null) && we2.h) {
-                Log.w("SwanPrelink", "doPrelink: onFail: " + exc.getMessage());
             }
         }
 
-        @Override // com.baidu.searchbox.http.callback.StatResponseCallback
-        public void onSuccess(Object obj, int i) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.gsa
+        public Cursor call(String str) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) && we2.h) {
-                Log.i("SwanPrelink", "doPrelink: onSuccess: " + i);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return we2.m();
             }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.StatResponseCallback
-        public Object parseResponse(Response response, int i, NetworkStatRecord networkStatRecord) throws Exception {
-            InterceptResult invokeLIL;
-            int i2;
-            Object valueOf;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, response, i, networkStatRecord)) == null) {
-                if (we2.h) {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("doPrelink: parseResponse: url: ");
-                    sb.append(this.a);
-                    sb.append(" response: ");
-                    if (response == null) {
-                        valueOf = StringUtil.NULL_STRING;
-                    } else {
-                        valueOf = Integer.valueOf(response.code());
-                    }
-                    sb.append(valueOf);
-                    Log.i("SwanPrelink", sb.toString());
-                }
-                this.e.t(this.b, System.currentTimeMillis(), this.a, networkStatRecord);
-                if (networkStatRecord != null) {
-                    long j = networkStatRecord.dnsEndTs - networkStatRecord.dnsStartTs;
-                    long j2 = networkStatRecord.connTs - networkStatRecord.startTs;
-                    if (we2.h) {
-                        Log.d("SwanPrelink", "doPrelink: hit: url: " + this.a);
-                        Log.d("SwanPrelink", "doPrelink: isConnReused: " + networkStatRecord.isConnReused);
-                        Log.d("SwanPrelink", "doPrelink: dnsTime: " + j + " connTime: " + j2);
-                    }
-                    if (response != null) {
-                        i2 = response.code();
-                    } else {
-                        i2 = 0;
-                    }
-                    if (this.c) {
-                        we2 we2Var = this.e;
-                        int i3 = this.d;
-                        we2Var.y(i3, "预连接请求返回", "code=" + i2 + " dns解析时长=" + j + "ms 网络连接时长=" + j2 + "ms url=" + this.a);
-                    }
-                }
-                this.e.u(false);
-                return response;
-            }
-            return invokeLIL.objValue;
+            return (Cursor) invokeL.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public class c implements NetRequestCallback {
+    public static class c extends d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ boolean c;
-        public final /* synthetic */ int d;
-        public final /* synthetic */ we2 e;
+        public qe2 b;
 
-        public c(we2 we2Var, long j, String str, boolean z, int i) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c() {
+            super(null);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {we2Var, Long.valueOf(j), str, Boolean.valueOf(z), Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((a) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.e = we2Var;
-            this.a = j;
-            this.b = str;
-            this.c = z;
-            this.d = i;
         }
 
-        @Override // com.baidu.searchbox.v8engine.net.NetRequestCallback
-        public void onFailed(int i, String str) {
+        public /* synthetic */ c(a aVar) {
+            this();
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static abstract class d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public fl2 a;
+
+        public d() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                if (this.c) {
-                    we2 we2Var = this.e;
-                    int i2 = this.d;
-                    we2Var.y(i2, "预连接请求返回", "code=" + i + " msg=" + str);
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                this.e.u(false);
+            }
+            this.a = new fl2();
+        }
+
+        public /* synthetic */ d(a aVar) {
+            this();
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class e implements Comparator<d> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public e() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
 
-        @Override // com.baidu.searchbox.v8engine.net.NetRequestCallback
-        public void onSucceeded(String str, int i, Map<String, String> map) {
+        public /* synthetic */ e(a aVar) {
+            this();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(d dVar, d dVar2) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, map) == null) {
-                this.e.t(this.a, System.currentTimeMillis(), this.b, null);
-                if (this.c) {
-                    we2 we2Var = this.e;
-                    int i2 = this.d;
-                    we2Var.y(i2, "预连接请求返回", "code=" + i + " url=" + this.b);
-                }
-                this.e.u(false);
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, dVar, dVar2)) == null) {
+                return Long.compare(dVar2.a.e, dVar.a.e);
             }
+            return invokeLL.intValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class f extends d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public PMSAppInfo b;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public f() {
+            super(null);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((a) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        public /* synthetic */ f(a aVar) {
+            this();
         }
     }
 
@@ -306,580 +258,881 @@ public class we2 {
                 return;
             }
         }
-        h = wp1.a;
-        i = null;
-        j = new ConcurrentHashMap();
+        a = do1.a;
+        c = new String[]{"_id", SwanAppDbControl.SwanAppTable.app_id.name(), SwanAppDbControl.SwanAppTable.app_key.name(), SwanAppDbControl.SwanAppTable.version.name(), SwanAppDbControl.SwanAppTable.description.name(), SwanAppDbControl.SwanAppTable.error_code.name(), SwanAppDbControl.SwanAppTable.error_detail.name(), SwanAppDbControl.SwanAppTable.error_msg.name(), SwanAppDbControl.SwanAppTable.resume_date.name(), SwanAppDbControl.SwanAppTable.icon.name(), SwanAppDbControl.SwanAppTable.icon_url.name(), SwanAppDbControl.SwanAppTable.max_swan_version.name(), SwanAppDbControl.SwanAppTable.min_swan_version.name(), SwanAppDbControl.SwanAppTable.name.name(), SwanAppDbControl.SwanAppTable.service_category.name(), SwanAppDbControl.SwanAppTable.subject_info.name(), SwanAppDbControl.SwanAppTable.bear_info.name(), SwanAppDbControl.SwanAppTable.sign.name(), SwanAppDbControl.SwanAppTable.type.name(), SwanAppDbControl.SwanAppTable.is_have_zip.name(), SwanAppDbControl.SwanAppTable.app_open_url.name(), SwanAppDbControl.SwanAppTable.app_download_url.name(), SwanAppDbControl.SwanAppTable.target_swan_version.name(), SwanAppDbControl.SwanAppTable.app_zip_size.name(), SwanAppDbControl.SwanAppTable.pending_aps_errcode.name(), SwanAppDbControl.SwanAppTable.version_code.name(), SwanAppDbControl.SwanAppTable.app_category.name(), SwanAppDbControl.SwanAppTable.orientation.name(), SwanAppDbControl.SwanAppTable.max_age.name(), SwanAppDbControl.SwanAppTable.create_time.name(), SwanAppDbControl.SwanAppTable.force_fetch_meta_info.name(), "app_from", "visit_time", SwanAppDbControl.SwanAppTable.pay_protected.name(), "customer_service", "global_notice", "global_private", "pa_number", Constants.PHONE_BRAND, SwanAppDbControl.SwanAppTable.quick_app_key.name()};
     }
 
-    public static we2 k() {
-        InterceptResult invokeV;
+    public static void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            if (i == null) {
-                synchronized (we2.class) {
-                    if (i == null) {
-                        i = new we2();
-                    }
-                }
-            }
-            return i;
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            AppRuntime.getAppContext().getContentResolver().delete(ve2.a(), null, null);
         }
-        return (we2) invokeV.objValue;
     }
 
-    public final boolean n() {
+    public static Cursor m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return !this.a.isEmpty();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            return n(null, null);
         }
-        return invokeV.booleanValue;
+        return (Cursor) invokeV.objValue;
     }
 
-    public final boolean o() {
-        InterceptResult invokeV;
+    @SuppressLint({"BDThrowableCheck"})
+    @WorkerThread
+    public static boolean c(@NonNull ContentResolver contentResolver, @Nullable fl2 fl2Var, nh2.b bVar) {
+        InterceptResult invokeLLL;
+        String uri;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            Map<String, String> map = this.d;
-            if (map != null && !map.isEmpty()) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, contentResolver, fl2Var, bVar)) == null) {
+            if (fl2Var == null || TextUtils.isEmpty(fl2Var.a)) {
                 return false;
             }
-            return true;
+            if (a) {
+                Log.d("SwanAppHistoryHelper", "addHistory: " + fl2Var.c + " / " + fl2Var.a);
+            }
+            if (TextUtils.equals(String.valueOf(1), fl2Var.g)) {
+                String str = fl2Var.a;
+                oh2 m = oh2.m(bVar);
+                m.i(1);
+                h(contentResolver, str, m.k());
+            }
+            Uri a2 = ve2.a();
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("app_id", fl2Var.a);
+            contentValues.put("visit_time", Long.valueOf(fl2Var.e));
+            contentValues.put("app_from", fl2Var.i);
+            contentValues.put("app_name", fl2Var.c);
+            contentValues.put(GameGuideConfigInfo.KEY_APP_KEY, fl2Var.b);
+            contentValues.put("version_code", fl2Var.j);
+            contentValues.put("app_icon", fl2Var.d);
+            contentValues.put("frame_type", Integer.valueOf(fl2Var.f));
+            contentValues.put("app_type", fl2Var.g);
+            contentValues.put("pay_protected", Integer.valueOf(fl2Var.h));
+            contentValues.put("sync_state", (Integer) 0);
+            try {
+                Uri insert = AppRuntime.getAppContext().getContentResolver().insert(a2, contentValues);
+                if (a) {
+                    if (insert == null) {
+                        uri = "NULL";
+                    } else {
+                        uri = insert.toString();
+                    }
+                    Log.d("SwanAppHistoryHelper", "Add history: newUri - " + uri);
+                }
+                if (e()) {
+                    String str2 = fl2Var.a;
+                    oh2 m2 = oh2.m(bVar);
+                    m2.i(2);
+                    t(contentResolver, str2, m2.k());
+                }
+                if (insert == null) {
+                    return false;
+                }
+                return true;
+            } catch (Exception e2) {
+                g62.f(a2.toString(), fl2Var.a, e2.toString());
+                if (!a) {
+                    return false;
+                }
+                Log.e("SwanAppHistoryHelper", "encounter error while adding swan history" + e2.toString());
+                throw new RuntimeException("encounter error while adding swan history, only throw in debug mode", e2);
+            }
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static void d(MatrixCursor matrixCursor, int i, d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, matrixCursor, i, dVar) == null) {
+            if (dVar instanceof c) {
+                c cVar = (c) dVar;
+                matrixCursor.newRow().add("_id", Integer.valueOf(i)).add(SwanAppDbControl.SwanAppTable.app_id.name(), cVar.b.a).add(SwanAppDbControl.SwanAppTable.app_key.name(), cVar.b.b).add(SwanAppDbControl.SwanAppTable.version.name(), cVar.b.q).add(SwanAppDbControl.SwanAppTable.description.name(), cVar.b.c).add(SwanAppDbControl.SwanAppTable.error_code.name(), Integer.valueOf(cVar.b.d)).add(SwanAppDbControl.SwanAppTable.error_detail.name(), cVar.b.e).add(SwanAppDbControl.SwanAppTable.error_msg.name(), cVar.b.f).add(SwanAppDbControl.SwanAppTable.resume_date.name(), cVar.b.g).add(SwanAppDbControl.SwanAppTable.icon.name(), cVar.b.h).add(SwanAppDbControl.SwanAppTable.icon_url.name(), cVar.b.i).add(SwanAppDbControl.SwanAppTable.max_swan_version.name(), cVar.b.j).add(SwanAppDbControl.SwanAppTable.min_swan_version.name(), cVar.b.k).add(SwanAppDbControl.SwanAppTable.name.name(), cVar.b.l).add(SwanAppDbControl.SwanAppTable.service_category.name(), cVar.b.m).add(SwanAppDbControl.SwanAppTable.subject_info.name(), cVar.b.n).add(SwanAppDbControl.SwanAppTable.bear_info.name(), cVar.b.o).add(SwanAppDbControl.SwanAppTable.sign.name(), cVar.b.p).add(SwanAppDbControl.SwanAppTable.type.name(), Integer.valueOf(cVar.b.r)).add(SwanAppDbControl.SwanAppTable.is_have_zip.name(), Integer.valueOf(cVar.b.s)).add(SwanAppDbControl.SwanAppTable.app_open_url.name(), cVar.b.t).add(SwanAppDbControl.SwanAppTable.app_download_url.name(), cVar.b.u).add(SwanAppDbControl.SwanAppTable.target_swan_version.name(), cVar.b.v).add(SwanAppDbControl.SwanAppTable.app_zip_size.name(), Long.valueOf(cVar.b.w)).add(SwanAppDbControl.SwanAppTable.pending_aps_errcode.name(), Integer.valueOf(cVar.b.x)).add(SwanAppDbControl.SwanAppTable.version_code.name(), cVar.b.A).add(SwanAppDbControl.SwanAppTable.app_category.name(), Integer.valueOf(cVar.b.y)).add(SwanAppDbControl.SwanAppTable.orientation.name(), Integer.valueOf(cVar.b.z)).add(SwanAppDbControl.SwanAppTable.max_age.name(), Long.valueOf(cVar.b.B)).add(SwanAppDbControl.SwanAppTable.create_time.name(), Long.valueOf(cVar.b.C)).add(SwanAppDbControl.SwanAppTable.force_fetch_meta_info.name(), Integer.valueOf(cVar.b.D ? 1 : 0)).add("app_from", cVar.a.i).add("visit_time", Long.valueOf(cVar.a.e)).add(SwanAppDbControl.SwanAppTable.pay_protected.name(), Integer.valueOf(cVar.b.E)).add(SwanAppDbControl.SwanAppTable.quick_app_key.name(), cVar.b.F);
+                return;
+            }
+            f fVar = (f) dVar;
+            matrixCursor.newRow().add("_id", Integer.valueOf(i)).add(SwanAppDbControl.SwanAppTable.app_id.name(), fVar.a.a).add(SwanAppDbControl.SwanAppTable.app_key.name(), fVar.b.appKey).add(SwanAppDbControl.SwanAppTable.version.name(), Long.valueOf(fVar.b.versionCode)).add(SwanAppDbControl.SwanAppTable.description.name(), fVar.b.description).add(SwanAppDbControl.SwanAppTable.error_code.name(), Integer.valueOf(fVar.b.appStatus)).add(SwanAppDbControl.SwanAppTable.error_detail.name(), fVar.b.statusDetail).add(SwanAppDbControl.SwanAppTable.error_msg.name(), fVar.b.statusDesc).add(SwanAppDbControl.SwanAppTable.resume_date.name(), fVar.b.resumeDate).add(SwanAppDbControl.SwanAppTable.icon.name(), "").add(SwanAppDbControl.SwanAppTable.icon_url.name(), fVar.a.d).add(SwanAppDbControl.SwanAppTable.max_swan_version.name(), "").add(SwanAppDbControl.SwanAppTable.min_swan_version.name(), "").add(SwanAppDbControl.SwanAppTable.name.name(), fVar.a.c).add(SwanAppDbControl.SwanAppTable.service_category.name(), fVar.b.serviceCategory).add(SwanAppDbControl.SwanAppTable.subject_info.name(), fVar.b.subjectInfo).add(SwanAppDbControl.SwanAppTable.bear_info.name(), fVar.b.bearInfo).add(SwanAppDbControl.SwanAppTable.sign.name(), "").add(SwanAppDbControl.SwanAppTable.type.name(), Integer.valueOf(fVar.b.type)).add(SwanAppDbControl.SwanAppTable.is_have_zip.name(), 0).add(SwanAppDbControl.SwanAppTable.app_open_url.name(), "").add(SwanAppDbControl.SwanAppTable.app_download_url.name(), "").add(SwanAppDbControl.SwanAppTable.target_swan_version.name(), "").add(SwanAppDbControl.SwanAppTable.app_zip_size.name(), Long.valueOf(fVar.b.pkgSize)).add(SwanAppDbControl.SwanAppTable.pending_aps_errcode.name(), Integer.valueOf(fVar.b.pendingErrCode)).add(SwanAppDbControl.SwanAppTable.version_code.name(), fVar.b.versionName).add(SwanAppDbControl.SwanAppTable.app_category.name(), Integer.valueOf(fVar.b.appCategory)).add(SwanAppDbControl.SwanAppTable.orientation.name(), Integer.valueOf(fVar.b.getOrientation())).add(SwanAppDbControl.SwanAppTable.max_age.name(), Long.valueOf(fVar.b.maxAge)).add(SwanAppDbControl.SwanAppTable.create_time.name(), Long.valueOf(fVar.b.createTime)).add(SwanAppDbControl.SwanAppTable.force_fetch_meta_info.name(), 0).add("app_from", fVar.a.i).add("visit_time", Long.valueOf(fVar.a.e)).add(SwanAppDbControl.SwanAppTable.pay_protected.name(), Integer.valueOf(fVar.b.payProtected)).add("customer_service", Integer.valueOf(fVar.b.customerService)).add("global_notice", Integer.valueOf(fVar.b.globalNotice)).add("global_private", Integer.valueOf(fVar.b.globalPrivate)).add("pa_number", fVar.b.paNumber).add(Constants.PHONE_BRAND, fVar.b.brandsInfo).add(SwanAppDbControl.SwanAppTable.quick_app_key.name(), fVar.b.quickAppKey);
+        }
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (b != null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                if (currentTimeMillis - b.get() <= 86400000) {
+                    return false;
+                }
+                b.set(currentTimeMillis);
+                hg3.a().putLong("key_check_delete_swan_history", currentTimeMillis);
+                return true;
+            }
+            synchronized (hg3.class) {
+                if (b != null) {
+                    return false;
+                }
+                b = new AtomicLong(hg3.a().getLong("key_check_delete_swan_history", 0L));
+                return e();
+            }
         }
         return invokeV.booleanValue;
     }
 
-    public synchronized void v() {
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    /* JADX WARN: Removed duplicated region for block: B:31:0x004f  */
+    /* JADX WARN: Removed duplicated region for block: B:35:0x006d  */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x007d  */
+    /* JADX WARN: Removed duplicated region for block: B:38:0x007f  */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00a1  */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x00c1  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean g(ContentResolver contentResolver, String str, String str2, String str3, String str4, boolean z, nh2.b bVar) {
+        InterceptResult invokeCommon;
+        char c2;
+        int i;
+        int delete;
+        boolean z2;
+        dg2 d2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            synchronized (this) {
-                if (h) {
-                    Log.d("SwanPrelink", "release");
-                }
-                if (i == null) {
-                    return;
-                }
-                i = null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{contentResolver, str, str2, str3, str4, Boolean.valueOf(z), bVar})) == null) {
+            switch (str4.hashCode()) {
+                case 48:
+                    if (str4.equals("0")) {
+                        c2 = 1;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 49:
+                    if (str4.equals("1")) {
+                        c2 = 0;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 50:
+                    if (str4.equals("2")) {
+                        c2 = 2;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                case 51:
+                    if (str4.equals("3")) {
+                        c2 = 3;
+                        break;
+                    }
+                    c2 = 65535;
+                    break;
+                default:
+                    c2 = 65535;
+                    break;
             }
+            if (c2 != 0) {
+                if (c2 != 1) {
+                    if (c2 != 2) {
+                        if (c2 == 3) {
+                            i = 3;
+                        }
+                    } else {
+                        i = 2;
+                    }
+                } else {
+                    i = 1;
+                }
+                if (!TextUtils.isEmpty(str)) {
+                    if (TextUtils.isEmpty(str2)) {
+                        return false;
+                    }
+                    delete = contentResolver.delete(ve2.a(), "app_key=? AND app_type=? AND version_code=?", new String[]{str2, String.valueOf(i), str3});
+                } else {
+                    delete = contentResolver.delete(ve2.a(), "app_id=?", new String[]{str});
+                }
+                if (delete <= 0) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                if (z && z2 && (d2 = fg2.c().d()) != null) {
+                    oh2 m = oh2.m(bVar);
+                    m.i(4);
+                    d2.e(str, true, m.k());
+                }
+                if (a) {
+                    Log.d("SwanAppHistoryHelper", "deleteHistory: " + str + " isSuccess: " + z2);
+                }
+                if (z2) {
+                    gl2.j("DEL", str, System.currentTimeMillis(), str2, String.valueOf(i), str3, null);
+                }
+                return z2;
+            }
+            i = 0;
+            if (!TextUtils.isEmpty(str)) {
+            }
+            if (delete <= 0) {
+            }
+            if (z) {
+                oh2 m2 = oh2.m(bVar);
+                m2.i(4);
+                d2.e(str, true, m2.k());
+            }
+            if (a) {
+            }
+            if (z2) {
+            }
+            return z2;
         }
+        return invokeCommon.booleanValue;
     }
 
-    public void w() {
+    public static void h(@NonNull ContentResolver contentResolver, @Nullable String str, nh2.b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048592, this) != null) || !h) {
-            return;
-        }
-        this.a.clear();
-        j.clear();
-        this.d = null;
-    }
-
-    public we2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeLLL(65544, null, contentResolver, str, bVar) == null) {
+            if (a) {
+                Log.d("SwanAppHistoryHelper", "start deleteOtherDevHistory: ");
+            }
+            if (TextUtils.isEmpty(str)) {
                 return;
             }
-        }
-        this.a = Collections.synchronizedList(new ArrayList());
-        this.c = new HashMap();
-        this.e = new LinkedHashMap();
-        this.f = false;
-        this.g = new AtomicInteger(0);
-    }
-
-    public static void D(String str, long j2, long j3, long j4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
-            yy1 yy1Var = j.get(str);
-            if (yy1Var == null) {
-                yy1Var = new yy1();
+            String a2 = vz1.a(str);
+            if (TextUtils.isEmpty(a2)) {
+                return;
             }
-            if (j2 > 0) {
-                yy1Var.a = j2;
+            List<String> s = s(contentResolver, str);
+            if (s != null && s.size() != 0) {
+                dg2 d2 = fg2.c().d();
+                if (d2 != null) {
+                    if (a) {
+                        Log.d("SwanAppHistoryHelper", "deleteOtherDevHistory: delete other dev SwanApp");
+                    }
+                    d2.g(s, false, false, bVar);
+                }
+                if (a) {
+                    Log.d("SwanAppHistoryHelper", "deleteOtherDevHistory: delete other dev history");
+                }
+                contentResolver.delete(ve2.a(), "app_id LIKE ? AND app_id != ?", new String[]{a2 + "_dev%", str});
+            } else if (a) {
+                Log.d("SwanAppHistoryHelper", "deleteOtherDevHistory finish because: other dev history is empty");
             }
-            if (j3 > 0) {
-                yy1Var.b = j3;
-            }
-            if (j4 > 0) {
-                yy1Var.c = j4;
-            }
-            j.put(str, yy1Var);
-        }
-    }
-
-    public synchronized void z(@NonNull String str, @NonNull String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048595, this, str, str2) == null) {
-            synchronized (this) {
-                y(-1, str, str2);
-            }
-        }
-    }
-
-    public long l(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            yy1 yy1Var = j.get(str);
-            if (yy1Var != null) {
-                return yy1Var.a;
-            }
-            return 0L;
-        }
-        return invokeL.longValue;
-    }
-
-    public final void u(boolean z) {
-        HybridUbcFlow d;
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048590, this, z) == null) && (d = r23.d("startup")) != null) {
-            if (z) {
-                str = "prelink_request_start";
-            } else {
-                str = "prelink_request_end";
-            }
-            UbcFlowEvent ubcFlowEvent = new UbcFlowEvent(str);
-            ubcFlowEvent.h(System.currentTimeMillis());
-            d.F(ubcFlowEvent);
         }
     }
 
     @NonNull
-    public final synchronized String A() {
-        InterceptResult invokeV;
-        String sb;
+    public static Set<String> i(@NonNull ContentResolver contentResolver) {
+        InterceptResult invokeL;
+        StringBuilder sb;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                StringBuilder sb2 = new StringBuilder();
-                sb2.append("========== prelink start ==========");
-                sb2.append("\r\n");
-                for (Map.Entry<String, String> entry : this.e.entrySet()) {
-                    if (entry != null) {
-                        sb2.append("----- ");
-                        sb2.append(entry.getKey());
-                        sb2.append(": ");
-                        sb2.append(entry.getValue());
-                        sb2.append("\r\n\r\n");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, contentResolver)) == null) {
+            HashSet hashSet = new HashSet();
+            Cursor cursor = null;
+            try {
+                try {
+                    cursor = contentResolver.query(ve2.a(), null, null, null, null);
+                } catch (Exception e2) {
+                    if (a) {
+                        e2.printStackTrace();
+                    }
+                    if (a && cursor != null) {
+                        sb = new StringBuilder();
                     }
                 }
-                sb2.append("========== prelink end ==========");
-                sb2.append("\r\n");
-                sb = sb2.toString();
+                if (cursor != null && cursor.moveToFirst()) {
+                    do {
+                        hashSet.add(cursor.getString(cursor.getColumnIndex("app_id")));
+                    } while (cursor.moveToNext());
+                    if (a) {
+                        sb = new StringBuilder();
+                        sb.append("getAllHistoryIdsSet: Cursor count: ");
+                        sb.append(cursor.getCount());
+                        Log.d("SwanAppHistoryHelper", sb.toString());
+                    }
+                    xn4.d(cursor);
+                    return hashSet;
+                }
+                if (a && cursor != null) {
+                    sb = new StringBuilder();
+                    sb.append("getAllHistoryIdsSet: Cursor count: ");
+                    sb.append(cursor.getCount());
+                    Log.d("SwanAppHistoryHelper", sb.toString());
+                }
+                xn4.d(cursor);
+                return hashSet;
+            } catch (Throwable th) {
+                if (a && cursor != null) {
+                    Log.d("SwanAppHistoryHelper", "getAllHistoryIdsSet: Cursor count: " + cursor.getCount());
+                }
+                xn4.d(cursor);
+                throw th;
             }
-            return sb;
         }
-        return (String) invokeV.objValue;
+        return (Set) invokeL.objValue;
     }
 
-    public void B(@NonNull String str, @NonNull String str2, @NonNull NetInfo netInfo) {
-        HybridUbcFlow d;
-        long currentTimeMillis;
-        NetInfo.SwanExtra.Timing timing;
+    public static Set<String> q(SQLiteDatabase sQLiteDatabase) {
+        InterceptResult invokeL;
+        StringBuilder sb;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, netInfo) != null) || !n() || this.d == null || this.g.get() == this.a.size() || !this.d.containsValue(str)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, sQLiteDatabase)) == null) {
+            HashSet hashSet = new HashSet();
+            Cursor cursor = null;
+            try {
+                try {
+                    cursor = sQLiteDatabase.query("ai_apps_history", null, null, null, null, null, null);
+                } catch (Exception e2) {
+                    if (a) {
+                        e2.printStackTrace();
+                    }
+                    if (a && cursor != null) {
+                        sb = new StringBuilder();
+                    }
+                }
+                if (cursor != null && cursor.moveToFirst()) {
+                    do {
+                        hashSet.add(cursor.getString(cursor.getColumnIndex("app_id")));
+                    } while (cursor.moveToNext());
+                    if (a) {
+                        sb = new StringBuilder();
+                        sb.append("getAllHistoryIdsSet: Cursor count: ");
+                        sb.append(cursor.getCount());
+                        Log.d("SwanAppHistoryHelper", sb.toString());
+                    }
+                    vv2.a(cursor);
+                    return hashSet;
+                }
+                if (a && cursor != null) {
+                    sb = new StringBuilder();
+                    sb.append("getAllHistoryIdsSet: Cursor count: ");
+                    sb.append(cursor.getCount());
+                    Log.d("SwanAppHistoryHelper", sb.toString());
+                }
+                vv2.a(cursor);
+                return hashSet;
+            } catch (Throwable th) {
+                if (a && cursor != null) {
+                    Log.d("SwanAppHistoryHelper", "getAllHistoryIdsSet: Cursor count: " + cursor.getCount());
+                }
+                vv2.a(cursor);
+                throw th;
+            }
+        }
+        return (Set) invokeL.objValue;
+    }
+
+    public static void j(ha3.c cVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65546, null, cVar) != null) || cVar == null) {
             return;
         }
-        StringBuilder sb = new StringBuilder();
-        boolean z = false;
-        sb.append("url=");
-        sb.append(str2);
-        sb.append("; ");
-        if (netInfo.getSocket() != null) {
-            z = netInfo.getSocket().mReused;
-            sb.append("连接是否复用=");
-            sb.append(netInfo.getSocket().mReused);
-            sb.append("; ");
-        }
-        NetInfo.Timing timing2 = netInfo.getTiming();
-        if (timing2 != null) {
-            sb.append("DNS耗时=");
-            sb.append(timing2.mDns / 1000);
-            sb.append("ms; ");
-            sb.append("连接耗时=");
-            sb.append(timing2.mConnect / 1000);
-            sb.append("ms; ");
-        }
-        y(this.g.incrementAndGet() - 1, "业务方第一个同域名请求返回", sb.toString());
-        if (this.g.get() == 1 && (d = r23.d("startup")) != null && timing2 != null) {
-            long j2 = 0;
-            yy1 remove = j.remove(str);
-            if (remove != null) {
-                j2 = remove.a;
-            }
-            NetInfo.SwanExtra swanExtra = netInfo.getSwanExtra();
-            if (swanExtra != null && (timing = swanExtra.mTiming) != null) {
-                currentTimeMillis = timing.mConnectTime + j2;
-            } else {
-                currentTimeMillis = System.currentTimeMillis();
-            }
-            UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("request_network_start");
-            ubcFlowEvent.h(j2);
-            d.F(ubcFlowEvent);
-            UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("request_network_conn");
-            ubcFlowEvent2.h((timing2.mConnect / 1000) + j2);
-            d.F(ubcFlowEvent2);
-            UbcFlowEvent ubcFlowEvent3 = new UbcFlowEvent("request_dns_start");
-            ubcFlowEvent3.h(j2);
-            d.F(ubcFlowEvent3);
-            UbcFlowEvent ubcFlowEvent4 = new UbcFlowEvent("request_dns_end");
-            ubcFlowEvent4.h((timing2.mDns / 1000) + j2);
-            d.F(ubcFlowEvent4);
-            UbcFlowEvent ubcFlowEvent5 = new UbcFlowEvent("request_network_response");
-            ubcFlowEvent5.h(currentTimeMillis);
-            d.F(ubcFlowEvent5);
-            if (remove != null) {
-                UbcFlowEvent ubcFlowEvent6 = new UbcFlowEvent("request_interpret_start");
-                ubcFlowEvent6.h(remove.b);
-                d.F(ubcFlowEvent6);
-                UbcFlowEvent ubcFlowEvent7 = new UbcFlowEvent("request_interpret_end");
-                ubcFlowEvent7.h(remove.c);
-                d.F(ubcFlowEvent7);
-            }
-            d.D("connResued", String.valueOf(z));
-        }
+        ora.f("").y(Schedulers.io()).h(new b()).k(yra.b()).w(new a(cVar));
     }
 
-    public void C(@NonNull String str, @NonNull HttpUrl httpUrl, NetworkStatRecord networkStatRecord) {
-        long j2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, httpUrl, networkStatRecord) == null) && n() && networkStatRecord != null && this.d != null && this.g.get() != this.a.size()) {
-            synchronized (we2.class) {
-                if (!this.d.containsValue(str)) {
-                    return;
-                }
-                this.g.incrementAndGet();
-                long j3 = networkStatRecord.dnsEndTs;
-                long j4 = networkStatRecord.dnsStartTs;
-                long j5 = networkStatRecord.connTs;
-                long j6 = networkStatRecord.startTs;
-                long j7 = j3 - j4;
-                long j8 = (j5 - j6) - j7;
-                if (h) {
-                    j2 = j3;
-                    Log.i("SwanPrelink", "tryRecordNetworkStat: " + httpUrl);
-                    Log.i("SwanPrelink", "tryRecordNetworkStat: isConnReused: " + networkStatRecord.isConnReused);
-                    Log.i("SwanPrelink", "tryRecordNetworkStat: dnsTime: " + j7 + " connTime: " + j8);
-                } else {
-                    j2 = j3;
-                }
-                y(this.g.get() - 1, "业务方第一个同域名请求返回", " 连接是否复用=" + networkStatRecord.isConnReused + " dns解析时长=" + j7 + "ms 网络连接时长=" + j8 + "ms url=" + httpUrl);
-                if (this.g.get() <= 1) {
-                    HybridUbcFlow p = r23.p("startup");
-                    UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("request_network_start");
-                    ubcFlowEvent.h(j6);
-                    p.F(ubcFlowEvent);
-                    UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("request_network_conn");
-                    ubcFlowEvent2.h(j5);
-                    p.F(ubcFlowEvent2);
-                    UbcFlowEvent ubcFlowEvent3 = new UbcFlowEvent("request_dns_start");
-                    ubcFlowEvent3.h(j4);
-                    p.F(ubcFlowEvent3);
-                    UbcFlowEvent ubcFlowEvent4 = new UbcFlowEvent("request_dns_end");
-                    ubcFlowEvent4.h(j2);
-                    p.F(ubcFlowEvent4);
-                    UbcFlowEvent ubcFlowEvent5 = new UbcFlowEvent("request_network_response");
-                    ubcFlowEvent5.h(networkStatRecord.responseTs);
-                    p.F(ubcFlowEvent5);
-                    UbcFlowEvent ubcFlowEvent6 = new UbcFlowEvent("request_send_header");
-                    ubcFlowEvent6.h(networkStatRecord.sendHeaderTs);
-                    p.F(ubcFlowEvent6);
-                    UbcFlowEvent ubcFlowEvent7 = new UbcFlowEvent("request_receive_header");
-                    ubcFlowEvent7.h(networkStatRecord.receiveHeaderTs);
-                    p.F(ubcFlowEvent7);
-                    p.D("connResued", String.valueOf(networkStatRecord.isConnReused));
-                }
-            }
-        }
-    }
-
-    public boolean i(@Nullable String str) {
+    @NonNull
+    public static JSONObject k(Cursor cursor) {
         InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (!TextUtils.isEmpty(str) && !o()) {
-                if (h) {
-                    Log.d("SwanPrelink", "contains preLink request: " + this.d.containsValue(str));
-                }
-                return this.d.containsValue(str);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @WorkerThread
-    public final void j(String str, int i2, @NonNull String str2, @NonNull String str3, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, Integer.valueOf(i2), str2, str3, Boolean.valueOf(z)}) == null) {
-            if (h) {
-                Log.d("SwanPrelink", "doPrelink: " + str2);
-            }
-            if (!ve2.b(null, str, str2)) {
-                if (z) {
-                    y(i2, "预取阶段已连接", "url=" + str2 + " 不需要再次prelink");
-                }
-                if (h) {
-                    Log.d("SwanPrelink", "预取阶段已连接:, 不需要再连接，url = " + str2);
-                    return;
-                }
-                return;
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            ve2.d(str, str2);
-            if (wy1.d()) {
-                p(i2, str2, str3, z);
-                return;
-            }
-            pg4 pg4Var = new pg4();
-            pg4Var.b = "HEAD";
-            HttpRequestBuilder a2 = rg4.a(pg4Var);
-            a2.setHeader("Referer", bz1.d());
-            pg4Var.a = str2;
-            pg4Var.f = true;
-            pg4Var.g = false;
-            pg4Var.h = true;
-            qg4.g().u(a2, pg4Var);
-            HttpRequest build = a2.enableStat(true).build();
-            if (z) {
-                y(i2, "校验通过", "开始向 url=" + str2 + " 发送预连接 HEAD 请求");
-            }
-            build.executeStat(new b(this, str2, currentTimeMillis, z, i2));
-        }
-    }
-
-    public Set<String> m(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048582, this, str, z)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return Collections.emptySet();
-            }
-            Set<String> g = ea3.g(str);
-            if (g == null) {
-                return Collections.emptySet();
-            }
-            if (g.size() > 5 && z) {
-                int i2 = 0;
-                HashSet hashSet = new HashSet(5);
-                for (String str2 : g) {
-                    if (!TextUtils.isEmpty(str2)) {
-                        int i3 = i2 + 1;
-                        if (i2 >= 5) {
-                            break;
-                        }
-                        hashSet.add(str2);
-                        i2 = i3;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, cursor)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            do {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    String string = cursor.getString(cursor.getColumnIndex("app_id"));
+                    if (!TextUtils.isEmpty(string)) {
+                        jSONObject.put("appid", string);
                     }
-                }
-                return hashSet;
-            }
-            return g;
-        }
-        return (Set) invokeLZ.objValue;
-    }
-
-    @AnyThread
-    public synchronized void x(@Nullable String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048593, this, str, z) == null) {
-            synchronized (this) {
-                if (TextUtils.isEmpty(str)) {
-                    if (h) {
-                        Log.w("SwanPrelink", "startPreLink appId empty");
+                    String string2 = cursor.getString(cursor.getColumnIndex(GameGuideConfigInfo.KEY_APP_KEY));
+                    if (!TextUtils.isEmpty(string2)) {
+                        jSONObject.put("appKey", string2);
                     }
-                } else if (!z && this.f) {
-                    if (h) {
-                        Log.d("SwanPrelink", "startPreLink already");
-                    }
-                } else {
-                    this.c.clear();
-                    this.f = true;
-                    ExecutorUtilsExt.postOnElastic(new a(this, str, z), "SwanPrelink", 0);
-                }
-            }
-        }
-    }
-
-    public final void p(int i2, @NonNull String str, @NonNull String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i2), str, str2, Boolean.valueOf(z)}) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            ib2 W = gg2.U().W();
-            if (W != null && (W.f() instanceof ug2)) {
-                NetRequestParam.Builder builder = new NetRequestParam.Builder();
-                builder.setUrl(str);
-                builder.setMethod((byte) 2);
-                NetRequestParam build = builder.build();
-                build.setNetRequestCallback(new c(this, currentTimeMillis, str, z, i2));
-                ug2 ug2Var = (ug2) W.f();
-                if (ug2Var.n0() != null) {
-                    if (z) {
-                        y(i2, "校验通过", "开始向 url=" + str + " 发送预连接 HEAD 请求");
-                    }
-                    ug2Var.n0().execute(build);
-                }
-            }
-        }
-    }
-
-    public synchronized void q(@NonNull String str, @NonNull String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, str, str2) == null) {
-            synchronized (this) {
-                if (!n()) {
-                    return;
-                }
-                if (this.g.get() == this.a.size()) {
-                    if (h) {
-                        Log.d("SwanPrelink", "onBusinessRequest doRequest: " + str2);
-                    }
-                } else if (this.b != null && this.b.contains(str2)) {
-                } else {
-                    String e = bz1.e(str2);
-                    if (e != null && this.a.contains(e)) {
-                        if (this.d == null) {
-                            this.d = new ArrayMap();
-                        } else if (this.d.containsKey(e)) {
-                            return;
-                        }
-                        this.d.put(e, str);
-                        if (h) {
-                            Log.i("SwanPrelink", "onBusinessRequest hit: " + str2);
-                        }
-                        y(this.d.size() - 1, "业务方触发第一个同域名请求", "url=" + str2);
-                        return;
-                    }
-                    if (h) {
-                        Log.d("SwanPrelink", "onBusinessRequest: miss tag " + str2);
-                    }
-                }
-            }
-        }
-    }
-
-    public synchronized void r(@NonNull String str, @NonNull HttpUrl httpUrl) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, str, httpUrl) == null) {
-            synchronized (this) {
-                if (!n()) {
-                    return;
-                }
-                if (this.g.get() == this.a.size()) {
-                    if (h) {
-                        Log.d("SwanPrelink", "onBusinessRequest doRequest: " + httpUrl);
-                    }
-                    return;
-                }
-                String host = httpUrl.host();
-                if (host != null && this.a.contains(host)) {
-                    if (this.d == null) {
-                        this.d = new ArrayMap();
-                    } else if (this.d.containsKey(host)) {
-                        return;
-                    }
-                    this.d.put(host, str);
-                    if (h) {
-                        Log.i("SwanPrelink", "onBusinessRequest hit: " + httpUrl);
-                    }
-                    y(this.d.size() - 1, "业务方触发第一个同域名请求", "url=" + httpUrl);
-                    return;
-                }
-                if (h) {
-                    Log.d("SwanPrelink", "onBusinessRequest: miss tag " + httpUrl.toString());
-                }
-            }
-        }
-    }
-
-    @WorkerThread
-    public void s(@NonNull String str, @Nullable String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, str, str2) == null) {
-            if (TextUtils.isEmpty(str2)) {
-                if (h) {
-                    Log.w("SwanPrelink", "prelink url is empty");
-                    return;
-                }
-                return;
-            }
-            String e = bz1.e(str2);
-            if (!TextUtils.isEmpty(e)) {
-                j(str, -1, str2, e, false);
-            }
-        }
-    }
-
-    public final synchronized void t(long j2, long j3, String str, NetworkStatRecord networkStatRecord) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Long.valueOf(j2), Long.valueOf(j3), str, networkStatRecord}) == null) {
-            synchronized (this) {
-                if (this.f && !TextUtils.isEmpty(str)) {
-                    m93 b0 = m93.b0();
-                    if (b0 != null && !TextUtils.isEmpty(b0.W().V())) {
-                        JSONObject jSONObject = new JSONObject();
-                        try {
-                            jSONObject.put("url", str);
-                            if (networkStatRecord == null) {
-                                str2 = "1";
+                    jSONObject.put("version", cursor.getInt(cursor.getColumnIndex("version_code")));
+                    int i = cursor.getInt(cursor.getColumnIndex("frame_type"));
+                    jSONObject.put("frameType", i);
+                    int i2 = cursor.getInt(cursor.getColumnIndex("app_type"));
+                    String str2 = "1";
+                    if (i2 != 0) {
+                        if (i2 != 1) {
+                            if (i2 != 2) {
+                                if (i2 == 3) {
+                                    str2 = "3";
+                                }
                             } else {
-                                str2 = "0";
+                                str2 = "2";
                             }
-                            jSONObject.put("na_request", str2);
-                            jSONObject.put("start", j2);
-                            jSONObject.put("end", j3);
-                            if (networkStatRecord != null) {
-                                jSONObject.put("net_type", networkStatRecord.netType);
-                                jSONObject.put("start_connect", networkStatRecord.startTs);
-                                jSONObject.put("start_dns", networkStatRecord.dnsStartTs);
-                                jSONObject.put("end_dns", networkStatRecord.dnsEndTs);
-                                jSONObject.put("on_connect", networkStatRecord.connTs);
-                                jSONObject.put("send_header", networkStatRecord.sendHeaderTs);
-                                jSONObject.put("recv_header", networkStatRecord.receiveHeaderTs);
-                                jSONObject.put("response", networkStatRecord.responseTs);
-                                jSONObject.put("response_finish", networkStatRecord.finishTs);
+                        } else {
+                            str2 = "0";
+                        }
+                    }
+                    jSONObject.put("type", str2);
+                    if (TextUtils.isEmpty(string)) {
+                        string = "";
+                    }
+                    if (i == 1) {
+                        str = String.format(ha3.d, string);
+                    } else {
+                        str = ha3.c + string + "\"}";
+                    }
+                    jSONObject.put("scheme", str);
+                    String string3 = cursor.getString(cursor.getColumnIndex("visit_time"));
+                    if (!TextUtils.isEmpty(string3)) {
+                        jSONObject.put("dataStamp", string3);
+                        jSONObject.put("dateStamp", string3);
+                    }
+                    String string4 = cursor.getString(cursor.getColumnIndex("app_icon"));
+                    if (!TextUtils.isEmpty(string4)) {
+                        jSONObject.put("iconUrl", string4);
+                    }
+                    jSONObject.put("payProtected", cursor.getInt(cursor.getColumnIndex("pay_protected")));
+                    String string5 = cursor.getString(cursor.getColumnIndex("app_name"));
+                    if (!TextUtils.isEmpty(string5)) {
+                        jSONObject.put("title", string5);
+                    }
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                }
+                jSONArray.put(jSONObject);
+            } while (cursor.moveToNext());
+            vv2.a(cursor);
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("history", jSONArray);
+            } catch (JSONException e3) {
+                e3.printStackTrace();
+            }
+            if (a) {
+                Log.d("SwanAppHistoryHelper", "historyCursorToJson : " + jSONObject2.toString());
+            }
+            return jSONObject2;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static void l(List<fl2> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65548, null, list) == null) && list != null && list.size() > 0) {
+            SQLiteDatabase e2 = SwanAppDbControl.f(AppRuntime.getAppContext()).e();
+            e2.beginTransaction();
+            try {
+                try {
+                    for (fl2 fl2Var : list) {
+                        ContentValues contentValues = new ContentValues();
+                        contentValues.put("app_id", fl2Var.a);
+                        contentValues.put("visit_time", Long.valueOf(fl2Var.e));
+                        contentValues.put("app_from", fl2Var.i);
+                        contentValues.put("app_name", fl2Var.c);
+                        contentValues.put(GameGuideConfigInfo.KEY_APP_KEY, fl2Var.b);
+                        contentValues.put("version_code", fl2Var.j);
+                        contentValues.put("app_icon", fl2Var.d);
+                        contentValues.put("app_type", fl2Var.g);
+                        contentValues.put("frame_type", Integer.valueOf(fl2Var.f));
+                        contentValues.put("pay_protected", Integer.valueOf(fl2Var.h));
+                        contentValues.put("sync_state", (Integer) 1);
+                        e2.insertWithOnConflict("ai_apps_history", null, contentValues, 5);
+                    }
+                    e2.setTransactionSuccessful();
+                } catch (Exception e3) {
+                    if (a) {
+                        e3.printStackTrace();
+                    }
+                }
+                e2.endTransaction();
+                AppRuntime.getAppContext().getContentResolver().notifyChange(ve2.a(), (ContentObserver) null, false);
+            } catch (Throwable th) {
+                e2.endTransaction();
+                throw th;
+            }
+        }
+    }
+
+    public static Cursor n(String str, String[] strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65550, null, str, strArr)) == null) {
+            return AppRuntime.getAppContext().getContentResolver().query(ve2.a(), null, str, strArr, "visit_time desc  LIMIT 200");
+        }
+        return (Cursor) invokeLL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0091  */
+    /* JADX WARN: Removed duplicated region for block: B:30:0x015b  */
+    /* JADX WARN: Removed duplicated region for block: B:34:0x0196  */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x01e3  */
+    /* JADX WARN: Removed duplicated region for block: B:52:0x0208 A[LOOP:3: B:50:0x0202->B:52:0x0208, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x021a  */
+    /* JADX WARN: Removed duplicated region for block: B:61:0x0277  */
+    /* JADX WARN: Removed duplicated region for block: B:65:0x0285  */
+    /* JADX WARN: Removed duplicated region for block: B:69:0x02b1 A[LOOP:5: B:67:0x02ab->B:69:0x02b1, LOOP_END] */
+    @Deprecated
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static Cursor o(@NonNull String str, int i) {
+        InterceptResult invokeLI;
+        Cursor query;
+        List<d> arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65551, null, str, i)) == null) {
+            HashMap hashMap = new HashMap();
+            Cursor p = p(AppRuntime.getAppContext().getContentResolver(), str);
+            if (p != null && p.moveToFirst()) {
+                do {
+                    qe2 qe2Var = new qe2();
+                    SwanAppDbControl.f(AppRuntime.getAppContext()).s(p, qe2Var);
+                    if (!TextUtils.isEmpty(qe2Var.a)) {
+                        c cVar = new c(null);
+                        cVar.b = qe2Var;
+                        fl2 fl2Var = cVar.a;
+                        fl2Var.a = qe2Var.a;
+                        fl2Var.a = p.getString(p.getColumnIndex("app_from"));
+                        cVar.a.e = p.getLong(p.getColumnIndex("visit_time"));
+                        hashMap.put(cVar.a.a, cVar);
+                        if (a) {
+                            Log.v("history_migrate_pms", "Aps&History == " + qe2Var.a);
+                        }
+                    }
+                } while (p.moveToNext());
+                xn4.d(p);
+                if (a) {
+                }
+                query = AppRuntime.getAppContext().getContentResolver().query(ve2.a(), null, null, null, null);
+                HashMap hashMap2 = new HashMap();
+                if (query == null) {
+                }
+                xn4.d(query);
+                if (a) {
+                }
+                ArrayList<d> arrayList2 = new ArrayList();
+                while (r2.hasNext()) {
+                }
+                if (a) {
+                }
+                while (r13.hasNext()) {
+                }
+                if (a) {
+                }
+                arrayList = new ArrayList(hashMap.values());
+                Collections.sort(arrayList, new e(null));
+                int i2 = 0;
+                if (i > 0) {
+                }
+                MatrixCursor matrixCursor = new MatrixCursor(c, 50);
+                while (r13.hasNext()) {
+                }
+                return matrixCursor;
+            }
+            xn4.d(p);
+            if (a) {
+                Log.d("history_migrate_pms", "^ Aps & History 查询到 " + hashMap.size() + " 个历史记录");
+            }
+            query = AppRuntime.getAppContext().getContentResolver().query(ve2.a(), null, null, null, null);
+            HashMap hashMap22 = new HashMap();
+            if (query == null && query.moveToFirst()) {
+                do {
+                    fl2 fl2Var2 = new fl2();
+                    fl2Var2.a = query.getString(query.getColumnIndex("app_id"));
+                    fl2Var2.i = query.getString(query.getColumnIndex("app_from"));
+                    fl2Var2.e = query.getLong(query.getColumnIndex("visit_time"));
+                    fl2Var2.c = query.getString(query.getColumnIndex("app_name"));
+                    fl2Var2.b = query.getString(query.getColumnIndex(GameGuideConfigInfo.KEY_APP_KEY));
+                    fl2Var2.j = query.getString(query.getColumnIndex("version_code"));
+                    fl2Var2.d = query.getString(query.getColumnIndex("app_icon"));
+                    fl2Var2.f = query.getInt(query.getColumnIndex("frame_type"));
+                    hashMap22.put(fl2Var2.a, fl2Var2);
+                    if (a) {
+                        Log.v("history_migrate_pms", "History == " + fl2Var2.a);
+                    }
+                } while (query.moveToNext());
+                xn4.d(query);
+                if (a) {
+                }
+                ArrayList<d> arrayList22 = new ArrayList();
+                while (r2.hasNext()) {
+                }
+                if (a) {
+                }
+                while (r13.hasNext()) {
+                }
+                if (a) {
+                }
+                arrayList = new ArrayList(hashMap.values());
+                Collections.sort(arrayList, new e(null));
+                int i22 = 0;
+                if (i > 0) {
+                    arrayList = arrayList.subList(0, i);
+                    if (a) {
+                    }
+                }
+                MatrixCursor matrixCursor2 = new MatrixCursor(c, 50);
+                while (r13.hasNext()) {
+                }
+                return matrixCursor2;
+            }
+            xn4.d(query);
+            if (a) {
+                Log.d("history_migrate_pms", "^ History 库查询到 " + hashMap22.size() + " 个历史记录");
+            }
+            ArrayList<d> arrayList222 = new ArrayList();
+            for (PMSAppInfo pMSAppInfo : new ArrayList(qf4.i().v().values())) {
+                if (a) {
+                    Log.v("history_migrate_pms", "Pms == " + pMSAppInfo.appId);
+                }
+                String str2 = pMSAppInfo.appName;
+                if (str2 != null && str2.contains(str) && hashMap22.containsKey(pMSAppInfo.appId)) {
+                    f fVar = new f(null);
+                    fVar.a = (fl2) hashMap22.get(pMSAppInfo.appId);
+                    fVar.b = pMSAppInfo;
+                    arrayList222.add(fVar);
+                }
+            }
+            if (a) {
+                Log.d("history_migrate_pms", "^ Pms & History 查询到 " + arrayList222.size() + " 个历史记录");
+            }
+            for (d dVar : arrayList222) {
+                hashMap.put(dVar.a.a, dVar);
+            }
+            if (a) {
+                Log.d("history_migrate_pms", "合并后有 " + hashMap.size() + " 个历史记录");
+                Iterator it = hashMap.values().iterator();
+                while (it.hasNext()) {
+                    Log.v("history_migrate_pms", "Migrate == " + ((d) it.next()).a.a);
+                }
+            }
+            arrayList = new ArrayList(hashMap.values());
+            Collections.sort(arrayList, new e(null));
+            int i222 = 0;
+            if (i > 0 && i < arrayList.size()) {
+                arrayList = arrayList.subList(0, i);
+                if (a) {
+                    Log.d("history_migrate_pms", "Limit限制 " + i + " 条");
+                }
+            }
+            MatrixCursor matrixCursor22 = new MatrixCursor(c, 50);
+            for (d dVar2 : arrayList) {
+                d(matrixCursor22, i222, dVar2);
+                i222++;
+            }
+            return matrixCursor22;
+        }
+        return (Cursor) invokeLI.objValue;
+    }
+
+    @Nullable
+    public static Cursor p(@NonNull ContentResolver contentResolver, @NonNull String str) {
+        InterceptResult invokeLL;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65552, null, contentResolver, str)) == null) {
+            try {
+                cursor = contentResolver.query(ve2.b(), null, SwanAppDbControl.SwanAppTable.name.name() + " LIKE ? ", new String[]{"%" + str + "%"}, "visit_time desc  LIMIT 200");
+            } catch (Exception e2) {
+                if (a) {
+                    e2.printStackTrace();
+                }
+                cursor = null;
+            }
+            if (a && cursor != null) {
+                Log.d("SwanAppHistoryHelper", "queryHistoryByKeyword: keyword[" + str + "]  Cursor count: " + cursor.getCount());
+            }
+            return cursor;
+        }
+        return (Cursor) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:28:0x008a */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v2 */
+    /* JADX WARN: Type inference failed for: r1v3 */
+    /* JADX WARN: Type inference failed for: r1v4, types: [java.io.Closeable] */
+    @Nullable
+    public static List<String> s(@NonNull ContentResolver contentResolver, @Nullable String str) {
+        InterceptResult invokeLL;
+        Cursor cursor;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65555, null, contentResolver, str)) == null) {
+            ?? r1 = 0;
+            try {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                try {
+                    String a2 = vz1.a(str);
+                    if (TextUtils.isEmpty(a2)) {
+                        xn4.d(null);
+                        return null;
+                    }
+                    cursor = contentResolver.query(ve2.a(), null, "app_id LIKE ? AND app_id != ?", new String[]{a2 + "_dev%", str}, "visit_time desc  LIMIT 200");
+                    if (cursor != null) {
+                        try {
+                            if (cursor.moveToFirst()) {
+                                ArrayList arrayList = new ArrayList();
+                                do {
+                                    String string = cursor.getString(cursor.getColumnIndex("app_id"));
+                                    if (!TextUtils.isEmpty(string)) {
+                                        arrayList.add(string);
+                                    }
+                                } while (cursor.moveToNext());
+                                xn4.d(cursor);
+                                return arrayList;
                             }
-                            this.c.put(str, jSONObject);
-                        } catch (JSONException e) {
-                            if (h) {
+                        } catch (Exception e2) {
+                            e = e2;
+                            if (a) {
                                 e.printStackTrace();
                             }
+                            xn4.d(cursor);
+                            return null;
                         }
-                        JSONArray jSONArray = new JSONArray();
-                        for (String str3 : this.c.keySet()) {
-                            jSONArray.put(this.c.get(str3));
-                        }
-                        r23.p("startup").D("prelinks", jSONArray.toString());
-                        if (h) {
-                            Log.d("SwanPrelink", "in start app process, real prelink url - " + str);
+                    }
+                    xn4.d(cursor);
+                    return null;
+                } catch (Exception e3) {
+                    e = e3;
+                    cursor = null;
+                } catch (Throwable th) {
+                    th = th;
+                    xn4.d(r1);
+                    throw th;
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                r1 = contentResolver;
+            }
+        } else {
+            return (List) invokeLL.objValue;
+        }
+    }
+
+    public static List<fl2> r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
+            ContentResolver contentResolver = AppRuntime.getAppContext().getContentResolver();
+            Cursor query = contentResolver.query(ve2.a(), null, "sync_state=?", new String[]{String.valueOf(0)}, "visit_time asc  LIMIT 200");
+            if (query != null && query.moveToFirst()) {
+                ArrayList arrayList = new ArrayList();
+                do {
+                    fl2 fl2Var = new fl2();
+                    fl2Var.a = query.getString(query.getColumnIndex("app_id"));
+                    fl2Var.e = query.getLong(query.getColumnIndex("visit_time"));
+                    arrayList.add(fl2Var);
+                } while (query.moveToNext());
+                vv2.a(query);
+                return arrayList;
+            }
+            vv2.a(query);
+            return null;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @WorkerThread
+    public static void t(@NonNull ContentResolver contentResolver, @Nullable String str, nh2.b bVar) {
+        int i;
+        Cursor query;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65556, null, contentResolver, str, bVar) == null) {
+            Cursor cursor = null;
+            if (str == null) {
+                str = "";
+            }
+            try {
+                try {
+                    query = contentResolver.query(ve2.a(), null, "app_id != ?", new String[]{str, String.valueOf(200)}, "visit_time DESC limit ?,-1");
+                } catch (Exception e2) {
+                    e = e2;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                ArrayList arrayList = new ArrayList();
+                if (query != null) {
+                    while (query.moveToNext()) {
+                        String string = query.getString(query.getColumnIndex("app_id"));
+                        if (!TextUtils.isEmpty(string)) {
+                            arrayList.add(string);
                         }
                     }
                 }
+                if (a) {
+                    Log.i("SwanAppHistoryHelper", "tryDelUpperLimitSwanApp size=" + arrayList.size() + ", appId=" + str);
+                }
+                if (arrayList.isEmpty()) {
+                    xn4.d(query);
+                    return;
+                }
+                dg2 d2 = fg2.c().d();
+                if (d2 != null) {
+                    d2.f(arrayList, false, bVar);
+                }
+                StringBuilder sb = new StringBuilder();
+                int size = arrayList.size();
+                for (i = 0; i < size; i++) {
+                    sb.append('\'');
+                    sb.append((String) arrayList.get(i));
+                    sb.append('\'');
+                    if (i < size - 1) {
+                        sb.append(",");
+                    }
+                }
+                String str2 = "app_id in (" + sb.toString() + SmallTailInfo.EMOTION_SUFFIX;
+                int delete = contentResolver.delete(ve2.a(), str2, null);
+                if (a) {
+                    Log.i("SwanAppHistoryHelper", "tryDelUpperLimitSwanApp delete result=" + delete + ", query=" + str2);
+                }
+                xn4.d(query);
+            } catch (Exception e3) {
+                e = e3;
+                cursor = query;
+                if (a) {
+                    Log.e("SwanAppHistoryHelper", "tryDelUpperLimitSwanApp error", e);
+                }
+                xn4.d(cursor);
+            } catch (Throwable th2) {
+                th = th2;
+                cursor = query;
+                xn4.d(cursor);
+                throw th;
             }
         }
     }
 
-    public synchronized void y(@IntRange(from = -1) int i2, @NonNull String str, @NonNull String str2) {
+    public static void u(ContentResolver contentResolver, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048594, this, i2, str, str2) == null) {
-            synchronized (this) {
-                if (i2 >= 0) {
-                    str = PreferencesUtil.LEFT_MOUNT + i2 + PreferencesUtil.RIGHT_MOUNT + str;
+        if (interceptable == null || interceptable.invokeLLI(65557, null, contentResolver, str, i) == null) {
+            ContentValues contentValues = new ContentValues();
+            contentValues.put("sync_state", Integer.valueOf(i));
+            contentResolver.update(ve2.a(), contentValues, "app_id=?", new String[]{str});
+        }
+    }
+
+    public static void v(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65558, null, sQLiteDatabase) == null) {
+            sQLiteDatabase.beginTransaction();
+            try {
+                for (String str : q(sQLiteDatabase)) {
+                    PMSAppInfo u = qf4.i().u(str);
+                    if (u != null) {
+                        ContentValues contentValues = new ContentValues();
+                        contentValues.put("app_name", u.appName);
+                        contentValues.put("app_icon", u.iconUrl);
+                        contentValues.put("frame_type", Integer.valueOf(u.appCategory));
+                        contentValues.put("app_type", String.valueOf(u.type));
+                        contentValues.put("sync_state", (Integer) 0);
+                        if (sQLiteDatabase.updateWithOnConflict("ai_apps_history", contentValues, "app_id=?", new String[]{str}, 5) <= 0) {
+                            if (a) {
+                                Log.e("SwanAppHistoryHelper", "updatePMSDataToHistoryTable: 更新失败");
+                            }
+                            return;
+                        }
+                    }
                 }
-                if (this.e.containsKey(str)) {
-                    return;
-                }
-                this.e.put(str, str2);
-                il3.k.update((hl3<String>) A());
+                sQLiteDatabase.setTransactionSuccessful();
+            } finally {
+                sQLiteDatabase.endTransaction();
             }
         }
     }

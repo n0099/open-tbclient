@@ -1,76 +1,99 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.util.PriorityOrganizer;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.RecentUpdate;
 /* loaded from: classes6.dex */
-public class s47 {
+public class s47 extends hw4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public PriorityOrganizer a;
-    public final PriorityOrganizer.Task b;
-    public n47 c;
-    public k47 d;
-    public l47 e;
-    public o47 f;
-    public p47 g;
-    public m47 h;
-    public t47 i;
-    public u47 j;
-    public r47 k;
-    public q47 l;
+    public RecentUpdate a;
 
-    public s47(FrsActivity frsActivity, FrsFragment frsFragment) {
+    @Override // com.baidu.tieba.hw4
+    public fy4 getNegFeedBackData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (fy4) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.hw4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948101523, "Lcom/baidu/tieba/s47;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948101523, "Lcom/baidu/tieba/s47;");
+                return;
+            }
+        }
+        b = BdUniqueId.gen();
+    }
+
+    public s47() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frsActivity, frsFragment};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = PriorityOrganizer.i();
-        this.c = new n47(frsActivity, frsFragment);
-        this.d = new k47(frsActivity, frsFragment);
-        this.e = new l47(frsActivity, frsFragment);
-        this.f = new o47(frsActivity, frsFragment);
-        this.g = new p47(frsActivity, frsFragment);
-        this.h = new m47(frsActivity, frsFragment);
-        this.i = new t47(frsActivity, frsFragment);
-        this.j = new u47(frsActivity, frsFragment);
-        this.k = new r47(frsActivity, frsFragment);
-        q47 q47Var = new q47(frsActivity, frsFragment);
-        this.l = q47Var;
-        n47 n47Var = this.c;
-        PriorityOrganizer.n(n47Var, this.d, this.e, q47Var, this.f, this.g, this.h, this.i, this.j, this.k);
-        this.b = n47Var;
+        setSupportType(BaseCardInfo.SupportType.FULL);
     }
 
-    public void a(boolean z) {
-        p47 p47Var;
+    public RecentUpdate c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (p47Var = this.g) != null) {
-            p47Var.F(z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (RecentUpdate) invokeV.objValue;
     }
 
-    public void b() {
-        PriorityOrganizer.Task task;
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.gn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (task = this.b) != null && !task.v(true)) {
-            this.b.E(true);
-            this.a.w(this.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return b;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void f(RecentUpdate recentUpdate) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recentUpdate) == null) {
+            this.a = recentUpdate;
         }
     }
 }

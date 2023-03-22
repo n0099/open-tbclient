@@ -43,7 +43,7 @@ public class ResFragment extends DelegateFragment {
         return super.getBase();
     }
 
-    @Override // androidx.fragment.app.Fragment, com.baidu.tieba.n2
+    @Override // androidx.fragment.app.Fragment, com.baidu.tieba.q1
     @Nullable
     public Context getContext() {
         if (super.getContext() == null) {

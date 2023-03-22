@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class ChipGroup extends FlowLayout {
-    public static final int DEF_STYLE_RES = 2131755876;
+    public static final int DEF_STYLE_RES = 2131755880;
     @IdRes
     public int checkedId;
     public final CheckedStateTracker checkedStateTracker;

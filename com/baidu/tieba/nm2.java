@@ -1,30 +1,49 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.apps.SwanAppActivity;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes5.dex */
-public class nm2 {
+public class nm2 extends nl2<do2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static lm2 a(SwanAppActivity swanAppActivity, m93 m93Var) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.nl2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, swanAppActivity, m93Var)) == null) {
-            if (m93Var == null || !m93Var.I()) {
-                return null;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getVideoWidth" : (String) invokeV.objValue;
+    }
+
+    public nm2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            int k = m93Var.k();
-            if (k != 0) {
-                if (k != 1) {
-                    return null;
-                }
-                return us2.i().n(swanAppActivity, m93Var.b);
-            }
-            return new om2(swanAppActivity, m93Var.b);
         }
-        return (lm2) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.nl2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull do2 do2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, do2Var) == null) {
+            command.ret = do2Var.getVideoWidth();
+            String str = command.what;
+            d(do2Var, str, "Width: " + command.ret, true);
+        }
     }
 }

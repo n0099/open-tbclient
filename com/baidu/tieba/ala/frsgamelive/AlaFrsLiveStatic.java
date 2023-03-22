@@ -20,11 +20,11 @@ import com.baidu.tieba.ala.frsgamelive.message.AlaGameFrsLiveThreadsRespMessage;
 import com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsStoryLiveGatherActivity;
 import com.baidu.tieba.ala.gamefrslivelist.AlaGameFrsLiveListActivity;
 import com.baidu.tieba.ala.gamelist.mvc.AlaAllGameLiveEntryActivity;
-import com.baidu.tieba.aw6;
-import com.baidu.tieba.d76;
-import com.baidu.tieba.e76;
-import com.baidu.tieba.w66;
-import com.baidu.tieba.zv6;
+import com.baidu.tieba.c66;
+import com.baidu.tieba.ex6;
+import com.baidu.tieba.fx6;
+import com.baidu.tieba.j66;
+import com.baidu.tieba.k66;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -70,18 +70,18 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof aw6)) {
+            if (!(data instanceof fx6)) {
                 return;
             }
-            aw6 aw6Var = (aw6) data;
-            w66 w66Var = new w66(true);
-            w66Var.b().e = 2;
-            w66Var.h(aw6Var.c());
-            w66Var.i(aw6Var.d());
-            w66Var.g(aw6Var.b());
-            w66Var.j(1);
-            w66Var.k(false);
-            aw6Var.a(w66Var);
+            fx6 fx6Var = (fx6) data;
+            c66 c66Var = new c66(true);
+            c66Var.b().e = 2;
+            c66Var.h(fx6Var.c());
+            c66Var.i(fx6Var.d());
+            c66Var.g(fx6Var.b());
+            c66Var.j(1);
+            c66Var.k(false);
+            fx6Var.a(c66Var);
         }
     }
 
@@ -118,19 +118,19 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof zv6)) {
+            if (!(data instanceof ex6)) {
                 return;
             }
-            zv6 zv6Var = (zv6) data;
-            w66 w66Var = new w66(true);
-            w66Var.b().e = 9;
-            w66Var.h(zv6Var.c());
-            w66Var.i(zv6Var.d());
-            w66Var.g(zv6Var.b());
-            w66Var.j(1);
-            w66Var.k(true);
-            if (zv6Var.h(9)) {
-                zv6Var.a(w66Var);
+            ex6 ex6Var = (ex6) data;
+            c66 c66Var = new c66(true);
+            c66Var.b().e = 9;
+            c66Var.h(ex6Var.c());
+            c66Var.i(ex6Var.d());
+            c66Var.g(ex6Var.b());
+            c66Var.j(1);
+            c66Var.k(true);
+            if (ex6Var.h(9)) {
+                ex6Var.a(c66Var);
             }
         }
     }
@@ -168,18 +168,18 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof aw6)) {
+            if (!(data instanceof fx6)) {
                 return;
             }
-            aw6 aw6Var = (aw6) data;
-            w66 w66Var = new w66(false);
-            w66Var.b().e = 1;
-            w66Var.h(aw6Var.c());
-            w66Var.i(aw6Var.d());
-            w66Var.g(aw6Var.b());
-            w66Var.j(2);
-            w66Var.k(false);
-            aw6Var.a(w66Var);
+            fx6 fx6Var = (fx6) data;
+            c66 c66Var = new c66(false);
+            c66Var.b().e = 1;
+            c66Var.h(fx6Var.c());
+            c66Var.i(fx6Var.d());
+            c66Var.g(fx6Var.b());
+            c66Var.j(2);
+            c66Var.k(false);
+            fx6Var.a(c66Var);
         }
     }
 
@@ -216,16 +216,16 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof aw6)) {
+            if (!(data instanceof fx6)) {
                 return;
             }
-            aw6 aw6Var = (aw6) data;
-            e76 e76Var = new e76();
-            e76Var.b().e = 3;
-            e76Var.g(aw6Var.c());
-            e76Var.h(aw6Var.d());
-            e76Var.i(false);
-            aw6Var.a(e76Var);
+            fx6 fx6Var = (fx6) data;
+            k66 k66Var = new k66();
+            k66Var.b().e = 3;
+            k66Var.g(fx6Var.c());
+            k66Var.h(fx6Var.d());
+            k66Var.i(false);
+            fx6Var.a(k66Var);
         }
     }
 
@@ -262,18 +262,18 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof zv6)) {
+            if (!(data instanceof ex6)) {
                 return;
             }
-            zv6 zv6Var = (zv6) data;
-            e76 e76Var = new e76();
-            e76Var.b().e = 8;
-            e76Var.b().b = R.string.obfuscated_res_0x7f0f0255;
-            e76Var.g(zv6Var.c());
-            e76Var.h(zv6Var.d());
-            e76Var.i(true);
-            if (zv6Var.h(8)) {
-                zv6Var.a(e76Var);
+            ex6 ex6Var = (ex6) data;
+            k66 k66Var = new k66();
+            k66Var.b().e = 8;
+            k66Var.b().b = R.string.obfuscated_res_0x7f0f0255;
+            k66Var.g(ex6Var.c());
+            k66Var.h(ex6Var.d());
+            k66Var.i(true);
+            if (ex6Var.h(8)) {
+                ex6Var.a(k66Var);
             }
         }
     }
@@ -311,15 +311,15 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof zv6)) {
+            if (!(data instanceof ex6)) {
                 return;
             }
-            zv6 zv6Var = (zv6) data;
-            d76 d76Var = new d76();
-            d76Var.i(zv6Var.c());
-            d76Var.j(zv6Var.d());
-            d76Var.h(zv6Var.b());
-            d76Var.g(zv6Var);
+            ex6 ex6Var = (ex6) data;
+            j66 j66Var = new j66();
+            j66Var.i(ex6Var.c());
+            j66Var.j(ex6Var.d());
+            j66Var.h(ex6Var.b());
+            j66Var.g(ex6Var);
         }
     }
 

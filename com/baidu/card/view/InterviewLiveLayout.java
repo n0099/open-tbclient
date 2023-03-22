@@ -30,14 +30,14 @@ import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b15;
-import com.baidu.tieba.dy;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.hx4;
-import com.baidu.tieba.on;
-import com.baidu.tieba.xf6;
-import com.baidu.tieba.zg;
-import com.baidu.tieba.zx4;
+import com.baidu.tieba.cg;
+import com.baidu.tieba.gx;
+import com.baidu.tieba.hi;
+import com.baidu.tieba.hw4;
+import com.baidu.tieba.kz4;
+import com.baidu.tieba.lf6;
+import com.baidu.tieba.pv4;
+import com.baidu.tieba.rm;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -45,13 +45,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes2.dex */
-public class InterviewLiveLayout extends FrameLayout implements dy<zx4> {
+public class InterviewLiveLayout extends FrameLayout implements gx<hw4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public boolean b;
-    public xf6<zx4> c;
-    public zx4 d;
+    public lf6<hw4> c;
+    public hw4 d;
     public TbImageView e;
     public LinearLayout f;
     public ImageView g;
@@ -93,7 +93,7 @@ public class InterviewLiveLayout extends FrameLayout implements dy<zx4> {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && ListUtils.getCount(this.a.i) > 0) {
                 if (!TbadkCoreApplication.getInst().appResponseToCmd(2010000)) {
-                    ej.P(this.a.getContext(), R.string.plugin_image_viewer_install_error_tips);
+                    hi.P(this.a.getContext(), R.string.plugin_image_viewer_install_error_tips);
                     return;
                 }
                 String str = (String) this.a.i.get(0);
@@ -187,11 +187,11 @@ public class InterviewLiveLayout extends FrameLayout implements dy<zx4> {
                 } else {
                     i = 14;
                 }
-                on w = TbImageMemoryCache.p().w(zg.h().g(tbImageView.getUrl(), i));
+                rm u = TbImageMemoryCache.o().u(cg.h().g(tbImageView.getUrl(), i));
                 int i3 = 0;
-                if (w != null) {
-                    i3 = w.r();
-                    i2 = w.m();
+                if (u != null) {
+                    i3 = u.r();
+                    i2 = u.m();
                 } else {
                     i2 = 0;
                 }
@@ -199,7 +199,7 @@ public class InterviewLiveLayout extends FrameLayout implements dy<zx4> {
                     int width = (tbImageView.getWidth() - tbImageView.getPaddingLeft()) - tbImageView.getPaddingRight();
                     int height = (tbImageView.getHeight() - tbImageView.getPaddingTop()) - tbImageView.getPaddingBottom();
                     Matrix imageMatrix = tbImageView.getImageMatrix();
-                    if (tbImageView.x() && tbImageView.getScaleType() == ImageView.ScaleType.MATRIX) {
+                    if (tbImageView.z() && tbImageView.getScaleType() == ImageView.ScaleType.MATRIX) {
                         if (i3 * height > width * i2) {
                             f4 = height;
                             f5 = i2;
@@ -305,10 +305,10 @@ public class InterviewLiveLayout extends FrameLayout implements dy<zx4> {
         }
     }
 
-    public void setSubClickListener(xf6<zx4> xf6Var) {
+    public void setSubClickListener(lf6<hw4> lf6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, xf6Var) == null) {
-            this.c = xf6Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, lf6Var) == null) {
+            this.c = lf6Var;
         }
     }
 
@@ -329,16 +329,16 @@ public class InterviewLiveLayout extends FrameLayout implements dy<zx4> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.dy
+    @Override // com.baidu.tieba.gx
     /* renamed from: k */
-    public void a(zx4 zx4Var) {
+    public void a(hw4 hw4Var) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zx4Var) == null) {
-            this.d = zx4Var;
-            if (zx4Var != null && this.e != null) {
-                ThreadData threadData = zx4Var.getThreadData();
-                b15 taskInfoData = threadData.getTaskInfoData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hw4Var) == null) {
+            this.d = hw4Var;
+            if (hw4Var != null && this.e != null) {
+                ThreadData threadData = hw4Var.getThreadData();
+                kz4 taskInfoData = threadData.getTaskInfoData();
                 if (taskInfoData == null) {
                     setVisibility(8);
                     return;
@@ -346,7 +346,7 @@ public class InterviewLiveLayout extends FrameLayout implements dy<zx4> {
                 this.j = threadData;
                 this.k = threadData.getFid();
                 this.l = taskInfoData.g();
-                if (hx4.c().g() && taskInfoData != null && !StringUtils.isNull(taskInfoData.k())) {
+                if (pv4.c().g() && taskInfoData != null && !StringUtils.isNull(taskInfoData.k())) {
                     this.i.clear();
                     this.i.add(taskInfoData.k());
                     setVisibility(0);
@@ -360,9 +360,9 @@ public class InterviewLiveLayout extends FrameLayout implements dy<zx4> {
                     } else {
                         i = 14;
                     }
-                    tbImageView.K(k, i, false);
+                    tbImageView.M(k, i, false);
                     LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) getLayoutParams();
-                    int l = ej.l(getContext()) - ej.g(getContext(), R.dimen.tbds88);
+                    int l = hi.l(getContext()) - hi.g(getContext(), R.dimen.tbds88);
                     layoutParams.width = l;
                     layoutParams.height = (int) ((l * 428.0f) / 760.0f);
                     setLayoutParams(layoutParams);

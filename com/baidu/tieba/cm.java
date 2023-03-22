@@ -1,46 +1,38 @@
 package com.baidu.tieba;
 
-import android.content.pm.Signature;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.nps.interfa.ISignatureVerifier;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.cloudcontrol.utils.CloudControlUrlConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
 /* loaded from: classes3.dex */
-public class cm implements ISignatureVerifier {
-    public static /* synthetic */ Interceptable $ic;
+public class cm {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "http://mbd.baidu.com";
     public transient /* synthetic */ FieldHolder $fh;
 
-    public cm() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448301699, "Lcom/baidu/tieba/cm;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448301699, "Lcom/baidu/tieba/cm;");
         }
     }
 
-    @Override // com.baidu.nps.interfa.ISignatureVerifier
-    public boolean checkSignature(String str, Signature[] signatureArr) {
-        InterceptResult invokeLL;
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, signatureArr)) == null) {
-            if (BdLog.isDebugMode()) {
-                return true;
-            }
-            String c = bm.c(signatureArr);
-            BdLog.e("new signature: " + c);
-            return "YvigAa51R7YgCp8eDveR1g==".equals(c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return String.format(CloudControlUrlConfig.mUrl, a);
         }
-        return invokeLL.booleanValue;
+        return (String) invokeV.objValue;
     }
 }

@@ -1,8 +1,8 @@
 package com.facebook.imagepipeline.core;
 
 import android.net.Uri;
-import com.baidu.tieba.o0;
-import com.baidu.tieba.p0;
+import com.baidu.tieba.r;
+import com.baidu.tieba.s;
 import com.facebook.cache.common.CacheKey;
 import com.facebook.callercontext.CallerContextVerifier;
 import com.facebook.common.internal.Objects;
@@ -376,27 +376,27 @@ public class ImagePipeline {
         }
     }
 
-    /* JADX DEBUG: Type inference failed for r2v0. Raw type applied. Possible types: com.baidu.tieba.o0<java.lang.Boolean, com.baidu.tieba.p0<java.lang.Boolean>>, com.baidu.tieba.o0<java.lang.Boolean, com.baidu.tieba.p0<TContinuationResult>> */
+    /* JADX DEBUG: Type inference failed for r2v0. Raw type applied. Possible types: com.baidu.tieba.r<java.lang.Boolean, com.baidu.tieba.s<java.lang.Boolean>>, com.baidu.tieba.r<java.lang.Boolean, com.baidu.tieba.s<TContinuationResult>> */
     public DataSource<Boolean> isInDiskCache(ImageRequest imageRequest) {
         final CacheKey encodedCacheKey = this.mCacheKeyFactory.getEncodedCacheKey(imageRequest, null);
         final SimpleDataSource create = SimpleDataSource.create();
-        this.mMainBufferedDiskCache.contains(encodedCacheKey).g(new o0<Boolean, p0<Boolean>>() { // from class: com.facebook.imagepipeline.core.ImagePipeline.7
+        this.mMainBufferedDiskCache.contains(encodedCacheKey).g(new r<Boolean, s<Boolean>>() { // from class: com.facebook.imagepipeline.core.ImagePipeline.7
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
-            @Override // com.baidu.tieba.o0
-            public p0<Boolean> then(p0<Boolean> p0Var) throws Exception {
-                if (!p0Var.n() && !p0Var.p() && p0Var.l().booleanValue()) {
-                    return p0.j(Boolean.TRUE);
+            @Override // com.baidu.tieba.r
+            public s<Boolean> then(s<Boolean> sVar) throws Exception {
+                if (!sVar.n() && !sVar.p() && sVar.l().booleanValue()) {
+                    return s.j(Boolean.TRUE);
                 }
                 return ImagePipeline.this.mSmallImageBufferedDiskCache.contains(encodedCacheKey);
             }
-        }).e(new o0<Boolean, Void>() { // from class: com.facebook.imagepipeline.core.ImagePipeline.6
+        }).e(new r<Boolean, Void>() { // from class: com.facebook.imagepipeline.core.ImagePipeline.6
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.o0
-            public Void then(p0<Boolean> p0Var) throws Exception {
+            @Override // com.baidu.tieba.r
+            public Void then(s<Boolean> sVar) throws Exception {
                 boolean z;
                 SimpleDataSource simpleDataSource = create;
-                if (!p0Var.n() && !p0Var.p() && p0Var.l().booleanValue()) {
+                if (!sVar.n() && !sVar.p() && sVar.l().booleanValue()) {
                     z = true;
                 } else {
                     z = false;

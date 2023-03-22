@@ -1,376 +1,234 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.BitmapRegionDecoder;
-import android.graphics.Rect;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.app.Activity;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.imageManager.TbImageMemoryCache;
-import com.baidu.tieba.at5;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.util.concurrent.RejectedExecutionHandler;
-import java.util.concurrent.SynchronousQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class gt5 {
+public class gt5 extends ft5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final bt5 a;
-    public final BitmapRegionDecoder b;
-    public tg<at5.a, at5> c;
-    public ug<at5> d;
-    public final ThreadPoolExecutor e;
-    public BdAsyncTask<Void, Void, Void> f;
+    public TbPageContext c;
+    public ht5 d;
+    public int e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947805473, "Lcom/baidu/tieba/gt5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947805473, "Lcom/baidu/tieba/gt5;");
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class a extends BdAsyncTask<Void, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gt5 a;
-
-        public a(gt5 gt5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gt5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gt5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void[] voidArr) throws IOException {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                try {
-                    this.a.e.shutdownNow();
-                    this.a.e.awaitTermination(Long.MAX_VALUE, TimeUnit.DAYS);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                if (this.a.b != null) {
-                    this.a.b.recycle();
-                    return null;
-                }
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements RejectedExecutionHandler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // java.util.concurrent.RejectedExecutionHandler
-        public void rejectedExecution(Runnable runnable, ThreadPoolExecutor threadPoolExecutor) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, runnable, threadPoolExecutor) == null) {
-            }
-        }
-
-        public b(gt5 gt5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gt5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c extends tg<at5.a, at5> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gt5 h;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(gt5 gt5Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gt5Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.h = gt5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.tg
-        /* renamed from: p */
-        public int m(at5.a aVar, at5 at5Var) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, aVar, at5Var)) == null) {
-                if (at5Var == null) {
-                    return 0;
-                }
-                return BitmapHelper.getBitmapSize(at5Var.b());
-            }
-            return invokeLL.intValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.tg
-        /* renamed from: o */
-        public void b(boolean z, at5.a aVar, at5 at5Var, at5 at5Var2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), aVar, at5Var, at5Var2}) == null) && z && this.h.d != null && at5Var != null) {
-                at5Var.a();
-                this.h.d.e(at5Var);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public int c;
-        public bt5 d;
-        public BitmapRegionDecoder e;
-        public tg<at5.a, at5> f;
-        public ct5 g;
-        public gt5 h;
-
-        public d(int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i;
-            this.b = i2;
-            this.c = i3;
-        }
-
-        public final void b(gt5 gt5Var, bt5 bt5Var, BitmapRegionDecoder bitmapRegionDecoder, tg<at5.a, at5> tgVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLLL(1048576, this, gt5Var, bt5Var, bitmapRegionDecoder, tgVar) == null) {
-                this.d = bt5Var;
-                this.e = bitmapRegionDecoder;
-                this.f = tgVar;
-                this.h = gt5Var;
-            }
-        }
-
-        public final boolean c(Rect rect) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rect)) == null) {
-                if (rect.right > rect.left && rect.bottom > rect.top) {
-                    return false;
-                }
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        public void d(ct5 ct5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ct5Var) == null) {
-                this.g = ct5Var;
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            at5 c;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.f == null || !this.d.b(this.a, this.b, this.c)) {
-                return;
-            }
-            Rect j = this.d.j(this.a, this.b, this.c);
-            this.d.a(j);
-            if (c(j)) {
-                return;
-            }
-            try {
-                c = this.h.f().b();
-                if (c != null) {
-                    if (!c.g(j)) {
-                        System.currentTimeMillis();
-                        c.a();
-                    }
-                } else {
-                    c = this.d.c();
-                }
-            } catch (Throwable unused) {
-                TbadkCoreApplication.getInst().onAppMemoryLow();
-                tg<at5.a, at5> tgVar = this.f;
-                tgVar.k((int) (tgVar.g() * 0.8d));
-                System.gc();
-                try {
-                    c = this.d.c();
-                } catch (Throwable unused2) {
-                    return;
-                }
-            }
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inSampleSize = this.c;
-            options.inBitmap = c.b();
-            options.inMutable = true;
-            System.currentTimeMillis();
-            Bitmap decodeRegion = this.e.decodeRegion(j, options);
-            if (decodeRegion == null) {
-                options.inBitmap = null;
-                decodeRegion = this.e.decodeRegion(j, options);
-                if (decodeRegion == null) {
-                    return;
-                }
-            }
-            decodeRegion.prepareToDraw();
-            c.h(decodeRegion);
-            c.j(this.a, this.b, this.c);
-            this.f.h(c.d(), c);
-            ct5 ct5Var = this.g;
-            if (ct5Var != null) {
-                ct5Var.onLoadFinished();
-            }
-        }
-    }
-
-    public gt5(bt5 bt5Var, BitmapRegionDecoder bitmapRegionDecoder) {
+    public gt5(TbPageContext tbPageContext, xs5 xs5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bt5Var, bitmapRegionDecoder};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {tbPageContext, xs5Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = bt5Var;
-        this.b = bitmapRegionDecoder;
-        TbImageMemoryCache.p().K((int) (TbConfig.getBigImageMaxUsedMemoryForRemoteProcess() * 0.7f));
-        this.e = new ThreadPoolExecutor(0, 10, 60L, TimeUnit.SECONDS, new SynchronousQueue(), new b(this));
-        this.c = new c(this, (int) (TbConfig.getBigImageMaxUsedMemoryForRemoteProcess() * 0.3f));
-        ug<at5> B = TbImageMemoryCache.p().B(this.a.e());
-        this.d = B;
-        B.f(6);
+        this.b = xs5Var;
+        this.c = tbPageContext;
+        xs5Var.a(this);
     }
 
-    public void d(boolean z) {
+    @Override // com.baidu.tieba.et5
+    public boolean a(String str) {
+        InterceptResult invokeL;
+        xs5 xs5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.e.purge();
-            if (z && this.f == null) {
-                a aVar = new a(this);
-                this.f = aVar;
-                aVar.execute(new Void[0]);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            xs5 xs5Var2 = this.b;
+            if (xs5Var2 != null) {
+                xs5Var2.i(str);
             }
+            it5 it5Var = this.a;
+            if (it5Var != null && (xs5Var = this.b) != null) {
+                it5Var.d(xs5Var.c());
+                return true;
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    public void h(d dVar) {
+    @Override // com.baidu.tieba.et5
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) && dVar != null && this.f == null) {
-            dVar.b(this, this.a, this.b, e());
-            this.e.submit(dVar);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.e = i;
         }
     }
 
-    public tg<at5.a, at5> e() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.et5
+    public boolean c(at5 at5Var) {
+        InterceptResult invokeL;
+        xs5 xs5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, at5Var)) == null) {
+            xs5 xs5Var2 = this.b;
+            if (xs5Var2 != null && xs5Var2.c() >= 30) {
+                j(this.c.getPageActivity(), false, String.format(this.c.getString(R.string.bawu_multi_del_post_max_num), 30));
+                return false;
+            }
+            xs5 xs5Var3 = this.b;
+            if (xs5Var3 != null) {
+                xs5Var3.f(at5Var);
+            }
+            it5 it5Var = this.a;
+            if (it5Var != null && (xs5Var = this.b) != null) {
+                it5Var.d(xs5Var.c());
+            }
+            return true;
         }
-        return (tg) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public ug<at5> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (ug) invokeV.objValue;
-    }
-
-    public void g() {
+    @Override // com.baidu.tieba.ft5, com.baidu.tieba.et5
+    public void dismiss() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            d(true);
-            tg<at5.a, at5> tgVar = this.c;
-            if (tgVar != null) {
-                tgVar.k(0);
-                this.c.a();
-                this.c = null;
+            it5 it5Var = this.a;
+            if (it5Var != null) {
+                it5Var.a();
             }
-            this.d = null;
+            xs5 xs5Var = this.b;
+            if (xs5Var != null && xs5Var.b() != null && this.b.b().g() != null) {
+                this.b.b().g().a();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.ft5
+    public void f() {
+        xs5 xs5Var;
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (xs5Var = this.b) != null && xs5Var.c() != 0) {
+            this.b.h("1");
+            i();
+            StatisticItem param = new StatisticItem(CommonStatisticKey.KEY_MULTI_DEL_BUTTON_CLICK).param("obj_type", "1");
+            if (this.e == 3) {
+                str = "3";
+            } else {
+                str = "2";
+            }
+            TiebaStatic.log(param.param("obj_source", str));
+        }
+    }
+
+    @Override // com.baidu.tieba.ft5
+    public void g() {
+        xs5 xs5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (xs5Var = this.b) != null && xs5Var.c() != 0) {
+            String str = "2";
+            this.b.h("2");
+            i();
+            StatisticItem param = new StatisticItem(CommonStatisticKey.KEY_MULTI_DEL_BUTTON_CLICK).param("obj_type", "2");
+            if (this.e == 3) {
+                str = "3";
+            }
+            TiebaStatic.log(param.param("obj_source", str));
+        }
+    }
+
+    @Override // com.baidu.tieba.ft5
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            dismiss();
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            ht5 ht5Var = new ht5(this.c, this.b);
+            this.d = ht5Var;
+            ht5Var.c(this.e);
+        }
+    }
+
+    @Override // com.baidu.tieba.et5
+    public void show() {
+        it5 it5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (it5Var = this.a) != null) {
+            it5Var.e();
+        }
+    }
+
+    @Override // com.baidu.tieba.ft5
+    public void h(ct5 ct5Var) {
+        String str;
+        boolean z;
+        dt5 dt5Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, ct5Var) == null) {
+            List<String> list = null;
+            int i = -1;
+            if (ct5Var != null) {
+                if (ct5Var.a && (dt5Var = ct5Var.c) != null) {
+                    list = dt5Var.a;
+                    i = dt5Var.c;
+                    str = dt5Var.d;
+                } else {
+                    str = ct5Var.b;
+                }
+            } else {
+                str = "";
+            }
+            ht5 ht5Var = this.d;
+            if (ht5Var != null) {
+                ht5Var.b();
+            }
+            Activity pageActivity = this.c.getPageActivity();
+            if (i == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            j(pageActivity, z, str);
+            xs5 xs5Var = this.b;
+            if (xs5Var != null && xs5Var.b() != null && this.b.b().g() != null) {
+                this.b.b().g().b(list);
+            }
+            if (i == 0) {
+                dismiss();
+            } else if (!ListUtils.isEmpty(list)) {
+                for (String str2 : list) {
+                    a(str2);
+                }
+            }
+        }
+    }
+
+    public final void j(Activity activity, boolean z, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{activity, Boolean.valueOf(z), str}) == null) && activity != null && !TextUtils.isEmpty(str)) {
+            View findViewById = activity.findViewById(16908290);
+            if (!(findViewById instanceof ViewGroup)) {
+                return;
+            }
+            BdTopToast bdTopToast = new BdTopToast(activity, 3000);
+            bdTopToast.h(z);
+            bdTopToast.g(str);
+            bdTopToast.i((ViewGroup) findViewById);
         }
     }
 }

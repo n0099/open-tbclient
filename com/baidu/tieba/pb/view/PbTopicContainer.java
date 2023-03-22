@@ -19,10 +19,10 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bq5;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.oq5;
-import com.baidu.tieba.zu4;
+import com.baidu.tieba.gt4;
+import com.baidu.tieba.hi;
+import com.baidu.tieba.mp5;
+import com.baidu.tieba.yo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -104,13 +104,13 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
         }
         Context context = getContext();
         TextView textView = new TextView(context);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, ej.g(context, R.dimen.tbds72));
-        int g = ej.g(context, R.dimen.tbds22);
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, hi.g(context, R.dimen.tbds72));
+        int g = hi.g(context, R.dimen.tbds22);
         layoutParams.rightMargin = g;
         textView.setTag(recommendTopicListData);
-        textView.setText(bq5.a(recommendTopicListData.getTopicName()));
+        textView.setText(yo5.a(recommendTopicListData.getTopicName()));
         addView(textView, layoutParams);
-        textView.setTextSize(0, ej.g(context, R.dimen.tbds33));
+        textView.setTextSize(0, hi.g(context, R.dimen.tbds33));
         textView.setGravity(17);
         textView.setOnClickListener(this);
         textView.setPadding(g, 0, g, 0);
@@ -125,10 +125,10 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
             TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).param("obj_locate", TbadkCoreStatisticKey.HOT_TOPIC_CLICK_PB_BOTTOM));
             RecommendTopicData.RecommendTopicListData recommendTopicListData = (RecommendTopicData.RecommendTopicListData) view2.getTag();
             TbPageContext tbPageContext = this.b;
-            if (tbPageContext != null && !bq5.c(tbPageContext, false, true)) {
+            if (tbPageContext != null && !yo5.c(tbPageContext, false, true)) {
                 if (recommendTopicListData.getIsVideoTopicInt() != 1 && NewWebHotTopicPageSwitch.isOn()) {
                     TbPageContext tbPageContext2 = this.b;
-                    oq5.e(tbPageContext2, recommendTopicListData.getTopicId() + "", recommendTopicListData.getTopicName());
+                    mp5.e(tbPageContext2, recommendTopicListData.getTopicId() + "", recommendTopicListData.getTopicName());
                     return;
                 }
                 HotTopicActivityConfig hotTopicActivityConfig = new HotTopicActivityConfig(getContext());
@@ -136,7 +136,7 @@ public class PbTopicContainer extends LinearLayout implements View.OnClickListen
                 return;
             }
             Context context = getContext();
-            zu4.s(context, "https://tieba.baidu.com/mo/q/hotmessage?topic_id=" + recommendTopicListData.getTopicId() + "&topic_name=" + recommendTopicListData.getTopicName());
+            gt4.s(context, "https://tieba.baidu.com/mo/q/hotmessage?topic_id=" + recommendTopicListData.getTopicId() + "&topic_name=" + recommendTopicListData.getTopicName());
         }
     }
 

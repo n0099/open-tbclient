@@ -10,9 +10,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.switchs.FixNpsAnrSwitch;
-import com.baidu.tieba.b55;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.gh;
+import com.baidu.tieba.hi;
+import com.baidu.tieba.jg;
+import com.baidu.tieba.m35;
 /* loaded from: classes2.dex */
 public class NightPluginTask extends LaunchTask {
     public BdUniqueId tag = BdUniqueId.gen();
@@ -24,7 +24,7 @@ public class NightPluginTask extends LaunchTask {
             if (loadInt == 1) {
                 TbadkCoreApplication.getInst().setSkinTypeValue(4);
                 TbadkCoreApplication.getInst().SendSkinTypeBroadcast(4);
-            } else if (b55.m().i("key_is_follow_system_mode", false)) {
+            } else if (m35.m().i("key_is_follow_system_mode", false)) {
                 SkinManager.setDayOrDarkSkinTypeWithSystemMode(false, true);
             } else {
                 TbadkCoreApplication.getInst().setSkinTypeValue(loadInt);
@@ -50,8 +50,8 @@ public class NightPluginTask extends LaunchTask {
         MessageManager.getInstance().registerListener(this.mNightInstallListener);
         if (PermissionUtil.isBrowseMode()) {
             MessageManager.getInstance().runTask(2001281, String.class);
-        } else if (FixNpsAnrSwitch.getIsOn() && ej.q() > 1) {
-            gh.a().postDelayed(new Runnable() { // from class: com.baidu.searchbox.task.async.privacy.NightPluginTask.2
+        } else if (FixNpsAnrSwitch.getIsOn() && hi.q() > 1) {
+            jg.a().postDelayed(new Runnable() { // from class: com.baidu.searchbox.task.async.privacy.NightPluginTask.2
                 @Override // java.lang.Runnable
                 public void run() {
                     MessageManager.getInstance().runTask(2001281, String.class);

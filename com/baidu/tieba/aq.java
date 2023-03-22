@@ -1,8 +1,6 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.component.buoy.TaskBuoyViewData;
-import com.baidu.bdtask.component.buoy.TaskBuoyViewModel;
 import com.baidu.bdtask.model.info.TaskInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,13 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes3.dex */
-public final class aq {
+public final class aq extends gq {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
+    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String d;
+    public final String e;
 
     static {
         InterceptResult invokeClinit;
@@ -32,21 +31,14 @@ public final class aq {
                 return;
             }
         }
-        a = new a(null);
+        f = new a(null);
     }
 
-    @JvmStatic
-    public static final hq a(dt<TaskBuoyViewData, TaskBuoyViewModel> dtVar, iq iqVar, TaskInfo taskInfo) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.uq
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, dtVar, iqVar, taskInfo)) == null) ? a.a(dtVar, iqVar, taskInfo) : (hq) invokeLLL.objValue;
-    }
-
-    @JvmStatic
-    public static final kq b(dt<TaskBuoyViewData, TaskBuoyViewModel> dtVar, TaskBuoyViewModel taskBuoyViewModel, TaskInfo taskInfo) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, dtVar, taskBuoyViewModel, taskInfo)) == null) ? a.b(dtVar, taskBuoyViewModel, taskInfo) : (kq) invokeLLL.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "TaskDuplicatedCacheAction" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes3.dex */
@@ -72,24 +64,82 @@ public final class aq {
             this();
         }
 
-        @JvmStatic
-        public final hq a(dt<TaskBuoyViewData, TaskBuoyViewModel> dtVar, iq iqVar, TaskInfo taskInfo) {
-            InterceptResult invokeLLL;
+        public final aq a(TaskInfo taskInfo, String str) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dtVar, iqVar, taskInfo)) == null) {
-                return new hq(dtVar, iqVar, taskInfo);
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, taskInfo, str)) == null) {
+                return new aq(taskInfo, str, null, 0, null, null, 60, null);
             }
-            return (hq) invokeLLL.objValue;
+            return (aq) invokeLL.objValue;
         }
+    }
 
-        @JvmStatic
-        public final kq b(dt<TaskBuoyViewData, TaskBuoyViewModel> dtVar, TaskBuoyViewModel taskBuoyViewModel, TaskInfo taskInfo) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dtVar, taskBuoyViewModel, taskInfo)) == null) {
-                return new kq(dtVar, taskBuoyViewModel, taskInfo);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public aq(TaskInfo taskInfo, String str, String str2, int i, Integer num, String str3) {
+        super(str2, num, str3);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {taskInfo, str, str2, Integer.valueOf(i), num, str3};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (Integer) objArr2[1], (String) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return (kq) invokeLLL.objValue;
         }
+        this.d = str;
+        this.e = str2;
+    }
+
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public /* synthetic */ aq(TaskInfo taskInfo, String str, String str2, int i, Integer num, String str3, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this(taskInfo, str, r3, r4, r5, r6);
+        int i3;
+        Integer num2;
+        String str4;
+        String singleKey = (i2 & 4) != 0 ? taskInfo.getSingleKey() : str2;
+        if ((i2 & 8) != 0) {
+            i3 = 8;
+        } else {
+            i3 = i;
+        }
+        if ((i2 & 16) != 0) {
+            num2 = null;
+        } else {
+            num2 = num;
+        }
+        if ((i2 & 32) != 0) {
+            str4 = null;
+        } else {
+            str4 = str3;
+        }
+    }
+
+    @Override // com.baidu.tieba.gq
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
     }
 }

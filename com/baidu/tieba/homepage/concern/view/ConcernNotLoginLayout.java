@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.hi;
 import com.baidu.tieba.homepage.HomePageStatic;
-import com.baidu.tieba.y55;
+import com.baidu.tieba.j45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -97,18 +97,18 @@ public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickL
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01fe, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0202, (ViewGroup) this, true);
             this.a = context;
-            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091131);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092518);
+            this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091163);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092573);
             this.c = textView;
-            textView.setTextSize(0, ej.g(context, R.dimen.T_X06));
-            this.d = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f092517);
-            y55 y55Var = new y55();
-            this.d.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0451));
+            textView.setTextSize(0, hi.g(context, R.dimen.T_X06));
+            this.d = (TBSpecificationBtn) inflate.findViewById(R.id.obfuscated_res_0x7f092572);
+            j45 j45Var = new j45();
+            this.d.setText(context.getResources().getString(R.string.obfuscated_res_0x7f0f0455));
             this.d.setTextSize(R.dimen.T_X05);
             this.d.setTextHorizontalCenter(true);
-            this.d.setConfig(y55Var);
+            this.d.setConfig(j45Var);
             this.d.setOnClickListener(this);
         }
     }
@@ -128,7 +128,7 @@ public class ConcernNotLoginLayout extends LinearLayout implements View.OnClickL
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f092517) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f092572) {
             ViewHelper.checkUpIsLogin(this.a);
             HomePageStatic.a = true;
         }

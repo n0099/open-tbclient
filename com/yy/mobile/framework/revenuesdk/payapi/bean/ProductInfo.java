@@ -2,7 +2,7 @@ package com.yy.mobile.framework.revenuesdk.payapi.bean;
 
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ProductInfo {
     public Double chargeRate;
     public int cid;

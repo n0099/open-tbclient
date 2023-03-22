@@ -20,9 +20,9 @@ import com.baidu.live.business.model.data.LiveFeedConfig;
 import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jd0;
-import com.baidu.tieba.ta0;
-import com.baidu.tieba.uc0;
+import com.baidu.tieba.j90;
+import com.baidu.tieba.kb0;
+import com.baidu.tieba.zb0;
 import java.util.ArrayList;
 import java.util.List;
 import kotlin.Metadata;
@@ -119,7 +119,7 @@ public final class LiveSubTabAdapter extends RecyclerView.Adapter<RecyclerView.V
         @Override // com.baidu.live.business.base.LiveBaseItemView.b
         public void a(int i) {
             a g;
-            LiveRoomEntity liveRoomEntity = (LiveRoomEntity) uc0.b(this.b.topicRoomList, i);
+            LiveRoomEntity liveRoomEntity = (LiveRoomEntity) kb0.b(this.b.topicRoomList, i);
             if (liveRoomEntity != null && (g = LiveSubTabAdapter.this.g()) != null) {
                 g.onItemViewClick(liveRoomEntity, this.c);
             }
@@ -128,7 +128,7 @@ public final class LiveSubTabAdapter extends RecyclerView.Adapter<RecyclerView.V
         @Override // com.baidu.live.business.base.LiveBaseItemView.b
         public void b(int i) {
             a g;
-            LiveRoomEntity liveRoomEntity = (LiveRoomEntity) uc0.b(this.b.topicRoomList, i);
+            LiveRoomEntity liveRoomEntity = (LiveRoomEntity) kb0.b(this.b.topicRoomList, i);
             if (liveRoomEntity != null && (g = LiveSubTabAdapter.this.g()) != null) {
                 g.onItemViewShow(liveRoomEntity, this.c);
             }
@@ -167,7 +167,7 @@ public final class LiveSubTabAdapter extends RecyclerView.Adapter<RecyclerView.V
         @Override // com.baidu.live.business.base.LiveBaseItemView.a
         public final void a(String it) {
             a g;
-            if (!ta0.a() && (g = LiveSubTabAdapter.this.g()) != null) {
+            if (!j90.a() && (g = LiveSubTabAdapter.this.g()) != null) {
                 Intrinsics.checkExpressionValueIsNotNull(it, "it");
                 g.onItemLabelClickListener(it, this.b, this.c);
             }
@@ -324,7 +324,7 @@ public final class LiveSubTabAdapter extends RecyclerView.Adapter<RecyclerView.V
                 if (this.b) {
                     LiveBaseItemView liveBaseItemView4 = liveFeedBaseHolder.a;
                     if (liveBaseItemView4 != null) {
-                        ((LiveLoadMoreView) liveBaseItemView4).setLoadMoreLabel(R.string.obfuscated_res_0x7f0f0ab8);
+                        ((LiveLoadMoreView) liveBaseItemView4).setLoadMoreLabel(R.string.obfuscated_res_0x7f0f0ac5);
                         LiveBaseItemView liveBaseItemView5 = liveFeedBaseHolder.a;
                         if (liveBaseItemView5 != null) {
                             ((LiveLoadMoreView) liveBaseItemView5).setAnimViewVisibility(0);
@@ -339,14 +339,14 @@ public final class LiveSubTabAdapter extends RecyclerView.Adapter<RecyclerView.V
                 if (Intrinsics.areEqual(LiveFeedPageSdk.HOST_QUANMIN, liveFeedPageSdk.getHost())) {
                     LiveBaseItemView liveBaseItemView6 = liveFeedBaseHolder.a;
                     if (liveBaseItemView6 != null) {
-                        ((LiveLoadMoreView) liveBaseItemView6).setLoadMoreLabel(R.string.obfuscated_res_0x7f0f0aba);
+                        ((LiveLoadMoreView) liveBaseItemView6).setLoadMoreLabel(R.string.obfuscated_res_0x7f0f0ac7);
                     } else {
                         throw new TypeCastException("null cannot be cast to non-null type com.baidu.live.business.LiveLoadMoreView");
                     }
                 } else {
                     LiveBaseItemView liveBaseItemView7 = liveFeedBaseHolder.a;
                     if (liveBaseItemView7 != null) {
-                        ((LiveLoadMoreView) liveBaseItemView7).setLoadMoreLabel(R.string.obfuscated_res_0x7f0f0ab9);
+                        ((LiveLoadMoreView) liveBaseItemView7).setLoadMoreLabel(R.string.obfuscated_res_0x7f0f0ac6);
                     } else {
                         throw new TypeCastException("null cannot be cast to non-null type com.baidu.live.business.LiveLoadMoreView");
                     }
@@ -409,7 +409,7 @@ public final class LiveSubTabAdapter extends RecyclerView.Adapter<RecyclerView.V
         }
         LiveReserveHeaderView liveReserveHeaderView = new LiveReserveHeaderView(this.g);
         liveReserveHeaderView.setScene(this.h);
-        jd0 f2 = jd0.f();
+        zb0 f2 = zb0.f();
         Intrinsics.checkExpressionValueIsNotNull(f2, "UIModeUtils.getInstance()");
         liveReserveHeaderView.f(f2.r());
         return new LiveFeedBaseHolder(liveReserveHeaderView);
@@ -425,7 +425,7 @@ public final class LiveSubTabAdapter extends RecyclerView.Adapter<RecyclerView.V
                     ((LiveReserveHeaderView) liveBaseItemView).setData(this.a.get(i).reserveHeaderInfo);
                     LiveBaseItemView liveBaseItemView2 = liveFeedBaseHolder.a;
                     if (liveBaseItemView2 != null) {
-                        jd0 f2 = jd0.f();
+                        zb0 f2 = zb0.f();
                         Intrinsics.checkExpressionValueIsNotNull(f2, "UIModeUtils.getInstance()");
                         ((LiveReserveHeaderView) liveBaseItemView2).f(f2.r());
                         LiveBaseItemView liveBaseItemView3 = liveFeedBaseHolder.a;

@@ -1,104 +1,132 @@
 package com.baidu.tieba;
 
-import android.app.AlertDialog;
-import android.content.Context;
-import android.view.View;
-import android.view.Window;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.res.Resources;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.widget.IndicatorView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.dialog.CircleView1080;
-import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class t15 extends AlertDialog {
+public class t15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public TextView b;
-    public TextView c;
-    public CircleView1080 d;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
     public int e;
+    public int f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t15(Context context) {
-        super(context);
+    public t15() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public void b(int i) {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || i == this.e) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public final void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    public final void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public final void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public final void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void i(IndicatorView indicatorView) {
+        Resources resources;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, indicatorView) != null) || indicatorView == null || (resources = indicatorView.getResources()) == null) {
             return;
         }
-        this.e = i;
-        TextView textView = this.b;
-        if (textView != null) {
-            textView.setText(i + "%");
+        int i = this.d;
+        if (i > 0) {
+            indicatorView.setSpacing(resources.getDimensionPixelSize(i));
         }
-        CircleView1080 circleView1080 = this.d;
-        if (circleView1080 != null) {
-            circleView1080.setProgress(i);
+        int i2 = this.b;
+        if (i2 > 0) {
+            indicatorView.setDrawable(resources.getDrawable(i2));
         }
-    }
-
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.a = str;
-            TextView textView = this.c;
-            if (textView != null) {
-                textView.setText(str);
+        int i3 = this.c;
+        if (i3 > 0) {
+            indicatorView.setSelector(resources.getDrawable(i3));
+        }
+        ViewGroup.LayoutParams layoutParams = indicatorView.getLayoutParams();
+        if (layoutParams instanceof FrameLayout.LayoutParams) {
+            FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
+            layoutParams2.gravity = this.a;
+            int i4 = this.e;
+            if (i4 > 0) {
+                layoutParams2.bottomMargin = resources.getDimensionPixelSize(i4);
             }
-        }
-    }
-
-    @Override // android.app.Dialog
-    public void show() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            super.show();
-            Window window = getWindow();
-            if (window != null) {
-                window.setContentView(R.layout.progress_dialog_1080);
-                GreyUtil.grey(window);
-                View findViewById = findViewById(R.id.frame_progress_dialog);
-                if (findViewById.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                    RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) findViewById.getLayoutParams();
-                    layoutParams.topMargin = ej.g(getContext(), R.dimen.tbds50);
-                    findViewById.setLayoutParams(layoutParams);
-                }
-                TextView textView = (TextView) window.findViewById(R.id.text_progress_dialog_message);
-                this.c = textView;
-                if (textView.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                    RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.c.getLayoutParams();
-                    layoutParams2.topMargin = ej.g(getContext(), R.dimen.tbds35);
-                    this.c.setLayoutParams(layoutParams2);
-                }
-                if (!StringUtils.isNull(this.a)) {
-                    this.c.setText(this.a);
-                }
-                this.b = (TextView) window.findViewById(R.id.text_progress_dialog_percent);
-                this.d = (CircleView1080) window.findViewById(R.id.circle_progress_dialog);
+            int i5 = this.f;
+            if (i5 > 0) {
+                layoutParams2.rightMargin = resources.getDimensionPixelSize(i5);
             }
+            indicatorView.setLayoutParams(layoutParams);
         }
     }
 }

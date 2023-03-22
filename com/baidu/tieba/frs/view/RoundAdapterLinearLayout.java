@@ -23,7 +23,7 @@ import java.util.Arrays;
 /* loaded from: classes4.dex */
 public class RoundAdapterLinearLayout extends AdapterLinearLayout {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int h = 2131100546;
+    public static final int h = 2131100552;
     public transient /* synthetic */ FieldHolder $fh;
     public float c;
     public Shape d;

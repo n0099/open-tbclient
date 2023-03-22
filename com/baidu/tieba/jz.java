@@ -1,140 +1,92 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.VoteView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.SecureRandom;
 /* loaded from: classes5.dex */
-public class jz extends sx {
+public class jz {
     public static /* synthetic */ Interceptable $ic;
+    public static final SecureRandom b;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext h;
-    public int i;
-    public VoteView j;
+    public lz a;
 
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zx4 a;
-        public final /* synthetic */ jz b;
-
-        public a(jz jzVar, zx4 zx4Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448308829, "Lcom/baidu/tieba/jz;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jzVar, zx4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = jzVar;
-            this.a = zx4Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                ThreadCardUtils.jumpToPB(this.a, (Context) this.b.h.getPageActivity(), this.b.i, false);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448308829, "Lcom/baidu/tieba/jz;");
+                return;
             }
         }
+        b = new SecureRandom();
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jz(Context context) {
-        super(context);
+    public jz() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.j = new VoteView(context);
-        v(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
+        this.a = null;
+        this.a = new lz(new iz(), 16);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.dy
-    /* renamed from: z */
-    public void a(zx4 zx4Var) {
+    public static byte[] c(byte[] bArr, byte[] bArr2, byte[] bArr3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, zx4Var) == null) {
-            if (y(zx4Var)) {
-                this.j.setVisibility(0);
-                this.j.setThreadData(zx4Var.getThreadData());
-                this.j.setOnItemClickListener(new a(this, zx4Var));
-                return;
-            }
-            this.j.setVisibility(8);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, bArr, bArr2, bArr3)) == null) {
+            jz jzVar = new jz();
+            jzVar.a(1, bArr, bArr2);
+            return jzVar.b(bArr3);
+        }
+        return (byte[]) invokeLLL.objValue;
+    }
+
+    public static byte[] d(byte[] bArr, byte[] bArr2, byte[] bArr3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, bArr, bArr2, bArr3)) == null) {
+            jz jzVar = new jz();
+            jzVar.a(2, bArr, bArr2);
+            return jzVar.b(bArr3);
+        }
+        return (byte[]) invokeLLL.objValue;
+    }
+
+    public void a(int i, byte[] bArr, byte[] bArr2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048576, this, i, bArr, bArr2) == null) {
+            this.a.c(i, bArr, bArr2, b);
         }
     }
 
-    public void A(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.i = i;
-        }
-    }
-
-    public void B(TbPageContext tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) {
-            this.h = tbPageContext;
-            this.j.setPageContext(tbPageContext);
-        }
-    }
-
-    @Override // com.baidu.tieba.lx
-    public View k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.j;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ey
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
-            this.j.D(i);
-        }
-    }
-
-    public final boolean y(zx4 zx4Var) {
+    public final byte[] b(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, zx4Var)) == null) {
-            if (zx4Var != null && zx4Var.getThreadData() != null && zx4Var.getThreadData().getPollData() != null && zx4Var.getThreadData().getPollData().getOptions() != null && zx4Var.getThreadData().getPollData().getOptions().size() > 0 && !zx4Var.getThreadData().isVideoThreadType()) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
+            if (bArr != null) {
+                return this.a.e(bArr, 0, bArr.length);
             }
-            return false;
+            throw new IllegalArgumentException("Null input buffer");
         }
-        return invokeL.booleanValue;
+        return (byte[]) invokeL.objValue;
     }
 }

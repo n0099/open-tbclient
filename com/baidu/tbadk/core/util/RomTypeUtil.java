@@ -3,8 +3,8 @@ package com.baidu.tbadk.core.util;
 import android.os.Build;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.gj;
-import com.baidu.tieba.jj;
+import com.baidu.tieba.ji;
+import com.baidu.tieba.mi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ public class RomTypeUtil {
     public static final String ROM_SMARTISAN = "SMARTISAN";
     public static final String ROM_VIVO = "VIVO";
     public static final String TAG = "Rom";
-    public static jj permissionUtil;
+    public static mi permissionUtil;
     public static String sName;
     public static String sVersion;
     public transient /* synthetic */ FieldHolder $fh;
@@ -148,7 +148,7 @@ public class RomTypeUtil {
                                     sName = "FLYME";
                                 } else {
                                     sVersion = "unknown";
-                                    sName = gj.f().toUpperCase();
+                                    sName = ji.f().toUpperCase();
                                 }
                             }
                         }
@@ -211,10 +211,10 @@ public class RomTypeUtil {
         }
     }
 
-    public static void setPermissionUtil(jj jjVar) {
+    public static void setPermissionUtil(mi miVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, jjVar) == null) {
-            permissionUtil = jjVar;
+        if (interceptable == null || interceptable.invokeL(65545, null, miVar) == null) {
+            permissionUtil = miVar;
         }
     }
 }

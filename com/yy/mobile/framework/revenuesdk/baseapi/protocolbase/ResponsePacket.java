@@ -1,5 +1,5 @@
 package com.yy.mobile.framework.revenuesdk.baseapi.protocolbase;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class ResponsePacket extends Marshallable {
     public abstract void popPacketData();
 

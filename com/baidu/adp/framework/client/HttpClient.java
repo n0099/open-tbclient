@@ -10,14 +10,15 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.adp.framework.task.HttpMessageTask;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.log.NetLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ai;
-import com.baidu.tieba.dc;
-import com.baidu.tieba.eg;
-import com.baidu.tieba.hg;
-import com.baidu.tieba.ra;
+import com.baidu.tieba.dh;
+import com.baidu.tieba.gb;
+import com.baidu.tieba.hf;
+import com.baidu.tieba.kf;
+import com.baidu.tieba.u9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +29,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes.dex */
-public class HttpClient extends ra<HttpMessage, HttpMessageTask> {
+public class HttpClient extends u9<HttpMessage, HttpMessageTask> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -74,8 +75,8 @@ public class HttpClient extends ra<HttpMessage, HttpMessageTask> {
         public transient /* synthetic */ FieldHolder $fh;
         public HttpMessage a;
         public HttpMessageTask b;
-        public final hg c;
-        public volatile eg d;
+        public final kf c;
+        public volatile hf d;
 
         public a(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
             Interceptable interceptable = $ic;
@@ -104,18 +105,13 @@ public class HttpClient extends ra<HttpMessage, HttpMessageTask> {
             setKey(String.valueOf(httpMessageTask.getCmd()));
             this.a = httpMessage;
             this.b = httpMessageTask;
-            this.c = new hg();
+            this.c = new kf();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Removed duplicated region for block: B:119:0x01e6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-        /* JADX WARN: Removed duplicated region for block: B:127:? A[RETURN, SYNTHETIC] */
-        /* JADX WARN: Removed duplicated region for block: B:53:0x0178  */
-        /* JADX WARN: Removed duplicated region for block: B:54:0x0195  */
-        /* JADX WARN: Removed duplicated region for block: B:57:0x01d4  */
-        /* JADX WARN: Removed duplicated region for block: B:82:0x0276  */
-        /* JADX WARN: Removed duplicated region for block: B:85:0x0285  */
-        /* JADX WARN: Removed duplicated region for block: B:89:0x02e8 A[Catch: Exception -> 0x02fa, TRY_LEAVE, TryCatch #2 {Exception -> 0x02fa, blocks: (B:87:0x02e2, B:89:0x02e8), top: B:111:0x02e2 }] */
+        /* JADX WARN: Removed duplicated region for block: B:115:? A[RETURN, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:79:0x02dd  */
+        /* JADX WARN: Removed duplicated region for block: B:83:0x0345 A[Catch: Exception -> 0x0357, TRY_LEAVE, TryCatch #5 {Exception -> 0x0357, blocks: (B:81:0x033f, B:83:0x0345), top: B:108:0x033f }] */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         /*
@@ -148,13 +144,14 @@ public class HttpClient extends ra<HttpMessage, HttpMessageTask> {
                 int a2 = this.b.getConnectTimeOut().a();
                 int retry = this.b.getRetry();
                 try {
-                    this.d = new eg(this.c);
+                    this.d = new hf(this.c);
                     if (this.b.getMethod() == HttpMessageTask.HTTP_METHOD.GET) {
                         this.d.d(retry, a, a2);
                     } else if (this.b.getMethod() == HttpMessageTask.HTTP_METHOD.POST) {
                         this.d.m(retry, a, a2);
                     }
                 } catch (Exception e) {
+                    NetLog.getInstance().c(dh.a, " httpclient has error : " + e.getMessage());
                     BdLog.detailException(e);
                 }
                 int cmd = this.b.getCmd();
@@ -191,166 +188,137 @@ public class HttpClient extends ra<HttpMessage, HttpMessageTask> {
                 long j14 = h - f;
                 long j15 = e2 - h;
                 if (e2 <= 0) {
+                    j2 = j14;
                     j = 0;
                 } else {
                     j = j15;
-                }
-                try {
                     j2 = j14;
+                }
+                NetLog.getInstance().c(dh.a, " getRequest url : " + this.b.getUrl());
+                try {
                     try {
                         newInstance = this.b.getResponsedClass().getConstructor(new Class[0]).newInstance(new Object[0]);
-                    } catch (Exception unused) {
-                        try {
-                            newInstance = this.b.getResponsedClass().getConstructor(Integer.TYPE).newInstance(Integer.valueOf(this.a.getCmd()));
-                            if (this.c.d().size() <= 0) {
-                            }
-                            newInstance.setStatusCode(this.c.c().b, str2);
-                            newInstance.setHeader(this.c.c().h);
-                            newInstance.setContentLength(this.c.c().f);
-                            newInstance.setContentType(this.c.c().e);
-                            newInstance.setDownSize(this.c.c().j);
-                            if (!newInstance.isSuccess()) {
-                            }
-                            newInstance.setOrginalMessage(this.a);
-                            if (!newInstance.isSuccess()) {
-                            }
-                            if (this.a.getExtra() instanceof NetMessage) {
-                            }
-                            String url = this.b.getUrl();
-                            boolean isSuccess = newInstance.isSuccess();
-                            dc dcVar = newInstance.performanceData;
-                            ai.a(str3, cmd, url, isSuccess, true, j3, j12, dcVar.g, j4, j5, dcVar.i);
-                            newInstance.logStatInBackground(this.a.getCmd(), this.c);
-                            newInstance.setStartTime(System.currentTimeMillis());
-                            publishProgress(newInstance);
-                            if (!newInstance.isSuccess()) {
-                            }
-                        } catch (Exception e3) {
-                            if (BdLog.isDebugMode()) {
-                                BdLog.detailException("responsedMessage create error reason = " + e3.toString(), e3);
-                            }
-                            ErrorHttpResponsedMessage errorHttpResponsedMessage = new ErrorHttpResponsedMessage(this.a.getCmd(), this.a);
-                            ai.a(str3, cmd, this.b.getUrl(), false, true, j9, 0L, 0L, 0L, 0L, 0);
-                            return errorHttpResponsedMessage;
+                    } catch (Exception e3) {
+                        if (BdLog.isDebugMode()) {
+                            BdLog.detailException("responsedMessage create error reason = " + e3.toString(), e3);
                         }
+                        ErrorHttpResponsedMessage errorHttpResponsedMessage = new ErrorHttpResponsedMessage(this.a.getCmd(), this.a);
+                        dh.a(str3, cmd, this.b.getUrl(), false, true, j9, 0L, 0L, 0L, 0L, 0);
+                        return errorHttpResponsedMessage;
                     }
-                } catch (Exception unused2) {
-                    j2 = j14;
+                } catch (Exception unused) {
+                    newInstance = this.b.getResponsedClass().getConstructor(Integer.TYPE).newInstance(Integer.valueOf(this.a.getCmd()));
                 }
-                if (this.c.d().size() <= 0) {
+                HttpResponsedMessage httpResponsedMessage = newInstance;
+                if (this.c.d().size() > 0) {
                     str2 = this.c.d().get(this.c.d().size() - 1).h;
                 } else {
                     str2 = "";
                 }
-                newInstance.setStatusCode(this.c.c().b, str2);
-                newInstance.setHeader(this.c.c().h);
-                newInstance.setContentLength(this.c.c().f);
-                newInstance.setContentType(this.c.c().e);
-                newInstance.setDownSize(this.c.c().j);
-                if (!newInstance.isSuccess()) {
-                    newInstance.setError(newInstance.getStatusCode());
+                httpResponsedMessage.setStatusCode(this.c.c().b, str2);
+                httpResponsedMessage.setHeader(this.c.c().h);
+                httpResponsedMessage.setContentLength(this.c.c().f);
+                httpResponsedMessage.setContentType(this.c.c().e);
+                httpResponsedMessage.setDownSize(this.c.c().j);
+                if (!httpResponsedMessage.isSuccess()) {
+                    httpResponsedMessage.setError(httpResponsedMessage.getStatusCode());
                 }
-                newInstance.setOrginalMessage(this.a);
-                if (!newInstance.isSuccess()) {
+                httpResponsedMessage.setOrginalMessage(this.a);
+                if (httpResponsedMessage.isSuccess()) {
                     try {
-                        newInstance.decodeInBackGround(this.a.getCmd(), this.c.c().i);
+                        httpResponsedMessage.decodeInBackGround(this.a.getCmd(), this.c.c().i);
                         long currentTimeMillis2 = System.currentTimeMillis();
                         j6 = currentTimeMillis2 - currentTimeMillis;
                         j7 = currentTimeMillis2 - e2;
+                        httpResponsedMessage.performanceData.a = j8;
+                        httpResponsedMessage.performanceData.l = j10;
+                        httpResponsedMessage.performanceData.k = j11;
+                        httpResponsedMessage.performanceData.b = j9;
+                        httpResponsedMessage.performanceData.c = j12;
+                        j4 = j13;
                         try {
-                            newInstance.performanceData.a = j8;
-                            newInstance.performanceData.l = j10;
-                            newInstance.performanceData.k = j11;
-                            newInstance.performanceData.b = j9;
-                            newInstance.performanceData.c = j12;
-                            j4 = j13;
+                            httpResponsedMessage.performanceData.d = j4;
+                            j3 = j2;
                         } catch (Exception e4) {
                             e = e4;
-                            j3 = j9;
-                            j5 = j2;
-                            j4 = j13;
+                            j3 = j2;
                         }
-                        try {
-                            newInstance.performanceData.d = j4;
-                            j5 = j2;
-                            try {
-                                newInstance.performanceData.e = j5;
-                                j3 = j9;
-                            } catch (Exception e5) {
-                                e = e5;
-                                j3 = j9;
-                            }
-                        } catch (Exception e6) {
-                            e = e6;
-                            j3 = j9;
-                            j5 = j2;
-                            newInstance.setError(-1003);
-                            newInstance.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f05ef));
-                            BdLog.detailException(e);
-                            if (this.a.getExtra() instanceof NetMessage) {
-                            }
-                            String url2 = this.b.getUrl();
-                            boolean isSuccess2 = newInstance.isSuccess();
-                            dc dcVar2 = newInstance.performanceData;
-                            ai.a(str3, cmd, url2, isSuccess2, true, j3, j12, dcVar2.g, j4, j5, dcVar2.i);
-                            newInstance.logStatInBackground(this.a.getCmd(), this.c);
-                            newInstance.setStartTime(System.currentTimeMillis());
-                            publishProgress(newInstance);
-                            if (!newInstance.isSuccess()) {
-                            }
-                        }
-                    } catch (Exception e7) {
-                        e = e7;
-                        j3 = j9;
+                    } catch (Exception e5) {
+                        e = e5;
+                        j3 = j2;
                         j4 = j13;
                     }
                     try {
-                        newInstance.performanceData.f = j;
-                        newInstance.performanceData.g = j7;
-                        newInstance.setCostTime(j6);
-                        newInstance.beforeDispatchInBackGround(this.a.getCmd(), this.c.c().i);
-                    } catch (Exception e8) {
-                        e = e8;
-                        newInstance.setError(-1003);
-                        newInstance.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f05ef));
+                        httpResponsedMessage.performanceData.e = j3;
+                        j5 = j12;
+                    } catch (Exception e6) {
+                        e = e6;
+                        j5 = j12;
+                        NetLog.getInstance().c(dh.a, " 解码失败 : " + e.getMessage());
+                        httpResponsedMessage.setError(-1003);
+                        httpResponsedMessage.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f05f2));
                         BdLog.detailException(e);
                         if (this.a.getExtra() instanceof NetMessage) {
                         }
-                        String url22 = this.b.getUrl();
-                        boolean isSuccess22 = newInstance.isSuccess();
-                        dc dcVar22 = newInstance.performanceData;
-                        ai.a(str3, cmd, url22, isSuccess22, true, j3, j12, dcVar22.g, j4, j5, dcVar22.i);
-                        newInstance.logStatInBackground(this.a.getCmd(), this.c);
-                        newInstance.setStartTime(System.currentTimeMillis());
-                        publishProgress(newInstance);
-                        if (!newInstance.isSuccess()) {
+                        String url = this.b.getUrl();
+                        boolean isSuccess = httpResponsedMessage.isSuccess();
+                        gb gbVar = httpResponsedMessage.performanceData;
+                        dh.a(str3, cmd, url, isSuccess, true, j9, j5, gbVar.g, j4, j3, gbVar.i);
+                        httpResponsedMessage.logStatInBackground(this.a.getCmd(), this.c);
+                        httpResponsedMessage.setStartTime(System.currentTimeMillis());
+                        publishProgress(httpResponsedMessage);
+                        if (httpResponsedMessage.isSuccess()) {
+                        }
+                    }
+                    try {
+                        httpResponsedMessage.performanceData.f = j;
+                        httpResponsedMessage.performanceData.g = j7;
+                        httpResponsedMessage.setCostTime(j6);
+                        httpResponsedMessage.beforeDispatchInBackGround(this.a.getCmd(), this.c.c().i);
+                    } catch (Exception e7) {
+                        e = e7;
+                        NetLog.getInstance().c(dh.a, " 解码失败 : " + e.getMessage());
+                        httpResponsedMessage.setError(-1003);
+                        httpResponsedMessage.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f05f2));
+                        BdLog.detailException(e);
+                        if (this.a.getExtra() instanceof NetMessage) {
+                        }
+                        String url2 = this.b.getUrl();
+                        boolean isSuccess2 = httpResponsedMessage.isSuccess();
+                        gb gbVar2 = httpResponsedMessage.performanceData;
+                        dh.a(str3, cmd, url2, isSuccess2, true, j9, j5, gbVar2.g, j4, j3, gbVar2.i);
+                        httpResponsedMessage.logStatInBackground(this.a.getCmd(), this.c);
+                        httpResponsedMessage.setStartTime(System.currentTimeMillis());
+                        publishProgress(httpResponsedMessage);
+                        if (httpResponsedMessage.isSuccess()) {
                         }
                     }
                 } else {
-                    j3 = j9;
+                    j3 = j2;
                     j4 = j13;
-                    j5 = j2;
+                    j5 = j12;
                 }
                 if (this.a.getExtra() instanceof NetMessage) {
                     NetMessage netMessage = (NetMessage) this.a.getExtra();
-                    newInstance.performanceData.i = netMessage.getSocketErrNo();
-                    newInstance.performanceData.j = netMessage.getSocketCostTime();
+                    httpResponsedMessage.performanceData.i = netMessage.getSocketErrNo();
+                    httpResponsedMessage.performanceData.j = netMessage.getSocketCostTime();
                 }
-                String url222 = this.b.getUrl();
-                boolean isSuccess222 = newInstance.isSuccess();
-                dc dcVar222 = newInstance.performanceData;
-                ai.a(str3, cmd, url222, isSuccess222, true, j3, j12, dcVar222.g, j4, j5, dcVar222.i);
-                newInstance.logStatInBackground(this.a.getCmd(), this.c);
-                newInstance.setStartTime(System.currentTimeMillis());
-                publishProgress(newInstance);
+                String url22 = this.b.getUrl();
+                boolean isSuccess22 = httpResponsedMessage.isSuccess();
+                gb gbVar22 = httpResponsedMessage.performanceData;
+                dh.a(str3, cmd, url22, isSuccess22, true, j9, j5, gbVar22.g, j4, j3, gbVar22.i);
+                httpResponsedMessage.logStatInBackground(this.a.getCmd(), this.c);
+                httpResponsedMessage.setStartTime(System.currentTimeMillis());
+                publishProgress(httpResponsedMessage);
                 try {
-                    if (!newInstance.isSuccess()) {
-                        newInstance.afterDispatchInBackGround(this.a.getCmd(), this.c.c().i);
+                    if (httpResponsedMessage.isSuccess()) {
+                        httpResponsedMessage.afterDispatchInBackGround(this.a.getCmd(), this.c.c().i);
                         return null;
                     }
                     return null;
-                } catch (Exception e9) {
-                    BdLog.e(e9.getMessage());
+                } catch (Exception e8) {
+                    NetLog.getInstance().c(dh.a, " httpclient has error : " + e8.getMessage());
+                    BdLog.e(e8.getMessage());
                     return null;
                 }
             }
@@ -408,7 +376,7 @@ public class HttpClient extends ra<HttpMessage, HttpMessageTask> {
         }
     }
 
-    @Override // com.baidu.tieba.oa
+    @Override // com.baidu.tieba.r9
     public LinkedList<HttpMessage> e(int i, BdUniqueId bdUniqueId) {
         InterceptResult invokeIL;
         Interceptable interceptable = $ic;
@@ -418,7 +386,7 @@ public class HttpClient extends ra<HttpMessage, HttpMessageTask> {
         return (LinkedList) invokeIL.objValue;
     }
 
-    @Override // com.baidu.tieba.oa
+    @Override // com.baidu.tieba.r9
     public void h(int i, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bdUniqueId) == null) {
@@ -427,7 +395,7 @@ public class HttpClient extends ra<HttpMessage, HttpMessageTask> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.oa
+    @Override // com.baidu.tieba.r9
     /* renamed from: k */
     public void f(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         Interceptable interceptable = $ic;

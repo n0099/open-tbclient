@@ -18,7 +18,6 @@ import com.baidu.webkit.internal.monitor.MonitorType;
 import com.google.android.exoplayer2.util.Assertions;
 import com.google.android.exoplayer2.util.Util;
 import com.google.android.material.internal.ManufacturerUtils;
-import org.webrtc.EglBase10;
 @TargetApi(17)
 /* loaded from: classes7.dex */
 public final class DummySurface extends Surface {
@@ -81,9 +80,9 @@ public final class DummySurface extends Surface {
             Assertions.checkState(z3, "eglChooseConfig failed");
             EGLConfig eGLConfig = eGLConfigArr[0];
             if (z) {
-                iArr = new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, DummySurface.EGL_PROTECTED_CONTENT_EXT, 1, 12344};
+                iArr = new int[]{12440, 2, DummySurface.EGL_PROTECTED_CONTENT_EXT, 1, 12344};
             } else {
-                iArr = new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, 12344};
+                iArr = new int[]{12440, 2, 12344};
             }
             EGLContext eglCreateContext = EGL14.eglCreateContext(this.display, eGLConfig, EGL14.EGL_NO_CONTEXT, iArr, 0);
             this.context = eglCreateContext;

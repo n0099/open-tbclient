@@ -1,105 +1,120 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.thread.task.ElasticTask;
-import com.baidu.searchbox.elasticthread.queue.QueueManager;
+import android.content.SharedPreferences;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes4.dex */
 public class g41 {
     public static /* synthetic */ Interceptable $ic;
+    public static final long a;
+    public static final long b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final f41[] a;
 
-    public g41() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947743845, "Lcom/baidu/tieba/g41;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947743845, "Lcom/baidu/tieba/g41;");
                 return;
             }
         }
-        this.a = new f41[4];
-        if (u31.s.length != 4) {
-            Log.e(QueueManager.TAG, "Elastic Queue size incompatible!");
-        }
-        for (int i3 = 0; i3 < 4; i3++) {
-            this.a[i3] = new f41();
-        }
+        a = TimeUnit.DAYS.toMillis(1L);
+        TimeUnit.HOURS.toMillis(1L);
+        b = TimeUnit.MINUTES.toMillis(1L);
+        TimeUnit.SECONDS.toMillis(1L);
     }
 
-    public double a() {
-        InterceptResult invokeV;
+    public static int a(@NonNull String str, @NonNull String str2, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!c(0).d()) {
-                return 9999999.0d;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, str, str2, i)) == null) {
+            String b2 = b(str, str2);
+            if (TextUtils.isEmpty(b2)) {
+                return i;
             }
-            double d = 0.0d;
-            for (int i = 0; i < 4; i++) {
-                d += this.a[i].a() * u31.s[i];
+            try {
+                return Integer.parseInt(b2);
+            } catch (NumberFormatException unused) {
+                return i;
             }
-            return d / 1000.0d;
         }
-        return invokeV.doubleValue;
+        return invokeLLI.intValue;
     }
 
-    public ElasticTask b() {
-        InterceptResult invokeV;
+    public static void e(@NonNull String str, @NonNull String str2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            for (int i = 0; i < 4; i++) {
-                if (!this.a[i].d()) {
-                    return this.a[i].b();
-                }
+        if (interceptable == null || interceptable.invokeLLI(65541, null, str, str2, i) == null) {
+            f(str, str2, String.valueOf(i));
+        }
+    }
+
+    @Nullable
+    public static String b(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
+        int indexOf;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            String string = h11.a().b(str).getString(str2, null);
+            if (TextUtils.isEmpty(string) || (indexOf = string.indexOf("-")) == -1 || indexOf >= string.length() || !d(string.substring(0, indexOf), System.currentTimeMillis())) {
+                return null;
             }
-            return null;
+            return string.substring(indexOf + 1);
         }
-        return (ElasticTask) invokeV.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    public f41 c(int i) {
-        InterceptResult invokeI;
+    public static boolean c(long j, long j2, int i) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            int i2 = 0;
-            while (true) {
-                int[] iArr = u31.a;
-                if (i2 < iArr.length) {
-                    if (iArr[i2] == i) {
-                        return this.a[i2];
-                    }
-                    i2++;
-                } else {
-                    f41[] f41VarArr = this.a;
-                    return f41VarArr[f41VarArr.length - 1];
-                }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)})) == null) {
+            if (j - j2 > i * b) {
+                return true;
             }
-        } else {
-            return (f41) invokeI.objValue;
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static void f(@NonNull String str, @NonNull String str2, @NonNull String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65542, null, str, str2, str3) == null) {
+            SharedPreferences.Editor edit = h11.a().b(str).edit();
+            edit.putString(str2, System.currentTimeMillis() + "-" + str3);
+            edit.apply();
         }
     }
 
-    public void e(ElasticTask elasticTask) {
+    public static boolean d(@Nullable String str, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, elasticTask) == null) {
-            c(elasticTask.b()).e(elasticTask);
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            long j2 = 0;
+            try {
+                j2 = Long.parseLong(str);
+            } catch (NumberFormatException unused) {
+            }
+            long j3 = a;
+            if (j2 / j3 != j / j3) {
+                return false;
+            }
+            return true;
         }
-    }
-
-    public void d(Runnable runnable, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048579, this, runnable, str, i) == null) {
-            c(i).c(runnable, str, i);
-        }
+        return invokeLJ.booleanValue;
     }
 }

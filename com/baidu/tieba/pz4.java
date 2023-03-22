@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,14 +11,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+import tbclient.FrsPage.TopNews;
 /* loaded from: classes5.dex */
-public class pz4 extends BaseCardInfo {
+public class pz4 extends bc9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId d;
+    public static final BdUniqueId b1;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
-    public ICardInfo c;
+    public String Z0;
+    public String a1;
 
     static {
         InterceptResult invokeClinit;
@@ -33,7 +34,7 @@ public class pz4 extends BaseCardInfo {
                 return;
             }
         }
-        d = BdUniqueId.gen();
+        b1 = BdUniqueId.gen();
     }
 
     public pz4() {
@@ -50,53 +51,54 @@ public class pz4 extends BaseCardInfo {
         }
     }
 
-    public ICardInfo c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (ICardInfo) invokeV.objValue;
-    }
-
-    public void f() {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ICardInfo i = fy7.i(this.b);
-            this.c = i;
-            if (i != null) {
-                z = true;
-            } else {
-                z = false;
-            }
-            this.a = z;
-        }
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
+    @Override // com.baidu.tieba.bc9, com.baidu.tieba.gn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b1;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public boolean isValid() {
+    public String p1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.Z0;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public void g(String str) {
+    public String q1() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a1;
         }
+        return (String) invokeV.objValue;
+    }
+
+    public void r1(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            this.Z0 = jSONObject.optString("news_link");
+            this.a1 = jSONObject.optString("summary");
+            jSONObject.optInt(CriusAttrConstants.POSITION, 0);
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
+        }
+    }
+
+    public void s1(TopNews topNews) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, topNews) != null) || topNews == null) {
+            return;
+        }
+        this.Z0 = topNews.news_link;
+        this.a1 = topNews.summary;
     }
 }

@@ -49,6 +49,8 @@ public class CommonStatisticKey {
     public static final String KEY_CHECK_DIALOG_CLICK = "c15029";
     public static final String KEY_CHECK_DIALOG_SHOW = "c15028";
     public static final String KEY_CLICK_VIDEO_TOPIC = "c14410";
+    public static final String KEY_COLLECT_COVER_CLICK = "c15203";
+    public static final String KEY_COLLECT_COVER_SHOW = "c15202";
     public static final String KEY_COMMUNITY_CONVENTION_CLICK = "c14687";
     public static final String KEY_CONCERN_YY_LIVE_AVATER_CLICK = "c14279";
     public static final String KEY_CONCERN_YY_LIVE_AVATER_SHOW = "c14280";
@@ -63,6 +65,7 @@ public class CommonStatisticKey {
     public static final String KEY_DOWNLOAD_MANAGER_SHOW = "c14359";
     public static final String KEY_DRESS_UP_BUNDLE_CLICK = "c15002";
     public static final String KEY_DRESS_UP_BUNDLE_SHOW = "c15001";
+    public static final String KEY_DXX_GUIDE_START_DOWNLOAD = "c15197";
     public static final String KEY_ENTRANCE_CLICKED = "c12611";
     public static final String KEY_FESTIVAL_TIP_VIEW_CLICK = "c15170";
     public static final String KEY_FORUM_INSIDE_LIVE_CLICK = "c14137";

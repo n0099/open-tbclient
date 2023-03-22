@@ -14,9 +14,9 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.tbadk.core.view.KeyEventDealContainerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.ih;
-import com.baidu.tieba.xw4;
+import com.baidu.tieba.fv4;
+import com.baidu.tieba.hi;
+import com.baidu.tieba.lg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -124,19 +124,19 @@ public class MorePopupWindow extends PopupWindow {
         this.mIsIntercepted = false;
     }
 
-    private void applaySkin(xw4 xw4Var, int i, Drawable drawable) {
+    private void applaySkin(fv4 fv4Var, int i, Drawable drawable) {
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIL(65539, this, xw4Var, i, drawable) == null) && this.mContentView != null) {
+        if ((interceptable == null || interceptable.invokeLIL(65539, this, fv4Var, i, drawable) == null) && this.mContentView != null) {
             setBackgroundDrawable(drawable);
             if (i == 4) {
                 z = true;
             } else {
                 z = false;
             }
-            xw4Var.l(z);
+            fv4Var.l(z);
             try {
-                xw4Var.k(this.mContentView);
+                fv4Var.k(this.mContentView);
             } catch (IllegalArgumentException e) {
                 BdLog.e(e.toString());
             }
@@ -199,14 +199,14 @@ public class MorePopupWindow extends PopupWindow {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             if (isShowing()) {
-                ih.d(this, this.mActivity);
+                lg.d(this, this.mActivity);
                 return;
             }
             View view2 = this.mHostView;
             if (view2 == null) {
                 return;
             }
-            ih.l(this, view2, this.mShowRightTopXOff, 0);
+            lg.l(this, view2, this.mShowRightTopXOff, 0);
         }
     }
 
@@ -217,10 +217,10 @@ public class MorePopupWindow extends PopupWindow {
         }
     }
 
-    public void onChangeSkinType(xw4 xw4Var, int i, Drawable drawable) {
+    public void onChangeSkinType(fv4 fv4Var, int i, Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, xw4Var, i, drawable) == null) {
-            applaySkin(xw4Var, i, drawable);
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, fv4Var, i, drawable) == null) {
+            applaySkin(fv4Var, i, drawable);
         }
     }
 
@@ -235,7 +235,7 @@ public class MorePopupWindow extends PopupWindow {
             int dimension = measuredHeight + ((int) this.mActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070224));
             this.mWindowHeight = dimension;
             setHeight(dimension);
-            int[] s = ej.s(this.mActivity);
+            int[] s = hi.s(this.mActivity);
             if (s != null && s.length > 1 && s[0] > measuredWidth) {
                 this.mShowRightTopXOff = s[0] - measuredWidth;
             }
@@ -254,7 +254,7 @@ public class MorePopupWindow extends PopupWindow {
     public void setWidthAsWidthOfDeviceScreen(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
-            int l = ej.l(context);
+            int l = hi.l(context);
             this.mContentView.getLayoutParams().width = l;
             setWidth(l);
         }
@@ -271,14 +271,14 @@ public class MorePopupWindow extends PopupWindow {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             if (isShowing()) {
-                ih.d(this, this.mActivity);
+                lg.d(this, this.mActivity);
                 return;
             }
             View view2 = this.mHostView;
             if (view2 == null) {
                 return;
             }
-            ih.l(this, view2, this.mShowRightTopXOff - i, 0);
+            lg.l(this, view2, this.mShowRightTopXOff - i, 0);
         }
     }
 
@@ -286,25 +286,25 @@ public class MorePopupWindow extends PopupWindow {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048586, this, i, i2) == null) {
             if (isShowing()) {
-                ih.d(this, this.mActivity);
+                lg.d(this, this.mActivity);
                 return;
             }
             View view2 = this.mHostView;
             if (view2 == null) {
                 return;
             }
-            ih.l(this, view2, i, i2);
+            lg.l(this, view2, i, i2);
         }
     }
 
     public void showWindowInLeftCenterOfHost(View view2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048587, this, view2, z) == null) {
-            setAnimationStyle(R.style.obfuscated_res_0x7f1003df);
+            setAnimationStyle(R.style.obfuscated_res_0x7f1003e3);
             setFocusable(z);
             int i = this.mShowLeftCenterXOff;
             int i2 = this.mWindowHeight;
-            ih.l(this, view2, i, (-i2) + ((i2 - view2.getHeight()) / 2));
+            lg.l(this, view2, i, (-i2) + ((i2 - view2.getHeight()) / 2));
         }
     }
 }

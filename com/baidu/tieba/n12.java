@@ -1,112 +1,100 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import android.util.Log;
-import android.util.Pair;
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Canvas;
+import android.graphics.Typeface;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class n12 {
+public class n12 extends z02 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public float b;
+    public boolean c;
+    public boolean d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947949530, "Lcom/baidu/tieba/n12;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947949530, "Lcom/baidu/tieba/n12;");
+    public n12() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = wp1.a;
-        b = new String[]{"swan", "swanAPI", "utils"};
+        this.a = "sans-serif";
+        this.b = kl3.g(10.0f);
+        this.c = false;
+        this.d = false;
     }
 
-    @NonNull
-    public static Pair<Boolean, l12> a(mx1 mx1Var, String str) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.z02
+    public void a(a12 a12Var, Canvas canvas) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, mx1Var, str)) == null) {
-            m12 m12Var = new m12();
-            boolean b2 = b(str, mx1Var.a().g());
-            if (b2) {
-                m12Var.b = 402;
-            }
-            return new Pair<>(Boolean.valueOf(b2), m12Var);
-        }
-        return (Pair) invokeLL.objValue;
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static boolean b(String str, CallbackHandler callbackHandler) {
-        InterceptResult invokeLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, callbackHandler)) == null) {
-            if (!(callbackHandler instanceof uv1)) {
-                if (a) {
-                    Log.d("SwanApiSafe", "intercept: false, handler is null or not WebSafeHolder");
-                }
-                return false;
-            } else if (TextUtils.isEmpty(str)) {
-                if (!a) {
-                    return false;
-                }
-                throw new RuntimeException("whitelistName is empty");
+        if (interceptable == null || interceptable.invokeLL(1048576, this, a12Var, canvas) == null) {
+            if (this.c && this.d) {
+                i = 3;
+            } else if (this.c) {
+                i = 1;
+            } else if (this.d) {
+                i = 2;
             } else {
-                String b0 = ((uv1) callbackHandler).b0();
-                if ("ai_apps_widget".equals(b0)) {
-                    z = c(str);
-                } else if ("ai_apps_ad_landing".equals(b0)) {
-                    z = !da3.a(str);
-                } else {
-                    if (!"swan_app_alliance_login_widget".equals(b0) && !"swan_app_alliance_choose_address_widget".equals(b0) && a) {
-                        Log.d("SwanApiSafe", "intercept: false, source frame is not aiapps widget frame");
-                    }
-                    return false;
-                }
-                if (a) {
-                    Log.d("SwanApiSafe", "intercept: result=" + z + ", path=" + str);
-                }
-                return z;
+                i = 0;
             }
+            a12Var.e.setTypeface(Typeface.create(this.a, i));
+            a12Var.e.setTextSize(this.b);
         }
-        return invokeLL.booleanValue;
     }
 
-    public static boolean c(@NonNull String str) {
-        InterceptResult invokeL;
-        String[] strArr;
+    @Override // com.baidu.tieba.z02
+    public void b(JSONArray jSONArray) {
+        String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            int indexOf = str.indexOf("/");
-            if (indexOf < 0) {
-                return true;
-            }
-            if (str.startsWith("swan")) {
-                String substring = str.substring(indexOf + 1);
-                for (String str2 : b) {
-                    if (da3.g(str2 + "/" + substring)) {
-                        return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() > 0) {
+                    for (String str : jSONArray.optString(0).split(" ")) {
+                        if (str.contains("italic")) {
+                            this.d = true;
+                        } else if (str.contains("oblique")) {
+                            this.d = true;
+                        } else if (str.contains("bold")) {
+                            this.c = true;
+                        } else if (!str.contains("normal")) {
+                            if (Character.isDigit(str.charAt(0))) {
+                                int length = str.length();
+                                int i = 0;
+                                while (true) {
+                                    if (i >= str.length()) {
+                                        break;
+                                    } else if (!Character.isDigit(str.charAt(i))) {
+                                        length = i;
+                                        break;
+                                    } else {
+                                        i++;
+                                    }
+                                }
+                                this.b = kl3.g(Float.parseFloat(str.substring(0, length)));
+                            } else {
+                                this.a = str;
+                            }
+                        }
                     }
                 }
-                return true;
+            } catch (Exception e) {
+                if (do1.a) {
+                    e.printStackTrace();
+                }
             }
-            return !da3.g(str);
         }
-        return invokeL.booleanValue;
     }
 }

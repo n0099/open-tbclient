@@ -1,97 +1,67 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.widget.ListView.BdRecyclerView;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.util.RemoveViewNPE;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.SystemClock;
+import androidx.annotation.NonNull;
+import androidx.collection.ArrayMap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
-public final class rp5 {
+public class rp5<KEY> {
     public static /* synthetic */ Interceptable $ic;
-    public static final rp5 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ArrayMap<KEY, Long> a;
+    public final long b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948129330, "Lcom/baidu/tieba/rp5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948129330, "Lcom/baidu/tieba/rp5;");
-                return;
-            }
-        }
-        a = new rp5();
-    }
-
-    public rp5() {
+    public rp5(int i, @NonNull TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), timeUnit};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayMap<>();
+        this.b = timeUnit.toMillis(i);
     }
 
-    @JvmStatic
-    public static final void a(BdRecyclerView viewGroup, int i, NullPointerException e) {
-        wp5 wp5Var;
+    public static <T> rp5<T> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65538, null, viewGroup, i, e) == null) {
-            Intrinsics.checkNotNullParameter(viewGroup, "viewGroup");
-            Intrinsics.checkNotNullParameter(e, "e");
-            View childAt = viewGroup.getChildAt(i);
-            Intrinsics.checkNotNullExpressionValue(childAt, "viewGroup.getChildAt(index)");
-            if (childAt instanceof ViewGroup) {
-                wp5Var = a.b((ViewGroup) childAt);
-            } else {
-                wp5Var = null;
-            }
-            if (wp5Var != null) {
-                String str = "BdRecyclerView removeViewAt() NPE at index: " + i + ", the out parent is: [class: " + childAt.getClass().getSimpleName() + ", id: " + childAt.getId() + "], internal parent is: [class: " + wp5Var.b().getClass().getSimpleName() + ", id: " + wp5Var.b().getId() + "], child index is: " + wp5Var.a();
-                Throwable initCause = new RemoveViewNPE().initCause(new Throwable(str, e));
-                BdLog.detailException(initCause);
-                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 6).param("obj_source", str));
-                initCause.printStackTrace();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new rp5<>(1000, TimeUnit.MILLISECONDS);
         }
+        return (rp5) invokeV.objValue;
     }
 
-    public final wp5 b(ViewGroup viewGroup) {
+    public synchronized boolean a(@NonNull KEY key) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            int childCount = viewGroup.getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                View childAt = viewGroup.getChildAt(i);
-                if (childAt instanceof ViewGroup) {
-                    b((ViewGroup) childAt);
-                } else if (childAt == null) {
-                    return new wp5(viewGroup, i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, key)) == null) {
+            synchronized (this) {
+                Long l = this.a.get(key);
+                long uptimeMillis = SystemClock.uptimeMillis();
+                if (l == null) {
+                    this.a.put(key, Long.valueOf(uptimeMillis));
+                    return true;
+                } else if (uptimeMillis - l.longValue() > this.b) {
+                    this.a.put(key, Long.valueOf(uptimeMillis));
+                    return true;
+                } else {
+                    return false;
                 }
             }
-            return null;
         }
-        return (wp5) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

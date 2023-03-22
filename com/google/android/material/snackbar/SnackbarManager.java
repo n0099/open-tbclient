@@ -6,7 +6,7 @@ import android.os.Message;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import java.lang.ref.WeakReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SnackbarManager {
     public static final int LONG_DURATION_MS = 2750;
     public static final int MSG_TIMEOUT = 0;
@@ -30,14 +30,14 @@ public class SnackbarManager {
         }
     });
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface Callback {
         void dismiss(int i);
 
         void show();
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class SnackbarRecord {
         @NonNull
         public final WeakReference<Callback> callback;

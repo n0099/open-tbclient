@@ -15,10 +15,10 @@ import com.baidu.tbadk.core.data.RecommendTopicData;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b35;
-import com.baidu.tieba.dj;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.oq5;
+import com.baidu.tieba.gi;
+import com.baidu.tieba.hi;
+import com.baidu.tieba.mp5;
+import com.baidu.tieba.n15;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -48,9 +48,9 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
                 return;
             }
         }
-        b = ej.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
-        c = ej.g(TbadkCoreApplication.getInst(), R.dimen.T_X09);
-        d = (((((ej.l(TbadkCoreApplication.getInst()) / 2) - ej.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005)) - (ej.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004) * 2)) - ej.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002)) - b) - c;
+        b = hi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X002);
+        c = hi.g(TbadkCoreApplication.getInst(), R.dimen.T_X09);
+        d = (((((hi.l(TbadkCoreApplication.getInst()) / 2) - hi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005)) - (hi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004) * 2)) - hi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X002)) - b) - c;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -80,7 +80,7 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
             this.a = recommendTopicListData;
             if (recommendTopicListData != null) {
                 String topicName = recommendTopicListData.getTopicName();
-                if (dj.isEmpty(topicName)) {
+                if (gi.isEmpty(topicName)) {
                     setVisibility(8);
                     return;
                 }
@@ -152,14 +152,14 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            b35 d2 = b35.d(this);
-            d2.A(R.string.F_X01);
-            d2.z(R.dimen.T_X09);
-            d2.v(R.color.CAM_X0304);
+            n15 d2 = n15.d(this);
+            d2.B(R.string.F_X01);
+            d2.A(R.dimen.T_X09);
+            d2.w(R.color.CAM_X0304);
             d2.e(R.string.A_X07);
-            d2.n(R.string.J_X01);
-            d2.l(R.dimen.L_X02);
-            d2.k(R.color.CAM_X0304);
+            d2.o(R.string.J_X01);
+            d2.m(R.dimen.L_X02);
+            d2.l(R.color.CAM_X0304);
             Drawable maskDrawable = WebPManager.getMaskDrawable((int) R.drawable.icon_pb_huati, WebPManager.ResourceStateType.NORMAL_PRESS);
             setCompoundDrawablePadding(b);
             if (maskDrawable != null) {
@@ -174,10 +174,10 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
     public void onClick(View view2) {
         RecommendTopicData.RecommendTopicListData recommendTopicListData;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && (recommendTopicListData = this.a) != null && !dj.isEmpty(recommendTopicListData.getTopicName())) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && (recommendTopicListData = this.a) != null && !gi.isEmpty(recommendTopicListData.getTopicName())) {
             if (NewWebHotTopicPageSwitch.isOn()) {
                 if (view2.getContext() instanceof BaseActivity) {
-                    oq5.e(((BaseActivity) view2.getContext()).getPageContext(), null, this.a.getTopicName());
+                    mp5.e(((BaseActivity) view2.getContext()).getPageContext(), null, this.a.getTopicName());
                     return;
                 }
                 return;

@@ -41,11 +41,11 @@ public class KsRotateView extends b {
     @Override // com.kwad.components.ad.splashscreen.widget.b
     public final void a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, R.styleable.ksad_KsShakeView, i, 0);
-        this.Aq = obtainStyledAttributes.getResourceId(5, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080c8a);
+        this.Aq = obtainStyledAttributes.getResourceId(5, com.baidu.tieba.R.drawable.obfuscated_res_0x7f080c9e);
         obtainStyledAttributes.recycle();
         ImageView imageView = new ImageView(getContext());
         this.Ak = imageView;
-        imageView.setImageResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080c89);
+        imageView.setImageResource(com.baidu.tieba.R.drawable.obfuscated_res_0x7f080c9d);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 49;
         addView(this.Ak, layoutParams);

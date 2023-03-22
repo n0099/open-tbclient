@@ -6,9 +6,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ImMessageCenterShowItemData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.xm7;
-import com.baidu.tieba.y95;
+import com.baidu.tieba.eo7;
+import com.baidu.tieba.hi;
+import com.baidu.tieba.k85;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,11 +16,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.http.message.BasicNameValuePair;
 /* loaded from: classes4.dex */
-public class OfficialBarTipListAdapter extends xm7 {
+public class OfficialBarTipListAdapter extends eo7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.xm7
+    @Override // com.baidu.tieba.eo7
     public boolean f(ImMessageCenterShowItemData imMessageCenterShowItemData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -30,7 +30,7 @@ public class OfficialBarTipListAdapter extends xm7 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.xm7
+    @Override // com.baidu.tieba.eo7
     public boolean g(ImMessageCenterShowItemData imMessageCenterShowItemData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -60,35 +60,35 @@ public class OfficialBarTipListAdapter extends xm7 {
         }
     }
 
-    @Override // com.baidu.tieba.xm7
-    public void j(xm7.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    @Override // com.baidu.tieba.eo7
+    public void j(eo7.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, aVar, imMessageCenterShowItemData) == null) {
             aVar.b.setVisibility(8);
             aVar.d.setVisibility(0);
             aVar.d.setShowOval(true);
             aVar.d.setAutoChangeStyle(true);
-            aVar.d.setStrokeWith(ej.g(this.a, R.dimen.tbds1));
+            aVar.d.setStrokeWith(hi.g(this.a, R.dimen.tbds1));
             aVar.d.setStrokeColorResId(R.color.CAM_X0401);
             aVar.d.setTag(null);
             aVar.d.setPlaceHolder(1);
             if (!TextUtils.isEmpty(imMessageCenterShowItemData.getFriendPortrait())) {
                 aVar.d.setTag(imMessageCenterShowItemData.getFriendPortrait());
-                aVar.d.K(imMessageCenterShowItemData.getFriendPortrait(), 10, false);
+                aVar.d.M(imMessageCenterShowItemData.getFriendPortrait(), 10, false);
             }
         }
     }
 
-    @Override // com.baidu.tieba.xm7
-    public void n(xm7.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    @Override // com.baidu.tieba.eo7
+    public void n(eo7.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, aVar, imMessageCenterShowItemData) == null) {
             aVar.e.setText(this.a.getString(R.string.chosen_pb_original_bar, imMessageCenterShowItemData.getFriendName()));
         }
     }
 
-    @Override // com.baidu.tieba.xm7
-    public void r(xm7.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    @Override // com.baidu.tieba.eo7
+    public void r(eo7.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, aVar, imMessageCenterShowItemData) == null) {
             aVar.h.setVisibility(8);
@@ -98,22 +98,22 @@ public class OfficialBarTipListAdapter extends xm7 {
         }
     }
 
-    @Override // com.baidu.tieba.xm7
-    public void u(xm7.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
+    @Override // com.baidu.tieba.eo7
+    public void u(eo7.a aVar, ImMessageCenterShowItemData imMessageCenterShowItemData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, aVar, imMessageCenterShowItemData) == null) {
             aVar.n.setVisibility(8);
         }
     }
 
-    @Override // com.baidu.tieba.xm7
+    @Override // com.baidu.tieba.eo7
     public BasicNameValuePair x(ImMessageCenterShowItemData imMessageCenterShowItemData, int i, String str) {
         InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048582, this, imMessageCenterShowItemData, i, str)) == null) {
             String str2 = "";
             int i2 = 0;
-            if (!y95.d().o()) {
+            if (!k85.d().o()) {
                 str = "";
                 i = 0;
             }

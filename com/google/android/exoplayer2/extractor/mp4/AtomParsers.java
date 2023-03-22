@@ -1479,9 +1479,9 @@ public final class AtomParsers {
                 }
                 Assertions.checkState(z4);
                 if (i7 == Atom.TYPE_vp08) {
-                    str = "video/x-vnd.on2.vp8";
+                    str = MimeTypes.VIDEO_VP8;
                 } else {
-                    str = "video/x-vnd.on2.vp9";
+                    str = MimeTypes.VIDEO_VP9;
                 }
                 str2 = str;
             } else if (readInt2 == Atom.TYPE_d263) {

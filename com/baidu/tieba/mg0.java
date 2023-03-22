@@ -1,58 +1,71 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class mg0 {
+public class mg0 extends pj1<ri0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, str, str2) == null) {
-            if (str2.length() > 2001) {
-                int i = 0;
-                while (i < str2.length()) {
-                    int i2 = i + 2001;
-                    if (i2 < str2.length()) {
-                        b(3, str, str2.substring(i, i2));
-                    } else {
-                        b(3, str, str2.substring(i));
-                    }
-                    i = i2;
+    /* loaded from: classes5.dex */
+    public class a implements ri0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(mg0 mg0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mg0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                return;
             }
-            b(3, str, str2);
+        }
+
+        @Override // com.baidu.tieba.ri0
+        public String m() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return kg0.e();
+            }
+            return (String) invokeV.objValue;
         }
     }
 
-    public static void b(int i, String str, String str2) {
+    public mg0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65537, null, i, str, str2) == null) {
-            if (i != 2) {
-                if (i != 3) {
-                    if (i != 4) {
-                        if (i != 5) {
-                            if (i != 6) {
-                                Log.d(str, str2);
-                                return;
-                            } else {
-                                Log.e(str, str2);
-                                return;
-                            }
-                        }
-                        Log.w(str, str2);
-                        return;
-                    }
-                    Log.i(str, str2);
-                    return;
-                }
-                Log.d(str, str2);
-                return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            Log.v(str, str2);
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.pj1
+    /* renamed from: a */
+    public ri0 createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
+        }
+        return (ri0) invokeV.objValue;
     }
 }

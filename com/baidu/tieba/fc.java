@@ -1,76 +1,92 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class fc extends hc {
+public class fc implements lc {
     public static /* synthetic */ Interceptable $ic;
-    public static fc d;
     public transient /* synthetic */ FieldHolder $fh;
-    public ic c;
+    public boolean a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448304272, "Lcom/baidu/tieba/fc;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448304272, "Lcom/baidu/tieba/fc;");
-        }
-    }
-
-    public fc() {
+    public fc(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = null;
-        this.a = new ic(28000, TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000);
-        this.c = new ic(TbConfig.POST_IMAGE_HIGHT_LIMIT, 10000, 5000);
-        this.b = 3;
+        this.a = z;
     }
 
-    public static fc d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.lc
+    public Object a(ud udVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (fc.class) {
-                    if (d == null) {
-                        d = new fc();
-                    }
-                }
-            }
-            return d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, udVar)) == null) {
+            return Boolean.valueOf(this.a);
         }
-        return (fc) invokeV.objValue;
+        return invokeL.objValue;
     }
 
-    public ic c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.lc
+    public Object b(ud udVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, udVar)) == null) {
+            return Boolean.valueOf(this.a);
         }
-        return (ic) invokeV.objValue;
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.lc
+    public Object c(ud udVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, udVar)) == null) {
+            return Boolean.valueOf(this.a);
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.lc
+    public Object d(ud udVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, udVar)) == null) {
+            return Boolean.valueOf(this.a);
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.lc
+    public Object e(ud udVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, udVar)) == null) {
+            return d(udVar);
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.lc
+    public Object f(ud udVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, udVar)) == null) {
+            return Boolean.valueOf(this.a);
+        }
+        return invokeL.objValue;
     }
 }

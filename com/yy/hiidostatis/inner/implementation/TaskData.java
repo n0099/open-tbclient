@@ -5,7 +5,7 @@ import com.yy.hiidostatis.inner.util.cipher.Coder;
 import com.yy.hiidostatis.message.utils.NoNull;
 import java.io.Serializable;
 import java.util.UUID;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class TaskData implements Serializable {
     public static final String MAGIC_MD5 = "hd!@#$%";
     public static final long serialVersionUID = -3875880932357283826L;

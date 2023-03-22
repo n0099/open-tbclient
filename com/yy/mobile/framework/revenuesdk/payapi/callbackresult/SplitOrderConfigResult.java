@@ -3,7 +3,7 @@ package com.yy.mobile.framework.revenuesdk.payapi.callbackresult;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.SplitRecordItem;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SplitOrderConfigResult {
     public String bottomGuideMsg;
     public String hintMsg;

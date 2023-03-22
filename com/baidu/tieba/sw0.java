@@ -1,26 +1,16 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.tieba.un0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
 /* loaded from: classes6.dex */
-public class sw0 implements yn0 {
+public abstract class sw0 extends rw0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final uw0 f;
 
-    @Override // com.baidu.tieba.yn0
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
+    public abstract void V(uw0 uw0Var);
 
     public sw0() {
         Interceptable interceptable = $ic;
@@ -32,19 +22,18 @@ public class sw0 implements yn0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.f = new uw0();
     }
 
-    @Override // com.baidu.tieba.yn0
-    public void a(@NonNull Application application) {
+    @Override // com.baidu.tieba.rw0
+    public void F(zw0 zw0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, application) == null) {
-            un0.a.a().b(application);
-            gt0.g(application);
-            gt0.e(false);
-            gt0.i("CyberSysPlayer");
-            gt0.j(new my0());
+        if (interceptable == null || interceptable.invokeL(1048576, this, zw0Var) == null) {
+            this.f.a(zw0Var);
+            V(this.f);
         }
     }
 }

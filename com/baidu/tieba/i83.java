@@ -1,16 +1,12 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.graphics.Color;
-import android.os.Build;
 import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.logsystem.exceptionhandler.impl.ExceptionHandlerImpl;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,129 +14,133 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.protobuf.CodedInputStream;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class i83 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static final boolean b;
+    public static final boolean t;
+    public static final h83<i83> u;
+    public static final g83<i83> v;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public String c;
+    public String d;
+    public int e;
+    public boolean f;
+    public String g;
+    public boolean h;
+    public boolean i;
+    public String j;
+    public boolean k;
+    public boolean l;
+    public boolean m;
+    public boolean n;
+    public boolean o;
+    public boolean p;
+    public String q;
+    public String r;
+    public String s;
 
     /* loaded from: classes4.dex */
-    public static class a implements Runnable {
+    public static class a extends h83<i83> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ no3 a;
 
-        public a(no3 no3Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {no3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = no3Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            no3 no3Var;
-            View e;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.h83
+        /* renamed from: b */
+        public void a(@NonNull i83 i83Var, @NonNull zq2 zq2Var) throws Exception {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (no3Var = this.a) != null && (e = no3Var.e()) != null) {
-                e.setVisibility(0);
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i83Var, zq2Var) == null) {
+                zq2Var.writeInt(i83Var.a);
+                zq2Var.f(i83Var.b);
+                zq2Var.f(i83Var.c);
+                zq2Var.f(i83Var.d);
+                zq2Var.writeInt(i83Var.e);
+                zq2Var.writeBoolean(i83Var.f);
+                zq2Var.f(i83Var.g);
+                zq2Var.writeBoolean(i83Var.h);
+                zq2Var.writeBoolean(i83Var.i);
+                zq2Var.f(i83Var.j);
+                zq2Var.writeBoolean(i83Var.k);
+                zq2Var.writeBoolean(i83Var.l);
+                zq2Var.writeBoolean(i83Var.m);
+                zq2Var.writeBoolean(i83Var.n);
+                zq2Var.writeBoolean(i83Var.o);
+                zq2Var.writeBoolean(i83Var.p);
+                zq2Var.f(i83Var.q);
+                zq2Var.f(i83Var.r);
+                zq2Var.f(i83Var.s);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class b implements Runnable {
+    public static class b extends g83<i83> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ s82 a;
-        public final /* synthetic */ View b;
 
-        public b(s82 s82Var, View view2) {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {s82Var, view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = s82Var;
-            this.b = view2;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            View e;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.g83
+        /* renamed from: b */
+        public i83 a(@NonNull yq2 yq2Var) throws Exception {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                no3 I1 = this.a.I1();
-                if (I1 != null && (e = I1.e()) != null) {
-                    e.setVisibility(8);
-                }
-                LinearLayout linearLayout = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090179);
-                FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) linearLayout.getLayoutParams();
-                layoutParams.topMargin = 0;
-                linearLayout.setLayoutParams(layoutParams);
-                FrameLayout frameLayout = (FrameLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f09017a);
-                FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) frameLayout.getLayoutParams();
-                layoutParams2.topMargin = 0;
-                frameLayout.setLayoutParams(layoutParams2);
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yq2Var)) == null) {
+                i83 i83Var = new i83();
+                i83Var.a = yq2Var.readInt();
+                i83Var.b = yq2Var.g();
+                i83Var.c = yq2Var.g();
+                i83Var.d = yq2Var.g();
+                i83Var.e = yq2Var.readInt();
+                i83Var.f = yq2Var.readBoolean();
+                i83Var.g = yq2Var.g();
+                i83Var.h = yq2Var.readBoolean();
+                i83Var.i = yq2Var.readBoolean();
+                i83Var.j = yq2Var.g();
+                i83Var.k = yq2Var.readBoolean();
+                i83Var.l = yq2Var.readBoolean();
+                i83Var.m = yq2Var.readBoolean();
+                i83Var.n = yq2Var.readBoolean();
+                i83Var.o = yq2Var.readBoolean();
+                i83Var.p = yq2Var.readBoolean();
+                i83Var.q = yq2Var.g();
+                i83Var.r = yq2Var.g();
+                i83Var.s = yq2Var.g();
+                return i83Var;
             }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ boolean b;
-
-        public c(Activity activity, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {activity, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = activity;
-            this.b = z;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.getWindow().clearFlags(2048);
-                i83.n(i83.e(this.a), this.b);
-            }
+            return (i83) invokeL.objValue;
         }
     }
 
@@ -157,140 +157,68 @@ public class i83 {
                 return;
             }
         }
-        a = wp1.a;
-        Color.parseColor("#80000000");
-        b = j();
-        if (!TextUtils.equals(Build.MANUFACTURER, "Xiaomi")) {
-            TextUtils.equals(Build.MANUFACTURER, "Meizu");
-        }
+        t = do1.a;
+        u = new a();
+        v = new b();
     }
 
-    public static void n(View view2, boolean z) {
+    public i83() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65550, null, view2, z) == null) && view2 != null) {
-            if (z) {
-                view2.setSystemUiVisibility(vl3.c());
-            } else {
-                view2.setSystemUiVisibility(0);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.l = false;
+        this.m = false;
+        this.n = true;
+        this.o = false;
+        this.p = false;
+        this.a = -16777216;
+        this.c = "#ffffff";
+        this.j = "default";
+        this.e = -1;
+        this.f = false;
     }
 
-    public static View b() {
-        InterceptResult invokeV;
-        s82 s82Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            v82 V = zu2.U().V();
-            if (V != null) {
-                s82Var = V.m();
-            } else {
-                s82Var = null;
-            }
-            return c(s82Var);
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public static LinearLayout d() {
+    public static i83 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            yk3 z = my1.z();
-            if (z != null) {
-                return z.m();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (t) {
+                Log.w("WindowConfig", "WindowConfig#createNullObject stack=" + Log.getStackTraceString(new Exception()));
             }
-            return null;
+            return new i83();
         }
-        return (LinearLayout) invokeV.objValue;
+        return (i83) invokeV.objValue;
     }
 
-    public static void g() {
-        v82 V;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65543, null) != null) || (V = zu2.U().V()) == null) {
-            return;
-        }
-        h(V.m());
-    }
-
-    public static boolean j() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (a) {
-                return z & sm3.b("sp_key_immersion_switch", z);
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void o() {
-        v82 V;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65551, null) != null) || (V = zu2.U().V()) == null) {
-            return;
-        }
-        gn3.a0(new a(V.m().I1()));
-    }
-
-    public static View c(s82 s82Var) {
+    public static i83 a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, s82Var)) == null) {
-            if (s82Var != null) {
-                return s82Var.L1();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return d();
             }
-            return null;
+            return c(jSONObject);
         }
-        return (View) invokeL.objValue;
+        return (i83) invokeL.objValue;
     }
 
-    public static ViewGroup e(Activity activity) {
+    public static boolean f(i83 i83Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, activity)) == null) {
-            if (activity != null) {
-                return (ViewGroup) activity.getWindow().getDecorView();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, i83Var)) == null) {
+            if (i83Var == null) {
+                return false;
             }
-            return null;
-        }
-        return (ViewGroup) invokeL.objValue;
-    }
-
-    public static boolean f(Dialog dialog) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, dialog)) == null) {
-            if (((dialog.getWindow().getDecorView().getSystemUiVisibility() | dialog.getWindow().getAttributes().systemUiVisibility) & 2) != 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void h(s82 s82Var) {
-        View V;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65544, null, s82Var) != null) || (V = s82Var.V()) == null) {
-            return;
-        }
-        gn3.a0(new b(s82Var, V));
-    }
-
-    public static boolean i(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, view2)) == null) {
-            if (!b || view2 == null || view2.findViewById(R.id.obfuscated_res_0x7f09104a) == null) {
+            if (!i83Var.h && !TextUtils.equals(i83Var.j, ExceptionHandlerImpl.KEY_CUSTOM)) {
                 return false;
             }
             return true;
@@ -298,28 +226,110 @@ public class i83 {
         return invokeL.booleanValue;
     }
 
-    public static void m(boolean z) {
+    public void g(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65549, null, z) == null) {
-            l(zu2.U().getActivity(), 100L, z);
+        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z && !this.p) {
+            this.p = true;
         }
     }
 
-    public static void k(Dialog dialog) {
+    public static i83 b(String str, @NonNull i83 i83Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65547, null, dialog) == null) && Build.VERSION.SDK_INT >= 21) {
-            int color = dialog.getContext().getResources().getColor(R.color.obfuscated_res_0x7f0602ee);
-            Window window = dialog.getWindow();
-            window.clearFlags(CodedInputStream.DEFAULT_SIZE_LIMIT);
-            window.addFlags(Integer.MIN_VALUE);
-            window.setStatusBarColor(color);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, i83Var)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return i83Var;
+            }
+            try {
+                return e(new JSONObject(str), i83Var);
+            } catch (JSONException e) {
+                if (t) {
+                    Log.d("WindowConfig", "buildPageWindowConfig jsonString failed: " + Log.getStackTraceString(e));
+                }
+                return i83Var;
+            }
         }
+        return (i83) invokeLL.objValue;
     }
 
-    public static void l(Activity activity, long j, boolean z) {
+    public static i83 c(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{activity, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            gn3.b0(new c(activity, z), j);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject)) == null) {
+            JSONObject optJSONObject = jSONObject.optJSONObject("window");
+            if (optJSONObject == null) {
+                return d();
+            }
+            i83 i83Var = new i83();
+            String optString = optJSONObject.optString("navigationBarBackgroundColor");
+            if (TextUtils.isEmpty(optString)) {
+                optString = "#000000";
+            }
+            i83Var.a = SwanAppConfigData.t(optString);
+            String optString2 = optJSONObject.optString("navigationBarTextStyle");
+            if (TextUtils.isEmpty(optString2)) {
+                optString2 = "white";
+            }
+            i83Var.c = optString2;
+            i83Var.b = optJSONObject.optString("navigationBarTitleText");
+            i83Var.d = optJSONObject.optString("backgroundTextStyle", "black");
+            i83Var.e = SwanAppConfigData.t(optJSONObject.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR));
+            i83Var.f = optJSONObject.optBoolean("enablePullDownRefresh");
+            i83Var.g = optJSONObject.optString("onReachBottomDistance");
+            i83Var.h = optJSONObject.optBoolean("enableOpacityNavigationBar");
+            i83Var.i = optJSONObject.optBoolean("enableOpacityNavigationBarText");
+            i83Var.j = optJSONObject.optString("navigationStyle", "default");
+            i83Var.k = optJSONObject.optBoolean("navigationHomeButtonHidden");
+            i83Var.q = optJSONObject.optString("textSizeAdjust");
+            i83Var.s = optJSONObject.optString("htmlFontSize");
+            optJSONObject.optJSONArray("fontFace");
+            return i83Var;
         }
+        return (i83) invokeL.objValue;
+    }
+
+    public static i83 e(JSONObject jSONObject, @NonNull i83 i83Var) {
+        InterceptResult invokeLL;
+        int t2;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, jSONObject, i83Var)) == null) {
+            i83 i83Var2 = new i83();
+            String optString = jSONObject.optString("navigationBarBackgroundColor");
+            if (TextUtils.isEmpty(optString)) {
+                t2 = i83Var.a;
+            } else {
+                t2 = SwanAppConfigData.t(optString);
+            }
+            i83Var2.a = t2;
+            i83Var2.b = jSONObject.optString("navigationBarTitleText", i83Var.b);
+            String optString2 = jSONObject.optString("navigationBarTextStyle");
+            if (TextUtils.isEmpty(optString2)) {
+                optString2 = i83Var.c;
+            }
+            i83Var2.c = optString2;
+            i83Var2.d = jSONObject.optString("backgroundTextStyle", i83Var.d);
+            if (jSONObject.has(TtmlNode.ATTR_TTS_BACKGROUND_COLOR)) {
+                i = SwanAppConfigData.t(jSONObject.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR));
+            } else {
+                i = i83Var.e;
+            }
+            i83Var2.e = i;
+            i83Var2.f = jSONObject.optBoolean("enablePullDownRefresh", i83Var.f);
+            i83Var2.g = jSONObject.optString("onReachBottomDistance", i83Var.g);
+            i83Var2.h = jSONObject.optBoolean("enableOpacityNavigationBar", i83Var.h);
+            i83Var2.i = jSONObject.optBoolean("enableOpacityNavigationBarText", i83Var.i);
+            i83Var2.j = jSONObject.optString("navigationStyle", i83Var.j);
+            i83Var2.k = jSONObject.optBoolean("navigationHomeButtonHidden", i83Var.k);
+            i83Var2.l = jSONObject.optBoolean("disableSwipeBack", false);
+            i83Var2.m = jSONObject.optBoolean("disableFullscreenSwipeBack", false);
+            i83Var2.n = jSONObject.optBoolean("pageFavoriteEnable", true);
+            i83Var2.o = jSONObject.optBoolean("_hasVideo", false);
+            i83Var2.r = jSONObject.optString("viewMode", i83Var.r);
+            i83Var2.s = jSONObject.optString("htmlFontSize", i83Var.s);
+            jSONObject.optJSONArray("fontFace");
+            return i83Var2;
+        }
+        return (i83) invokeLL.objValue;
     }
 }

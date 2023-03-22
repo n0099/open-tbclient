@@ -1,55 +1,91 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 /* loaded from: classes3.dex */
-public class a3a {
+public final class a3a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+    /* loaded from: classes3.dex */
+    public static class a extends g3a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Map a;
+        public final /* synthetic */ com.baidu.ubs.analytics.a.a b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+
+        public a(Map map, com.baidu.ubs.analytics.a.a aVar, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {map, aVar, str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            StringBuilder sb = new StringBuilder(str);
-            if (!str.contains("?")) {
-                sb.append("?");
-            }
-            sb.append("&");
-            sb.append("clientfrom=native");
-            sb.append("&");
-            sb.append("client=android");
-            return sb.toString();
+            this.a = map;
+            this.b = aVar;
+            this.c = str;
+            this.d = str2;
         }
-        return (String) invokeL.objValue;
+
+        @Override // com.baidu.tieba.g3a
+        public final void a() {
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a != null) {
+                    StringBuffer stringBuffer = new StringBuffer();
+                    stringBuffer.append("{");
+                    for (Map.Entry entry : this.a.entrySet()) {
+                        stringBuffer.append("\"");
+                        stringBuffer.append(entry.getKey());
+                        stringBuffer.append("\":\"");
+                        stringBuffer.append(entry.getValue().toString().replace("\"", "\\\""));
+                        stringBuffer.append("\",");
+                    }
+                    StringBuffer stringBuffer2 = new StringBuffer(stringBuffer.subSequence(0, stringBuffer.length() - 1));
+                    stringBuffer2.append("}");
+                    this.b.w(stringBuffer2.toString());
+                }
+                try {
+                    this.b.x(d3a.e().I());
+                    this.b.u(String.valueOf(System.currentTimeMillis()));
+                    this.b.t(this.c);
+                    com.baidu.ubs.analytics.a.a aVar = this.b;
+                    if (this.d == null) {
+                        str = "";
+                    } else {
+                        str = this.d;
+                    }
+                    aVar.s(str);
+                    new e2a().c(this.b);
+                } catch (Exception e) {
+                    if (e.getMessage() != null) {
+                        e3a.b(e.getMessage());
+                    }
+                }
+            }
+        }
     }
 
-    public static String b(String str, HashMap<String, String> hashMap) {
-        InterceptResult invokeLL;
+    public static void a(String str, String str2, String str3, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, hashMap)) == null) {
-            if (TextUtils.isEmpty(str) || hashMap.isEmpty()) {
-                return str;
-            }
-            StringBuilder sb = new StringBuilder(str);
-            if (!str.contains("?")) {
-                sb.append("?");
-            }
-            for (Map.Entry<String, String> entry : hashMap.entrySet()) {
-                sb.append("&");
-                sb.append(entry.getKey());
-                sb.append("=");
-                sb.append(entry.getValue());
-            }
-            return sb.toString();
+        if (interceptable == null || interceptable.invokeLLLL(65536, null, str, str2, str3, map) == null) {
+            com.baidu.ubs.analytics.a.a aVar = new com.baidu.ubs.analytics.a.a();
+            aVar.v(str);
+            f3a.c(new a(map, aVar, str2, str3));
         }
-        return (String) invokeLL.objValue;
     }
 }

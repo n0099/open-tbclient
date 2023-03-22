@@ -26,6 +26,7 @@ import com.baidu.android.common.util.DeviceId;
 import com.baidu.android.imsdk.chatmessage.messages.NetDiskFileMsg;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.cyberplayer.sdk.rtc.RTCConst;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -685,7 +686,7 @@ public final class b {
             File file = new File(context.getApplicationContext().getFilesDir(), "libcuid.so");
             if (file.exists()) {
                 if (Build.VERSION.SDK_INT >= 21) {
-                    return c.a(file.getAbsolutePath(), z ? 436 : 432);
+                    return c.a(file.getAbsolutePath(), z ? RTCConst.RTC_ROOM_USERID_ALREADY_EXIST_ERROR : 432);
                 }
                 try {
                     if (z) {
@@ -841,7 +842,7 @@ public final class b {
                     }
                     if (Build.VERSION.SDK_INT >= 21) {
                         if (i2 == 0 && f) {
-                            i = 436;
+                            i = RTCConst.RTC_ROOM_USERID_ALREADY_EXIST_ERROR;
                             file = new File(this.b.getFilesDir(), "libcuid.so");
                         } else if (!f) {
                             i = 432;

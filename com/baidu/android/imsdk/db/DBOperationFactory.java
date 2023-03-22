@@ -62,10 +62,54 @@ public class DBOperationFactory {
         }
     }
 
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x0044, code lost:
+        if (r0 != r2) goto L16;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String getDBPath(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (context == null) {
+                LogUtils.d(TAG, "pls call init method first!");
+                return null;
+            }
+            long uk = AccountManagerImpl.getInstance(context).getUK();
+            long appid = AccountManagerImpl.getInstance(context).getAppid();
+            int i = (0L > uk ? 1 : (0L == uk ? 0 : -1));
+            if (i != 0 && -1 != appid) {
+                long j = sAppid;
+                if (j == -1 || j == appid) {
+                    long j2 = sUk;
+                    if (j2 != 0) {
+                    }
+                    sUk = uk;
+                    sAppid = appid;
+                    return context.getDatabasePath(DBTableDefine.DB_NAME_PREFIX + uk + "_" + appid + ".db").getPath();
+                }
+                closeDb(context.getDatabasePath(DBTableDefine.DB_NAME_PREFIX + sUk + "_" + sAppid + ".db").getPath());
+                sUk = uk;
+                sAppid = appid;
+                return context.getDatabasePath(DBTableDefine.DB_NAME_PREFIX + uk + "_" + appid + ".db").getPath();
+            }
+            LogUtils.d(TAG, "UK OR appid Not initialize!");
+            if (i == 0) {
+                LogUtils.d(TAG, "mUid Not initialize!");
+            }
+            if (-1 == appid) {
+                LogUtils.d(TAG, "appid Not initialize!");
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
     public static DBOperation getDbOperation(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
             if (str == null) {
                 LogUtils.e(TAG, "dbname should not be null!");
                 return null;
@@ -74,7 +118,7 @@ public class DBOperationFactory {
                 synchronized (sDbOperatioContainer) {
                     LogUtils.e(TAG, "dbname : " + str);
                     if (!sDbOperatioContainer.containsKey(str)) {
-                        DBOperation dBOperation = new DBOperation(context, new DBConnection(context, str, 78));
+                        DBOperation dBOperation = new DBOperation(context, new DBConnection(context, str, 79));
                         DBGroupTableManager dBGroupTableManager = new DBGroupTableManager();
                         dBGroupTableManager.init(dBOperation);
                         dBOperation.setTag(DBGroupTableManager.KEY, dBGroupTableManager);
@@ -96,7 +140,7 @@ public class DBOperationFactory {
     public static DBOperation getNewDb(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             if (context == null) {
                 LogUtils.d(TAG, "pls call init method first!");
                 return null;
@@ -152,7 +196,7 @@ public class DBOperationFactory {
         InterceptResult invokeL;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
             if (context == null) {
                 LogUtils.d(TAG, "pls call init method first!");
                 return null;

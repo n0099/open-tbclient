@@ -1,456 +1,213 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.net.Uri;
-import androidx.annotation.AnyThread;
+import android.util.Pair;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
-import com.baidu.swan.game.ad.downloader.model.DownloadState;
-import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
-import com.baidu.tieba.jx3;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Timer;
-import java.util.TimerTask;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.Executor;
+import rx.schedulers.Schedulers;
+import rx.subjects.PublishSubject;
 /* loaded from: classes4.dex */
-public final class hx3 implements qx3, jx3.a {
+public final class hx3 {
     public static /* synthetic */ Interceptable $ic;
-    @SuppressLint({"StaticFieldLeak"})
-    public static hx3 k;
+    public static volatile d a;
+    public static final csa b;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public ExecutorService b;
-    public final ConcurrentHashMap<String, Object> c;
-    public final List<DownloadInfo> d;
-    public final Context e;
-    public final rx3 f;
-    public final ox3 g;
-    public final gx3 h;
-    public ConcurrentHashMap<Uri, BroadcastReceiver> i;
-    public ConcurrentHashMap<Uri, Timer> j;
 
     /* loaded from: classes4.dex */
-    public class a extends BroadcastReceiver {
+    public interface c extends Executor {
+        void execute(@NonNull Runnable runnable, @NonNull String str);
+    }
+
+    /* loaded from: classes4.dex */
+    public static class a implements csa<Pair<Runnable, String>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hx3 this$0;
-        public final /* synthetic */ d val$listener;
-        public final /* synthetic */ String val$packageName;
-        public final /* synthetic */ Uri val$uri;
 
-        public a(hx3 hx3Var, String str, d dVar, Uri uri) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hx3Var, str, dVar, uri};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.csa
+        public void call(Pair<Runnable, String> pair) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
+                String name = Thread.currentThread().getName();
+                Thread currentThread = Thread.currentThread();
+                currentThread.setName(name + "-" + ((String) pair.second));
+                try {
+                    ((Runnable) pair.first).run();
+                } catch (Throwable unused) {
+                }
+                Thread.currentThread().setName(name);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b implements gsa<Pair<Runnable, String>, ora<?>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.gsa
+        public ora<?> call(Pair<Runnable, String> pair) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pair)) == null) {
+                return sra.g(pair).h(Schedulers.io()).f(hx3.b).l();
+            }
+            return (ora) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class d extends fwa<Pair<Runnable, String>, Pair<Runnable, String>> implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public d(gwa gwaVar) {
+            super(gwaVar);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gwaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((gwa) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.this$0 = hx3Var;
-            this.val$packageName = str;
-            this.val$listener = dVar;
-            this.val$uri = uri;
         }
 
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            String dataString;
+        @Override // java.util.concurrent.Executor
+        public void execute(@NonNull Runnable runnable) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && (dataString = intent.getDataString()) != null && dataString.endsWith(this.val$packageName)) {
-                this.val$listener.a(Boolean.TRUE);
-                this.this$0.l(context, this.val$uri);
+            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+                execute(runnable, "");
+            }
+        }
+
+        @Override // com.baidu.tieba.hx3.c
+        public void execute(@NonNull Runnable runnable, @NonNull String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, str) == null) {
+                onNext(Pair.create(runnable, hx3.c(str)));
             }
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b extends TimerTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ Uri c;
-        public final /* synthetic */ hx3 d;
-
-        public b(hx3 hx3Var, d dVar, Context context, Uri uri) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947839046, "Lcom/baidu/tieba/hx3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hx3Var, dVar, context, uri};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.d = hx3Var;
-            this.a = dVar;
-            this.b = context;
-            this.c = uri;
-        }
-
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a(Boolean.FALSE);
-                this.d.l(this.b, this.c);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947839046, "Lcom/baidu/tieba/hx3;");
+                return;
             }
         }
+        b = new a();
     }
 
-    /* loaded from: classes4.dex */
-    public class c extends TimerTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Timer a;
-        public final /* synthetic */ hx3 b;
-
-        public c(hx3 hx3Var, Timer timer) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hx3Var, timer};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = hx3Var;
-            this.a = timer;
-        }
-
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (Map.Entry entry : this.b.i.entrySet()) {
-                    hx3 hx3Var = this.b;
-                    hx3Var.l(hx3Var.e, (Uri) entry.getKey());
-                }
-                this.a.cancel();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static abstract class d<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public void a(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
-            }
-        }
-
-        public d() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public hx3(Context context, gx3 gx3Var) {
+    public hx3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, gx3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.i = new ConcurrentHashMap<>();
-        this.j = new ConcurrentHashMap<>();
-        this.e = context;
-        if (gx3Var == null) {
-            this.h = new gx3();
-        } else {
-            this.h = gx3Var;
-        }
-        if (this.h.a() == null) {
-            this.g = new lx3(context, this.h);
-        } else {
-            this.g = this.h.a();
-        }
-        this.d = new ArrayList();
-        this.c = new ConcurrentHashMap<>();
-        this.g.b();
-        this.b = Executors.newFixedThreadPool(this.h.b());
-        this.f = new ix3(this.g);
-    }
-
-    @Override // com.baidu.tieba.qx3
-    public synchronized void a(DownloadInfo downloadInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, downloadInfo) == null) {
-            synchronized (this) {
-                if (n()) {
-                    p(downloadInfo);
-                }
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.qx3
-    public synchronized void c(DownloadInfo downloadInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadInfo) == null) {
-            synchronized (this) {
-                this.d.add(downloadInfo);
-                p(downloadInfo);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.qx3
-    public synchronized void d(DownloadInfo downloadInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, downloadInfo) == null) {
-            synchronized (this) {
-                if (n()) {
-                    o(downloadInfo);
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.jx3.a
-    public synchronized void e(DownloadInfo downloadInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, downloadInfo) == null) {
-            synchronized (this) {
-                ez3.c(downloadInfo.getPath(), false);
-                this.c.remove(downloadInfo.getId());
-                this.d.remove(downloadInfo);
-                q();
-            }
-        }
-    }
-
-    public final void o(DownloadInfo downloadInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, downloadInfo) == null) {
-            downloadInfo.setStatus(DownloadState.DOWNLOAD_PAUSED.value());
-            this.c.remove(downloadInfo.getId());
-            this.f.b(downloadInfo);
-            q();
-        }
-    }
-
-    public static synchronized qx3 m(Context context, gx3 gx3Var) {
-        InterceptResult invokeLL;
-        hx3 hx3Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, gx3Var)) == null) {
-            synchronized (hx3.class) {
-                if (k == null) {
-                    k = new hx3(context, gx3Var);
-                }
-                hx3Var = k;
-            }
-            return hx3Var;
-        }
-        return (qx3) invokeLL.objValue;
-    }
-
-    public final void l(Context context, Uri uri) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, context, uri) == null) {
-            BroadcastReceiver remove = this.i.remove(uri);
-            if (remove != null) {
-                context.unregisterReceiver(remove);
-            }
-            Timer remove2 = this.j.remove(uri);
-            if (remove2 != null) {
-                remove2.cancel();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.qx3
-    public synchronized void b(DownloadInfo downloadInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadInfo) == null) {
-            synchronized (this) {
-                if (downloadInfo == null) {
-                    return;
-                }
-                downloadInfo.setStatus(DownloadState.DELETED.value());
-                this.c.remove(downloadInfo.getId());
-                this.d.remove(downloadInfo);
-                this.g.delete(downloadInfo);
-                this.f.b(downloadInfo);
-                new File(downloadInfo.getPath()).delete();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.qx3
-    public synchronized DownloadInfo g(String str) {
-        InterceptResult invokeL;
-        DownloadInfo downloadInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            synchronized (this) {
-                downloadInfo = null;
-                Iterator<DownloadInfo> it = this.d.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    DownloadInfo next = it.next();
-                    if (next.getId().equals(str)) {
-                        downloadInfo = next;
-                        break;
-                    }
-                }
-                if (downloadInfo == null) {
-                    downloadInfo = this.g.c(str);
-                }
-            }
-            return downloadInfo;
-        }
-        return (DownloadInfo) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.qx3
-    public synchronized void destroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                k();
-                if (this.g != null) {
-                    this.g.close();
-                }
-                if (this.b != null) {
-                    this.b.shutdownNow();
-                    this.b = null;
-                }
-                k = null;
-            }
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            Timer timer = new Timer();
-            timer.schedule(new c(this, timer), 60000L);
-        }
-    }
-
-    public synchronized boolean n() {
+    public static c b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            synchronized (this) {
-                if (System.currentTimeMillis() - this.a > 500) {
-                    this.a = System.currentTimeMillis();
-                    return true;
-                }
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            for (DownloadInfo downloadInfo : this.d) {
-                if (downloadInfo.getStatus() == DownloadState.WAIT.value()) {
-                    p(downloadInfo);
-                    return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (a == null) {
+                synchronized (hx3.class) {
+                    if (a == null) {
+                        a = new d(PublishSubject.D());
+                        a.n().d(new b()).s().t();
+                    }
                 }
             }
+            return a;
         }
+        return (c) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qx3
-    @AnyThread
-    public synchronized void f(@NonNull String str, @NonNull Uri uri, @NonNull d<Boolean> dVar) {
+    public static String c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048582, this, str, uri, dVar) == null) {
-            synchronized (this) {
-                Context appContext = AppRuntime.getAppContext();
-                if (ez3.a(appContext, str)) {
-                    dVar.a(Boolean.TRUE);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (str != null) {
+                if (!str.startsWith("SwanAppExecutorUtils_")) {
+                    str = "SwanAppExecutorUtils_" + str;
                 }
-                IntentFilter intentFilter = new IntentFilter();
-                intentFilter.addDataScheme("package");
-                intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
-                a aVar = new a(this, str, dVar, uri);
-                appContext.registerReceiver(aVar, intentFilter);
-                Timer timer = new Timer();
-                timer.schedule(new b(this, dVar, appContext, uri), 60000L);
-                this.i.put(uri, aVar);
-                this.j.put(uri, timer);
+            } else {
+                str = null;
             }
+            if (str == null) {
+                str = "SwanAppExecutorUtils";
+            }
+            if (str.length() > 256) {
+                return str.substring(0, 255);
+            }
+            return str;
         }
+        return (String) invokeL.objValue;
     }
 
-    public final void p(DownloadInfo downloadInfo) {
+    public static void d(@NonNull Runnable runnable, @NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, downloadInfo) == null) {
-            if (this.c.size() >= this.h.b()) {
-                downloadInfo.setStatus(DownloadState.WAIT.value());
-                this.f.b(downloadInfo);
-                return;
-            }
-            jx3 jx3Var = new jx3(this.b, this.f, downloadInfo, this);
-            this.c.put(downloadInfo.getId(), jx3Var);
-            downloadInfo.setStatus(DownloadState.PREPARE_DOWNLOAD.value());
-            this.f.b(downloadInfo);
-            jx3Var.c();
+        if (interceptable == null || interceptable.invokeLL(65541, null, runnable, str) == null) {
+            b().execute(runnable, str);
         }
     }
 }

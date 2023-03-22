@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.xy8;
+import com.baidu.tieba.d49;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class BrowseSettingActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xy8 a;
+    public d49 a;
 
     public BrowseSettingActivity() {
         Interceptable interceptable = $ic;
@@ -47,7 +47,7 @@ public class BrowseSettingActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new xy8(this);
+            this.a = new d49(this);
         }
     }
 
@@ -56,16 +56,16 @@ public class BrowseSettingActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
             if (view2 == this.a.r()) {
-                this.a.C();
+                this.a.E();
                 TiebaStatic.log("c10649");
             }
             if (view2 == this.a.u()) {
-                this.a.E();
+                this.a.G();
                 TiebaStatic.log("c10653");
             } else if (view2 == this.a.t()) {
-                this.a.D();
-            } else if (view2 == this.a.v()) {
                 this.a.F();
+            } else if (view2 == this.a.x()) {
+                this.a.H();
             } else if (view2 == this.a.s()) {
                 UrlManager.getInstance().dealOneLink(getPageContext(), new String[]{"http://bjhw-bac-orp-tieba-core-137287.bjhw.baidu.com:8899/#/app-tool"});
             }

@@ -1,19 +1,12 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.graphics.Point;
+import android.hardware.Camera;
+import android.view.WindowManager;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.util.svg.SvgMaskType;
-import com.baidu.tieba.b25;
-import com.baidu.tieba.sharesdk.view.ShareDialogItemView;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -21,96 +14,20 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collection;
+import java.util.Iterator;
 import java.util.List;
+import java.util.regex.Pattern;
 /* loaded from: classes7.dex */
-public class yz8 extends a09 {
+public final class yz8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int a0;
-    public static final int b0;
-    public static final int c0;
+    public static final Pattern f;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context M;
-    public LinearLayout N;
-    public LinearLayout O;
-    public View P;
-    public View Q;
-    public String R;
-    public boolean S;
-    public boolean T;
-    public b25.e U;
-    public b25.e V;
-    public b25.e W;
-    public b25.e X;
-    public b25.e Y;
-    public View.OnClickListener Z;
-
-    /* loaded from: classes7.dex */
-    public class a extends ShareDialogItemView {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Context l;
-        public EMTextView m;
-        public LinearLayout.LayoutParams n;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(yz8 yz8Var, Context context) {
-            super(context);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yz8Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Context) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.l = context;
-        }
-
-        @Override // com.baidu.tieba.sharesdk.view.ShareDialogItemView
-        public ShareDialogItemView a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                super.a();
-                addView(this.m, this.n);
-                return this;
-            }
-            return (ShareDialogItemView) invokeV.objValue;
-        }
-
-        public void d(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                this.c = new ImageView(this.l);
-                setTag(Integer.valueOf(i));
-                this.c.setScaleType(ImageView.ScaleType.FIT_XY);
-                WebPManager.setMaskDrawable(this.c, i, null);
-                b();
-            }
-        }
-
-        public void e(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-                EMTextView eMTextView = new EMTextView(this.l);
-                this.m = eMTextView;
-                eMTextView.setTextSize(0, ShareDialogItemView.j);
-                this.m.setText(i);
-                SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0107);
-                LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                this.n = layoutParams;
-                layoutParams.topMargin = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_T_X001);
-                this.n.gravity = 1;
-            }
-        }
-    }
+    public final Context a;
+    public Point b;
+    public Point c;
+    public Point d;
+    public Camera e;
 
     static {
         InterceptResult invokeClinit;
@@ -125,164 +42,266 @@ public class yz8 extends a09 {
                 return;
             }
         }
-        a0 = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds187);
-        b0 = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds239);
-        c0 = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds34);
+        f = Pattern.compile(",");
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yz8(Context context, String str, boolean z, boolean z2, b25.e eVar, b25.e eVar2, b25.e eVar3, b25.e eVar4, b25.e eVar5, View.OnClickListener onClickListener) {
-        super(context);
+    public Point e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (Point) invokeV.objValue;
+    }
+
+    public void i() {
+        Camera camera;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (camera = this.e) != null) {
+            try {
+                h(camera);
+                j(this.e);
+            } catch (Exception unused) {
+            }
+        }
+    }
+
+    public yz8(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r3;
-            Object[] objArr = {context, str, Boolean.valueOf(z), Boolean.valueOf(z2), eVar, eVar2, eVar3, eVar4, eVar5, onClickListener};
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.M = context;
-        this.R = str;
-        this.S = z;
-        this.T = z2;
-        this.U = eVar;
-        this.V = eVar2;
-        this.W = eVar3;
-        this.X = eVar4;
-        this.Y = eVar5;
-        this.Z = onClickListener;
-        this.N = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090a94);
-        this.O = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091f9e);
-        z0();
+        this.a = context;
     }
 
-    @Override // com.baidu.tieba.a09
-    public View B() {
-        InterceptResult invokeV;
+    public static boolean a(Camera camera) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(R.layout.obfuscated_res_0x7f0d03f2, (ViewGroup) null);
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.a09
-    public void n(View view2, int i, View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i, onClickListener) == null) {
-            super.n(view2, i, onClickListener);
-        }
-    }
-
-    @Override // com.baidu.tieba.a09, android.view.View.OnClickListener
-    public void onClick(View view2) {
-        int i;
-        View.OnClickListener onClickListener;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            super.onClick(view2);
-            if (view2.getTag() != null) {
-                i = ((Integer) view2.getTag()).intValue();
-            } else {
-                i = -1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, camera)) == null) {
+            if (d(camera.getParameters().getSupportedFocusModes(), "auto") != null) {
+                return true;
             }
-            if (i == R.drawable.icon_pure_share_original40) {
-                b25.e eVar = this.W;
-                if (eVar != null) {
-                    eVar.onClick();
-                }
-            } else if (i == -32040023) {
-                b25.e eVar2 = this.U;
-                if (eVar2 != null) {
-                    eVar2.onClick();
-                }
-            } else if (i == R.drawable.icon_share_homepage_expression40) {
-                b25.e eVar3 = this.V;
-                if (eVar3 != null) {
-                    eVar3.onClick();
-                }
-            } else if (i == R.drawable.icon_share_homepage_scan40) {
-                b25.e eVar4 = this.X;
-                if (eVar4 != null) {
-                    eVar4.onClick();
-                }
-            } else if (i == R.drawable.icon_share_homepage_qrcode40) {
-                b25.e eVar5 = this.Y;
-                if (eVar5 != null) {
-                    eVar5.onClick();
-                }
-            } else if (i == R.drawable.icon_share_wechatexpression && (onClickListener = this.Z) != null) {
-                onClickListener.onClick(view2);
-            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void j(Camera camera) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, camera) == null) {
+            Camera.Parameters parameters = camera.getParameters();
+            Point point = this.d;
+            parameters.setPreviewSize(point.x, point.y);
+            k(parameters);
+            camera.setDisplayOrientation(f());
+            camera.setParameters(parameters);
         }
     }
 
-    @Override // com.baidu.tieba.a09
-    public boolean t0() {
-        InterceptResult invokeV;
-        int i;
+    public static int b(CharSequence charSequence, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            this.N.removeAllViews();
-            this.O.removeAllViews();
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, charSequence, i)) == null) {
             int i2 = 0;
+            for (String str : f.split(charSequence)) {
+                try {
+                    double parseDouble = Double.parseDouble(str.trim());
+                    int i3 = (int) (10.0d * parseDouble);
+                    if (Math.abs(i - parseDouble) < Math.abs(i - i2)) {
+                        i2 = i3;
+                    }
+                } catch (NumberFormatException unused) {
+                    return i;
+                }
+            }
+            return i2;
+        }
+        return invokeLI.intValue;
+    }
+
+    public static Point c(List<Camera.Size> list, Point point) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, list, point)) == null) {
+            Iterator<Camera.Size> it = list.iterator();
+            int i = 0;
+            int i2 = 0;
+            int i3 = Integer.MAX_VALUE;
             while (true) {
-                if (i2 >= Math.min(6, this.h.size())) {
+                if (!it.hasNext()) {
                     break;
                 }
-                this.N.addView(this.h.get(i2), new ViewGroup.LayoutParams(a0, b0));
-                i2++;
+                Camera.Size next = it.next();
+                int i4 = next.width;
+                int i5 = next.height;
+                int abs = Math.abs(i4 - point.x) + Math.abs(i5 - point.y);
+                if (abs == 0) {
+                    i2 = i5;
+                    i = i4;
+                    break;
+                } else if (abs < i3) {
+                    i2 = i5;
+                    i = i4;
+                    i3 = abs;
+                }
             }
-            this.N.addView(this.P, new ViewGroup.LayoutParams(c0, -1));
-            for (i = 6; i < this.h.size(); i++) {
-                this.O.addView(this.h.get(i), new ViewGroup.LayoutParams(a0, b0));
+            if (i > 0 && i2 > 0) {
+                return new Point(i, i2);
             }
-            this.O.addView(this.Q, new ViewGroup.LayoutParams(c0, -1));
-            return true;
+            return null;
         }
-        return invokeV.booleanValue;
+        return (Point) invokeLL.objValue;
     }
 
-    public final void z0() {
+    public static String d(Collection<String> collection, String... strArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.h.clear();
-            m(R.string.share_qq_friends, new SvgMaskType(R.drawable.icon_mask_share_qq40_svg));
-            m(R.string.share_qzone, new SvgMaskType(R.drawable.icon_mask_share_qqzone40_svg));
-            m(R.string.share_weixin, new SvgMaskType(R.drawable.icon_mask_share_wechat40_svg));
-            a aVar = new a(this, this.M);
-            aVar.d(R.drawable.icon_share_wechatexpression);
-            aVar.setItemName(R.string.share_weixin_emotion_1);
-            aVar.e(R.string.share_weixin_emotion_2);
-            aVar.setOnClickListener(this);
-            List<View> list = this.h;
-            aVar.a();
-            list.add(aVar);
-            m(R.string.share_weixin_timeline, new SvgMaskType(R.drawable.icon_mask_share_circle40_svg));
-            m(R.string.share_sina_weibo, new SvgMaskType(R.drawable.icon_mask_share_weibo40_svg));
-            if (this.R != null) {
-                j(R.string.original_img_look, R.drawable.icon_pure_share_original40);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, collection, strArr)) == null) {
+            if (collection != null) {
+                for (String str : strArr) {
+                    if (collection.contains(str)) {
+                        return str;
+                    }
+                }
             }
-            LinearLayout G = G(R.string.save_to_local, R.drawable.icon_pure_share_download40);
-            G.setOnClickListener(this);
-            G.setTag(-32040023);
-            this.h.add(G);
-            if (this.S) {
-                j(R.string.save_to_emotion, R.drawable.icon_share_homepage_expression40);
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static Point g(Camera.Parameters parameters, Point point) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, parameters, point)) == null) {
+            Point c = c(parameters.getSupportedPreviewSizes(), point);
+            if (c == null) {
+                return new Point((point.x >> 3) << 3, (point.y >> 3) << 3);
             }
-            j(R.string.identify_image, R.drawable.icon_share_homepage_scan40);
-            if (this.T) {
-                j(R.string.image_qr_code, R.drawable.icon_share_homepage_qrcode40);
+            return c;
+        }
+        return (Point) invokeLL.objValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
+            int i = 0;
+            Camera.getCameraInfo(0, cameraInfo);
+            int rotation = ((WindowManager) this.a.getSystemService("window")).getDefaultDisplay().getRotation();
+            if (rotation != 0) {
+                if (rotation != 1) {
+                    if (rotation != 2) {
+                        if (rotation == 3) {
+                            i = 270;
+                        }
+                    } else {
+                        i = 180;
+                    }
+                } else {
+                    i = 90;
+                }
             }
-            this.P = new View(this.M);
-            this.Q = new View(this.M);
+            if (cameraInfo.facing == 1) {
+                return (360 - ((cameraInfo.orientation + i) % 360)) % 360;
+            }
+            return ((cameraInfo.orientation - i) + 360) % 360;
+        }
+        return invokeV.intValue;
+    }
+
+    public void h(Camera camera) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, camera) == null) {
+            this.e = camera;
+            Camera.Parameters parameters = camera.getParameters();
+            if (a(camera)) {
+                parameters.setFocusMode("auto");
+            }
+            this.b = xz8.d(this.a);
+            Point point = new Point();
+            Point point2 = this.b;
+            point.x = point2.x;
+            point.y = point2.y;
+            int c = xz8.c(this.a);
+            if (c == 0) {
+                Point point3 = this.b;
+                point.x = point3.y;
+                point.y = point3.x;
+            }
+            if (UtilHelper.isOppoFoldLargeScreen(this.a)) {
+                this.d = new Point(1792, 1920);
+            } else {
+                this.d = g(parameters, point);
+            }
+            if (c == 0) {
+                Point point4 = this.d;
+                this.c = new Point(point4.y, point4.x);
+                return;
+            }
+            this.c = this.d;
+        }
+    }
+
+    public final void k(Camera.Parameters parameters) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, parameters) == null) {
+            String str = parameters.get("zoom-supported");
+            if (str != null && !Boolean.parseBoolean(str)) {
+                return;
+            }
+            int i = 27;
+            String str2 = parameters.get("max-zoom");
+            if (str2 != null) {
+                try {
+                    int parseDouble = (int) (Double.parseDouble(str2) * 10.0d);
+                    if (27 > parseDouble) {
+                        i = parseDouble;
+                    }
+                } catch (NumberFormatException unused) {
+                }
+            }
+            String str3 = parameters.get("taking-picture-zoom-max");
+            if (str3 != null) {
+                try {
+                    int parseInt = Integer.parseInt(str3);
+                    if (i > parseInt) {
+                        i = parseInt;
+                    }
+                } catch (NumberFormatException unused2) {
+                }
+            }
+            String str4 = parameters.get("mot-zoom-values");
+            if (str4 != null) {
+                i = b(str4, i);
+            }
+            String str5 = parameters.get("mot-zoom-step");
+            if (str5 != null) {
+                try {
+                    int parseDouble2 = (int) (Double.parseDouble(str5.trim()) * 10.0d);
+                    if (parseDouble2 > 1) {
+                        i -= i % parseDouble2;
+                    }
+                } catch (NumberFormatException unused3) {
+                }
+            }
+            if (str2 != null || str4 != null) {
+                parameters.set("zoom", String.valueOf(i / 10.0d));
+            }
+            if (str3 != null) {
+                parameters.set("taking-picture-zoom", i);
+            }
         }
     }
 }

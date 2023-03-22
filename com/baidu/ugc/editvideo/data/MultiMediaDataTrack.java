@@ -3,7 +3,7 @@ package com.baidu.ugc.editvideo.data;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
-import com.baidu.tieba.i1a;
+import com.baidu.tieba.r7a;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
@@ -63,7 +63,7 @@ public class MultiMediaDataTrack implements Parcelable, Cloneable {
     }
 
     public boolean hasFooter() {
-        if (i1a.e(this.multiMediaDataList) || this.multiMediaDataList.size() < 1) {
+        if (r7a.e(this.multiMediaDataList) || this.multiMediaDataList.size() < 1) {
             return false;
         }
         List<MultiMediaData> list = this.multiMediaDataList;
@@ -71,7 +71,7 @@ public class MultiMediaDataTrack implements Parcelable, Cloneable {
     }
 
     public boolean hasHeader() {
-        if (i1a.e(this.multiMediaDataList) || this.multiMediaDataList.get(0) == null) {
+        if (r7a.e(this.multiMediaDataList) || this.multiMediaDataList.get(0) == null) {
             return false;
         }
         return MediaSegment.SEG_TYPE_INPUT_HEADER.equals(this.multiMediaDataList.get(0).inputType);

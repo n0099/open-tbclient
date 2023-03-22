@@ -18,7 +18,7 @@ public final class a implements j {
     public final boolean gv() {
         Context context = this.mContext;
         if (context != null) {
-            t.b(this.mContext, context.getResources().getString(R.string.obfuscated_res_0x7f0f0a75), 0L);
+            t.b(this.mContext, context.getResources().getString(R.string.obfuscated_res_0x7f0f0a82), 0L);
             return true;
         }
         return true;

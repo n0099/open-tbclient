@@ -2,13 +2,16 @@ package com.baidu.tbadk.util;
 
 import android.os.Bundle;
 import android.os.Parcelable;
+import androidx.annotation.Keep;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.yp5;
+import com.baidu.tbadk.util.KotlinGsonWidget;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.vo5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -36,8 +39,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
+import kotlin.jvm.functions.Function1;
 import org.json.JSONException;
 import org.json.JSONObject;
+@Keep
 /* loaded from: classes3.dex */
 public final class DataExt {
     public static /* synthetic */ Interceptable $ic;
@@ -197,7 +202,7 @@ public final class DataExt {
                     if (jsonElement.isJsonPrimitive()) {
                         Number asNumber = jsonElement.getAsJsonPrimitive().getAsNumber();
                         if (!b(asNumber.toString()) && (valueOfByType = NumberType.valueOfByType(type)) != null) {
-                            int i = e.a[valueOfByType.ordinal()];
+                            int i = f.a[valueOfByType.ordinal()];
                             if (i != 1) {
                                 if (i != 2) {
                                     if (i != 3) {
@@ -259,49 +264,9 @@ public final class DataExt {
                 InterceptResult invokeLLL;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, jsonElement, type, jsonDeserializationContext)) == null) {
-                    return (Map) b(jsonElement);
+                    return (Map) GsonWidget.b(jsonElement);
                 }
                 return (Map) invokeLLL.objValue;
-            }
-
-            public final Object b(JsonElement jsonElement) {
-                InterceptResult invokeL;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsonElement)) == null) {
-                    if (jsonElement.isJsonArray()) {
-                        ArrayList arrayList = new ArrayList();
-                        Iterator<JsonElement> it = jsonElement.getAsJsonArray().iterator();
-                        while (it.hasNext()) {
-                            arrayList.add(b(it.next()));
-                        }
-                        return arrayList;
-                    } else if (jsonElement.isJsonObject()) {
-                        LinkedTreeMap linkedTreeMap = new LinkedTreeMap();
-                        for (Map.Entry<String, JsonElement> entry : jsonElement.getAsJsonObject().entrySet()) {
-                            linkedTreeMap.put(entry.getKey(), b(entry.getValue()));
-                        }
-                        return linkedTreeMap;
-                    } else if (jsonElement.isJsonPrimitive()) {
-                        JsonPrimitive asJsonPrimitive = jsonElement.getAsJsonPrimitive();
-                        if (asJsonPrimitive.isBoolean()) {
-                            return Boolean.valueOf(asJsonPrimitive.getAsBoolean());
-                        }
-                        if (asJsonPrimitive.isString()) {
-                            return asJsonPrimitive.getAsString();
-                        }
-                        if (asJsonPrimitive.isNumber()) {
-                            Number asNumber = asJsonPrimitive.getAsNumber();
-                            if (asNumber.toString().indexOf(46) != -1) {
-                                return Double.valueOf(asNumber.doubleValue());
-                            }
-                            return Long.valueOf(asNumber.longValue());
-                        }
-                        return null;
-                    } else {
-                        return null;
-                    }
-                }
-                return invokeL.objValue;
             }
         }
 
@@ -340,6 +305,46 @@ public final class DataExt {
             }
             a = new a().getType();
         }
+
+        public static Object b(JsonElement jsonElement) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jsonElement)) == null) {
+                if (jsonElement.isJsonArray()) {
+                    ArrayList arrayList = new ArrayList();
+                    Iterator<JsonElement> it = jsonElement.getAsJsonArray().iterator();
+                    while (it.hasNext()) {
+                        arrayList.add(b(it.next()));
+                    }
+                    return arrayList;
+                } else if (jsonElement.isJsonObject()) {
+                    LinkedTreeMap linkedTreeMap = new LinkedTreeMap();
+                    for (Map.Entry<String, JsonElement> entry : jsonElement.getAsJsonObject().entrySet()) {
+                        linkedTreeMap.put(entry.getKey(), b(entry.getValue()));
+                    }
+                    return linkedTreeMap;
+                } else if (jsonElement.isJsonPrimitive()) {
+                    JsonPrimitive asJsonPrimitive = jsonElement.getAsJsonPrimitive();
+                    if (asJsonPrimitive.isBoolean()) {
+                        return Boolean.valueOf(asJsonPrimitive.getAsBoolean());
+                    }
+                    if (asJsonPrimitive.isString()) {
+                        return asJsonPrimitive.getAsString();
+                    }
+                    if (asJsonPrimitive.isNumber()) {
+                        Number asNumber = asJsonPrimitive.getAsNumber();
+                        if (asNumber.toString().indexOf(46) != -1) {
+                            return Double.valueOf(asNumber.doubleValue());
+                        }
+                        return Long.valueOf(asNumber.longValue());
+                    }
+                    return null;
+                } else {
+                    return null;
+                }
+            }
+            return invokeL.objValue;
+        }
     }
 
     /* loaded from: classes3.dex */
@@ -376,8 +381,8 @@ public final class DataExt {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fieldAttributes)) == null) {
-                yp5 yp5Var = (yp5) fieldAttributes.getAnnotation(yp5.class);
-                if (yp5Var != null && !yp5Var.deserialize()) {
+                vo5 vo5Var = (vo5) fieldAttributes.getAnnotation(vo5.class);
+                if (vo5Var != null && !vo5Var.deserialize()) {
                     return true;
                 }
                 return false;
@@ -420,8 +425,8 @@ public final class DataExt {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fieldAttributes)) == null) {
-                yp5 yp5Var = (yp5) fieldAttributes.getAnnotation(yp5.class);
-                if (yp5Var != null && !yp5Var.serialize()) {
+                vo5 vo5Var = (vo5) fieldAttributes.getAnnotation(vo5.class);
+                if (vo5Var != null && !vo5Var.serialize()) {
                     return true;
                 }
                 return false;
@@ -431,7 +436,39 @@ public final class DataExt {
     }
 
     /* loaded from: classes3.dex */
-    public static class c implements ParameterizedType {
+    public static class c implements Function1<JsonElement, Object> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // kotlin.jvm.functions.Function1
+        /* renamed from: a */
+        public Object invoke(JsonElement jsonElement) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jsonElement)) == null) {
+                return GsonWidget.b(jsonElement);
+            }
+            return invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class d implements ParameterizedType {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Class a;
@@ -447,7 +484,7 @@ public final class DataExt {
             return (Type) invokeV.objValue;
         }
 
-        public c(Class cls) {
+        public d(Class cls) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -486,7 +523,7 @@ public final class DataExt {
     }
 
     /* loaded from: classes3.dex */
-    public static class d implements ParameterizedType {
+    public static class e implements ParameterizedType {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -501,7 +538,7 @@ public final class DataExt {
             return (Type) invokeV.objValue;
         }
 
-        public d() {
+        public e() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -536,7 +573,7 @@ public final class DataExt {
     }
 
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class e {
+    public static /* synthetic */ class f {
         public static /* synthetic */ Interceptable $ic;
         public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -544,13 +581,13 @@ public final class DataExt {
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(988613517, "Lcom/baidu/tbadk/util/DataExt$e;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(988613548, "Lcom/baidu/tbadk/util/DataExt$f;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(988613517, "Lcom/baidu/tbadk/util/DataExt$e;");
+                    classClinitInterceptable.invokePostClinit(988613548, "Lcom/baidu/tbadk/util/DataExt$f;");
                     return;
                 }
             }
@@ -590,7 +627,7 @@ public final class DataExt {
         }
         GsonBuilder gsonBuilder = new GsonBuilder();
         GsonWidget.BadNumberFix.c(gsonBuilder);
-        GSON = gsonBuilder.registerTypeAdapter(GsonWidget.a, new GsonWidget.MapDeserializerDoubleAsIntFix(null)).addSerializationExclusionStrategy(new b()).addDeserializationExclusionStrategy(new a()).create();
+        GSON = gsonBuilder.registerTypeAdapter(GsonWidget.a, new GsonWidget.MapDeserializerDoubleAsIntFix(null)).registerTypeAdapter(KotlinGsonWidget.a, new KotlinGsonWidget.MapDeserializerDoubleAsIntFix(new c())).registerTypeAdapterFactory(KotlinReflectiveTypeAdapterFactory.a(!hv4.e())).addSerializationExclusionStrategy(new b()).addDeserializationExclusionStrategy(new a()).create();
     }
 
     public DataExt() {
@@ -622,7 +659,7 @@ public final class DataExt {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, cls)) == null) {
-            return (List) Objects.requireNonNull(GSON.fromJson(str, new c(cls)));
+            return (List) Objects.requireNonNull(GSON.fromJson(str, new d(cls)));
         }
         return (List) invokeLL.objValue;
     }
@@ -693,7 +730,7 @@ public final class DataExt {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            return (List) Objects.requireNonNull(GSON.fromJson(str, new d()));
+            return (List) Objects.requireNonNull(GSON.fromJson(str, new e()));
         }
         return (List) invokeL.objValue;
     }

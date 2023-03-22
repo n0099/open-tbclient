@@ -20,14 +20,14 @@ import com.baidu.tbadk.coreExtra.data.VideoInfo;
 import com.baidu.tbadk.coreExtra.data.WriteVoteData;
 import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.tbadk.img.WriteImagesInfo;
-import com.baidu.tieba.ej;
 import com.baidu.tieba.frs.ForumWriteData;
 import com.baidu.tieba.frs.FrsTabInfoData;
 import com.baidu.tieba.frs.SerializableItemInfo;
-import com.baidu.tieba.kl9;
-import com.baidu.tieba.r79;
-import com.baidu.tieba.s79;
-import com.baidu.tieba.t79;
+import com.baidu.tieba.hi;
+import com.baidu.tieba.tr9;
+import com.baidu.tieba.xd9;
+import com.baidu.tieba.yd9;
+import com.baidu.tieba.zd9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -111,10 +111,10 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
         Activity currentActivity;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            boolean j = r79.g().j();
-            s79.a("发帖阻拦状态 = " + j);
+            boolean j = xd9.g().j();
+            yd9.a("发帖阻拦状态 = " + j);
             if (j && z && (currentActivity = TbadkCoreApplication.getInst().getCurrentActivity()) != null) {
-                ej.Q(currentActivity, "正在发布，请稍后");
+                hi.Q(currentActivity, "正在发布，请稍后");
             }
             return j;
         }
@@ -133,7 +133,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
     public void send() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            t79.h = new Intent(getIntent());
+            zd9.h = new Intent(getIntent());
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, this));
         }
     }
@@ -317,7 +317,7 @@ public class WriteActivityConfig extends BaseWriteConfig<WriteActivityConfig> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
             getIntent().putExtra(IS_ARTICLE, str);
-            if (kl9.l.equals(str)) {
+            if (tr9.l.equals(str)) {
                 setType(11);
             }
             return this;

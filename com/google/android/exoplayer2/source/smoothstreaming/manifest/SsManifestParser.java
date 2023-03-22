@@ -5,7 +5,6 @@ import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Pair;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.rtc.PeerConnectionClient;
 import com.coremedia.iso.boxes.sampleentry.AudioSampleEntry;
 import com.google.android.exoplayer2.C;
 import com.google.android.exoplayer2.Format;
@@ -305,7 +304,7 @@ public class SsManifestParser implements ParsingLoadable.Parser<SsManifest> {
         }
 
         public static String fourCCToMimeType(String str) {
-            if (!str.equalsIgnoreCase(PeerConnectionClient.VIDEO_CODEC_H264) && !str.equalsIgnoreCase("X264") && !str.equalsIgnoreCase("AVC1") && !str.equalsIgnoreCase("DAVC")) {
+            if (!str.equalsIgnoreCase("H264") && !str.equalsIgnoreCase("X264") && !str.equalsIgnoreCase("AVC1") && !str.equalsIgnoreCase("DAVC")) {
                 if (!str.equalsIgnoreCase("AAC") && !str.equalsIgnoreCase("AACL") && !str.equalsIgnoreCase("AACH") && !str.equalsIgnoreCase("AACP")) {
                     if (str.equalsIgnoreCase("TTML")) {
                         return MimeTypes.APPLICATION_TTML;

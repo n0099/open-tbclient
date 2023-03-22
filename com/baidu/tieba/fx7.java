@@ -1,88 +1,42 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetTagList.DataRes;
-import tbclient.GetTagList.ResponseTagInfo;
 /* loaded from: classes4.dex */
 public class fx7 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
+    public static final String b;
+    public static final String c;
+    public static final String d;
+    public static final String e;
+    public static final String f;
+    public static final String g;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ex7> a;
-    public List<ex7> b;
-    public List<Integer> c;
 
-    public fx7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947779588, "Lcom/baidu/tieba/fx7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947779588, "Lcom/baidu/tieba/fx7;");
+                return;
             }
         }
-    }
-
-    public List<ex7> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public List<ex7> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void c(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) != null) || dataRes == null) {
-            return;
-        }
-        if (!ListUtils.isEmpty(dataRes.sex_taglist)) {
-            ArrayList arrayList = new ArrayList();
-            this.a = arrayList;
-            d(arrayList, dataRes.sex_taglist);
-        }
-        if (!ListUtils.isEmpty(dataRes.taglist)) {
-            this.b = new ArrayList();
-            this.c = new ArrayList();
-            d(this.b, dataRes.taglist);
-        }
-    }
-
-    public final void d(List<ex7> list, List<ResponseTagInfo> list2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, list, list2) == null) && list != null && list2 != null) {
-            for (ResponseTagInfo responseTagInfo : list2) {
-                if (responseTagInfo != null && !StringUtils.isNull(responseTagInfo.tag_name)) {
-                    ex7 ex7Var = new ex7();
-                    ex7Var.a(responseTagInfo);
-                    list.add(ex7Var);
-                    List<Integer> list3 = this.c;
-                    if (list3 != null && ex7Var.c) {
-                        list3.add(Integer.valueOf(ex7Var.a));
-                    }
-                }
-            }
-        }
+        a = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0875);
+        b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0877);
+        c = TbadkCoreApplication.getInst().getString(R.string.group_chat_group_had_close);
+        d = TbadkCoreApplication.getInst().getString(R.string.group_chat_no_speak_all);
+        e = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f088c);
+        f = TbadkCoreApplication.getInst().getString(R.string.group_chat_no_speak_person);
+        g = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0881);
     }
 }

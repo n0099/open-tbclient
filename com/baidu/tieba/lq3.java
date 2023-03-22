@@ -3,28 +3,99 @@ package com.baidu.tieba;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.account.contants.AccountConstants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tieba.yc3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.CookieManager;
-import com.baidu.webkit.sdk.CookieSyncManager;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Locale;
-import java.util.SimpleTimeZone;
-import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.BaseHiidoContent;
+import java.util.HashSet;
+import java.util.Set;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class lq3 {
+public class lq3 extends q93 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final Set<String> d;
     public transient /* synthetic */ FieldHolder $fh;
+    public String c;
+
+    /* loaded from: classes5.dex */
+    public class a implements mm3<wc3<yc3.e>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ Context b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ String f;
+        public final /* synthetic */ String g;
+        public final /* synthetic */ lq3 h;
+
+        public a(lq3 lq3Var, CallbackHandler callbackHandler, Context context, String str, String str2, String str3, String str4, String str5) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lq3Var, callbackHandler, context, str, str2, str3, str4, str5};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.h = lq3Var;
+            this.a = callbackHandler;
+            this.b = context;
+            this.c = str;
+            this.d = str2;
+            this.e = str3;
+            this.f = str4;
+            this.g = str5;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.mm3
+        /* renamed from: b */
+        public void a(wc3<yc3.e> wc3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wc3Var) == null) {
+                if (!rc3.h(wc3Var)) {
+                    rc3.q(wc3Var, this.a, this.h.c);
+                    return;
+                }
+                mj3 a = ar2.F().a(this.b, this.c, this.d, this.e, this.f, this.g);
+                if (a != null) {
+                    if (a.h() != 0) {
+                        t42.c("PageTransitionAction", a.g().toString());
+                        CallbackHandler callbackHandler = this.a;
+                        String str = this.h.c;
+                        callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, a.a() + ":" + a.g().toString()).toString());
+                        return;
+                    }
+                    t42.c("PageTransitionAction", "page transition fail");
+                    this.a.handleSchemeDispatchCallback(this.h.c, UnitedSchemeUtility.wrapCallbackParams(1001, "execute fail").toString());
+                    return;
+                }
+                t42.i("PageTransitionAction", "page transition success");
+                this.a.handleSchemeDispatchCallback(this.h.c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -39,155 +110,118 @@ public class lq3 {
                 return;
             }
         }
-        a = wp1.a;
+        HashSet hashSet = new HashSet();
+        d = hashSet;
+        hashSet.add("easybrowse");
+        d.add("live");
+        d.add("appTab");
+        d.add("browser");
+        d.add(AccountConstants.LOGIN_TYPE_NATIVE_SRC_COMIC);
+        d.add(AccountConstants.LOGIN_TYPE_NATIVE_SRC_NOVEL);
+        d.add("imChatHN");
     }
 
-    public static List<String> e() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lq3(q83 q83Var) {
+        super(q83Var, "/swanAPI/pageTransition");
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(PublicSuffixDatabase.BAIDU_TLD_PLUS_ONE);
-            arrayList.add("hao123.com");
-            arrayList.add("nuomi.com");
-            arrayList.add("baifubao.com");
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public static String a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            return b(str, HttpRequest.BDUSS, str2);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            return b(str, "PTOKEN", str2);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String b(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTime(new Date());
-            if (TextUtils.isEmpty(str3)) {
-                i = -8;
-            } else {
-                i = 8;
-            }
-            calendar.add(1, i);
-            return c(str, str2, str3, calendar.getTime(), false);
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    public static String c(String str, String str2, String str3, Date date, boolean z) {
-        InterceptResult invokeCommon;
-        String str4;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, str2, str3, date, Boolean.valueOf(z)})) == null) {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("EEE, dd-MMM-yyyy HH:mm:ss 'GMT'", Locale.US);
-            simpleDateFormat.setTimeZone(new SimpleTimeZone(0, "GMT"));
-            StringBuilder sb = new StringBuilder();
-            sb.append(str2);
-            sb.append("=");
-            sb.append(str3);
-            sb.append(";domain=");
-            sb.append(str);
-            sb.append(";path=/;expires=");
-            sb.append(simpleDateFormat.format(date));
-            sb.append(";httponly");
-            if (z) {
-                str4 = ";secure";
-            } else {
-                str4 = "";
-            }
-            sb.append(str4);
-            return sb.toString();
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static void f(String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65542, null, str, str2, z) == null) {
-            CookieManager.getInstance().setCookie(str, str2);
-            if (z) {
-                CookieSyncManager.getInstance().sync();
-            }
-        }
-    }
-
-    public static void g(Context context, String str, List<String> list) {
-        String a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65543, null, context, str, list) == null) {
-            if (list == null) {
-                if (a) {
-                    Log.w("SwanAppCookieUtils", "bduss domains is invalid");
-                    return;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {q83Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            for (String str2 : list) {
-                if (TextUtils.isEmpty(str)) {
-                    a2 = en3.k(str2, HttpRequest.BDUSS, "deleted", 0L);
+        }
+    }
+
+    @Override // com.baidu.tieba.q93
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, t73 t73Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, t73Var)) == null) {
+            if (t73Var == null) {
+                t42.c("PageTransitionAction", "runtime exception");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "null swanApp");
+                return false;
+            } else if (t73Var.n0()) {
+                if (q93.b) {
+                    Log.d("PageTransitionAction", "PageTransitionAction does not supported when app is invisible.");
+                }
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
+                return false;
+            } else {
+                String param = unitedSchemeEntity.getParam("params");
+                if (TextUtils.isEmpty(param)) {
+                    t42.c("PageTransitionAction", "params is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "params is null");
+                    return false;
+                }
+                JSONObject d2 = tk3.d(param);
+                String optString = d2.optString("cb");
+                this.c = optString;
+                if (TextUtils.isEmpty(optString)) {
+                    t42.c("PageTransitionAction", "callback is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                    return false;
+                }
+                String optString2 = d2.optString("authority");
+                String optString3 = d2.optString("path");
+                String optString4 = d2.optString("module");
+                String optString5 = d2.optString("action");
+                String optString6 = d2.optString("scheme");
+                k(t73Var, optString4);
+                if (ar2.E().a(d2)) {
+                    t73Var.e0().g(context, "mapp_i_baiduapp_page_trans", new a(this, callbackHandler, context, optString2, optString3, optString4, optString5, optString6));
                 } else {
-                    a2 = a(str2, str);
+                    mj3 a2 = ar2.F().a(context, optString2, optString3, optString4, optString5, optString6);
+                    if (a2 != null) {
+                        if (a2.h() != 0) {
+                            t42.c("PageTransitionAction", a2.g().toString());
+                            String str = this.c;
+                            callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(1001, a2.a() + ":" + a2.g().toString()).toString());
+                        } else {
+                            t42.c("PageTransitionAction", "page transition fail");
+                            callbackHandler.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(1001, "execute fail").toString());
+                        }
+                    } else {
+                        t42.i("PageTransitionAction", "page transition success");
+                        callbackHandler.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                    }
                 }
-                f("http://www." + str2, a2, false);
+                t42.i("PageTransitionAction", "callback success");
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                return true;
             }
         }
+        return invokeLLLL.booleanValue;
     }
 
-    public static void j(Context context, String str, List<String> list) {
-        String d;
+    public final void k(@NonNull t73 t73Var, @NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65546, null, context, str, list) == null) {
-            if (list == null) {
-                if (a) {
-                    Log.w("SwanAppCookieUtils", "ptoken domains is invalid");
-                    return;
-                }
-                return;
-            }
-            for (String str2 : list) {
-                if (TextUtils.isEmpty(str)) {
-                    d = en3.k(str2, "PTOKEN", "deleted", 0L);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t73Var, str) == null) {
+            ve3 ve3Var = new ve3();
+            ve3Var.c = t73Var.W().T();
+            ve3Var.a = "swan";
+            if (nl3.G()) {
+                if (d.contains(str)) {
+                    ve3Var.b = str.toLowerCase();
                 } else {
-                    d = d(str2, str);
+                    ve3Var.b = ImageViewerConfig.FROM_OTHER;
                 }
-                f("http://www." + str2, d, false);
+            } else {
+                ve3Var.b = ImageViewerConfig.FROM_OTHER;
             }
-        }
-    }
-
-    public static void h(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65544, null, context) != null) || context == null) {
-            return;
-        }
-        String i = np3.i(context);
-        String r = np3.r(context);
-        g(context, i, e());
-        j(context, r, e());
-    }
-
-    public static void i(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
-            h(context);
+            ve3Var.a(BaseHiidoContent.HOSTID, ar2.n().a());
+            ve3Var.a("appid", t73Var.getAppId());
+            me3.x("1895", ve3Var);
         }
     }
 }

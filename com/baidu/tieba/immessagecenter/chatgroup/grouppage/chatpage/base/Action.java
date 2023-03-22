@@ -2,7 +2,9 @@ package com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.qw7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +27,8 @@ public class Action {
 
     /* loaded from: classes4.dex */
     public interface a<Msg extends BaseMsg> {
-        void a(@NonNull Op op, @Nullable Msg msg);
+        @WorkerThread
+        void a(@NonNull Op op, @Nullable Msg msg, @NonNull qw7.i iVar);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -34,6 +37,7 @@ public class Action {
         public static final /* synthetic */ Op[] $VALUES;
         public static /* synthetic */ Interceptable $ic;
         public static final Op DELETE;
+        public static final Op EXEC;
         public static final Op UPDATE;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -51,9 +55,10 @@ public class Action {
                 }
             }
             DELETE = new Op(HttpDelete.METHOD_NAME, 0);
-            Op op = new Op("UPDATE", 1);
-            UPDATE = op;
-            $VALUES = new Op[]{DELETE, op};
+            UPDATE = new Op("UPDATE", 1);
+            Op op = new Op("EXEC", 2);
+            EXEC = op;
+            $VALUES = new Op[]{DELETE, UPDATE, op};
         }
 
         public Op(String str, int i) {

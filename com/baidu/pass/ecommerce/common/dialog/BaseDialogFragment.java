@@ -30,14 +30,14 @@ public abstract class BaseDialogFragment extends DialogFragment implements View.
     @Override // androidx.fragment.app.DialogFragment, androidx.fragment.app.Fragment
     public void onCreate(@Nullable Bundle bundle) {
         super.onCreate(bundle);
-        setStyle(1, R.style.obfuscated_res_0x7f10011f);
+        setStyle(1, R.style.obfuscated_res_0x7f100123);
     }
 
     @Override // androidx.fragment.app.Fragment
     @Nullable
     public View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         View inflate = layoutInflater.inflate(getLayoutResId(), viewGroup);
-        getDialog().getWindow().getAttributes().windowAnimations = R.style.obfuscated_res_0x7f1003ef;
+        getDialog().getWindow().getAttributes().windowAnimations = R.style.obfuscated_res_0x7f1003f4;
         return inflate;
     }
 }

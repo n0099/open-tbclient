@@ -1,19 +1,41 @@
 package com.baidu.tieba;
 
-import java.util.List;
+import com.baidu.tbadk.data.QmFilterItem;
+import com.baidu.tieba.external.sticker.data.QmStickerItem;
 /* loaded from: classes6.dex */
 public interface uh6 {
 
     /* loaded from: classes6.dex */
     public interface a {
-        void a();
-
-        void b();
-
-        void c(String str);
+        void onProgress(long j);
     }
 
-    void a();
+    /* loaded from: classes6.dex */
+    public interface b {
+        boolean a(String str);
 
-    boolean b(List<String> list);
+        boolean b();
+    }
+
+    boolean a(QmFilterItem qmFilterItem);
+
+    boolean b(QmStickerItem qmStickerItem);
+
+    boolean c();
+
+    boolean d();
+
+    fa6 e();
+
+    ca6 f();
+
+    boolean onDestroy();
+
+    boolean onPause();
+
+    boolean onResume();
+
+    boolean startRecord();
+
+    boolean stopRecord();
 }

@@ -144,7 +144,7 @@ public class ConfigMsg extends NormalMsg {
                     this.dataList = new JSONObject(jsonContent).optString("data_list");
                     return true;
                 } catch (JSONException e) {
-                    LogUtils.e("TextMsg", "parse json err!", e);
+                    LogUtils.e(TextMsg.TAG, "parse json err!", e);
                 }
             }
             return false;

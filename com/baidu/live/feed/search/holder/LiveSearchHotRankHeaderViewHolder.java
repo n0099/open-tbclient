@@ -5,7 +5,7 @@ import android.widget.ImageView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jd0;
+import com.baidu.tieba.zb0;
 /* loaded from: classes2.dex */
 public class LiveSearchHotRankHeaderViewHolder extends RecyclerView.ViewHolder {
     public LiveSearchHotRankHeaderViewHolder(@NonNull View view2) {
@@ -15,10 +15,10 @@ public class LiveSearchHotRankHeaderViewHolder extends RecyclerView.ViewHolder {
             return;
         }
         ImageView imageView = (ImageView) view2;
-        if ("day".equals(jd0.f().r())) {
-            i = R.drawable.obfuscated_res_0x7f080d88;
+        if ("day".equals(zb0.f().r())) {
+            i = R.drawable.obfuscated_res_0x7f080d9c;
         } else {
-            i = R.drawable.obfuscated_res_0x7f080d89;
+            i = R.drawable.obfuscated_res_0x7f080d9d;
         }
         imageView.setImageResource(i);
     }

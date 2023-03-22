@@ -1,81 +1,233 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import java.util.List;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
-import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes4.dex */
-public class hta implements ewa {
+public final class hta implements qra {
     public static /* synthetic */ Interceptable $ic;
+    public static final qra g;
     public transient /* synthetic */ FieldHolder $fh;
-    public tsa a;
-    public AbsViewEventHandler b;
-    public PayUIKitConfig c;
-    public Activity d;
-    public List<PayWayInfo> e;
-    public IYYPayAmountView.ViewParams f;
-    public IPayCallback<CurrencyChargeMessage> g;
-    public String h;
+    public long a;
+    public qra b;
+    public boolean c;
+    public long d;
+    public long e;
+    public qra f;
 
-    public hta(tsa tsaVar, AbsViewEventHandler absViewEventHandler, PayUIKitConfig payUIKitConfig, Activity activity, List<PayWayInfo> list, IYYPayAmountView.ViewParams viewParams, String str, IPayCallback<CurrencyChargeMessage> iPayCallback) {
+    /* loaded from: classes4.dex */
+    public static class a implements qra {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.qra
+        public void request(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947836628, "Lcom/baidu/tieba/hta;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947836628, "Lcom/baidu/tieba/hta;");
+                return;
+            }
+        }
+        g = new a();
+    }
+
+    public hta() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tsaVar, absViewEventHandler, payUIKitConfig, activity, list, viewParams, str, iPayCallback};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-        RLog.info("AmountInputDialogListener", "create AmountInputDialogListener");
-        this.a = tsaVar;
-        this.b = absViewEventHandler;
-        this.c = payUIKitConfig;
-        this.d = activity;
-        this.e = list;
-        this.f = viewParams;
-        this.g = iPayCallback;
-        this.h = str;
-    }
-
-    @Override // com.baidu.tieba.ewa
-    public void a(CancelType cancelType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
-            RLog.info("AmountInputDialogListener", "InputDialog notifyCancelType clickArea:" + cancelType);
-            this.a.d(cancelType, this.b);
         }
     }
 
-    @Override // com.baidu.tieba.ewa
-    public void b(int i) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            lua a = vua.a((int) (i * 100.0d), this.c);
-            if (iva.b(i)) {
-                this.a.a(this.d, a, this.e, this.h, PaySplitOrderViewSource.SOURCE_FROM_INPUAT_DIALOG, this.f, this.g);
-                RLog.info("AmountInputDialogListener", "confirm but ShowSplitOrderDialog");
-                return;
+        if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+            return;
+        }
+        while (true) {
+            synchronized (this) {
+                long j = this.d;
+                long j2 = this.e;
+                qra qraVar = this.f;
+                int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+                if (i == 0 && j2 == 0 && qraVar == null) {
+                    this.c = false;
+                    return;
+                }
+                this.d = 0L;
+                this.e = 0L;
+                this.f = null;
+                long j3 = this.a;
+                if (j3 != Long.MAX_VALUE) {
+                    long j4 = j3 + j;
+                    if (j4 >= 0 && j4 != Long.MAX_VALUE) {
+                        j3 = j4 - j2;
+                        if (j3 >= 0) {
+                            this.a = j3;
+                        } else {
+                            throw new IllegalStateException("more produced than requested");
+                        }
+                    } else {
+                        this.a = Long.MAX_VALUE;
+                        j3 = Long.MAX_VALUE;
+                    }
+                }
+                if (qraVar != null) {
+                    if (qraVar == g) {
+                        this.b = null;
+                    } else {
+                        this.b = qraVar;
+                        qraVar.request(j3);
+                    }
+                } else {
+                    qra qraVar2 = this.b;
+                    if (qraVar2 != null && i != 0) {
+                        qraVar2.request(j);
+                    }
+                }
             }
-            RLog.info("AmountInputDialogListener", "showInputDialog: mPayAmountCustom:%s", a);
-            this.a.t(this.d, a, this.e, this.h, this.f, this.g);
+        }
+    }
+
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public void b(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            if (j > 0) {
+                synchronized (this) {
+                    if (this.c) {
+                        this.e += j;
+                        return;
+                    }
+                    this.c = true;
+                    try {
+                        long j2 = this.a;
+                        if (j2 != Long.MAX_VALUE) {
+                            long j3 = j2 - j;
+                            if (j3 >= 0) {
+                                this.a = j3;
+                            } else {
+                                throw new IllegalStateException("more items arrived than were requested");
+                            }
+                        }
+                        a();
+                        return;
+                    } catch (Throwable th) {
+                        synchronized (this) {
+                            this.c = false;
+                            throw th;
+                        }
+                    }
+                }
+            }
+            throw new IllegalArgumentException("n > 0 required");
+        }
+    }
+
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    @Override // com.baidu.tieba.qra
+    public void request(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (i >= 0) {
+                if (i == 0) {
+                    return;
+                }
+                synchronized (this) {
+                    if (this.c) {
+                        this.d += j;
+                        return;
+                    }
+                    this.c = true;
+                    try {
+                        long j2 = this.a + j;
+                        if (j2 < 0) {
+                            j2 = Long.MAX_VALUE;
+                        }
+                        this.a = j2;
+                        qra qraVar = this.b;
+                        if (qraVar != null) {
+                            qraVar.request(j);
+                        }
+                        a();
+                        return;
+                    } catch (Throwable th) {
+                        synchronized (this) {
+                            this.c = false;
+                            throw th;
+                        }
+                    }
+                }
+            }
+            throw new IllegalArgumentException("n >= 0 required");
+        }
+    }
+
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public void c(qra qraVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qraVar) == null) {
+            synchronized (this) {
+                if (this.c) {
+                    if (qraVar == null) {
+                        qraVar = g;
+                    }
+                    this.f = qraVar;
+                    return;
+                }
+                this.c = true;
+                try {
+                    this.b = qraVar;
+                    if (qraVar != null) {
+                        qraVar.request(this.a);
+                    }
+                    a();
+                } catch (Throwable th) {
+                    synchronized (this) {
+                        this.c = false;
+                        throw th;
+                    }
+                }
+            }
         }
     }
 }

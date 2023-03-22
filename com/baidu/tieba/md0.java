@@ -1,139 +1,154 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.view.ViewGroup;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mcn.McnVideoAdView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.regex.Pattern;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class md0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public McnVideoAdView a;
+    public McnVideoAdView.c b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947968688, "Lcom/baidu/tieba/md0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a implements McnVideoAdView.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(md0 md0Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {md0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947968688, "Lcom/baidu/tieba/md0;");
+        }
+
+        @Override // com.baidu.mcn.McnVideoAdView.c
+        public void a(kd0 kd0Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, kd0Var) == null) && kd0Var != null && !StringUtils.isNull(kd0Var.d)) {
+                ld0.b().c(kd0Var.d);
+            }
+        }
+
+        @Override // com.baidu.mcn.McnVideoAdView.c
+        public void b(kd0 kd0Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, kd0Var) != null) || kd0Var == null) {
+                return;
+            }
+            StatisticItem statisticItem = new StatisticItem("c13405");
+            statisticItem.param("tid", kd0Var.e);
+            statisticItem.param("fid", kd0Var.f);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.param("obj_locate", kd0Var.g);
+            TiebaStatic.log(statisticItem);
+        }
+
+        @Override // com.baidu.mcn.McnVideoAdView.c
+        public void c(kd0 kd0Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kd0Var) != null) || kd0Var == null) {
+                return;
+            }
+            StatisticItem statisticItem = new StatisticItem("c13404");
+            statisticItem.param("tid", kd0Var.e);
+            statisticItem.param("fid", kd0Var.f);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            statisticItem.param("obj_locate", kd0Var.g);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public md0(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Pattern.compile("^((https|http|ftp|rtsp|mms)?://)?(([0-9a-zA-Z_!~*'().&=+$%-]+: )?[0-9a-zA-Z_!~*'().&=+$%-]+@)?(([0-9]{1,3}\\.){3}[0-9]{1,3}|([0-9a-zA-Z_!~*'()-]+\\.)*([0-9a-zA-Z][0-9a-zA-Z-]{0,61})?[0-9a-zA-Z]\\.[a-zA-Z]{2,6})(:[0-9]{1,4})?((/?)|(/[0-9a-zA-Z_!~*'().;?:@&=+$,%#-]+)+/?)$");
+        this.b = new a(this);
+        McnVideoAdView mcnVideoAdView = new McnVideoAdView(context);
+        this.a = mcnVideoAdView;
+        mcnVideoAdView.setIMcnStatListener(this.b);
     }
 
-    public static String a(String str, Map<String, String> map) {
-        InterceptResult invokeLL;
+    public void a() {
+        McnVideoAdView mcnVideoAdView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, map)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                String c = c(map);
-                if (!TextUtils.isEmpty(c)) {
-                    if (str.contains("?")) {
-                        return str + "&" + c;
-                    }
-                    return str + "?" + c;
-                }
-                return str;
-            }
-            return str;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (mcnVideoAdView = this.a) != null) {
+            mcnVideoAdView.f();
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
+    public void b() {
+        McnVideoAdView mcnVideoAdView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            int indexOf = str.indexOf("?");
-            if (indexOf <= 0) {
-                return null;
-            }
-            return str.substring(indexOf + 1);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (mcnVideoAdView = this.a) != null) {
+            mcnVideoAdView.g();
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String c(Map<String, String> map) {
-        InterceptResult invokeL;
-        String encode;
-        String str;
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
-            if (map == null) {
-                return "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            McnVideoAdView mcnVideoAdView = this.a;
+            if (mcnVideoAdView != null) {
+                return mcnVideoAdView.i();
             }
-            StringBuilder sb = new StringBuilder();
-            for (String str2 : map.keySet()) {
-                if (sb.length() > 0) {
-                    sb.append("&");
-                }
-                String str3 = map.get(str2);
-                if (str2 == null) {
-                    encode = "";
-                } else {
-                    try {
-                        encode = URLEncoder.encode(str2, "UTF-8");
-                    } catch (UnsupportedEncodingException e) {
-                        if (kd0.i()) {
-                            throw new RuntimeException("This method requires UTF-8 encoding support", e);
-                        }
-                    }
-                }
-                sb.append(encode);
-                sb.append("=");
-                if (str3 == null) {
-                    str = "";
-                } else {
-                    str = URLEncoder.encode(str3, "UTF-8");
-                }
-                sb.append(str);
-            }
-            return sb.toString();
+            return false;
         }
-        return (String) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static Map<String, String> d(String str) {
-        InterceptResult invokeL;
-        String str2;
+    public void d() {
+        McnVideoAdView mcnVideoAdView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            HashMap hashMap = new HashMap();
-            for (String str3 : str.split("&")) {
-                String[] split = str3.split("=");
-                try {
-                    String decode = URLDecoder.decode(split[0], "UTF-8");
-                    if (split.length > 1) {
-                        str2 = URLDecoder.decode(split[1], "UTF-8");
-                    } else {
-                        str2 = "";
-                    }
-                    hashMap.put(decode, str2);
-                } catch (UnsupportedEncodingException e) {
-                    throw new RuntimeException("This method requires UTF-8 encoding support", e);
-                }
-            }
-            return hashMap;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (mcnVideoAdView = this.a) != null) {
+            mcnVideoAdView.k();
         }
-        return (Map) invokeL.objValue;
+    }
+
+    public void e(kd0 kd0Var, ViewGroup viewGroup) {
+        McnVideoAdView mcnVideoAdView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, kd0Var, viewGroup) == null) && (mcnVideoAdView = this.a) != null) {
+            mcnVideoAdView.l(kd0Var, viewGroup);
+        }
+    }
+
+    public void f(kd0 kd0Var, ViewGroup viewGroup) {
+        McnVideoAdView mcnVideoAdView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, kd0Var, viewGroup) == null) && (mcnVideoAdView = this.a) != null) {
+            mcnVideoAdView.m(kd0Var, viewGroup);
+        }
     }
 }

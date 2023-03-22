@@ -1,68 +1,46 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppPhoneLoginDialog;
+import com.baidu.tieba.bp3;
+import com.baidu.tieba.fo3;
+import com.baidu.tieba.mq3;
+import com.baidu.tieba.xo3;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class wo3 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public RelativeLayout a;
+public interface wo3 {
+    String a(Context context);
 
-    public wo3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-    }
+    String b(Context context);
 
-    public final void a(ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, viewGroup) != null) || viewGroup == null || !(viewGroup instanceof RelativeLayout)) {
-            return;
-        }
-        if (this.a == null) {
-            RelativeLayout relativeLayout = new RelativeLayout(viewGroup.getContext());
-            this.a = relativeLayout;
-            relativeLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f0801a1);
-        }
-        viewGroup.removeView(this.a);
-        viewGroup.addView(this.a, new ViewGroup.LayoutParams(-1, -1));
-    }
+    void c(Context context, Bundle bundle, fo1 fo1Var);
 
-    public void b(ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) != null) || viewGroup == null || ProcessUtils.isMainProcess() || !SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
-            return;
-        }
-        if (ts2.M().a()) {
-            a(viewGroup);
-        } else {
-            c(viewGroup);
-        }
-    }
+    uo3 d(Context context);
 
-    public final void c(ViewGroup viewGroup) {
-        RelativeLayout relativeLayout;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) && viewGroup != null && (relativeLayout = this.a) != null) {
-            viewGroup.removeView(relativeLayout);
-            this.a = null;
-        }
-    }
+    void e(Activity activity, String str, String str2, vo3 vo3Var);
+
+    void f(Context context, mq3.d dVar);
+
+    boolean g(Context context);
+
+    String getBduss(Context context);
+
+    void h(ho1 ho1Var);
+
+    void i(Context context, xo3.d dVar);
+
+    void j(Context context, SwanAppPhoneLoginDialog.g gVar, String str);
+
+    String k(Context context);
+
+    void l(Activity activity, String str, String str2, vo3 vo3Var);
+
+    void m(Activity activity, String str, bq3 bq3Var);
+
+    void n(String str, ArrayList<String> arrayList, bp3.c cVar);
+
+    void o(fo3.a aVar, String str, List<String> list);
 }

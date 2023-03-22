@@ -1,29 +1,107 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.MetaData;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.db.pojo.GroupChatRoomPojo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
 public class xq7 {
     public static /* synthetic */ Interceptable $ic;
-    public static ArrayList<MetaData> a;
+    public static volatile xq7 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static ArrayList<MetaData> a() {
-        InterceptResult invokeV;
+    public xq7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return (ArrayList) invokeV.objValue;
     }
 
-    public static void b(ArrayList<MetaData> arrayList) {
+    public static xq7 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, arrayList) == null) {
-            a = arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (xq7.class) {
+                    if (a == null) {
+                        a = new xq7();
+                    }
+                }
+            }
+            return a;
+        }
+        return (xq7) invokeV.objValue;
+    }
+
+    public long a(@NonNull Long l) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, l)) == null) {
+            GroupChatRoomPojo c = dp7.f().c(TbadkCoreApplication.getCurrentAccount(), l.longValue());
+            if (c != null) {
+                return c.getTopTime();
+            }
+            return 0L;
+        }
+        return invokeL.longValue;
+    }
+
+    public boolean d(@NonNull Long l) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l)) == null) {
+            GroupChatRoomPojo c = dp7.f().c(TbadkCoreApplication.getCurrentAccount(), l.longValue());
+            if (c == null || c.S() == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean c(@NonNull Long l, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l, j)) == null) {
+            GroupChatRoomPojo c = dp7.f().c(TbadkCoreApplication.getCurrentAccount(), l.longValue());
+            if (c != null && c.getDeleteTime() != 0 && j <= c.getDeleteTime()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLJ.booleanValue;
+    }
+
+    public void e(@NonNull Long l, @NonNull String str, @NonNull String str2, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{l, str, str2, Long.valueOf(j)}) == null) {
+            dp7.f().m(TbadkCoreApplication.getCurrentAccount(), l.longValue(), str, str2, j);
+        }
+    }
+
+    public void f(@NonNull Long l, @NonNull String str, @NonNull String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{l, str, str2, Boolean.valueOf(z)}) == null) {
+            dp7.f().p(TbadkCoreApplication.getCurrentAccount(), l.longValue(), str, str2, !z);
+        }
+    }
+
+    public void g(@NonNull Long l, @NonNull String str, @NonNull String str2, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{l, str, str2, Long.valueOf(j)}) == null) {
+            dp7.f().r(TbadkCoreApplication.getCurrentAccount(), l.longValue(), str, str2, j);
         }
     }
 }

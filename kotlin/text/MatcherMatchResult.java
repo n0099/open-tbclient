@@ -106,9 +106,7 @@ public final class MatcherMatchResult implements MatchResult {
 
     @Override // kotlin.text.MatchResult
     public IntRange getRange() {
-        IntRange range;
-        range = RegexKt.range(getMatchResult());
-        return range;
+        return RegexKt.access$range(getMatchResult());
     }
 
     @Override // kotlin.text.MatchResult
@@ -121,7 +119,6 @@ public final class MatcherMatchResult implements MatchResult {
     @Override // kotlin.text.MatchResult
     public MatchResult next() {
         int i;
-        MatchResult findNext;
         int end = getMatchResult().end();
         if (getMatchResult().end() == getMatchResult().start()) {
             i = 1;
@@ -132,8 +129,7 @@ public final class MatcherMatchResult implements MatchResult {
         if (i2 <= this.input.length()) {
             Matcher matcher = this.matcher.pattern().matcher(this.input);
             Intrinsics.checkNotNullExpressionValue(matcher, "matcher.pattern().matcher(input)");
-            findNext = RegexKt.findNext(matcher, i2, this.input);
-            return findNext;
+            return RegexKt.access$findNext(matcher, i2, this.input);
         }
         return null;
     }

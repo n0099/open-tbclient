@@ -1,28 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tbadk.core.view.NoPressedRelativeLayout;
+import com.baidu.tieba.frs.FrsFragment;
 /* loaded from: classes6.dex */
-public class x07 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public boolean c;
+public interface x07 {
+    z87 a(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout);
 
-    public x07() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    v07 b(FrsFragment frsFragment, mn mnVar, boolean z);
+
+    y07 c();
+
+    z07 d(FrsFragment frsFragment, NoPressedRelativeLayout noPressedRelativeLayout);
+
+    p97 e(String str, FrsFragment frsFragment, int i);
 }

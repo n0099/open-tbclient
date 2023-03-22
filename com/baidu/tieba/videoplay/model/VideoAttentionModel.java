@@ -16,9 +16,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.a9;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.videoplay.data.VideoAttentionPersonListData;
-import com.baidu.tieba.x9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -56,7 +56,7 @@ public class VideoAttentionModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -139,7 +139,7 @@ public class VideoAttentionModel extends BdBaseModel {
                             this.a.a.b(arrayList);
                         }
                     }
-                    VideoAttentionModel.O(this.a);
+                    VideoAttentionModel.S(this.a);
                 }
             }
         }
@@ -185,7 +185,7 @@ public class VideoAttentionModel extends BdBaseModel {
                 return;
             }
             this.a.e = true;
-            this.a.X();
+            this.a.b0();
             TbSingleton.getInstance().setVideoChannelAttentionRedIcon(null);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921575, Integer.valueOf(this.a.f)));
         }
@@ -203,7 +203,7 @@ public class VideoAttentionModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((x9) newInitContext.callArgs[0]);
+                super((a9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -220,27 +220,27 @@ public class VideoAttentionModel extends BdBaseModel {
         registerListener(this.h);
     }
 
-    public static /* synthetic */ int O(VideoAttentionModel videoAttentionModel) {
+    public static /* synthetic */ int S(VideoAttentionModel videoAttentionModel) {
         int i = videoAttentionModel.d;
         videoAttentionModel.d = i + 1;
         return i;
     }
 
-    public void Y(int i) {
+    public void c0(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             this.f = i;
         }
     }
 
-    public void Z(c cVar) {
+    public void d0(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
             this.a = cVar;
         }
     }
 
-    public final HttpMessage W(int i) {
+    public final HttpMessage a0(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
@@ -256,18 +256,18 @@ public class VideoAttentionModel extends BdBaseModel {
         return (HttpMessage) invokeI.objValue;
     }
 
-    public void X() {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.d = 1;
-            sendMessage(W(0));
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.mHasMore == 1) {
+            sendMessage(a0(1));
         }
     }
 
-    public void b() {
+    public void b0() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.mHasMore == 1) {
-            sendMessage(W(1));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.d = 1;
+            sendMessage(a0(0));
         }
     }
 }

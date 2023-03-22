@@ -1,12 +1,23 @@
 package com.baidu.tieba;
-
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public interface a4a {
-    public static final ServiceReference a = new ServiceReference("yaLog", "yaLogConfig");
+    boolean available();
 
-    void a(JSONObject jSONObject);
+    int availableBytes();
 
-    void b(JSONObject jSONObject, boolean z);
+    void clearQueues();
+
+    void close();
+
+    void flush();
+
+    int getBytes(byte[] bArr, int i);
+
+    void initVoiceChanger(int i, int i2, int i3, int i4);
+
+    boolean putBytes(byte[] bArr, int i);
+
+    void setVoiceChangeType(int[] iArr);
+
+    void setVoiceChangeType(int[] iArr, int[] iArr2, double[] dArr);
 }

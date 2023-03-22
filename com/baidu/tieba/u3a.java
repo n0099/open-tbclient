@@ -1,85 +1,55 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.retrieve.util.FileMetaUtil;
-import com.baidu.searchbox.config.AppConfig;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.minivideo.plugin.capture.report.ReportConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.AbstractMap;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class u3a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static JSONObject a(JSONObject jSONObject, String str) {
-        InterceptResult invokeLL;
+    public static void a(String str, y3a y3aVar, x3a x3aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, jSONObject, str)) == null) {
-            try {
-                jSONObject.put("bosMessage", str);
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable == null || interceptable.invokeLLL(65536, null, str, y3aVar, x3aVar) == null) {
+            if (m7a.a) {
+                m7a.c("UGC_ArKpiReport", "perf_record_arperf, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + x3aVar.toString());
             }
-            return jSONObject;
+            s3a g = p3a.c().g();
+            if (g != null) {
+                ArrayList arrayList = null;
+                if (x3aVar != null) {
+                    arrayList = new ArrayList();
+                    arrayList.add(new AbstractMap.SimpleEntry("sft", x3aVar.a));
+                    arrayList.add(new AbstractMap.SimpleEntry("bft", x3aVar.b));
+                    arrayList.add(new AbstractMap.SimpleEntry("mem", x3aVar.f));
+                    arrayList.add(new AbstractMap.SimpleEntry("fc", x3aVar.c));
+                    arrayList.add(new AbstractMap.SimpleEntry("time", x3aVar.d + ""));
+                }
+                g.a("perf_record_arperf", str, y3aVar.a, y3aVar.b, y3aVar.c, y3aVar.d, y3aVar.e, null, arrayList);
+            }
         }
-        return (JSONObject) invokeLL.objValue;
     }
 
-    public static JSONObject b(File file, String str, String str2, String str3, boolean z) {
-        InterceptResult invokeCommon;
-        String str4;
+    public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{file, str, str2, str3, Boolean.valueOf(z)})) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("errno", str2);
-                jSONObject.put("errmsg", str3);
-                if (z) {
-                    str4 = "1";
-                } else {
-                    str4 = "0";
-                }
-                jSONObject.put(FileMetaUtil.IS_FILE, str4);
-                if (file != null && file.exists() && file.isFile()) {
-                    jSONObject.put(FileMetaUtil.ZIP_PATH, str);
-                    jSONObject.put("size", String.valueOf(file.length()));
-                    jSONObject.put(FileMetaUtil.CREATE_TIME, file.lastModified());
-                    jSONObject.put(FileMetaUtil.MODIFY_TIME, file.lastModified());
-                }
-            } catch (Exception e) {
-                if (AppConfig.isDebug()) {
-                    e.printStackTrace();
-                }
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            if (m7a.a) {
+                m7a.c("UGC_ArKpiReport", "perf_publish_debug, " + str + StringUtil.ARRAY_ELEMENT_SEPARATOR + str2);
             }
-            return jSONObject;
-        }
-        return (JSONObject) invokeCommon.objValue;
-    }
-
-    public static JSONObject c(List<String> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, list)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (list != null) {
-                try {
-                    if (list.size() > 0) {
-                        StringBuilder sb = new StringBuilder();
-                        for (String str : list) {
-                            sb.append(str);
-                            sb.append("&");
-                        }
-                        jSONObject.put("space", sb.toString());
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
+            s3a g = p3a.c().g();
+            if (g != null) {
+                ArrayList arrayList = null;
+                if (str2 != null) {
+                    arrayList = new ArrayList(3);
+                    arrayList.add(new AbstractMap.SimpleEntry<>("ext", str2));
+                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vername", k7a.a(p3a.c().getContext())));
+                    arrayList.add(new AbstractMap.SimpleEntry<>("capture_vercode", String.valueOf(k7a.b(p3a.c().getContext()))));
                 }
+                g.a(ReportConfig.LOG_KEY_PUBLISH_DEBUG, str, null, null, null, null, null, null, arrayList);
             }
-            return jSONObject;
         }
-        return (JSONObject) invokeL.objValue;
     }
 }

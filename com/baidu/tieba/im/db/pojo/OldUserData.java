@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.UserData;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.tbadk.data.IconData;
-import com.baidu.tieba.dj;
+import com.baidu.tieba.gi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -338,7 +338,7 @@ public class OldUserData extends AbstractImageProvider implements Serializable {
             return;
         }
         userData.setUserIdLong(Math.max(this.id, this.userId));
-        if (!dj.isEmpty(this.userName) && !StringUtil.NULL_STRING.equalsIgnoreCase(this.userName)) {
+        if (!gi.isEmpty(this.userName) && !StringUtil.NULL_STRING.equalsIgnoreCase(this.userName)) {
             str = this.userName;
         } else {
             str = this.name;

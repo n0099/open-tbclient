@@ -1,50 +1,47 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public abstract class aqa<E> extends ypa<E> {
+public final class aqa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile long h;
+    public byte[] a;
+    public int[] b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public aqa(int i) {
-        super(i);
+    public aqa() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public final long l() {
-        InterceptResult invokeV;
+    public static void a(aqa aqaVar, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.h;
+        if (interceptable == null || interceptable.invokeLI(65537, null, aqaVar, i) == null) {
+            for (int i2 = 0; i2 < i; i2++) {
+                int[] iArr = aqaVar.b;
+                byte[] bArr = aqaVar.a;
+                int i3 = i2 * 4;
+                iArr[i2] = ((bArr[i3 + 3] & 255) << 24) | (bArr[i3] & 255) | ((bArr[i3 + 1] & 255) << 8) | ((bArr[i3 + 2] & 255) << 16);
+            }
         }
-        return invokeV.longValue;
     }
 
-    public final void m(long j) {
+    public static void b(aqa aqaVar, byte[] bArr, int[] iArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.h = j;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, aqaVar, bArr, iArr) == null) {
+            aqaVar.a = bArr;
+            aqaVar.b = iArr;
         }
     }
 }

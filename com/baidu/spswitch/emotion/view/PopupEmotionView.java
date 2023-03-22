@@ -95,7 +95,7 @@ public class PopupEmotionView extends FrameLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) && this.mIcon != null && (textView = this.mText) != null) {
             textView.setText(filter(str));
-            this.mText.setTextColor(this.mCtx.getResources().getColor(R.color.obfuscated_res_0x7f06018a));
+            this.mText.setTextColor(this.mCtx.getResources().getColor(R.color.obfuscated_res_0x7f060190));
             this.mIcon.setImageBitmap(bitmap);
         }
     }
@@ -130,8 +130,8 @@ public class PopupEmotionView extends FrameLayout {
             setBackground(this.mCtx.getResources().getDrawable(R.drawable.emotion_vertical_long_pressed_bg));
             setPadding(0, 0, 0, 0);
             LayoutInflater.from(this.mCtx).inflate(R.layout.emotion_vertical_long_pressed_layout, (ViewGroup) this, true);
-            this.mIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f37);
-            this.mText = (TextView) findViewById(R.id.obfuscated_res_0x7f0922a5);
+            this.mIcon = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f67);
+            this.mText = (TextView) findViewById(R.id.obfuscated_res_0x7f0922fd);
         }
     }
 }

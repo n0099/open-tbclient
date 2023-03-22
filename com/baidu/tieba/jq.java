@@ -1,10 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.bdtask.model.response.TaskResponseData;
 /* loaded from: classes5.dex */
-public final class jq implements wp {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ String a;
+public interface jq {
+    void a(TaskResponseData taskResponseData);
+
+    void onError(int i, String str);
 }

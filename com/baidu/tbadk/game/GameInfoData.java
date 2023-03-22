@@ -4,8 +4,8 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.GameCenterCoreUtils;
-import com.baidu.tieba.ak5;
-import com.baidu.tieba.dh;
+import com.baidu.tieba.gg;
+import com.baidu.tieba.xi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ import tbclient.GetGameDetailNew.CodeInfo;
 import tbclient.GetGameDetailNew.GiftPkgInfo;
 import tbclient.GetNewGameList.NewGameInfo;
 /* loaded from: classes3.dex */
-public class GameInfoData implements Serializable, ak5 {
+public class GameInfoData implements Serializable, xi5 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int APP_TYPE = 1;
     public static final int H5_TYPE = 2;
@@ -526,7 +526,7 @@ public class GameInfoData implements Serializable, ak5 {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) {
-            return String.format("%.1f", Float.valueOf(dh.d(str, 0.0f)));
+            return String.format("%.1f", Float.valueOf(gg.d(str, 0.0f)));
         }
         return (String) invokeL.objValue;
     }

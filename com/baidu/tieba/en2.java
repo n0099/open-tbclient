@@ -1,68 +1,84 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class en2 {
+public class en2 extends nl2<eo2> {
     public static /* synthetic */ Interceptable $ic;
-    public static File a;
-    public static String b;
-    public static String c;
-    public static String d;
-    public static String e;
-    public static String f;
-    public static String g;
-    public static String h;
-    public static String i;
-    public static String j;
-    public static String k;
-    public static String l;
-    public static String m;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947740032, "Lcom/baidu/tieba/en2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947740032, "Lcom/baidu/tieba/en2;");
-                return;
-            }
-        }
-        a = is2.g();
-        b = "swan_core";
-        c = "extension_core";
-        d = AppRuntime.getAppContext().getCacheDir() + File.separator + "cloneSwanApp";
-        e = "cloneFolder_";
-        f = d + File.separator + e;
-        g = "clone_pkg_folder";
-        h = "clone_core_folder";
-        i = "clone_dynamic_lib_folder";
-        j = "clone_sp_folder";
-        k = "clone_db_folder";
-        l = "cloneZip.zip";
-        m = "clone_zipFiles";
-    }
-
-    public static File a() {
+    @Override // com.baidu.tieba.nl2
+    @NonNull
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            File file = new File(ug3.w());
-            if (!qp4.l(file)) {
-                return null;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getRemoteAudioLevels" : (String) invokeV.objValue;
+    }
+
+    public en2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return file;
         }
-        return (File) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.nl2
+    public void c(@NonNull ZeusPlugin.Command command) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
+            command.obj = new JSONObject();
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.nl2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull eo2 eo2Var) {
+        JSONObject a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, command, eo2Var) == null) {
+            ArrayList<go2> v = eo2Var.v();
+            JSONObject jSONObject = new JSONObject();
+            JSONArray jSONArray = new JSONArray();
+            if (v != null) {
+                Iterator<go2> it = v.iterator();
+                while (it.hasNext()) {
+                    go2 next = it.next();
+                    if (next == null) {
+                        a = null;
+                    } else {
+                        a = next.a();
+                    }
+                    if (a != null) {
+                        jSONArray.put(a);
+                    }
+                }
+            }
+            try {
+                jSONObject.put("audioLevels", jSONArray);
+            } catch (JSONException unused) {
+            }
+            command.obj = jSONObject;
+            String str = command.what;
+            d(eo2Var, str, "" + command.obj, true);
+        }
     }
 }

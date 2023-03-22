@@ -1,17 +1,7 @@
 package com.baidu.tieba;
-
-import com.baidu.nadcore.model.AdBaseModel;
 /* loaded from: classes4.dex */
 public interface hd1 {
-    void a(AdBaseModel adBaseModel);
+    void onProgress(long j, long j2);
 
-    void b(AdBaseModel adBaseModel);
-
-    void c(AdBaseModel adBaseModel);
-
-    void d(AdBaseModel adBaseModel);
-
-    void e(AdBaseModel adBaseModel, String str);
-
-    void f(AdBaseModel adBaseModel);
+    void onResult(int i, String str);
 }

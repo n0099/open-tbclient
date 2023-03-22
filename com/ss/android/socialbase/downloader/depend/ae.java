@@ -23,11 +23,11 @@ public interface ae extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.ae$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public static class C0695a implements ae {
+        public static class C0700a implements ae {
             public static ae a;
             public IBinder b;
 
-            public C0695a(IBinder iBinder) {
+            public C0700a(IBinder iBinder) {
                 this.b = iBinder;
             }
 
@@ -123,7 +123,7 @@ public interface ae extends IInterface {
         }
 
         public static ae a() {
-            return C0695a.a;
+            return C0700a.a;
         }
 
         public static ae a(IBinder iBinder) {
@@ -134,7 +134,7 @@ public interface ae extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof ae)) {
                 return (ae) queryLocalInterface;
             }
-            return new C0695a(iBinder);
+            return new C0700a(iBinder);
         }
 
         @Override // android.os.Binder

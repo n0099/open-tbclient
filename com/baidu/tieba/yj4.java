@@ -1,17 +1,20 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.vi4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class yj4 extends vj4 {
+public class yj4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile yj4 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public int b;
 
     public yj4() {
         Interceptable interceptable = $ic;
@@ -23,23 +26,84 @@ public class yj4 extends vj4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = 0;
+        this.a = ef4.b().i().getInt("max_emit_app_close_num", 1);
+    }
+
+    public static yj4 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (yj4.class) {
+                    if (c == null) {
+                        c = new yj4();
+                    }
+                }
+            }
+            return c;
+        }
+        return (yj4) invokeV.objValue;
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65538, null) != null) || c == null) {
+            return;
+        }
+        c = null;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ef4.b().i().getString("simple_control_item_version", "0");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public synchronized void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                this.b++;
             }
         }
     }
 
-    @Override // com.baidu.tieba.vi4
-    public void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, vi4.a aVar) {
+    public synchronized boolean d() {
+        InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
-            xj4.b(str, map, map2, jSONObject, new wi4(aVar));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                if (this.b < this.a) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+            }
+            return z;
         }
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.vi4
-    public void z(String str, Map<String, String> map, Map<String, String> map2, vi4.a aVar) {
+    public void e(JSONObject jSONObject) {
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map, map2, aVar) == null) {
-            xj4.a(str, map, map2, new wi4(aVar));
+        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
+        String optString = jSONObject.optString("version");
+        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || !optJSONObject.has("max_emit_app_close_num")) {
+            return;
+        }
+        int optInt = optJSONObject.optInt("max_emit_app_close_num", 1);
+        ef4.b().i().putString("simple_control_item_version", optString);
+        ef4.b().i().putInt("max_emit_app_close_num", optInt);
     }
 }

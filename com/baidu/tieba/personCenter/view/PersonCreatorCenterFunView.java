@@ -21,8 +21,8 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.gt4;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.zu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -129,17 +129,17 @@ public class PersonCreatorCenterFunView extends LinearLayout implements View.OnC
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0756, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0767, (ViewGroup) this, true);
             inflate.setOnClickListener(this);
-            this.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091a76);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091a78);
+            this.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091ab7);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ab9);
         }
     }
 
     public final void c(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            TbWebViewActivityConfig g = zu4.g(getContext(), "", str, true);
+            TbWebViewActivityConfig g = gt4.g(getContext(), "", str, true);
             g.setFixTitle(true);
             g.start();
         }
@@ -150,17 +150,17 @@ public class PersonCreatorCenterFunView extends LinearLayout implements View.OnC
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
             String charSequence = ((PersonCreatorCenterFunView) view2).b.getText().toString();
-            if (view2.getId() == R.id.obfuscated_res_0x7f091a80) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f091ac1) {
                 TiebaStatic.log(new StatisticItem("c14149").param("obj_locate", "1"));
                 TiebaStatic.log(new StatisticItem("c14149").param("uid", String.valueOf(TbadkCoreApplication.getCurrentAccountId())));
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(TbadkCoreApplication.getInst().getApplicationContext(), "CreateCenterPage", new HashMap())));
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091a81) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091ac2) {
                 d("1", "1", "");
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(TbadkCoreApplication.getInst().getApplicationContext(), "VideoWorkListPage", new HashMap())));
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091a7f) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091ac0) {
                 d("2", "1", "");
                 c(this.c);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091a7e) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091abf) {
                 if (getContext().getString(R.string.tieba_string_god_guide).equals(charSequence)) {
                     d("1", "2", "");
                     c(TbConfig.URL_GOD_AUTH + SkinManager.getCurrentSkinTypeString());
@@ -169,10 +169,10 @@ public class PersonCreatorCenterFunView extends LinearLayout implements View.OnC
                 }
                 d("1", "2", "");
                 c(TbConfig.URL_GOD_EXAMINE + SkinManager.getCurrentSkinTypeString());
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091a82) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091ac3) {
                 d("2", "2", "");
                 c(this.d);
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f091a86 || view2.getId() == R.id.obfuscated_res_0x7f091a84 || view2.getId() == R.id.obfuscated_res_0x7f091a7d || view2.getId() == R.id.obfuscated_res_0x7f091a83) {
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f091ac7 || view2.getId() == R.id.obfuscated_res_0x7f091ac5 || view2.getId() == R.id.obfuscated_res_0x7f091abe || view2.getId() == R.id.obfuscated_res_0x7f091ac4) {
                 WorkPublishGuideActivityConfig workPublishGuideActivityConfig = new WorkPublishGuideActivityConfig(getContext());
                 workPublishGuideActivityConfig.setRequestCode(25064);
                 workPublishGuideActivityConfig.setIntentAction(IntentAction.ActivityForResult);

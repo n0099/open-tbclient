@@ -1,258 +1,55 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.ArrayMap;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.TaskInfo;
+import java.util.Map;
 /* loaded from: classes3.dex */
 public class b15 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, Class<? extends z05>> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public long b;
-    public long c;
-    public long d;
-    public long e;
-    public long f;
-    public String g;
-    public int h;
-    public int i;
-    public String j;
-    public int k;
-    public l15 l;
-    public v05 m;
 
-    public b15() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947592131, "Lcom/baidu/tieba/b15;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947592131, "Lcom/baidu/tieba/b15;");
+                return;
             }
         }
+        ArrayMap arrayMap = new ArrayMap();
+        a = arrayMap;
+        arrayMap.put("WebViewYunDialog", a15.class);
     }
 
-    public long a() {
-        InterceptResult invokeV;
+    public static void a(@NonNull Context context, @NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
-        }
-        return invokeV.longValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b + "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.j;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public v05 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.m;
-        }
-        return (v05) invokeV.objValue;
-    }
-
-    public long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.e;
-        }
-        return invokeV.longValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.c + "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.k;
-        }
-        return invokeV.intValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.d + "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.i;
-        }
-        return invokeV.intValue;
-    }
-
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    @Nullable
-    public l15 m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.l;
-        }
-        return (l15) invokeV.objValue;
-    }
-
-    public void n(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048589, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        try {
-            this.a = jSONObject.optString("forum_name");
-            this.b = jSONObject.optLong("forum_id");
-            this.c = jSONObject.optLong("task_id");
-            this.d = jSONObject.optLong("thread_id");
-            jSONObject.optString("bgimg");
-            this.e = jSONObject.optLong("start_time");
-            this.f = jSONObject.optLong("end_time");
-            this.g = jSONObject.optString("thread_img");
-            this.k = jSONObject.optInt("card_type");
-            String optString = jSONObject.optString("thread_img_size");
-            if (optString != null && optString.length() > 0) {
-                String[] split = optString.split(",");
-                if (split.length > 1) {
-                    this.h = Integer.valueOf(split[0]).intValue();
-                    this.i = Integer.valueOf(split[1]).intValue();
-                }
-            }
-            if (this.h <= 0) {
-                this.h = 1;
-            }
-            if (this.i <= 0) {
-                this.i = 1;
-            }
-        } catch (Exception e) {
-            BdLog.e(e.toString());
-        }
-    }
-
-    public void o(TaskInfo taskInfo) {
-        long j;
-        long j2;
-        long j3;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048590, this, taskInfo) != null) || taskInfo == null) {
-            return;
-        }
-        this.a = taskInfo.forum_name;
-        this.b = taskInfo.forum_id.longValue();
-        Long l = taskInfo.task_id;
-        long j4 = -1;
-        if (l != null) {
-            j = l.longValue();
-        } else {
-            j = -1;
-        }
-        this.c = j;
-        Long l2 = taskInfo.thread_id;
-        if (l2 != null) {
-            j2 = l2.longValue();
-        } else {
-            j2 = -1;
-        }
-        this.d = j2;
-        String str = taskInfo.bgimg;
-        this.g = taskInfo.thread_img;
-        Long l3 = taskInfo.start_time;
-        if (l3 != null) {
-            j3 = l3.longValue();
-        } else {
-            j3 = -1;
-        }
-        this.e = j3;
-        Long l4 = taskInfo.end_time;
-        if (l4 != null) {
-            j4 = l4.longValue();
-        }
-        this.f = j4;
-        String str2 = taskInfo.thread_img_size;
-        if (str2 != null) {
+        if (interceptable == null || interceptable.invokeLLL(65537, null, context, str, str2) == null) {
+            y05 b = y05.b(str, str2);
             try {
-                String[] split = str2.split(",");
-                this.h = dh.e(split[0], 1);
-                this.i = dh.e(split[1], 1);
+                String a2 = b.a("yun_dialogClass");
+                if (TextUtils.isEmpty(a2)) {
+                    return;
+                }
+                a.get(a2).getConstructor(new Class[0]).newInstance(new Object[0]).a(context, b);
             } catch (Exception e) {
-                BdLog.e(e.getMessage());
+                w58 yunDialogLog = YunDialogLog.getInstance();
+                yunDialogLog.b("YunDialogManager", "云弹窗 " + str + " 渲染失败：" + e.getMessage());
+                e.printStackTrace();
             }
         }
-        if (this.h <= 0) {
-            this.h = 1;
-        }
-        if (this.i <= 0) {
-            this.i = 1;
-        }
-        this.j = taskInfo.obj_id;
-        this.k = taskInfo.card_type.intValue();
-        this.l = l15.a(taskInfo.vote_schema);
-        this.m = v05.n(taskInfo.reward_card);
     }
 }

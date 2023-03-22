@@ -3,7 +3,7 @@ package com.yy.mobile.framework.revenuesdk.payapi.callbackresult;
 import androidx.annotation.Keep;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PollingModeInfo;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PayOrderResult {
     public final String closeRiskEnhance;
     public final String expand;

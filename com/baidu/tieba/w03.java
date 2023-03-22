@@ -1,347 +1,317 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
 import android.util.Log;
-import android.util.Pair;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.http.callback.StatResponseCallback;
-import com.baidu.searchbox.http.request.HttpRequest;
-import com.baidu.searchbox.http.statistics.NetworkStatRecord;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
-import java.io.IOException;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.HttpUrl;
-import okhttp3.Response;
-import org.json.JSONException;
-import org.json.JSONObject;
-@Deprecated
+import java.util.Iterator;
+import java.util.Locale;
 /* loaded from: classes6.dex */
-public class w03 extends o03 {
+public class w03 implements mm3<HybridUbcFlow> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public void y(@NonNull JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) {
-        }
-    }
-
     /* loaded from: classes6.dex */
-    public class a implements StatResponseCallback {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ HttpUrl b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ int d;
-        public final /* synthetic */ long e;
-        public final /* synthetic */ c f;
+        public volatile long a;
 
-        @Override // com.baidu.searchbox.http.callback.StatResponseCallback
-        public void onSuccess(Object obj, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
+        /* renamed from: com.baidu.tieba.w03$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public static class C0453a {
+            public static /* synthetic */ Interceptable $ic;
+            public static a a;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            static {
+                InterceptResult invokeClinit;
+                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1399364757, "Lcom/baidu/tieba/w03$a$a;")) != null) {
+                    Interceptable interceptable = invokeClinit.interceptor;
+                    if (interceptable != null) {
+                        $ic = interceptable;
+                    }
+                    if ((invokeClinit.flags & 1) != 0) {
+                        classClinitInterceptable.invokePostClinit(1399364757, "Lcom/baidu/tieba/w03$a$a;");
+                        return;
+                    }
+                }
+                a = new a();
             }
         }
 
-        public a(w03 w03Var, String str, HttpUrl httpUrl, String str2, int i, long j, c cVar) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {w03Var, str, httpUrl, str2, Integer.valueOf(i), Long.valueOf(j), cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = httpUrl;
-            this.c = str2;
-            this.d = i;
-            this.e = j;
-            this.f = cVar;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.StatResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                fg3.C(this.c, this.d, null, this.e, System.currentTimeMillis(), this.a);
-                if (exc instanceof IOException) {
-                    this.f.onFailure(null, (IOException) exc);
-                } else {
-                    this.f.onFailure(null, new IOException(exc));
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.StatResponseCallback
-        public Object parseResponse(Response response, int i, NetworkStatRecord networkStatRecord) throws Exception {
-            InterceptResult invokeLIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, response, i, networkStatRecord)) == null) {
-                we2.k().C(this.a, this.b, networkStatRecord);
-                fg3.C(this.c, this.d, networkStatRecord, this.e, System.currentTimeMillis(), this.a);
-                this.f.onResponse(null, response);
-                return response;
-            }
-            return invokeLIL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements fo3<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-
-        public b(w03 w03Var, CallbackHandler callbackHandler, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {w03Var, callbackHandler, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = callbackHandler;
-            this.b = str;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fo3
-        /* renamed from: b */
-        public void a(String str) {
+        public static a a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1001, str).toString());
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                return C0453a.a;
             }
+            return (a) invokeV.objValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class c implements Callback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public m93 a;
-        public JSONObject b;
-        public String c;
-        public String d;
-        public CallbackHandler e;
-        public String f;
-        public long g;
-        public final /* synthetic */ w03 h;
-
-        public c(@NonNull w03 w03Var, @NonNull m93 m93Var, @NonNull JSONObject jSONObject, @NonNull String str, String str2, @NonNull CallbackHandler callbackHandler, String str3) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948216719, "Lcom/baidu/tieba/w03;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {w03Var, m93Var, jSONObject, str, str2, callbackHandler, str3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.h = w03Var;
-            this.a = m93Var;
-            this.b = jSONObject;
-            this.c = str;
-            this.d = str2;
-            this.e = callbackHandler;
-            this.f = str3;
-            this.g = System.currentTimeMillis();
-        }
-
-        @Override // okhttp3.Callback
-        public void onFailure(Call call, IOException iOException) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
-                if (jb3.b) {
-                    Log.d("RequestAction", "onFailure: " + iOException.getMessage());
-                }
-                int G = this.a.Y().G();
-                String l = fg3.l();
-                String e = gn3.n().e();
-                SwanAppNetworkUtils.a(qg4.g().getOkHttpClient(), this.d);
-                this.e.handleSchemeDispatchCallback(this.f, UnitedSchemeUtility.wrapCallbackParams(1001, iOException.getMessage()).toString());
-                fg3.Q(0, this.c, G, iOException.getMessage(), l, e, this.g, System.currentTimeMillis(), this.d);
-            }
-        }
-
-        @Override // okhttp3.Callback
-        public void onResponse(Call call, Response response) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
-                if (!fg3.o(this.c)) {
-                    ii3.l().x(this.c, response.headers("Set-cookie"));
-                }
-                String J = az1.J(this.b);
-                String L = az1.L(this.b);
-                int G = this.a.Y().G();
-                long currentTimeMillis = System.currentTimeMillis();
-                String l = fg3.l();
-                String e = gn3.n().e();
-                String optString = this.b.optString("cb");
-                try {
-                    long K = az1.K(response);
-                    if (K <= Config.FULL_TRACE_LOG_LIMIT) {
-                        JSONObject jSONObject = new JSONObject();
-                        jSONObject.put(HiAnalyticsConstant.HaKey.BI_KEY_RESULT, response.code());
-                        jSONObject.put("header", o03.s(response.headers()));
-                        az1.R(jSONObject, response.body(), J, L);
-                        this.h.y(jSONObject);
-                        this.e.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
-                    } else {
-                        az1.S(this.a, this.c, K, currentTimeMillis);
-                        this.e.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(201, "response json length over limits").toString());
-                    }
-                } catch (IOException | JSONException e2) {
-                    if (jb3.b) {
-                        Log.d("RequestAction", Log.getStackTraceString(e2));
-                    }
-                    this.e.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(201, e2.getMessage()).toString());
-                }
-                int code = response.code();
-                String message = response.message();
-                if (jb3.b) {
-                    Log.d("RequestAction", "onResponse: respCode: " + code + ", url=" + this.c + ", msg=" + message);
-                }
-                fg3.Q(code, this.c, G, message, l, e, this.g, System.currentTimeMillis(), this.d);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w03(ja3 ja3Var) {
-        super(ja3Var, "/swanAPI/request");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ja3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((ja3) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948216719, "Lcom/baidu/tieba/w03;");
                 return;
             }
         }
+        a = do1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w03(ja3 ja3Var, String str) {
-        super(ja3Var, str);
+    public w03() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ja3Var, str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((ja3) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.mm3
+    /* renamed from: b */
+    public void a(HybridUbcFlow hybridUbcFlow) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
+            c(hybridUbcFlow);
+        }
+    }
+
+    @SuppressLint({"SwanDebugLog", "LogConditional"})
+    public void c(HybridUbcFlow hybridUbcFlow) {
+        String str;
+        String str2;
+        boolean z;
+        boolean z2;
+        String str3;
+        String str4;
+        String str5;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hybridUbcFlow) == null) && hybridUbcFlow != null && !hybridUbcFlow.f.isEmpty()) {
+            long f = hybridUbcFlow.f("slave_first_rendered", "master_dispatch_start");
+            pj3.g.update((oj3<Long>) Long.valueOf(f));
+            String str6 = "naStart";
+            pj3.b.update((oj3<Long>) Long.valueOf(hybridUbcFlow.f("slave_first_rendered", "naStart")));
+            String str7 = "aps_start_download";
+            String str8 = "aps_end_req";
+            pj3.c.update((oj3<Long>) Long.valueOf(hybridUbcFlow.f("aps_end_download", "aps_start_download", "aps_end_req", "aps_start_req", "naStart")));
+            long f2 = hybridUbcFlow.f("na_first_meaningful_paint", "naStart");
+            long j = 1;
+            if (f2 < 1) {
+                f2 = hybridUbcFlow.f("na_first_paint", "naStart");
+            }
+            if (f2 >= 1) {
+                j = f2;
+            }
+            a.a().a = j;
+            t73 b0 = t73.b0();
+            if (b0 == null) {
                 return;
             }
-        }
-    }
-
-    public boolean A(@NonNull m93 m93Var, @NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull CallbackHandler callbackHandler, @NonNull String str) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, m93Var, unitedSchemeEntity, callbackHandler, str)) == null) {
-            JSONObject a2 = jb3.a(unitedSchemeEntity, "params");
-            if (a2 == null) {
-                return false;
-            }
-            Pair<HttpRequest, Integer> C = az1.C(a2, str);
-            HttpRequest httpRequest = (HttpRequest) C.first;
-            if (httpRequest == null) {
-                unitedSchemeEntity.result = t(((Integer) C.second).intValue());
-                return false;
-            }
-            z(m93Var, a2, httpRequest, str, callbackHandler);
-            return true;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.jb3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m93 m93Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, m93Var)) == null) {
-            if (jb3.b) {
-                Log.d("RequestApi", "request with scheme : " + unitedSchemeEntity.getParam("params"));
-            }
-            if (!k(m93Var, unitedSchemeEntity)) {
-                return false;
-            }
-            String a2 = bz1.a(m93Var.b);
-            if (!A(m93Var, unitedSchemeEntity, callbackHandler, a2)) {
-                return false;
-            }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(n(a2), 0));
-            return true;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final boolean x(@NonNull m93 m93Var, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2, CallbackHandler callbackHandler, @NonNull String str3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{m93Var, jSONObject, str, str2, callbackHandler, str3})) == null) {
-            return ts2.e().i(m93Var, jSONObject, str, str2, new c(this, m93Var, jSONObject, str, str2, callbackHandler, str3), new b(this, callbackHandler, str3));
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public final void z(@NonNull m93 m93Var, @NonNull JSONObject jSONObject, @NonNull HttpRequest httpRequest, @NonNull String str, @NonNull CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048580, this, m93Var, jSONObject, httpRequest, str, callbackHandler) == null) {
-            HttpUrl url = httpRequest.getOkRequest().url();
-            String httpUrl = url.toString();
-            String optString = jSONObject.optString("cb");
-            if (x(m93Var, jSONObject, httpUrl, str, callbackHandler, optString)) {
+            if (!a && !s33.d("aiapps_startup_reporter", false)) {
                 return;
             }
-            httpRequest.executeStat(new a(this, str, url, httpUrl, m93Var.Y().G(), System.currentTimeMillis(), new c(this, m93Var, jSONObject, httpUrl, str, callbackHandler, optString)));
+            int i = s33.u().getInt("aiapps_startup_reporter_resolution", 100);
+            String Z = b0.Z();
+            if (TextUtils.isEmpty(Z)) {
+                Z = "";
+            }
+            if (TextUtils.isEmpty(b0.b)) {
+                str = "";
+            } else {
+                str = b0.b;
+            }
+            Log.i("StartupReporter", "\n\n  小程序启动性能报告: " + Z + " appID: " + str + " speedLog\n");
+            StringBuilder sb = new StringBuilder();
+            for (int i2 = 0; i2 < i; i2++) {
+                sb.append("&");
+            }
+            boolean z3 = true;
+            Log.i("StartupReporter", String.format(" Cost [%s] Delta Src  Total Action", sb.toString()));
+            long g = hybridUbcFlow.f.get(0).g();
+            Iterator<UbcFlowEvent> it = hybridUbcFlow.f.iterator();
+            long j2 = 0;
+            while (it.hasNext()) {
+                UbcFlowEvent next = it.next();
+                if (!next.b() || s33.d("aiapps_startup_reporter_local_report", z3)) {
+                    String[] strArr = new String[2];
+                    Iterator<UbcFlowEvent> it2 = it;
+                    strArr[0] = next.a;
+                    strArr[z3 ? 1 : 0] = str6;
+                    long f3 = hybridUbcFlow.f(strArr);
+                    if (f3 < 0) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    if (f3 > j) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
+                    }
+                    if (z) {
+                        f3 = 0;
+                    }
+                    if (z2) {
+                        f3 = j;
+                    }
+                    long j3 = f3 - j2;
+                    if (j3 < 0) {
+                        str3 = str6;
+                        j3 = 0;
+                    } else {
+                        str3 = str6;
+                    }
+                    long j4 = i;
+                    String str9 = str7;
+                    String str10 = str8;
+                    int round = Math.round((float) ((f3 * j4) / j));
+                    if (round > i) {
+                        round = i;
+                    }
+                    int round2 = Math.round((float) ((j4 * j3) / j));
+                    if (round2 > i) {
+                        round2 = i;
+                    }
+                    StringBuilder sb2 = new StringBuilder();
+                    long j5 = j;
+                    sb2.append(String.format(Locale.getDefault(), " %5d ", Long.valueOf(f3)));
+                    if (z) {
+                        str4 = "<";
+                    } else {
+                        str4 = PreferencesUtil.LEFT_MOUNT;
+                    }
+                    sb2.append(str4);
+                    for (int i3 = 0; i3 < i; i3++) {
+                        if (i3 > round) {
+                            sb2.append(".");
+                        } else if (i3 > round2) {
+                            sb2.append("=");
+                        } else {
+                            sb2.append("#");
+                        }
+                    }
+                    if (z2) {
+                        str5 = ">";
+                    } else {
+                        str5 = PreferencesUtil.RIGHT_MOUNT;
+                    }
+                    sb2.append(str5);
+                    sb2.append(String.format(Locale.getDefault(), "%5d", Long.valueOf(j3)));
+                    sb2.append(String.format("  %s", next.f()));
+                    sb2.append(String.format(Locale.getDefault(), " %6d ", Long.valueOf(next.g() - g)));
+                    sb2.append(next.a);
+                    if (next.b()) {
+                        sb2.append("(LocalRecord)");
+                    }
+                    Log.i("StartupReporter", sb2.toString());
+                    it = it2;
+                    j2 = f3;
+                    str6 = str3;
+                    j = j5;
+                    str7 = str9;
+                    str8 = str10;
+                    z3 = true;
+                }
+            }
+            String str11 = str6;
+            String str12 = str7;
+            String str13 = str8;
+            long j6 = j;
+            Log.i("StartupReporter", "Total  ： " + hybridUbcFlow.f.size());
+            StringBuilder sb3 = new StringBuilder();
+            sb3.append("\n========APS下载完成:" + hybridUbcFlow.f("aps_end_download", str11));
+            sb3.append("\n========解压包时长:" + hybridUbcFlow.f("package_end_unzip", "first_anim_start", "aps_end_download"));
+            sb3.append("\n========第一次setData的调用:" + hybridUbcFlow.f("slave_first_loaded", "slave_js_parsed"));
+            sb3.append("\n========master第一次和slave通信:" + hybridUbcFlow.f("slave_first_loaded", "master_first_init_data"));
+            sb3.append("\n========slave第一次收到数据:" + hybridUbcFlow.f("slave_first_recieve_data", "master_first_init_data"));
+            sb3.append("\n========slave第一次渲染完成:" + hybridUbcFlow.f("slave_first_rendered", "slave_first_recieve_data"));
+            sb3.append("\n========第一次动画时长:" + hybridUbcFlow.f("first_anim_end", "first_anim_start"));
+            sb3.append("\n========第二次动画时长:" + hybridUbcFlow.f("second_anim_end", "second_anim_start"));
+            sb3.append("\n\n核心指标--------");
+            sb3.append("\n========aps接口时长:" + hybridUbcFlow.f(str13, "aps_start_req", str11));
+            sb3.append("\n========aps纯下载时长:" + hybridUbcFlow.f("aps_end_download", str12, str13, "aps_start_req", str11));
+            sb3.append("\n========");
+            sb3.append("\n========准备启动时长:" + hybridUbcFlow.f("na_launch_activity", str11));
+            sb3.append("\n========准备查库时长:" + hybridUbcFlow.f("na_query_db", str11));
+            sb3.append("\n========Activity调起时长:" + hybridUbcFlow.f("frame_start_create", "na_launch_activity"));
+            sb3.append("\n========");
+            sb3.append("\n========预加载等待时长:" + hybridUbcFlow.f("na_pre_load_ok", "na_pre_load_check"));
+            sb3.append("\n========主线程阻塞时长:" + hybridUbcFlow.f("na_post_to_main_end", "na_post_to_main_start"));
+            sb3.append("\n========本地小程序包加载及渲染总时长:" + hybridUbcFlow.f("slave_first_rendered", "first_anim_start"));
+            sb3.append("\n\n启动线性跟踪分段指标简报--------");
+            sb3.append("\n========取包（网络开销，从小程序入口，到APS及前置接口等网络交互完成）:" + hybridUbcFlow.f("first_anim_start", str11));
+            sb3.append("\n========安装（IO开销，从下载完成，到小程序包解压安装作业完成）:" + hybridUbcFlow.f("package_end_unzip", "first_anim_start"));
+            sb3.append("\n========下载-安装（IO开销，从下载开始，到小程序包解压安装作业完成）:" + hybridUbcFlow.f("package_end_unzip", str12));
+            sb3.append("\n========小程序框架启动总时长（NA开销，从开始，到 NA 准备完成）:" + hybridUbcFlow.f("master_dispatch_start", str11));
+            sb3.append("\n========AppReady派发时长:" + hybridUbcFlow.f("fe_master_dispatch_start", "master_dispatch_start"));
+            sb3.append("\n========小程序业务渲染总时长（H5开销，从 NA 准备完成，到页面渲染）:" + f);
+            int optInt = hybridUbcFlow.m().optInt("type", -1);
+            String h = hybridUbcFlow.h("preload_scene");
+            String h2 = hybridUbcFlow.h("app_package_version");
+            String str14 = "-1";
+            if (TextUtils.isEmpty(h)) {
+                h = "-1";
+            }
+            String h3 = hybridUbcFlow.h("package_type");
+            if (!TextUtils.isEmpty(h3)) {
+                str14 = h3;
+            }
+            String h4 = hybridUbcFlow.h("preload");
+            sb3.append("\n\n小程序启动总时长：========> " + j6 + " LaunchDiff=" + hybridUbcFlow.f(str11, "user_action"));
+            if (!hybridUbcFlow.d.contains("package_start_unzip")) {
+                str2 = "(热启动)";
+            } else {
+                str2 = "(冷启动)";
+            }
+            sb3.append(str2);
+            sb3.append("  relaunchType:" + optInt);
+            sb3.append("  preloadType:" + h);
+            sb3.append(" packageType:" + str14);
+            sb3.append(" preload:" + h4);
+            if (!TextUtils.isEmpty(h2)) {
+                sb3.append(" packageVersion:" + h2);
+            }
+            Log.i("StartupReporter", "Report ： " + sb3.toString());
         }
     }
 }

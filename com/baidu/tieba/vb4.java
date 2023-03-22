@@ -1,129 +1,156 @@
 package com.baidu.tieba;
 
-import android.webkit.JavascriptInterface;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.searchbox.v8engine.event.JSEvent;
-import com.baidu.swan.apps.SwanAppActivity;
+import android.os.Build;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
 public class vb4 {
     public static /* synthetic */ Interceptable $ic;
+    public static Object a;
+    public static Method b;
+    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public tb4 a;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SwanAppActivity a;
-
-        public a(vb4 vb4Var, SwanAppActivity swanAppActivity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vb4Var, swanAppActivity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = swanAppActivity;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948235009, "Lcom/baidu/tieba/vb4;")) == null) {
+            return;
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                um3.a(this.a);
-            }
-        }
-    }
-
-    public vb4(JsObject jsObject) {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jsObject};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.a = tb4.d(t12.F(jsObject));
-        sb4.a().f(this);
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:20:0x0054, code lost:
-        if (r1.equals("checkForUpdate") != false) goto L16;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void a(ub4 ub4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, ub4Var) == null) && this.a != null && JSEvent.isValid(ub4Var)) {
-            char c = 0;
-            m62.i("UpdateManagerApi", String.format("dispatchEvent : eventType = %s; hasUpdate = %s", ub4Var.type, Boolean.valueOf(ub4Var.hasUpdate)));
-            String str = ub4Var.type;
-            int hashCode = str.hashCode();
-            if (hashCode != -1330233754) {
-                if (hashCode != -1317168438) {
-                    if (hashCode == -585906598 && str.equals("updateReady")) {
-                        c = 1;
-                    }
-                    c = 65535;
-                }
-            } else {
-                if (str.equals("updateFailed")) {
-                    c = 2;
-                }
-                c = 65535;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c == 2) {
-                        this.a.b();
-                        return;
-                    }
-                    return;
-                }
-                this.a.c();
-                return;
-            }
-            this.a.a(ub4Var);
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948235009, "Lcom/baidu/tieba/vb4;");
         }
     }
 
-    @JavascriptInterface
-    public boolean applyUpdate() {
-        InterceptResult invokeV;
+    public static boolean a(String... strArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            SwanAppActivity activity = zu2.U().getActivity();
-            if (activity == null) {
-                m62.c("UpdateManagerApi", "applyUpdate activity is null");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, strArr)) == null) {
+            if (!c) {
+                e();
+            }
+            Method method = b;
+            if (method == null) {
                 return false;
-            } else if (activity.isDestroyed() || activity.getIntent() == null) {
+            }
+            try {
+                method.invoke(a, strArr);
+                return true;
+            } catch (Throwable unused) {
                 return false;
-            } else {
-                gn3.e0(new a(this, activity));
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean c(Class<?> cls) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) {
+            if (!f()) {
                 return true;
             }
+            if (cls == null) {
+                return false;
+            }
+            return a(b(cls.getName()));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean d(String... strArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, strArr)) == null) {
+            if (!f()) {
+                return true;
+            }
+            if (strArr != null && strArr.length > 0) {
+                return a(strArr);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
+            }
+            String replaceAll = str.replaceAll(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, "/");
+            if (!replaceAll.startsWith(PreferencesUtil.LEFT_MOUNT)) {
+                return "L" + replaceAll + ParamableElem.DIVIDE_PARAM;
+            }
+            return replaceAll;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static synchronized void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            synchronized (vb4.class) {
+                if (c) {
+                    return;
+                }
+                try {
+                    c = true;
+                    Class<?> cls = Class.forName("dalvik.system.VMRuntime");
+                    Method b2 = wb4.b(cls, "getRuntime", new Class[0]);
+                    if (b2 != null) {
+                        b2.setAccessible(true);
+                        Object invoke = b2.invoke(null, new Object[0]);
+                        a = invoke;
+                        if (invoke != null) {
+                            Method b3 = wb4.b(cls, "setHiddenApiExemptions", String[].class);
+                            b = b3;
+                            if (b3 != null) {
+                                b3.setAccessible(true);
+                            }
+                        }
+                    }
+                } catch (Throwable unused) {
+                }
+            }
+        }
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 28) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (Build.VERSION.SDK_INT > 29) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }

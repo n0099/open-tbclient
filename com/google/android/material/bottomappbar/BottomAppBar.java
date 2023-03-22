@@ -49,7 +49,7 @@ import java.util.List;
 /* loaded from: classes7.dex */
 public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedBehavior {
     public static final long ANIMATION_DURATION = 300;
-    public static final int DEF_STYLE_RES = 2131755850;
+    public static final int DEF_STYLE_RES = 2131755854;
     public static final int FAB_ALIGNMENT_MODE_CENTER = 0;
     public static final int FAB_ALIGNMENT_MODE_END = 1;
     public static final int FAB_ANIMATION_MODE_SCALE = 0;

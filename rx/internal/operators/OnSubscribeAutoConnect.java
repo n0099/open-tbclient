@@ -1,37 +1,37 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.gna;
-import com.baidu.tieba.qqa;
-import com.baidu.tieba.sma;
-import com.baidu.tieba.wqa;
-import com.baidu.tieba.yma;
-import com.baidu.tieba.zma;
+import com.baidu.tieba.csa;
+import com.baidu.tieba.mva;
+import com.baidu.tieba.ora;
+import com.baidu.tieba.sva;
+import com.baidu.tieba.ura;
+import com.baidu.tieba.vra;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes9.dex */
-public final class OnSubscribeAutoConnect<T> extends AtomicInteger implements sma.a<T> {
-    public final gna<? super zma> connection;
+public final class OnSubscribeAutoConnect<T> extends AtomicInteger implements ora.a<T> {
+    public final csa<? super vra> connection;
     public final int numberOfSubscribers;
-    public final qqa<? extends T> source;
+    public final mva<? extends T> source;
 
-    public OnSubscribeAutoConnect(qqa<? extends T> qqaVar, int i, gna<? super zma> gnaVar) {
+    public OnSubscribeAutoConnect(mva<? extends T> mvaVar, int i, csa<? super vra> csaVar) {
         if (i > 0) {
-            this.source = qqaVar;
+            this.source = mvaVar;
             this.numberOfSubscribers = i;
-            this.connection = gnaVar;
+            this.connection = csaVar;
             return;
         }
         throw new IllegalArgumentException("numberOfSubscribers > 0 required");
     }
 
-    public void call(yma<? super T> ymaVar) {
-        this.source.B(wqa.c(ymaVar));
+    public void call(ura<? super T> uraVar) {
+        this.source.B(sva.c(uraVar));
         if (incrementAndGet() == this.numberOfSubscribers) {
             this.source.C(this.connection);
         }
     }
 
-    @Override // com.baidu.tieba.sma.a, com.baidu.tieba.gna
+    @Override // com.baidu.tieba.ora.a, com.baidu.tieba.csa
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((yma) ((yma) obj));
+        call((ura) ((ura) obj));
     }
 }

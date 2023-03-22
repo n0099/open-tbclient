@@ -1,78 +1,156 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.network.outback.core.internal.Util;
-import com.baidu.tieba.n70;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.Iterator;
-import java.util.concurrent.Executor;
-import java.util.concurrent.SynchronousQueue;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 /* loaded from: classes4.dex */
-public final class i70 {
+public class i70 {
     public static /* synthetic */ Interceptable $ic;
+    @SuppressLint({"StaticFieldLeak"})
+    public static volatile i70 f;
+    public static int g;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public Context a;
     public int b;
-    @Nullable
-    public Runnable c;
-    @Nullable
-    public Executor d;
-    public final Deque<n70.a> e;
-    public final Deque<n70.a> f;
-    public final Deque<n70> g;
+    public c80 c;
+    public ScheduledExecutorService d;
+    public ConcurrentHashMap<Integer, j70> e;
 
-    public i70() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947806279, "Lcom/baidu/tieba/i70;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.a = 64;
-        this.b = 5;
-        this.e = new ArrayDeque();
-        this.f = new ArrayDeque();
-        this.g = new ArrayDeque();
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947806279, "Lcom/baidu/tieba/i70;");
+        }
     }
 
-    public synchronized Executor c() {
-        InterceptResult invokeV;
-        Executor executor;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                if (this.d == null) {
-                    this.d = new ThreadPoolExecutor(0, Integer.MAX_VALUE, 60L, TimeUnit.SECONDS, new SynchronousQueue(), Util.threadFactory("BaiduNetwork Dispatcher", false));
+    /* loaded from: classes4.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ i70 a;
+
+        public a(i70 i70Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i70Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                executor = this.d;
             }
-            return executor;
+            this.a = i70Var;
         }
-        return (Executor) invokeV.objValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.c.c();
+            }
+        }
     }
 
-    public i70(Executor executor) {
+    /* loaded from: classes4.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public j70 a;
+        public final /* synthetic */ i70 b;
+
+        public b(i70 i70Var, j70 j70Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i70Var, j70Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = i70Var;
+            this.a = j70Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.c.k(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public j70 a;
+        public final /* synthetic */ i70 b;
+
+        public c(i70 i70Var, j70 j70Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i70Var, j70Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = i70Var;
+            this.a = j70Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.c.f(this.a);
+            }
+        }
+    }
+
+    public i70(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {executor};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -82,117 +160,101 @@ public final class i70 {
                 return;
             }
         }
-        this.a = 64;
-        this.b = 5;
-        this.e = new ArrayDeque();
-        this.f = new ArrayDeque();
-        this.g = new ArrayDeque();
-        this.d = executor;
+        this.e = new ConcurrentHashMap<>();
+        this.a = context;
+        this.b = n70.g(context, "flow_handle", g);
+        this.c = c80.j(this.a);
+        this.d = Executors.newSingleThreadScheduledExecutor();
     }
 
-    public synchronized void a(n70.a aVar) {
+    public synchronized void e(j70 j70Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, j70Var) == null) {
             synchronized (this) {
-                if (this.f.size() < this.a && i(aVar) < this.b) {
-                    this.f.add(aVar);
-                    c().execute(aVar);
-                } else {
-                    this.e.add(aVar);
+                if (!this.e.containsKey(Integer.valueOf(j70Var.a))) {
+                    return;
                 }
+                q80.b("EndFlow", j70Var.f());
+                this.e.remove(Integer.valueOf(j70Var.a));
+                q80.a("BehaviorProcess", "flow endFlow");
+                this.d.execute(new c(this, j70Var));
             }
         }
     }
 
-    public final int i(n70.a aVar) {
+    public synchronized j70 b(int i) {
+        InterceptResult invokeI;
+        j70 d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            synchronized (this) {
+                d = d(i);
+            }
+            return d;
+        }
+        return (j70) invokeI.objValue;
+    }
+
+    public synchronized j70 g(int i) {
+        InterceptResult invokeI;
+        j70 d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            synchronized (this) {
+                d = d(i);
+            }
+            return d;
+        }
+        return (j70) invokeI.objValue;
+    }
+
+    public static i70 h(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar)) == null) {
-            int i = 0;
-            for (n70.a aVar2 : this.f) {
-                if (!aVar2.b().c && aVar2.c().equals(aVar.c())) {
-                    i++;
-                }
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    public synchronized void b(n70 n70Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n70Var) == null) {
-            synchronized (this) {
-                this.g.add(n70Var);
-            }
-        }
-    }
-
-    public void d(n70.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            f(this.f, aVar, true);
-        }
-    }
-
-    public void e(n70 n70Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, n70Var) == null) {
-            f(this.g, n70Var, false);
-        }
-    }
-
-    public final <T> void f(Deque<T> deque, T t, boolean z) {
-        int h;
-        Runnable runnable;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048581, this, deque, t, z) == null) {
-            synchronized (this) {
-                if (deque.remove(t)) {
-                    if (z) {
-                        g();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (f == null) {
+                synchronized (i70.class) {
+                    if (f == null) {
+                        f = new i70(context.getApplicationContext());
                     }
-                    h = h();
-                    runnable = this.c;
-                } else {
-                    throw new AssertionError("Call wasn't in-flight!");
                 }
             }
-            if (h == 0 && runnable != null) {
-                runnable.run();
-            }
+            return f;
         }
+        return (i70) invokeL.objValue;
     }
 
-    public final void g() {
+    public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || this.f.size() >= this.a || this.e.isEmpty()) {
-            return;
-        }
-        Iterator<n70.a> it = this.e.iterator();
-        while (it.hasNext()) {
-            n70.a next = it.next();
-            if (i(next) < this.b) {
-                it.remove();
-                this.f.add(next);
-                c().execute(next);
-            }
-            if (this.f.size() >= this.a) {
-                return;
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.d.execute(new a(this));
         }
     }
 
-    public synchronized int h() {
+    public ScheduledExecutorService f() {
         InterceptResult invokeV;
-        int size;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            synchronized (this) {
-                size = this.f.size() + this.g.size();
-            }
-            return size;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
         }
-        return invokeV.intValue;
+        return (ScheduledExecutorService) invokeV.objValue;
+    }
+
+    public final j70 d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (!this.e.containsKey(Integer.valueOf(i))) {
+                this.b++;
+                q80.a("BehaviorProcess", "FlowHandle:" + this.b);
+                j70 j70Var = new j70(this.a, i, this.b);
+                this.e.put(Integer.valueOf(i), j70Var);
+                this.d.execute(new b(this, j70Var));
+                n70.l(this.a, "flow_handle", this.b);
+                return j70Var;
+            }
+            return this.e.get(Integer.valueOf(i));
+        }
+        return (j70) invokeI.objValue;
     }
 }

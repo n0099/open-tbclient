@@ -1,14 +1,25 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import androidx.annotation.Nullable;
+import android.app.Activity;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import com.baidu.nadcore.webview.view.AbsNadBrowserView;
+import com.baidu.tieba.t71;
 /* loaded from: classes5.dex */
 public interface j71 {
-    @Nullable
-    Intent a();
+    boolean a(String str);
 
-    @Nullable
-    String[] b();
+    Activity c();
 
-    int c();
+    boolean d();
+
+    LinearLayout e();
+
+    boolean f();
+
+    FrameLayout h();
+
+    t71.d l();
+
+    AbsNadBrowserView m();
 }

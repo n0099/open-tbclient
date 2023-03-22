@@ -1,82 +1,63 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.KeyEvent;
-import androidx.annotation.CallSuper;
-import androidx.core.view.InputDeviceCompat;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.tagextension.item.AbilityTagItemViewHolder;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.tagextension.item.ElementFileItemViewHolder;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.tagextension.item.ElementItemViewHolder;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.tagextension.item.SkillIconViewHolder;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.tagextension.item.SkillTagItemViewHolder;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.tagextension.item.TagItemViewHolder;
+import com.baidu.tieba.immessagecenter.chatgroup.utility.tag.core.BaseTagItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface vw7 {
+public class vw7 extends vx7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @CallSuper
-        public static void a(vw7 vw7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(65536, null, vw7Var) == null) {
+    public vw7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
 
-        @CallSuper
-        public static void b(vw7 vw7Var, int i, int i2, Intent intent) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{vw7Var, Integer.valueOf(i), Integer.valueOf(i2), intent}) == null) {
+    @Override // com.baidu.tieba.vx7
+    public BaseTagItemViewHolder b(ViewGroup viewGroup, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
+            if (i == dx7.b) {
+                return new TagItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d08cb, viewGroup, false), this.a);
             }
-        }
-
-        @CallSuper
-        public static void c(vw7 vw7Var, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(65538, null, vw7Var, z) == null) {
+            if (i == bx7.d) {
+                return new ElementItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d08c8, viewGroup, false), this.a);
             }
-        }
-
-        @CallSuper
-        public static void d(vw7 vw7Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(65539, null, vw7Var, i) == null) {
+            if (i == ax7.c) {
+                return new SkillTagItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0838, viewGroup, false), this.a);
             }
-        }
-
-        @CallSuper
-        public static boolean e(vw7 vw7Var, int i, KeyEvent event) {
-            InterceptResult invokeLIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, vw7Var, i, event)) == null) {
-                Intrinsics.checkNotNullParameter(event, "event");
-                return false;
+            if (i == zw7.a) {
+                return new SkillIconViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0837, viewGroup, false), this.a);
             }
-            return invokeLIL.booleanValue;
-        }
-
-        @CallSuper
-        public static void f(vw7 vw7Var, int i, String[] permissions, int[] grantResults) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLILL(65541, null, vw7Var, i, permissions, grantResults) == null) {
-                Intrinsics.checkNotNullParameter(permissions, "permissions");
-                Intrinsics.checkNotNullParameter(grantResults, "grantResults");
+            if (i == cx7.c) {
+                return new ElementFileItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d08ca, viewGroup, false), this.a);
             }
-        }
-
-        public static void g(vw7 vw7Var, Bundle outState) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65542, null, vw7Var, outState) == null) {
-                Intrinsics.checkNotNullParameter(outState, "outState");
+            if (i == yw7.c) {
+                return new AbilityTagItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d08c7, viewGroup, false), this.b);
             }
+            return null;
         }
-
-        @CallSuper
-        public static void h(vw7 vw7Var, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(65543, null, vw7Var, z) == null) {
-            }
-        }
+        return (BaseTagItemViewHolder) invokeLI.objValue;
     }
 }

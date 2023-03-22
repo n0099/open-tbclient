@@ -1,18 +1,50 @@
 package com.baidu.tieba;
 
-import java.util.concurrent.ExecutorService;
-import org.json.JSONArray;
+import android.os.Bundle;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface dv1 {
-    ExecutorService d();
+public class dv1 extends ProviderDelegation {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void e(String str, int i, JSONArray jSONArray);
+    public dv1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void f(String str, int i);
-
-    void g(String str, String str2, int i, String str3, int i2);
-
-    void i(String str, int i, String str2);
-
-    void n(String str, String str2, int i, String str3, long j, int i2);
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            if (bundle == null) {
+                z = false;
+            } else {
+                z = bundle.getBoolean("status");
+            }
+            for (ho1 ho1Var : SwanAppAllianceLoginHelper.d.e()) {
+                if (ho1Var != null) {
+                    ho1Var.a(z);
+                }
+            }
+            return null;
+        }
+        return (Bundle) invokeL.objValue;
+    }
 }

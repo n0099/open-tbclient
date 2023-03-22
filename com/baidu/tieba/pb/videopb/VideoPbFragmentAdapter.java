@@ -46,22 +46,22 @@ public class VideoPbFragmentAdapter extends FragmentPagerAdapter {
             this.a = new ArrayList();
         }
         this.a.clear();
-        if (absVideoPbFragment.J4()) {
-            this.a.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ed1));
-            this.a.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ed9));
+        if (absVideoPbFragment.L4()) {
+            this.a.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ee1));
+            this.a.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ee9));
         } else {
-            this.a.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ed9));
+            this.a.add(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0ee9));
         }
         if (this.b == null) {
             this.b = new ArrayList<>();
         }
         this.b.clear();
-        if (absVideoPbFragment.J4()) {
-            this.b.add(DetailInfoFragment.O1(absVideoPbFragment));
-            this.b.add(ReplyFragment.d2(absVideoPbFragment));
+        if (absVideoPbFragment.L4()) {
+            this.b.add(DetailInfoFragment.Q1(absVideoPbFragment));
+            this.b.add(ReplyFragment.f2(absVideoPbFragment));
             return;
         }
-        this.b.add(DetailInfoAndReplyFragment.i2(absVideoPbFragment));
+        this.b.add(DetailInfoAndReplyFragment.j2(absVideoPbFragment));
     }
 
     public BaseFragment b(int i) {

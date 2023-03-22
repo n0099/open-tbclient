@@ -14,11 +14,11 @@ import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.Cdo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jx4;
-import com.baidu.tieba.rq5;
-import com.baidu.tieba.yp5;
+import com.baidu.tieba.gn;
+import com.baidu.tieba.pp5;
+import com.baidu.tieba.rv4;
+import com.baidu.tieba.vo5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +33,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 /* loaded from: classes4.dex */
-public abstract class BaseMsg extends OrmObject implements Serializable, Cdo, Cloneable {
+public abstract class BaseMsg extends OrmObject implements Serializable, gn, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Comparator<BaseMsg> CHAT_MSG_COMPARATOR;
     public static final DiffUtil.ItemCallback<BaseMsg> DIFF_ITEM_CALLBACK;
@@ -45,23 +45,26 @@ public abstract class BaseMsg extends OrmObject implements Serializable, Cdo, Cl
     public static final int STATUS_JUST_CREATED = 0;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    @yp5(serialize = false)
+    @vo5(serialize = false)
     public List<AtUserInfo> atUserInfoList;
-    @yp5(serialize = false)
+    @vo5(serialize = false)
     public CommonMsgField commonMsgField;
     @Nullable
-    @yp5(serialize = false)
+    @vo5(serialize = false)
     public Boolean isLeft;
-    @yp5(serialize = false)
+    @vo5(serialize = false)
     public boolean isSysMsg;
     public int itemStatus;
     @Nullable
-    @yp5(serialize = false)
+    @vo5(serialize = false)
+    public BaseMsg preTimestampMsg;
+    @Nullable
+    @vo5(serialize = false)
     public ReMsgInfo reMsgInfo;
-    @yp5(serialize = false)
+    @vo5(serialize = false)
     public ChatMsg sdkMsg;
     @Nullable
-    @yp5(serialize = false)
+    @vo5(serialize = false)
     public TaskInfo taskInfo;
 
     public abstract int getMsgType();
@@ -223,7 +226,7 @@ public abstract class BaseMsg extends OrmObject implements Serializable, Cdo, Cl
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            rq5.b(this.commonMsgField);
+            pp5.b(this.commonMsgField);
             return this.commonMsgField;
         }
         return (CommonMsgField) invokeV.objValue;
@@ -263,7 +266,7 @@ public abstract class BaseMsg extends OrmObject implements Serializable, Cdo, Cl
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03cf), getCommonMsgField().getUserName());
+            return String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03d2), getCommonMsgField().getUserName());
         }
         return (CharSequence) invokeV.objValue;
     }
@@ -273,7 +276,7 @@ public abstract class BaseMsg extends OrmObject implements Serializable, Cdo, Cl
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            rq5.b(this.sdkMsg);
+            pp5.b(this.sdkMsg);
             return this.sdkMsg;
         }
         return (ChatMsg) invokeV.objValue;
@@ -311,7 +314,7 @@ public abstract class BaseMsg extends OrmObject implements Serializable, Cdo, Cl
     public BaseMsg shallowClone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
             try {
                 return (BaseMsg) super.clone();
             } catch (CloneNotSupportedException e) {
@@ -346,30 +349,37 @@ public abstract class BaseMsg extends OrmObject implements Serializable, Cdo, Cl
         }
     }
 
+    public void setPreTimestampMsg(@Nullable BaseMsg baseMsg) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, baseMsg) == null) {
+            this.preTimestampMsg = baseMsg;
+        }
+    }
+
     public void setReMsgInfo(@Nullable ReMsgInfo reMsgInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, reMsgInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048601, this, reMsgInfo) == null) {
             this.reMsgInfo = reMsgInfo;
         }
     }
 
     public void setSdkMsg(ChatMsg chatMsg) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, chatMsg) == null) {
+        if (interceptable == null || interceptable.invokeL(1048602, this, chatMsg) == null) {
             this.sdkMsg = chatMsg;
         }
     }
 
     public void setSysMsg(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048602, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
             this.isSysMsg = z;
         }
     }
 
     public void setTaskInfo(@Nullable TaskInfo taskInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, taskInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048604, this, taskInfo) == null) {
             this.taskInfo = taskInfo;
         }
     }
@@ -404,7 +414,7 @@ public abstract class BaseMsg extends OrmObject implements Serializable, Cdo, Cl
                     return (interceptable2 == null || (invokeV = interceptable2.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "" : (CharSequence) invokeV.objValue;
                 }
 
-                @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.Cdo
+                @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.gn
                 public BdUniqueId getType() {
                     InterceptResult invokeV;
                     Interceptable interceptable2 = $ic;
@@ -471,9 +481,9 @@ public abstract class BaseMsg extends OrmObject implements Serializable, Cdo, Cl
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             if (this.isLeft == null) {
-                jx4 s = jx4.s();
-                rq5.d(s.B());
-                if (s.i() != this.commonMsgField.getUserId()) {
+                rv4 t = rv4.t();
+                pp5.d(t.C());
+                if (t.j() != this.commonMsgField.getUserId()) {
                     z = true;
                 } else {
                     z = false;
@@ -494,13 +504,25 @@ public abstract class BaseMsg extends OrmObject implements Serializable, Cdo, Cl
             }
             if (obj != null && getClass() == obj.getClass()) {
                 BaseMsg baseMsg = (BaseMsg) obj;
-                rq5.b(this.commonMsgField);
-                rq5.b(baseMsg.commonMsgField);
+                pp5.b(this.commonMsgField);
+                pp5.b(baseMsg.commonMsgField);
                 return Objects.equals(this.commonMsgField, baseMsg.commonMsgField);
             }
             return false;
         }
         return invokeL.booleanValue;
+    }
+
+    public void syncServerMsgId(@NonNull ChatMsg chatMsg) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, chatMsg) == null) {
+            getCommonMsgField().setMsgId(chatMsg.getMsgId());
+            getCommonMsgField().setLocalMsgId(false);
+            BaseMsg baseMsg = this.preTimestampMsg;
+            if (baseMsg != null) {
+                baseMsg.getCommonMsgField().setMsgId(chatMsg.getMsgId() - 1);
+            }
+        }
     }
 
     public final void fillSdkMsg4Base(@NonNull ChatMsg chatMsg) {

@@ -8,7 +8,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.util.devices.RomUtils;
 import com.baidu.sapi2.activity.OauthActivity;
 import com.baidu.tbadk.switchs.IsFullScreenSwitch;
-import com.baidu.tieba.gj;
+import com.baidu.tieba.ji;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,7 +38,7 @@ public class DeviceInfoUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            String f = gj.f();
+            String f = ji.f();
             if (TextUtils.isEmpty(f)) {
                 return "NUL";
             }
@@ -63,7 +63,7 @@ public class DeviceInfoUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return StringHelper.equals(gj.g(), "ANE-AL00");
+            return StringHelper.equals(ji.g(), "ANE-AL00");
         }
         return invokeV.booleanValue;
     }
@@ -90,7 +90,7 @@ public class DeviceInfoUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            String g = gj.g();
+            String g = ji.g();
             if ((isHuaWei() || isHonor()) && "OXF-AN00".equalsIgnoreCase(g)) {
                 return true;
             }
@@ -103,7 +103,7 @@ public class DeviceInfoUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            if (!StringHelper.equals(gj.g(), "ANA-AN00") && !StringHelper.equals(gj.g(), "ANA-TN00")) {
+            if (!StringHelper.equals(ji.g(), "ANA-AN00") && !StringHelper.equals(ji.g(), "ANA-TN00")) {
                 return false;
             }
             return true;
@@ -115,7 +115,7 @@ public class DeviceInfoUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            if (!StringHelper.equals(gj.g(), "ELS-AN00") && !StringHelper.equals(gj.g(), "ELS-TN00")) {
+            if (!StringHelper.equals(ji.g(), "ELS-AN00") && !StringHelper.equals(ji.g(), "ELS-TN00")) {
                 return false;
             }
             return true;
@@ -127,7 +127,7 @@ public class DeviceInfoUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            String g = gj.g();
+            String g = ji.g();
             if (TextUtils.isEmpty(g) || !g.contains("Huawei_HUAWEI U9508")) {
                 return false;
             }
@@ -140,7 +140,7 @@ public class DeviceInfoUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            return StringHelper.equals(gj.g(), "HMA-AL00");
+            return StringHelper.equals(ji.g(), "HMA-AL00");
         }
         return invokeV.booleanValue;
     }
@@ -149,7 +149,7 @@ public class DeviceInfoUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
-            return StringHelper.equals(gj.g(), "MI 5X");
+            return StringHelper.equals(ji.g(), "MI 5X");
         }
         return invokeV.booleanValue;
     }
@@ -158,7 +158,7 @@ public class DeviceInfoUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
-            return "n5207".equals(gj.g());
+            return "n5207".equals(ji.g());
         }
         return invokeV.booleanValue;
     }
@@ -167,7 +167,7 @@ public class DeviceInfoUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
-            return StringHelper.equals(gj.g(), "PCLM50");
+            return StringHelper.equals(ji.g(), "PCLM50");
         }
         return invokeV.booleanValue;
     }
@@ -176,7 +176,7 @@ public class DeviceInfoUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
-            return StringHelper.equals(gj.g(), "vivo X20A");
+            return StringHelper.equals(ji.g(), "vivo X20A");
         }
         return invokeV.booleanValue;
     }
@@ -185,7 +185,7 @@ public class DeviceInfoUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) {
-            if (RomUtils.MANUFACTURER_XIAOMI.equalsIgnoreCase(gj.f())) {
+            if (RomUtils.MANUFACTURER_XIAOMI.equalsIgnoreCase(ji.f())) {
                 return true;
             }
             return false;
@@ -197,7 +197,7 @@ public class DeviceInfoUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) {
-            return "Mi 10".equals(gj.g());
+            return "Mi 10".equals(ji.g());
         }
         return invokeV.booleanValue;
     }
@@ -262,8 +262,8 @@ public class DeviceInfoUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            String g = gj.g();
-            String f = gj.f();
+            String g = ji.g();
+            String f = ji.f();
             if ((!TextUtils.isEmpty(g) && g.contains("honor")) || "honor".equalsIgnoreCase(f)) {
                 return true;
             }
@@ -276,8 +276,8 @@ public class DeviceInfoUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            String g = gj.g();
-            String f = gj.f();
+            String g = ji.g();
+            String f = ji.f();
             if ((!TextUtils.isEmpty(g) && g.contains(RomUtils.MANUFACTURER_HUAWEI)) || RomUtils.MANUFACTURER_HUAWEI.equalsIgnoreCase(f)) {
                 return true;
             }
@@ -290,7 +290,7 @@ public class DeviceInfoUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
-            String g = gj.g();
+            String g = ji.g();
             if (TextUtils.isEmpty(g)) {
                 return false;
             }
@@ -309,7 +309,7 @@ public class DeviceInfoUtil {
             if (!IsFullScreenSwitch.isOn()) {
                 return false;
             }
-            String g = gj.g();
+            String g = ji.g();
             String[] strArr = {"ANE-AL00", "CLT-AL01", "PACM00", "vivo Y85A", "vivo X21A", "SM-G8870"};
             for (int i = 0; i < 6; i++) {
                 if (strArr[i].equalsIgnoreCase(g)) {
@@ -325,7 +325,7 @@ public class DeviceInfoUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
-            String g = gj.g();
+            String g = ji.g();
             String str = Build.BRAND;
             if (TextUtils.isEmpty(g) || TextUtils.isEmpty(str) || !"HUAWEI".equalsIgnoreCase(str)) {
                 return false;
@@ -342,7 +342,7 @@ public class DeviceInfoUtil {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
-            if (!StringHelper.equals(gj.g(), "TAS-L09") && !StringHelper.equals(gj.g(), "TAS-L29") && !StringHelper.equals(gj.g(), "TAS-AL00") && !StringHelper.equals(gj.g(), "TAS-TL00")) {
+            if (!StringHelper.equals(ji.g(), "TAS-L09") && !StringHelper.equals(ji.g(), "TAS-L29") && !StringHelper.equals(ji.g(), "TAS-AL00") && !StringHelper.equals(ji.g(), "TAS-TL00")) {
                 return false;
             }
             return true;

@@ -1,124 +1,84 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.app.Activity;
+import android.content.Context;
+import android.util.SparseArray;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
-import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class lq1 implements hq1 {
+public class lq1 implements vd4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public ty3 c;
-    public iq1 d;
-    public cy3 e;
-    public List<gq1> f;
-    public gq1 g;
-    public gq1 h;
-    public Map<String, String> i;
-    public sy3 j;
+    public SparseArray<String> a;
 
-    /* loaded from: classes5.dex */
-    public class a implements sy3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lq1 a;
-
-        @Override // com.baidu.tieba.sy3
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            }
+    @Override // com.baidu.tieba.vd4
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
         }
+        return invokeV.booleanValue;
+    }
 
-        public a(lq1 lq1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lq1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = lq1Var;
-        }
-
-        @Override // com.baidu.tieba.sy3
-        public void onError(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.a.d.c(kq1.b(str));
-                vy3.k(this.a.i, str);
-            }
-        }
-
-        @Override // com.baidu.tieba.sy3
-        public void b(boolean z, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str) == null) {
-                if (z) {
-                    this.a.d.b();
-                    this.a.g.a(0);
-                    for (gq1 gq1Var : this.a.f) {
-                        gq1Var.a(0);
-                        if (this.a.f.contains(gq1Var)) {
-                            this.a.f.remove(gq1Var);
-                        }
-                    }
-                    return;
-                }
-                this.a.g.a(1001);
-                for (gq1 gq1Var2 : this.a.f) {
-                    gq1Var2.a(1001);
-                    if (this.a.f.contains(gq1Var2)) {
-                        this.a.f.remove(gq1Var2);
-                    }
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.sy3
-        public void c(boolean z, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, str) == null) {
-                if (z) {
-                    this.a.h.a(0);
-                } else {
-                    this.a.h.a(1001);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.sy3
-        public void d(boolean z, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-                this.a.d.a(kq1.a(z));
-            }
+    @Override // com.baidu.tieba.vd4
+    public void b(Activity activity, be4 be4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, be4Var) == null) {
         }
     }
 
-    public lq1(@NonNull JSONObject jSONObject, iq1 iq1Var, gq1 gq1Var) {
+    @Override // com.baidu.tieba.vd4
+    public void c(int i, List<be4> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, list) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.vd4
+    public void d(int i, List<be4> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, list) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.vd4
+    public void g(Activity activity, be4 be4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, activity, be4Var) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.vd4
+    public void h(Context context, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, context, jSONObject) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.vd4
+    public boolean j(be4 be4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, be4Var)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public lq1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject, iq1Var, gq1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -128,51 +88,36 @@ public class lq1 implements hq1 {
                 return;
             }
         }
-        this.a = "";
-        this.i = new TreeMap();
-        this.j = new a(this);
-        if (jSONObject != null && !TextUtils.isEmpty(jSONObject.optString("adUnitId")) && !TextUtils.isEmpty(jSONObject.optString("appSid"))) {
-            this.a = jSONObject.optString("adUnitId");
-            String optString = jSONObject.optString("appSid");
-            this.b = optString;
-            this.i = vy3.a("video", "app", optString, this.a, false);
-            this.e = new mq1();
-            ty3 ty3Var = new ty3(zu2.U().getActivity(), this.b, this.a, false, this.j, this.e);
-            this.c = ty3Var;
-            ty3Var.k0(this.i);
-            this.f = new CopyOnWriteArrayList();
-            b(jSONObject, gq1Var, iq1Var);
-            return;
+        SparseArray<String> sparseArray = new SparseArray<>();
+        this.a = sparseArray;
+        sparseArray.put(38, DI.BD.FAVOR);
+        if (!ar2.c0().a()) {
+            this.a.put(35, "add to launch");
         }
-        gq1Var.a(202);
+        if (ar2.n().a().equals("vivobrowser")) {
+            this.a.put(4, "share");
+        }
     }
 
-    @Override // com.baidu.tieba.hq1
-    public synchronized void a(JSONObject jSONObject, gq1 gq1Var) {
+    @Override // com.baidu.tieba.vd4
+    public void e(int i, List<be4> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, gq1Var) == null) {
-            synchronized (this) {
-                if (this.c != null) {
-                    this.h = gq1Var;
-                    this.c.l0();
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, list) == null) {
+            l(i, list);
+        }
+    }
+
+    public final void l(int i, List<be4> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, list) == null) && !nl3.G() && list != null && list.size() > 0) {
+            ArrayList arrayList = new ArrayList();
+            for (be4 be4Var : list) {
+                if (this.a.get(be4Var.c()) != null) {
+                    arrayList.add(be4Var);
                 }
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.hq1
-    public synchronized void b(JSONObject jSONObject, gq1 gq1Var, iq1 iq1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, gq1Var, iq1Var) == null) {
-            synchronized (this) {
-                this.d = iq1Var;
-                if (this.c != null) {
-                    this.g = gq1Var;
-                    if (gq1Var != null && !this.f.contains(gq1Var)) {
-                        this.f.add(gq1Var);
-                    }
-                    this.c.c0();
-                }
+            if (arrayList.size() > 0) {
+                list.removeAll(arrayList);
             }
         }
     }

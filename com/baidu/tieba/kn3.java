@@ -1,96 +1,62 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class kn3 implements pm4 {
+public class kn3 extends q93 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final kn3 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-655784613, "Lcom/baidu/tieba/kn3$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-655784613, "Lcom/baidu/tieba/kn3$b;");
-                    return;
-                }
-            }
-            a = new kn3(null);
-        }
-    }
-
-    public kn3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kn3(UnitedSchemeBaseDispatcher unitedSchemeBaseDispatcher) {
+        super(unitedSchemeBaseDispatcher, "/swanAPI/debug/setWebDegradeDebugHost");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {unitedSchemeBaseDispatcher};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static kn3 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.q93
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, t73 t73Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (kn3) invokeV.objValue;
-    }
-
-    public /* synthetic */ kn3(a aVar) {
-        this();
-    }
-
-    @Override // com.baidu.tieba.pm4
-    public boolean a(@NonNull String str, @NonNull int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    return false;
-                }
-                File file = new File(us2.g().b(), str);
-                if (!file.exists() || !file.isDirectory()) {
-                    return false;
-                }
-                return true;
-            }
-            File file2 = new File(is2.g(), str);
-            if (!file2.exists() || !file2.isDirectory()) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, t73Var)) == null) {
+            JSONObject a = q93.a(unitedSchemeEntity, "params");
+            if (a == null) {
+                t42.c("Api-SetWebDegradeDebugHostAction", "params is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
+            String optString = a.optString("host");
+            if (TextUtils.isEmpty(optString)) {
+                hg3.a().edit().remove("web_mode_host_key").apply();
+                return true;
+            }
+            hg3.a().edit().putString("web_mode_host_key", optString).apply();
             return true;
         }
-        return invokeLI.booleanValue;
+        return invokeLLLL.booleanValue;
     }
 }

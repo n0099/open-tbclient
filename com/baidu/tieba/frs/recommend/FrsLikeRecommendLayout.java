@@ -20,16 +20,16 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tieba.Cdo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b35;
-import com.baidu.tieba.ey;
-import com.baidu.tieba.k49;
-import com.baidu.tieba.no;
-import com.baidu.tieba.v47;
-import com.baidu.tieba.w47;
-import com.baidu.tieba.x47;
-import com.baidu.tieba.y47;
+import com.baidu.tieba.a67;
+import com.baidu.tieba.b67;
+import com.baidu.tieba.c67;
+import com.baidu.tieba.d67;
+import com.baidu.tieba.gn;
+import com.baidu.tieba.hx;
+import com.baidu.tieba.n15;
+import com.baidu.tieba.pa9;
+import com.baidu.tieba.qn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,7 +38,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import tbclient.ThemeColorInfo;
 /* loaded from: classes4.dex */
-public class FrsLikeRecommendLayout extends ConstraintLayout implements ey {
+public class FrsLikeRecommendLayout extends ConstraintLayout implements hx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
@@ -46,21 +46,21 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements ey {
     public TextView c;
     public ImageView d;
     public BdTypeRecyclerView e;
-    public v47 f;
-    public w47 g;
+    public a67 f;
+    public b67 g;
     public ValueAnimator h;
-    public x47 i;
+    public c67 i;
     public boolean j;
     public int k;
 
     /* loaded from: classes4.dex */
-    public class d implements no {
+    public class d implements qn {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FrsLikeRecommendLayout a;
 
         /* loaded from: classes4.dex */
-        public class a implements y47 {
+        public class a implements d67 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -99,18 +99,18 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements ey {
             this.a = frsLikeRecommendLayout;
         }
 
-        @Override // com.baidu.tieba.no
-        public void b(View view2, Cdo cdo, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+        @Override // com.baidu.tieba.qn
+        public void b(View view2, gn gnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, cdo, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(cdo instanceof k49)) {
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, gnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(gnVar instanceof pa9)) {
                 return;
             }
-            if (view2.getId() == R.id.obfuscated_res_0x7f090c5d) {
+            if (view2.getId() == R.id.obfuscated_res_0x7f090c8a) {
                 if (this.a.g != null) {
-                    this.a.g.b((k49) cdo);
+                    this.a.g.b((pa9) gnVar);
                 }
-            } else if (view2.getId() == R.id.obfuscated_res_0x7f090b55 && this.a.g != null) {
-                this.a.g.c((k49) cdo, i, new a(this, i));
+            } else if (view2.getId() == R.id.obfuscated_res_0x7f090b7e && this.a.g != null) {
+                this.a.g.c((pa9) gnVar, i, new a(this, i));
             }
         }
     }
@@ -313,7 +313,7 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements ey {
             }
         }
         this.a = UtilHelper.getDimenPixelSize(R.dimen.tbds600);
-        h(context);
+        j(context);
     }
 
     public void setCloseListener(View.OnClickListener onClickListener) {
@@ -324,47 +324,47 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements ey {
         }
     }
 
-    public void setHeightChangeListener(x47 x47Var) {
+    public void setHeightChangeListener(c67 c67Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, x47Var) == null) {
-            this.i = x47Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, c67Var) == null) {
+            this.i = c67Var;
         }
     }
 
     public void setThemeColor(ThemeColorInfo themeColorInfo) {
-        v47 v47Var;
+        a67 a67Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, themeColorInfo) == null) && (v47Var = this.f) != null) {
-            v47Var.u(themeColorInfo);
+        if ((interceptable == null || interceptable.invokeL(1048585, this, themeColorInfo) == null) && (a67Var = this.f) != null) {
+            a67Var.u(themeColorInfo);
         }
     }
 
-    private no getItemClickListener() {
+    private qn getItemClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, this)) == null) {
             return new d(this);
         }
-        return (no) invokeV.objValue;
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            f();
-        }
+        return (qn) invokeV.objValue;
     }
 
     public int getCurrentHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.k;
         }
         return invokeV.intValue;
     }
 
     public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            h();
+        }
+    }
+
+    public void l() {
         ValueAnimator valueAnimator;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (valueAnimator = this.h) != null) {
@@ -378,17 +378,17 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements ey {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDetachedFromWindow();
-            w47 w47Var = this.g;
-            if (w47Var != null) {
-                w47Var.a();
+            b67 b67Var = this.g;
+            if (b67Var != null) {
+                b67Var.a();
             }
-            i();
+            l();
         }
     }
 
-    public final void f() {
+    public final void h() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.j) {
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.j) {
             return;
         }
         ValueAnimator valueAnimator = this.h;
@@ -404,45 +404,45 @@ public class FrsLikeRecommendLayout extends ConstraintLayout implements ey {
         this.h.start();
     }
 
-    public final void h(Context context) {
+    public final void j(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0347, this);
-            this.b = findViewById(R.id.obfuscated_res_0x7f091de3);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090c60);
-            this.e = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f090c5f);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090c5c);
-            v47 v47Var = new v47(getContext());
-            this.f = v47Var;
-            v47Var.setOnAdapterItemClickListener(getItemClickListener());
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0351, this);
+            this.b = findViewById(R.id.obfuscated_res_0x7f091e2e);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090c8d);
+            this.e = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f090c8c);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f090c89);
+            a67 a67Var = new a67(getContext());
+            this.f = a67Var;
+            a67Var.setOnAdapterItemClickListener(getItemClickListener());
             BdTypeRecyclerView bdTypeRecyclerView = this.e;
             if (bdTypeRecyclerView != null) {
                 bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(context, 0, false));
                 this.e.addItemDecoration(new FrsLikeRecommendDecoration());
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(this.f);
-                this.e.a(arrayList);
+                this.e.addAdapters(arrayList);
             }
         }
     }
 
-    @Override // com.baidu.tieba.ey
+    @Override // com.baidu.tieba.hx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i) == null) {
             TextView textView = this.c;
             if (textView != null) {
-                b35 d2 = b35.d(textView);
-                d2.A(R.string.F_X02);
-                d2.v(R.color.CAM_X0101);
+                n15 d2 = n15.d(textView);
+                d2.B(R.string.F_X02);
+                d2.w(R.color.CAM_X0101);
             }
             ImageView imageView = this.d;
             if (imageView != null) {
                 WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_card_close22, R.color.CAM_X0622, null);
             }
-            v47 v47Var = this.f;
-            if (v47Var != null) {
-                v47Var.notifyDataSetChanged();
+            a67 a67Var = this.f;
+            if (a67Var != null) {
+                a67Var.notifyDataSetChanged();
             }
         }
     }

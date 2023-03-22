@@ -1,9 +1,13 @@
 package com.baidu.tieba;
 
-import tv.athena.revenue.payui.view.dialog.CancelType;
+import rx.subjects.ReplaySubject$ReplayProducer;
 /* loaded from: classes4.dex */
-public interface ewa {
-    void a(CancelType cancelType);
+public interface ewa<T> {
+    void a(ReplaySubject$ReplayProducer<T> replaySubject$ReplayProducer);
 
-    void b(int i);
+    void complete();
+
+    void error(Throwable th);
+
+    void next(T t);
 }

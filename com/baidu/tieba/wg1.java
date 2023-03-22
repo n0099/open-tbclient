@@ -1,148 +1,98 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public final class wg1 {
+public class wg1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final String a() {
+    public static NetworkInfo a() {
         InterceptResult invokeV;
+        ConnectivityManager connectivityManager;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return h() + "/cps/user/recordBatch/sapp";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return h() + "/cashier/calcMoney";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return h() + "/cashier/channelAllInfo";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return h() + "/cashier/order/orderInfo";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return h() + "/cps/user/record/sapp";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return h() + "/cashier/drmb/drmbPay";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (tg1.a() != 1) {
-                return "https://trade.baidu-int.com/sandbox/tradegateway";
+            Context a = yg1.a();
+            if (a == null || (connectivityManager = (ConnectivityManager) a.getSystemService("connectivity")) == null) {
+                return null;
             }
-            return "https://etrade-api.baidu.com";
+            return connectivityManager.getActiveNetworkInfo();
         }
-        return (String) invokeV.objValue;
+        return (NetworkInfo) invokeV.objValue;
     }
 
-    public static final String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return h() + "/cashier/launchpayment";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            return h() + "/cashier/pay";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            return h() + "/cashier/sdkAdaptH5QueryPay";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            return h() + "/cashier/drmb/reqCode";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String d() {
+    public static boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (tg1.a() != 2) {
-                return h() + "/cashier/innerChannelAllInfo";
+            NetworkInfo a = a();
+            if (a != null && a.isConnected()) {
+                return true;
             }
-            return h() + "/cashier/innerChannelAllInfo";
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static final String i() {
-        InterceptResult invokeV;
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public static String b(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (tg1.a() != 1) {
-                return h() + "/cashier/agreement/judgeGuideSign";
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
+            switch (i) {
+                case 1:
+                case 2:
+                case 4:
+                case 7:
+                case 11:
+                case 16:
+                    return "1";
+                case 3:
+                case 5:
+                case 6:
+                case 8:
+                case 9:
+                case 10:
+                case 12:
+                case 14:
+                case 15:
+                case 17:
+                    return "2";
+                case 13:
+                case 18:
+                case 19:
+                    break;
+                default:
+                    if (TextUtils.isEmpty(str) || !str.equalsIgnoreCase("LTE_CA")) {
+                        return "unknown";
+                    }
+                    break;
             }
-            return h() + "/cashier/agreement/judgeGuideSign";
+            return "3";
         }
-        return (String) invokeV.objValue;
+        return (String) invokeIL.objValue;
     }
 
-    public static final String k() {
+    public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            if (tg1.a() != 1) {
-                return h() + "/cashier/agreement/guideApplySign";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            NetworkInfo a = a();
+            if (a != null && a.isConnected()) {
+                if (a.getType() == 1) {
+                    return "4";
+                }
+                if (a.getType() == 0) {
+                    return b(a.getSubtype(), a.getSubtypeName());
+                }
+                return "unknown";
             }
-            return h() + "/cashier/agreement/guideApplySign";
+            return "0";
         }
         return (String) invokeV.objValue;
     }

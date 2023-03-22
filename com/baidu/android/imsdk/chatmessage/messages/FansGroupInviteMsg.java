@@ -187,7 +187,7 @@ public class FansGroupInviteMsg extends NormalMsg {
                     this.mInvitor = jSONObject.optLong("invitor");
                     return true;
                 } catch (JSONException e) {
-                    LogUtils.e("TextMsg", "parse json err!", e);
+                    LogUtils.e(TextMsg.TAG, "parse json err!", e);
                 }
             }
             return false;

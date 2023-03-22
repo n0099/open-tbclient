@@ -1,158 +1,105 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.TBAlertBuilder;
-import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class ef5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View attachedView;
+    public boolean isAttached;
+    public boolean isWrapStyle;
 
-    /* loaded from: classes4.dex */
-    public interface c {
-        void a();
-    }
-
-    /* loaded from: classes4.dex */
-    public static class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c a;
-        public final /* synthetic */ TBAlertBuilder b;
-
-        public a(c cVar, TBAlertBuilder tBAlertBuilder) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cVar, tBAlertBuilder};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cVar;
-            this.b = tBAlertBuilder;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                c cVar = this.a;
-                if (cVar != null) {
-                    cVar.a();
-                }
-                this.b.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TBAlertBuilder a;
-
-        public b(TBAlertBuilder tBAlertBuilder) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tBAlertBuilder};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tBAlertBuilder;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                ef5.b();
-                this.a.dismiss();
-            }
-        }
-    }
-
-    public static void b() {
-        String str;
+    public void onViewAttached() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
+    public void onViewDettached() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
+    }
+
+    public ef5(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.isWrapStyle = false;
+        this.attachedView = view2;
+    }
+
+    public void attachView(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+            attachView(view2, false);
+        }
+    }
+
+    public void dettachView(View view2) {
+        View view3;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && view2 != null && (view3 = this.attachedView) != null && view3.getParent() != null && (view2 instanceof ViewGroup)) {
             try {
-                if (TbadkCoreApplication.getInst().getSkinType() == 4) {
-                    str = "&skin=dark";
-                } else {
-                    str = "";
-                }
-                Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-                if (currentActivity instanceof TbPageContextSupport) {
-                    UrlManager.getInstance().dealOneLink(((TbPageContextSupport) currentActivity).getPageContext(), new String[]{TbConfig.VIRTUAL_IMAGE_MAIN_URL + str});
-                }
-            } catch (Exception e) {
-                BdLog.e("openPageByUrl fail:" + e.toString());
+                onViewDettached();
+                ((ViewGroup) view2).removeView(this.attachedView);
+                this.isAttached = false;
+            } catch (Exception unused) {
             }
         }
     }
 
-    public static void c(c cVar) {
-        Context context;
+    public void setWrapStyle(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, cVar) != null) || (context = TbadkCoreApplication.getInst().getContext()) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.isWrapStyle = z;
+        }
+    }
+
+    public void attachView(View view2, boolean z) {
+        View view3;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, z) != null) || view2 == null || (view3 = this.attachedView) == null || view3.getParent() != null) {
             return;
         }
-        TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(TbadkApplication.getInst().getCurrentActivity());
-        View inflate = LayoutInflater.from(context).inflate(R.layout.pb_virtual_image_setting_post, (ViewGroup) null);
-        b35 d = b35.d(inflate.findViewById(R.id.virtual_image_setting_layout));
-        d.n(R.string.J_X06);
-        d.f(R.color.CAM_X0201);
-        TextView textView = (TextView) inflate.findViewById(R.id.virtual_image_setting_confirm_cancel_btn);
-        b35 d2 = b35.d(textView);
-        d2.A(R.string.F_X01);
-        d2.z(R.dimen.T_X07);
-        d2.v(R.color.CAM_X0105);
-        d2.n(R.string.J_X07);
-        d2.l(R.dimen.L_X02);
-        d2.k(R.color.CAM_X0105);
-        d2.j(R.string.A_X07);
-        textView.setOnClickListener(new a(cVar, tBAlertBuilder));
-        TextView textView2 = (TextView) inflate.findViewById(R.id.virtual_image_setting_confirm_btn);
-        b35 d3 = b35.d(textView2);
-        d3.A(R.string.F_X01);
-        d3.z(R.dimen.T_X07);
-        d3.v(R.color.CAM_X0304);
-        d3.n(R.string.J_X07);
-        d3.l(R.dimen.L_X02);
-        d3.k(R.color.CAM_X0304);
-        d3.j(R.string.A_X07);
-        textView2.setOnClickListener(new b(tBAlertBuilder));
-        tBAlertBuilder.r(true);
-        tBAlertBuilder.k(inflate);
-        tBAlertBuilder.z();
+        this.isAttached = true;
+        if5.a(view2, this.isWrapStyle).a(view2, this.attachedView, z);
+        onViewAttached();
+    }
+
+    public View getView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.attachedView;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public boolean isViewAttached() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.isAttached;
+        }
+        return invokeV.booleanValue;
     }
 }

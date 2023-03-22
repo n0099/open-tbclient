@@ -11,33 +11,33 @@ import android.view.TextureView;
 import android.view.View;
 import android.view.accessibility.AccessibilityEvent;
 import android.view.accessibility.AccessibilityNodeInfo;
-import com.baidu.tieba.jq4;
-import com.baidu.tieba.kq4;
+import com.baidu.tieba.qo4;
+import com.baidu.tieba.ro4;
 import java.lang.ref.WeakReference;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 @TargetApi(14)
 /* loaded from: classes3.dex */
-public class TextureRenderView extends TextureView implements jq4 {
-    public kq4 a;
+public class TextureRenderView extends TextureView implements qo4 {
+    public ro4 a;
     public int b;
     public SurfaceTexture c;
     public b d;
 
-    @Override // com.baidu.tieba.jq4
+    @Override // com.baidu.tieba.qo4
     public View getView() {
         return this;
     }
 
     /* loaded from: classes3.dex */
-    public static final class a implements jq4.b {
+    public static final class a implements qo4.b {
         public TextureRenderView a;
 
         public a(TextureRenderView textureRenderView) {
             this.a = textureRenderView;
         }
 
-        @Override // com.baidu.tieba.jq4.b
+        @Override // com.baidu.tieba.qo4.b
         @TargetApi(16)
         public void a(MediaPlayer mediaPlayer) {
             if (mediaPlayer != null && this.a.getSurfaceTexture() != null) {
@@ -51,8 +51,8 @@ public class TextureRenderView extends TextureView implements jq4 {
             }
         }
 
-        @Override // com.baidu.tieba.jq4.b
-        public jq4 b() {
+        @Override // com.baidu.tieba.qo4.b
+        public qo4 b() {
             return this.a;
         }
 
@@ -69,7 +69,7 @@ public class TextureRenderView extends TextureView implements jq4 {
         public int d;
         public WeakReference<TextureRenderView> f;
         public volatile boolean e = false;
-        public Map<jq4.a, Object> g = new ConcurrentHashMap();
+        public Map<qo4.a, Object> g = new ConcurrentHashMap();
 
         @Override // android.view.TextureView.SurfaceTextureListener
         public void onSurfaceTextureUpdated(SurfaceTexture surfaceTexture) {
@@ -79,7 +79,7 @@ public class TextureRenderView extends TextureView implements jq4 {
             this.f = new WeakReference<>(textureRenderView);
         }
 
-        public void b(jq4.a aVar) {
+        public void b(qo4.a aVar) {
             this.g.remove(aVar);
         }
 
@@ -87,7 +87,7 @@ public class TextureRenderView extends TextureView implements jq4 {
             this.e = z;
         }
 
-        public void a(jq4.a aVar) {
+        public void a(qo4.a aVar) {
             a aVar2;
             this.g.put(aVar, aVar);
             if (this.a != null) {
@@ -111,7 +111,7 @@ public class TextureRenderView extends TextureView implements jq4 {
             this.c = 0;
             this.d = 0;
             a aVar = new a(this.f.get());
-            for (jq4.a aVar2 : this.g.keySet()) {
+            for (qo4.a aVar2 : this.g.keySet()) {
                 aVar2.a(aVar);
             }
             return this.e;
@@ -130,7 +130,7 @@ public class TextureRenderView extends TextureView implements jq4 {
             this.c = 0;
             this.d = 0;
             a aVar = new a(this.f.get());
-            for (jq4.a aVar2 : this.g.keySet()) {
+            for (qo4.a aVar2 : this.g.keySet()) {
                 aVar2.b(aVar, 0, 0);
             }
         }
@@ -142,7 +142,7 @@ public class TextureRenderView extends TextureView implements jq4 {
             this.c = i;
             this.d = i2;
             a aVar = new a(this.f.get());
-            for (jq4.a aVar2 : this.g.keySet()) {
+            for (qo4.a aVar2 : this.g.keySet()) {
                 aVar2.c(aVar, 0, i, i2);
             }
         }
@@ -154,18 +154,18 @@ public class TextureRenderView extends TextureView implements jq4 {
         c(context);
     }
 
-    @Override // com.baidu.tieba.jq4
-    public void a(jq4.a aVar) {
+    @Override // com.baidu.tieba.qo4
+    public void a(qo4.a aVar) {
         this.d.b(aVar);
     }
 
-    @Override // com.baidu.tieba.jq4
-    public void b(jq4.a aVar) {
+    @Override // com.baidu.tieba.qo4
+    public void b(qo4.a aVar) {
         this.d.a(aVar);
     }
 
     public final void c(Context context) {
-        this.a = new kq4(this);
+        this.a = new ro4(this);
         b bVar = new b(this);
         this.d = bVar;
         setSurfaceTextureListener(bVar);
@@ -183,7 +183,7 @@ public class TextureRenderView extends TextureView implements jq4 {
         accessibilityNodeInfo.setClassName(TextureRenderView.class.getName());
     }
 
-    @Override // com.baidu.tieba.jq4
+    @Override // com.baidu.tieba.qo4
     public void setAspectRatio(int i) {
         this.a.d(i);
         requestLayout();
@@ -221,7 +221,7 @@ public class TextureRenderView extends TextureView implements jq4 {
         }
     }
 
-    @Override // com.baidu.tieba.jq4
+    @Override // com.baidu.tieba.qo4
     public void setVideoSize(int i, int i2) {
         if (i > 0 && i2 > 0) {
             this.a.g(i, i2);
@@ -243,7 +243,7 @@ public class TextureRenderView extends TextureView implements jq4 {
         return this.c;
     }
 
-    public jq4.b getSurfaceHolder() {
+    public qo4.b getSurfaceHolder() {
         return new a(this);
     }
 
@@ -253,7 +253,7 @@ public class TextureRenderView extends TextureView implements jq4 {
         Log.d("TextureRenderView", "onDetachedFromWindow");
     }
 
-    @Override // com.baidu.tieba.jq4
+    @Override // com.baidu.tieba.qo4
     @TargetApi(16)
     public void release() {
         if (this.c != null) {

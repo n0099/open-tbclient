@@ -65,9 +65,7 @@ public class CmdConfigHttp {
     public static final int CMD_CLIENT_CONFIG = 1003024;
     public static final int CMD_COMMIT_CARD_INFO = 1003441;
     public static final int CMD_COMPLETE_TASK = 1003430;
-    public static final int CMD_CONCERN_CHECK_RED_NOTIFY = 1003344;
     public static final int CMD_CONCERN_PAGE = 1003343;
-    public static final int CMD_CONCERN_UNREAD_TIP = 1003387;
     public static final int CMD_CURRENCY_SWITCH_REQUEST = 1003492;
     public static final int CMD_CUSTOM_ALS = 1003195;
     public static final int CMD_DAILY_PAGE = 1003413;
@@ -126,6 +124,7 @@ public class CmdConfigHttp {
     public static final int CMD_GET_CATEGORY_CARTOON = 1003096;
     public static final int CMD_GET_CHANNEL_CONFIG = 1003477;
     public static final int CMD_GET_CHANNEL_FANS_LIST = 1003314;
+    public static final int CMD_GET_CHAT_ROOM_INIT_INFO = 1003560;
     public static final int CMD_GET_EMOTION_EMOTION_CHANGE = 1003355;
     public static final int CMD_GET_EMOTION_EMOTION_SHOP = 1003354;
     public static final int CMD_GET_EMOTION_INFOS = 1003353;
@@ -224,6 +223,7 @@ public class CmdConfigHttp {
     public static final int CMD_HTTP_GROUP_MESSAGE = 1003549;
     public static final int CMD_HTTP_ONEKEY_DELETION_HISTORY = 1003557;
     public static final int CMD_HTTP_POLLING_INTERFACE = 1003540;
+    public static final int CMD_HTTP_RELATIVE_MEME_LIST = 1003561;
     public static final int CMD_HTTP_SHARE_CONTENT_TO_CHAT_GROUP = 1003553;
     public static final int CMD_HTTP_SMART_APP = 1003420;
     public static final int CMD_HTTP_TIEBA_UID_CHECK = 1003493;
@@ -275,6 +275,8 @@ public class CmdConfigHttp {
     public static final int CMD_REMOVE_ALL_FORBIDDEN_FANS = 1003407;
     public static final int CMD_REMOVE_FANS = 1003396;
     public static final int CMD_REPORT_HOME_PIC_CLICK = 1003072;
+    public static final int CMD_REQUEST_SPRITE_LOOP = 1003562;
+    public static final int CMD_REQUEST_SPRITE_QUESTION_REPLY = 1003563;
     public static final int CMD_SAFE_URL_QUERY = 1003433;
     public static final int CMD_SCHEMA_UPLOAD = 1003393;
     public static final int CMD_SCREEN_LOCK_MESSAGE_MORE = 1003194;

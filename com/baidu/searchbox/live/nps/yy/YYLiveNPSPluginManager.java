@@ -103,7 +103,7 @@ public class YYLiveNPSPluginManager {
                                     return;
                                 }
                             }
-                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0aec, 0);
+                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0af9, 0);
                         }
                     });
                 }
@@ -141,7 +141,7 @@ public class YYLiveNPSPluginManager {
                                     return;
                                 }
                             }
-                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0aec, 0);
+                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0af9, 0);
                         }
                     });
                 }
@@ -175,7 +175,7 @@ public class YYLiveNPSPluginManager {
                                     return;
                                 }
                             }
-                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0aec, 0);
+                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0af9, 0);
                         }
                     });
                 }
@@ -209,7 +209,7 @@ public class YYLiveNPSPluginManager {
                                     return;
                                 }
                             }
-                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0aec, 0);
+                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0af9, 0);
                         }
                     });
                 }
@@ -243,7 +243,7 @@ public class YYLiveNPSPluginManager {
                                     return;
                                 }
                             }
-                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0aec, 0);
+                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0af9, 0);
                         }
                     });
                 }
@@ -279,7 +279,7 @@ public class YYLiveNPSPluginManager {
                                     return;
                                 }
                             }
-                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0aec, 0);
+                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0af9, 0);
                         }
                     });
                 }
@@ -311,7 +311,7 @@ public class YYLiveNPSPluginManager {
                                     return;
                                 }
                             }
-                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0aec, 0);
+                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0af9, 0);
                         }
                     });
                 }
@@ -545,10 +545,10 @@ public class YYLiveNPSPluginManager {
                     if (z) {
                         if (i == 34) {
                             if (YYLiveNPSPluginManager.this.loadingCallback == null) {
-                                YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0aed, 0);
+                                YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0afa, 0);
                             }
                         } else {
-                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0aec, 0);
+                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0af9, 0);
                         }
                     }
                     if (YYLiveNPSPluginManager.this.isDebug()) {
@@ -741,7 +741,7 @@ public class YYLiveNPSPluginManager {
                                     return;
                                 }
                             }
-                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0aec, 0);
+                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0af9, 0);
                         }
                     });
                 }
@@ -792,7 +792,7 @@ public class YYLiveNPSPluginManager {
                                 YYLiveNPSPluginManager.this.ubcManager.flowEnd(YYLiveNPSPluginManager.this.pageFlow);
                                 YYLiveNPSPluginManager.this.pageFlow = null;
                             }
-                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0aec, 0);
+                            YYLiveNPSPluginManager.this.showNormalToast(R.string.obfuscated_res_0x7f0f0af9, 0);
                         }
                     });
                 }

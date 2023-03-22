@@ -1,127 +1,65 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.log.NetLog;
+import com.baidu.searchbox.fluency.tracer.FpsTracer;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public abstract class dh {
-    public static /* synthetic */ Interceptable $ic;
+public class dh {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "net_work_http_log";
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(@Nullable Object obj, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65536, null, obj, z)) == null) {
-            try {
-                if (obj instanceof Boolean) {
-                    return ((Boolean) obj).booleanValue();
-                }
-                if (obj instanceof String) {
-                    return Boolean.parseBoolean((String) obj);
-                }
-                return z;
-            } catch (Exception unused) {
-                return z;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448302505, "Lcom/baidu/tieba/dh;")) == null) {
+            return;
         }
-        return invokeLZ.booleanValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448302505, "Lcom/baidu/tieba/dh;");
+        }
     }
 
-    public static boolean b(String str, boolean z) {
-        InterceptResult invokeLZ;
+    public static void a(String str, int i, String str2, boolean z, boolean z2, long j, long j2, long j3, long j4, long j5, int i2) {
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, str, z)) == null) {
-            if (str == null) {
-                return z;
-            }
-            try {
-                return Boolean.parseBoolean(str);
-            } catch (Exception unused) {
-                return z;
-            }
+        if ((interceptable != null && interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z), Boolean.valueOf(z2), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), Long.valueOf(j5), Integer.valueOf(i2)}) != null) || !BdBaseApplication.getInst().isSmallFlow()) {
+            return;
         }
-        return invokeLZ.booleanValue;
-    }
-
-    public static double c(String str, double d) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Double.valueOf(d)})) == null) {
-            if (str == null) {
-                return d;
-            }
-            try {
-                return Double.parseDouble(str);
-            } catch (Exception unused) {
-                return d;
-            }
+        og statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
+        statsItem.b("action", "network_monitor_a");
+        statsItem.b("cmd", String.valueOf(i));
+        statsItem.b("url", str2);
+        String str4 = "1";
+        if (z) {
+            str3 = "1";
+        } else {
+            str3 = "0";
         }
-        return invokeCommon.doubleValue;
-    }
-
-    public static float d(String str, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65539, null, str, f)) == null) {
-            if (str == null) {
-                return f;
-            }
-            try {
-                return Float.parseFloat(str);
-            } catch (Exception unused) {
-                return f;
-            }
+        statsItem.b("issuccess", str3);
+        if (!z2) {
+            str4 = "0";
         }
-        return invokeLF.floatValue;
-    }
-
-    public static int e(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i)) == null) {
-            if (str == null) {
-                return i;
-            }
-            try {
-                return Integer.parseInt(str);
-            } catch (Exception unused) {
-                return i;
-            }
-        }
-        return invokeLI.intValue;
-    }
-
-    public static long g(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, str, j)) == null) {
-            if (str == null) {
-                return j;
-            }
-            try {
-                return Long.parseLong(str);
-            } catch (Exception unused) {
-                return j;
-            }
-        }
-        return invokeLJ.longValue;
-    }
-
-    public static int f(String str, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, str, i, i2)) == null) {
-            if (str == null) {
-                return i;
-            }
-            try {
-                return Integer.parseInt(str, i2);
-            } catch (Exception unused) {
-                return i;
-            }
-        }
-        return invokeLII.intValue;
+        statsItem.b("ishttp", str4);
+        statsItem.b(FpsTracer.UBC_KEY_NET_TYPE, BdNetTypeUtil.getNetType());
+        statsItem.b("connt", String.valueOf(j));
+        statsItem.b("rwt", String.valueOf(j2));
+        statsItem.b("parset", String.valueOf(j3));
+        statsItem.b("fbt", String.valueOf(j4));
+        statsItem.b("abt", String.valueOf(j5));
+        statsItem.b("salno", String.valueOf(i2));
+        NetLog.getInstance().c(a, statsItem.toString());
+        BdStatisticsManager.getInstance().performance(str, statsItem);
     }
 }

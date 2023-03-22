@@ -7,7 +7,7 @@ import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FileUtil {
     public static final boolean isExist(String str) {
         return new File(str).exists();

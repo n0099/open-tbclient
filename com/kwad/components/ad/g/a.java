@@ -94,9 +94,9 @@ public final class a {
     }
 
     private void initView() {
-        this.uo = (Button) this.BA.findViewById(R.id.obfuscated_res_0x7f09128f);
-        this.up = (Button) this.BA.findViewById(R.id.obfuscated_res_0x7f091291);
-        this.un = this.BA.findViewById(R.id.obfuscated_res_0x7f091290);
+        this.uo = (Button) this.BA.findViewById(R.id.obfuscated_res_0x7f0912c1);
+        this.up = (Button) this.BA.findViewById(R.id.obfuscated_res_0x7f0912c3);
+        this.un = this.BA.findViewById(R.id.obfuscated_res_0x7f0912c2);
     }
 
     public final void iO() {

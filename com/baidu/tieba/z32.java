@@ -1,21 +1,20 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class z32 extends s22 {
+public final class z32 extends c32 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Paint.Align a;
+    public boolean u;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public z32() {
+        super("coverImage", "viewId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -23,41 +22,28 @@ public class z32 extends s22 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (String) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.u = false;
     }
 
-    @Override // com.baidu.tieba.s22
-    public void a(t22 t22Var, Canvas canvas) {
-        Paint.Align align;
+    @Override // com.baidu.tieba.c32, com.baidu.tieba.h32, com.baidu.tieba.j32, com.baidu.tieba.sx2
+    public void a(JSONObject jSONObject) throws JSONException {
+        JSONObject jSONObject2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, t22Var, canvas) == null) && (align = this.a) != null) {
-            t22Var.e.setTextAlign(align);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.s22
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() > 0) {
-                    String optString = jSONArray.optString(0);
-                    if (TextUtils.equals(optString, "left")) {
-                        this.a = Paint.Align.LEFT;
-                    } else if (TextUtils.equals(optString, "center")) {
-                        this.a = Paint.Align.CENTER;
-                    } else if (TextUtils.equals(optString, "right")) {
-                        this.a = Paint.Align.RIGHT;
-                    }
-                }
-            } catch (Exception e) {
-                if (wp1.a) {
-                    e.printStackTrace();
-                }
-            }
+        super.a(jSONObject);
+        this.u = jSONObject.optBoolean("loadState", false);
+        zx2 zx2Var = this.h;
+        if (zx2Var != null && (jSONObject2 = this.j) != null) {
+            zx2Var.i(jSONObject2.optBoolean("fixed", false));
         }
     }
 }

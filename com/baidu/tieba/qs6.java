@@ -1,5 +1,11 @@
 package com.baidu.tieba;
-/* loaded from: classes5.dex */
-public interface qs6 {
-    int a();
+
+import androidx.annotation.NonNull;
+/* loaded from: classes6.dex */
+public interface qs6<T> {
+    @NonNull
+    String a();
+
+    @NonNull
+    T b();
 }

@@ -1,123 +1,84 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.graphics.Bitmap;
+import android.os.Build;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewParent;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.common.jscore.BridgeConfig_Frames;
-import com.baidu.tieba.common.jscore.BridgeConfig_tbadkcore;
-import com.baidu.tieba.common.jscore.JsInterfaces_Frames;
-import com.baidu.tieba.common.jscore.JsInterfaces_tbadkcore;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashSet;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.lang.reflect.Method;
 /* loaded from: classes3.dex */
 public class ae6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set<String> a;
-    public static final Set<String> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947612343, "Lcom/baidu/tieba/ae6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947612343, "Lcom/baidu/tieba/ae6;");
-                return;
-            }
-        }
-        a = new HashSet();
-        b = new HashSet();
-    }
-
-    public static Set<String> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return b;
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            try {
-                c();
-            } catch (Exception unused) {
-            }
-        }
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            JsInterfaces_tbadkcore.register();
-            JsInterfaces_Frames.register();
-            BridgeConfig_Frames.register();
-            BridgeConfig_tbadkcore.register();
-        }
-    }
-
-    public static void d(@NonNull Set<String> set, String str) {
-        JSONArray jSONArray;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, set, str) == null) {
-            set.clear();
-            try {
-                jSONArray = new JSONArray(str);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                jSONArray = null;
-            }
-            if (te6.b(jSONArray)) {
-                return;
-            }
-            for (int i = 0; i < jSONArray.length(); i++) {
-                try {
-                    String str2 = (String) jSONArray.get(i);
-                    if (!TextUtils.isEmpty(str2)) {
-                        set.add(str2);
-                    }
-                } catch (JSONException e2) {
-                    e2.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public static void e(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, jSONObject) == null) && jSONObject != null) {
-            d(a, jSONObject.optString("wv_white_url_list", "[]"));
-            d(b, jSONObject.optString("wv_prefetch_url_list", "[]"));
-        }
-    }
-
-    public static boolean f(String str) {
+    public static Bitmap a(Bitmap bitmap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && !te6.a(a)) {
-                for (String str2 : a) {
-                    if (str.startsWith(str2)) {
-                        return true;
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bitmap)) == null) {
+            if (bitmap == null) {
+                return Bitmap.createBitmap(1, 1, Bitmap.Config.ARGB_8888);
             }
-            return false;
+            return bitmap;
         }
-        return invokeL.booleanValue;
+        return (Bitmap) invokeL.objValue;
+    }
+
+    public static void c(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65538, null, view2) != null) || view2 == null) {
+            return;
+        }
+        try {
+            ViewParent parent = view2.getParent();
+            if (parent instanceof ViewGroup) {
+                ((ViewGroup) parent).removeView(view2);
+            }
+        } catch (Exception unused) {
+        }
+    }
+
+    public static void b(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, view2) == null) {
+            try {
+                ViewParent parent = view2.getRootView().getParent();
+                Method declaredMethod = parent.getClass().getDeclaredMethod("handleDispatchDoneAnimating", new Class[0]);
+                declaredMethod.setAccessible(true);
+                declaredMethod.invoke(parent, new Object[0]);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void d(View view2) {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, view2) == null) && (i = Build.VERSION.SDK_INT) <= 23 && i >= 17) {
+            if (i < 17) {
+                b(view2);
+                return;
+            }
+            try {
+                ViewParent parent = view2.getRootView().getParent();
+                Method declaredMethod = parent.getClass().getDeclaredMethod("setDrawDuringWindowsAnimating", Boolean.TYPE);
+                declaredMethod.setAccessible(true);
+                declaredMethod.invoke(parent, Boolean.TRUE);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void e(@NonNull View view2, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, view2, i) == null) && view2.getVisibility() != i) {
+            view2.setVisibility(i);
+        }
     }
 }

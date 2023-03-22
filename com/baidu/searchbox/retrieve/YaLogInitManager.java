@@ -8,11 +8,11 @@ import com.baidu.searchbox.cloudcontrolblcp.CloudControlBlCPManager;
 import com.baidu.searchbox.common.runtime.AppRuntimeInit;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.searchbox.retrieve.connect.FetchConnManager;
-import com.baidu.tieba.d20;
-import com.baidu.tieba.ok1;
-import com.baidu.tieba.s3a;
-import com.baidu.tieba.sk1;
-import com.baidu.tieba.z80;
+import com.baidu.tieba.baa;
+import com.baidu.tieba.ej1;
+import com.baidu.tieba.ij1;
+import com.baidu.tieba.p70;
+import com.baidu.tieba.t00;
 import com.baidu.voyager.impl.service.VoyagerIPCManager;
 import com.baidu.yalog.LoggerManager;
 /* loaded from: classes2.dex */
@@ -37,23 +37,23 @@ public class YaLogInitManager {
         if (z && this.mApp != null && !TextUtils.isEmpty(str)) {
             CloudControlBlCPManager.getInstance().registerConnectStateListener(this.mApp);
             FetchConnManager.getInstance().init();
-            z80.a(this.mApp, str, d20.a().getDeviceId(), 1);
+            p70.a(this.mApp, str, t00.a().getDeviceId(), 1);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void retryTask(boolean z) {
-        s3a s3aVar;
-        if (z && (s3aVar = (s3a) ServiceManager.getService(s3a.a)) != null) {
-            s3aVar.retry();
+        baa baaVar;
+        if (z && (baaVar = (baa) ServiceManager.getService(baa.a)) != null) {
+            baaVar.retry();
         }
     }
 
     public void initYaLogBaseContext(Application application) {
         if (application != null) {
             AppRuntimeInit.onApplicationattachBaseContext(application);
-            sk1.b(application);
-            if (ok1.g()) {
+            ij1.b(application);
+            if (ej1.g()) {
                 VoyagerIPCManager.b();
             }
             this.mApp = application;
@@ -61,7 +61,7 @@ public class YaLogInitManager {
     }
 
     public void initYaLog(boolean z, final boolean z2, final boolean z3, final String str) {
-        if (!ok1.g()) {
+        if (!ej1.g()) {
             return;
         }
         if (z) {

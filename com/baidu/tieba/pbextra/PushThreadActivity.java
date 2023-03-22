@@ -80,12 +80,12 @@ public class PushThreadActivity extends BaseActivity {
                 return;
             }
             if (httpResponsedMessage.hasError()) {
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0d11);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0d1f);
             } else if (z) {
                 if (this.a.b == ((PbPushHttpResponseMessage) httpResponsedMessage).getPushType()) {
                     this.a.setResult(-1, new Intent());
                 } else {
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0d11);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0d1f);
                 }
                 this.a.finish();
             }
@@ -152,13 +152,13 @@ public class PushThreadActivity extends BaseActivity {
             InterceptResult invokeILL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, view2, viewGroup)) == null) {
-                View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07b0, (ViewGroup) null);
-                TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091148);
-                ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091147);
-                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092551);
+                View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d07c1, (ViewGroup) null);
+                TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09117a);
+                ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091179);
+                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0925ac);
                 PushTypeData pushTypeData = (PushTypeData) ListUtils.getItem(this.a.g, i);
                 if (pushTypeData != null) {
-                    tbImageView.K(pushTypeData.getIcon(), 10, false);
+                    tbImageView.M(pushTypeData.getIcon(), 10, false);
                     textView.setText(pushTypeData.getName());
                     if (pushTypeData.getType() == this.a.b) {
                         SkinManager.setImageResource(imageView, R.drawable.bg_choose_ok);
@@ -193,7 +193,7 @@ public class PushThreadActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void closeAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             ActivityPendingTransitionFactory.closeAnimation(getPageContext(), 0);
         }
     }
@@ -201,14 +201,14 @@ public class PushThreadActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void enterExitAnimation() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
         }
     }
 
     public final void initData() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             PushStatusData pushStatusData = (PushStatusData) getIntent().getSerializableExtra(PushThreadActivityConfig.KEY_PUSH_DATA);
             this.f = pushStatusData;
             if (pushStatusData != null) {
@@ -220,25 +220,46 @@ public class PushThreadActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, bundle) == null) {
             requestWindowFeature(1);
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             setActivityBgTransparent();
             initData();
-            z1();
+            C1();
             this.h.setSelfListener(true);
             registerListener(this.h);
+        }
+    }
+
+    public final void C1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            setContentView(R.layout.obfuscated_res_0x7f0d07c2);
+            SkinManager.setBackgroundResource(findViewById(R.id.obfuscated_res_0x7f091cbe), R.drawable.dialog_background);
+            SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f092005), (int) R.color.CAM_X0105);
+            this.a = (GridView) findViewById(R.id.obfuscated_res_0x7f090e63);
+            this.a.setAdapter((ListAdapter) new b(this));
+            this.a.setOnItemClickListener(this);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091ca6);
+            this.d = textView;
+            SkinManager.setBackgroundResource(textView, R.drawable.obfuscated_res_0x7f08106d);
+            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
+            this.d.setOnClickListener(this);
+            ImageButton imageButton = (ImageButton) findViewById(R.id.obfuscated_res_0x7f090f61);
+            this.e = imageButton;
+            SkinManager.setBackgroundResource(imageButton, R.drawable.obfuscated_res_0x7f08106c);
+            this.e.setOnClickListener(this);
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
             if (view2 == this.d) {
                 if (this.b == 0) {
-                    showToast(R.string.obfuscated_res_0x7f0f11ba);
+                    showToast(R.string.obfuscated_res_0x7f0f11ca);
                     return;
                 }
                 long longExtra = getIntent().getLongExtra("forum_id", 0L);
@@ -256,9 +277,9 @@ public class PushThreadActivity extends BaseActivity {
     public void onItemClick(AdapterView adapterView, View view2, int i, long j) {
         View childAt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091147);
-            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092551);
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            ImageView imageView = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091179);
+            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925ac);
             this.d.setEnabled(true);
             PushTypeData pushTypeData = (PushTypeData) ListUtils.getItem(this.g, i);
             if (pushTypeData != null) {
@@ -270,35 +291,14 @@ public class PushThreadActivity extends BaseActivity {
                 }
                 PushTypeData pushTypeData2 = this.c;
                 if (pushTypeData2 != null && (childAt = adapterView.getChildAt(ListUtils.getPosition(this.g, pushTypeData2))) != null) {
-                    ((ImageView) childAt.findViewById(R.id.obfuscated_res_0x7f091147)).setImageDrawable(null);
-                    SkinManager.setViewTextColor((TextView) childAt.findViewById(R.id.obfuscated_res_0x7f092551), (int) R.color.CAM_X0105);
+                    ((ImageView) childAt.findViewById(R.id.obfuscated_res_0x7f091179)).setImageDrawable(null);
+                    SkinManager.setViewTextColor((TextView) childAt.findViewById(R.id.obfuscated_res_0x7f0925ac), (int) R.color.CAM_X0105);
                 }
                 SkinManager.setImageResource(imageView, R.drawable.bg_choose_ok);
                 SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0308);
                 this.b = pushTypeData.getType();
                 this.c = pushTypeData;
             }
-        }
-    }
-
-    public final void z1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d07b1);
-            SkinManager.setBackgroundResource(findViewById(R.id.obfuscated_res_0x7f091c7c), R.drawable.dialog_background);
-            SkinManager.setViewTextColor((TextView) findViewById(R.id.obfuscated_res_0x7f091fba), (int) R.color.CAM_X0105);
-            this.a = (GridView) findViewById(R.id.obfuscated_res_0x7f090e33);
-            this.a.setAdapter((ListAdapter) new b(this));
-            this.a.setOnItemClickListener(this);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091c64);
-            this.d = textView;
-            SkinManager.setBackgroundResource(textView, R.drawable.obfuscated_res_0x7f081056);
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
-            this.d.setOnClickListener(this);
-            ImageButton imageButton = (ImageButton) findViewById(R.id.obfuscated_res_0x7f090f31);
-            this.e = imageButton;
-            SkinManager.setBackgroundResource(imageButton, R.drawable.obfuscated_res_0x7f081055);
-            this.e.setOnClickListener(this);
         }
     }
 }

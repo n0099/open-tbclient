@@ -1,16 +1,36 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import java.io.File;
+import android.app.Activity;
+import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public interface cm0 {
-    void a(int i, long j, long j2);
+public class cm0 extends um0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(long j, File file);
+    public cm0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void c(int i, int i2);
-
-    void d(@Nullable ol0 ol0Var);
-
-    void onSuccess(int i);
+    @Override // com.baidu.tieba.um0, com.baidu.tieba.xm0
+    public void onBackgroundToForeground(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, activity) != null) || !k41.b()) {
+            return;
+        }
+        bm0.b().request().a(true);
+    }
 }

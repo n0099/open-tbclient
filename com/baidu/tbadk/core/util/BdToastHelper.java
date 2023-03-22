@@ -10,10 +10,10 @@ import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b49;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.gh;
-import com.baidu.tieba.zu4;
+import com.baidu.tieba.ga9;
+import com.baidu.tieba.gt4;
+import com.baidu.tieba.hi;
+import com.baidu.tieba.jg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -61,7 +61,7 @@ public class BdToastHelper {
     public static void showToastByUrl(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            TbWebViewActivityConfig g = zu4.g(TbadkCoreApplication.getInst(), null, str, true);
+            TbWebViewActivityConfig g = gt4.g(TbadkCoreApplication.getInst(), null, str, true);
             g.setPageTranslucent(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
             g.start();
         }
@@ -129,11 +129,11 @@ public class BdToastHelper {
                 return;
             }
             if (!TextUtils.isEmpty(bdToastData.getUrl()) && TbadkCoreApplication.getInst().getCurrentActivity() != null) {
-                if (ej.E()) {
+                if (hi.E()) {
                     showToastByUrl(bdToastData.getUrl());
                     return;
                 } else {
-                    gh.a().post(new Runnable(bdToastData) { // from class: com.baidu.tbadk.core.util.BdToastHelper.1
+                    jg.a().post(new Runnable(bdToastData) { // from class: com.baidu.tbadk.core.util.BdToastHelper.1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ BdToastData val$data;
@@ -171,14 +171,14 @@ public class BdToastHelper {
             if (toastSpannableString != null) {
                 BdToast b = BdToast.b(TbadkCoreApplication.getInst().getContext(), toastSpannableString);
                 setToastIcon(b, bdToastData);
-                int f = b49.f(bdToastData.getBackground());
+                int f = ga9.f(bdToastData.getBackground());
                 if (f != 0 && f != Integer.MAX_VALUE) {
                     b.c(f);
                 }
-                if (ej.E()) {
+                if (hi.E()) {
                     b.k();
                 } else {
-                    gh.a().post(new Runnable(b) { // from class: com.baidu.tbadk.core.util.BdToastHelper.2
+                    jg.a().post(new Runnable(b) { // from class: com.baidu.tbadk.core.util.BdToastHelper.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ BdToast val$bdToast;

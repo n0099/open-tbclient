@@ -1,28 +1,35 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.me;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Type;
-import java.util.Iterator;
-import java.util.Map;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ee implements be {
+public abstract class ee<T> implements le<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONObject a;
+    public final boolean a;
+    public final fe b;
 
-    public ee(JSONObject jSONObject) {
+    public abstract he<T> i(String str);
+
+    public abstract void j(he<T> heVar);
+
+    public abstract void l(String str);
+
+    public abstract void m(String str);
+
+    public ee(fe feVar, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
+            Object[] objArr = {feVar, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,57 +39,110 @@ public class ee implements be {
                 return;
             }
         }
-        this.a = jSONObject;
+        this.b = feVar;
+        this.a = z;
     }
 
-    @Override // com.baidu.tieba.be
-    public Object a(re reVar) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.le
+    public T a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, reVar)) == null) {
-            Class<?> a = reVar.a();
-            Type[] b = reVar.b();
-            if (yc.e(a, Map.class)) {
-                Map<String, Object> b2 = pe.b(reVar, this.a.length());
-                if (b2 != null) {
-                    Iterator<String> keys = this.a.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        if (next instanceof String) {
-                            String str = next;
-                            Object a2 = ve.a(this.a.opt(str)).a(new re(b[1]));
-                            if (a2 != null) {
-                                b2.put(str, a2);
-                            }
-                        }
-                    }
-                }
-                return b2;
-            } else if (a == SparseArray.class) {
-                SparseArray sparseArray = new SparseArray(this.a.length());
-                Iterator<String> keys2 = this.a.keys();
-                while (keys2.hasNext()) {
-                    String next2 = keys2.next();
-                    if (next2 instanceof String) {
-                        String str2 = next2;
-                        try {
-                            int parseInt = Integer.parseInt(str2);
-                            Object a3 = ve.a(this.a.opt(String.valueOf(str2))).a(new re(b[0]));
-                            if (a3 != null) {
-                                sparseArray.put(parseInt, a3);
-                            }
-                        } catch (NumberFormatException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-                return sparseArray;
-            } else if (yc.e(a, zc.class)) {
-                return OrmObject.objectWithJson(this.a, a);
-            } else {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            he<T> k = k(str, str2);
+            if (k == null) {
                 return null;
             }
+            return k.b;
         }
-        return invokeL.objValue;
+        return (T) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.le
+    public void d(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+            l(h(str, str2));
+        }
+    }
+
+    @Override // com.baidu.tieba.le
+    public me.b<T> e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            he<T> k = k(str, str2);
+            if (k == null) {
+                return null;
+            }
+            me.b<T> bVar = new me.b<>();
+            bVar.a = str2;
+            bVar.b = k.b;
+            long j = k.f;
+            bVar.c = k.d;
+            return bVar;
+        }
+        return (me.b) invokeLL.objValue;
+    }
+
+    public String h(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
+            if (this.a) {
+                return str + "@" + str2;
+            }
+            return str2;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.le
+    public fe c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (fe) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.le
+    public void f(String str, String str2, T t, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, t, Long.valueOf(j)}) == null) {
+            he<T> heVar = new he<>();
+            heVar.a = h(str, str2);
+            heVar.c = str;
+            heVar.f = j;
+            heVar.b = t;
+            heVar.e = System.currentTimeMillis();
+            heVar.d = System.currentTimeMillis();
+            j(heVar);
+        }
+    }
+
+    public he<T> k(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2)) == null) {
+            String h = h(str, str2);
+            he<T> i = i(h);
+            if (i == null) {
+                BdLog.isDebugMode();
+                return null;
+            } else if (i.f < System.currentTimeMillis()) {
+                m(h);
+                BdLog.isDebugMode();
+                return null;
+            } else {
+                if (this.b.a()) {
+                    i.e = System.currentTimeMillis();
+                    j(i);
+                }
+                BdLog.isDebugMode();
+                return i;
+            }
+        }
+        return (he) invokeLL.objValue;
     }
 }

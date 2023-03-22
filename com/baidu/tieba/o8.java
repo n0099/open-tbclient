@@ -1,63 +1,57 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.util.KVStorageFactory;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Comparator;
 /* loaded from: classes5.dex */
-public class o8 {
+public class o8 implements n8 {
     public static /* synthetic */ Interceptable $ic;
-    public static o8 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public s8 a;
-    public n7 b;
+    public final SharedPreferences a;
+    public Context b;
 
-    public o8() {
+    public o8(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = context;
+        this.a = KVStorageFactory.getSharedPreferences("abtesting", 0);
     }
 
-    public static o8 a() {
+    @Override // com.baidu.tieba.n8
+    public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                c = new o8();
-            }
-            return c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.getString("switch_config", "");
         }
-        return (o8) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void b(Object[] objArr, int i, int i2) {
+    @Override // com.baidu.tieba.n8
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048576, this, objArr, i, i2) == null) {
-            if (this.b == null) {
-                this.b = new n7();
-            }
-            this.b.c(objArr, i, i2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.getString("conf_version", "0");
         }
-    }
-
-    public <T> void c(T[] tArr, Comparator<? super T> comparator, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tArr, comparator, i, i2) == null) {
-            if (this.a == null) {
-                this.a = new s8();
-            }
-            this.a.c(tArr, comparator, i, i2);
-        }
+        return (String) invokeV.objValue;
     }
 }

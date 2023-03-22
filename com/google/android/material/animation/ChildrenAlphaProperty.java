@@ -16,7 +16,7 @@ public class ChildrenAlphaProperty extends Property<ViewGroup, Float> {
     @Override // android.util.Property
     @NonNull
     public Float get(@NonNull ViewGroup viewGroup) {
-        Float f = (Float) viewGroup.getTag(R.id.obfuscated_res_0x7f0916db);
+        Float f = (Float) viewGroup.getTag(R.id.obfuscated_res_0x7f091711);
         if (f != null) {
             return f;
         }
@@ -27,7 +27,7 @@ public class ChildrenAlphaProperty extends Property<ViewGroup, Float> {
     @Override // android.util.Property
     public void set(@NonNull ViewGroup viewGroup, @NonNull Float f) {
         float floatValue = f.floatValue();
-        viewGroup.setTag(R.id.obfuscated_res_0x7f0916db, Float.valueOf(floatValue));
+        viewGroup.setTag(R.id.obfuscated_res_0x7f091711, Float.valueOf(floatValue));
         int childCount = viewGroup.getChildCount();
         for (int i = 0; i < childCount; i++) {
             viewGroup.getChildAt(i).setAlpha(floatValue);

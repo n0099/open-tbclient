@@ -97,9 +97,33 @@ public class IMAckRequest extends BaseHttpRequest {
         this.mTriggerId = Utility.getTriggerId(context);
     }
 
+    public IMAckRequest(Context context, boolean z, NewAckMessage newAckMessage) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Boolean.valueOf(z), newAckMessage};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.mAckList = new JSONArray();
+        this.mContext = context;
+        this.mIsReliable = z;
+        if (newAckMessage != null) {
+            this.mAckList = newAckMessage.getJsonArray();
+        }
+        this.mTriggerId = Utility.getTriggerId(this.mContext);
+    }
+
     private void getShortAckMsgs(ArrayList<ChatMsg> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, this, arrayList) == null) {
+        if (interceptable == null || interceptable.invokeL(65538, this, arrayList) == null) {
             LogUtils.d(TAG, "getShortAckMsgs begin~~~");
             new LinkedList();
             List<NewAckMessage.Tripule> handleAck = MessageParser.handleAck(this.mContext, arrayList, false);
@@ -172,12 +196,14 @@ public class IMAckRequest extends BaseHttpRequest {
                 jSONObject.put("appid", Utility.readAppId(this.mContext));
                 jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
                 jSONObject.put("app_version", Utility.getAppVersionName(this.mContext));
-                jSONObject.put("uk", this.mUk);
+                jSONObject.put("uk", Utility.getUK(this.mContext));
                 jSONObject.put(Constants.KEY_TRIGGER_ID, this.mTriggerId);
                 jSONObject.put("device_id", Utility.getDeviceId(this.mContext));
                 jSONObject.put("timestamp", System.currentTimeMillis() / 1000);
-                LogUtils.d(TAG, "mMsgList.size:" + this.mMsgList.size());
-                getShortAckMsgs(this.mMsgList);
+                if (this.mMsgList != null && this.mMsgList.size() > 0) {
+                    LogUtils.d(TAG, "mMsgList.size:" + this.mMsgList.size());
+                    getShortAckMsgs(this.mMsgList);
+                }
                 if (this.mAckList == null) {
                     jSONArray = "";
                 } else {

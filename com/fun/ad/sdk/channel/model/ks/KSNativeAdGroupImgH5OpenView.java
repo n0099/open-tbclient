@@ -101,12 +101,12 @@ public class KSNativeAdGroupImgH5OpenView extends x {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             super.onFinishInflate();
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0900a1);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0900b1);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900ae);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900af);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900b0);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900dd);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0900a5);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0900b5);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900b2);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900b3);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900b4);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0900e1);
             this.h = (TextView) findViewById(R.id.ad_h5_description);
             this.i = (Button) findViewById(R.id.ad_h5_open);
         }

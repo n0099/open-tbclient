@@ -45,6 +45,15 @@ public class XfremodeRoundLayout extends RelativeLayout {
         }
     }
 
+    public void setRoundLayoutRadius(float[] fArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, fArr) == null) && fArr != null && fArr.length == 8 && !Arrays.equals(this.c, fArr)) {
+            this.c = Arrays.copyOf(fArr, fArr.length);
+            a();
+            this.a.resize(getWidth(), getHeight());
+        }
+    }
+
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public XfremodeRoundLayout(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
@@ -94,10 +103,31 @@ public class XfremodeRoundLayout extends RelativeLayout {
         this.b.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.DST_OUT));
     }
 
+    public final void a() {
+        float paddingRight;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            float paddingLeft = getPaddingLeft();
+            float f = 1.0f;
+            if (getPaddingRight() <= 0) {
+                paddingRight = 1.0f;
+            } else {
+                paddingRight = getPaddingRight();
+            }
+            if (getPaddingTop() > 0) {
+                f = getPaddingTop();
+            }
+            RectF rectF = new RectF(paddingLeft, f, paddingRight, getPaddingBottom());
+            float[] fArr = new float[8];
+            Arrays.fill(fArr, 0.0f);
+            this.a = new RoundRectShape(fArr, rectF, this.c);
+        }
+    }
+
     @Override // android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
             super.dispatchDraw(canvas);
             Shape shape = this.a;
             if (shape != null) {
@@ -108,43 +138,22 @@ public class XfremodeRoundLayout extends RelativeLayout {
 
     public void setRoundLayoutRadius(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) {
+        if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
             setRoundLayoutRadius(new float[]{f, f, f, f, f, f, f, f});
         }
     }
 
     @Override // android.widget.RelativeLayout, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        float paddingRight;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             super.onLayout(z, i, i2, i3, i4);
             if (z) {
                 if (this.a == null) {
-                    float paddingLeft = getPaddingLeft();
-                    float f = 1.0f;
-                    if (getPaddingRight() <= 0) {
-                        paddingRight = 1.0f;
-                    } else {
-                        paddingRight = getPaddingRight();
-                    }
-                    if (getPaddingTop() > 0) {
-                        f = getPaddingTop();
-                    }
-                    RectF rectF = new RectF(paddingLeft, f, paddingRight, getPaddingBottom());
-                    float[] fArr = new float[8];
-                    Arrays.fill(fArr, 0.0f);
-                    this.a = new RoundRectShape(fArr, rectF, this.c);
+                    a();
                 }
                 this.a.resize(getWidth(), getHeight());
             }
-        }
-    }
-
-    public void setRoundLayoutRadius(float[] fArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, fArr) == null) && fArr != null && fArr.length == 8) {
-            this.c = Arrays.copyOf(fArr, fArr.length);
         }
     }
 }

@@ -10,7 +10,7 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.data.ShareFromFrsMsgData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dj;
+import com.baidu.tieba.gi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -78,7 +78,7 @@ public class ShareFromFrsView extends LinearLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return dj.cutString(str, 8) + this.g.getString(R.string.obfuscated_res_0x7f0f06ba);
+            return gi.cutString(str, 8) + this.g.getString(R.string.obfuscated_res_0x7f0f06bd);
         }
         return (String) invokeL.objValue;
     }
@@ -110,7 +110,7 @@ public class ShareFromFrsView extends LinearLayout {
             this.a.setText(a(this.h.getName()));
             this.b.setPlaceHolder(1);
             this.b.setAutoChangeStyle(false);
-            this.b.K(this.h.getImageUrl(), 10, false);
+            this.b.M(this.h.getImageUrl(), 10, false);
             this.d.setText(StringHelper.numFormatOver10000(this.h.getMemberNum()));
             this.f.setText(StringHelper.numFormatOver10000(this.h.getPostNum()));
         }

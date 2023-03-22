@@ -44,16 +44,16 @@ import com.baidu.tbadk.core.view.RoundTbImageView;
 import com.baidu.tbadk.net.FastRequest;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b35;
-import com.baidu.tieba.b55;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.hi;
 import com.baidu.tieba.immessagecenter.chatgroup.data.ChatNameChangeNotifyData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
-import com.baidu.tieba.qu7;
-import com.baidu.tieba.qv9;
+import com.baidu.tieba.l95;
+import com.baidu.tieba.m35;
+import com.baidu.tieba.n15;
+import com.baidu.tieba.nx7;
 import com.baidu.tieba.view.BdTopToast;
-import com.baidu.tieba.za5;
+import com.baidu.tieba.z1a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -107,7 +107,7 @@ public class GroupChatRoomNavigationBar implements LifecycleObserver {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
                 dialogInterface.dismiss();
-                za5.h((Activity) this.a);
+                l95.h((Activity) this.a);
             }
         }
     }
@@ -246,8 +246,8 @@ public class GroupChatRoomNavigationBar implements LifecycleObserver {
             if (interceptable != null && interceptable.invokeL(1048579, this, r5) != null) {
                 return;
             }
+            this.b.H();
             this.b.L();
-            this.b.N();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -296,7 +296,7 @@ public class GroupChatRoomNavigationBar implements LifecycleObserver {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.b.W1() && this.a.b.getActivity() != null) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.b.Y1() && this.a.b.getActivity() != null) {
                 this.a.b.getActivity().finish();
             }
         }
@@ -366,8 +366,8 @@ public class GroupChatRoomNavigationBar implements LifecycleObserver {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                UrlManager.getInstance().dealOneLink(this.a.a, new String[]{qv9.a(qv9.a(TbConfig.URL_CHAT_ROOM, "roomId", String.valueOf(this.a.g)), "forumId", String.valueOf(this.a.h))});
-                qu7.b("c15094", TbadkCoreApplication.getCurrentAccount(), this.a.h, this.a.g);
+                UrlManager.getInstance().dealOneLink(this.a.a, new String[]{z1a.a(z1a.a(TbConfig.URL_CHAT_ROOM, "roomId", String.valueOf(this.a.g)), "forumId", String.valueOf(this.a.h))});
+                nx7.b("c15094", TbadkCoreApplication.getCurrentAccount(), this.a.h, this.a.g);
             }
         }
     }
@@ -409,22 +409,22 @@ public class GroupChatRoomNavigationBar implements LifecycleObserver {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 i iVar = new i();
                 iVar.a = view2;
-                NavigationBar navigationBar = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f091773);
+                NavigationBar navigationBar = (NavigationBar) view2.findViewById(R.id.obfuscated_res_0x7f0917ae);
                 iVar.b = navigationBar;
                 View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, null);
                 iVar.e = addSystemImageButton;
                 iVar.f = (ImageView) addSystemImageButton.findViewById(R.id.widget_navi_back_button);
-                View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d03a1, (ViewGroup) null);
+                View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d03ab, (ViewGroup) null);
                 iVar.g = inflate;
-                iVar.h = (RoundTbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090dee);
-                iVar.i = (TextView) iVar.g.findViewById(R.id.obfuscated_res_0x7f090e00);
-                iVar.j = (ImageView) iVar.g.findViewById(R.id.obfuscated_res_0x7f090f87);
-                iVar.k = (TextView) iVar.g.findViewById(R.id.obfuscated_res_0x7f090e03);
-                iVar.l = (ImageView) iVar.g.findViewById(R.id.obfuscated_res_0x7f090df3);
+                iVar.h = (RoundTbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090e1c);
+                iVar.i = (TextView) iVar.g.findViewById(R.id.obfuscated_res_0x7f090e2e);
+                iVar.j = (ImageView) iVar.g.findViewById(R.id.obfuscated_res_0x7f090fb7);
+                iVar.k = (TextView) iVar.g.findViewById(R.id.obfuscated_res_0x7f090e31);
+                iVar.l = (ImageView) iVar.g.findViewById(R.id.obfuscated_res_0x7f090e21);
                 iVar.b.setTitleView(iVar.g, null, NavigationBar.ControlAlign.HORIZONTAL_ABSOLUTE_CENTER);
-                View addCustomView = iVar.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d077b, (View.OnClickListener) null);
+                View addCustomView = iVar.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d078c, (View.OnClickListener) null);
                 iVar.c = addCustomView;
-                iVar.d = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f090e16);
+                iVar.d = (ImageView) addCustomView.findViewById(R.id.obfuscated_res_0x7f090e44);
                 SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(iVar.d, R.drawable.icon_pure_topbar_more44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
                 return iVar;
             }
@@ -465,9 +465,9 @@ public class GroupChatRoomNavigationBar implements LifecycleObserver {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 j jVar = new j();
                 jVar.a = (ConstraintLayout) view2.findViewById(R.id.dialog_content);
-                jVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090867);
-                jVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090853);
-                jVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090846);
+                jVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090881);
+                jVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09086d);
+                jVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090860);
                 jVar.e = (ImageView) view2.findViewById(R.id.dialog_image);
                 return jVar;
             }
@@ -477,26 +477,26 @@ public class GroupChatRoomNavigationBar implements LifecycleObserver {
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                b35 d = b35.d(this.a);
-                d.n(R.string.J_X07);
+                n15 d = n15.d(this.a);
+                d.o(R.string.J_X07);
                 d.f(R.color.CAM_X0201);
-                b35 d2 = b35.d(this.b);
-                d2.A(R.string.F_X02);
-                d2.v(R.color.CAM_X0105);
-                d2.z(R.dimen.T_X05);
-                b35 d3 = b35.d(this.c);
-                d3.A(R.string.F_X01);
-                d3.v(R.color.CAM_X0108);
-                d3.z(R.dimen.T_X07);
+                n15 d2 = n15.d(this.b);
+                d2.B(R.string.F_X02);
+                d2.w(R.color.CAM_X0105);
+                d2.A(R.dimen.T_X05);
+                n15 d3 = n15.d(this.c);
+                d3.B(R.string.F_X01);
+                d3.w(R.color.CAM_X0108);
+                d3.A(R.dimen.T_X07);
                 SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
                 SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0108);
-                b35 d4 = b35.d(this.d);
-                d4.l(R.dimen.L_X02);
-                d4.k(R.color.CAM_X0302);
-                d4.n(R.string.J_X07);
-                d4.A(R.string.F_X01);
-                d4.v(R.color.CAM_X0304);
-                d4.z(R.dimen.T_X07);
+                n15 d4 = n15.d(this.d);
+                d4.m(R.dimen.L_X02);
+                d4.l(R.color.CAM_X0302);
+                d4.o(R.string.J_X07);
+                d4.B(R.string.F_X01);
+                d4.w(R.color.CAM_X0304);
+                d4.A(R.dimen.T_X07);
                 SkinManager.setImageResource(this.e, this.f);
             }
         }
@@ -531,12 +531,12 @@ public class GroupChatRoomNavigationBar implements LifecycleObserver {
         }
     }
 
-    public void K(@Nullable Context context) {
+    public void G(@Nullable Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048582, this, context) != null) || context == null) {
             return;
         }
-        G(context, R.string.im_group_chat_add_success_title, R.string.im_group_chat_add_success_desc, R.drawable.im_group_chat_subscribe_dialog, R.string.im_group_chat_add_success_btn, new a(this, context));
+        F(context, R.string.im_group_chat_add_success_title, R.string.im_group_chat_add_success_desc, R.drawable.im_group_chat_subscribe_dialog, R.string.im_group_chat_add_success_btn, new a(this, context));
     }
 
     @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
@@ -544,8 +544,8 @@ public class GroupChatRoomNavigationBar implements LifecycleObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65547, this) == null) {
             this.f = i.a(this.b.requireView());
-            t();
-            p();
+            q();
+            o();
         }
     }
 
@@ -557,7 +557,7 @@ public class GroupChatRoomNavigationBar implements LifecycleObserver {
         }
     }
 
-    public final void N() {
+    public final void L() {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -583,23 +583,23 @@ public class GroupChatRoomNavigationBar implements LifecycleObserver {
         return invokeV.booleanValue;
     }
 
-    public final void p() {
+    public final void o() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             this.e = new FastRequest(this.a, CmdConfigHttp.CMD_HTTP_GROUP_MESSAGE, "c/c/chatroom/opSubscribeChatroom");
         }
     }
 
-    public final boolean w() {
+    public final boolean u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return b55.m().i("key_group_chat_subscribe_click", false);
+            return m35.m().i("key_group_chat_subscribe_click", false);
         }
         return invokeV.booleanValue;
     }
 
-    public boolean z() {
+    public boolean x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
@@ -665,26 +665,26 @@ public class GroupChatRoomNavigationBar implements LifecycleObserver {
                 tBAlertBuilder.g();
             }
             this.f.h.setDrawBorder(true);
-            this.f.h.setBorderWidth(ej.g(this.b.getContext(), R.dimen.L_X04));
+            this.f.h.setBorderWidth(hi.g(this.b.getContext(), R.dimen.L_X04));
             this.f.h.setBorderColor(SkinManager.getColor(R.color.CAM_X0211));
         }
     }
 
-    public boolean M(int i2) {
+    public boolean J(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i2)) == null) {
             if (this.g <= 0 || this.c || i2 < TbSingleton.getInstance().getSendMsgNumToRemindSubscribe()) {
                 return false;
             }
-            b55 m = b55.m();
-            String q = b55.q("SHOW_SUBSCRIBE_REMIND_DIALOG_" + this.g);
+            m35 m = m35.m();
+            String q = m35.q("SHOW_SUBSCRIBE_REMIND_DIALOG_" + this.g);
             long o = m.o(q, 0L);
             if (o > 0 && TimeHelper.isSameDay(o, System.currentTimeMillis())) {
                 return false;
             }
             m.A(q, System.currentTimeMillis());
-            G(this.b.requireContext(), R.string.im_group_chat_add_remind_title, R.string.im_group_chat_add_remind_desc, R.drawable.im_group_chat_subscribe_dialog, R.string.im_group_chat_add_success_btn, new b(this));
+            F(this.b.requireContext(), R.string.im_group_chat_add_remind_title, R.string.im_group_chat_add_remind_desc, R.drawable.im_group_chat_subscribe_dialog, R.string.im_group_chat_add_success_btn, new b(this));
             return true;
         }
         return invokeI.booleanValue;
@@ -695,16 +695,16 @@ public class GroupChatRoomNavigationBar implements LifecycleObserver {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             FastRequest fastRequest = this.e;
-            fastRequest.O("uid", TbadkCoreApplication.getCurrentAccount());
-            fastRequest.O("chatroom_id", String.valueOf(this.g));
+            fastRequest.S("uid", TbadkCoreApplication.getCurrentAccount());
+            fastRequest.S("chatroom_id", String.valueOf(this.g));
             if (this.c) {
                 i2 = 2;
             } else {
                 i2 = 1;
             }
-            fastRequest.O("op_type", Integer.valueOf(i2));
-            fastRequest.Q(new e(this));
-            fastRequest.P();
+            fastRequest.S("op_type", Integer.valueOf(i2));
+            fastRequest.U(new e(this));
+            fastRequest.T();
         }
     }
 
@@ -713,7 +713,7 @@ public class GroupChatRoomNavigationBar implements LifecycleObserver {
         if ((interceptable == null || interceptable.invokeL(1048579, this, chatRoomDetail) == null) && chatRoomDetail != null && chatRoomDetail.getBasicInfo() != null && this.b.getActivity() != null) {
             String avatar = chatRoomDetail.getBasicInfo().getAvatar();
             if (avatar != null) {
-                this.f.h.K(avatar, 10, false);
+                this.f.h.M(avatar, 10, false);
             } else {
                 this.f.h.setImageResource(R.drawable.chat_room_subscribe_icon);
             }
@@ -732,18 +732,18 @@ public class GroupChatRoomNavigationBar implements LifecycleObserver {
                 textView2.setText(string + numFormatOverWan);
             }
             if (chatRoomDetail.getUserInfo() != null && chatRoomDetail.getUserInfo().getIsSubscription() == 1) {
-                N();
+                L();
             }
             this.g = chatRoomDetail.getBasicInfo().getId();
             this.h = chatRoomDetail.getBasicInfo().getForumId();
         }
     }
 
-    public final void G(@NonNull Context context, @StringRes int i2, @StringRes int i3, @DrawableRes int i4, @StringRes int i5, @Nullable DialogInterface.OnClickListener onClickListener) {
+    public final void F(@NonNull Context context, @StringRes int i2, @StringRes int i3, @DrawableRes int i4, @StringRes int i5, @Nullable DialogInterface.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{context, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), onClickListener}) == null) {
             RelativeLayout relativeLayout = new RelativeLayout(context);
-            View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d0239, (ViewGroup) null);
+            View inflate = LayoutInflater.from(TbadkCoreApplication.getInst()).inflate(R.layout.obfuscated_res_0x7f0d023c, (ViewGroup) null);
             relativeLayout.addView(inflate);
             j a2 = j.a(inflate);
             this.i = a2;
@@ -763,35 +763,35 @@ public class GroupChatRoomNavigationBar implements LifecycleObserver {
         }
     }
 
-    public final void L() {
+    public final void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             if (!this.c) {
-                if (!w()) {
-                    K(this.b.getActivity());
-                    b55.m().w("key_group_chat_subscribe_click", true);
+                if (!u()) {
+                    G(this.b.getActivity());
+                    m35.m().w("key_group_chat_subscribe_click", true);
                 } else {
-                    za5.h(this.b.getActivity());
+                    l95.h(this.b.getActivity());
                 }
             } else {
-                za5.i(this.b.getActivity());
+                l95.i(this.b.getActivity());
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921770));
         }
     }
 
-    public final void t() {
+    public final void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             this.f.j.setImageDrawable(WebPManager.getPureDrawable(R.drawable.im_group_chat, SkinManager.getColor(R.color.CAM_X0109), WebPManager.ResourceStateType.NORMAL_PRESS));
-            b35 d2 = b35.d(this.f.i);
-            d2.A(R.string.F_X02);
-            d2.v(R.color.CAM_X0105);
-            d2.z(R.dimen.T_X05);
-            b35 d3 = b35.d(this.f.k);
-            d3.v(R.string.F_X01);
-            d3.v(R.color.CAM_X0109);
-            d3.z(R.dimen.T_X09);
+            n15 d2 = n15.d(this.f.i);
+            d2.B(R.string.F_X02);
+            d2.w(R.color.CAM_X0105);
+            d2.A(R.dimen.T_X05);
+            n15 d3 = n15.d(this.f.k);
+            d3.w(R.string.F_X01);
+            d3.w(R.color.CAM_X0109);
+            d3.A(R.dimen.T_X09);
             this.f.f.setOnClickListener(new f(this));
             this.f.l.setOnClickListener(new g(this));
             this.f.d.setOnClickListener(new h(this));

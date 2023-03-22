@@ -1,83 +1,51 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JsFunction;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class tb4 {
+public class tb4 extends sb4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public JsFunction a;
-    public JsFunction b;
-    public JsFunction c;
+    @V8JavascriptField
+    public String errCode;
+    @V8JavascriptField
+    public String errMsg;
 
-    public tb4() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tb4(String str, String str2, String str3) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.errCode = str2;
+        this.errMsg = str3;
     }
 
-    public void b() {
-        JsFunction jsFunction;
+    @Override // com.baidu.tieba.sb4
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (jsFunction = this.c) != null) {
-            jsFunction.call();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "GameWebViewErrorResult{url=" + this.url + ", errMsg='" + this.errMsg + "'}";
         }
-    }
-
-    public void c() {
-        JsFunction jsFunction;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (jsFunction = this.b) != null) {
-            jsFunction.call();
-        }
-    }
-
-    public static tb4 d(t12 t12Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, t12Var)) == null) {
-            if (t12Var == null) {
-                return null;
-            }
-            tb4 tb4Var = new tb4();
-            JsFunction u = t12Var.u("onCheckForUpdate");
-            tb4Var.a = u;
-            if (u != null) {
-                u.setReleaseMode(false);
-            }
-            JsFunction u2 = t12Var.u("onUpdateReady");
-            tb4Var.b = u2;
-            if (u2 != null) {
-                u2.setReleaseMode(false);
-            }
-            JsFunction u3 = t12Var.u("onUpdateFailed");
-            tb4Var.c = u3;
-            if (u3 != null) {
-                u3.setReleaseMode(false);
-            }
-            return tb4Var;
-        }
-        return (tb4) invokeL.objValue;
-    }
-
-    public void a(ub4 ub4Var) {
-        JsFunction jsFunction;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, ub4Var) == null) && (jsFunction = this.a) != null) {
-            jsFunction.call(ub4Var);
-        }
+        return (String) invokeV.objValue;
     }
 }

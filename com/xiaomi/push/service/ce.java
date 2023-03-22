@@ -18,13 +18,13 @@ import com.xiaomi.push.is;
 /* loaded from: classes8.dex */
 public class ce {
     public static is a(Context context, id idVar) {
-        if (idVar.m549b()) {
+        if (idVar.m551b()) {
             return null;
         }
-        byte[] m547a = idVar.m547a();
+        byte[] m549a = idVar.m549a();
         is a = a(idVar.a(), idVar.f639b);
         if (a != null) {
-            ir.a(a, m547a);
+            ir.a(a, m549a);
         }
         return a;
     }

@@ -1,138 +1,459 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
-import android.util.SparseIntArray;
+import android.text.SpannableStringBuilder;
+import android.view.LayoutInflater;
 import android.view.View;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.data.ChatRoomInfoData;
+import com.baidu.tieba.aq6;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class su7 extends GridLayoutManager.SpanSizeLookup {
+public class su7 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
+    public static BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final RecyclerView a;
-    public final int b;
-    public final SparseIntArray c;
-    public final int d;
+    public final TbPageContext<?> a;
+    public b b;
+    public c c;
+    public final List<ChatRoomInfoData> d;
 
-    public su7(RecyclerView recyclerView, int i) {
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(View view2, ChatRoomInfoData chatRoomInfoData);
+    }
+
+    /* loaded from: classes6.dex */
+    public interface c {
+        void a(@NonNull View view2, @NonNull ChatRoomInfoData chatRoomInfoData);
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public HeadImageView a;
+        public TextView b;
+        public TextView c;
+        public TextView d;
+        public ChatRoomInfoData e;
+        public TextView f;
+        public final CustomMessageListener g;
+
+        /* loaded from: classes6.dex */
+        public class a extends CustomMessageListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ d a;
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            public a(d dVar, int i) {
+                super(i);
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {dVar, Integer.valueOf(i)};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i2 = newInitContext.flag;
+                    if ((i2 & 1) != 0) {
+                        int i3 = i2 & 2;
+                        super(((Integer) newInitContext.callArgs[0]).intValue());
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = dVar;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.framework.listener.MessageListener
+            public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304) {
+                    this.a.c(TbadkCoreApplication.getInst().getSkinType());
+                }
+            }
+        }
+
+        /* loaded from: classes6.dex */
+        public class b implements View.OnAttachStateChangeListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ d a;
+
+            public b(d dVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {dVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = dVar;
+            }
+
+            @Override // android.view.View.OnAttachStateChangeListener
+            public void onViewAttachedToWindow(View view2) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                    MessageManager.getInstance().registerListener(this.a.g);
+                }
+            }
+
+            @Override // android.view.View.OnAttachStateChangeListener
+            public void onViewDetachedFromWindow(View view2) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+                    MessageManager.getInstance().unRegisterListener(this.a.g);
+                }
+            }
+        }
+
+        /* loaded from: classes6.dex */
+        public class c implements aq6.i {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ d a;
+
+            public c(d dVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {dVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = dVar;
+            }
+
+            @Override // com.baidu.tieba.aq6.i
+            public void a(SpannableStringBuilder spannableStringBuilder) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
+                    this.a.d.setText(spannableStringBuilder);
+                }
+            }
+        }
+
+        public d(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.g = new a(this, 2001304);
+            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090694);
+            this.a = headImageView;
+            headImageView.setIsRound(true);
+            this.a.setPlaceHolder(1);
+            this.a.setBorderWidth(UtilHelper.getDimenPixelSize(R.dimen.L_X04));
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09069b);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09069c);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090688);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09067d);
+            view2.addOnAttachStateChangeListener(new b(this));
+        }
+
+        public void c(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                this.a.setSkinType(i);
+                this.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0211));
+                n15 d = n15.d(this.c);
+                d.B(R.string.F_X01);
+                d.A(R.dimen.T_X09);
+                d.w(R.color.CAM_X0108);
+                n15 d2 = n15.d(this.d);
+                d2.B(R.string.F_X02);
+                d2.A(R.dimen.T_X07);
+                d2.w(R.color.CAM_X0105);
+                d2.s(R.color.CAM_X0105);
+                n15 d3 = n15.d(this.f);
+                d3.w(R.color.CAM_X0301);
+                d3.B(R.string.F_X02);
+                d3.A(R.dimen.T_X07);
+            }
+        }
+
+        public ChatRoomInfoData b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.e;
+            }
+            return (ChatRoomInfoData) invokeV.objValue;
+        }
+
+        public final void d(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+                if (z) {
+                    this.c.setVisibility(0);
+                    n15 d = n15.d(this.b);
+                    d.B(R.string.F_X01);
+                    d.A(R.dimen.T_X09);
+                    d.w(R.color.CAM_X0108);
+                    return;
+                }
+                this.c.setVisibility(8);
+                n15 d2 = n15.d(this.b);
+                d2.B(R.string.F_X02);
+                d2.A(R.dimen.T_X07);
+                d2.w(R.color.CAM_X0105);
+            }
+        }
+
+        public void e(@Nullable TbPageContext<?> tbPageContext, @NonNull ChatRoomInfoData chatRoomInfoData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048579, this, tbPageContext, chatRoomInfoData) == null) {
+                ChatRoomInfoData.ChatroomInfoBasicData chatroomInfoBasicData = chatRoomInfoData.getChatroomInfoBasicData();
+                ChatRoomInfoData.ChatroomMEMsgInfoData chatroomMEMsgInfoData = chatRoomInfoData.getChatroomMEMsgInfoData();
+                if (chatroomInfoBasicData != null && chatroomMEMsgInfoData != null && tbPageContext != null) {
+                    this.e = chatRoomInfoData;
+                    this.a.M(chatroomInfoBasicData.getAvatar(), 10, false);
+                    if (StringUtils.isNull(chatroomMEMsgInfoData.getContent())) {
+                        this.d.setVisibility(8);
+                        d(false);
+                    } else {
+                        this.d.setVisibility(0);
+                        d(true);
+                        String fromName = chatroomMEMsgInfoData.getFromName();
+                        if (!StringUtils.isNull(chatroomMEMsgInfoData.getSpecialMsg()) && StringHelper.getChineseAndEnglishLength(fromName) > 8) {
+                            fromName = StringHelper.cutChineseAndEnglishWithEmoji(fromName, 8, null);
+                        }
+                        aq6.d(tbPageContext.getPageActivity(), uu7.e(tbPageContext, fromName, chatroomMEMsgInfoData.getContent()), UtilHelper.getDimenPixelSize(R.dimen.T_X04), new c(this));
+                    }
+                    if (!StringUtils.isNull(chatroomMEMsgInfoData.getSpecialMsg())) {
+                        this.f.setVisibility(0);
+                        this.f.setText(chatroomMEMsgInfoData.getSpecialMsg());
+                    } else {
+                        this.f.setVisibility(8);
+                    }
+                    this.b.setText(chatroomInfoBasicData.getName());
+                    String newMsgTimeInterval = StringHelper.getNewMsgTimeInterval(chatroomMEMsgInfoData.getMsgId());
+                    if (!StringUtils.isNull(newMsgTimeInterval)) {
+                        this.c.setText(tbPageContext.getString(R.string.obfuscated_res_0x7f0f086a) + newMsgTimeInterval);
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d a;
+        public final /* synthetic */ su7 b;
+
+        public a(su7 su7Var, d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {su7Var, dVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = su7Var;
+            this.a = dVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.b.b != null) {
+                this.b.b.a(view2, this.a.b());
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948163988, "Lcom/baidu/tieba/su7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948163988, "Lcom/baidu/tieba/su7;");
+                return;
+            }
+        }
+        e = BdUniqueId.gen();
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (!ListUtils.isEmpty(this.d)) {
+                return this.d.size();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public su7(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {recyclerView, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = new SparseIntArray();
-        this.a = recyclerView;
-        this.b = Math.max(1, d());
-        this.d = i;
-        setSpanIndexCacheEnabled(true);
+        this.d = new ArrayList();
+        this.a = tbPageContext;
     }
 
-    public static int d() {
-        InterceptResult invokeV;
+    public final void b(List<ChatRoomInfoData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return Math.max(Resources.getSystem().getDisplayMetrics().heightPixels, Resources.getSystem().getDisplayMetrics().widthPixels);
-        }
-        return invokeV.intValue;
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int measuredWidth = this.a.getMeasuredWidth();
-            if (measuredWidth == 0) {
-                measuredWidth = this.a.getWidth();
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            for (int i = 0; i < 20; i++) {
+                this.d.add(new ChatRoomInfoData());
             }
-            return (measuredWidth - this.a.getPaddingLeft()) - this.a.getPaddingRight();
+            this.d.set(0, list.get(0));
+            notifyDataSetChanged();
         }
-        return invokeV.intValue;
     }
 
-    public final int b() {
-        InterceptResult invokeV;
+    public void c(List<ChatRoomInfoData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
         }
-        return invokeV.intValue;
+        if (ListUtils.isEmpty(this.d)) {
+            b(list);
+        } else {
+            this.d.set(0, list.get(0));
+        }
     }
 
-    public float c() {
-        InterceptResult invokeV;
+    public void d(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return (a() * 1.0f) / this.b;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.b = bVar;
         }
-        return invokeV.floatValue;
     }
 
-    @Override // androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
-    public void invalidateSpanIndexCache() {
+    public void e(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.c.clear();
-            super.invalidateSpanIndexCache();
+        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
+            this.c = cVar;
         }
     }
 
-    public final int e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            if (a() <= 0) {
-                return 1;
-            }
-            return ((int) Math.floor(f(i) / c())) + 1;
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
-    public int getSpanSize(int i) {
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            return Math.min(this.b, e(i));
+            List<ChatRoomInfoData> list = this.d;
+            if (list == null) {
+                return null;
+            }
+            return list.get(i);
         }
-        return invokeI.intValue;
+        return invokeI.objValue;
     }
 
-    public final int f(int i) {
-        InterceptResult invokeI;
-        RecyclerView.ViewHolder createViewHolder;
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        d dVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            RecyclerView.Adapter adapter = this.a.getAdapter();
-            int i2 = this.c.get(i, -1);
-            if (i2 != -1) {
-                return i2;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d01d6, viewGroup, false);
+                dVar = new d(view2);
+                view2.setTag(dVar);
+            } else {
+                dVar = (d) view2.getTag();
             }
-            if (adapter == null || (createViewHolder = adapter.createViewHolder(this.a, adapter.getItemViewType(i))) == null) {
-                return 0;
+            if (!ListUtils.isEmpty(this.d) && this.d.get(0) != null) {
+                ChatRoomInfoData chatRoomInfoData = this.d.get(0);
+                dVar.e(this.a, chatRoomInfoData);
+                c cVar = this.c;
+                if (cVar != null) {
+                    cVar.a(view2, chatRoomInfoData);
+                }
             }
-            adapter.onBindViewHolder(createViewHolder, i);
-            createViewHolder.itemView.measure(View.MeasureSpec.makeMeasureSpec(0, 0), View.MeasureSpec.makeMeasureSpec(0, 0));
-            int measuredWidth = createViewHolder.itemView.getMeasuredWidth() + this.d;
-            adapter.onViewRecycled(createViewHolder);
-            this.c.put(i, measuredWidth);
-            return measuredWidth;
+            dVar.c(TbadkCoreApplication.getInst().getSkinType());
+            view2.setOnClickListener(new a(this, dVar));
+            return view2;
         }
-        return invokeI.intValue;
+        return (View) invokeILL.objValue;
     }
 }

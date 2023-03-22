@@ -2,10 +2,9 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
+import android.webkit.ValueCallback;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.slave.SwanAppSlaveManager;
-import com.baidu.swan.apps.core.slave.SwanAppWebViewWidget;
+import com.baidu.searchbox.http.HttpManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,52 +12,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.UUID;
-import java.util.concurrent.TimeUnit;
+import java.io.File;
+import java.net.MalformedURLException;
+import java.util.ArrayList;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class sf2 {
+public class sf2 implements rf2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
+    public static final boolean f;
+    public static volatile sf2 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public SwanAppSlaveManager a;
-    public volatile boolean b;
-    public volatile boolean c;
-    public volatile boolean d;
-    public mz2 e;
-    public volatile boolean f;
-
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sf2 a;
-
-        public a(sf2 sf2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sf2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = sf2Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b();
-            }
-        }
-    }
+    public HashMap<String, tf2> a;
+    public HashMap<String, ArrayList<ValueCallback<String>>> b;
+    public String c;
+    public HttpManager d;
+    public final Object e;
 
     static {
         InterceptResult invokeClinit;
@@ -73,69 +41,29 @@ public class sf2 {
                 return;
             }
         }
-        g = wp1.a;
+        f = do1.a;
     }
 
-    public void a() {
+    public static sf2 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            gm3.c(new a(this), "delayDownloadGuideRes", 3L, TimeUnit.SECONDS);
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.c || this.f) {
-            return;
-        }
-        this.f = true;
-        ts2.l0().c(l93.K().getAppId());
-    }
-
-    public void c() {
-        dw1 M;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.c) {
-            SwanAppSlaveManager swanAppSlaveManager = this.a;
-            SwanAppWebViewWidget swanAppWebViewWidget = swanAppSlaveManager.y;
-            if (swanAppWebViewWidget == null) {
-                M = swanAppSlaveManager.H;
-            } else {
-                M = swanAppWebViewWidget.M();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (g == null) {
+                synchronized (sf2.class) {
+                    if (g == null) {
+                        g = new sf2();
+                    }
+                }
             }
-            ag3.d(this.e, "realsuccess", M);
+            return g;
         }
+        return (sf2) invokeV.objValue;
     }
 
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = true;
-            if (!(this.a instanceof SwanAppWebViewWidget)) {
-                g();
-            }
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (!(this.a instanceof SwanAppWebViewWidget)) {
-                f();
-            }
-            this.b = false;
-            if (this.c) {
-                ag3.d(this.e, "success", null);
-            }
-        }
-    }
-
-    public sf2(@NonNull SwanAppSlaveManager swanAppSlaveManager) {
+    public sf2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {swanAppSlaveManager};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -145,67 +73,124 @@ public class sf2 {
                 return;
             }
         }
-        this.b = false;
-        this.c = false;
-        this.d = false;
-        this.f = false;
-        this.a = swanAppSlaveManager;
+        this.a = new HashMap<>();
+        this.b = new HashMap<>();
+        this.e = new Object();
+        this.d = br2.l().a();
+        this.c = br2.f().a();
     }
 
-    public final void f() {
+    @Override // com.baidu.tieba.rf2
+    public void a(String str, String str2) {
+        ArrayList<ValueCallback<String>> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.d = false;
-            boolean b = ag3.b();
-            boolean a2 = ag3.a();
-            if (b) {
-                this.c = false;
-            } else if (this.b) {
-                this.c = true;
-                if (!a2) {
-                    this.e.f = UUID.randomUUID().toString();
-                    mz2 mz2Var = this.e;
-                    mz2Var.e = "6";
-                    ag3.h(mz2Var);
-                    if (g) {
-                        Log.d("SwanAppSlavePresenter", "mCurPageParams = " + this.e);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            synchronized (this.e) {
+                if (f(str) && (arrayList = this.b.get(str)) != null) {
+                    int size = arrayList.size();
+                    for (int i = 0; i < size; i++) {
+                        arrayList.get(i).onReceiveValue(str2);
+                        if (f) {
+                            Log.e("ImageDownloadManager", i + " load success url = " + str + " path = " + str2);
+                        }
                     }
-                }
-            } else {
-                this.c = !TextUtils.isEmpty(this.a.j0());
-            }
-        }
-    }
-
-    public void g() {
-        dw1 M;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (g) {
-                Log.d("SwanAppSlavePresenter", "mCurPageParams = " + this.e);
-            }
-            if (this.c && !this.d) {
-                this.d = true;
-                SwanAppSlaveManager swanAppSlaveManager = this.a;
-                SwanAppWebViewWidget swanAppWebViewWidget = swanAppSlaveManager.y;
-                if (swanAppWebViewWidget == null) {
-                    M = swanAppSlaveManager.H;
-                } else {
-                    M = swanAppWebViewWidget.M();
-                }
-                if (M != null && M.c > 0) {
-                    ag3.d(this.e, "arrivesuccess", M);
-                } else {
-                    ag3.d(this.e, "arrivecancel", M);
+                    this.a.remove(str);
                 }
             }
         }
     }
 
-    public void h(@NonNull mz2 mz2Var) {
+    public void g(String str, ValueCallback<String> valueCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, mz2Var) == null) {
-            this.e = mz2Var;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, valueCallback) == null) {
+            if (TextUtils.isEmpty(str)) {
+                valueCallback.onReceiveValue(null);
+                return;
+            }
+            try {
+                String d = d(str);
+                if (TextUtils.isEmpty(d)) {
+                    return;
+                }
+                File file = new File(d(str));
+                if (file.exists() && !file.isDirectory()) {
+                    if (valueCallback != null) {
+                        valueCallback.onReceiveValue(d);
+                        return;
+                    }
+                    return;
+                }
+                synchronized (this.e) {
+                    if (!f(str)) {
+                        c(str);
+                    }
+                    b(str, valueCallback);
+                }
+            } catch (Exception e) {
+                if (f) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public final void b(String str, ValueCallback<String> valueCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, valueCallback) == null) {
+            if (this.b.containsKey(str)) {
+                this.b.get(str).add(valueCallback);
+                return;
+            }
+            ArrayList<ValueCallback<String>> arrayList = new ArrayList<>();
+            arrayList.add(valueCallback);
+            this.b.put(str, arrayList);
+        }
+    }
+
+    public final void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (f) {
+                Log.d("ImageDownloadManager", "ImageDownloadManager SwanGamePreloadManager url:" + str);
+            }
+            tf2 tf2Var = new tf2(this.d, this.c, str, this);
+            this.a.put(str, tf2Var);
+            tf2Var.e();
+        }
+    }
+
+    public final String d(String str) throws MalformedURLException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return this.c + br2.f().c(str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return this.a.containsKey(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.rf2
+    public void fail(int i, String str) {
+        ArrayList<ValueCallback<String>> arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) {
+            synchronized (this.e) {
+                if (f(str) && (arrayList = this.b.get(str)) != null) {
+                    int size = arrayList.size();
+                    for (int i2 = 0; i2 < size; i2++) {
+                        arrayList.get(i2).onReceiveValue("");
+                    }
+                    this.a.remove(str);
+                }
+            }
         }
     }
 }

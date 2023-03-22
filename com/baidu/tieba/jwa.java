@@ -1,19 +1,17 @@
 package com.baidu.tieba;
 
-import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import rx.internal.subscriptions.SequentialSubscription;
 /* loaded from: classes5.dex */
-public abstract class jwa implements View.OnClickListener {
+public final class jwa implements vra {
     public static /* synthetic */ Interceptable $ic;
-    public static long a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract void a(View view2);
+    public final SequentialSubscription a;
 
     public jwa() {
         Interceptable interceptable = $ic;
@@ -25,21 +23,38 @@ public abstract class jwa implements View.OnClickListener {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = new SequentialSubscription();
+    }
+
+    @Override // com.baidu.tieba.vra
+    public boolean isUnsubscribed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.isUnsubscribed();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.vra
+    public void unsubscribe() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.unsubscribe();
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public void a(vra vraVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - a >= 1000) {
-                a = currentTimeMillis;
-                a(view2);
+        if (interceptable == null || interceptable.invokeL(1048576, this, vraVar) == null) {
+            if (vraVar != null) {
+                this.a.replace(vraVar);
                 return;
             }
-            RLog.debug("OnMultiClickListener", "click too often");
+            throw new IllegalArgumentException("Subscription can not be null");
         }
     }
 }

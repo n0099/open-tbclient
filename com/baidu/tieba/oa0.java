@@ -1,19 +1,74 @@
 package com.baidu.tieba;
 
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
-import com.baidu.tbadk.core.util.PullViewHelper;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.player.LivePlayer;
+import com.baidu.searchbox.player.callback.IVideoPlayerCallback;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class oa0 {
+public class oa0 implements IVideoPlayerCallback, LivePlayer.OnInfoListener {
     public static /* synthetic */ Interceptable $ic;
-    public static oa0 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+
+    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
+    public void goBackOrForeground(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
+    public void onBufferEnd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
+    public void onBufferStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
+    public void onNetworkSpeedUpdate(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
+    public void onPrepared() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
+    public void onSeekEnd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
+    public void onStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
+    public void onUpdateProgress(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, i3) == null) {
+        }
+    }
 
     public oa0() {
         Interceptable interceptable = $ic;
@@ -25,33 +80,17 @@ public class oa0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = true;
-        new PorterDuffColorFilter(PullViewHelper.IMAGE_COLORFILTER_NIGHT, PorterDuff.Mode.MULTIPLY);
     }
 
-    public static oa0 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer.OnInfoListener
+    public Object onInfo(int i, int i2, Object obj) {
+        InterceptResult invokeIIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (oa0.class) {
-                if (b == null) {
-                    b = new oa0();
-                }
-            }
-            return b;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048579, this, i, i2, obj)) == null) {
+            return Boolean.FALSE;
         }
-        return (oa0) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
+        return invokeIIL.objValue;
     }
 }

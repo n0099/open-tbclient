@@ -33,7 +33,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0691a, ag {
+public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0696a, ag {
     public static String a = "a";
     public static volatile a d;
     public long b;
@@ -42,10 +42,10 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0691
     @WorkerThread
     /* renamed from: com.ss.android.downloadlib.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class RunnableC0674a implements Runnable {
+    public class RunnableC0679a implements Runnable {
         public final int b;
 
-        public RunnableC0674a(int i) {
+        public RunnableC0679a(int i) {
             this.b = i;
         }
 
@@ -256,14 +256,14 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0691
         return d;
     }
 
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0691a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0696a
     public void b() {
         com.ss.android.socialbase.downloader.c.a.b(a, "onAppForeground()");
         d();
         a(5);
     }
 
-    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0691a
+    @Override // com.ss.android.socialbase.downloader.a.a.InterfaceC0696a
     public void c() {
         com.ss.android.socialbase.downloader.c.a.b(a, "onAppBackground()");
         a(6);
@@ -861,13 +861,13 @@ public class a implements com.ss.android.downloadad.api.a, b.c, a.InterfaceC0691
             return;
         }
         d a2 = d.a();
-        RunnableC0674a runnableC0674a = new RunnableC0674a(i);
+        RunnableC0679a runnableC0679a = new RunnableC0679a(i);
         if (this.b > 0) {
             j = 2000;
         } else {
             j = 8000;
         }
-        a2.a(runnableC0674a, j);
+        a2.a(runnableC0679a, j);
         this.b = currentTimeMillis;
     }
 

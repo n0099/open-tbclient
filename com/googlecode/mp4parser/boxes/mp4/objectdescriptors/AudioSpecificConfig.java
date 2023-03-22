@@ -3,6 +3,7 @@ package com.googlecode.mp4parser.boxes.mp4.objectdescriptors;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.coremedia.iso.Hex;
 import com.coremedia.iso.IsoTypeWriter;
+import com.google.android.exoplayer2.extractor.ogg.OpusReader;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.util.Arrays;
@@ -65,7 +66,7 @@ public class AudioSpecificConfig extends BaseDescriptor {
         samplingFrequencyIndexMap.put(0, 96000);
         samplingFrequencyIndexMap.put(1, 88200);
         samplingFrequencyIndexMap.put(2, 64000);
-        samplingFrequencyIndexMap.put(3, 48000);
+        samplingFrequencyIndexMap.put(3, Integer.valueOf((int) OpusReader.SAMPLE_RATE));
         samplingFrequencyIndexMap.put(4, 44100);
         samplingFrequencyIndexMap.put(5, 32000);
         samplingFrequencyIndexMap.put(6, 24000);

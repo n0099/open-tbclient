@@ -6,7 +6,7 @@ import com.yy.hiidostatis.provider.MessageConfig;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MessageMonitorImpl implements MessageMonitor {
     public static final String PROCESS_ID_KEY = "hiido_process_id";
     public MessageConfig config;
@@ -18,7 +18,7 @@ public class MessageMonitorImpl implements MessageMonitor {
     public void init() {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class MessageParams {
         public String act;
         public AtomicLong autoId;

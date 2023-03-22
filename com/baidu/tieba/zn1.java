@@ -1,461 +1,277 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.activity.social.YYInnerSSOLoginActivity;
-import com.baidu.sapi2.result.OneKeyLoginOptResult;
+import com.baidu.storage.swankv.SwanKV;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sdk.base.api.CallBack;
-import com.sdk.base.module.manager.SDKManager;
-import com.sdk.mobile.manager.login.cucc.UiOauthManager;
-import com.sdk.mobile.manager.oauth.cucc.OauthManager;
-import org.json.JSONObject;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.Callable;
 /* loaded from: classes7.dex */
-public class zn1 extends rn1 {
+public class zn1 extends SwanKV implements SharedPreferences, SharedPreferences.Editor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean s;
 
-    /* loaded from: classes7.dex */
-    public class a extends ao1<Object> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ int d;
-        public final /* synthetic */ zn1 e;
-
-        public a(zn1 zn1Var, long j, int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zn1Var, Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i4 = newInitContext.flag;
-                if ((i4 & 1) != 0) {
-                    int i5 = i4 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = zn1Var;
-            this.b = i;
-            this.c = i2;
-            this.d = i3;
-        }
-
-        @Override // com.sdk.base.api.CallBack
-        public void onFailed(int i, int i2, String str, String str2) {
-            int i3;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2}) == null) {
-                long currentTimeMillis = System.currentTimeMillis() - a();
-                if (!this.e.M(i2, this.b) || (i3 = this.c) != 0) {
-                    this.e.I(i2, str, this.b);
-                } else {
-                    this.e.x(this.b, this.d, i3 + 1);
-                }
-                lo1.c(this.e.a, this.e.c, i2, currentTimeMillis, this.d, str2);
-            }
-        }
-
-        @Override // com.sdk.base.api.CallBack
-        public void onSuccess(int i, String str, int i2, Object obj, String str2) {
-            int i3;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), obj, str2}) == null) {
-                long currentTimeMillis = System.currentTimeMillis() - a();
-                if (i != 0) {
-                    if (!this.e.M(i2, this.b) || (i3 = this.c) != 0) {
-                        this.e.I(i2, str, this.b);
-                    } else {
-                        this.e.x(this.b, this.d, i3 + 1);
-                    }
-                } else {
-                    this.e.D(obj, this.b);
-                }
-                lo1.c(this.e.a, this.e.c, i2, currentTimeMillis, this.d, str2);
-            }
-        }
+    @Override // android.content.SharedPreferences
+    public SharedPreferences.Editor edit() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this : (SharedPreferences.Editor) invokeV.objValue;
     }
 
     /* loaded from: classes7.dex */
-    public class b implements CallBack<Object> {
+    public static final class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ zn1 b;
+        public final /* synthetic */ zn1 a;
+        public final /* synthetic */ Callable b;
 
-        public b(zn1 zn1Var, int i) {
+        public a(zn1 zn1Var, Callable callable) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zn1Var, Integer.valueOf(i)};
+                Object[] objArr = {zn1Var, callable};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = zn1Var;
-            this.a = i;
+            this.a = zn1Var;
+            this.b = callable;
         }
 
-        @Override // com.sdk.base.api.CallBack
-        public void onFailed(int i, int i2, String str, String str2) {
+        /* JADX DEBUG: Multi-variable search result rejected for r1v0, resolved type: com.baidu.tieba.zn1 */
+        /* JADX WARN: Multi-variable type inference failed */
+        @Override // java.lang.Runnable
+        public final void run() {
+            SharedPreferences sharedPreferences;
+            Map<String, ?> all;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2}) == null) {
-                this.b.y(i2, str, this.a);
-            }
-        }
-
-        @Override // com.sdk.base.api.CallBack
-        public void onSuccess(int i, String str, int i2, Object obj, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), obj, str2}) == null) {
-                if (i != 0) {
-                    this.b.y(i2, str, this.a);
-                } else {
-                    this.b.L(obj, this.a);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c extends qo1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Object b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ zn1 d;
-
-        public c(zn1 zn1Var, Object obj, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zn1Var, obj, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = zn1Var;
-            this.b = obj;
-            this.c = i;
-        }
-
-        @Override // com.baidu.tieba.qo1
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    JSONObject jSONObject = new JSONObject((String) this.b);
-                    this.d.g = jSONObject.optString(OneKeyLoginOptResult.OptResultFields.SECURITY_PHONE);
-                    this.d.e = jSONObject.optString(YYInnerSSOLoginActivity.o);
-                    this.d.f = jSONObject.optLong("exp");
-                    JSONObject jSONObject2 = new JSONObject();
-                    jSONObject2.put(OneKeyLoginOptResult.OptResultFields.SECURITY_PHONE, this.d.a(this.d.g));
-                    this.d.e(this.c, 0, 0, this.d.c, jSONObject2.toString(), 1);
-                } catch (Throwable unused) {
-                    zn1 zn1Var = this.d;
-                    zn1Var.e(this.c, 3, 2009, zn1Var.c, "cu on handle login unknown error.", 1);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class d extends qo1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ zn1 e;
-
-        public d(zn1 zn1Var, int i, int i2, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zn1Var, Integer.valueOf(i), Integer.valueOf(i2), str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = zn1Var;
-            this.b = i;
-            this.c = i2;
-            this.d = str;
-        }
-
-        @Override // com.baidu.tieba.qo1
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    if (this.e.c != this.e.d && this.b == 1101) {
-                        this.e.e(this.c, 3, 2002, this.e.c, "pre login error, wrong sim operator", 1);
-                    } else {
-                        zn1 zn1Var = this.e;
-                        int i = this.c;
-                        int i2 = this.b;
-                        int i3 = this.e.c;
-                        zn1Var.e(i, 2, i2, i3, "cu pre login error." + this.d + ", status " + this.b, 1);
-                    }
-                } catch (Throwable unused) {
-                    zn1 zn1Var2 = this.e;
-                    zn1Var2.e(this.c, 3, 2009, zn1Var2.c, "cu on handle login unknown error.", 1);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class e extends qo1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Object b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ zn1 d;
-
-        public e(zn1 zn1Var, Object obj, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zn1Var, obj, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = zn1Var;
-            this.b = obj;
-            this.c = i;
-        }
-
-        @Override // com.baidu.tieba.qo1
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    JSONObject jSONObject = new JSONObject((String) this.b);
-                    this.d.h = jSONObject.optString(YYInnerSSOLoginActivity.o);
-                    this.d.i = jSONObject.optLong("exp");
-                    this.d.e(this.c, 0, 0, this.d.c, "preVerify success", 3);
-                } catch (Throwable unused) {
-                    zn1 zn1Var = this.d;
-                    zn1Var.e(this.c, 3, 2009, zn1Var.c, "cu on handle preVerify unknown error.", 3);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class f extends qo1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ zn1 e;
-
-        public f(zn1 zn1Var, int i, int i2, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zn1Var, Integer.valueOf(i), Integer.valueOf(i2), str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = zn1Var;
-            this.b = i;
-            this.c = i2;
-            this.d = str;
-        }
-
-        @Override // com.baidu.tieba.qo1
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    if (this.e.c != this.e.d && this.b == 1101) {
-                        this.e.e(this.c, 3, 2002, this.e.c, "pre verify error, wrong sim operator", 3);
-                    } else {
-                        zn1 zn1Var = this.e;
-                        int i = this.c;
-                        int i2 = this.b;
-                        int i3 = this.e.c;
-                        zn1Var.e(i, 2, i2, i3, "cu pre verify error." + this.d + ", status " + this.b, 3);
-                    }
-                } catch (Throwable unused) {
-                    zn1 zn1Var2 = this.e;
-                    zn1Var2.e(this.c, 3, 2009, zn1Var2.c, "cu on handle verify unknown error.", 3);
-                }
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (sharedPreferences = (SharedPreferences) this.b.call()) != null && (all = sharedPreferences.getAll()) != null) {
+                this.a.importFromMap(all, false);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zn1(Context context) {
-        super(context);
+    public zn1(Context context, String str, int i, String str2) {
+        super(context, str, i, str2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {context, str, Integer.valueOf(i), str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), (String) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.s = false;
-        this.c = 2;
     }
 
-    @Override // com.baidu.tieba.rn1, com.baidu.tieba.qn1
-    public void p(Context context, int i, long j) {
+    @Override // android.content.SharedPreferences.Editor
+    public void apply() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            super.p(context, i, j);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.sync(false);
         }
     }
 
-    public final void x(int i, int i2, int i3) {
+    @Override // android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor clear() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048583, this, i, i2, i3) == null) {
-            UiOauthManager.getInstance(this.a).login(8, new a(this, System.currentTimeMillis(), i, i3, i2));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            super.clearAll();
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeV.objValue;
+    }
+
+    @Override // android.content.SharedPreferences.Editor
+    public boolean commit() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            super.sync(true);
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.storage.swankv.SwanKV, android.content.SharedPreferences
+    public Map<String, ?> getAll() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return super.getAll();
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public boolean contains(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return super.containKey(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void d(Callable<SharedPreferences> callable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, callable) == null) {
+            new Thread(new a(this, callable), "SharedPreferences-import").start();
         }
     }
 
-    public final void D(Object obj, int i) {
+    @Override // android.content.SharedPreferences
+    public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, obj, i) == null) {
-            so1.c().b(new c(this, obj, i));
+        if (interceptable == null || interceptable.invokeL(1048593, this, onSharedPreferenceChangeListener) == null) {
+            throw new UnsupportedOperationException("Not support registerOnSharedPreferenceChangeListener");
         }
     }
 
-    public final void L(Object obj, int i) {
+    @Override // android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor remove(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, obj, i) == null) {
-            so1.c().b(new e(this, obj, i));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
+            super.removeKey(str);
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeL.objValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, onSharedPreferenceChangeListener) == null) {
+            throw new UnsupportedOperationException("Not support unregisterOnSharedPreferenceChangeListener");
         }
     }
 
-    public final void I(int i, String str, int i2) {
+    @Override // android.content.SharedPreferences
+    public boolean getBoolean(String str, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
-            so1.c().b(new d(this, i, i2, str));
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048583, this, str, z)) == null) {
+            return super.getBool(str, z);
         }
+        return invokeLZ.booleanValue;
     }
 
-    public void y(int i, String str, int i2) {
+    @Override // com.baidu.storage.swankv.SwanKV, android.content.SharedPreferences
+    public float getFloat(String str, float f) {
+        InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
-            so1.c().b(new f(this, i, i2, str));
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, f)) == null) {
+            return super.getFloat(str, f);
         }
+        return invokeLF.floatValue;
     }
 
-    public final boolean M(int i, int i2) {
-        InterceptResult invokeII;
+    @Override // com.baidu.storage.swankv.SwanKV, android.content.SharedPreferences
+    public String getString(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i, i2)) == null) {
-            boolean c2 = fn1.g(this.a).c();
-            boolean n = fn1.g(this.a).n("k_retry_code_cu", i);
-            boolean h = kn1.j().h(i2);
-            if (c2 && n && h) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, str2)) == null) {
+            return super.getString(str, str2);
         }
-        return invokeII.booleanValue;
+        return (String) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.qn1
-    public void h(Context context, int i) {
+    @Override // com.baidu.storage.swankv.SwanKV, android.content.SharedPreferences
+    public Set<String> getStringSet(String str, Set<String> set) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048580, this, context, i) == null) {
-            super.h(context, i);
-            if (!fn1.g(this.a).d()) {
-                e(i, 3, 997, this.c, "pre verify error. sdk stop run", 3);
-            } else if (!r()) {
-                e(i, 3, 2006, this.c, "pre verify error. cu has not valid config.", 3);
-            } else if (fn1.g(this.a).a()) {
-                if (!this.s) {
-                    SDKManager.init(this.a, qn1.o, qn1.p);
-                    SDKManager.setUseCache(false);
-                    SDKManager.securityType(0);
-                    SDKManager.setDebug(jn1.c());
-                    this.s = true;
-                }
-                OauthManager.getInstance(this.a).getAuthoriseCode(8, new b(this, i));
-            } else {
-                e(i, 3, 995, this.c, "pre verify error. cu sdk stop run.", 3);
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, set)) == null) {
+            return super.getStringSet(str, set);
         }
+        return (Set) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.qn1
-    public void i(Context context, int i, int i2) {
+    @Override // android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putBoolean(String str, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048581, this, context, i, i2) == null) {
-            super.i(context, i, i2);
-            if (!fn1.g(this.a).d()) {
-                e(i2, 3, 997, this.c, "pre login error. sdk stop run", 1);
-            } else if (!r()) {
-                e(i2, 3, 2006, this.c, "pre login error. cu has not valid config.", 1);
-            } else if (fn1.g(this.a).a()) {
-                if (!this.s) {
-                    System.currentTimeMillis();
-                    SDKManager.init(this.a, qn1.o, qn1.p);
-                    SDKManager.setUseCache(false);
-                    SDKManager.securityType(0);
-                    SDKManager.setDebug(jn1.c());
-                    this.s = true;
-                }
-                x(i2, i, 0);
-            } else {
-                e(i2, 3, 995, this.c, "pre login error. cu sdk stop run.", 1);
-            }
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048587, this, str, z)) == null) {
+            super.writeBool(str, z);
+            return this;
         }
+        return (SharedPreferences.Editor) invokeLZ.objValue;
+    }
+
+    @Override // android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putFloat(String str, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048588, this, str, f)) == null) {
+            super.writeFloat(str, f);
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeLF.objValue;
+    }
+
+    @Override // android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putInt(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048589, this, str, i)) == null) {
+            super.writeInt(str, i);
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeLI.objValue;
+    }
+
+    @Override // android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putLong(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048590, this, str, j)) == null) {
+            super.writeLong(str, j);
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeLJ.objValue;
+    }
+
+    @Override // android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putString(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, str, str2)) == null) {
+            super.writeString(str, str2);
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeLL.objValue;
+    }
+
+    @Override // android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putStringSet(String str, Set<String> set) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, str, set)) == null) {
+            super.writeStringSet(str, set);
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeLL.objValue;
     }
 }

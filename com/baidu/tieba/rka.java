@@ -1,16 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.CountDownLatch;
+/* JADX WARN: Incorrect class signature, class is equals to this class: <TResult:Ljava/lang/Object;>Ljava/lang/Object;Lcom/baidu/tieba/rka;Lcom/baidu/tieba/dla;Lcom/baidu/tieba/ela<TTResult;>; */
 /* loaded from: classes6.dex */
-public class rka extends uka implements pka {
+public class rka<TResult> implements dla, dla {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String c;
+    public final CountDownLatch a;
 
     public rka() {
         Interceptable interceptable = $ic;
@@ -25,28 +25,6 @@ public class rka extends uka implements pka {
                 return;
             }
         }
-        this.c = "*";
-    }
-
-    @Override // com.baidu.tieba.oka
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.pka
-    public void b(String str) throws IllegalArgumentException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (str != null) {
-                this.c = str;
-                return;
-            }
-            throw new IllegalArgumentException("http resource descriptor must not be null");
-        }
+        this.a = new CountDownLatch(1);
     }
 }

@@ -1,64 +1,103 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.browser.BaseWebViewActivity;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.AppTransmitData;
+import java.net.URLDecoder;
 /* loaded from: classes5.dex */
 public class mp5 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a() {
-        InterceptResult invokeV;
+    public static Boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(TiebaStatic.Params.WISE_SAMPLE_ID, c());
-                jSONObject.put(DI.YY.YY_HDID, TbadkCoreApplication.getInst().getHdid());
-                jSONObject.put("yy_version", "");
-            } catch (JSONException e) {
-                BdLog.e(e);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (str == null) {
+                return Boolean.FALSE;
             }
-            return jSONObject.toString();
+            if (!gi.isEquals(oq5.c(str, BaseWebViewActivity.CUSTOM_FULL_SCREEN), "=")) {
+                try {
+                    str = URLDecoder.decode(str.replaceAll("%(?![0-9a-fA-F]{2})", "%25"), "UTF-8");
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                }
+            }
+            String c = oq5.c(str, "topic_id=");
+            String c2 = oq5.c(str, "topic_name=");
+            String c3 = oq5.c(str, BaseWebViewActivity.CUSTOM_FULL_SCREEN_EQUAL);
+            String c4 = oq5.c(str, "nonavigationbar=");
+            if ((!gi.isEmpty(c) || !gi.isEmpty(c2)) && StringHelper.equals(c3, "1") && StringHelper.equals(c4, "1")) {
+                return Boolean.TRUE;
+            }
+            return Boolean.FALSE;
         }
-        return (String) invokeV.objValue;
+        return (Boolean) invokeL.objValue;
     }
 
-    public static AppTransmitData b() {
-        InterceptResult invokeV;
+    public static Boolean b(Uri uri) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            AppTransmitData.Builder builder = new AppTransmitData.Builder();
-            builder.wise_sample_id = c();
-            builder.yy_hdid = TbadkCoreApplication.getInst().getHdid();
-            builder.yy_version = "";
-            return builder.build(false);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, uri)) == null) {
+            if (uri != null && uri.toString() != null) {
+                if (oq5.c(uri.toString(), "source=").contains("hottopic_detail_hybrid")) {
+                    return Boolean.TRUE;
+                }
+                return Boolean.FALSE;
+            }
+            return Boolean.FALSE;
         }
-        return (AppTransmitData) invokeV.objValue;
+        return (Boolean) invokeL.objValue;
     }
 
-    public static String c() {
-        InterceptResult invokeV;
+    public static String c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return oq5.c(str, "topic_id=");
         }
-        return (String) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static void d(String str) {
+    public static String d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            a = str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return oq5.c(str, "hottopic_detail_hybrid-");
         }
+        return (String) invokeL.objValue;
+    }
+
+    public static void e(TbPageContext tbPageContext, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext, str, str2) != null) || tbPageContext == null) {
+            return;
+        }
+        StringBuilder sb = new StringBuilder("https://tieba.baidu.com/mo/q/newtopic/topicTemplate?");
+        sb.append(BaseWebViewActivity.CUSTOM_FULL_SCREEN_EQUAL);
+        sb.append("1");
+        sb.append("&nonavigationbar=");
+        sb.append("1");
+        sb.append("&from=");
+        sb.append("1");
+        if (str != null) {
+            sb.append("&topic_id=");
+            sb.append(str);
+        }
+        if (str2 != null) {
+            sb.append("&topic_name=");
+            sb.append(str2);
+        }
+        sb.append("&skin=");
+        sb.append(SkinManager.getCurrentSkinTypeString());
+        UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{sb.toString()});
     }
 }

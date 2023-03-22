@@ -1,237 +1,150 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.atomData.GuildActivityConfig;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.pageInfo.TbPageTag;
+import android.os.Process;
+import android.os.SystemClock;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.util.io.Closeables;
+import com.baidu.android.util.soloader.SoLoader;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.launch.stats.ZygoteSpeedStats;
+import com.baidu.searchbox.launch.utils.LaunchNativeUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
+import java.io.Closeable;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 /* loaded from: classes4.dex */
-public class hl5 {
+public final class hl5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public long b;
 
-    public static StatisticItem a(StatisticItem statisticItem, TbPageTag tbPageTag) {
-        InterceptResult invokeLL;
+    public hl5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, statisticItem, tbPageTag)) == null) {
-            if (tbPageTag != null && statisticItem != null) {
-                if (!TextUtils.isEmpty(tbPageTag.locatePage)) {
-                    if (statisticItem.hasParam(TiebaStatic.Params.OBJ_TAB)) {
-                        statisticItem.delete(TiebaStatic.Params.OBJ_TAB);
-                    }
-                    statisticItem.param(TiebaStatic.Params.OBJ_TAB, tbPageTag.locatePage);
-                }
-                statisticItem.param("sort_tab", tbPageTag.sortType);
-                return statisticItem;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return null;
         }
-        return (StatisticItem) invokeLL.objValue;
+        this.a = -1L;
+        this.b = -1L;
     }
 
-    public static StatisticItem h(Context context, StatisticItem statisticItem) {
-        InterceptResult invokeLL;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, statisticItem)) == null) {
-            if (context != null && statisticItem != null) {
-                TbPageTag l = l(context);
-                if (l != null) {
-                    if (!TextUtils.isEmpty(l.locatePage)) {
-                        if (statisticItem.hasParam(TiebaStatic.Params.OBJ_TAB)) {
-                            statisticItem.delete(TiebaStatic.Params.OBJ_TAB);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = SystemClock.elapsedRealtime();
+            Process.getElapsedCpuTime();
+        }
+    }
+
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.b == -1) {
+                b();
+            }
+            return this.b;
+        }
+        return invokeV.longValue;
+    }
+
+    /* JADX WARN: Not initialized variable reg: 6, insn: 0x00b5: MOVE  (r3 I:??[OBJECT, ARRAY]) = (r6 I:??[OBJECT, ARRAY]), block:B:44:0x00b5 */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x00ae  */
+    /* JADX WARN: Removed duplicated region for block: B:56:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void b() {
+        BufferedReader bufferedReader;
+        NumberFormatException e;
+        IOException e2;
+        FileNotFoundException e3;
+        Closeable closeable;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            fl5.b().d();
+            Closeable closeable2 = null;
+            long j2 = -1;
+            try {
+                try {
+                    bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream("/proc/self/stat")), 1000);
+                    try {
+                        String[] split = bufferedReader.readLine().split(" ");
+                        if (split.length > 21 && split[0].equals(String.valueOf(Process.myPid()))) {
+                            String str = split[21];
+                            try {
+                                SoLoader.load(AppRuntime.getAppContext(), "launch_native");
+                                j = LaunchNativeUtils.getClkTck();
+                            } catch (UnsatisfiedLinkError e4) {
+                                Log.e(ZygoteSpeedStats.TAG, "load so failed, UnsatisfiedLinkError", e4);
+                                j = 0;
+                            }
+                            Log.d(ZygoteSpeedStats.TAG, "_SC_CLK_TCK " + j);
+                            if (j <= 0) {
+                                j = 100;
+                            }
+                            j2 = (Long.parseLong(str) * 1000) / j;
                         }
-                        statisticItem.param(TiebaStatic.Params.OBJ_TAB, l.locatePage);
+                    } catch (FileNotFoundException e5) {
+                        e3 = e5;
+                        Log.e(ZygoteSpeedStats.TAG, "can't read process status file", e3);
+                        Closeables.closeSafely(bufferedReader);
+                        if (j2 <= 0) {
+                        }
+                    } catch (IOException e6) {
+                        e2 = e6;
+                        Log.e(ZygoteSpeedStats.TAG, "read process status failed", e2);
+                        Closeables.closeSafely(bufferedReader);
+                        if (j2 <= 0) {
+                        }
+                    } catch (NumberFormatException e7) {
+                        e = e7;
+                        Log.e(ZygoteSpeedStats.TAG, "parse status file failed", e);
+                        Closeables.closeSafely(bufferedReader);
+                        if (j2 <= 0) {
+                        }
                     }
-                    statisticItem.param("sort_tab", l.sortType);
+                } catch (Throwable th) {
+                    th = th;
+                    closeable2 = closeable;
+                    Closeables.closeSafely(closeable2);
+                    throw th;
                 }
-                return statisticItem;
+            } catch (FileNotFoundException e8) {
+                bufferedReader = null;
+                e3 = e8;
+            } catch (IOException e9) {
+                bufferedReader = null;
+                e2 = e9;
+            } catch (NumberFormatException e10) {
+                bufferedReader = null;
+                e = e10;
+            } catch (Throwable th2) {
+                th = th2;
+                Closeables.closeSafely(closeable2);
+                throw th;
             }
-            return null;
+            Closeables.closeSafely(bufferedReader);
+            if (j2 <= 0) {
+                this.b = this.a - j2;
+            }
         }
-        return (StatisticItem) invokeLL.objValue;
-    }
-
-    public static StatisticItem b(Context context, StatisticItem statisticItem) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, statisticItem)) == null) {
-            if (context != null && statisticItem != null) {
-                return c(statisticItem, j(context));
-            }
-            return statisticItem;
-        }
-        return (StatisticItem) invokeLL.objValue;
-    }
-
-    public static StatisticItem c(StatisticItem statisticItem, gl5 gl5Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, statisticItem, gl5Var)) == null) {
-            if (gl5Var != null && statisticItem != null) {
-                return d(statisticItem, gl5Var.b(), gl5Var.a());
-            }
-            return statisticItem;
-        }
-        return (StatisticItem) invokeLL.objValue;
-    }
-
-    public static StatisticItem e(Context context, StatisticItem statisticItem) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, statisticItem)) == null) {
-            if (context != null && statisticItem != null) {
-                return f(statisticItem, j(context));
-            }
-            return statisticItem;
-        }
-        return (StatisticItem) invokeLL.objValue;
-    }
-
-    public static StatisticItem f(StatisticItem statisticItem, gl5 gl5Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, statisticItem, gl5Var)) == null) {
-            if (gl5Var != null && statisticItem != null) {
-                return g(statisticItem, gl5Var.b(), gl5Var.a());
-            }
-            return statisticItem;
-        }
-        return (StatisticItem) invokeLL.objValue;
-    }
-
-    public static StatisticItem d(StatisticItem statisticItem, TbPageTag tbPageTag, TbPageTag tbPageTag2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, statisticItem, tbPageTag, tbPageTag2)) == null) {
-            if (statisticItem == null) {
-                return null;
-            }
-            if (tbPageTag2 != null) {
-                if (!TextUtils.isEmpty(tbPageTag2.locatePage)) {
-                    if (statisticItem.hasParam(TiebaStatic.Params.OBJ_TAB)) {
-                        statisticItem.delete(TiebaStatic.Params.OBJ_TAB);
-                    }
-                    statisticItem.param(TiebaStatic.Params.OBJ_TAB, tbPageTag2.locatePage);
-                }
-                statisticItem.param("sort_tab", tbPageTag2.sortType);
-            }
-            if (tbPageTag != null && !TextUtils.isEmpty(tbPageTag.locatePage)) {
-                statisticItem.param(GuildActivityConfig.FROM_PAGE, tbPageTag.locatePage);
-            }
-            return statisticItem;
-        }
-        return (StatisticItem) invokeLLL.objValue;
-    }
-
-    public static StatisticItem g(StatisticItem statisticItem, TbPageTag tbPageTag, TbPageTag tbPageTag2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, statisticItem, tbPageTag, tbPageTag2)) == null) {
-            if (statisticItem == null) {
-                return null;
-            }
-            if (tbPageTag2 != null) {
-                if (!TextUtils.isEmpty(tbPageTag2.locatePage)) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_PAGE, tbPageTag2.locatePage);
-                }
-                statisticItem.param("sort_tab", tbPageTag2.sortType);
-            }
-            if (tbPageTag != null && !TextUtils.isEmpty(tbPageTag.locatePage)) {
-                if (statisticItem.hasParam(TiebaStatic.Params.OBJ_TAB)) {
-                    statisticItem.delete(TiebaStatic.Params.OBJ_TAB);
-                }
-                statisticItem.param(TiebaStatic.Params.OBJ_TAB, tbPageTag.locatePage);
-            }
-            return statisticItem;
-        }
-        return (StatisticItem) invokeLLL.objValue;
-    }
-
-    public static StatisticItem i(Context context, ThreadData threadData, String str) {
-        InterceptResult invokeLLL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65544, null, context, threadData, str)) == null) {
-            if (context != null && threadData != null && !StringUtils.isNull(str)) {
-                StatisticItem statisticItem = new StatisticItem(str);
-                statisticItem.param("tid", threadData.getId()).param("fid", threadData.getFid()).param("thread_type", threadData.getThreadType()).param("card_type", threadData.getRecomCardType()).param("nid", threadData.getNid());
-                if (threadData.getBaijiahaoData() != null && !dj.isEmpty(threadData.getBaijiahaoData().oriUgcVid)) {
-                    statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, threadData.getBaijiahaoData().oriUgcVid);
-                }
-                StatisticItem param = statisticItem.param("weight", threadData.mRecomWeight).param("ab_tag", threadData.mRecomAbTag).param("extra", threadData.mRecomExtra);
-                if (threadData.isSubPb) {
-                    str2 = "2";
-                } else {
-                    str2 = "1";
-                }
-                param.param("obj_type", str2).param("source", threadData.mRecomSource);
-                h(context, statisticItem);
-                return statisticItem;
-            }
-            return null;
-        }
-        return (StatisticItem) invokeLLL.objValue;
-    }
-
-    public static gl5 j(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
-            if (context == null) {
-                return null;
-            }
-            y9<?> b = da.b(context);
-            if (!(b instanceof fl5)) {
-                return null;
-            }
-            return ((fl5) b).getTbPageInfo();
-        }
-        return (gl5) invokeL.objValue;
-    }
-
-    public static TbPageTag k(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
-            gl5 j = j(context);
-            if (j == null) {
-                return null;
-            }
-            return j.a();
-        }
-        return (TbPageTag) invokeL.objValue;
-    }
-
-    public static TbPageTag m(Intent intent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, intent)) == null) {
-            if (intent != null) {
-                return (TbPageTag) intent.getParcelableExtra("tb_page_tag_source_trace");
-            }
-            return null;
-        }
-        return (TbPageTag) invokeL.objValue;
-    }
-
-    public static TbPageTag l(Context context) {
-        InterceptResult invokeL;
-        y9<?> b;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
-            if (context != null && (b = da.b(context)) != null && b.getPageContext() != null && b.getPageContext().getPageActivity() != null) {
-                return m(b.getPageContext().getPageActivity().getIntent());
-            }
-            return null;
-        }
-        return (TbPageTag) invokeL.objValue;
     }
 }

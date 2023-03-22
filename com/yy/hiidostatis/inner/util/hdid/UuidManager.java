@@ -11,7 +11,7 @@ import com.yy.hiidostatis.inner.util.log.L;
 import java.io.File;
 import java.io.FileFilter;
 import java.util.UUID;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class UuidManager {
     public static String mDataPath;
     public static Object LOCK_KEY = FileFilter.class;

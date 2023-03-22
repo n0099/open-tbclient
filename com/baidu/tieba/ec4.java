@@ -1,32 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class ec4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile dc4 a;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public String uuap_p_token;
-    @V8JavascriptField
-    public String uuap_p_token_offline;
-    @V8JavascriptField
-    public String uuap_s_token;
 
-    public ec4() {
+    public static synchronized dc4 a() {
+        InterceptResult invokeV;
+        dc4 dc4Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (ec4.class) {
+                if (a == null) {
+                    a = new dc4();
+                }
+                dc4Var = a;
             }
+            return dc4Var;
         }
+        return (dc4) invokeV.objValue;
     }
 }

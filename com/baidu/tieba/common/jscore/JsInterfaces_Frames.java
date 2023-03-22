@@ -2,8 +2,8 @@ package com.baidu.tieba.common.jscore;
 
 import androidx.annotation.Keep;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
-import com.baidu.tieba.ge6;
-import com.baidu.tieba.ie6;
+import com.baidu.tieba.ld6;
+import com.baidu.tieba.rb6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -31,7 +31,7 @@ public final class JsInterfaces_Frames {
     public static void register() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            ge6.a().c(BaseWebView.TB_NA_CHANNEL, ie6.class);
+            ld6.a().c(BaseWebView.TB_NA_CHANNEL, rb6.class);
         }
     }
 }

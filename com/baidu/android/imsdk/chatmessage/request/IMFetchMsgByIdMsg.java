@@ -28,7 +28,7 @@ import com.baidu.android.imsdk.ubc.ScreenUbc;
 import com.baidu.android.imsdk.ubc.UBCConstants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tieba.e80;
+import com.baidu.tieba.u60;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -83,6 +83,7 @@ public class IMFetchMsgByIdMsg extends Message {
         public Context mContext;
         public int mErrorCode;
         public JSONObject mObj;
+        public ScreenUbc.MethodInfo mScreenMethodInfo;
         public String mStrMsg;
         public final /* synthetic */ IMFetchMsgByIdMsg this$0;
 
@@ -106,17 +107,20 @@ public class IMFetchMsgByIdMsg extends Message {
             this.mObj = jSONObject;
             this.mErrorCode = i;
             this.mStrMsg = str;
+            if (!TextUtils.isEmpty(iMFetchMsgByIdMsg.mScreenKey)) {
+                this.mScreenMethodInfo = Utility.getScreenMethodInfo(iMFetchMsgByIdMsg.mScreenKey);
+            }
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:129:? A[RETURN, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:100:0x0441  */
+        /* JADX WARN: Removed duplicated region for block: B:134:? A[RETURN, SYNTHETIC] */
         /* JADX WARN: Removed duplicated region for block: B:25:0x007c  */
-        /* JADX WARN: Removed duplicated region for block: B:30:0x00b7 A[Catch: JSONException -> 0x00fb, TRY_ENTER, TryCatch #5 {JSONException -> 0x00fb, blocks: (B:27:0x00aa, B:30:0x00b7, B:32:0x00c2, B:33:0x00c7), top: B:118:0x00aa }] */
-        /* JADX WARN: Removed duplicated region for block: B:32:0x00c2 A[Catch: JSONException -> 0x00fb, TryCatch #5 {JSONException -> 0x00fb, blocks: (B:27:0x00aa, B:30:0x00b7, B:32:0x00c2, B:33:0x00c7), top: B:118:0x00aa }] */
+        /* JADX WARN: Removed duplicated region for block: B:30:0x00b7 A[Catch: JSONException -> 0x00fb, TRY_ENTER, TryCatch #3 {JSONException -> 0x00fb, blocks: (B:27:0x00aa, B:30:0x00b7, B:32:0x00c2, B:33:0x00c7), top: B:119:0x00aa }] */
+        /* JADX WARN: Removed duplicated region for block: B:32:0x00c2 A[Catch: JSONException -> 0x00fb, TryCatch #3 {JSONException -> 0x00fb, blocks: (B:27:0x00aa, B:30:0x00b7, B:32:0x00c2, B:33:0x00c7), top: B:119:0x00aa }] */
         /* JADX WARN: Removed duplicated region for block: B:39:0x0124  */
-        /* JADX WARN: Removed duplicated region for block: B:81:0x02f1  */
-        /* JADX WARN: Removed duplicated region for block: B:88:0x0323  */
-        /* JADX WARN: Removed duplicated region for block: B:92:0x03e6  */
-        /* JADX WARN: Removed duplicated region for block: B:95:0x0427  */
+        /* JADX WARN: Removed duplicated region for block: B:86:0x02fd  */
+        /* JADX WARN: Removed duplicated region for block: B:93:0x032f  */
+        /* JADX WARN: Removed duplicated region for block: B:97:0x03f2  */
         /* JADX WARN: Type inference failed for: r0v2, types: [T, java.lang.Long] */
         @Override // com.baidu.android.imsdk.task.TaskManager.Task, java.lang.Runnable
         /*
@@ -183,6 +187,37 @@ public class IMFetchMsgByIdMsg extends Message {
                                     }
                                     if (this.this$0.mCategory != 9) {
                                     }
+                                    TaskManager.getInstance(this.mContext).submitForNetWork(new Runnable(this) { // from class: com.baidu.android.imsdk.chatmessage.request.IMFetchMsgByIdMsg.ParseResultTask.2
+                                        public static /* synthetic */ Interceptable $ic;
+                                        public transient /* synthetic */ FieldHolder $fh;
+                                        public final /* synthetic */ ParseResultTask this$1;
+
+                                        {
+                                            Interceptable interceptable2 = $ic;
+                                            if (interceptable2 != null) {
+                                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                                newInitContext.initArgs = r2;
+                                                Object[] objArr = {this};
+                                                interceptable2.invokeUnInit(65536, newInitContext);
+                                                int i4 = newInitContext.flag;
+                                                if ((i4 & 1) != 0) {
+                                                    int i5 = i4 & 2;
+                                                    newInitContext.thisArg = this;
+                                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                                    return;
+                                                }
+                                            }
+                                            this.this$1 = this;
+                                        }
+
+                                        @Override // java.lang.Runnable
+                                        public void run() {
+                                            Interceptable interceptable2 = $ic;
+                                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                                PaManagerImpl.getInstance(this.this$1.mContext).syncAndQueryAllPaInfo();
+                                            }
+                                        }
+                                    });
                                     if (this.mErrorCode != 0) {
                                     }
                                 }
@@ -223,6 +258,37 @@ public class IMFetchMsgByIdMsg extends Message {
                                 }
                                 if (this.this$0.mCategory != 9) {
                                 }
+                                TaskManager.getInstance(this.mContext).submitForNetWork(new Runnable(this) { // from class: com.baidu.android.imsdk.chatmessage.request.IMFetchMsgByIdMsg.ParseResultTask.2
+                                    public static /* synthetic */ Interceptable $ic;
+                                    public transient /* synthetic */ FieldHolder $fh;
+                                    public final /* synthetic */ ParseResultTask this$1;
+
+                                    {
+                                        Interceptable interceptable2 = $ic;
+                                        if (interceptable2 != null) {
+                                            InitContext newInitContext = TitanRuntime.newInitContext();
+                                            newInitContext.initArgs = objArr;
+                                            Object[] objArr = {this};
+                                            interceptable2.invokeUnInit(65536, newInitContext);
+                                            int i4 = newInitContext.flag;
+                                            if ((i4 & 1) != 0) {
+                                                int i5 = i4 & 2;
+                                                newInitContext.thisArg = this;
+                                                interceptable2.invokeInitBody(65536, newInitContext);
+                                                return;
+                                            }
+                                        }
+                                        this.this$1 = this;
+                                    }
+
+                                    @Override // java.lang.Runnable
+                                    public void run() {
+                                        Interceptable interceptable2 = $ic;
+                                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                            PaManagerImpl.getInstance(this.this$1.mContext).syncAndQueryAllPaInfo();
+                                        }
+                                    }
+                                });
                                 if (this.mErrorCode != 0) {
                                 }
                             }
@@ -347,12 +413,18 @@ public class IMFetchMsgByIdMsg extends Message {
                             MessageExt.getInstance().setLocalTimestamp(Long.valueOf(System.currentTimeMillis()));
                         } else if (9 != this.this$0.mCategory) {
                             if (this.this$0.mIsFromMedia) {
+                                ScreenUbc.MethodInfo methodInfo = this.mScreenMethodInfo;
+                                if (methodInfo != null) {
+                                    Utility.addEventList(methodInfo.eventList, "replaceChatMsgList_begin");
+                                }
                                 MediaMessageDBManager.getInstance(this.mContext).replaceChatMsgList(parserMessage);
                             } else {
-                                parserMessage = ChatMessageDBManager.getInstance(this.mContext).addMsgs(this.mContext, parserMessage, true, this.this$0.mTriggerReason);
+                                ScreenUbc.MethodInfo methodInfo2 = this.mScreenMethodInfo;
+                                if (methodInfo2 != null) {
+                                    Utility.addEventList(methodInfo2.eventList, "addMsgs_begin");
+                                }
+                                arrayList = ChatMessageDBManager.getInstance(this.mContext).addMsgs(this.mContext, parserMessage, true, this.this$0.mTriggerReason);
                             }
-                            arrayList = parserMessage;
-                            PaManagerImpl.getInstance(this.mContext).syncAndQueryAllPaInfo();
                         }
                         z = z3;
                         i2 = i322;
@@ -375,7 +447,7 @@ public class IMFetchMsgByIdMsg extends Message {
                         }
                     } catch (JSONException unused) {
                     }
-                    Utility.addEventList(screenMethodInfo.eventList, "ParseResultTask");
+                    Utility.addEventList(screenMethodInfo.eventList, "onFetchMsgByIdResult");
                 }
                 if (this.this$0.mCategory != 9) {
                     if (this.this$0.mIsFromMedia) {
@@ -400,6 +472,37 @@ public class IMFetchMsgByIdMsg extends Message {
                 } else {
                     ChatMsgManagerImpl.getInstance(this.mContext).onFetchBusinessMsgResult(this.mErrorCode, this.mStrMsg, this.this$0.mBeginId, this.this$0.mEndId, this.this$0.mCount, this.this$0.mContacter, z, this.this$0.mBusinessType, this.this$0.mSessionType, arrayList, this.this$0.getListenerKey());
                 }
+                TaskManager.getInstance(this.mContext).submitForNetWork(new Runnable(this) { // from class: com.baidu.android.imsdk.chatmessage.request.IMFetchMsgByIdMsg.ParseResultTask.2
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ ParseResultTask this$1;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = objArr;
+                            Object[] objArr = {this};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i4 = newInitContext.flag;
+                            if ((i4 & 1) != 0) {
+                                int i5 = i4 & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$1 = this;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            PaManagerImpl.getInstance(this.this$1.mContext).syncAndQueryAllPaInfo();
+                        }
+                    }
+                });
                 if (this.mErrorCode != 0) {
                     this.this$0.mDebugInfo.eventList = eventList;
                     this.this$0.mDebugInfo.clientSource = this.this$0.mSource;
@@ -412,7 +515,7 @@ public class IMFetchMsgByIdMsg extends Message {
                         LogUtils.e(str, "clientLogId :" + e7.getMessage());
                     }
                     this.this$0.mUbcData.setDebugInfo(this.this$0.mDebugInfo);
-                    e80.d().f(this.this$0.mUbcData.generateUBCData(String.valueOf(this.mErrorCode), this.mStrMsg), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+                    u60.d().f(this.this$0.mUbcData.generateUBCData(String.valueOf(this.mErrorCode), this.mStrMsg), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
                 }
             }
         }
@@ -707,10 +810,13 @@ public class IMFetchMsgByIdMsg extends Message {
     public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(1048580, this, context, jSONObject, i, str) == null) {
-            LogUtils.d(TAG, "handleMessageResult isMedia: " + this.mIsFromMedia + ";errorCode:" + i + ", msg :" + str);
+            LogUtils.d(TAG, "handleMessageResult isMedia: " + this.mIsFromMedia + ";errorCode:" + i + ", msg:" + str);
             super.handleMessageResult(context, jSONObject, i, str);
             if (this.mNotifyId > 0 && !AccountManager.getMediaRole(this.mContext) && this.mCategory == 0) {
                 setEventList(Utility.appendEventList(getEventList(), "CIMResultFetch"));
+            }
+            if (!TextUtils.isEmpty(this.mScreenKey)) {
+                Utility.addEventList(Utility.getScreenMethodInfo(this.mScreenKey).eventList, "handleMessageResult_subTask");
             }
             TaskManager.getInstance(this.mContext).submitForNetWork(new ParseResultTask(this, context, jSONObject, i, str));
         }

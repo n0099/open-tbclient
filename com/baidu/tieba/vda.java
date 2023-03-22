@@ -1,44 +1,47 @@
 package com.baidu.tieba;
 
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
 /* loaded from: classes6.dex */
-public final class vda<TResult> implements sea<TResult> {
+public class vda extends oda<TTNativeExpressAd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public uea a;
-    public Executor b;
-    public final Object c;
 
-    public vda(Executor executor, uea ueaVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vda(TTNativeExpressAd tTNativeExpressAd) {
+        super(tTNativeExpressAd);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {executor, ueaVar};
+            Object[] objArr = {tTNativeExpressAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new Object();
-        this.a = ueaVar;
-        this.b = executor;
     }
 
-    @Override // com.baidu.tieba.sea
-    public final void a(eea<TResult> eeaVar) {
+    @Override // com.baidu.tieba.oda
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, eeaVar) == null) && !eeaVar.f()) {
-            eeaVar.e();
-            this.b.execute(new tda(this, eeaVar));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b.isEmpty()) {
+                this.b = (String) ((TTNativeExpressAd) this.a).getMediaExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
+            }
+            return this.b;
         }
+        return (String) invokeV.objValue;
     }
 }

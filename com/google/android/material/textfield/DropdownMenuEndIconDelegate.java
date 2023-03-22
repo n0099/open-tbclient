@@ -30,7 +30,7 @@ import com.google.android.material.color.MaterialColors;
 import com.google.android.material.shape.MaterialShapeDrawable;
 import com.google.android.material.shape.ShapeAppearanceModel;
 import com.google.android.material.textfield.TextInputLayout;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class DropdownMenuEndIconDelegate extends EndIconDelegate {
     public static final int ANIMATION_FADE_IN_DURATION = 67;
     public static final int ANIMATION_FADE_OUT_DURATION = 50;
@@ -361,13 +361,13 @@ public class DropdownMenuEndIconDelegate extends EndIconDelegate {
         stateListDrawable.addState(new int[]{16842922}, popUpMaterialShapeDrawable);
         this.filledPopupBackground.addState(new int[0], popUpMaterialShapeDrawable2);
         if (IS_LOLLIPOP) {
-            i = R.drawable.obfuscated_res_0x7f080df1;
+            i = R.drawable.obfuscated_res_0x7f080e05;
         } else {
-            i = R.drawable.obfuscated_res_0x7f080df2;
+            i = R.drawable.obfuscated_res_0x7f080e06;
         }
         this.textInputLayout.setEndIconDrawable(AppCompatResources.getDrawable(this.context, i));
         TextInputLayout textInputLayout = this.textInputLayout;
-        textInputLayout.setEndIconContentDescription(textInputLayout.getResources().getText(R.string.obfuscated_res_0x7f0f0639));
+        textInputLayout.setEndIconContentDescription(textInputLayout.getResources().getText(R.string.obfuscated_res_0x7f0f063c));
         this.textInputLayout.setEndIconOnClickListener(new View.OnClickListener() { // from class: com.google.android.material.textfield.DropdownMenuEndIconDelegate.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {

@@ -1,28 +1,21 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 import java.util.Map;
-@Service
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ih0 extends bj0 {
+public class ih0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.bj0
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "onDownloadBtnClick" : (String) invokeV.objValue;
-    }
+    public JSONObject a;
+    public Map<String, String> b;
+    public Map<String, String> c;
 
     public ih0() {
         Interceptable interceptable = $ic;
@@ -38,21 +31,30 @@ public class ih0 extends bj0 {
         }
     }
 
-    @Override // com.baidu.tieba.bj0
-    public boolean b(@NonNull Context context, @NonNull fj0 fj0Var, @Nullable Map<String, Object> map, @Nullable jj0 jj0Var) {
-        InterceptResult invokeLLLL;
-        int i;
+    public static ih0 a(@NonNull HashMap<String, ?> hashMap) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, fj0Var, map, jj0Var)) == null) {
-            boolean b = super.b(context, fj0Var, map, jj0Var);
-            if (b) {
-                i = 0;
-            } else {
-                i = 1001;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hashMap)) == null) {
+            ih0 ih0Var = new ih0();
+            if (hashMap.get("cmd_map") instanceof String) {
+                JSONObject c = v01.c((String) hashMap.get("cmd_map"));
+                ih0Var.a = c;
+                ih0Var.b = v01.b(c);
             }
-            c(jj0Var, fj0Var, i, b);
-            return true;
+            if (hashMap.get("area_cmd") instanceof String) {
+                ih0Var.c = v01.b(v01.c((String) hashMap.get("area_cmd")));
+            }
+            if (hashMap.get("charge_map") instanceof String) {
+                v01.b(v01.c((String) hashMap.get("charge_map")));
+            }
+            if (hashMap.get("parallel_charge_urls") instanceof JSONObject) {
+                v01.b((JSONObject) hashMap.get("parallel_charge_urls"));
+            }
+            if (hashMap.get("defer_charge_urls") instanceof JSONObject) {
+                v01.b((JSONObject) hashMap.get("defer_charge_urls"));
+            }
+            return ih0Var;
         }
-        return invokeLLLL.booleanValue;
+        return (ih0) invokeL.objValue;
     }
 }

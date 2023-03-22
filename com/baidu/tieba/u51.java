@@ -1,59 +1,74 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public final class u51 {
-    public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static String b;
-    public static boolean c;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface u51 {
+    public static final u51 a = new a();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948161880, "Lcom/baidu/tieba/u51;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    boolean a(Context context, String str, String str2, @Nullable zh0 zh0Var);
+
+    /* loaded from: classes6.dex */
+    public static class a implements u51 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948161880, "Lcom/baidu/tieba/u51;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        b = rj0.b().getApplicationInfo().processName;
-        String a2 = c51.a();
-        a = a2;
-        c = a(a2);
+
+        @Override // com.baidu.tieba.u51
+        public boolean a(Context context, String str, String str2, @Nullable zh0 zh0Var) {
+            InterceptResult invokeLLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, str, str2, zh0Var)) == null) {
+                if (str != null) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put(TiebaStatic.Params.REFER, str2);
+                    hashMap.put("from_web_view", Boolean.TRUE);
+                    return qh0.e(str, context, hashMap, zh0Var);
+                }
+                return false;
+            }
+            return invokeLLLL.booleanValue;
+        }
     }
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.equals(str, b)) {
-                return true;
-            }
-            if (str.startsWith(b) && !str.contains(":")) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
+    @Autowired
+    /* loaded from: classes6.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return c;
+        @NonNull
+        @Inject(force = false)
+        public static u51 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+                return u51.a;
+            }
+            return (u51) invokeV.objValue;
         }
-        return invokeV.booleanValue;
     }
 }

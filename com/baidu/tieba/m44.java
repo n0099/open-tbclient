@@ -1,28 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class m44 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile l44 a;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public String errMsg;
 
-    public m44() {
+    public static synchronized l44 a() {
+        InterceptResult invokeV;
+        l44 l44Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (m44.class) {
+                if (a == null) {
+                    a = new l44();
+                }
+                l44Var = a;
             }
+            return l44Var;
         }
+        return (l44) invokeV.objValue;
     }
 }

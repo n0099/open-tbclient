@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import com.badlogic.gdx.graphics.g3d.model.data.ModelMaterial;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -8,13 +9,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class f4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final short[] a;
+    public final k6<g4> b;
+    public final k6<ModelMaterial> c;
+    public final k6<i4> d;
+    public final k6<e4> e;
 
-    public f4(j4 j4Var, float[] fArr, short[] sArr) {
+    public f4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {j4Var, fArr, sArr};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -24,18 +28,10 @@ public class f4 {
                 return;
             }
         }
-        float[] fArr2 = new float[fArr.length];
-        float f = j4Var.b;
-        float f2 = j4Var.c;
-        float f3 = j4Var.d - f;
-        float f4 = j4Var.e - f2;
-        int i3 = j4Var.f;
-        int i4 = j4Var.g;
-        int length = fArr.length;
-        for (int i5 = 0; i5 < length; i5 += 2) {
-            fArr2[i5] = ((fArr[i5] / i3) * f3) + f;
-            int i6 = i5 + 1;
-            fArr2[i6] = ((1.0f - (fArr[i6] / i4)) * f4) + f2;
-        }
+        this.a = new short[2];
+        this.b = new k6<>();
+        this.c = new k6<>();
+        this.d = new k6<>();
+        this.e = new k6<>();
     }
 }

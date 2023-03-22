@@ -397,22 +397,22 @@ public class TTDelegateActivity extends Activity implements ActivityCompat.OnReq
             N = d2.N();
         }
         objArr[0] = N;
-        c.b(a.b(String.format("%1$s已安装完成，是否立即打开？", objArr)).c("打开").d(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL).a(false).a(l.c(this, d2.e())).a(new b.InterfaceC0673b() { // from class: com.ss.android.downloadlib.activity.TTDelegateActivity.2
-            @Override // com.ss.android.download.api.model.b.InterfaceC0673b
+        c.b(a.b(String.format("%1$s已安装完成，是否立即打开？", objArr)).c("打开").d(SapiWebView.HTTPS_SSL_DATE_INVALID_DIALOG_CANCEL).a(false).a(l.c(this, d2.e())).a(new b.InterfaceC0678b() { // from class: com.ss.android.downloadlib.activity.TTDelegateActivity.2
+            @Override // com.ss.android.download.api.model.b.InterfaceC0678b
             public void a(DialogInterface dialogInterface) {
                 com.ss.android.downloadlib.b.a.b(d2);
                 dialogInterface.dismiss();
                 c.a((Activity) TTDelegateActivity.this);
             }
 
-            @Override // com.ss.android.download.api.model.b.InterfaceC0673b
+            @Override // com.ss.android.download.api.model.b.InterfaceC0678b
             public void b(DialogInterface dialogInterface) {
                 com.ss.android.downloadlib.d.a.a().b("market_openapp_cancel", d2);
                 dialogInterface.dismiss();
                 c.a((Activity) TTDelegateActivity.this);
             }
 
-            @Override // com.ss.android.download.api.model.b.InterfaceC0673b
+            @Override // com.ss.android.download.api.model.b.InterfaceC0678b
             public void c(DialogInterface dialogInterface) {
                 c.a((Activity) TTDelegateActivity.this);
             }

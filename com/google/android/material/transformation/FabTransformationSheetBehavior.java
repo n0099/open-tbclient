@@ -17,7 +17,7 @@ import com.google.android.material.transformation.FabTransformationBehavior;
 import java.util.HashMap;
 import java.util.Map;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class FabTransformationSheetBehavior extends FabTransformationBehavior {
     @Nullable
     public Map<View, Integer> importantForAccessibilityMap;

@@ -1,44 +1,45 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.os.Build;
+import android.webkit.JavascriptInterface;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.PermissionRequest;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class n71 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
 
-    public static boolean a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (context == null) {
-                return false;
-            }
-            return s51.a(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
-        }
-        return invokeL.booleanValue;
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a();
     }
 
-    @SuppressLint({"ObsoleteSdkInt"})
-    public static boolean b(Context context) {
-        InterceptResult invokeL;
+    public n71(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            boolean z = false;
-            if (context == null) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            boolean a = s51.a(context, "android.permission.WRITE_EXTERNAL_STORAGE");
-            if (Build.VERSION.SDK_INT >= 16) {
-                return (a || s51.a(context, com.kuaishou.weapon.p0.h.i)) ? true : true;
-            }
-            return a;
         }
-        return invokeL.booleanValue;
+        this.a = aVar;
+    }
+
+    @JavascriptInterface
+    public void onGoBack() {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (aVar = this.a) != null) {
+            aVar.a();
+        }
     }
 }

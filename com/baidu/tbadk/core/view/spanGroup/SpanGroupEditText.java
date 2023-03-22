@@ -17,10 +17,10 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.view.spanGroup.TbLinkSpanGroup;
 import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ca;
-import com.baidu.tieba.da7;
-import com.baidu.tieba.t65;
-import com.baidu.tieba.wy4;
+import com.baidu.tieba.e55;
+import com.baidu.tieba.f9;
+import com.baidu.tieba.fx4;
+import com.baidu.tieba.jb7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -226,8 +226,8 @@ public class SpanGroupEditText extends AppCompatEditText {
         }
         this.a = EDIT_TEXT_TYPE.TYPE_DEFAULT;
         this.d = 0L;
-        if (context instanceof ca) {
-            bdUniqueId = ((ca) context).getUniqueId();
+        if (context instanceof f9) {
+            bdUniqueId = ((f9) context).getUniqueId();
         } else {
             bdUniqueId = null;
         }
@@ -249,7 +249,7 @@ public class SpanGroupEditText extends AppCompatEditText {
     }
 
     public void f(int i) {
-        t65 E;
+        e55 E;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (E = this.b.E(i)) != null && getText() != null) {
             this.b.delete(E.f(), E.c());
@@ -281,7 +281,7 @@ public class SpanGroupEditText extends AppCompatEditText {
         }
     }
 
-    public void setOnSpanGroupChangedListener(t65.a aVar) {
+    public void setOnSpanGroupChangedListener(e55.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048596, this, aVar) == null) {
             this.b.W(aVar);
@@ -444,18 +444,18 @@ public class SpanGroupEditText extends AppCompatEditText {
         }
     }
 
-    public void g(List<da7> list, List<String> list2) {
+    public void g(List<jb7> list, List<String> list2) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(1048581, this, list, list2) != null) || ListUtils.isEmpty(list)) {
             return;
         }
         for (int i = 0; i < list.size(); i++) {
-            da7 da7Var = list.get(i);
+            jb7 jb7Var = list.get(i);
             String str = list2.get(i);
-            if (!this.b.p(da7Var.a())) {
+            if (!this.b.p(jb7Var.a())) {
                 TbLinkSpanGroup tbLinkSpanGroup = new TbLinkSpanGroup(TbLinkSpanGroup.LINK_TYPE.PARSED_EXTERNAL_LINK);
                 tbLinkSpanGroup.a(getText(), getSelectionEnd(), getSelectionEnd(), (int) getTextSize());
-                wy4 b = wy4.b(tbLinkSpanGroup, da7Var);
+                fx4 b = fx4.b(tbLinkSpanGroup, jb7Var);
                 b.h = str;
                 tbLinkSpanGroup.C(b.d);
                 tbLinkSpanGroup.t();

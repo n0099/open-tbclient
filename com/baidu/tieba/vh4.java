@@ -1,15 +1,13 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import android.database.SQLException;
-import android.database.sqlite.SQLiteDatabase;
+import android.annotation.SuppressLint;
+import android.os.Build;
+import android.os.StatFs;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
-import com.baidu.swan.apps.model.SwanAppBearInfo;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.swan.pms.PMSConstants;
-import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.searchbox.pms.constants.ErrorConstant;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,19 +15,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.io.File;
+import java.util.Objects;
+import java.util.concurrent.atomic.AtomicBoolean;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class vh4 implements uh4<PMSAppInfo> {
+public class vh4<T> implements Runnable {
     public static /* synthetic */ Interceptable $ic;
-    public static final om4 a;
-    public static final int b;
+    public static final vk4 g;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "swan_app" : (String) invokeV.objValue;
-    }
+    public uh4 a;
+    public T b;
+    public File c;
+    public AtomicBoolean d;
+    public sh4<T> e;
+    public boolean f;
 
     static {
         InterceptResult invokeClinit;
@@ -44,221 +45,348 @@ public class vh4 implements uh4<PMSAppInfo> {
                 return;
             }
         }
-        a = om4.c();
-        b = PMSConstants.PayProtected.NO_PAY_PROTECTED.type;
+        g = vk4.e();
     }
 
-    public vh4() {
+    public kf4<T> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
+        }
+        return (kf4) invokeV.objValue;
+    }
+
+    public T f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b;
+        }
+        return (T) invokeV.objValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return new hh4().a(this.e.k()).intValue();
+        }
+        return invokeV.intValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            sh4<T> sh4Var = this.e;
+            if (sh4Var != null) {
+                return sh4Var.g();
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return Objects.hash(this.a.b);
+        }
+        return invokeV.intValue;
+    }
+
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.a.b.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            this.e.a(this.b);
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            b(3);
+            this.e.e(this.b, this.a.a);
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            b(10);
+            this.e.i(this.b);
+        }
+    }
+
+    public void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            this.f = true;
+            s(true);
+        }
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            b(1);
+            this.e.c(this.b);
+        }
+    }
+
+    public void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
+            b(2);
+            this.e.j(this.b);
+        }
+    }
+
+    public vh4(uh4 uh4Var, T t, sh4<T> sh4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {uh4Var, t, sh4Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.d = new AtomicBoolean(false);
+        this.a = uh4Var;
+        this.b = t;
+        this.e = sh4Var;
     }
 
-    @Override // com.baidu.tieba.uh4
-    public void a(SQLiteDatabase sQLiteDatabase) {
+    public final void a(int i, rg4 rg4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, sQLiteDatabase) == null) {
-            sQLiteDatabase.execSQL(c());
+        if ((interceptable != null && interceptable.invokeIL(1048576, this, i, rg4Var) != null) || rg4Var == null) {
+            return;
         }
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, IF, INVOKE] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x004d, code lost:
-        if (r0.isClosed() == false) goto L15;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final boolean b(SQLiteDatabase sQLiteDatabase, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, str)) == null) {
-            Cursor cursor = null;
-            boolean z = false;
+        JSONObject jSONObject = new JSONObject();
+        if (i == 2200) {
+            i = 0;
+        } else {
             try {
-                try {
-                    cursor = sQLiteDatabase.rawQuery("SELECT * FROM " + d() + " LIMIT 0", null);
-                    if (cursor != null) {
-                        if (cursor.getColumnIndex(str) != -1) {
-                            z = true;
-                        }
-                    }
-                } catch (Exception e) {
-                    a.g("PMSDBHelperAppInfo", "#checkColumnExist error", e);
-                    if (cursor != null) {
-                    }
-                }
-                return z;
-            } finally {
-                if (cursor != null && !cursor.isClosed()) {
-                    cursor.close();
-                }
+                jSONObject.put("response", rg4Var.toString());
+            } catch (JSONException e) {
+                g.g("PMSDownloadTask", "#addStatistic json put data出错", e);
             }
         }
-        return invokeLL.booleanValue;
+        if (rg4Var instanceof sg4) {
+            jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, rg4Var.g);
+        }
+        tk4.a(rg4Var.h, "pkg_download", null, i, jSONObject);
     }
 
-    public final String c() {
+    public boolean b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            rg4 rg4Var = this.a.b;
+            if (rg4Var.e == i) {
+                return false;
+            }
+            rg4Var.e = i;
+            if (i != 2 && i != 3 && i != 10) {
+                s(false);
+            } else {
+                s(true);
+            }
+            return true;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public boolean d(vh4<T> vh4Var) {
+        InterceptResult invokeL;
+        uh4 uh4Var;
+        rg4 rg4Var;
+        uh4 uh4Var2;
+        rg4 rg4Var2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, vh4Var)) == null) {
+            if (vh4Var == null || (uh4Var = vh4Var.a) == null || (rg4Var = uh4Var.b) == null || (uh4Var2 = this.a) == null || (rg4Var2 = uh4Var2.b) == null || !rg4Var2.equals(rg4Var)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (super.equals(obj)) {
+                return true;
+            }
+            if (obj == null || !(obj instanceof vh4)) {
+                return false;
+            }
+            return d((vh4) obj);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void r(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
+            if (z) {
+                this.a.b.b = 0L;
+            }
+            b(0);
+            s(false);
+            this.f = false;
+        }
+    }
+
+    public void s(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048597, this, z) == null) && this.d.get() != z) {
+            this.d.set(z);
+        }
+    }
+
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "CREATE TABLE " + d() + "(_id INTEGER PRIMARY KEY AUTOINCREMENT,app_id TEXT UNIQUE," + GameGuideConfigInfo.KEY_APP_KEY + " TEXT NOT NULL,app_sign LONG DEFAULT 0,version_code INTEGER DEFAULT 0,version_name TEXT,description TEXT,app_status INTEGER,status_detail TEXT,status_desc TEXT,resume_date TEXT,icon_url TEXT,app_name TEXT NOT NULL,service_category TEXT,subject_info TEXT,type INTEGER,pkg_size LONG,pending_err_code INTEGER,app_category INTEGER,orientation INTEGER,max_age LONG,create_time LONG,webview_domains TEXT,web_action TEXT,domains TEXT," + SwanAppBearInfo.BEAR_INFO + " TEXT,server_ext TEXT,pay_protected INTEGER,customer_service INTEGER,global_notice INTEGER,global_private INTEGER,pa_number TEXT," + com.xiaomi.mipush.sdk.Constants.PHONE_BRAND + " TEXT,last_launch_time LONG DEFAULT 0,launch_count INTEGER DEFAULT 0,install_src INTEGER DEFAULT 0,web_url TEXT,quick_app_key TEXT,cs_protocol_version INTEGER DEFAULT 0,web_permit INTEGER DEFAULT 0,user_action_apis TEXT," + MultiRatePlayUrlHelper.RANK + " INTEGER DEFAULT 0);";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void e(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD customer_service INTEGER default " + PMSConstants.PayProtected.NO_PAY_PROTECTED.type + ParamableElem.DIVIDE_PARAM);
-                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD global_notice INTEGER default " + PMSConstants.CloudSwitch.NO_DISPLAY.value + ParamableElem.DIVIDE_PARAM);
-                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD global_private INTEGER default " + PMSConstants.CloudSwitch.NO_DISPLAY.value + ParamableElem.DIVIDE_PARAM);
-                StringBuilder sb = new StringBuilder();
-                sb.append("ALTER TABLE ");
-                sb.append(d());
-                sb.append(" ADD ");
-                sb.append("pa_number");
-                sb.append(" TEXT;");
-                sQLiteDatabase.execSQL(sb.toString());
-            } catch (SQLException e) {
-                a.g("PMSDBHelperAppInfo", "#updateSwanAppTableV1115 error", e);
+            if (!TextUtils.isEmpty(this.a.b.a)) {
+                g.i("PMSDownloadTask", "#checkAndCreateFile mParam.pmsPackage.filePath 为空");
+                return true;
             }
+            File c = zk4.c(this.e.d(this.b), this.a.b.l);
+            this.c = c;
+            if (c == null) {
+                String absolutePath = le4.b().getAppContext().getCacheDir().getAbsolutePath();
+                vk4 vk4Var = g;
+                vk4Var.i("PMSDownloadTask", "#checkAndCreateFile mLocalFile=null cacheDir=" + absolutePath);
+                this.c = zk4.c(absolutePath, this.a.b.l);
+            }
+            File file = this.c;
+            if (file == null) {
+                g.i("PMSDownloadTask", "#checkAndCreateFile generateFilePath=null");
+                this.e.e(this.b, new ng4(2203, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_PATH));
+                return false;
+            }
+            this.a.b.a = file.getAbsolutePath();
+            return true;
         }
+        return invokeV.booleanValue;
     }
 
-    public final void l(SQLiteDatabase sQLiteDatabase) {
+    @SuppressLint({"ObsoleteSdkInt"})
+    public boolean j(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, sQLiteDatabase) == null) {
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
+            String d = this.e.d(this.b);
+            if (d == null) {
+                return false;
+            }
             try {
-                if (!b(sQLiteDatabase, MultiRatePlayUrlHelper.RANK)) {
-                    sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD " + MultiRatePlayUrlHelper.RANK + " INTEGER DEFAULT 0;");
+                StatFs statFs = new StatFs(d);
+                if (Build.VERSION.SDK_INT >= 18) {
+                    if (statFs.getBlockSizeLong() * statFs.getAvailableBlocksLong() <= j) {
+                        return false;
+                    }
+                    return true;
+                } else if (statFs.getBlockSize() * statFs.getAvailableBlocks() <= j) {
+                    return false;
+                } else {
+                    return true;
                 }
-                if (!b(sQLiteDatabase, "web_permit")) {
-                    sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD web_permit INTEGER DEFAULT 0;");
+            } catch (Throwable th) {
+                g.g("PMSDownloadTask", "#hasSpaceToWrite 异常或者磁盘空间不足", th);
+                return false;
+            }
+        }
+        return invokeJ.booleanValue;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            String rg4Var = this.a.b.toString();
+            g.i("PMSDownloadTask", "#run 开始下包 pkg=" + rg4Var);
+            zh4 zh4Var = new zh4(this, h());
+            while (true) {
+                ng4 ng4Var = this.a.a;
+                if (ng4Var != null && ng4Var.a == 2200) {
+                    return;
                 }
-                if (!b(sQLiteDatabase, "user_action_apis")) {
-                    sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD user_action_apis TEXT;");
+                if (this.d.get()) {
+                    g.i("PMSDownloadTask", "#run 已经取消下包 pkg=" + rg4Var);
+                    q();
+                    return;
                 }
-            } catch (SQLException e) {
-                a.g("PMSDBHelperAppInfo", "#updateSwanAppTableV1217 error", e);
-            }
-        }
-    }
-
-    public final void f(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD " + com.xiaomi.mipush.sdk.Constants.PHONE_BRAND + " TEXT;");
-            } catch (SQLException e) {
-                a.g("PMSDBHelperAppInfo", "#updateSwanAppTableV1117 error", e);
-            }
-        }
-    }
-
-    public final void i(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD cs_protocol_version INTEGER DEFAULT 0;");
-            } catch (SQLException e) {
-                a.g("PMSDBHelperAppInfo", "#updateSwanAppTableV1125 error", e);
-            }
-        }
-    }
-
-    public final void k(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD web_permit INTEGER DEFAULT 0;");
-            } catch (SQLException e) {
-                a.g("PMSDBHelperAppInfo", "#updateSwanAppTableV1215 error", e);
-            }
-        }
-    }
-
-    public final void g(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, sQLiteDatabase) == null) {
-            try {
-                String d = d();
-                sQLiteDatabase.execSQL("ALTER TABLE " + d + " ADD last_launch_time LONG DEFAULT 0;");
-                sQLiteDatabase.execSQL("ALTER TABLE " + d + " ADD launch_count INTEGER DEFAULT 0;");
-                sQLiteDatabase.execSQL("ALTER TABLE " + d + " ADD install_src INTEGER DEFAULT 0;");
-            } catch (SQLException e) {
-                a.g("PMSDBHelperAppInfo", "#updateSwanAppTableV1122 error", e);
-            }
-        }
-    }
-
-    public final void h(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD web_url TEXT;");
-                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD quick_app_key TEXT;");
-            } catch (SQLException e) {
-                a.g("PMSDBHelperAppInfo", "#updateSwanAppTableV1124 error", e);
-            }
-        }
-    }
-
-    public final void j(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("ALTER TABLE " + d() + " ADD pay_protected INTEGER default " + b + ParamableElem.DIVIDE_PARAM);
-            } catch (SQLException e) {
-                a.g("PMSDBHelperAppInfo", "#updateSwanAppTableV1180 error", e);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.uh4
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048588, this, sQLiteDatabase, i, i2) == null) {
-            while (i < i2) {
-                if (i != 1) {
-                    if (i != 4) {
-                        switch (i) {
-                            case 6:
-                                f(sQLiteDatabase);
-                                continue;
-                            case 7:
-                                g(sQLiteDatabase);
-                                continue;
-                            case 8:
-                                h(sQLiteDatabase);
-                                continue;
-                            case 9:
-                                i(sQLiteDatabase);
-                                continue;
-                            case 10:
-                                k(sQLiteDatabase);
-                                continue;
-                            case 11:
-                                l(sQLiteDatabase);
-                                continue;
+                zh4Var.b();
+                ng4 ng4Var2 = this.a.a;
+                if (ng4Var2 != null) {
+                    if (ng4Var2.a != 2200) {
+                        if (this.d.get()) {
+                            g.i("PMSDownloadTask", "#run 运行中取消下包 pkg=" + rg4Var);
+                            q();
+                            return;
+                        }
+                        this.e.b++;
+                        g.i("PMSDownloadTask", "#run 下载出错 pkg=" + rg4Var + " retryCount=" + this.e.b);
+                        if (this.e.b < 3) {
+                            try {
+                                if (!this.d.get()) {
+                                    Thread.sleep(this.e.b * 1000);
+                                }
+                            } catch (InterruptedException unused) {
+                            }
+                        } else {
+                            m();
+                            uh4 uh4Var = this.a;
+                            a(uh4Var.a.a, uh4Var.b);
+                            return;
                         }
                     } else {
-                        e(sQLiteDatabase);
+                        g.i("PMSDownloadTask", "#run 下包成功 pkg=" + rg4Var);
+                        n();
+                        return;
                     }
-                } else {
-                    j(sQLiteDatabase);
                 }
-                i++;
             }
         }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return "downloadUrl:" + this.a.b.n + ",versionName:" + this.a.b.j + ",versionCode:" + this.a.b.i + "md5:" + this.a.b.l + "bundleId:" + this.a.b.g;
+        }
+        return (String) invokeV.objValue;
     }
 }

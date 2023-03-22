@@ -1,90 +1,44 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Intent;
+import android.net.Uri;
+import androidx.core.app.NotificationManagerCompat;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ala.alasquare.live_tab.view.SdkDoubleLiveViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class p36 extends qn<t36, SdkDoubleLiveViewHolder> {
+public class p36 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public x46 b;
-    public int c;
-    public boolean d;
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public p36(TbPageContext tbPageContext, int i, boolean z) {
-        super(r0, r1);
-        BdUniqueId bdUniqueId;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Integer.valueOf(i), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        Activity pageActivity = tbPageContext.getPageActivity();
-        if (z) {
-            bdUniqueId = t36.d;
-        } else {
-            bdUniqueId = t36.c;
-        }
-        this.a = tbPageContext;
-        this.c = i;
-        this.d = z;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: s */
-    public SdkDoubleLiveViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public static boolean a(TbPageContext tbPageContext) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            this.b = new x46(this.a, viewGroup, this.c, this.d);
-            return new SdkDoubleLiveViewHolder(this.b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbPageContext)) == null) {
+            return NotificationManagerCompat.from(tbPageContext.getPageActivity()).areNotificationsEnabled();
         }
-        return (SdkDoubleLiveViewHolder) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, t36 t36Var, SdkDoubleLiveViewHolder sdkDoubleLiveViewHolder) {
-        InterceptResult invokeCommon;
-        x46 x46Var;
+    public static void b(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, t36Var, sdkDoubleLiveViewHolder})) == null) {
-            if (sdkDoubleLiveViewHolder != null && (x46Var = sdkDoubleLiveViewHolder.a) != null) {
-                x46Var.i(t36Var);
-                sdkDoubleLiveViewHolder.a.j(this.a, TbadkCoreApplication.getInst().getSkinType());
-                return sdkDoubleLiveViewHolder.getView();
+        if (interceptable == null || interceptable.invokeL(65537, null, tbPageContext) == null) {
+            try {
+                Intent intent = new Intent();
+                intent.setAction("android.settings.APP_NOTIFICATION_SETTINGS");
+                intent.putExtra("android.provider.extra.APP_PACKAGE", tbPageContext.getPageActivity().getPackageName());
+                intent.putExtra("android.provider.extra.CHANNEL_ID", tbPageContext.getPageActivity().getApplicationInfo().uid);
+                intent.putExtra("app_package", tbPageContext.getPageActivity().getPackageName());
+                intent.putExtra("app_uid", tbPageContext.getPageActivity().getApplicationInfo().uid);
+                tbPageContext.getPageActivity().startActivity(intent);
+            } catch (Exception e) {
+                e.printStackTrace();
+                Intent intent2 = new Intent();
+                intent2.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
+                intent2.setData(Uri.fromParts("package", tbPageContext.getPageActivity().getPackageName(), null));
+                tbPageContext.getPageActivity().startActivity(intent2);
             }
-            return null;
         }
-        return (View) invokeCommon.objValue;
     }
 }

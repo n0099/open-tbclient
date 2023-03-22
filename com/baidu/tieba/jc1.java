@@ -1,130 +1,173 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.app.ActivityOptions;
+import android.app.Dialog;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.NinePatch;
-import android.graphics.Rect;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.NinePatchDrawable;
-import android.os.Build;
+import android.content.DialogInterface;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.tieba.xp0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Method;
-import java.lang.reflect.Proxy;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class jc1 {
+public class jc1 extends Dialog implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public final b a;
 
-    @SuppressLint({"DiscouragedPrivateApi"})
-    public static void a(Activity activity, hc1 hc1Var) {
-        Class<?>[] declaredClasses;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, activity, hc1Var) == null) {
-            try {
-                Method declaredMethod = Activity.class.getDeclaredMethod("getActivityOptions", new Class[0]);
-                declaredMethod.setAccessible(true);
-                Object invoke = declaredMethod.invoke(activity, new Object[0]);
-                Class<?> cls = null;
-                for (Class<?> cls2 : Activity.class.getDeclaredClasses()) {
-                    if (cls2.getSimpleName().contains("TranslucentConversionListener")) {
-                        cls = cls2;
-                    }
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(boolean z);
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jc1 a;
+
+        public a(jc1 jc1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jc1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                Object newProxyInstance = Proxy.newProxyInstance(Activity.class.getClassLoader(), new Class[]{cls}, new kc1(hc1Var));
-                Method declaredMethod2 = Activity.class.getDeclaredMethod("convertToTranslucent", cls, ActivityOptions.class);
-                declaredMethod2.setAccessible(true);
-                declaredMethod2.invoke(activity, newProxyInstance, invoke);
-            } catch (Throwable unused) {
-                if (hc1Var != null) {
-                    hc1Var.onTranslucent(false);
-                }
+            }
+            this.a = jc1Var;
+        }
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                this.a.a.a(false);
             }
         }
     }
 
-    public static void b(Activity activity, hc1 hc1Var) {
-        Class<?>[] declaredClasses;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jc1(Context context, @NonNull AdBaseModel adBaseModel, @NonNull b bVar) {
+        super(context);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, activity, hc1Var) == null) {
-            try {
-                Class<?> cls = null;
-                for (Class<?> cls2 : Activity.class.getDeclaredClasses()) {
-                    if (cls2.getSimpleName().contains("TranslucentConversionListener")) {
-                        cls = cls2;
-                    }
-                }
-                Method declaredMethod = Activity.class.getDeclaredMethod("convertToTranslucent", cls);
-                declaredMethod.setAccessible(true);
-                declaredMethod.invoke(activity, null);
-                if (hc1Var != null) {
-                    hc1Var.onTranslucent(true);
-                }
-            } catch (Throwable unused) {
-                if (hc1Var != null) {
-                    hc1Var.onTranslucent(false);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, adBaseModel, bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        c(adBaseModel);
+        this.a = bVar;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            if (view2.getId() == R.id.nad_reward_stay_continue) {
+                this.a.a(false);
+            } else if (view2.getId() == R.id.nad_reward_stay_cancel) {
+                this.a.a(true);
             }
         }
     }
 
-    public static Drawable e(Context context, String str) {
-        InterceptResult invokeLL;
-        Bitmap decodeFile;
+    public final void b(AdBaseModel adBaseModel) {
+        xp0.b bVar;
+        String string;
+        String string2;
+        String string3;
+        xp0 xp0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
-            if (context == null || TextUtils.isEmpty(str) || (decodeFile = BitmapFactory.decodeFile(str)) == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, adBaseModel) == null) {
+            if (adBaseModel != null && (xp0Var = adBaseModel.p) != null) {
+                bVar = xp0Var.f;
+            } else {
+                bVar = null;
             }
-            byte[] ninePatchChunk = decodeFile.getNinePatchChunk();
-            if (NinePatch.isNinePatchChunk(ninePatchChunk)) {
-                return new NinePatchDrawable(context.getResources(), decodeFile, ninePatchChunk, new Rect(), null);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.nad_reward_stay_view, (ViewGroup) null);
+            if (bVar != null && !TextUtils.isEmpty(bVar.a)) {
+                string = bVar.a;
+            } else {
+                string = getContext().getResources().getString(R.string.nad_reward_stay_title);
             }
-            return new BitmapDrawable(context.getResources(), decodeFile);
+            if (bVar != null && !TextUtils.isEmpty(bVar.b)) {
+                string2 = bVar.b;
+            } else {
+                string2 = getContext().getResources().getString(R.string.nad_reward_stay_confirm);
+            }
+            if (bVar != null && !TextUtils.isEmpty(bVar.c)) {
+                string3 = bVar.c;
+            } else {
+                string3 = getContext().getResources().getString(R.string.nad_reward_stay_cancel);
+            }
+            ((TextView) inflate.findViewById(R.id.nad_reward_stay_content)).setText(string);
+            TextView textView = (TextView) inflate.findViewById(R.id.nad_reward_stay_continue);
+            textView.setText(string2);
+            textView.setOnClickListener(this);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.nad_reward_stay_cancel);
+            textView2.setText(string3);
+            textView2.setOnClickListener(this);
+            setContentView(inflate);
+            setOnDismissListener(new a(this));
         }
-        return (Drawable) invokeLL.objValue;
     }
 
-    public static void c(Activity activity, hc1 hc1Var) {
+    public final void c(@NonNull AdBaseModel adBaseModel) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, activity, hc1Var) == null) {
-            try {
-                Method declaredMethod = Activity.class.getDeclaredMethod("convertFromTranslucent", new Class[0]);
-                declaredMethod.setAccessible(true);
-                declaredMethod.invoke(activity, new Object[0]);
-                if (hc1Var != null) {
-                    hc1Var.onTranslucent(false);
-                }
-            } catch (Throwable unused) {
-                if (hc1Var != null) {
-                    hc1Var.onTranslucent(true);
-                }
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adBaseModel) == null) {
+            Window window = getWindow();
+            window.requestFeature(1);
+            b(adBaseModel);
+            window.getDecorView().setPadding(0, 0, 0, 0);
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            attributes.width = -1;
+            attributes.height = -2;
+            attributes.windowAnimations = R.style.obfuscated_res_0x7f1003cb;
+            attributes.gravity = 17;
+            window.setAttributes(attributes);
+            window.setBackgroundDrawableResource(17170445);
         }
     }
 
-    public static void d(Activity activity, hc1 hc1Var) {
+    @Override // android.app.Dialog
+    public void show() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, activity, hc1Var) == null) {
-            try {
-                if (Build.VERSION.SDK_INT >= 21) {
-                    a(activity, hc1Var);
-                } else {
-                    b(activity, hc1Var);
-                }
-            } catch (Throwable unused) {
-                if (hc1Var != null) {
-                    hc1Var.onTranslucent(false);
-                }
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            Window window = getWindow();
+            if (window == null) {
+                super.show();
+                return;
             }
+            window.setFlags(8, 8);
+            super.show();
+            q41.a(window);
+            window.clearFlags(8);
         }
     }
 }

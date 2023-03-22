@@ -1,73 +1,150 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes4.dex */
-public class ig2 extends jb3 {
+public class ig2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final Map<String, Integer> b;
+    public static final Object c;
+    public static boolean d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ig2(ja3 ja3Var) {
-        super(ja3Var, "/swanAPI/getRegionData");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ja3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947852469, "Lcom/baidu/tieba/ig2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947852469, "Lcom/baidu/tieba/ig2;");
                 return;
+            }
+        }
+        a = do1.a;
+        b = new HashMap();
+        c = new Object();
+        d = jg2.a();
+    }
+
+    @NonNull
+    public static Set<String> b() {
+        InterceptResult invokeV;
+        String[] strArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (!d) {
+                return Collections.emptySet();
+            }
+            synchronized (c) {
+                strArr = (String[]) b.keySet().toArray(new String[0]);
+            }
+            return xl3.a(strArr);
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65537, null) != null) || !d) {
+            return;
+        }
+        if (a) {
+            Log.d("ExcludeRecorder", "remove all exclude appIds");
+        }
+        synchronized (c) {
+            b.clear();
+        }
+    }
+
+    public static boolean c(String str) {
+        InterceptResult invokeL;
+        boolean containsKey;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (!d || TextUtils.isEmpty(str)) {
+                return false;
+            }
+            synchronized (c) {
+                containsKey = b.containsKey(str);
+            }
+            if (a) {
+                Log.d("ExcludeRecorder", "appId - " + str + " needExclude - " + containsKey);
+            }
+            return containsKey;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) != null) || !d) {
+            return;
+        }
+        if (a) {
+            Log.d("ExcludeRecorder", "record one appId for exclude - " + str);
+        }
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        synchronized (c) {
+            Integer num = b.get(str);
+            if (num == null) {
+                b.put(str, 1);
+            } else {
+                b.put(str, Integer.valueOf(num.intValue() + 1));
             }
         }
     }
 
-    @Override // com.baidu.tieba.jb3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m93 m93Var) {
-        InterceptResult invokeLLLL;
+    public static void f(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, m93Var)) == null) {
-            if (m93Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
-                return false;
-            }
-            String b = xl3.b(context, "aiapps/pickerRegion.js");
-            if (TextUtils.isEmpty(b)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty regionData");
-                return false;
-            }
-            try {
-                JSONArray jSONArray = new JSONArray(b);
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("content", jSONArray);
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                return true;
-            } catch (JSONException e) {
-                if (jb3.b) {
-                    e.printStackTrace();
+        if ((interceptable != null && interceptable.invokeL(65542, null, str) != null) || !d) {
+            return;
+        }
+        if (a) {
+            Log.d("ExcludeRecorder", "remove one appId for exclude - " + str);
+        }
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        synchronized (c) {
+            Integer num = b.get(str);
+            if (num != null) {
+                int intValue = num.intValue() - 1;
+                if (intValue <= 0) {
+                    b.remove(str);
+                } else {
+                    b.put(str, Integer.valueOf(intValue));
                 }
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "exec fail");
-                return false;
             }
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public static void e(bl4 bl4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65541, null, bl4Var) == null) && d && bl4Var != null) {
+            for (rg4 rg4Var : bl4Var.j()) {
+                if (rg4Var instanceof sg4) {
+                    d(rg4Var.g);
+                } else if (rg4Var instanceof tg4) {
+                    d(((tg4) rg4Var).o);
+                }
+            }
+        }
     }
 }

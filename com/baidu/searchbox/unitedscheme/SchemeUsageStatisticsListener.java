@@ -17,7 +17,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @UpdateAction(action = SchemeUsageStatisticsListener.STATISTIC_SWITCH_ACTION, module = "scheme")
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SchemeUsageStatisticsListener extends JSONObjectCommandListener {
     public static final String JSINTERFACE_SWITCH_LIST = "jsinterface_switch_list";
     public static final String SCHEME_SWITCH_LIST = "scheme_switch_list";

@@ -5,7 +5,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import androidx.annotation.Nullable;
-import com.baidu.tieba.gt0;
+import com.baidu.tieba.wr0;
 import java.util.Locale;
 /* loaded from: classes2.dex */
 public class NetUtils {
@@ -36,7 +36,7 @@ public class NetUtils {
     @SuppressLint({"MissingPermission"})
     public static NetworkInfo b() {
         ConnectivityManager connectivityManager;
-        Context b = gt0.b();
+        Context b = wr0.b();
         if (b == null || (connectivityManager = (ConnectivityManager) b.getSystemService("connectivity")) == null) {
             return null;
         }

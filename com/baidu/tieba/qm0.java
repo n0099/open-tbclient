@@ -1,51 +1,39 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import com.baidu.nadcore.download.view.IDownloadViewCreator;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes5.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes6.dex */
 public class qm0 {
     public static /* synthetic */ Interceptable $ic;
-    public static IDownloadViewCreator a;
     public transient /* synthetic */ FieldHolder $fh;
+    @Inject(force = false)
+    public dj1<om0> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948096501, "Lcom/baidu/tieba/qm0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948096501, "Lcom/baidu/tieba/qm0;");
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            bj1 b = bj1.b();
+            this.a = b;
+            b.a(new pm0());
         }
     }
 
-    public static zl0<?> a(@NonNull ViewGroup viewGroup, IDownloadViewCreator.ViewType viewType) {
-        InterceptResult invokeLL;
+    public qm0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, viewGroup, viewType)) == null) {
-            if (a == null) {
-                synchronized (gj0.class) {
-                    if (a == null) {
-                        a = (IDownloadViewCreator) ServiceManager.getService(IDownloadViewCreator.a);
-                    }
-                    if (a == null) {
-                        a = IDownloadViewCreator.b;
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return a.a(viewGroup, viewType);
         }
-        return (zl0) invokeLL.objValue;
+        a();
     }
 }

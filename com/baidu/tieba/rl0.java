@@ -1,10 +1,10 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.download.consts.AdDownloadStatus;
-import com.baidu.tieba.ll0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,21 +12,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import org.json.JSONObject;
+import java.util.concurrent.ConcurrentLinkedQueue;
 /* loaded from: classes6.dex */
-public class rl0 extends ql0 {
+public class rl0 extends Handler implements pl0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final gl0 e;
-    public HashMap<String, b> f;
+    public final ConcurrentLinkedQueue<b<?>> a;
+    public boolean b;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
+        public static final rl0 a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -42,167 +39,107 @@ public class rl0 extends ql0 {
                     return;
                 }
             }
-            int[] iArr = new int[AdDownloadStatus.values().length];
-            a = iArr;
-            try {
-                iArr[AdDownloadStatus.NONE.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[AdDownloadStatus.DOWNLOADING.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[AdDownloadStatus.PAUSE.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[AdDownloadStatus.COMPLETED.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-            try {
-                a[AdDownloadStatus.FAILED.ordinal()] = 5;
-            } catch (NoSuchFieldError unused5) {
-            }
+            a = new rl0();
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class b {
+    public static class b<T extends nl0> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
+        public final ql0<T> a;
+        public final T b;
 
-        public b() {
+        public b(sl0 sl0Var, ql0<T> ql0Var, T t) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sl0Var, ql0Var, t};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = ql0Var;
+            this.b = t;
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rl0(@NonNull gl0 gl0Var) {
-        super(gl0Var);
+    public rl0() {
+        super(Looper.getMainLooper());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {gl0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((gl0) newInitContext.callArgs[0]);
+                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = new HashMap<>();
-        this.e = gl0Var;
-        this.c = new wl0(this);
+        this.a = new ConcurrentLinkedQueue<>();
+        this.b = false;
     }
 
-    @NonNull
-    public gl0 t() {
+    public static pl0 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.a;
         }
-        return (gl0) invokeV.objValue;
+        return (pl0) invokeV.objValue;
     }
 
-    public void v() {
+    @Override // com.baidu.tieba.pl0
+    public <T extends nl0> void a(sl0 sl0Var, ql0<T> ql0Var, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            n(this.c);
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, sl0Var, ql0Var, t) == null) {
+            if (wi0.a()) {
+                ql0Var.onEvent(t);
+                return;
+            }
+            synchronized (this) {
+                this.a.offer(new b<>(sl0Var, ql0Var, t));
+                if (!this.b) {
+                    sendMessage(Message.obtain());
+                }
+            }
         }
     }
 
-    public String u() {
-        InterceptResult invokeV;
+    @Override // android.os.Handler
+    public void handleMessage(@NonNull Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int i = a.a[this.e.c.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            if (i != 5) {
-                                return "0";
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
+            try {
+                long currentTimeMillis = System.currentTimeMillis();
+                do {
+                    b<?> poll = this.a.poll();
+                    if (poll == null) {
+                        synchronized (this) {
+                            poll = this.a.poll();
+                            if (poll == null) {
+                                this.b = false;
+                                return;
                             }
-                            return "4";
                         }
-                        gl0 gl0Var = this.e;
-                        gl0Var.i = 1.0f;
-                        gl0Var.j = 1.0f;
-                        return "3";
                     }
-                    return "2";
-                }
-                return "1";
+                    poll.a.onEvent(poll.b);
+                } while (System.currentTimeMillis() - currentTimeMillis < 5);
+                sendMessage(Message.obtain());
+                this.b = true;
+            } finally {
+                this.b = false;
             }
-            gl0 gl0Var2 = this.e;
-            gl0Var2.i = 0.0f;
-            gl0Var2.j = 0.0f;
-            return "0";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void w(String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048579, this, str, str2, str3, str4) == null) {
-            ll0 ll0Var = new ll0();
-            ArrayList arrayList = new ArrayList();
-            JSONObject jSONObject = new JSONObject();
-            String a2 = lm0.a(str, str2, str3, str4);
-            f21.f(jSONObject, "status", "0");
-            f21.f(jSONObject, "message", "");
-            f21.f(jSONObject, "data", a2);
-            for (String str5 : this.f.keySet()) {
-                b bVar = (b) g21.b(this.f, str5);
-                if (bVar != null && !TextUtils.isEmpty(bVar.a)) {
-                    ll0.a aVar = new ll0.a();
-                    aVar.b = bVar.b;
-                    aVar.a = bVar.a;
-                    aVar.c = jSONObject.toString();
-                    e21.b(arrayList, aVar);
-                }
-            }
-            if (!arrayList.isEmpty()) {
-                ll0Var.a = arrayList;
-                wm0.a().a(ll0Var);
-            }
-        }
-    }
-
-    public void x(String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(1048580, this, str, str2, str3, str4) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            String str5 = str + "_" + str4 + "_" + str3 + "_" + str2;
-            this.f.remove(str5);
-            b bVar = new b();
-            bVar.b = str;
-            bVar.a = str2;
-            this.f.put(str5, bVar);
-        }
-    }
-
-    public void y(String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(1048581, this, str, str2, str3, str4) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str3) && !TextUtils.isEmpty(str4)) {
-            this.f.remove(str + "_" + str4 + "_" + str3 + "_" + str2);
         }
     }
 }

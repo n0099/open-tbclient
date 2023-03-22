@@ -1,143 +1,152 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
+import android.net.SSLCertificateSocketFactory;
+import android.os.Build;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.net.InetAddress;
+import java.net.Socket;
+import java.net.UnknownHostException;
+import java.security.cert.X509Certificate;
+import javax.net.ssl.HostnameVerifier;
+import javax.net.ssl.HttpsURLConnection;
+import javax.net.ssl.SSLPeerUnverifiedException;
+import javax.net.ssl.SSLSession;
+import javax.net.ssl.SSLSocket;
+import javax.net.ssl.SSLSocketFactory;
+import okhttp3.CertificatePinner;
+import okhttp3.Handshake;
+import okhttp3.internal.tls.OkHostnameVerifier;
 /* loaded from: classes5.dex */
-public class pf extends af<String> {
+public class pf extends SSLSocketFactory {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public HostnameVerifier b;
+    public HttpsURLConnection c;
 
-    @Override // com.baidu.tieba.af
-    public int g() {
+    @Override // javax.net.SocketFactory
+    public Socket createSocket() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
         }
-        return invokeV.intValue;
+        return (Socket) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.af
-    public void k(String str, String str2, int i, int i2) {
+    @Override // javax.net.SocketFactory
+    public Socket createSocket(String str, int i) throws IOException, UnknownHostException {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(1048579, this, str, str2, i, i2) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
+            return null;
         }
+        return (Socket) invokeLI.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pf(fa faVar) {
-        super(faVar);
+    @Override // javax.net.SocketFactory
+    public Socket createSocket(String str, int i, InetAddress inetAddress, int i2) throws IOException, UnknownHostException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Integer.valueOf(i), inetAddress, Integer.valueOf(i2)})) == null) {
+            return null;
+        }
+        return (Socket) invokeCommon.objValue;
+    }
+
+    @Override // javax.net.SocketFactory
+    public Socket createSocket(InetAddress inetAddress, int i) throws IOException {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, inetAddress, i)) == null) {
+            return null;
+        }
+        return (Socket) invokeLI.objValue;
+    }
+
+    @Override // javax.net.SocketFactory
+    public Socket createSocket(InetAddress inetAddress, int i, InetAddress inetAddress2, int i2) throws IOException {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{inetAddress, Integer.valueOf(i), inetAddress2, Integer.valueOf(i2)})) == null) {
+            return null;
+        }
+        return (Socket) invokeCommon.objValue;
+    }
+
+    @Override // javax.net.ssl.SSLSocketFactory
+    public String[] getDefaultCipherSuites() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? new String[0] : (String[]) invokeV.objValue;
+    }
+
+    @Override // javax.net.ssl.SSLSocketFactory
+    public String[] getSupportedCipherSuites() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? new String[0] : (String[]) invokeV.objValue;
+    }
+
+    public pf(HttpsURLConnection httpsURLConnection) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {faVar};
+            Object[] objArr = {httpsURLConnection};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((fa) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = pf.class.getSimpleName();
+        this.b = HttpsURLConnection.getDefaultHostnameVerifier();
+        this.c = httpsURLConnection;
     }
 
-    @Override // com.baidu.tieba.af
-    public boolean d(String str) {
-        InterceptResult invokeL;
+    @Override // javax.net.ssl.SSLSocketFactory
+    public Socket createSocket(Socket socket, String str, int i, boolean z) throws IOException {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            fa faVar = this.a;
-            faVar.d("DROP TABLE IF EXISTS " + this.b);
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    /* JADX WARN: Type inference failed for: r0v12, types: [T, java.lang.String] */
-    @Override // com.baidu.tieba.af
-    public ef<String> i(SQLiteDatabase sQLiteDatabase, String str) throws Throwable {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase, str)) == null) {
-            Cursor cursor = null;
-            try {
-                Cursor rawQuery = sQLiteDatabase.rawQuery("SELECT m_key, saveTime, lastHitTime, timeToExpire, m_value  FROM " + this.b + " where m_key = ?", new String[]{str});
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{socket, str, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            String requestProperty = this.c.getRequestProperty("Host");
+            if (requestProperty != null) {
+                str = requestProperty;
+            }
+            InetAddress inetAddress = socket.getInetAddress();
+            if (z) {
+                socket.close();
+            }
+            SSLCertificateSocketFactory sSLCertificateSocketFactory = (SSLCertificateSocketFactory) SSLCertificateSocketFactory.getDefault(0);
+            SSLSocket sSLSocket = (SSLSocket) sSLCertificateSocketFactory.createSocket(inetAddress, i);
+            sSLSocket.setEnabledProtocols(sSLSocket.getSupportedProtocols());
+            if (Build.VERSION.SDK_INT >= 17) {
+                sSLCertificateSocketFactory.setHostname(sSLSocket, str);
+            } else {
                 try {
-                    if (rawQuery.moveToNext()) {
-                        ef<String> efVar = new ef<>();
-                        efVar.a = rawQuery.getString(0);
-                        efVar.d = rawQuery.getLong(1);
-                        efVar.e = rawQuery.getLong(2);
-                        efVar.f = rawQuery.getLong(3);
-                        efVar.b = rawQuery.getString(4);
-                        ch.a(rawQuery);
-                        return efVar;
-                    }
-                    ch.a(rawQuery);
-                    return null;
-                } catch (Throwable th) {
-                    th = th;
-                    cursor = rawQuery;
-                    ch.a(cursor);
-                    throw th;
+                    sSLSocket.getClass().getMethod("setHostname", String.class).invoke(sSLSocket, str);
+                } catch (Exception e) {
+                    Log.w(this.a, " SNI Setting failed", e);
                 }
-            } catch (Throwable th2) {
-                th = th2;
             }
-        } else {
-            return (ef) invokeLL.objValue;
-        }
-    }
-
-    @Override // com.baidu.tieba.af
-    public String l(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            int hashCode = str.hashCode();
-            if (hashCode < 0) {
-                hashCode *= -1;
+            SSLSession session = sSLSocket.getSession();
+            if (this.b.verify(str, session)) {
+                return sSLSocket;
             }
-            String str2 = "cache_kv_t" + hashCode;
-            this.a.d("CREATE TABLE IF NOT EXISTS " + str2 + "(m_key VARCHAR(64) PRIMARY KEY, saveTime bigint(21) default 0, lastHitTime bigint(21) default 0, timeToExpire bigint(21) default 0, m_value text)");
-            return str2;
+            X509Certificate x509Certificate = (X509Certificate) Handshake.get(session).peerCertificates().get(0);
+            throw new SSLPeerUnverifiedException("Hostname " + str + " not verified:\n    certificate: " + CertificatePinner.pin(x509Certificate) + "\n    DN: " + x509Certificate.getSubjectDN().getName() + "\n    subjectAltNames: " + OkHostnameVerifier.allSubjectAltNames(x509Certificate));
         }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.af
-    public ContentValues p(ef<String> efVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, efVar)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("m_key", efVar.a);
-            contentValues.put("m_value", efVar.b);
-            contentValues.put("saveTime", Long.valueOf(efVar.d));
-            contentValues.put("lastHitTime", Long.valueOf(efVar.e));
-            contentValues.put("timeToExpire", Long.valueOf(efVar.f));
-            return contentValues;
-        }
-        return (ContentValues) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.af
-    public Cursor q(SQLiteDatabase sQLiteDatabase, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, sQLiteDatabase, str)) == null) {
-            return sQLiteDatabase.rawQuery("select * from " + this.b, new String[0]);
-        }
-        return (Cursor) invokeLL.objValue;
+        return (Socket) invokeCommon.objValue;
     }
 }

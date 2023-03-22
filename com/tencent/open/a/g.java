@@ -137,91 +137,91 @@ public class g {
                     java.lang.String r1 = "https://wspeed.qq.com/w.cgi"
                     java.lang.String r2 = "-->doReportCgi, doupload exception"
                     java.lang.String r3 = "openSDK_LOG.ReportManager"
-                    com.tencent.open.a.g r4 = com.tencent.open.a.g.this     // Catch: java.lang.Exception -> Lb9
-                    android.os.Bundle r4 = r4.c()     // Catch: java.lang.Exception -> Lb9
-                    if (r4 != 0) goto L12
+                    com.tencent.open.a.g r4 = com.tencent.open.a.g.this     // Catch: java.lang.Exception -> Lb8
+                    android.os.Bundle r4 = r4.c()     // Catch: java.lang.Exception -> Lb8
+                    if (r4 != 0) goto L11
                     return
-                L12:
-                    android.content.Context r5 = com.tencent.open.utils.f.a()     // Catch: java.lang.Exception -> Lb9
+                L11:
+                    android.content.Context r5 = com.tencent.open.utils.f.a()     // Catch: java.lang.Exception -> Lb8
                     r6 = 0
-                    com.tencent.open.utils.g r5 = com.tencent.open.utils.g.a(r5, r6)     // Catch: java.lang.Exception -> Lb9
+                    com.tencent.open.utils.g r5 = com.tencent.open.utils.g.a(r5, r6)     // Catch: java.lang.Exception -> Lb8
                     java.lang.String r7 = "Common_HttpRetryCount"
-                    int r5 = r5.a(r7)     // Catch: java.lang.Exception -> Lb9
-                    if (r5 != 0) goto L24
+                    int r5 = r5.a(r7)     // Catch: java.lang.Exception -> Lb8
+                    if (r5 != 0) goto L23
                     r5 = 3
-                L24:
-                    java.lang.StringBuilder r7 = new java.lang.StringBuilder     // Catch: java.lang.Exception -> Lb9
-                    r7.<init>()     // Catch: java.lang.Exception -> Lb9
+                L23:
+                    java.lang.StringBuilder r7 = new java.lang.StringBuilder     // Catch: java.lang.Exception -> Lb8
+                    r7.<init>()     // Catch: java.lang.Exception -> Lb8
                     java.lang.String r8 = "-->doReportCgi, retryCount: "
-                    r7.append(r8)     // Catch: java.lang.Exception -> Lb9
-                    r7.append(r5)     // Catch: java.lang.Exception -> Lb9
-                    java.lang.String r7 = r7.toString()     // Catch: java.lang.Exception -> Lb9
-                    com.tencent.open.log.SLog.d(r3, r7)     // Catch: java.lang.Exception -> Lb9
+                    r7.append(r8)     // Catch: java.lang.Exception -> Lb8
+                    r7.append(r5)     // Catch: java.lang.Exception -> Lb8
+                    java.lang.String r7 = r7.toString()     // Catch: java.lang.Exception -> Lb8
+                    com.tencent.open.log.SLog.d(r3, r7)     // Catch: java.lang.Exception -> Lb8
                     r7 = 0
                     r8 = 0
-                L3a:
+                L39:
                     r9 = 1
                     int r8 = r8 + r9
-                    android.content.Context r10 = com.tencent.open.utils.f.a()     // Catch: java.lang.Exception -> L94 java.net.SocketTimeoutException -> L99 org.apache.http.conn.ConnectTimeoutException -> L9e
-                    org.apache.http.client.HttpClient r10 = com.tencent.open.utils.HttpUtils.getHttpClient(r10, r6, r1)     // Catch: java.lang.Exception -> L94 java.net.SocketTimeoutException -> L99 org.apache.http.conn.ConnectTimeoutException -> L9e
-                    org.apache.http.client.methods.HttpPost r11 = new org.apache.http.client.methods.HttpPost     // Catch: java.lang.Exception -> L94 java.net.SocketTimeoutException -> L99 org.apache.http.conn.ConnectTimeoutException -> L9e
-                    r11.<init>(r1)     // Catch: java.lang.Exception -> L94 java.net.SocketTimeoutException -> L99 org.apache.http.conn.ConnectTimeoutException -> L9e
+                    android.content.Context r10 = com.tencent.open.utils.f.a()     // Catch: java.lang.Exception -> L93 java.net.SocketTimeoutException -> L98 org.apache.http.conn.ConnectTimeoutException -> L9d
+                    org.apache.http.client.HttpClient r10 = com.tencent.open.utils.HttpUtils.getHttpClient(r10, r6, r1)     // Catch: java.lang.Exception -> L93 java.net.SocketTimeoutException -> L98 org.apache.http.conn.ConnectTimeoutException -> L9d
+                    org.apache.http.client.methods.HttpPost r11 = new org.apache.http.client.methods.HttpPost     // Catch: java.lang.Exception -> L93 java.net.SocketTimeoutException -> L98 org.apache.http.conn.ConnectTimeoutException -> L9d
+                    r11.<init>(r1)     // Catch: java.lang.Exception -> L93 java.net.SocketTimeoutException -> L98 org.apache.http.conn.ConnectTimeoutException -> L9d
                     java.lang.String r12 = "Accept-Encoding"
                     java.lang.String r13 = "gzip"
-                    r11.addHeader(r12, r13)     // Catch: java.lang.Exception -> L94 java.net.SocketTimeoutException -> L99 org.apache.http.conn.ConnectTimeoutException -> L9e
+                    r11.addHeader(r12, r13)     // Catch: java.lang.Exception -> L93 java.net.SocketTimeoutException -> L98 org.apache.http.conn.ConnectTimeoutException -> L9d
                     java.lang.String r12 = "Content-Type"
                     java.lang.String r13 = "application/x-www-form-urlencoded"
-                    r11.setHeader(r12, r13)     // Catch: java.lang.Exception -> L94 java.net.SocketTimeoutException -> L99 org.apache.http.conn.ConnectTimeoutException -> L9e
-                    java.lang.String r12 = com.tencent.open.utils.HttpUtils.encodeUrl(r4)     // Catch: java.lang.Exception -> L94 java.net.SocketTimeoutException -> L99 org.apache.http.conn.ConnectTimeoutException -> L9e
-                    byte[] r12 = com.tencent.open.utils.l.i(r12)     // Catch: java.lang.Exception -> L94 java.net.SocketTimeoutException -> L99 org.apache.http.conn.ConnectTimeoutException -> L9e
-                    org.apache.http.entity.ByteArrayEntity r13 = new org.apache.http.entity.ByteArrayEntity     // Catch: java.lang.Exception -> L94 java.net.SocketTimeoutException -> L99 org.apache.http.conn.ConnectTimeoutException -> L9e
-                    r13.<init>(r12)     // Catch: java.lang.Exception -> L94 java.net.SocketTimeoutException -> L99 org.apache.http.conn.ConnectTimeoutException -> L9e
-                    r11.setEntity(r13)     // Catch: java.lang.Exception -> L94 java.net.SocketTimeoutException -> L99 org.apache.http.conn.ConnectTimeoutException -> L9e
-                    org.apache.http.HttpResponse r10 = r10.execute(r11)     // Catch: java.lang.Exception -> L94 java.net.SocketTimeoutException -> L99 org.apache.http.conn.ConnectTimeoutException -> L9e
-                    org.apache.http.StatusLine r10 = r10.getStatusLine()     // Catch: java.lang.Exception -> L94 java.net.SocketTimeoutException -> L99 org.apache.http.conn.ConnectTimeoutException -> L9e
-                    int r10 = r10.getStatusCode()     // Catch: java.lang.Exception -> L94 java.net.SocketTimeoutException -> L99 org.apache.http.conn.ConnectTimeoutException -> L9e
-                    java.lang.StringBuilder r11 = new java.lang.StringBuilder     // Catch: java.lang.Exception -> L94 java.net.SocketTimeoutException -> L99 org.apache.http.conn.ConnectTimeoutException -> L9e
-                    r11.<init>()     // Catch: java.lang.Exception -> L94 java.net.SocketTimeoutException -> L99 org.apache.http.conn.ConnectTimeoutException -> L9e
+                    r11.setHeader(r12, r13)     // Catch: java.lang.Exception -> L93 java.net.SocketTimeoutException -> L98 org.apache.http.conn.ConnectTimeoutException -> L9d
+                    java.lang.String r12 = com.tencent.open.utils.HttpUtils.encodeUrl(r4)     // Catch: java.lang.Exception -> L93 java.net.SocketTimeoutException -> L98 org.apache.http.conn.ConnectTimeoutException -> L9d
+                    byte[] r12 = com.tencent.open.utils.l.i(r12)     // Catch: java.lang.Exception -> L93 java.net.SocketTimeoutException -> L98 org.apache.http.conn.ConnectTimeoutException -> L9d
+                    org.apache.http.entity.ByteArrayEntity r13 = new org.apache.http.entity.ByteArrayEntity     // Catch: java.lang.Exception -> L93 java.net.SocketTimeoutException -> L98 org.apache.http.conn.ConnectTimeoutException -> L9d
+                    r13.<init>(r12)     // Catch: java.lang.Exception -> L93 java.net.SocketTimeoutException -> L98 org.apache.http.conn.ConnectTimeoutException -> L9d
+                    r11.setEntity(r13)     // Catch: java.lang.Exception -> L93 java.net.SocketTimeoutException -> L98 org.apache.http.conn.ConnectTimeoutException -> L9d
+                    org.apache.http.HttpResponse r10 = r10.execute(r11)     // Catch: java.lang.Exception -> L93 java.net.SocketTimeoutException -> L98 org.apache.http.conn.ConnectTimeoutException -> L9d
+                    org.apache.http.StatusLine r10 = r10.getStatusLine()     // Catch: java.lang.Exception -> L93 java.net.SocketTimeoutException -> L98 org.apache.http.conn.ConnectTimeoutException -> L9d
+                    int r10 = r10.getStatusCode()     // Catch: java.lang.Exception -> L93 java.net.SocketTimeoutException -> L98 org.apache.http.conn.ConnectTimeoutException -> L9d
+                    java.lang.StringBuilder r11 = new java.lang.StringBuilder     // Catch: java.lang.Exception -> L93 java.net.SocketTimeoutException -> L98 org.apache.http.conn.ConnectTimeoutException -> L9d
+                    r11.<init>()     // Catch: java.lang.Exception -> L93 java.net.SocketTimeoutException -> L98 org.apache.http.conn.ConnectTimeoutException -> L9d
                     java.lang.String r12 = "-->doReportCgi, statusCode: "
-                    r11.append(r12)     // Catch: java.lang.Exception -> L94 java.net.SocketTimeoutException -> L99 org.apache.http.conn.ConnectTimeoutException -> L9e
-                    r11.append(r10)     // Catch: java.lang.Exception -> L94 java.net.SocketTimeoutException -> L99 org.apache.http.conn.ConnectTimeoutException -> L9e
-                    java.lang.String r11 = r11.toString()     // Catch: java.lang.Exception -> L94 java.net.SocketTimeoutException -> L99 org.apache.http.conn.ConnectTimeoutException -> L9e
-                    com.tencent.open.log.SLog.d(r3, r11)     // Catch: java.lang.Exception -> L94 java.net.SocketTimeoutException -> L99 org.apache.http.conn.ConnectTimeoutException -> L9e
+                    r11.append(r12)     // Catch: java.lang.Exception -> L93 java.net.SocketTimeoutException -> L98 org.apache.http.conn.ConnectTimeoutException -> L9d
+                    r11.append(r10)     // Catch: java.lang.Exception -> L93 java.net.SocketTimeoutException -> L98 org.apache.http.conn.ConnectTimeoutException -> L9d
+                    java.lang.String r11 = r11.toString()     // Catch: java.lang.Exception -> L93 java.net.SocketTimeoutException -> L98 org.apache.http.conn.ConnectTimeoutException -> L9d
+                    com.tencent.open.log.SLog.d(r3, r11)     // Catch: java.lang.Exception -> L93 java.net.SocketTimeoutException -> L98 org.apache.http.conn.ConnectTimeoutException -> L9d
                     r11 = 200(0xc8, float:2.8E-43)
-                    if (r10 != r11) goto La4
-                    com.tencent.open.a.f r10 = com.tencent.open.a.f.a()     // Catch: java.lang.Exception -> L94 java.net.SocketTimeoutException -> L99 org.apache.http.conn.ConnectTimeoutException -> L9e
-                    r10.b(r0)     // Catch: java.lang.Exception -> L94 java.net.SocketTimeoutException -> L99 org.apache.http.conn.ConnectTimeoutException -> L9e
+                    if (r10 != r11) goto La3
+                    com.tencent.open.a.f r10 = com.tencent.open.a.f.a()     // Catch: java.lang.Exception -> L93 java.net.SocketTimeoutException -> L98 org.apache.http.conn.ConnectTimeoutException -> L9d
+                    r10.b(r0)     // Catch: java.lang.Exception -> L93 java.net.SocketTimeoutException -> L98 org.apache.http.conn.ConnectTimeoutException -> L9d
                     r7 = 1
-                    goto La4
-                L94:
+                    goto La3
+                L93:
                     r1 = move-exception
-                    com.tencent.open.log.SLog.e(r3, r2, r1)     // Catch: java.lang.Exception -> Lb9
-                    goto La4
-                L99:
+                    com.tencent.open.log.SLog.e(r3, r2, r1)     // Catch: java.lang.Exception -> Lb8
+                    goto La3
+                L98:
                     r9 = move-exception
-                    com.tencent.open.log.SLog.e(r3, r2, r9)     // Catch: java.lang.Exception -> Lb9
-                    goto La2
-                L9e:
+                    com.tencent.open.log.SLog.e(r3, r2, r9)     // Catch: java.lang.Exception -> Lb8
+                    goto La1
+                L9d:
                     r9 = move-exception
-                    com.tencent.open.log.SLog.e(r3, r2, r9)     // Catch: java.lang.Exception -> Lb9
-                La2:
-                    if (r8 < r5) goto L3a
-                La4:
-                    if (r7 != 0) goto Lb1
-                    com.tencent.open.a.f r1 = com.tencent.open.a.f.a()     // Catch: java.lang.Exception -> Lb9
-                    com.tencent.open.a.g r2 = com.tencent.open.a.g.this     // Catch: java.lang.Exception -> Lb9
-                    java.util.List<java.io.Serializable> r2 = r2.c     // Catch: java.lang.Exception -> Lb9
-                    r1.a(r0, r2)     // Catch: java.lang.Exception -> Lb9
-                Lb1:
-                    com.tencent.open.a.g r0 = com.tencent.open.a.g.this     // Catch: java.lang.Exception -> Lb9
-                    java.util.List<java.io.Serializable> r0 = r0.c     // Catch: java.lang.Exception -> Lb9
-                    r0.clear()     // Catch: java.lang.Exception -> Lb9
-                    goto Lbf
-                Lb9:
+                    com.tencent.open.log.SLog.e(r3, r2, r9)     // Catch: java.lang.Exception -> Lb8
+                La1:
+                    if (r8 < r5) goto L39
+                La3:
+                    if (r7 != 0) goto Lb0
+                    com.tencent.open.a.f r1 = com.tencent.open.a.f.a()     // Catch: java.lang.Exception -> Lb8
+                    com.tencent.open.a.g r2 = com.tencent.open.a.g.this     // Catch: java.lang.Exception -> Lb8
+                    java.util.List<java.io.Serializable> r2 = r2.c     // Catch: java.lang.Exception -> Lb8
+                    r1.a(r0, r2)     // Catch: java.lang.Exception -> Lb8
+                Lb0:
+                    com.tencent.open.a.g r0 = com.tencent.open.a.g.this     // Catch: java.lang.Exception -> Lb8
+                    java.util.List<java.io.Serializable> r0 = r0.c     // Catch: java.lang.Exception -> Lb8
+                    r0.clear()     // Catch: java.lang.Exception -> Lb8
+                    goto Lbe
+                Lb8:
                     r0 = move-exception
                     java.lang.String r1 = "-->doReportCgi, doupload exception out."
                     com.tencent.open.log.SLog.e(r3, r1, r0)
-                Lbf:
+                Lbe:
                     return
                 */
                 throw new UnsupportedOperationException("Method not decompiled: com.tencent.open.a.g.AnonymousClass4.run():void");
@@ -231,9 +231,9 @@ public class g {
 
     public void e() {
         this.g.execute(new Runnable() { // from class: com.tencent.open.a.g.5
-            /* JADX WARN: Removed duplicated region for block: B:36:0x00c5 A[Catch: Exception -> 0x00f4, TRY_ENTER, TryCatch #7 {Exception -> 0x00f4, blocks: (B:3:0x0004, B:6:0x000d, B:33:0x00b2, B:36:0x00c5, B:38:0x00d8, B:37:0x00cd, B:21:0x006d, B:26:0x0087, B:30:0x009c, B:31:0x00a6, B:9:0x0038, B:10:0x004a, B:14:0x0055, B:17:0x0060), top: B:48:0x0004, inners: #10, #8, #7 }] */
-            /* JADX WARN: Removed duplicated region for block: B:37:0x00cd A[Catch: Exception -> 0x00f4, TryCatch #7 {Exception -> 0x00f4, blocks: (B:3:0x0004, B:6:0x000d, B:33:0x00b2, B:36:0x00c5, B:38:0x00d8, B:37:0x00cd, B:21:0x006d, B:26:0x0087, B:30:0x009c, B:31:0x00a6, B:9:0x0038, B:10:0x004a, B:14:0x0055, B:17:0x0060), top: B:48:0x0004, inners: #10, #8, #7 }] */
-            /* JADX WARN: Removed duplicated region for block: B:51:0x00b2 A[SYNTHETIC] */
+            /* JADX WARN: Removed duplicated region for block: B:36:0x00c3 A[Catch: Exception -> 0x00f2, TRY_ENTER, TryCatch #8 {Exception -> 0x00f2, blocks: (B:3:0x0004, B:6:0x000d, B:33:0x00b1, B:36:0x00c3, B:38:0x00d6, B:37:0x00cb, B:21:0x006c, B:26:0x0086, B:30:0x009b, B:31:0x00a5, B:9:0x0038, B:10:0x004a, B:14:0x0054, B:17:0x005f), top: B:48:0x0004, inners: #10, #8, #7 }] */
+            /* JADX WARN: Removed duplicated region for block: B:37:0x00cb A[Catch: Exception -> 0x00f2, TryCatch #8 {Exception -> 0x00f2, blocks: (B:3:0x0004, B:6:0x000d, B:33:0x00b1, B:36:0x00c3, B:38:0x00d6, B:37:0x00cb, B:21:0x006c, B:26:0x0086, B:30:0x009b, B:31:0x00a5, B:9:0x0038, B:10:0x004a, B:14:0x0054, B:17:0x005f), top: B:48:0x0004, inners: #10, #8, #7 }] */
+            /* JADX WARN: Removed duplicated region for block: B:51:0x00b1 A[SYNTHETIC] */
             @Override // java.lang.Runnable
             /*
                 Code decompiled incorrectly, please refer to instructions dump.
@@ -287,10 +287,15 @@ public class g {
                                         SLog.d("openSDK_LOG.ReportManager", "-->doReportVia, uploadSuccess: " + z);
                                     }
                                 }
-                            } catch (HttpUtils.NetworkUnavailableException unused3) {
-                                g.this.d.clear();
-                                SLog.d("openSDK_LOG.ReportManager", "doReportVia, NetworkUnavailableException.");
-                                return;
+                            } catch (SocketTimeoutException unused3) {
+                                elapsedRealtime = SystemClock.elapsedRealtime();
+                                i2 = i4;
+                                i3 = -8;
+                                j = 0;
+                                j2 = 0;
+                                continue;
+                                if (i2 >= a2) {
+                                }
                             } catch (IOException e) {
                                 i3 = HttpUtils.getErrorCodeFromException(e);
                                 i2 = i4;
@@ -305,15 +310,10 @@ public class g {
                                 i3 = Integer.parseInt(e2.getMessage().replace(HttpUtils.HttpStatusException.ERROR_INFO, ""));
                             } catch (Exception unused4) {
                             }
-                        } catch (SocketTimeoutException unused5) {
-                            elapsedRealtime = SystemClock.elapsedRealtime();
-                            i2 = i4;
-                            i3 = -8;
-                            j = 0;
-                            j2 = 0;
-                            continue;
-                            if (i2 >= a2) {
-                            }
+                        } catch (HttpUtils.NetworkUnavailableException unused5) {
+                            g.this.d.clear();
+                            SLog.d("openSDK_LOG.ReportManager", "doReportVia, NetworkUnavailableException.");
+                            return;
                         } catch (ConnectTimeoutException unused6) {
                             elapsedRealtime = SystemClock.elapsedRealtime();
                             i2 = i4;
@@ -703,13 +703,13 @@ public class g {
         });
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:11:0x0036, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:11:0x0034, code lost:
         if (r0 == 0) goto L6;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:5:0x001a, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:5:0x0019, code lost:
         if (r0 == 0) goto L6;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:7:0x001d, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:7:0x001c, code lost:
         r1 = r0;
      */
     /*

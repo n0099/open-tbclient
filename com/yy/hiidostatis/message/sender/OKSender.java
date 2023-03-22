@@ -23,7 +23,7 @@ import okhttp3.Protocol;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class OKSender implements MessageSender {
     public AppInfo appInfo;
     public HostManager host;
@@ -33,7 +33,7 @@ public class OKSender implements MessageSender {
     public MyCallback callback = new MyCallback();
     public OkHttpClient client = new OkHttpClient.Builder().protocols(Collections.unmodifiableList(Arrays.asList(Protocol.HTTP_1_1, Protocol.HTTP_2))).connectTimeout(5, TimeUnit.SECONDS).retryOnConnectionFailure(true).dns(this.dns).readTimeout(30, TimeUnit.SECONDS).build();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class MyCallback implements Callback {
         public static final /* synthetic */ boolean $assertionsDisabled = false;
 
@@ -83,7 +83,7 @@ public class OKSender implements MessageSender {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class MyDns implements Dns {
         public MyDns() {
         }
@@ -94,7 +94,7 @@ public class OKSender implements MessageSender {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class ReqTag {
         public Message msg;
 

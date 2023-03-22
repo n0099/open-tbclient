@@ -1,28 +1,36 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface qn0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "exp");
+    public static final ServiceReference a = new ServiceReference("nad.business", "rewardVideoLpTaskCenter");
     public static final qn0 b = new a();
 
-    @NonNull
-    pn0 a();
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(jn0 jn0Var);
 
-    @NonNull
-    rn0 request();
+        void onFail(Exception exc);
+    }
 
-    /* loaded from: classes5.dex */
+    void a(@NonNull rp0 rp0Var, @NonNull hq0 hq0Var, @NonNull b bVar);
+
+    /* loaded from: classes6.dex */
     public static class a implements qn0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.qn0
+        public void a(@NonNull rp0 rp0Var, @NonNull hq0 hq0Var, @NonNull b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, rp0Var, hq0Var, bVar) == null) {
+            }
+        }
 
         public a() {
             Interceptable interceptable = $ic;
@@ -36,28 +44,6 @@ public interface qn0 {
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-        }
-
-        @Override // com.baidu.tieba.qn0
-        @NonNull
-        public pn0 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return pn0.a;
-            }
-            return (pn0) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.qn0
-        @NonNull
-        public rn0 request() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return rn0.a;
-            }
-            return (rn0) invokeV.objValue;
         }
     }
 }

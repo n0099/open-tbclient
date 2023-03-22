@@ -2,9 +2,9 @@ package com.huawei.hms.hatool;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.tieba.pga;
-import com.baidu.tieba.tga;
-import com.baidu.tieba.uga;
+import com.baidu.tieba.cna;
+import com.baidu.tieba.dna;
+import com.baidu.tieba.yma;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -76,13 +76,13 @@ public class c0 {
             String c = c();
             if (b()) {
                 y.c("hmsSdk", "refresh components");
-                b = tga.d(128);
+                b = cna.d(128);
                 a("aprpap", b);
-                b2 = tga.d(128);
+                b2 = cna.d(128);
                 a("febdoc", b2);
-                b3 = tga.d(128);
+                b3 = cna.d(128);
                 a("marfil", b3);
-                b4 = tga.d(128);
+                b4 = cna.d(128);
                 a("maywnj", b4);
                 g0.b(b.i(), "Privacy_MY", "assemblyFlash", System.currentTimeMillis());
             } else {
@@ -91,7 +91,7 @@ public class c0 {
                 b3 = b("marfil");
                 b4 = b("maywnj");
             }
-            return uga.a(pga.b(a(b, b2, b3, c), uga.b(b4), 10000, 16));
+            return dna.a(yma.b(a(b, b2, b3, c), dna.b(b4), 10000, 16));
         }
         return (String) invokeV.objValue;
     }
@@ -143,10 +143,10 @@ public class c0 {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, str, str2, str3, str4)) == null) {
-            byte[] b = uga.b(str);
-            byte[] b2 = uga.b(str2);
-            byte[] b3 = uga.b(str3);
-            byte[] b4 = uga.b(str4);
+            byte[] b = dna.b(str);
+            byte[] b2 = dna.b(str2);
+            byte[] b3 = dna.b(str3);
+            byte[] b4 = dna.b(str4);
             int length = b.length;
             if (length > b2.length) {
                 length = b2.length;
@@ -175,7 +175,7 @@ public class c0 {
             if (a(file)) {
                 return t0.a(file);
             }
-            String d = tga.d(128);
+            String d = cna.d(128);
             t0.a(file, d);
             return d;
         }

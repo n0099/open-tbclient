@@ -87,14 +87,14 @@ public final class MediaVolume extends FrameLayout {
     }
 
     public final void d(Context context) {
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0892, (ViewGroup) this, true);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08ac, (ViewGroup) this, true);
         this.a = inflate;
-        this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090f4c);
-        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09138a);
+        this.b = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090f7c);
+        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0913bc);
         int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0706f1);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(dimensionPixelSize, dimensionPixelSize);
         layoutParams.gravity = 17;
-        this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f081271);
+        this.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f08128a);
         this.a.setLayoutParams(layoutParams);
         AudioManager audioManager = (AudioManager) context.getSystemService("audio");
         this.d = audioManager;

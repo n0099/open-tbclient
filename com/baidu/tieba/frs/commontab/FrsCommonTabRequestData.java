@@ -3,11 +3,11 @@ package com.baidu.tieba.frs.commontab;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.g97;
-import com.baidu.tieba.gk5;
-import com.baidu.tieba.hp5;
-import com.baidu.tieba.mq5;
+import com.baidu.tieba.dj5;
+import com.baidu.tieba.eo5;
+import com.baidu.tieba.hi;
+import com.baidu.tieba.kp5;
+import com.baidu.tieba.ma7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import java.util.HashMap;
 import tbclient.GeneralTabList.DataReq;
 import tbclient.GeneralTabList.GeneralTabListReqIdl;
 /* loaded from: classes4.dex */
-public class FrsCommonTabRequestData extends OrmObject implements gk5 {
+public class FrsCommonTabRequestData extends OrmObject implements dj5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String adExtParams;
@@ -33,8 +33,8 @@ public class FrsCommonTabRequestData extends OrmObject implements gk5 {
     public String tabName;
     public int tabType;
 
-    @Override // com.baidu.tieba.fk5
-    public HashMap<String, Object> G() {
+    @Override // com.baidu.tieba.cj5
+    public HashMap<String, Object> J() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -43,8 +43,8 @@ public class FrsCommonTabRequestData extends OrmObject implements gk5 {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.fk5
-    public HashMap<String, String> L() {
+    @Override // com.baidu.tieba.cj5
+    public HashMap<String, String> P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -73,8 +73,8 @@ public class FrsCommonTabRequestData extends OrmObject implements gk5 {
         this.sortType = 0;
     }
 
-    @Override // com.baidu.tieba.ik5
-    public Object i(boolean z) {
+    @Override // com.baidu.tieba.fj5
+    public Object j(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
@@ -88,21 +88,21 @@ public class FrsCommonTabRequestData extends OrmObject implements gk5 {
             builder.request_times = Integer.valueOf(this.requestTimes);
             builder.is_general_tab = Integer.valueOf(this.isGeneralTab);
             builder.sort_type = Integer.valueOf(this.sortType);
-            String d = g97.e().d("frs_feed");
+            String d = ma7.e().d("frs_feed");
             builder.ad_bear_sid = d;
-            builder.ad_bear_context = hp5.g(d, hp5.f());
-            builder.ad_bear_sid_price = Double.valueOf(hp5.i());
-            builder.has_ad_bear = Integer.valueOf(hp5.n(builder.ad_bear_sid) ? 1 : 0);
+            builder.ad_bear_context = eo5.g(d, eo5.f());
+            builder.ad_bear_sid_price = Double.valueOf(eo5.i());
+            builder.has_ad_bear = Integer.valueOf(eo5.n(builder.ad_bear_sid) ? 1 : 0);
             long j = this.lastThreadId;
             if (j >= 0) {
                 builder.last_thread_id = Long.valueOf(j);
             }
-            builder.scr_h = Integer.valueOf(ej.j(TbadkCoreApplication.getInst()));
-            builder.scr_w = Integer.valueOf(ej.l(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Integer.valueOf((int) ej.i(TbadkCoreApplication.getInst()));
+            builder.scr_h = Integer.valueOf(hi.j(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(hi.l(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Integer.valueOf((int) hi.i(TbadkCoreApplication.getInst()));
             builder.is_default_navtab = Integer.valueOf(this.isDefaultNavTab);
             builder.ad_ext_params = this.adExtParams;
-            mq5.c(builder, true, false, true);
+            kp5.c(builder, true, false, true);
             GeneralTabListReqIdl.Builder builder2 = new GeneralTabListReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

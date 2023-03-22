@@ -1,70 +1,67 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public abstract class j22 extends jb3 {
+public class j22 implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public h12 d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j22(ja3 ja3Var, String str) {
-        super(ja3Var, str);
+    public j22(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ja3Var, str};
+            Object[] objArr = {jSONArray};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        b(jSONArray);
     }
 
-    public void j(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, boolean z) {
-        int i;
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048576, this, unitedSchemeEntity, callbackHandler, z) == null) {
-            if (z) {
-                i = 0;
-            } else {
-                i = 1001;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            h12 h12Var = this.d;
+            if (h12Var != null && h12Var.d()) {
+                return true;
             }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, i);
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public j42 k(UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeL;
+    public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity)) == null) {
-            return new j42(unitedSchemeEntity.getParams().get("params"));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() > 3) {
+                    this.a = kl3.g((float) jSONArray.optDouble(0));
+                    this.b = kl3.g((float) jSONArray.optDouble(1));
+                    this.c = jSONArray.optInt(2);
+                    this.d = new h12(jSONArray.optJSONArray(3));
+                }
+            } catch (Exception e) {
+                if (do1.a) {
+                    e.printStackTrace();
+                }
+            }
         }
-        return (j42) invokeL.objValue;
-    }
-
-    public JSONObject l(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            return UnitedSchemeUtility.wrapCallbackParams(i);
-        }
-        return (JSONObject) invokeI.objValue;
     }
 }

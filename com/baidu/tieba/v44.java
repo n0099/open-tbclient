@@ -1,36 +1,59 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
-import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
+import com.baidu.tieba.d14;
+import com.baidu.tieba.i03;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Service
 /* loaded from: classes6.dex */
-public class v44 implements ch2 {
+public class v44 implements zo1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a {
+    public class a implements d14.d {
         public static /* synthetic */ Interceptable $ic;
-        public static String a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ i03.k a;
 
-        public static String a() {
-            InterceptResult invokeV;
+        public a(v44 v44Var, i03.k kVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-                if (TextUtils.isEmpty(a)) {
-                    a = ml3.b();
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v44Var, kVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                return a;
             }
-            return (String) invokeV.objValue;
+            this.a = kVar;
+        }
+
+        @Override // com.baidu.tieba.d14.d
+        public void onFail(String str) {
+            i03.k kVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (kVar = this.a) != null) {
+                kVar.onFail(str);
+            }
+        }
+
+        @Override // com.baidu.tieba.d14.d
+        public void onSuccess() {
+            i03.k kVar;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (kVar = this.a) != null) {
+                kVar.onSuccess();
+            }
         }
     }
 
@@ -48,23 +71,11 @@ public class v44 implements ch2 {
         }
     }
 
-    @Override // com.baidu.tieba.ch2
-    public String getUserAgent() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.zo1
+    public void a(String str, i03.k kVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return a.a();
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, kVar) == null) {
+            g14.o().j(str, new a(this, kVar));
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ch2
-    public ug2 a(String str, rh2 rh2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, rh2Var, v8ThreadDelegatePolicy)) == null) {
-            return new w44(str, rh2Var, v8ThreadDelegatePolicy);
-        }
-        return (ug2) invokeLLL.objValue;
     }
 }

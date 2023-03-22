@@ -12,10 +12,12 @@ public class UsbAbTestConst {
     public static final String KEY_AGREE_NUMBER_CAN_CLICK = "12_27_agree_number_can_a";
     public static final String KEY_BIG_PIC_RECOMMEND_LIVE_SECOND_FLOOR_A = "12_30_picture_recommend_live_a";
     public static final String KEY_BIG_PIC_RECOMMEND_LIVE_SECOND_FLOOR_B = "12_30_picture_recommend_live_b";
+    public static final String KEY_CONCERN_FEED_TEST = "12.38_concern_feed_test";
     public static final String KEY_ENTER_FRS_NO_ANMI = "12.25_enter_frs_no_anim";
     public static final String KEY_EXIT_REMIND_TIP = "12_28_exit_remind_ad";
     public static final String KEY_FEED_VIDEO_TRANSITION = "12_19_feed_video_transition_a";
     public static final String KEY_FORUM_REC_REASON_COLOR_TEST_A = "12_19_rec_a";
+    public static final String KEY_FRS_FOLLOW_GUIDE_A = "12_22_frs_follow_guide_a";
     public static final String KEY_FUN_AD_SDK_DUPLICATE_REMOVAL = "12_4_bear_duplicate_removal_a";
     public static final String KEY_FUN_AD_SDK_FRS = "12_2_frs_bear_a";
     public static final String KEY_FUN_AD_SDK_PB_BANNER = "11_9_pb_bear_a";
@@ -55,7 +57,6 @@ public class UsbAbTestConst {
     public static final String KEY_VIDEOTAB_AUTO_PLAY = "12_5_zp_1";
     public static final String KEY_VIDEO_AUTO_PLAY_NEXT_VIDEO = "12_15_autoplay_a";
     public static final String KEY_VIDEO_SET_URL_AGAIN = "12_20_repeatset_a";
-    public static final String KEY_WEB_VIEW_OPTIMIZE = "12.35_webview_optimize_test";
     public static final String KEY_WRITE_PROTO = "12_26_thread_proto_android_a";
     public static final String VIDEO_PLAY_DANMU_SHOW = "12_14_danmu_1";
     public transient /* synthetic */ FieldHolder $fh;

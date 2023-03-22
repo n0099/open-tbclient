@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.hi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -49,12 +49,12 @@ public class HeadWorldCupFlagLayout extends FrameLayout {
                 return;
             }
         }
-        e = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds17);
-        f = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds5);
-        g = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds138);
-        h = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds72);
-        i = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds64);
-        j = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds64);
+        e = hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds17);
+        f = hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds5);
+        g = hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds138);
+        h = hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds72);
+        i = hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds64);
+        j = hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds64);
     }
 
     public final void a() {
@@ -169,9 +169,9 @@ public class HeadWorldCupFlagLayout extends FrameLayout {
                     WebPManager.setMaskDrawable(this.a, R.drawable.icon_mask_world_cup_sponsor, null);
                 } else {
                     this.a.setDefaultResource(R.drawable.icon_mask_world_cup_sponsor);
-                    this.a.K(worldCupSponsorFlag, 10, false);
+                    this.a.M(worldCupSponsorFlag, 10, false);
                 }
-                this.b.K(a, 10, false);
+                this.b.M(a, 10, false);
                 return;
             }
             setVisibility(8);

@@ -60,6 +60,8 @@ public class BotsDTO extends OrmObject implements Serializable {
             public List<ItemsDTO> items;
             @SerializedName(IntentConfig.SHOW_KEYBOARD)
             public int keyboard;
+            @SerializedName("keyboard_content")
+            public String keyboardContent;
             @SerializedName("name")
             public String name;
             @SerializedName("sub_skill")
@@ -70,8 +72,12 @@ public class BotsDTO extends OrmObject implements Serializable {
             /* loaded from: classes4.dex */
             public static class ItemsDTO extends OrmObject implements Serializable {
                 public static /* synthetic */ Interceptable $ic = null;
+                public static final int ITEM_TYPE_FILE = 1;
+                public static final int ITEM_TYPE_NORMAL = 0;
                 public static final long serialVersionUID = -5238062091986617562L;
                 public transient /* synthetic */ FieldHolder $fh;
+                @SerializedName("type")
+                public int itemType;
                 @SerializedName("name")
                 public String name;
                 @SerializedName("opts")
@@ -162,10 +168,19 @@ public class BotsDTO extends OrmObject implements Serializable {
                     }
                 }
 
-                public String getName() {
+                public int getItemType() {
                     InterceptResult invokeV;
                     Interceptable interceptable = $ic;
                     if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                        return this.itemType;
+                    }
+                    return invokeV.intValue;
+                }
+
+                public String getName() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                         return this.name;
                     }
                     return (String) invokeV.objValue;
@@ -175,7 +190,7 @@ public class BotsDTO extends OrmObject implements Serializable {
                 public List<OptsDTO> getOpts() {
                     InterceptResult invokeV;
                     Interceptable interceptable = $ic;
-                    if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                    if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                         return this.opts;
                     }
                     return (List) invokeV.objValue;
@@ -184,7 +199,7 @@ public class BotsDTO extends OrmObject implements Serializable {
                 public String getValue() {
                     InterceptResult invokeV;
                     Interceptable interceptable = $ic;
-                    if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                    if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                         return this.value;
                     }
                     return (String) invokeV.objValue;
@@ -197,6 +212,7 @@ public class BotsDTO extends OrmObject implements Serializable {
                         ItemsDTO itemsDTO = new ItemsDTO();
                         itemsDTO.name = this.name;
                         itemsDTO.value = this.value;
+                        itemsDTO.itemType = this.itemType;
                         if (!ListUtils.isEmpty(this.opts)) {
                             itemsDTO.opts = new ArrayList();
                             for (OptsDTO optsDTO : this.opts) {
@@ -208,23 +224,30 @@ public class BotsDTO extends OrmObject implements Serializable {
                     return (ItemsDTO) invokeV.objValue;
                 }
 
+                public void setItemType(int i) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+                        this.itemType = i;
+                    }
+                }
+
                 public void setName(String str) {
                     Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+                    if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
                         this.name = str;
                     }
                 }
 
                 public void setOpts(List<OptsDTO> list) {
                     Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
+                    if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
                         this.opts = list;
                     }
                 }
 
                 public void setValue(String str) {
                     Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+                    if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
                         this.value = str;
                     }
                 }
@@ -308,10 +331,20 @@ public class BotsDTO extends OrmObject implements Serializable {
                 return invokeV.intValue;
             }
 
-            public String getName() {
+            @Nullable
+            public String getKeyboardContent() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                    return this.keyboardContent;
+                }
+                return (String) invokeV.objValue;
+            }
+
+            public String getName() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
                     return this.name;
                 }
                 return (String) invokeV.objValue;
@@ -321,7 +354,7 @@ public class BotsDTO extends OrmObject implements Serializable {
             public List<SkillDTO> getSubSkill() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
                     return this.subSkill;
                 }
                 return (List) invokeV.objValue;
@@ -330,7 +363,7 @@ public class BotsDTO extends OrmObject implements Serializable {
             public int getType() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
                     return this.type;
                 }
                 return invokeV.intValue;
@@ -349,6 +382,7 @@ public class BotsDTO extends OrmObject implements Serializable {
                     skillDTO.exec = this.exec;
                     skillDTO.callType = this.callType;
                     skillDTO.keyboard = this.keyboard;
+                    skillDTO.keyboardContent = this.keyboardContent;
                     if (!ListUtils.isEmpty(this.items)) {
                         skillDTO.items = new ArrayList();
                         for (ItemsDTO itemsDTO : this.items) {
@@ -368,70 +402,70 @@ public class BotsDTO extends OrmObject implements Serializable {
 
             public void setAlias(String str) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+                if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
                     this.alias = str;
                 }
             }
 
             public void setCallType(int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+                if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
                     this.callType = i;
                 }
             }
 
             public void setDesc(String str) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+                if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
                     this.desc = str;
                 }
             }
 
             public void setExec(int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+                if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
                     this.exec = i;
                 }
             }
 
             public void setExp(String str) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+                if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
                     this.exp = str;
                 }
             }
 
             public void setItems(List<ItemsDTO> list) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048592, this, list) == null) {
+                if (interceptable == null || interceptable.invokeL(1048593, this, list) == null) {
                     this.items = list;
                 }
             }
 
             public void setKeyboard(int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+                if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
                     this.keyboard = i;
                 }
             }
 
             public void setName(String str) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+                if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
                     this.name = str;
                 }
             }
 
             public void setSubSkill(List<SkillDTO> list) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048595, this, list) == null) {
+                if (interceptable == null || interceptable.invokeL(1048596, this, list) == null) {
                     this.subSkill = list;
                 }
             }
 
             public void setType(int i) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+                if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
                     this.type = i;
                 }
             }

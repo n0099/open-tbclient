@@ -1,21 +1,24 @@
 package com.baidu.tieba;
 
+import com.baidu.nps.interfa.IThreadManager;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Executor;
+@Service
 /* loaded from: classes7.dex */
-public class zk extends ok {
+public class zk implements IThreadManager {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public Executor a;
 
-    public zk(String str) {
+    public zk() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -25,6 +28,14 @@ public class zk extends ok {
                 return;
             }
         }
-        this.a = str;
+        this.a = ExecutorUtilsExt.getElasticExecutor("NPS", 3);
+    }
+
+    @Override // com.baidu.nps.interfa.IThreadManager
+    public void run(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
+            this.a.execute(runnable);
+        }
     }
 }

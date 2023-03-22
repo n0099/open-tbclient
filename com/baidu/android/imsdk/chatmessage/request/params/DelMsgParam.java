@@ -24,6 +24,7 @@ public class DelMsgParam extends BaseRequestParam {
     public int contacterUserType;
     public ChatMsg delMsg;
     public BIMValueCallBack<DelMsgResponse> delMsgRequestCallback;
+    public int deleteMode;
     public long maxMsgId;
     public long to;
 
@@ -37,8 +38,10 @@ public class DelMsgParam extends BaseRequestParam {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.deleteMode = -1;
     }
 
     public BIMValueCallBack<DelMsgResponse> getRequestCallBack() {

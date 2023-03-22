@@ -11,10 +11,12 @@ import android.graphics.drawable.GradientDrawable;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.animation.AccelerateDecelerateInterpolator;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -38,34 +40,39 @@ import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TimeHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tbadk.core.view.RoundTbImageView;
-import com.baidu.tbadk.data.ChatEntranceGuideConfig;
 import com.baidu.tbadk.data.ChatRoomEntranceData;
 import com.baidu.tbadk.data.ChatRoomInfoData;
 import com.baidu.tbadk.switchs.UnReadRedPotMessage;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b35;
-import com.baidu.tieba.b55;
-import com.baidu.tieba.bt7;
-import com.baidu.tieba.dt7;
-import com.baidu.tieba.es7;
-import com.baidu.tieba.gh;
-import com.baidu.tieba.gi5;
-import com.baidu.tieba.hi5;
+import com.baidu.tieba.dh5;
+import com.baidu.tieba.dp7;
+import com.baidu.tieba.eh5;
+import com.baidu.tieba.gg;
+import com.baidu.tieba.gh5;
 import com.baidu.tieba.im.db.pojo.GroupChatRoomPojo;
-import com.baidu.tieba.immessagecenter.chatgroup.data.ChatGroupInfo;
 import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
-import com.baidu.tieba.jd9;
-import com.baidu.tieba.ji5;
+import com.baidu.tieba.jg;
+import com.baidu.tieba.ju7;
+import com.baidu.tieba.ka5;
+import com.baidu.tieba.ku7;
+import com.baidu.tieba.kx7;
+import com.baidu.tieba.lt7;
+import com.baidu.tieba.lu7;
+import com.baidu.tieba.m35;
+import com.baidu.tieba.n15;
 import com.baidu.tieba.ou7;
+import com.baidu.tieba.qu7;
+import com.baidu.tieba.ru7;
+import com.baidu.tieba.sj9;
+import com.baidu.tieba.su7;
+import com.baidu.tieba.tu7;
+import com.baidu.tieba.uu7;
 import com.baidu.tieba.view.RoundRelativeLayout;
-import com.baidu.tieba.wn7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -73,9 +80,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.request.BaseRequestOptions;
-import com.bumptech.glide.request.RequestOptions;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
@@ -83,37 +87,38 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes4.dex */
-public class ChatFloatEntranceFragment extends BaseFragment implements gi5.b {
+public class ChatFloatEntranceFragment extends BaseFragment implements dh5.b, ju7 {
     public static /* synthetic */ Interceptable $ic = null;
-    public static long P = 5000;
-    public static final int Q;
-    public static final int R;
-    public static final int S;
-    public static int T;
-    public static int U;
-    public static int V;
+    public static long S = 5000;
+    public static final int T;
+    public static final int U;
+    public static final int V;
+    public static int W;
+    public static int X;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean A;
+    @Nullable
+    public lt7 A;
     public boolean B;
-    public boolean C;
+    public long C;
     public boolean D;
     public boolean E;
-    public int F;
-    @Nullable
-    public ChatEntranceGuideConfig.GuideConfig G;
-    @Nullable
-    public ChatEntranceGuideConfig.GuideConfig H;
-    public final CustomMessageListener I;
+    public boolean F;
+    public final CustomMessageListener G;
+    public final CustomMessageListener H;
     @NonNull
-    public es7.b J;
+    public lt7.b I;
+    public final CustomMessageListener J;
     public final CustomMessageListener K;
     public final CustomMessageListener L;
     public List<Map<String, Long>> M;
     public final Runnable N;
-    public Runnable O;
-    public m a;
+    public final qu7 O;
+    public final ru7 P;
+    public final su7.c Q;
+    public Runnable R;
+    public q a;
     public boolean b;
-    public dt7 c;
+    public su7 c;
     public int d;
     public boolean e;
     public boolean f;
@@ -121,33 +126,34 @@ public class ChatFloatEntranceFragment extends BaseFragment implements gi5.b {
     public int h;
     public int i;
     public int j;
-    public final GradientDrawable k;
-    public PollingModel l;
-    public String m;
-    public long n;
-    public String o;
-    public boolean p;
-    public List<Long> q;
-    public int r;
-    public long s;
-    public String t;
-    public List<ChatRoomInfoData> u;
-    public Map<Long, Date> v;
-    public Map<Long, Integer> w;
-    public final CustomMessageListener x;
-    public ji5 y;
+    public PollingModel k;
+    public String l;
+    public long m;
+    public String n;
+    public boolean o;
+    @NonNull
+    public final List<Long> p;
+    public int q;
+    public long r;
+    public String s;
+    public List<ChatRoomInfoData> t;
+    public Map<Long, Integer> u;
+    public int v;
     @Nullable
-    public es7 z;
+    public ou7 w;
+    public lu7 x;
+    public ku7 y;
+    public gh5 z;
 
-    @Override // com.baidu.tieba.gi5.b
+    @Override // com.baidu.tieba.dh5.b
     public Fragment d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) ? this : (Fragment) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) ? this : (Fragment) invokeV.objValue;
     }
 
     /* loaded from: classes4.dex */
-    public class i implements Runnable {
+    public class n implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatFloatEntranceFragment a;
@@ -156,14 +162,14 @@ public class ChatFloatEntranceFragment extends BaseFragment implements gi5.b {
         public class a implements PollingModel.c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ i a;
+            public final /* synthetic */ n a;
 
-            public a(i iVar) {
+            public a(n nVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {iVar};
+                    Object[] objArr = {nVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -173,7 +179,7 @@ public class ChatFloatEntranceFragment extends BaseFragment implements gi5.b {
                         return;
                     }
                 }
-                this.a = iVar;
+                this.a = nVar;
             }
 
             @Override // com.baidu.tbadk.core.leveiconlivepolling.PollingModel.c
@@ -188,16 +194,16 @@ public class ChatFloatEntranceFragment extends BaseFragment implements gi5.b {
                     } else {
                         j = 0;
                     }
-                    chatFloatEntranceFragment.n = j;
-                    if (this.a.a.n > 0 && !this.a.a.E) {
-                        gh.a().removeCallbacks(this.a.a.N);
-                        gh.a().post(this.a.a.N);
+                    chatFloatEntranceFragment.m = j;
+                    if (this.a.a.m > 0 && !this.a.a.E) {
+                        jg.a().removeCallbacks(this.a.a.N);
+                        jg.a().post(this.a.a.N);
                     }
                 }
             }
         }
 
-        public i(ChatFloatEntranceFragment chatFloatEntranceFragment) {
+        public n(ChatFloatEntranceFragment chatFloatEntranceFragment) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -218,30 +224,30 @@ public class ChatFloatEntranceFragment extends BaseFragment implements gi5.b {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.l != null) {
-                this.a.m = String.valueOf(System.currentTimeMillis());
-                long H2 = this.a.H2();
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.k != null) {
+                this.a.l = String.valueOf(System.currentTimeMillis());
+                long N2 = this.a.N2();
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (!TextUtils.isEmpty(currentAccount) && !this.a.E && this.a.n > 0) {
-                    this.a.l.t0(PollingModel.CHATROOM_FRS, this.a.o, 0L, this.a.m, ou7.a(new wn7().e(currentAccount, String.valueOf(this.a.n))));
+                if (!TextUtils.isEmpty(currentAccount) && !this.a.E && this.a.m > 0) {
+                    this.a.k.x0(PollingModel.CHATROOM_FRS, this.a.n, 0L, this.a.l, kx7.a(new dp7().e(currentAccount, String.valueOf(this.a.m))));
                     this.a.E = true;
-                } else if (ListUtils.isEmpty(this.a.q)) {
+                } else if (ListUtils.isEmpty(this.a.p)) {
                     if (!this.a.E && !TextUtils.isEmpty(currentAccount)) {
-                        this.a.l.D0(new a(this));
+                        this.a.k.H0(new a(this));
                     }
-                    this.a.l.t0(PollingModel.CHATROOM_FRS, this.a.o, 0L, this.a.m, null);
-                } else if (!TextUtils.isEmpty(currentAccount) && this.a.n > 0) {
-                    this.a.l.t0(PollingModel.CHATROOM_FRS, null, H2, this.a.m, ou7.a(new wn7().e(currentAccount, String.valueOf(this.a.n))));
+                    this.a.k.x0(PollingModel.CHATROOM_FRS, this.a.n, 0L, this.a.l, null);
+                } else if (!TextUtils.isEmpty(currentAccount) && this.a.m > 0) {
+                    this.a.k.x0(PollingModel.CHATROOM_FRS, null, N2, this.a.l, kx7.a(new dp7().e(currentAccount, String.valueOf(this.a.m))));
                 } else {
-                    this.a.l.t0(PollingModel.CHATROOM_FRS, null, H2, this.a.m, null);
+                    this.a.k.x0(PollingModel.CHATROOM_FRS, null, N2, this.a.l, null);
                 }
-                gh.a().postDelayed(this.a.N, ChatFloatEntranceFragment.P);
+                jg.a().postDelayed(this.a.N, ChatFloatEntranceFragment.S);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class a extends AnimatorListenerAdapter {
+    public class a implements su7.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatFloatEntranceFragment a;
@@ -264,354 +270,28 @@ public class ChatFloatEntranceFragment extends BaseFragment implements gi5.b {
             this.a = chatFloatEntranceFragment;
         }
 
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
+        @Override // com.baidu.tieba.su7.c
+        public void a(@NonNull View view2, @NonNull ChatRoomInfoData chatRoomInfoData) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                super.onAnimationStart(animator);
-                this.a.e = true;
-            }
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                super.onAnimationEnd(animator);
-                this.a.e = false;
-                this.a.d = 1;
-                this.a.F2(true);
-                if (this.a.a.b.isFlipping()) {
-                    this.a.a.b.stopFlipping();
+            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, chatRoomInfoData) == null) {
+                this.a.r = chatRoomInfoData.getRoomId();
+                if (chatRoomInfoData.getChatroomInfoBasicData() != null) {
+                    int btnType = chatRoomInfoData.getChatroomInfoBasicData().getBtnType();
+                    this.a.v = gg.e(chatRoomInfoData.getChatroomInfoBasicData().getUnreadNum(), 0);
+                    ChatFloatEntranceFragment chatFloatEntranceFragment = this.a;
+                    chatFloatEntranceFragment.s2(btnType, chatFloatEntranceFragment.v);
                 }
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b implements ValueAnimator.AnimatorUpdateListener {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatFloatEntranceFragment a;
 
         public b(ChatFloatEntranceFragment chatFloatEntranceFragment) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {chatFloatEntranceFragment};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = chatFloatEntranceFragment;
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) && (valueAnimator.getAnimatedValue() instanceof Integer) && ((Integer) valueAnimator.getAnimatedValue()).intValue() <= ChatFloatEntranceFragment.S && this.a.a.g.getVisibility() == 0) {
-                this.a.a.g.setVisibility(4);
-                if (this.a.a.m.getVisibility() != 0) {
-                    jd9.a(this.a.a.c, 10L, this.a.a.m, 10L);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ChatFloatEntranceFragment a;
-
-        public c(ChatFloatEntranceFragment chatFloatEntranceFragment) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {chatFloatEntranceFragment};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = chatFloatEntranceFragment;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                super.onAnimationEnd(animator);
-                this.a.e = false;
-                this.a.d = 2;
-            }
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                super.onAnimationStart(animator);
-                this.a.e = true;
-                this.a.F2(true);
-                this.a.a.b.startFlipping();
-                this.a.a.g.setVisibility(0);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class d extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ChatFloatEntranceFragment a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(ChatFloatEntranceFragment chatFloatEntranceFragment, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {chatFloatEntranceFragment, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = chatFloatEntranceFragment;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                if (this.a.a.q.getVisibility() == 8) {
-                    this.a.a.r.setVisibility(0);
-                    Date date = new Date(System.currentTimeMillis());
-                    ChatFloatEntranceFragment chatFloatEntranceFragment = this.a;
-                    if (chatFloatEntranceFragment.v == null) {
-                        chatFloatEntranceFragment.v = new HashMap();
-                    } else {
-                        chatFloatEntranceFragment.v = TbSingleton.getInstance().getHasShowRedPot();
-                    }
-                    ChatFloatEntranceFragment chatFloatEntranceFragment2 = this.a;
-                    chatFloatEntranceFragment2.v.put(Long.valueOf(chatFloatEntranceFragment2.n), date);
-                    TbSingleton.getInstance().setHasShowRedPot(this.a.v);
-                    this.a.G2(ChatFloatEntranceFragment.U);
-                    return;
-                }
-                this.a.a.r.setVisibility(8);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class e extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ChatFloatEntranceFragment a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(ChatFloatEntranceFragment chatFloatEntranceFragment, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {chatFloatEntranceFragment, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = chatFloatEntranceFragment;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && !customResponsedMessage.hasError() && (customResponsedMessage.getData() instanceof String)) {
-                String str = (String) customResponsedMessage.getData();
-                if ("forum_follow".equals(str) || "forum_sign".equals(str)) {
-                    this.a.c();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class f implements es7.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ChatFloatEntranceFragment a;
-
-        public f(ChatFloatEntranceFragment chatFloatEntranceFragment) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {chatFloatEntranceFragment};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = chatFloatEntranceFragment;
-        }
-
-        @Override // com.baidu.tieba.es7.b
-        public void a(List list, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048576, this, list, i) == null) && !ListUtils.isEmpty(list)) {
-                for (int i2 = 0; i2 < list.size(); i2++) {
-                    if (list.get(i2) instanceof ChatGroupInfo) {
-                        List<ChatRoomInfo> roomInfoList = ((ChatGroupInfo) list.get(i2)).getRoomInfoList();
-                        if (!ListUtils.isEmpty(roomInfoList)) {
-                            int i3 = 0;
-                            while (true) {
-                                if (i3 >= roomInfoList.size()) {
-                                    break;
-                                }
-                                ChatRoomInfo chatRoomInfo = roomInfoList.get(i3);
-                                if (chatRoomInfo.getAtInfo() == null || chatRoomInfo.getAtInfo().getCountAll() <= 0) {
-                                    i3++;
-                                } else {
-                                    this.a.A = true;
-                                    break;
-                                }
-                            }
-                        }
-                        if (this.a.A) {
-                            break;
-                        }
-                    }
-                }
-                if (this.a.A && !this.a.B) {
-                    this.a.a.q.setVisibility(0);
-                    this.a.a.r.setVisibility(8);
-                    this.a.A = false;
-                    return;
-                }
-                this.a.a.q.setVisibility(8);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class g extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ChatFloatEntranceFragment a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public g(ChatFloatEntranceFragment chatFloatEntranceFragment, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {chatFloatEntranceFragment, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = chatFloatEntranceFragment;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && !customResponsedMessage.hasError()) {
-                this.a.onUserChanged(TbadkCoreApplication.isLogin());
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class h extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ChatFloatEntranceFragment a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public h(ChatFloatEntranceFragment chatFloatEntranceFragment, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {chatFloatEntranceFragment, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = chatFloatEntranceFragment;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && !customResponsedMessage.hasError() && TbadkCoreApplication.isLogin() && this.a.s > 0) {
-                if (this.a.y != null) {
-                    this.a.y.a(this.a.getPageContext(), Collections.unmodifiableList(this.a.q), this.a.n, this.a.o, this.a.s, this.a.p, this.a.D);
-                    b55 m = b55.m();
-                    m.w("key_chat_group_entrance_click_daily" + this.a.n, true);
-                    this.a.I2();
-                }
-                this.a.s = -1L;
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class j implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ChatFloatEntranceFragment a;
-
-        public j(ChatFloatEntranceFragment chatFloatEntranceFragment) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -635,17 +315,17 @@ public class ChatFloatEntranceFragment extends BaseFragment implements gi5.b {
             if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
                 return;
             }
-            this.a.p2();
+            this.a.w2();
         }
     }
 
     /* loaded from: classes4.dex */
-    public class k implements ViewTreeObserver.OnGlobalLayoutListener {
+    public class c implements ViewTreeObserver.OnGlobalLayoutListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatFloatEntranceFragment a;
 
-        public k(ChatFloatEntranceFragment chatFloatEntranceFragment) {
+        public c(ChatFloatEntranceFragment chatFloatEntranceFragment) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -683,12 +363,12 @@ public class ChatFloatEntranceFragment extends BaseFragment implements gi5.b {
     }
 
     /* loaded from: classes4.dex */
-    public class l implements dt7.b {
+    public class d implements su7.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatFloatEntranceFragment a;
 
-        public l(ChatFloatEntranceFragment chatFloatEntranceFragment) {
+        public d(ChatFloatEntranceFragment chatFloatEntranceFragment) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -706,53 +386,498 @@ public class ChatFloatEntranceFragment extends BaseFragment implements gi5.b {
             this.a = chatFloatEntranceFragment;
         }
 
-        @Override // com.baidu.tieba.dt7.b
+        @Override // com.baidu.tieba.su7.b
         public void a(View view2, ChatRoomInfoData chatRoomInfoData) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeLL(1048576, this, view2, chatRoomInfoData) != null) || chatRoomInfoData == null) {
                 return;
             }
             ViewHelper.checkUpIsLogin(this.a.getPageContext().getPageActivity());
-            this.a.s = chatRoomInfoData.getRoomId();
-            this.a.t = chatRoomInfoData.getJumpUrl();
-            this.a.y2();
-            if (this.a.z != null) {
-                this.a.z.m(true);
+            this.a.r = chatRoomInfoData.getRoomId();
+            this.a.s = chatRoomInfoData.getJumpUrl();
+            this.a.D2();
+            if (this.a.A != null) {
+                this.a.A.o(true);
             }
-            bt7.b("c15073", this.a.n, this.a.o, String.valueOf(this.a.s), 1, "1");
-            bt7.b(CommonStatisticKey.KEY_GROUP_CHAT_ENTRANCE_CLICK, this.a.n, this.a.o, String.valueOf(this.a.s), 1, null);
-            this.a.p2();
+            if (this.a.w != null && this.a.A2()) {
+                this.a.w.B(this.a.v2());
+            }
+            tu7.b("c15073", this.a.m, this.a.n, String.valueOf(this.a.r), 1, "1");
+            tu7.b(CommonStatisticKey.KEY_GROUP_CHAT_ENTRANCE_CLICK, this.a.m, this.a.n, String.valueOf(this.a.r), 1, null);
+            this.a.w2();
         }
     }
 
     /* loaded from: classes4.dex */
-    public static class m {
+    public class e extends AnimatorListenerAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ChatFloatEntranceFragment a;
+
+        public e(ChatFloatEntranceFragment chatFloatEntranceFragment) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {chatFloatEntranceFragment};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = chatFloatEntranceFragment;
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                super.onAnimationEnd(animator);
+                this.a.e = false;
+                this.a.d = 1;
+                lu7 lu7Var = this.a.x;
+                if (lu7Var != null) {
+                    lu7Var.d();
+                }
+            }
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationStart(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
+                super.onAnimationStart(animator);
+                this.a.e = true;
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class f implements ValueAnimator.AnimatorUpdateListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ChatFloatEntranceFragment a;
+
+        public f(ChatFloatEntranceFragment chatFloatEntranceFragment) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {chatFloatEntranceFragment};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = chatFloatEntranceFragment;
+        }
+
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) && (valueAnimator.getAnimatedValue() instanceof Integer) && ((Integer) valueAnimator.getAnimatedValue()).intValue() <= ChatFloatEntranceFragment.V && this.a.a.f.getVisibility() == 0) {
+                this.a.a.f.setVisibility(4);
+                if (this.a.a.k.getVisibility() != 0) {
+                    sj9.a(this.a.a.c, 10L, this.a.a.k, 10L);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class g extends AnimatorListenerAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ChatFloatEntranceFragment a;
+
+        public g(ChatFloatEntranceFragment chatFloatEntranceFragment) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {chatFloatEntranceFragment};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = chatFloatEntranceFragment;
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                super.onAnimationEnd(animator);
+                this.a.e = false;
+                this.a.d = 2;
+            }
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationStart(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
+                super.onAnimationStart(animator);
+                this.a.e = true;
+                this.a.a.f.setVisibility(0);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class h extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ChatFloatEntranceFragment a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public h(ChatFloatEntranceFragment chatFloatEntranceFragment, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {chatFloatEntranceFragment, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = chatFloatEntranceFragment;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && !customResponsedMessage.hasError()) {
+                this.a.c();
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class i extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ChatFloatEntranceFragment a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public i(ChatFloatEntranceFragment chatFloatEntranceFragment, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {chatFloatEntranceFragment, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = chatFloatEntranceFragment;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && !customResponsedMessage.hasError() && (customResponsedMessage.getData() instanceof String)) {
+                String str = (String) customResponsedMessage.getData();
+                if ("forum_follow".equals(str) || "forum_sign".equals(str)) {
+                    this.a.c();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class j implements lt7.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ChatFloatEntranceFragment a;
+
+        public j(ChatFloatEntranceFragment chatFloatEntranceFragment) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {chatFloatEntranceFragment};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = chatFloatEntranceFragment;
+        }
+
+        @Override // com.baidu.tieba.lt7.b
+        public void a(List list, int i) {
+            ChatFloatEntranceFragment chatFloatEntranceFragment;
+            lu7 lu7Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, list, i) == null) && (lu7Var = (chatFloatEntranceFragment = this.a).x) != null) {
+                lu7Var.g(chatFloatEntranceFragment.p, this.a.m, list, i);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class k extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ChatFloatEntranceFragment a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public k(ChatFloatEntranceFragment chatFloatEntranceFragment, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {chatFloatEntranceFragment, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = chatFloatEntranceFragment;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && !customResponsedMessage.hasError()) {
+                this.a.onUserChanged(TbadkCoreApplication.isLogin());
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class l extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ChatFloatEntranceFragment a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public l(ChatFloatEntranceFragment chatFloatEntranceFragment, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {chatFloatEntranceFragment, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = chatFloatEntranceFragment;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            ka5 ka5Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && !customResponsedMessage.hasError()) {
+                if ((customResponsedMessage.getData() instanceof ka5) && (ka5Var = (ka5) customResponsedMessage.getData()) != null && ka5Var.a()) {
+                    this.a.r = ka5Var.b();
+                }
+                if (TbadkCoreApplication.isLogin() && this.a.r > 0 && !this.a.A2()) {
+                    if (this.a.z != null) {
+                        this.a.z.a(this.a.getPageContext(), Collections.unmodifiableList(this.a.p), this.a.m, this.a.n, this.a.r, this.a.o, this.a.D);
+                    }
+                    this.a.r = -1L;
+                }
+                this.a.F = false;
+                if (this.a.w == null || this.a.w.A(this.a.v2())) {
+                    return;
+                }
+                this.a.K2(true);
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class m extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ChatFloatEntranceFragment a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public m(ChatFloatEntranceFragment chatFloatEntranceFragment, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {chatFloatEntranceFragment, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = chatFloatEntranceFragment;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && !customResponsedMessage.hasError() && this.a.A2() && this.a.w != null) {
+                this.a.w.l();
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class o implements qu7 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ChatFloatEntranceFragment a;
+
+        public o(ChatFloatEntranceFragment chatFloatEntranceFragment) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {chatFloatEntranceFragment};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = chatFloatEntranceFragment;
+        }
+
+        @Override // com.baidu.tieba.qu7
+        public void a(@NonNull ChatRoomInfo chatRoomInfo) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, chatRoomInfo) != null) || chatRoomInfo.getNewMessage() == null || this.a.F) {
+                return;
+            }
+            this.a.F2(0, chatRoomInfo);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class p implements ru7 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ChatFloatEntranceFragment a;
+
+        @Override // com.baidu.tieba.ru7
+        public void a(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+            }
+        }
+
+        public p(ChatFloatEntranceFragment chatFloatEntranceFragment) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {chatFloatEntranceFragment};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = chatFloatEntranceFragment;
+        }
+
+        @Override // com.baidu.tieba.ru7
+        public void b(long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) != null) || this.a.w == null || !this.a.w.A(j)) {
+                return;
+            }
+            this.a.K2(false);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class q {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public View a;
         public BaseAdapterViewFlipper b;
         public CardViewLayout c;
-        public TbImageView d;
-        public LinearLayout e;
-        public TbImageView f;
-        public RelativeLayout g;
-        public LinearLayout h;
-        public View i;
+        public LinearLayout d;
+        public TbImageView e;
+        public RelativeLayout f;
+        public View g;
+        public RelativeLayout h;
+        public TextView i;
         public View j;
-        public TbImageView k;
-        public View l;
-        public RelativeLayout m;
-        public RoundTbImageView n;
-        public RoundRelativeLayout o;
-        public TbImageView p;
-        public TextView q;
+        public RelativeLayout k;
+        public RoundRelativeLayout l;
+        public TbImageView m;
+        public ImageView n;
+        public TbImageView o;
+        public ImageView p;
+        public FrameLayout q;
         public ImageView r;
-        public TextView s;
+        public FrameLayout s;
         public TextView t;
-        public ConstraintLayout u;
-        public ImageView v;
+        public TextView u;
+        public ConstraintLayout v;
+        public ImageView w;
 
-        public m() {
+        public q() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -766,36 +891,37 @@ public class ChatFloatEntranceFragment extends BaseFragment implements gi5.b {
             }
         }
 
-        public static m a(@NonNull View view2) {
+        public static q a(@NonNull View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-                m mVar = new m();
-                mVar.a = view2;
-                mVar.c = (CardViewLayout) view2.findViewById(R.id.obfuscated_res_0x7f090670);
-                mVar.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090671);
-                mVar.f = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090678);
-                mVar.i = view2.findViewById(R.id.obfuscated_res_0x7f09140f);
-                mVar.b = (BaseAdapterViewFlipper) view2.findViewById(R.id.obfuscated_res_0x7f090672);
-                mVar.j = view2.findViewById(R.id.obfuscated_res_0x7f091da7);
-                mVar.k = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09067e);
-                mVar.g = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09067b);
-                mVar.h = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090680);
-                mVar.m = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090668);
-                mVar.o = (RoundRelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09066b);
-                mVar.p = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090abe);
-                mVar.l = view2.findViewById(R.id.obfuscated_res_0x7f091ff8);
-                mVar.q = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0902d8);
-                mVar.r = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091d1f);
-                mVar.u = (ConstraintLayout) view2.findViewById(R.id.obfuscated_res_0x7f090674);
-                mVar.v = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090673);
-                mVar.s = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090676);
-                mVar.t = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090675);
-                mVar.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09066a);
-                mVar.n = (RoundTbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090667);
-                return mVar;
+                q qVar = new q();
+                qVar.a = view2;
+                qVar.c = (CardViewLayout) view2.findViewById(R.id.obfuscated_res_0x7f09068d);
+                qVar.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09068e);
+                qVar.e = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090695);
+                qVar.g = view2.findViewById(R.id.obfuscated_res_0x7f091441);
+                qVar.b = (BaseAdapterViewFlipper) view2.findViewById(R.id.obfuscated_res_0x7f09068f);
+                qVar.h = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f09068a);
+                qVar.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09068b);
+                qVar.f = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090698);
+                qVar.k = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090683);
+                qVar.l = (RoundRelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090686);
+                qVar.m = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090ae4);
+                qVar.n = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090684);
+                qVar.j = view2.findViewById(R.id.obfuscated_res_0x7f092043);
+                qVar.o = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090682);
+                qVar.p = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0902df);
+                qVar.q = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0902e0);
+                qVar.r = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0923ae);
+                qVar.s = (FrameLayout) view2.findViewById(R.id.obfuscated_res_0x7f0923af);
+                qVar.v = (ConstraintLayout) view2.findViewById(R.id.obfuscated_res_0x7f090691);
+                qVar.w = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090690);
+                qVar.t = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090693);
+                qVar.u = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090692);
+                return qVar;
             }
-            return (m) invokeL.objValue;
+            return (q) invokeL.objValue;
         }
     }
 
@@ -812,79 +938,97 @@ public class ChatFloatEntranceFragment extends BaseFragment implements gi5.b {
                 return;
             }
         }
-        Q = UtilHelper.getDimenPixelSize(R.dimen.tbds130);
-        R = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
-        S = UtilHelper.getDimenPixelSize(R.dimen.tbds170);
-        T = 0;
-        U = 1;
-        V = 2;
+        T = UtilHelper.getDimenPixelSize(R.dimen.tbds130);
+        U = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
+        V = UtilHelper.getDimenPixelSize(R.dimen.tbds170);
+        W = 0;
+        X = 1;
     }
 
-    public final void A2() {
+    public final void D2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            b55.m().z("key_chat_group_entrance_hot_num", 0);
-            b55 m2 = b55.m();
-            m2.w("key_chat_group_entrance_click_daily" + this.n, false);
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && TbadkCoreApplication.isLogin() && getContext() != null && this.r > 0) {
+            this.F = true;
+            eh5.a().b(getContext(), this.r);
         }
     }
 
-    public final void C2() {
+    public final void E2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            SkinManager.setImageResource(this.a.n, R.drawable.obfuscated_res_0x7f080262);
-            SkinManager.setImageResource(this.a.d, R.drawable.obfuscated_res_0x7f080263);
-            SkinManager.setImageResource(this.a.f, R.drawable.icon_chat_group_expend);
-            SkinManager.setImageResource(this.a.k, R.drawable.icon_chat_group_more);
-            SkinManager.setImageResource(this.a.p, R.drawable.icon_chat_group_collapse);
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && TbadkCoreApplication.isLogin() && getContext() != null && this.f) {
+            this.f = false;
+            gh5 gh5Var = this.z;
+            if (gh5Var != null) {
+                gh5Var.a(getPageContext(), Collections.unmodifiableList(this.p), this.m, this.n, -1L, this.o, this.D);
+            }
         }
     }
 
-    public final long H2() {
+    public final void H2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            SkinManager.setBackgroundResource(this.a.d, R.drawable.obfuscated_res_0x7f080264);
+            SkinManager.setBackgroundResource(this.a.l, R.drawable.obfuscated_res_0x7f080263);
+            SkinManager.setImageResource(this.a.e, R.drawable.icon_chat_group_expend);
+            s2(3, this.v);
+        }
+    }
+
+    public final long N2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (ListUtils.isEmpty(this.q)) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            if (ListUtils.isEmpty(this.p)) {
                 return 0L;
             }
-            if (this.r > ListUtils.getCount(this.q) - 1) {
-                this.r = 0;
+            if (this.q > ListUtils.getCount(this.p) - 1) {
+                this.q = 0;
             }
-            long longValue = this.q.get(this.r).longValue();
-            this.r++;
+            long longValue = this.p.get(this.q).longValue();
+            this.q++;
             return longValue;
         }
         return invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.gi5.b
-    public void R0() {
+    @Override // com.baidu.tieba.dh5.b
+    public void S0() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && !s2() && this.b) {
+        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && !z2() && this.b) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921788));
-            this.a.u.setVisibility(0);
-            gh.a().postDelayed(this.O, 5000L);
-            b55.m().w("key_chat_group_guide_show", true);
+            this.a.v.setVisibility(0);
+            jg.a().postDelayed(this.R, 5000L);
+            m35.m().w("key_chat_group_guide_show", true);
         }
     }
 
-    public final void z2() {
+    public final long v2() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048617, this) == null) && TbadkCoreApplication.isLogin() && getContext() != null && this.f) {
-            this.f = false;
-            ji5 ji5Var = this.y;
-            if (ji5Var != null) {
-                ji5Var.a(getPageContext(), Collections.unmodifiableList(this.q), this.n, this.o, -1L, this.p, this.D);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
+            if (!ListUtils.isEmpty(this.p) && ListUtils.getCount(this.p) > 0 && this.p.get(0) != null) {
+                return this.p.get(0).longValue();
             }
+            return 0L;
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.tieba.ju7
+    public void y1() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048620, this) == null) && this.A != null && this.m > 0 && System.currentTimeMillis() - this.C > 5000) {
+            this.A.y(this.p, TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.m));
+            this.C = System.currentTimeMillis();
         }
     }
 
-    public ChatFloatEntranceFragment(String str, ji5 ji5Var) {
+    public ChatFloatEntranceFragment(String str, gh5 gh5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, ji5Var};
+            Object[] objArr = {str, gh5Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -901,55 +1045,64 @@ public class ChatFloatEntranceFragment extends BaseFragment implements gi5.b {
         this.h = 0;
         this.i = 0;
         this.j = 0;
-        this.k = new GradientDrawable();
-        this.q = new ArrayList();
-        this.r = 1;
-        this.s = -1L;
-        this.v = new HashMap();
-        this.w = new HashMap();
-        this.x = new d(this, 2921783);
-        this.A = false;
+        new GradientDrawable();
+        this.p = new ArrayList();
+        this.q = 1;
+        this.r = -1L;
+        this.u = new HashMap();
         this.B = false;
-        this.C = false;
         this.E = false;
-        this.I = new e(this, 2921768);
-        this.J = new f(this);
-        this.K = new g(this, 2921410);
-        this.L = new h(this, 2921771);
+        this.F = false;
+        this.G = new h(this, 2921769);
+        this.H = new i(this, 2921768);
+        this.I = new j(this);
+        this.J = new k(this, 2921410);
+        this.K = new l(this, 2921771);
+        this.L = new m(this, 2003023);
         this.M = null;
-        this.N = new i(this);
-        this.O = new j(this);
-        this.o = str;
-        this.y = ji5Var;
+        this.N = new n(this);
+        this.O = new o(this);
+        this.P = new p(this);
+        this.Q = new a(this);
+        this.R = new b(this);
+        this.n = str;
+        this.z = gh5Var;
     }
 
-    public final void E2(@NonNull ChatEntranceGuideConfig.GuideConfig guideConfig, @NonNull ChatEntranceGuideConfig.GuideConfig guideConfig2) {
+    public void J2(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, guideConfig, guideConfig2) == null) {
-            w2(this.a.d, SkinManager.getResourceId(R.drawable.obfuscated_res_0x7f080263), guideConfig.getExpendBackGroundDay(), guideConfig.getExpendBackGroundNight(), guideConfig2.getExpendBackGroundDay(), guideConfig2.getExpendBackGroundNight());
-            w2(this.a.f, SkinManager.getResourceId(R.drawable.icon_chat_group_expend), guideConfig.getExpendIconDay(), guideConfig.getExpendIconNight(), guideConfig2.getExpendIconDay(), guideConfig2.getExpendIconNight());
-            w2(this.a.k, SkinManager.getResourceId(R.drawable.icon_chat_group_more), guideConfig.getExpendArrowDay(), guideConfig.getExpendArrowNight(), guideConfig2.getExpendArrowDay(), guideConfig2.getExpendArrowNight());
-            w2(this.a.n, SkinManager.getResourceId(R.drawable.obfuscated_res_0x7f080262), guideConfig.getCollapseBackGroundDay(), guideConfig.getCollapseBackGroundNight(), guideConfig2.getCollapseBackGroundDay(), guideConfig2.getCollapseBackGroundNight());
-            w2(this.a.p, SkinManager.getResourceId(R.drawable.icon_chat_group_collapse), guideConfig.getCollapseIconDay(), guideConfig.getCollapseIconNight(), guideConfig2.getCollapseIconDay(), guideConfig2.getCollapseIconNight());
+        if ((interceptable != null && interceptable.invokeZ(1048585, this, z) != null) || this.a.b.isFlipping()) {
+            return;
         }
+        this.a.b.setAutoStart(z);
+        this.a.b.startFlipping();
     }
 
-    public final void F2(boolean z) {
+    public final void K2(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
             if (z) {
-                gh.a().removeCallbacks(this.N);
-                gh.a().post(this.N);
+                jg.a().removeCallbacks(this.N);
+                jg.a().post(this.N);
                 return;
             }
-            gh.a().removeCallbacks(this.N);
+            jg.a().removeCallbacks(this.N);
         }
     }
 
-    @Override // com.baidu.tieba.gi5.b
-    public void k1(boolean z) {
+    @Override // com.baidu.tieba.dh5.b
+    public void O0(MotionEvent motionEvent) {
+        ku7 ku7Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+        if ((interceptable == null || interceptable.invokeL(1048591, this, motionEvent) == null) && (ku7Var = this.y) != null) {
+            ku7Var.b(motionEvent);
+        }
+    }
+
+    @Override // com.baidu.tieba.dh5.b
+    public void l1(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
             this.b = z;
         }
     }
@@ -957,57 +1110,87 @@ public class ChatFloatEntranceFragment extends BaseFragment implements gi5.b {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onUserChanged(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048607, this, z) == null) {
             super.onUserChanged(z);
-            y2();
-            z2();
+            D2();
+            E2();
         }
     }
 
-    @Override // com.baidu.tieba.gi5.b
-    public boolean q1(String str) {
+    @Override // com.baidu.tieba.dh5.b
+    public boolean r1(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, str)) == null) {
-            return String.valueOf(this.m).equals(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, str)) == null) {
+            return String.valueOf(this.l).equals(str);
         }
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.gi5.b
+    public boolean A2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!ListUtils.isEmpty(this.p) && this.p.size() <= 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void B2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.c.getViewTreeObserver().addOnGlobalLayoutListener(new c(this));
+        }
+    }
+
+    public final void C2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c.d(new d(this));
+        }
+    }
+
+    @Override // com.baidu.tieba.dh5.b
     public void N0() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && !this.e && this.d != 2) {
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && !this.e && this.d != 2) {
             this.d = 2;
-            n2();
+            t2();
+            lu7 lu7Var = this.x;
+            if (lu7Var != null) {
+                lu7Var.e();
+            }
         }
     }
 
-    @Override // com.baidu.tieba.gi5.b
+    @Override // com.baidu.tieba.dh5.b
     public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && !this.e && this.d != 1) {
+        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && !this.e && this.d != 1) {
             this.d = 1;
-            m2();
-            B2();
-            p2();
+            r2();
+            G2();
+            w2();
         }
     }
 
-    @Override // com.baidu.tieba.gi5.b
+    @Override // com.baidu.tieba.dh5.b
     public void destroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
             onDestroyView();
-            this.y = null;
+            this.z = null;
         }
     }
 
-    @Override // com.baidu.tieba.gi5.b
+    @Override // com.baidu.tieba.dh5.b
     public int getState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
             if (this.d == 1 || this.a.c.getVisibility() != 0) {
                 return 1;
             }
@@ -1016,104 +1199,148 @@ public class ChatFloatEntranceFragment extends BaseFragment implements gi5.b {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.gi5.b
+    @Override // com.baidu.tieba.dh5.b
     public boolean j0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return !ListUtils.isEmpty(this.u);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return !ListUtils.isEmpty(this.t);
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.gi5.b
-    public void n1() {
+    @Override // com.baidu.tieba.dh5.b
+    public void o1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            p2();
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+            w2();
         }
     }
 
-    public final void p2() {
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921789));
-            this.a.u.setVisibility(8);
-        }
-    }
-
-    public final void q2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
-            long loopChatroomFrequency = TbSingleton.getInstance().getLoopChatroomFrequency() * 1000;
-            P = loopChatroomFrequency;
-            if (loopChatroomFrequency <= 0) {
-                P = 5000L;
+        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
+            super.onPause();
+            ou7 ou7Var = this.w;
+            if (ou7Var != null) {
+                ou7Var.m();
+            }
+            lu7 lu7Var = this.x;
+            if (lu7Var != null) {
+                lu7Var.h();
             }
         }
     }
 
-    public final boolean s2() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
-            return b55.m().i("key_chat_group_guide_show", false);
+        if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
+            super.onResume();
+            lu7 lu7Var = this.x;
+            if (lu7Var != null) {
+                lu7Var.i(this.p);
+            }
         }
-        return invokeV.booleanValue;
     }
 
-    public final void u2() {
+    @Override // com.baidu.tieba.ju7
+    public String v() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
-            this.a.c.getViewTreeObserver().addOnGlobalLayoutListener(new k(this));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+            return this.n;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ju7
+    public long w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
+            return this.m;
+        }
+        return invokeV.longValue;
+    }
+
+    public final void w2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921789));
+            this.a.v.setVisibility(8);
         }
     }
 
     public final void x2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
-            this.c.d(new l(this));
+        if (interceptable == null || interceptable.invokeV(1048619, this) == null) {
+            long loopChatroomFrequency = TbSingleton.getInstance().getLoopChatroomFrequency() * 1000;
+            S = loopChatroomFrequency;
+            if (loopChatroomFrequency <= 0) {
+                S = 5000L;
+            }
         }
     }
 
-    public final void y2() {
+    public final boolean z2() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048615, this) == null) && TbadkCoreApplication.isLogin() && getContext() != null && this.s > 0) {
-            hi5.a().b(getContext(), this.s);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
+            return m35.m().i("key_chat_group_guide_show", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void F2(int i2, @NonNull ChatRoomInfo chatRoomInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeIL(1048581, this, i2, chatRoomInfo) != null) || this.a.b.getChildCount() - 1 != i2) {
+            return;
+        }
+        this.v = chatRoomInfo.getUnreadNum();
+        this.r = chatRoomInfo.getRoomId();
+        su7 su7Var = this.c;
+        if (su7Var != null) {
+            Object item = su7Var.getItem(i2);
+            if (item instanceof ChatRoomInfoData) {
+                uu7.d(chatRoomInfo, (ChatRoomInfoData) item);
+                this.c.notifyDataSetChanged();
+            }
         }
     }
 
-    public void B2() {
+    public void G2() {
         Date date;
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             Date date2 = new Date(System.currentTimeMillis());
-            if (TbSingleton.getInstance().getHasShowRedPot() != null && TbSingleton.getInstance().getHasShowRedPot().get(Long.valueOf(this.n)) != null) {
-                date = TbSingleton.getInstance().getHasShowRedPot().get(Long.valueOf(this.n));
+            if (TbSingleton.getInstance().getHasShowRedPot() != null && TbSingleton.getInstance().getHasShowRedPot().get(Long.valueOf(this.m)) != null) {
+                date = TbSingleton.getInstance().getHasShowRedPot().get(Long.valueOf(this.m));
             } else {
                 date = new Date(0L);
             }
-            if (TbSingleton.getInstance().getHasClickRedPot() != null && TbSingleton.getInstance().getHasClickRedPot().get(Long.valueOf(this.n)) != null) {
-                i2 = TbSingleton.getInstance().getHasClickRedPot().get(Long.valueOf(this.n)).intValue();
+            if (TbSingleton.getInstance().getHasClickRedPot() != null && TbSingleton.getInstance().getHasClickRedPot().get(Long.valueOf(this.m)) != null) {
+                i2 = TbSingleton.getInstance().getHasClickRedPot().get(Long.valueOf(this.m)).intValue();
             } else {
                 i2 = 0;
             }
             if (UnReadRedPotMessage.getIsOn()) {
                 if (TimeHelper.getDayDifference(date2, date) >= 1) {
-                    o2();
-                    G2(T);
-                } else if (i2 == U) {
-                    o2();
-                    G2(T);
+                    u2();
+                    M2(W);
+                } else if (i2 == X) {
+                    u2();
+                    M2(W);
                 }
             }
         }
     }
 
-    public final void l2() {
+    public final void q2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048608, this) == null) {
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds170);
             ObjectAnimator duration = ObjectAnimator.ofPropertyValuesHolder(this.a.b, PropertyValuesHolder.ofFloat(View.TRANSLATION_Y, dimenPixelSize, 0.0f), PropertyValuesHolder.ofFloat(View.ALPHA, 0.0f, 1.0f)).setDuration(800L);
             duration.setInterpolator(new AccelerateDecelerateInterpolator());
@@ -1124,158 +1351,278 @@ public class ChatFloatEntranceFragment extends BaseFragment implements gi5.b {
         }
     }
 
-    public final void r2() {
+    public final void y2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
-            this.a.g.setOnClickListener(this);
+        if (interceptable == null || interceptable.invokeV(1048621, this) == null) {
+            this.a.f.setOnClickListener(this);
             this.a.h.setOnClickListener(this);
-            this.a.e.setOnClickListener(this);
-            this.a.c.setRadius(UtilHelper.getDimenPixelSize(R.dimen.tbds83));
-            this.k.setColor(SkinManager.getColor(R.color.CAM_X0207));
-            this.k.setShape(1);
-            this.k.setUseLevel(false);
-            int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds130);
-            this.k.setSize(dimenPixelSize, dimenPixelSize);
-            this.a.i.setAlpha(0.08f);
-            this.a.j.setAlpha(0.08f);
-            this.c = new dt7(getPageContext());
+            this.a.d.setOnClickListener(this);
+            this.a.c.setRadius(UtilHelper.getDimenPixelSize(R.dimen.tbds31));
+            n15.d(this.a.c).o(R.string.J_X06);
+            this.a.g.setAlpha(0.08f);
+            this.c = new su7(getPageContext());
             this.a.b.setFlipInterval(5500);
             this.a.b.startFlipping();
             this.a.b.setAnimateFirstView(false);
-            l2();
-            x2();
-            this.a.o.setOnClickListener(this);
-            this.a.q.setVisibility(8);
-            this.a.s.setText(R.string.chat_group_guide_title);
-            this.a.t.setText(R.string.chat_group_guide_content);
+            q2();
+            C2();
+            this.a.t.setText(R.string.chat_group_guide_title);
+            this.a.u.setText(R.string.chat_group_guide_content);
+            this.c.e(this.Q);
             onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            u2();
+            B2();
         }
     }
 
-    public final void D2(@NonNull ChatEntranceGuideConfig.GuideConfig guideConfig) {
+    public final void I2(int i2, boolean z, int i3) {
+        LinearLayout.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, guideConfig) == null) {
-            v2(this.a.d, SkinManager.getResourceId(R.drawable.obfuscated_res_0x7f080263), guideConfig.getExpendBackGroundDay(), guideConfig.getExpendBackGroundNight());
-            v2(this.a.f, SkinManager.getResourceId(R.drawable.icon_chat_group_expend), guideConfig.getExpendIconDay(), guideConfig.getExpendIconNight());
-            v2(this.a.k, SkinManager.getResourceId(R.drawable.icon_chat_group_more), guideConfig.getExpendArrowDay(), guideConfig.getExpendArrowNight());
-            v2(this.a.n, SkinManager.getResourceId(R.drawable.obfuscated_res_0x7f080262), guideConfig.getCollapseBackGroundDay(), guideConfig.getCollapseBackGroundNight());
-            v2(this.a.p, SkinManager.getResourceId(R.drawable.icon_chat_group_collapse), guideConfig.getCollapseIconDay(), guideConfig.getCollapseIconNight());
-        }
-    }
-
-    public void G2(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i2) == null) {
-            if (this.w == null) {
-                this.w = new HashMap();
+        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i2), Boolean.valueOf(z), Integer.valueOf(i3)}) == null) && getPageContext() != null && (layoutParams = (LinearLayout.LayoutParams) this.a.h.getLayoutParams()) != null) {
+            if (z && i3 > 0) {
+                this.a.i.setVisibility(0);
+                String format = String.format(getPageContext().getString(R.string.obfuscated_res_0x7f0f0d26), Integer.valueOf(i3));
+                String string = getPageContext().getString(R.string.obfuscated_res_0x7f0f0d27);
+                TextView textView = this.a.i;
+                if (i3 >= 99) {
+                    format = string;
+                }
+                textView.setText(format);
+                layoutParams.width = -2;
             } else {
-                this.w = TbSingleton.getInstance().getHasClickRedPot();
+                this.a.i.setVisibility(8);
+                layoutParams.width = i2;
             }
-            this.w.put(Long.valueOf(this.n), Integer.valueOf(i2));
-            TbSingleton.getInstance().setHasClickRedPot(this.w);
+            this.a.h.setLayoutParams(layoutParams);
         }
     }
 
-    public final void I2() {
+    public final void L2(@NonNull ChatRoomEntranceData chatRoomEntranceData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            if (this.G == null && this.H == null) {
-                C2();
-            } else if (this.G != null && t2()) {
-                ChatEntranceGuideConfig.GuideConfig guideConfig = this.H;
-                if (guideConfig != null) {
-                    E2(this.G, guideConfig);
-                } else {
-                    D2(this.G);
-                }
-                b55.m().z("key_chat_group_entrance_hot_num", this.F);
-            } else {
-                ChatEntranceGuideConfig.GuideConfig guideConfig2 = this.H;
-                if (guideConfig2 != null) {
-                    D2(guideConfig2);
-                } else {
-                    C2();
-                }
+        if (interceptable == null || interceptable.invokeL(1048587, this, chatRoomEntranceData) == null) {
+            if (!A2()) {
+                J2(true);
+                return;
+            }
+            if (A2()) {
+                this.a.b.stopFlipping();
+            }
+            if (this.w != null && A2() && !this.w.y()) {
+                this.w.z(chatRoomEntranceData.getChatRoomInfoList(), v2(), this.P);
             }
         }
+    }
+
+    public void M2(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
+            if (this.u == null) {
+                this.u = new HashMap();
+            } else {
+                this.u = TbSingleton.getInstance().getHasClickRedPot();
+            }
+            this.u.put(Long.valueOf(this.m), Integer.valueOf(i2));
+            TbSingleton.getInstance().setHasClickRedPot(this.u);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment
+    public void onChangeSkinType(int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048600, this, i2) != null) || i2 == this.mSkinType) {
+            return;
+        }
+        this.mSkinType = i2;
+        lu7 lu7Var = this.x;
+        if (lu7Var != null) {
+            lu7Var.f(i2);
+        }
+        this.a.c.setCardBackgroundColor(SkinManager.getColor(R.color.CAM_X0207));
+        SkinManager.setImageResource(this.a.w, R.drawable.chat_group_mask_guide);
+        H2();
+        n15.d(this.a.g).f(R.color.CAM_X0334);
+        SkinManager.setBackgroundColor(this.a.j, R.color.transparent);
+        if (this.mSkinType == 0) {
+            this.a.c.setElevation(UtilHelper.getDimenPixelSize(R.dimen.tbds21));
+        }
+        n15 d2 = n15.d(this.a.t);
+        d2.B(R.string.F_X02);
+        d2.w(R.color.CAM_X0105);
+        d2.A(R.dimen.T_X08);
+        n15 d3 = n15.d(this.a.u);
+        d3.B(R.string.F_X01);
+        d3.w(R.color.CAM_X0107);
+        d3.A(R.dimen.T_X09);
+        n15 d4 = n15.d(this.a.i);
+        d4.w(R.color.CAM_X0101);
+        d4.B(R.string.F_X01);
+        d4.A(R.dimen.T_X08);
+    }
+
+    @Override // com.baidu.tieba.dh5.b
+    public void u(ChatRoomEntranceData chatRoomEntranceData) {
+        lt7 lt7Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048613, this, chatRoomEntranceData) == null) && chatRoomEntranceData != null && !ListUtils.isEmpty(chatRoomEntranceData.getChatRoomInfoList())) {
+            if (!ListUtils.isEmpty(chatRoomEntranceData.getHotRoomList())) {
+                this.p.clear();
+                this.p.addAll(chatRoomEntranceData.getHotRoomList());
+                L2(chatRoomEntranceData);
+            }
+            if (!this.B && (lt7Var = this.A) != null && this.m > 0) {
+                lt7Var.y(this.p, TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.m));
+                this.B = true;
+            }
+            List<ChatRoomInfoData> chatRoomInfoList = chatRoomEntranceData.getChatRoomInfoList();
+            this.t = chatRoomInfoList;
+            this.c.c(chatRoomInfoList);
+            if (this.a.b.getAdapter() == null) {
+                this.a.b.setAdapter(this.c);
+            }
+            if (this.w != null && A2() && !this.w.A(v2())) {
+                ChatRoomInfoData chatRoomInfoData = chatRoomEntranceData.getChatRoomInfoList().get(0);
+                int btnType = chatRoomInfoData.getChatroomInfoBasicData().getBtnType();
+                int e2 = gg.e(chatRoomInfoData.getChatroomInfoBasicData().getUnreadNum(), 0);
+                this.v = e2;
+                s2(btnType, e2);
+                this.c.notifyDataSetChanged();
+                this.w.l();
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, android.view.View.OnClickListener
+    public void onClick(View view2) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, view2) == null) {
+            super.onClick(view2);
+            if (view2.getId() != R.id.obfuscated_res_0x7f090698 && view2.getId() != R.id.obfuscated_res_0x7f090686) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f09068a) {
+                    D2();
+                    return;
+                }
+                return;
+            }
+            if (TbadkCoreApplication.isLogin()) {
+                gh5 gh5Var = this.z;
+                if (gh5Var != null) {
+                    gh5Var.a(getPageContext(), Collections.unmodifiableList(this.p), this.m, this.n, -1L, this.o, this.D);
+                }
+            } else {
+                this.f = true;
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig((Context) TbadkCoreApplication.getInst(), true)));
+            }
+            if (view2.getId() != R.id.obfuscated_res_0x7f090698 && view2.getId() != R.id.obfuscated_res_0x7f09068a) {
+                i2 = 2;
+            } else {
+                i2 = 1;
+            }
+            tu7.b("c15073", this.m, this.n, null, i2, "2");
+            w2();
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, bundle) == null) {
+            super.onCreate(bundle);
+            x2();
+            if (this.k == null) {
+                this.k = new PollingModel(getPageContext(), getUniqueId());
+            }
+            if (getPageContext() != null && getPageContext().getPageActivity() != null) {
+                this.w = new ou7(getPageContext().getPageActivity(), this.O);
+            }
+            jg.a().removeCallbacks(this.N);
+            jg.a().post(this.N);
+            registerListener(this.J);
+            registerListener(this.H);
+            registerListener(this.G);
+            registerListener(this.K);
+            registerListener(this.L);
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048603, this, layoutInflater, viewGroup, bundle)) == null) {
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02ef, viewGroup, false);
+            this.a = q.a(inflate);
+            y2();
+            lu7 lu7Var = new lu7(this.a, this);
+            this.x = lu7Var;
+            this.y = new ku7(this, lu7Var);
+            return inflate;
+        }
+        return (View) invokeLLL.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroyView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
             super.onDestroyView();
-            gh.a().removeCallbacks(this.N);
-            gh.a().removeCallbacks(this.O);
+            jg.a().removeCallbacks(this.N);
+            jg.a().removeCallbacks(this.R);
+            MessageManager.getInstance().unRegisterListener(this.J);
+            MessageManager.getInstance().unRegisterListener(this.H);
+            MessageManager.getInstance().unRegisterListener(this.G);
             MessageManager.getInstance().unRegisterListener(this.K);
-            MessageManager.getInstance().unRegisterListener(this.I);
             MessageManager.getInstance().unRegisterListener(this.L);
-            MessageManager.getInstance().unRegisterListener(this.x);
-            MessageManager.getInstance().unRegisterListener(dt7.d);
-            es7 es7Var = this.z;
-            if (es7Var != null) {
-                es7Var.j();
+            MessageManager.getInstance().unRegisterListener(su7.e);
+            this.c.e(null);
+            lt7 lt7Var = this.A;
+            if (lt7Var != null) {
+                lt7Var.k();
+            }
+            ou7 ou7Var = this.w;
+            if (ou7Var != null) {
+                ou7Var.k();
             }
         }
     }
 
-    public boolean t2() {
-        InterceptResult invokeV;
+    public final void r2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
-            if (!StringHelper.isTaday(b55.m().o("key_chat_group_entrance_hot_time", System.currentTimeMillis()))) {
-                A2();
-                return true;
-            }
-            long n = b55.m().n("key_chat_group_entrance_hot_num", 0);
-            boolean i2 = b55.m().i("key_chat_group_entrance_click_daily" + this.n, false);
-            if (this.F >= n && !i2) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void m2() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048594, this) != null) || this.e) {
+        if ((interceptable != null && interceptable.invokeV(1048610, this) != null) || this.e) {
             return;
         }
         AnimatorSet animatorSet = new AnimatorSet();
-        ObjectAnimator ofInt = ObjectAnimator.ofInt(this.a.c, "width", this.i, Q);
-        animatorSet.playTogether(ofInt, ObjectAnimator.ofInt(this.a.c, "height", this.j, Q), ObjectAnimator.ofInt(this.a.c, "marginRight", this.h, R));
-        animatorSet.addListener(new a(this));
-        ofInt.addUpdateListener(new b(this));
+        ObjectAnimator ofInt = ObjectAnimator.ofInt(this.a.c, "width", this.i, T);
+        animatorSet.playTogether(ofInt, ObjectAnimator.ofInt(this.a.c, "height", this.j, T), ObjectAnimator.ofInt(this.a.c, "marginRight", this.h, U));
+        animatorSet.addListener(new e(this));
+        ofInt.addUpdateListener(new f(this));
         animatorSet.setDuration(600L).start();
     }
 
-    public final void n2() {
+    public final void t2() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048596, this) != null) || this.e) {
+        if ((interceptable != null && interceptable.invokeV(1048612, this) != null) || this.e) {
             return;
         }
-        m mVar = this.a;
-        jd9.a(mVar.m, 10L, mVar.c, 10L);
+        q qVar = this.a;
+        sj9.a(qVar.k, 10L, qVar.c, 10L);
         AnimatorSet animatorSet = new AnimatorSet();
-        animatorSet.playTogether(ObjectAnimator.ofInt(this.a.c, "width", Q, this.i), ObjectAnimator.ofInt(this.a.c, "height", Q, this.j), ObjectAnimator.ofInt(this.a.c, "marginRight", R, this.h));
-        animatorSet.addListener(new c(this));
+        animatorSet.playTogether(ObjectAnimator.ofInt(this.a.c, "width", T, this.i), ObjectAnimator.ofInt(this.a.c, "height", T, this.j), ObjectAnimator.ofInt(this.a.c, "marginRight", U, this.h));
+        animatorSet.addListener(new g(this));
         animatorSet.setDuration(600L).start();
     }
 
-    public void o2() {
+    public void u2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048614, this) == null) {
             if (this.M == null) {
                 this.M = new ArrayList();
             }
             this.M.clear();
-            for (int i2 = 0; i2 < this.q.size(); i2++) {
-                Long l2 = this.q.get(i2);
+            for (int i2 = 0; i2 < this.p.size(); i2++) {
+                Long l2 = this.p.get(i2);
                 HashMap hashMap = new HashMap();
                 hashMap.put("room_id", l2);
-                GroupChatRoomPojo c2 = wn7.f().c(TbadkCoreApplication.getCurrentAccount(), l2.longValue());
+                GroupChatRoomPojo c2 = dp7.f().c(TbadkCoreApplication.getCurrentAccount(), l2.longValue());
                 if (c2 != null) {
                     hashMap.put("msg_id", Long.valueOf(c2.getLatestMsgId()));
                 } else {
@@ -1291,180 +1638,37 @@ public class ChatFloatEntranceFragment extends BaseFragment implements gi5.b {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment
-    public void onChangeSkinType(int i2) {
+    public final void s2(int i2, int i3) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048598, this, i2) != null) || i2 == this.mSkinType) {
-            return;
-        }
-        this.mSkinType = i2;
-        this.k.setColor(SkinManager.getColor(R.color.CAM_X0207));
-        this.a.c.setCardBackgroundColor(SkinManager.getColor(R.color.CAM_X0207));
-        this.a.m.setBackground(this.k);
-        SkinManager.setImageResource(this.a.v, R.drawable.chat_group_mask_guide);
-        this.a.n.setRadius(R.dimen.tbds134);
-        this.a.n.setSkinType(this.mSkinType);
-        I2();
-        b35.d(this.a.i).f(R.color.CAM_X0334);
-        b35.d(this.a.j).f(R.color.CAM_X0334);
-        SkinManager.setBackgroundColor(this.a.l, R.color.transparent);
-        if (this.mSkinType == 0) {
-            this.a.c.setElevation(UtilHelper.getDimenPixelSize(R.dimen.tbds21));
-            this.a.m.setElevation(UtilHelper.getDimenPixelSize(R.dimen.tbds16));
-        }
-        b35 d2 = b35.d(this.a.q);
-        d2.A(R.string.F_X02);
-        d2.v(R.color.CAM_X0101);
-        d2.z(R.dimen.T_X09);
-        b35 d3 = b35.d(this.a.s);
-        d3.A(R.string.F_X02);
-        d3.v(R.color.CAM_X0105);
-        d3.z(R.dimen.T_X08);
-        b35 d4 = b35.d(this.a.t);
-        d4.A(R.string.F_X01);
-        d4.v(R.color.CAM_X0107);
-        d4.z(R.dimen.T_X09);
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, android.view.View.OnClickListener
-    public void onClick(View view2) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, view2) == null) {
-            super.onClick(view2);
-            if (view2.getId() == R.id.obfuscated_res_0x7f09067b || view2.getId() == R.id.obfuscated_res_0x7f090680 || view2.getId() == R.id.obfuscated_res_0x7f09066b) {
-                if (TbadkCoreApplication.isLogin()) {
-                    ji5 ji5Var = this.y;
-                    if (ji5Var != null) {
-                        ji5Var.a(getPageContext(), Collections.unmodifiableList(this.q), this.n, this.o, -1L, this.p, this.D);
-                    }
-                } else {
-                    this.f = true;
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig((Context) TbadkCoreApplication.getInst(), true)));
-                }
-                if (view2.getId() != R.id.obfuscated_res_0x7f09067b && view2.getId() != R.id.obfuscated_res_0x7f090680) {
-                    i2 = 2;
-                } else {
-                    i2 = 1;
-                }
-                bt7.b("c15073", this.n, this.o, null, i2, "2");
-                b55 m2 = b55.m();
-                m2.w("key_chat_group_entrance_click_daily" + this.n, true);
-                I2();
-                p2();
-            }
-            if (view2.getId() == R.id.obfuscated_res_0x7f09066b) {
-                G2(V);
-                this.a.r.setVisibility(8);
-                this.a.q.setVisibility(8);
-                this.B = true;
-                this.v.put(Long.valueOf(this.n), new Date(System.currentTimeMillis()));
-                TbSingleton.getInstance().setHasShowRedPot(this.v);
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, bundle) == null) {
-            super.onCreate(bundle);
-            q2();
-            if (this.l == null) {
-                this.l = new PollingModel(getPageContext(), getUniqueId());
-            }
-            gh.a().removeCallbacks(this.N);
-            gh.a().post(this.N);
-            registerListener(this.K);
-            registerListener(this.I);
-            registerListener(this.L);
-            registerListener(this.x);
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048601, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d02e6, viewGroup, false);
-            this.a = m.a(inflate);
-            r2();
-            return inflate;
-        }
-        return (View) invokeLLL.objValue;
-    }
-
-    public final void v2(TbImageView tbImageView, int i2, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(1048611, this, tbImageView, i2, str, str2) == null) {
-            w2(tbImageView, i2, null, null, str, str2);
-        }
-    }
-
-    public final void w2(TbImageView tbImageView, int i2, String str, String str2, String str3, String str4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048612, this, new Object[]{tbImageView, Integer.valueOf(i2), str, str2, str3, str4}) == null) {
-            if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
-                if (this.mSkinType != 0) {
-                    str = str2;
-                }
-                b55.m().A("key_chat_group_entrance_hot_time", System.currentTimeMillis());
-            } else if (!StringUtils.isNull(str3) && !StringUtils.isNull(str4)) {
-                if (this.mSkinType != 0) {
-                    str3 = str4;
-                }
-                str = str3;
+        if (interceptable == null || interceptable.invokeII(1048611, this, i2, i3) == null) {
+            if (i2 == 1) {
+                I2(UtilHelper.getDimenPixelSize(R.dimen.tbds172), false, 0);
+                SkinManager.setBackgroundResource(this.a.h, R.drawable.obfuscated_res_0x7f080701);
+            } else if (i3 > 0) {
+                I2(UtilHelper.getDimenPixelSize(R.dimen.tbds172), true, i3);
+                SkinManager.setBackgroundResource(this.a.h, R.drawable.obfuscated_res_0x7f080705);
             } else {
-                str = null;
+                I2(UtilHelper.getDimenPixelSize(R.dimen.tbds198), false, 0);
+                SkinManager.setBackgroundResource(this.a.h, R.drawable.obfuscated_res_0x7f0806fd);
             }
-            Glide.with(this).load(str).apply((BaseRequestOptions<?>) new RequestOptions().error(i2).placeholder(i2)).into(tbImageView);
         }
     }
 
-    @Override // com.baidu.tieba.gi5.b
-    public void x1(long j2, String str, boolean z, boolean z2) {
+    @Override // com.baidu.tieba.dh5.b
+    public void z1(long j2, String str, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{Long.valueOf(j2), str, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            this.p = z;
+        if (interceptable == null || interceptable.invokeCommon(1048622, this, new Object[]{Long.valueOf(j2), str, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            this.o = z;
             this.D = z2;
-            if (StringUtils.isNull(this.o)) {
-                this.o = str;
+            if (StringUtils.isNull(this.n)) {
+                this.n = str;
             }
-            if (this.n == 0 && j2 > 0 && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) && !this.E) {
-                gh.a().removeCallbacks(this.N);
-                gh.a().post(this.N);
+            if (this.m == 0 && j2 > 0 && !TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount()) && !this.E) {
+                jg.a().removeCallbacks(this.N);
+                jg.a().post(this.N);
             }
-            this.n = j2;
-            this.z = new es7(getContext(), this.J, false);
-        }
-    }
-
-    @Override // com.baidu.tieba.gi5.b
-    public void z(ChatRoomEntranceData chatRoomEntranceData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048616, this, chatRoomEntranceData) == null) && chatRoomEntranceData != null && !ListUtils.isEmpty(chatRoomEntranceData.getChatRoomInfoList())) {
-            if (!ListUtils.isEmpty(chatRoomEntranceData.getHotRoomList())) {
-                this.q.clear();
-                this.q.addAll(chatRoomEntranceData.getHotRoomList());
-            }
-            if (!this.C && this.z != null && this.n > 0) {
-                this.a.q.setVisibility(8);
-                this.z.v(this.q, TbadkCoreApplication.getCurrentAccount(), String.valueOf(this.n));
-                this.C = true;
-            }
-            List<ChatRoomInfoData> chatRoomInfoList = chatRoomEntranceData.getChatRoomInfoList();
-            this.u = chatRoomInfoList;
-            this.c.c(chatRoomInfoList);
-            if (chatRoomEntranceData.getGuideConfig() != null) {
-                this.F = chatRoomEntranceData.getGuideConfig().getHotNum();
-                this.G = chatRoomEntranceData.getGuideConfig().getHotConfig();
-                this.H = chatRoomEntranceData.getGuideConfig().getManualConfig();
-                I2();
-            }
-            if (this.a.b.getAdapter() == null) {
-                this.a.b.setAdapter(this.c);
-            }
+            this.m = j2;
+            this.A = new lt7(getContext(), this.I, false);
         }
     }
 }

@@ -1,34 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.advert.sdk.data.AdLoadState;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface z06 {
-    public static final boolean a;
+public class z06 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile y06 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void a();
-
-    boolean b();
-
-    String c();
-
-    AdLoadState d();
-
-    void destroy();
-
-    void e(xu4 xu4Var);
-
-    String f();
-
-    void show();
-
-    static {
-        boolean z;
-        if (!TbadkCoreApplication.getInst().isDebugMode() && !zw4.h()) {
-            z = false;
-        } else {
-            z = true;
+    public static synchronized y06 a() {
+        InterceptResult invokeV;
+        y06 y06Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (z06.class) {
+                if (a == null) {
+                    a = new y06();
+                }
+                y06Var = a;
+            }
+            return y06Var;
         }
-        a = z;
+        return (y06) invokeV.objValue;
     }
 }

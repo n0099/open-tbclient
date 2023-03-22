@@ -1,49 +1,67 @@
 package com.baidu.tieba;
 
-import android.webkit.WebView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes3.dex */
-public class cc6 extends bc6 {
+public abstract class cc6<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public cc6<T> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cc6(WebView webView) {
-        super(webView);
+    public abstract T c(String str, String str2, Map<String, String> map);
+
+    public abstract boolean e(String str, String str2, Map<String, String> map);
+
+    public cc6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {webView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((WebView) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public static void d(WebView webView) {
+    public cc6<T> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, webView) == null) {
-            webView.setHorizontalScrollBarEnabled(false);
-            webView.setHorizontalScrollbarOverlay(false);
-            new cc6(webView).a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (cc6) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.bc6
-    public void a() {
+    public final T b(String str, String str2, Map<String, String> map) {
+        InterceptResult invokeLLL;
+        T t;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.a();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, map)) == null) {
+            if (e(str, str2, map)) {
+                t = c(str, str2, map);
+            } else {
+                t = null;
+            }
+            if (t == null && a() != null) {
+                return a().b(str, str2, map);
+            }
+            return t;
+        }
+        return (T) invokeLLL.objValue;
+    }
+
+    public void d(cc6<T> cc6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, cc6Var) == null) {
+            this.a = cc6Var;
         }
     }
 }

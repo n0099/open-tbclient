@@ -141,8 +141,8 @@ public final class g extends e implements com.kwad.sdk.core.h.b {
     @Override // com.kwad.components.ad.splashscreen.b.e, com.kwad.sdk.mvp.Presenter
     public final void aq() {
         super.aq();
-        this.yI = (ImageView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091329);
-        this.yH = (ImageView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f09132c);
+        this.yI = (ImageView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f09135b);
+        this.yH = (ImageView) this.yF.mRootContainer.findViewById(R.id.obfuscated_res_0x7f09135e);
         AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(this.yF.mAdTemplate);
         this.mAdInfo = bQ;
         String str = com.kwad.sdk.core.response.a.a.at(bQ).materialUrl;

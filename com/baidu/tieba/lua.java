@@ -1,49 +1,56 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
+import java.util.Iterator;
 /* loaded from: classes5.dex */
-public class lua {
+public abstract class lua<E> extends mua<E> {
     public static /* synthetic */ Interceptable $ic;
+    public static final int c;
+    public static final long d;
+    public static final int e;
     public transient /* synthetic */ FieldHolder $fh;
-    public ProductInfo a;
-    public int b;
-    public boolean c;
-    public boolean d;
-    public int e;
-    public String f;
+    public final long a;
+    public final E[] b;
 
-    public lua(ProductInfo productInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {productInfo};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947956753, "Lcom/baidu/tieba/lua;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947956753, "Lcom/baidu/tieba/lua;");
                 return;
             }
         }
-        this.b = Integer.MIN_VALUE;
-        this.e = -1;
-        this.a = productInfo;
+        c = Integer.getInteger("sparse.shift", 0).intValue();
+        int b = lva.a.b(Object[].class);
+        if (4 == b) {
+            e = c + 2;
+        } else if (8 == b) {
+            e = c + 3;
+        } else {
+            throw new IllegalStateException("Unknown pointer size");
+        }
+        d = lva.a.a(Object[].class) + (32 << (e - c));
     }
 
-    public lua(ProductInfo productInfo, int i) {
+    public lua(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {productInfo, Integer.valueOf(i)};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -53,104 +60,90 @@ public class lua {
                 return;
             }
         }
-        this.b = Integer.MIN_VALUE;
-        this.e = -1;
-        this.a = productInfo;
-        this.b = i;
+        int b = oua.b(i);
+        this.a = b - 1;
+        this.b = (E[]) new Object[(b << c) + 64];
     }
 
-    public lua(boolean z) {
+    public final long a(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            return b(j, this.a);
+        }
+        return invokeJ.longValue;
+    }
+
+    public final E d(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
+            return e(this.b, j);
+        }
+        return (E) invokeJ.objValue;
+    }
+
+    public final long b(long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return d + ((j & j2) << e);
+        }
+        return invokeCommon.longValue;
+    }
+
+    public final E c(E[] eArr, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, eArr, j)) == null) {
+            return (E) lva.a.e(eArr, j);
+        }
+        return (E) invokeLJ.objValue;
+    }
+
+    public final E e(E[] eArr, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, eArr, j)) == null) {
+            return (E) lva.a.f(eArr, j);
+        }
+        return (E) invokeLJ.objValue;
+    }
+
+    @Override // java.util.AbstractQueue, java.util.AbstractCollection, java.util.Collection
+    public void clear() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(1048579, this) != null) {
+            return;
+        }
+        while (true) {
+            if (poll() == null && isEmpty()) {
                 return;
             }
         }
-        this.b = Integer.MIN_VALUE;
-        this.e = -1;
-        this.c = z;
     }
 
-    public double a() {
+    @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
+    public Iterator<E> iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ProductInfo productInfo = this.a;
-            if (productInfo != null) {
-                return productInfo.destAmount / 100.0d;
-            }
-            return 0.0d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            throw new UnsupportedOperationException();
         }
-        return invokeV.doubleValue;
+        return (Iterator) invokeV.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public final void f(E[] eArr, long j, E e2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public double c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            ProductInfo productInfo = this.a;
-            if (productInfo != null) {
-                return productInfo.srcAmount;
-            }
-            return 0.0d;
-        }
-        return invokeV.doubleValue;
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.f = str;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{eArr, Long.valueOf(j), e2}) == null) {
+            lva.a.j(eArr, j, e2);
         }
     }
 
-    public String toString() {
-        InterceptResult invokeV;
-        double d;
-        long j;
+    public final void g(E[] eArr, long j, E e2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append("PayAmount{currencyType=");
-            sb.append(this.b);
-            sb.append("splitDetailId=");
-            sb.append(this.f);
-            sb.append(", srcAmount=");
-            ProductInfo productInfo = this.a;
-            if (productInfo != null) {
-                d = productInfo.srcAmount;
-            } else {
-                d = 0.0d;
-            }
-            sb.append(d);
-            sb.append(", dstAmount=");
-            ProductInfo productInfo2 = this.a;
-            if (productInfo2 != null) {
-                j = productInfo2.destAmount;
-            } else {
-                j = 0;
-            }
-            sb.append(j);
-            sb.append('}');
-            return sb.toString();
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{eArr, Long.valueOf(j), e2}) == null) {
+            lva.a.h(eArr, j, e2);
         }
-        return (String) invokeV.objValue;
     }
 }

@@ -1,69 +1,15 @@
 package com.baidu.tieba;
-
-import android.os.Build;
-import com.baidu.adp.gif.NSGif;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public class lc {
-    public static /* synthetic */ Interceptable $ic;
-    public static final String[] a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface lc {
+    Object a(ud udVar);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448310038, "Lcom/baidu/tieba/lc;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448310038, "Lcom/baidu/tieba/lc;");
-                return;
-            }
-        }
-        a = new String[]{"ZTE-T U880", "U880"};
-    }
+    Object b(ud udVar);
 
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (Build.VERSION.SDK_INT > 7) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
+    Object c(ud udVar);
 
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b(gj.g()) && a() && NSGif.f) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
+    Object d(ud udVar);
 
-    public static boolean b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            for (String str2 : a) {
-                if (str2.equals(str)) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
+    Object e(ud udVar);
+
+    Object f(ud udVar);
 }

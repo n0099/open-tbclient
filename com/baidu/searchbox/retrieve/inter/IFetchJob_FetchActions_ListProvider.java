@@ -5,12 +5,12 @@ import com.baidu.searchbox.retrieve.file.FetchFileJob;
 import com.baidu.searchbox.retrieve.log.FetchLogJob;
 import com.baidu.searchbox.retrieve.timer.FetchTimerCancelJob;
 import com.baidu.searchbox.retrieve.timer.FetchTimerJob;
-import com.baidu.tieba.jk1;
-import com.baidu.tieba.ps9;
+import com.baidu.tieba.yy9;
+import com.baidu.tieba.zi1;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
-public class IFetchJob_FetchActions_ListProvider implements jk1 {
-    @Override // com.baidu.tieba.jk1
+public class IFetchJob_FetchActions_ListProvider implements zi1 {
+    @Override // com.baidu.tieba.zi1
     public Object get() {
         ArrayList arrayList = new ArrayList();
         arrayList.add(new DiskFetchLogJob());
@@ -18,7 +18,7 @@ public class IFetchJob_FetchActions_ListProvider implements jk1 {
         arrayList.add(new FetchLogJob());
         arrayList.add(new FetchTimerCancelJob());
         arrayList.add(new FetchTimerJob());
-        arrayList.add(new ps9());
+        arrayList.add(new yy9());
         return arrayList;
     }
 }

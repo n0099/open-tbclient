@@ -1,41 +1,48 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.prologue.business.data.BaseVM;
+import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkItem;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
+import com.huawei.hms.framework.network.grs.GrsBaseInfo;
+import com.tencent.mm.opensdk.modelbiz.WXLaunchMiniProgram;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
+import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
+@SuppressLint({"LongLogTag"})
 /* loaded from: classes6.dex */
-public class xi1 {
+public class xi1 extends ti1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String[] a;
+    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public List<a> b;
 
     /* loaded from: classes6.dex */
-    public static class a {
+    public class a implements qi1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public String c;
-        public String d;
-        public String e;
-        public String f;
-        public Long g;
-        public int h;
-        public String i;
 
-        public a() {
+        public a(xi1 xi1Var, pi1 pi1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xi1Var, pi1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -45,97 +52,260 @@ public class xi1 {
                 }
             }
         }
+    }
 
-        public a(JSONObject jSONObject) {
+    /* loaded from: classes6.dex */
+    public class b implements bi0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean[] a;
+
+        public b(xi1 xi1Var, boolean[] zArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {jSONObject};
-                interceptable.invokeUnInit(65537, newInitContext);
+                Object[] objArr = {xi1Var, zArr};
+                interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            if (jSONObject == null) {
-                return;
-            }
-            this.c = jSONObject.optString("display_name");
-            this.d = jSONObject.optString("pay_text");
-            this.f = jSONObject.optString("icon");
-            this.e = jSONObject.optString("valid_info");
-            this.i = jSONObject.optString("host_marketing_detail");
-            this.g = Long.valueOf(jSONObject.optLong("available_par_money"));
-            this.h = jSONObject.optInt("is_selected");
-            this.b = jSONObject.optInt("style");
-            this.a = jSONObject.optInt("type");
+            this.a = zArr;
         }
 
-        public JSONObject a() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.bi0
+        public void onResult(boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("display_name", this.c);
-                    jSONObject.put("pay_text", this.d);
-                    jSONObject.put("icon", this.f);
-                    jSONObject.put("valid_info", this.e);
-                    jSONObject.put("host_marketing_detail", this.i);
-                    jSONObject.put("available_par_money", this.g);
-                    jSONObject.put("is_selected", this.h);
-                    jSONObject.put("style", this.b);
-                    jSONObject.put("type", this.a);
-                } catch (JSONException e) {
-                    if (ei1.d) {
-                        e.printStackTrace();
-                    }
-                }
-                return jSONObject;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                this.a[0] = z;
             }
-            return (JSONObject) invokeV.objValue;
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return "CouponItem{type=" + this.a + ", style=" + this.b + ", displayName='" + this.c + "', payText='" + this.d + "', validInfo='" + this.e + "', icon='" + this.f + "', cutMoney=" + this.g + ", isSelected=" + this.h + ", hostMarketingDetail='" + this.i + "'}";
-            }
-            return (String) invokeV.objValue;
         }
     }
 
-    public xi1(JSONArray jSONArray) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948301225, "Lcom/baidu/tieba/xi1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948301225, "Lcom/baidu/tieba/xi1;");
+                return;
+            }
+        }
+        a = new String[]{"deeplink", "open", "mnprogram"};
+        b = aj0.a().a();
+    }
+
+    public xi1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONArray};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        if (jSONArray == null) {
-            return;
-        }
-        this.b = new ArrayList();
-        int length = jSONArray.length();
-        for (int i3 = 0; i3 < length; i3++) {
-            JSONObject jSONObject = (JSONObject) jSONArray.opt(i3);
-            if (jSONObject != null) {
-                this.b.add(new a(jSONObject));
+    }
+
+    @Override // com.baidu.tieba.ti1
+    public void a(HashMap<String, String> hashMap) {
+        String[] strArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, hashMap) == null) {
+            for (String str : a) {
+                hashMap.put("splash/ad/" + str, "splash_ad/" + str);
             }
         }
-        this.a = this.b.size() > 1;
+    }
+
+    @Override // com.baidu.tieba.ti1
+    @SuppressLint({"LongLogTag"})
+    public boolean c(Context context, vi1 vi1Var, pi1 pi1Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, vi1Var, pi1Var)) == null) {
+            String d = vi1Var.d(true);
+            if (!TextUtils.isEmpty(d) && context != null) {
+                if (vi1Var.e()) {
+                    return true;
+                }
+                char c = 65535;
+                int hashCode = d.hashCode();
+                if (hashCode != -1317819965) {
+                    if (hashCode != 3417674) {
+                        if (hashCode == 629233382 && d.equals("deeplink")) {
+                            c = 0;
+                        }
+                    } else if (d.equals("open")) {
+                        c = 1;
+                    }
+                } else if (d.equals("mnprogram")) {
+                    c = 2;
+                }
+                if (c != 0) {
+                    if (c != 1) {
+                        if (c != 2) {
+                            return false;
+                        }
+                        return f(context, vi1Var, pi1Var);
+                    }
+                    return g(vi1Var, pi1Var);
+                }
+                return e(context, vi1Var, pi1Var);
+            }
+            vi1Var.i = yi1.h(201);
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public final boolean e(@NonNull Context context, @NonNull vi1 vi1Var, pi1 pi1Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, vi1Var, pi1Var)) == null) {
+            String str = vi1Var.c().get("params");
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                String optString = jSONObject.optString(DeepLinkItem.DEEPLINK_APPURL_KEY);
+                String optString2 = jSONObject.optString(DeepLinkItem.DEEPLINK_WEBURL_KEY);
+                String optString3 = jSONObject.optString("pkgName");
+                if (!TextUtils.isEmpty(optString)) {
+                    boolean[] zArr = new boolean[1];
+                    di0.a(context, optString, optString3, new b(this, zArr), false);
+                    if (zArr[0]) {
+                        BaseVM.f(GrsBaseInfo.CountryCodeSource.APP);
+                        return true;
+                    }
+                }
+                if (!TextUtils.isEmpty(optString3) && di0.b(context, optString3)) {
+                    BaseVM.f(GrsBaseInfo.CountryCodeSource.APP);
+                    return true;
+                } else if (TextUtils.isEmpty(optString2)) {
+                    return false;
+                } else {
+                    BaseVM.f("URL");
+                    return h(optString2, pi1Var);
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public final boolean f(Context context, vi1 vi1Var, pi1 pi1Var) {
+        InterceptResult invokeLLL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, context, vi1Var, pi1Var)) == null) {
+            if (TextUtils.isEmpty(b)) {
+                if (pi1Var != null) {
+                    pi1Var.handleSchemeDispatchCallback(String.valueOf(303), null);
+                }
+                return false;
+            }
+            String str2 = vi1Var.c().get("params");
+            if (TextUtils.isEmpty(str2)) {
+                return false;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str2);
+                if (TextUtils.isEmpty(jSONObject.optString("mnProgramType"))) {
+                    if (pi1Var != null) {
+                        pi1Var.handleSchemeDispatchCallback(String.valueOf(202), null);
+                    }
+                    return false;
+                }
+                WXLaunchMiniProgram.Req req = new WXLaunchMiniProgram.Req();
+                req.userName = jSONObject.optString(TbEnum.SystemMessage.KEY_USER_NAME);
+                req.path = jSONObject.optString("path");
+                req.miniprogramType = jSONObject.optInt("mnProgramType");
+                String optString = jSONObject.optString("extInfo");
+                IWXAPI createWXAPI = WXAPIFactory.createWXAPI(context, b);
+                boolean sendReq = createWXAPI.sendReq(req);
+                if (!sendReq) {
+                    if (!createWXAPI.isWXAppInstalled()) {
+                        str = "1001";
+                    } else {
+                        str = "1002";
+                    }
+                    i("URL", optString, str);
+                    return h(jSONObject.optString(DeepLinkItem.DEEPLINK_WEBURL_KEY), pi1Var);
+                }
+                i(ClogBuilder.Area.APP.type, optString, null);
+                pi1Var.handleSchemeDispatchCallback(String.valueOf(0), null);
+                return sendReq;
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public final boolean g(vi1 vi1Var, pi1 pi1Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, vi1Var, pi1Var)) == null) {
+            String str = vi1Var.c().get("params");
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                String optString = jSONObject.optString(DeepLinkItem.DEEPLINK_WEBURL_KEY);
+                if (TextUtils.isEmpty(optString)) {
+                    optString = jSONObject.optString("innerUrl");
+                }
+                return h(optString, pi1Var);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final boolean h(@NonNull String str, pi1 pi1Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, pi1Var)) == null) {
+            boolean a2 = xh1.b().a(str, new a(this, pi1Var));
+            if (!a2 && pi1Var != null) {
+                return pi1Var.c(str);
+            }
+            return a2;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final void i(@NonNull String str, @Nullable String str2, @Nullable String str3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048582, this, str, str2, str3) == null) && !TextUtils.isEmpty(str2)) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.u(ClogBuilder.Page.MINI_PROGRAM);
+            clogBuilder.y(ClogBuilder.LogType.MINI_PROGRAM);
+            clogBuilder.j(str);
+            clogBuilder.p(str2);
+            if (!TextUtils.isEmpty(str3)) {
+                clogBuilder.k(str3);
+            }
+            k11.b(clogBuilder);
+        }
     }
 }

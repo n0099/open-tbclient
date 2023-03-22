@@ -1,73 +1,176 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Base64;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.view.narootview.SwanAppInlineFullScreenContainer;
+import com.baidu.tieba.c72;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.SecureRandom;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class to1 {
+public class to1 implements jw3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ViewGroup.LayoutParams c;
     public transient /* synthetic */ FieldHolder $fh;
+    public b72 a;
+    public FrameLayout b;
 
-    public static String a(byte[] bArr) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.jw3
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            try {
-                byte[] bArr2 = new byte[32];
-                new SecureRandom().nextBytes(bArr2);
-                byte[] bArr3 = new byte[16];
-                System.arraycopy(bArr2, 8, bArr3, 0, 16);
-                IvParameterSpec ivParameterSpec = new IvParameterSpec(bArr3);
-                SecretKeySpec secretKeySpec = new SecretKeySpec(bArr2, "AES");
-                Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
-                cipher.init(1, secretKeySpec, ivParameterSpec);
-                byte[] doFinal = cipher.doFinal(bArr);
-                byte[] bArr4 = new byte[doFinal.length + 32];
-                System.arraycopy(doFinal, 0, bArr4, 0, doFinal.length);
-                System.arraycopy(bArr2, 0, bArr4, doFinal.length, 32);
-                return Base64.encodeToString(bArr4, 0);
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return false;
         }
-        return (String) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static byte[] b(String str) {
+    @Override // com.baidu.tieba.jw3
+    public boolean c(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            try {
-                if (TextUtils.isEmpty(str)) {
-                    return null;
-                }
-                byte[] decode = Base64.decode(str, 0);
-                if (decode != null && decode.length >= 32) {
-                    byte[] bArr = new byte[32];
-                    int length = decode.length - 32;
-                    byte[] bArr2 = new byte[length];
-                    System.arraycopy(decode, 0, bArr2, 0, length);
-                    System.arraycopy(decode, length, bArr, 0, 32);
-                    SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
-                    Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
-                    byte[] bArr3 = new byte[16];
-                    System.arraycopy(bArr, 8, bArr3, 0, 16);
-                    cipher.init(2, secretKeySpec, new IvParameterSpec(bArr3));
-                    return cipher.doFinal(bArr2);
-                }
-                return decode;
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.jw3
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.jw3
+    public boolean f(View view2, dv3 dv3Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, view2, dv3Var)) == null) {
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948187827, "Lcom/baidu/tieba/to1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948187827, "Lcom/baidu/tieba/to1;");
+                return;
             }
         }
-        return (byte[]) invokeL.objValue;
+        c = new FrameLayout.LayoutParams(-1, -1);
+    }
+
+    public to1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.jw3
+    public void a(String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
+            c72 V = gt2.U().V();
+            Context appContext = AppRuntime.getAppContext();
+            if (V == null) {
+                if (appContext != null) {
+                    l73.f(appContext, R.string.obfuscated_res_0x7f0f01a8).G();
+                    return;
+                }
+                return;
+            }
+            tx2 d = tx2.d(str, str);
+            d.h(jSONObject.toString());
+            c72.b i = V.i("adLanding");
+            i.n(c72.g, c72.i);
+            i.k("adLanding", d).b();
+        }
+    }
+
+    @Override // com.baidu.tieba.jw3
+    public boolean d(View view2, dv3 dv3Var) {
+        InterceptResult invokeLL;
+        c72 V;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view2, dv3Var)) == null) {
+            gt2 U = gt2.U();
+            SwanAppActivity activity = U.getActivity();
+            if (activity == null || activity.isFinishing() || (V = U.V()) == null) {
+                return false;
+            }
+            b72 o = V.o();
+            this.a = o;
+            if (o.J3()) {
+                int t = kl3.t();
+                if (view2 instanceof ViewGroup) {
+                    ViewGroup viewGroup = (ViewGroup) view2;
+                    for (int i = 0; i < viewGroup.getChildCount(); i++) {
+                        View childAt = viewGroup.getChildAt(i);
+                        if (childAt.getTop() < t) {
+                            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) childAt.getLayoutParams();
+                            layoutParams.topMargin = childAt.getTop() + t;
+                            childAt.setLayoutParams(layoutParams);
+                        }
+                    }
+                }
+            }
+            SwanAppInlineFullScreenContainer swanAppInlineFullScreenContainer = new SwanAppInlineFullScreenContainer(activity);
+            this.b = swanAppInlineFullScreenContainer;
+            swanAppInlineFullScreenContainer.addView(view2, c);
+            a73 d = o.d();
+            if (d == null) {
+                return false;
+            }
+            d.m(true);
+            kl3.b(activity);
+            d.n(this.b);
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.jw3
+    public boolean removeView(View view2) {
+        InterceptResult invokeL;
+        a73 d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, view2)) == null) {
+            this.b.removeAllViews();
+            b72 b72Var = this.a;
+            if (b72Var == null || (d = b72Var.d()) == null) {
+                return false;
+            }
+            d.m(false);
+            d.g();
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

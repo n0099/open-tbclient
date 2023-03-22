@@ -103,11 +103,11 @@ public class KsPriceView extends TextView implements e {
 
     private void L(Context context) {
         setMaxLines(1);
-        this.Cv.CE = context.getResources().getColor(R.color.obfuscated_res_0x7f06061c);
+        this.Cv.CE = context.getResources().getColor(R.color.obfuscated_res_0x7f060622);
         this.Cv.CF = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703e2);
-        this.Cv.CG = context.getResources().getColor(R.color.obfuscated_res_0x7f06061d);
+        this.Cv.CG = context.getResources().getColor(R.color.obfuscated_res_0x7f060623);
         this.Cv.CH = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703e1);
-        this.Cv.CC = context.getResources().getColor(R.color.obfuscated_res_0x7f06061c);
+        this.Cv.CC = context.getResources().getColor(R.color.obfuscated_res_0x7f060622);
         this.Cv.CD = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0703e2);
     }
 

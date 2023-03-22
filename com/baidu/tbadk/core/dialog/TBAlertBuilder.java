@@ -29,9 +29,9 @@ import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b35;
-import com.baidu.tieba.e25;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.hi;
+import com.baidu.tieba.n05;
+import com.baidu.tieba.n15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,6 +60,7 @@ public class TBAlertBuilder {
     public View.OnClickListener q;
     public boolean r;
     public LinearLayout s;
+    public n05 t;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -186,27 +187,7 @@ public class TBAlertBuilder {
         this.k = ScrollingMovementMethod.getInstance();
         this.b = activity;
         this.a = new AlertDialog.Builder(activity);
-    }
-
-    public TBAlertBuilder u(TBAlertConfig.a... aVarArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, aVarArr)) == null) {
-            int length = aVarArr.length;
-            if (length != 1) {
-                if (length != 2) {
-                    if (length == 3) {
-                        this.m = TBAlertConfig.b(aVarArr[0], aVarArr[1], aVarArr[2]);
-                    }
-                } else {
-                    this.m = TBAlertConfig.c(aVarArr[0], aVarArr[1]);
-                }
-            } else {
-                this.m = TBAlertConfig.a(aVarArr[0]);
-            }
-            return this;
-        }
-        return (TBAlertBuilder) invokeL.objValue;
+        this.t = new n05();
     }
 
     public static void e(@NonNull Dialog dialog) {
@@ -237,7 +218,7 @@ public class TBAlertBuilder {
         if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
             int i = context.getResources().getDisplayMetrics().widthPixels;
             int i2 = (i * 837) / 1076;
-            int g = ej.g(context, R.dimen.tbds756);
+            int g = hi.g(context, R.dimen.tbds756);
             if (i2 < g) {
                 return Math.min(i, g);
             }
@@ -404,14 +385,14 @@ public class TBAlertBuilder {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, z) == null) {
-            b35 d = b35.d(view2);
+            n15 d = n15.d(view2);
             if (this.e == null) {
                 i = 0;
             } else {
                 i = 2;
             }
-            d.m(i);
-            d.n(R.string.J_X06);
+            d.n(i);
+            d.o(R.string.J_X06);
             if (z) {
                 i2 = R.color.transparent;
             } else {
@@ -448,7 +429,7 @@ public class TBAlertBuilder {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             c(this.s, this.r);
-            e25.g();
+            this.t.g();
         }
     }
 
@@ -473,6 +454,27 @@ public class TBAlertBuilder {
         return (AlertDialog) invokeV.objValue;
     }
 
+    public TBAlertBuilder u(TBAlertConfig.a... aVarArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, aVarArr)) == null) {
+            int length = aVarArr.length;
+            if (length != 1) {
+                if (length != 2) {
+                    if (length == 3) {
+                        this.m = TBAlertConfig.b(aVarArr[0], aVarArr[1], aVarArr[2]);
+                    }
+                } else {
+                    this.m = TBAlertConfig.c(aVarArr[0], aVarArr[1]);
+                }
+            } else {
+                this.m = TBAlertConfig.a(aVarArr[0]);
+            }
+            return this;
+        }
+        return (TBAlertBuilder) invokeL.objValue;
+    }
+
     public final void y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
@@ -495,14 +497,14 @@ public class TBAlertBuilder {
             this.s.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
             c(this.s, this.r);
             if (!TextUtils.isEmpty(this.f)) {
-                TextView l = e25.l(this.b);
+                TextView l = this.t.l(this.b);
                 l.setText(this.f);
                 l.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), UtilHelper.getDimenPixelSize(R.dimen.M_H_X009), UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), UtilHelper.getDimenPixelSize(R.dimen.M_H_X007));
                 this.s.addView(l);
                 CharSequence charSequence = this.g;
                 if (charSequence != null && !StringUtils.isNull(charSequence.toString())) {
                     l.setPadding(l.getPaddingLeft(), l.getPaddingTop(), l.getPaddingRight(), UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
-                    TextView l2 = e25.l(this.b);
+                    TextView l2 = this.t.l(this.b);
                     l2.setText(this.g);
                     l2.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), UtilHelper.getDimenPixelSize(R.dimen.M_H_X007));
                     this.s.addView(l2);
@@ -511,10 +513,10 @@ public class TBAlertBuilder {
             if (!TextUtils.isEmpty(this.h)) {
                 RelativeLayout relativeLayout = new RelativeLayout(this.b);
                 relativeLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-                TextView b2 = e25.b(this.b, this.j);
+                TextView b2 = this.t.b(this.b, this.j);
                 b2.setText(this.h);
                 b2.setGravity(this.i);
-                b2.setId(R.id.obfuscated_res_0x7f090825);
+                b2.setId(R.id.obfuscated_res_0x7f09083f);
                 b2.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), 0);
                 b2.setMaxHeight(UtilHelper.getDimenPixelSize(R.dimen.tbds868));
                 b2.setMovementMethod(this.k);
@@ -522,7 +524,7 @@ public class TBAlertBuilder {
                 View view3 = new View(this.b);
                 view3.setVisibility(4);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, UtilHelper.getDimenPixelSize(R.dimen.tbds104));
-                layoutParams.addRule(8, R.id.obfuscated_res_0x7f090825);
+                layoutParams.addRule(8, R.id.obfuscated_res_0x7f09083f);
                 SkinManager.setBackgroundColorToTransparent(view3, R.color.CAM_X0205, GradientDrawable.Orientation.BOTTOM_TOP);
                 relativeLayout.addView(view3, layoutParams);
                 this.s.addView(relativeLayout);
@@ -540,14 +542,14 @@ public class TBAlertBuilder {
                 if (this.o) {
                     this.p = new b(this);
                 }
-                this.s.addView(e25.j(this.b, this.m, this.p));
+                this.s.addView(this.t.j(this.b, this.m, this.p));
             }
             linearLayout.addView(this.s, new ViewGroup.LayoutParams(-1, -2));
             if (this.n) {
                 ImageView imageView = new ImageView(this.b);
                 imageView.setImageResource(R.drawable.icon_mask_pop_close);
-                LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds104), ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds105));
-                layoutParams2.setMargins(0, ej.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X010), 0, 0);
+                LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds104), hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds105));
+                layoutParams2.setMargins(0, hi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X010), 0, 0);
                 imageView.setOnClickListener(new c(this));
                 linearLayout.addView(imageView, layoutParams2);
             }

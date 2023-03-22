@@ -1,24 +1,15 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.tieba.frs.shrinkhead.LogicField;
+import com.baidu.tieba.frs.mc.FrsModelController;
 /* loaded from: classes5.dex */
 public interface m57 {
-    void d(int i, @NonNull String str);
+    FrsModelController Q0();
 
-    void g(boolean z);
+    void b();
 
-    void h(View.OnClickListener onClickListener);
+    d57 j1();
 
-    void i(long j, long j2);
+    d97 s0();
 
-    void j(@Nullable String str, @NonNull String str2);
-
-    void k(@NonNull LogicField logicField, int i);
-
-    void onChangeSkinType(int i);
-
-    void onDestory();
+    kw6 v1();
 }

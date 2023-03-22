@@ -1,12 +1,13 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.adp.BdUniqueId;
-/* loaded from: classes6.dex */
-public interface xx4 {
-    void a(@Nullable BdUniqueId bdUniqueId);
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+/* loaded from: classes7.dex */
+public interface xx4 extends gn {
+    AdvertAppInfo A();
 
-    int b();
+    boolean e();
 
-    void run();
+    int l();
+
+    void setPosition(int i);
 }

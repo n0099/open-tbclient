@@ -1,58 +1,92 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.RelativeLayout;
-import com.baidu.tieba.q83;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+@Service
 /* loaded from: classes5.dex */
-public class p83 extends q83.a {
+public class p83 extends q83 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p83(Context context) {
-        super(context);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948015870, "Lcom/baidu/tieba/p83;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948015870, "Lcom/baidu/tieba/p83;");
                 return;
             }
         }
-        this.f = context;
+        b = do1.a;
     }
 
-    @Override // com.baidu.tieba.q83.a
-    public q83 c() {
-        InterceptResult invokeV;
+    public p83() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            this.e = this.f.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700f5);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.e);
-            layoutParams.addRule(12);
-            this.a.t.setLayoutParams(layoutParams);
-            RelativeLayout.LayoutParams layoutParams2 = new RelativeLayout.LayoutParams(-1, this.f.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0700f3));
-            layoutParams2.addRule(2, this.a.t.getId());
-            this.a.h.setLayoutParams(layoutParams2);
-            o(R.color.obfuscated_res_0x7f0602df);
-            RelativeLayout.LayoutParams layoutParams3 = new RelativeLayout.LayoutParams(-1, -2);
-            layoutParams3.addRule(2, this.a.h.getId());
-            this.a.u.setLayoutParams(layoutParams3);
-            return super.c();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
-        return (q83) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.q83
+    public void a() {
+        List<q93> b2;
+        List<q93> a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.clear();
+            b(new js2(this));
+            b(new g52(this));
+            b(new l52(this));
+            b(new z42(this));
+            b(new m93(this));
+            b(new x83(this));
+            b(new ya3(this));
+            b(new ni2(this));
+            b(new wi2(this));
+            b(new oi2(this));
+            b(new si2(this));
+            b(new ti2(this));
+            b(new ri2(this));
+            b(new xi2(this));
+            b(new qi2(this));
+            b(new vi2(this));
+            b(new kn3(this));
+            b(new ui2(this));
+            b(new pi2(this));
+            yo1 d = br2.d();
+            if (d != null && (a = d.a(this)) != null && !a.isEmpty()) {
+                for (q93 q93Var : a) {
+                    b(q93Var);
+                }
+            }
+            if (b) {
+                b(new yi2(this));
+                b(new r83(this));
+                if (d != null && (b2 = d.b(this)) != null && !b2.isEmpty()) {
+                    for (q93 q93Var2 : b2) {
+                        b(q93Var2);
+                    }
+                }
+            }
+        }
     }
 }

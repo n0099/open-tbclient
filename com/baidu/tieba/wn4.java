@@ -1,75 +1,49 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.Writer;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class wn4 extends Writer {
+public class wn4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public StringBuilder b;
 
-    public wn4(String str) {
+    public static String a(JSONObject jSONObject, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, jSONObject, str, str2)) == null) {
+            if (jSONObject != null) {
+                return jSONObject.optString(str, str2);
             }
+            return str2;
         }
-        this.b = new StringBuilder(128);
-        this.a = str;
+        return (String) invokeLLL.objValue;
     }
 
-    public final void a() {
+    public static JSONObject b(String str, JSONObject jSONObject) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.length() > 0) {
-            Log.d(this.a, this.b.toString());
-            StringBuilder sb = this.b;
-            sb.delete(0, sb.length());
-        }
-    }
-
-    @Override // java.io.Writer, java.io.Closeable, java.lang.AutoCloseable
-    public void close() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a();
-        }
-    }
-
-    @Override // java.io.Writer, java.io.Flushable
-    public void flush() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a();
-        }
-    }
-
-    @Override // java.io.Writer
-    public void write(char[] cArr, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048579, this, cArr, i, i2) == null) {
-            for (int i3 = 0; i3 < i2; i3++) {
-                char c = cArr[i + i3];
-                if (c == '\n') {
-                    a();
-                } else {
-                    this.b.append(c);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, jSONObject)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                str = "NA";
+            }
+            if (jSONObject == null) {
+                jSONObject = new JSONObject();
+            }
+            try {
+                if (TextUtils.isEmpty(a(jSONObject, "pre_source", null))) {
+                    jSONObject.put("pre_source", str);
                 }
+                if (TextUtils.isEmpty(a(jSONObject, "pre_appid", null))) {
+                    jSONObject.put("pre_appid", "NA");
+                }
+            } catch (JSONException unused) {
             }
+            return jSONObject;
         }
+        return (JSONObject) invokeLL.objValue;
     }
 }

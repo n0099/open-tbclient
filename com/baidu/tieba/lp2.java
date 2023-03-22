@@ -8,18 +8,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class lp2 extends gn2<xp2> {
+public class lp2 extends nl2<eq2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.gn2
+    @Override // com.baidu.tieba.nl2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setRemoteAudioPlayState" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setRate" : (String) invokeV.objValue;
     }
 
     public lp2() {
@@ -37,24 +36,26 @@ public class lp2 extends gn2<xp2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gn2
+    @Override // com.baidu.tieba.nl2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull xp2 xp2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull eq2 eq2Var) {
+        Object obj;
+        float f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, xp2Var) == null) {
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, eq2Var) != null) || (obj = command.obj) == null) {
+            return;
+        }
+        if (obj instanceof Float) {
+            f = ((Float) obj).floatValue();
+        } else if (obj instanceof Double) {
+            f = ((Double) obj).floatValue();
+        } else {
+            f = Float.MIN_VALUE;
+        }
+        if (f != Float.MIN_VALUE) {
+            eq2Var.setSpeed(f);
             String str = command.what;
-            d(xp2Var, str, "" + command.obj, true);
-            Object obj = command.obj;
-            if (obj instanceof JSONObject) {
-                JSONObject jSONObject = (JSONObject) obj;
-                if (jSONObject.has("status") && jSONObject.has("userId")) {
-                    long optLong = jSONObject.optLong("userId", -1L);
-                    boolean optBoolean = jSONObject.optBoolean("status");
-                    if (vp2.a(optLong)) {
-                        xp2Var.p(optLong, optBoolean);
-                    }
-                }
-            }
+            d(eq2Var, str, "playbackRate: " + command.obj, false);
         }
     }
 }

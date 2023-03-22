@@ -1,12 +1,13 @@
 package com.yy.hiidostatis.inner.util;
 
+import com.google.android.exoplayer2.extractor.ogg.DefaultOggSeeker;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ZipUtil {
     public static void zipFiles(String str, String str2, ZipOutputStream zipOutputStream) throws Exception {
         if (zipOutputStream == null) {
@@ -20,7 +21,7 @@ public class ZipUtil {
                 FileInputStream fileInputStream2 = new FileInputStream(file);
                 try {
                     zipOutputStream.putNextEntry(zipEntry);
-                    byte[] bArr = new byte[100000];
+                    byte[] bArr = new byte[DefaultOggSeeker.MATCH_BYTE_RANGE];
                     while (true) {
                         int read = fileInputStream2.read(bArr);
                         if (read == -1) {

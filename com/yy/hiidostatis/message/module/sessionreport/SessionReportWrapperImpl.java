@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SessionReportWrapperImpl implements SessionReportWrapper, SessionReport.AfterFlush, SessionReport.Processor {
     public SharedThreadTimer globeTimer;
     public SessionReport sessionReport;
@@ -24,7 +24,7 @@ public class SessionReportWrapperImpl implements SessionReportWrapper, SessionRe
         return null;
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class OnTimer extends SharedTimerTask {
         public Map<String, List<String>> eventIds = new HashMap();
         public Set<String> globe = new HashSet();

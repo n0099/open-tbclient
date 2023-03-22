@@ -1,38 +1,52 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.database.Cursor;
-import android.net.Uri;
-import com.baidu.tieba.k60;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Method;
 /* loaded from: classes4.dex */
 public class h60 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context, k60.a aVar) {
-        String str;
+    public h60() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, context, aVar) == null) {
-            if (context == null) {
-                aVar.a(false, null);
-                return;
-            }
-            try {
-                Cursor query = context.getContentResolver().query(Uri.parse("content://com.meizu.flyme.openidsdk/"), null, null, new String[]{"oaid"}, null);
-                if (query != null) {
-                    query.moveToFirst();
-                    int columnIndex = query.getColumnIndex("value");
-                    str = columnIndex > 0 ? query.getString(columnIndex) : null;
-                    query.close();
-                } else {
-                    str = null;
-                }
-                aVar.a(true, str);
-            } catch (Throwable unused) {
-                aVar.a(false, null);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            try {
+                Method declaredMethod = Class.forName("com.baidu.browser.sailor.util.BdZeusUtil", true, h60.class.getClassLoader()).getDeclaredMethod("isWebkitLoaded", new Class[0]);
+                declaredMethod.setAccessible(true);
+                boolean booleanValue = ((Boolean) declaredMethod.invoke(null, new Object[0])).booleanValue();
+                Method declaredMethod2 = Class.forName("com.baidu.webkit.internal.blink.WebSettingsGlobalBlink", true, h60.class.getClassLoader()).getDeclaredMethod("getChromiunNetInit", new Class[0]);
+                declaredMethod2.setAccessible(true);
+                if (!booleanValue) {
+                    return false;
+                }
+                if (!((Boolean) declaredMethod2.invoke(null, new Object[0])).booleanValue()) {
+                    return false;
+                }
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
     }
 }

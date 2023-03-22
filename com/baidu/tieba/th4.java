@@ -1,22 +1,17 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.db.PackageTable;
-import com.baidu.swan.pms.utils.AbiType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
-public class th4 extends mh4<oi4> implements Object {
+public class th4 {
     public static /* synthetic */ Interceptable $ic;
+    public static th4 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public jh4 a;
 
     public th4() {
         Interceptable interceptable = $ic;
@@ -28,82 +23,93 @@ public class th4 extends mh4<oi4> implements Object {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new jh4();
     }
 
-    public static int f(@NonNull Cursor cursor, @NonNull String str) {
-        InterceptResult invokeLL;
+    public static th4 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cursor, str)) == null) {
-            return cursor.getColumnIndex(str);
-        }
-        return invokeLL.intValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mh4
-    /* renamed from: h */
-    public oi4 d(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, cursor)) == null) {
-            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
-                return i(cursor);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            th4 th4Var = b;
+            if (th4Var != null) {
+                return th4Var;
             }
-            return null;
-        }
-        return (oi4) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.mh4
-    public List<oi4> e(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cursor)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (cursor != null && cursor.getCount() > 0 && cursor.moveToFirst()) {
-                do {
-                    arrayList.add(i(cursor));
-                } while (cursor.moveToNext());
-                return arrayList;
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mh4
-    /* renamed from: g */
-    public ContentValues c(oi4 oi4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, oi4Var)) == null) {
-            ContentValues a = super.a(oi4Var);
-            a.put("max_age", Long.valueOf(oi4Var.o));
-            a.put(PackageTable.ABI, oi4Var.q.id);
-            a.put("lib_name", oi4Var.p);
-            return a;
-        }
-        return (ContentValues) invokeL.objValue;
-    }
-
-    public final oi4 i(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cursor)) == null) {
-            if (cursor != null) {
-                oi4 oi4Var = new oi4();
-                if (b(cursor, oi4Var)) {
-                    oi4Var.o = cursor.getLong(f(cursor, "max_age"));
-                    oi4Var.q = AbiType.findById(cursor.getString(f(cursor, PackageTable.ABI)), null);
-                    oi4Var.p = cursor.getString(f(cursor, "lib_name"));
-                    return oi4Var;
+            synchronized (th4.class) {
+                if (b == null) {
+                    b = new th4();
                 }
             }
-            return null;
+            return b;
         }
-        return (oi4) invokeL.objValue;
+        return (th4) invokeV.objValue;
+    }
+
+    public fh4 a(vh4 vh4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, vh4Var)) == null) {
+            if (vh4Var == null) {
+                return null;
+            }
+            return new ai4(vh4Var, false);
+        }
+        return (fh4) invokeL.objValue;
+    }
+
+    public synchronized boolean c(String str) {
+        InterceptResult invokeL;
+        boolean e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            synchronized (this) {
+                e = this.a.e(str);
+            }
+            return e;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized boolean d(String str) {
+        InterceptResult invokeL;
+        boolean f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            synchronized (this) {
+                f = this.a.f(str);
+            }
+            return f;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized void e(rh4 rh4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, rh4Var) == null) {
+            synchronized (this) {
+                this.a.c(rh4Var);
+            }
+        }
+    }
+
+    public synchronized <T> void f(vh4<T> vh4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, vh4Var) == null) {
+            synchronized (this) {
+                vh4Var.s(false);
+                this.a.h(vh4Var);
+            }
+        }
+    }
+
+    public synchronized void g(rh4 rh4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, rh4Var) == null) {
+            synchronized (this) {
+                this.a.i(rh4Var);
+            }
+        }
     }
 }

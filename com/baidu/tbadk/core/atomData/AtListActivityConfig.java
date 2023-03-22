@@ -7,7 +7,7 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.data.AtSelectData;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.hi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -52,7 +52,7 @@ public class AtListActivityConfig extends IntentConfig {
             getIntent().putExtra(IntentConfig.SHOW_KEYBOARD, false);
         }
         if (TbadkApplication.getInst().getCurrentActivity() != null && TbadkApplication.getInst().getCurrentActivity().getWindow() != null) {
-            ej.z(TbadkApplication.getInst(), TbadkApplication.getInst().getCurrentActivity().getWindow().getDecorView());
+            hi.z(TbadkApplication.getInst(), TbadkApplication.getInst().getCurrentActivity().getWindow().getDecorView());
         }
     }
 

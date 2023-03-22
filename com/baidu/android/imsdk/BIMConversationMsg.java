@@ -154,7 +154,7 @@ public class BIMConversationMsg extends BIMConversation {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return ChatMsgManagerImpl.getInstance(this.mContext).deleteAllMsgs(this.mCategory.getValue(), this.session.getContacter(), this.isMulAppSync);
+            return ChatMsgManagerImpl.getInstance(this.mContext).deleteAllMsgs(this.mCategory.getValue(), this.session.getContacter(), this.isMulAppSync, 1);
         }
         return invokeV.longValue;
     }

@@ -1,11 +1,9 @@
 package com.baidu.tieba;
+
+import android.content.Context;
+import android.util.AttributeSet;
+import android.view.View;
 /* loaded from: classes5.dex */
 public interface lm4 {
-
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(boolean z);
-    }
-
-    void a(String str, a aVar);
+    View onCreateView(View view2, String str, Context context, AttributeSet attributeSet);
 }

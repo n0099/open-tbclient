@@ -1,132 +1,72 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes6.dex */
-public class vw3<ContenT> {
+public class vw3 extends ww3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, vw3<ContenT>.a> a;
+    public String q;
+    public String r;
+    public String s;
+    public String t;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public final ContenT b;
-        public final /* synthetic */ vw3 c;
-
-        public a(vw3 vw3Var, String str, ContenT content) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vw3Var, str, content};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = vw3Var;
-            this.a = str;
-            this.b = content;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.d(this.a);
-            }
-        }
+    @Override // com.baidu.tieba.ww3
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "" : (String) invokeV.objValue;
     }
 
-    public vw3() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vw3(Context context, uw3 uw3Var) {
+        super(context, uw3Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, uw3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (uw3) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap();
+        this.q = SpeedStatsUtils.UBC_VALUE_BANNER;
+        this.r = PayUVEventType.PAY_SPLIT_ORDER_CLOSE_BTN_CLICK;
+        this.s = "MSSP,ANTI,NMON";
+        this.t = "LP,DL";
     }
 
-    public synchronized ContenT a(String str, ContenT content, long j) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.ww3
+    public HashMap<String, String> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, content, Long.valueOf(j)})) == null) {
-            synchronized (this) {
-                d(str);
-                if (content == null) {
-                    return null;
-                }
-                vw3<ContenT>.a aVar = new a(this, str, content);
-                this.a.put(str, aVar);
-                if (j > 0) {
-                    l93.M().postDelayed(aVar, j);
-                }
-                return content;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            HashMap<String, String> hashMap = new HashMap<>();
+            hashMap.put("act", this.t);
+            hashMap.put("prod", this.q);
+            hashMap.put("at", this.r);
+            hashMap.put("fet", this.s);
+            if (this.i != null) {
+                hashMap.put("w", "" + this.i.d());
+                hashMap.put("h", "" + this.i.a());
             }
+            return hashMap;
         }
-        return (ContenT) invokeCommon.objValue;
-    }
-
-    public synchronized void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                for (vw3<ContenT>.a aVar : this.a.values()) {
-                    if (aVar != null) {
-                        l93.M().removeCallbacks(aVar);
-                    }
-                }
-                this.a.clear();
-            }
-        }
-    }
-
-    public ContenT c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            vw3<ContenT>.a aVar = this.a.get(str);
-            if (aVar == null) {
-                return null;
-            }
-            return aVar.b;
-        }
-        return (ContenT) invokeL.objValue;
-    }
-
-    public synchronized ContenT d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            synchronized (this) {
-                vw3<ContenT>.a remove = this.a.remove(str);
-                if (remove != null) {
-                    l93.M().removeCallbacks(remove);
-                    return remove.b;
-                }
-                return null;
-            }
-        }
-        return (ContenT) invokeL.objValue;
+        return (HashMap) invokeV.objValue;
     }
 }

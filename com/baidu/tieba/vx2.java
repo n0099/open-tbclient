@@ -1,12 +1,10 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Log;
+import android.util.LruCache;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,14 +12,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sina.weibo.sdk.utils.ResourceManager;
-import java.io.InputStream;
-import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class vx2 implements tx2 {
+public abstract class vx2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final LruCache<String, JSONObject> a;
+    public final LruCache<String, JSONObject> b;
 
     static {
         InterceptResult invokeClinit;
@@ -36,7 +34,7 @@ public class vx2 implements tx2 {
                 return;
             }
         }
-        a = wp1.a;
+        c = do1.a;
     }
 
     public vx2() {
@@ -49,74 +47,146 @@ public class vx2 implements tx2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        this.a = new LruCache<>(5);
+        this.b = new LruCache<>(5);
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (c) {
+                Log.d("SwanAppExtInfo", "release cache");
+            }
+            this.a.evictAll();
+            this.b.evictAll();
         }
     }
 
-    @Override // com.baidu.tieba.tx2
-    @SuppressLint({"BDThrowableCheck"})
-    public Bitmap decode(Context context, Uri uri) throws Exception {
-        InterceptResult invokeLL;
-        Bitmap bitmap;
-        Resources resourcesForApplication;
+    public final JSONObject a(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, uri)) == null) {
-            String uri2 = uri.toString();
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inPreferredConfig = Bitmap.Config.RGB_565;
-            if (uri2.startsWith("android.resource://")) {
-                String authority = uri.getAuthority();
-                if (context.getPackageName().equals(authority)) {
-                    resourcesForApplication = context.getResources();
-                } else {
-                    resourcesForApplication = context.getPackageManager().getResourcesForApplication(authority);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pMSAppInfo)) == null) {
+            if (pMSAppInfo == null) {
+                if (c) {
+                    Log.e("SwanAppExtInfo", "appInfo is null");
                 }
-                List<String> pathSegments = uri.getPathSegments();
-                int size = pathSegments.size();
-                int i = 0;
-                if (size == 2 && pathSegments.get(0).equals(ResourceManager.DRAWABLE)) {
-                    i = resourcesForApplication.getIdentifier(pathSegments.get(1), ResourceManager.DRAWABLE, authority);
-                } else if (size == 1 && TextUtils.isDigitsOnly(pathSegments.get(0))) {
-                    try {
-                        i = Integer.parseInt(pathSegments.get(0));
-                    } catch (NumberFormatException e) {
-                        e.printStackTrace();
-                    }
-                }
-                bitmap = BitmapFactory.decodeResource(context.getResources(), i, options);
-            } else {
-                InputStream inputStream = null;
-                if (uri2.startsWith("file:///android_asset/")) {
-                    bitmap = BitmapFactory.decodeStream(context.getAssets().open(uri2.substring(22)), null, options);
-                } else if (uri2.startsWith("file://")) {
-                    bitmap = BitmapFactory.decodeFile(uri2.substring(7), options);
-                } else {
-                    try {
-                        InputStream openInputStream = context.getContentResolver().openInputStream(uri);
-                        try {
-                            Bitmap decodeStream = BitmapFactory.decodeStream(openInputStream, null, options);
-                            qp4.d(openInputStream);
-                            bitmap = decodeStream;
-                        } catch (Throwable th) {
-                            th = th;
-                            inputStream = openInputStream;
-                            qp4.d(inputStream);
-                            throw th;
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
-                    }
-                }
+                return null;
             }
-            if (bitmap == null) {
-                if (!a) {
-                    m62.k("SkiaImageDecoder", "bitmap is null");
-                } else {
-                    throw new RuntimeException("Skia image region decoder returned null bitmap - image format may not be supported");
+            String str = pMSAppInfo.appId;
+            String valueOf = String.valueOf(pMSAppInfo.appSign);
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(valueOf)) {
+                String e = e(str, valueOf);
+                JSONObject jSONObject = this.a.get(e);
+                if (jSONObject == null) {
+                    jSONObject = al4.p(wx2.a(pMSAppInfo));
+                    this.a.put(e, jSONObject);
                 }
+                if (c) {
+                    Log.d("SwanAppExtInfo", "appId - " + str + " app info' ext - " + jSONObject.toString());
+                }
+                return jSONObject;
             }
-            return bitmap;
+            if (c) {
+                Log.e("SwanAppExtInfo", "appId or app sign is empty");
+            }
+            return null;
         }
-        return (Bitmap) invokeLL.objValue;
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public final JSONObject d(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, pMSAppInfo)) == null) {
+            if (pMSAppInfo == null) {
+                if (c) {
+                    Log.e("SwanAppExtInfo", "appInfo is null");
+                }
+                return null;
+            }
+            String str = pMSAppInfo.appId;
+            String valueOf = String.valueOf(pMSAppInfo.versionCode);
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(valueOf)) {
+                String e = e(str, valueOf);
+                JSONObject jSONObject = this.b.get(e);
+                if (jSONObject == null) {
+                    jSONObject = al4.p(xx2.f(pMSAppInfo));
+                    this.a.put(e, jSONObject);
+                }
+                if (c) {
+                    Log.d("SwanAppExtInfo", "appId - " + str + " pkg info' ext - " + jSONObject.toString());
+                }
+                return jSONObject;
+            }
+            if (c) {
+                Log.e("SwanAppExtInfo", "appId or version code is empty");
+            }
+            return null;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public final JSONObject b(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSAppInfo)) == null) {
+            JSONObject a = a(pMSAppInfo);
+            if (a == null) {
+                if (c) {
+                    Log.e("SwanAppExtInfo", "appInfoExt is null");
+                }
+                return null;
+            }
+            JSONObject optJSONObject = a.optJSONObject("client");
+            if (optJSONObject == null) {
+                if (c) {
+                    Log.e("SwanAppExtInfo", "clientInfo is null");
+                }
+                return null;
+            }
+            if (c) {
+                Log.d("SwanAppExtInfo", "clientInfo - " + optJSONObject);
+            }
+            return optJSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public final String c(PMSAppInfo pMSAppInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pMSAppInfo)) == null) {
+            JSONObject a = a(pMSAppInfo);
+            if (a == null) {
+                if (c) {
+                    Log.e("SwanAppExtInfo", "appInfoExt is null");
+                }
+                return null;
+            }
+            String optString = a.optString("webview_whitelist_switch");
+            if (TextUtils.isEmpty(optString)) {
+                if (c) {
+                    Log.e("SwanAppExtInfo", "webview whitelist switch is empty");
+                }
+                return null;
+            }
+            if (c) {
+                Log.d("SwanAppExtInfo", "webview whitelist switch - " + optString);
+            }
+            return optString;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String e(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+            return str + "_" + str2;
+        }
+        return (String) invokeLL.objValue;
     }
 }

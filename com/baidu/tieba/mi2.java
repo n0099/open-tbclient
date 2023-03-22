@@ -1,49 +1,26 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.collection.ArraySet;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class mi2 implements li2 {
+public final class mi2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String[] a;
 
-    public mi2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new String[]{ts2.c().getDatabasePath("ai_apps.db").getAbsolutePath(), ts2.c().getDatabasePath("ai_apps_pms.db").getAbsolutePath()};
-    }
-
-    @Override // com.baidu.tieba.li2
-    public ArraySet<String> a() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArraySet<String> arraySet = new ArraySet<>();
-            for (String str : this.a) {
-                String K = qp4.K(str);
-                if (!TextUtils.isEmpty(K)) {
-                    arraySet.add(K);
-                }
-            }
-            m62.k("SwanDatabaseCollector", "recovery renameAllFiles:" + arraySet.toString());
-            return arraySet;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return hg3.a().getBoolean("KEY_SWAN_APP_STABILITY_OPEN_COLLECTOR", false);
         }
-        return (ArraySet) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public static void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
+            hg3.a().putBoolean("KEY_SWAN_APP_STABILITY_OPEN_COLLECTOR", z);
+        }
     }
 }

@@ -2,9 +2,8 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.sapi2.dto.IsShowRealNameGuideDTO;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.tieba.x93;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.n74;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,211 +11,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.CfgFileUtils;
-import java.io.File;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public final class g94 extends v93 {
+public class g94 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean h;
+    public static final boolean b;
+    public static volatile g94 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int b;
-    public b c;
-    public c d;
-    public String e;
-    public a64 f;
-    public z74 g;
-
-    /* loaded from: classes4.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public String d;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public static a c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                return new a();
-            }
-            return (a) invokeV.objValue;
-        }
-
-        public static a b(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return c();
-                }
-                a aVar = new a();
-                aVar.b = jSONObject.optString("root");
-                aVar.a = jSONObject.optString("name");
-                if (!TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(aVar.a)) {
-                    if (aVar.b.endsWith(".js")) {
-                        String[] split = aVar.b.split(File.separator);
-                        if (split.length < 1) {
-                            return c();
-                        }
-                        aVar.d = split[split.length - 1];
-                        aVar.c = "";
-                        for (int i = 0; i < split.length - 1; i++) {
-                            aVar.c += split[i] + File.separator;
-                        }
-                    } else {
-                        String str = aVar.b;
-                        aVar.c = str;
-                        if (!str.endsWith(File.separator)) {
-                            aVar.c += File.separator;
-                        }
-                        aVar.d = "index.js";
-                    }
-                    return aVar;
-                }
-                return c();
-            }
-            return (a) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public List<a> a;
-        public HashMap<String, Boolean> b;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public static b c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                b bVar = new b();
-                bVar.a = new ArrayList();
-                bVar.b = new HashMap<>();
-                return bVar;
-            }
-            return (b) invokeV.objValue;
-        }
-
-        public static b b(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return c();
-                }
-                JSONArray optJSONArray = jSONObject.optJSONArray("subpackages");
-                if (optJSONArray != null && optJSONArray.length() > 0) {
-                    b bVar = new b();
-                    bVar.a = new ArrayList();
-                    bVar.b = new HashMap<>();
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                        if (optJSONObject != null) {
-                            bVar.a.add(a.b(optJSONObject));
-                        }
-                    }
-                    return bVar;
-                }
-                return c();
-            }
-            return (b) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public HashMap<String, String> a;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public static c c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                c cVar = new c();
-                cVar.a = new HashMap<>();
-                return cVar;
-            }
-            return (c) invokeV.objValue;
-        }
-
-        public static c b(JSONObject jSONObject, b bVar) {
-            InterceptResult invokeLL;
-            List<a> list;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, bVar)) == null) {
-                if (jSONObject != null && bVar != null && (list = bVar.a) != null && list.size() > 0) {
-                    JSONObject optJSONObject = jSONObject.optJSONObject("_sub_swan");
-                    if (optJSONObject == null) {
-                        return c();
-                    }
-                    c cVar = new c();
-                    cVar.a = new HashMap<>();
-                    for (a aVar : bVar.a) {
-                        if (aVar != null && !TextUtils.isEmpty(aVar.b)) {
-                            HashMap<String, String> hashMap = cVar.a;
-                            String str = aVar.b;
-                            hashMap.put(str, optJSONObject.optString(str));
-                        }
-                    }
-                    return cVar;
-                }
-                return c();
-            }
-            return (c) invokeLL.objValue;
-        }
-    }
+    public n74 a;
 
     static {
         InterceptResult invokeClinit;
@@ -231,7 +34,7 @@ public final class g94 extends v93 {
                 return;
             }
         }
-        h = wp1.a;
+        b = do1.a;
     }
 
     public g94() {
@@ -248,55 +51,128 @@ public final class g94 extends v93 {
         }
     }
 
-    public static g94 a(String str) {
-        InterceptResult invokeL;
-        String str2;
+    public static g94 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (g94.class) {
+                    if (c == null) {
+                        c = new g94();
+                    }
+                }
             }
-            g94 g94Var = new g94();
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                g94Var.a = x93.a.a(jSONObject);
-                String optString = jSONObject.optString("deviceOrientation", "portrait");
-                boolean z = false;
-                g94Var.b = 0;
-                if (TextUtils.equals(optString, "landscape")) {
-                    g94Var.b = 1;
-                }
-                jSONObject.optBoolean("showStatusBar", false);
-                jSONObject.optString("workers");
-                b b2 = b.b(jSONObject);
-                g94Var.c = b2;
-                g94Var.d = c.b(jSONObject, b2);
-                g94Var.e = jSONObject.optString("openDataContext");
-                g94Var.f = new a64(jSONObject);
-                JSONArray optJSONArray = jSONObject.optJSONArray("preloadResources");
-                if (optJSONArray != null && optJSONArray.length() > 0) {
-                    z = true;
-                }
-                HybridUbcFlow p = r23.p("startup");
-                if (z) {
-                    str2 = "1";
-                } else {
-                    str2 = "0";
-                }
-                p.D("preload_resources", str2);
-                g94Var.g = new z74(optJSONArray);
-                JSONObject optJSONObject = jSONObject.optJSONObject(IsShowRealNameGuideDTO.TYPE_SETTING);
-                if (optJSONObject != null) {
-                    optJSONObject.optBoolean(CfgFileUtils.KEY_URL_CHECK, true);
-                }
-                return g94Var;
-            } catch (JSONException e) {
-                if (h) {
-                    Log.e("SwanGameConfigData", "buildConfigData json error: " + Log.getStackTraceString(e));
-                }
-                return null;
-            }
+            return c;
         }
-        return (g94) invokeL.objValue;
+        return (g94) invokeV.objValue;
+    }
+
+    public String a(String str) {
+        InterceptResult invokeL;
+        n74 n74Var;
+        n74.c cVar;
+        HashMap<String, String> hashMap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            String c2 = c(str, 1);
+            if (TextUtils.isEmpty(c2) || (n74Var = this.a) == null || (cVar = n74Var.d) == null || (hashMap = cVar.a) == null) {
+                return null;
+            }
+            return hashMap.get(c2);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:17:0x0023  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public String c(String str, int i) {
+        InterceptResult invokeLI;
+        n74 n74Var;
+        n74.b bVar;
+        List<n74.a> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i)) == null) {
+            if (!TextUtils.isEmpty(str) && (n74Var = this.a) != null && (bVar = n74Var.c) != null && (list = bVar.a) != null) {
+                for (n74.a aVar : list) {
+                    if (TextUtils.equals(aVar.a, str) || TextUtils.equals(aVar.b, str)) {
+                        if (i != 0) {
+                            if (i != 1) {
+                                if (i != 2) {
+                                    if (i != 3) {
+                                        return aVar.b;
+                                    }
+                                    return aVar.d;
+                                }
+                                return aVar.c;
+                            }
+                            return aVar.b;
+                        }
+                        return aVar.a;
+                    }
+                    while (r0.hasNext()) {
+                    }
+                }
+            }
+            return null;
+        }
+        return (String) invokeLI.objValue;
+    }
+
+    public void f(String str, boolean z) {
+        n74 n74Var;
+        n74.b bVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048580, this, str, z) == null) && !TextUtils.isEmpty(str) && (n74Var = this.a) != null && (bVar = n74Var.c) != null && bVar.b != null) {
+            if (b) {
+                Log.i("SubPackageDataHelper", "更新内存缓存信息: " + str + ": " + z);
+            }
+            this.a.c.b.put(str, Boolean.valueOf(z));
+        }
+    }
+
+    public boolean d(String str) {
+        InterceptResult invokeL;
+        n74.b bVar;
+        HashMap<String, Boolean> hashMap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            String c2 = c(str, 1);
+            if (TextUtils.isEmpty(c2)) {
+                return false;
+            }
+            n74 n74Var = this.a;
+            if (n74Var != null && (bVar = n74Var.c) != null && (hashMap = bVar.b) != null && hashMap.containsKey(c2)) {
+                if (b) {
+                    Log.i("SubPackageDataHelper", "内存中查询分包是否存在信息");
+                }
+                return this.a.c.b.get(c2).booleanValue();
+            }
+            if (b) {
+                Log.i("SubPackageDataHelper", "DB中查询分包是否存在信息");
+            }
+            String g0 = t73.g0();
+            if (t73.M() == null) {
+                return false;
+            }
+            String k0 = t73.M().k0();
+            if (TextUtils.isEmpty(g0) || TextUtils.isEmpty(k0)) {
+                return false;
+            }
+            boolean n = qf4.i().n(g0, k0, c2);
+            if (n) {
+                f(c2, true);
+            }
+            return n;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void e(n74 n74Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, n74Var) == null) {
+            this.a = n74Var;
+        }
     }
 }

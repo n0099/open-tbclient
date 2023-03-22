@@ -1,6 +1,6 @@
 package com.google.ar.core;
 
-import com.baidu.tieba.hca;
+import com.baidu.tieba.qia;
 import com.google.ar.core.Session;
 /* loaded from: classes8.dex */
 public enum af extends Session.c {
@@ -9,7 +9,7 @@ public enum af extends Session.c {
     }
 
     @Override // com.google.ar.core.Session.c
-    public final hca a(long j, Session session) {
+    public final qia a(long j, Session session) {
         return new Plane(j, session);
     }
 }

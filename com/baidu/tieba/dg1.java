@@ -1,16 +1,7 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.payment.PaymentManager;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.unitedscheme.SchemeConfig;
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,36 +9,108 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.URLDecoder;
 import org.json.JSONObject;
-@Singleton
-@Service
 /* loaded from: classes4.dex */
-public class dg1 implements fg1 {
+public final class dg1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
+    public static long c;
+    public static dg1 d;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.fg1
-    public void i(Activity activity, JSONObject jSONObject, ag1 ag1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048585, this, activity, jSONObject, ag1Var) == null) {
-        }
-    }
+    public boolean a;
+    public boolean b;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947703483, "Lcom/baidu/tieba/dg1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947703483, "Lcom/baidu/tieba/dg1;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947703483, "Lcom/baidu/tieba/dg1;");
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class a extends cf1<JSONObject> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gh1 a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ dg1 c;
+
+        public a(dg1 dg1Var, gh1 gh1Var, String str) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dg1Var, gh1Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947703483, "Lcom/baidu/tieba/dg1;");
+            this.c = dg1Var;
+            this.a = gh1Var;
+            this.b = str;
+        }
+
+        @Override // com.baidu.tieba.cf1
+        public void b(Throwable th, String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeLL(1048576, this, th, str) != null) || this.c.b) {
                 return;
             }
+            long currentTimeMillis = System.currentTimeMillis();
+            if (gf1.b(yg1.a()) && currentTimeMillis - dg1.c <= 3000) {
+                if (this.c.a) {
+                    this.a.onResult(1, "");
+                }
+                this.c.i(this.b, this.a);
+            } else {
+                this.a.onResult(3, "支付失败，请重试");
+            }
+            this.c.a = false;
         }
-        a = SchemeConfig.getSchemeHead() + "://swan/";
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.cf1
+        /* renamed from: d */
+        public void c(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || this.c.b) {
+                return;
+            }
+            int optInt = jSONObject.optInt("status", -1);
+            int optInt2 = jSONObject.optInt("payStatus", -1);
+            if (optInt == 1 && optInt2 == 0) {
+                this.a.onResult(3, "支付失败，请重试");
+                return;
+            }
+            if (optInt != 2 && (optInt != 1 || optInt2 != 2)) {
+                if (optInt == 1 && optInt2 == 3) {
+                    this.a.onResult(3, "支付失败，请重试");
+                } else if (System.currentTimeMillis() - dg1.c <= 3000) {
+                    if (this.c.a) {
+                        this.a.onResult(1, "");
+                    }
+                    this.c.i(this.b, this.a);
+                } else {
+                    this.a.onResult(6, "支付结果查询失败，请重试");
+                }
+            } else {
+                this.a.onResult(0, "小额免密支付成功");
+            }
+            this.c.a = false;
+        }
     }
 
     public dg1() {
@@ -60,110 +123,63 @@ public class dg1 implements fg1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.fg1
-    public void a(Activity activity, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, str2) == null) {
-            ts2.S().a(activity, str, str2);
-        }
-    }
-
-    @Override // com.baidu.tieba.fg1
-    public void aLiAuth(Activity activity, String str, mg1<JSONObject> mg1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, mg1Var) == null) {
-            ts2.S().f(activity, str, mg1Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.fg1
-    public void c(Activity activity, String str, ag1 ag1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, activity, str, ag1Var) == null) {
-            ts2.S().c(activity, str, ag1Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.fg1
-    public void d(Context context, JSONObject jSONObject, ag1 ag1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, context, jSONObject, ag1Var) == null) {
-            ts2.S().d(context, jSONObject, ag1Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.fg1
-    public void e(Activity activity, String str, ag1 ag1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048581, this, activity, str, ag1Var) == null) {
-            ts2.S().e(activity, str, ag1Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.fg1
-    public boolean b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            return ts2.S().b(context);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.fg1
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            a23.b().a = str;
-        }
-    }
-
-    @Override // com.baidu.tieba.fg1
-    public String j(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) {
-            return ts2.G0().a(context);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.fg1
-    public void f(Context context, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, context, jSONObject) == null) {
-            if (jSONObject == null) {
-                PaymentManager.i(3, "支付信息不能为空");
                 return;
             }
-            String optString = jSONObject.optString("appKey");
-            String optString2 = jSONObject.optString("redirectUrl");
-            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                SchemeRouter.invoke(context, a + optString + optString2);
-                return;
+        }
+        this.a = true;
+        this.b = false;
+    }
+
+    public static dg1 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (d == null) {
+                synchronized (dg1.class) {
+                    if (d == null) {
+                        d = new dg1();
+                    }
+                }
             }
-            PaymentManager.i(3, "支付信息不能为空");
+            return d;
+        }
+        return (dg1) invokeV.objValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b = true;
         }
     }
 
-    @Override // com.baidu.tieba.fg1
-    public void g(Bundle bundle) {
+    public void g(String str, gh1 gh1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bundle) == null) {
-            String str = a23.b().a;
-            if (TextUtils.isEmpty(str)) {
-                xf1.a(bundle);
-                return;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, gh1Var) == null) {
+            this.b = false;
+            this.a = true;
+            c = System.currentTimeMillis();
+            i(str, gh1Var);
+        }
+    }
+
+    public final void i(String str, gh1 gh1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, gh1Var) == null) {
+            String[] split = str.split("&");
+            df1 df1Var = new df1();
+            for (String str2 : split) {
+                String[] split2 = str2.split("=");
+                if (split2.length == 2) {
+                    if (TextUtils.equals(split2[0], "timestamp")) {
+                        df1Var.d(split2[0], URLDecoder.decode(split2[1]));
+                    } else {
+                        df1Var.d(split2[0], split2[1]);
+                    }
+                }
             }
-            c63 e = c63.e();
-            e63 e63Var = new e63(119, bundle);
-            e63Var.c(str);
-            e63Var.p(true);
-            e.h(e63Var);
+            df1Var.d("terminalData", "{\"queryOrderType\":\"AGREEMENT\",\"payChannel\":\"BAIDU-ALIPAY-WISE\"}");
+            kf1.j().g(mf1.e(), df1Var, new a(this, gh1Var, str));
         }
     }
 }

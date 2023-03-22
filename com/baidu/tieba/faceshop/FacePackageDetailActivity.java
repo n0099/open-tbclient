@@ -24,11 +24,11 @@ import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.download.DownloadMessage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dj;
 import com.baidu.tieba.faceshop.FaceBuyData;
-import com.baidu.tieba.pq6;
-import com.baidu.tieba.sq6;
-import com.baidu.tieba.w9;
+import com.baidu.tieba.gi;
+import com.baidu.tieba.lq6;
+import com.baidu.tieba.oq6;
+import com.baidu.tieba.z8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +40,7 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FacePackageDetailModel a;
-    public sq6 b;
+    public oq6 b;
     public FacePackageDownloadModel c;
     public FaceBuyModel d;
     public float e;
@@ -76,7 +76,7 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
         }
 
         @Override // com.baidu.tbadk.core.view.NoNetworkView.b
-        public void h(boolean z) {
+        public void e(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (z) {
@@ -139,19 +139,19 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
                             this.a.showToast(str);
                             return;
                         } else {
-                            this.a.showToast(R.string.obfuscated_res_0x7f0f0d11);
+                            this.a.showToast(R.string.obfuscated_res_0x7f0f0d1f);
                             return;
                         }
                     }
                     return;
                 }
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0d11);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0d1f);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class c extends w9 {
+    public class c extends z8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DownloadData a;
@@ -176,7 +176,7 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
             this.a = downloadData;
         }
 
-        @Override // com.baidu.tieba.w9
+        @Override // com.baidu.tieba.z8
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
@@ -184,10 +184,10 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
                     FacePackageDownloadData facePackageDownloadData = (FacePackageDownloadData) obj;
                     if (facePackageDownloadData.errno == 0 && facePackageDownloadData.usermsg != null) {
                         String str = facePackageDownloadData.pack_url;
-                        this.b.a.a0(str);
-                        if (this.b.a.V() != null && this.b.a.V().faces_list != null) {
+                        this.b.a.e0(str);
+                        if (this.b.a.Z() != null && this.b.a.Z().faces_list != null) {
                             FacePackageDetailActivity facePackageDetailActivity = this.b;
-                            facePackageDetailActivity.D1(facePackageDetailActivity.a.getPid(), this.b.a.V().faces_list.pname, str);
+                            facePackageDetailActivity.G1(facePackageDetailActivity.a.getPid(), this.b.a.Z().faces_list.pname, str);
                             return;
                         }
                         return;
@@ -197,17 +197,17 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
                         this.b.showToast(str2);
                         return;
                     } else {
-                        pq6.f().i(this.a);
+                        lq6.f().i(this.a);
                         return;
                     }
                 }
-                pq6.f().i(this.a);
+                lq6.f().i(this.a);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class d extends w9 {
+    public class d extends z8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FacePackageDetailActivity a;
@@ -230,7 +230,7 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
             this.a = facePackageDetailActivity;
         }
 
-        @Override // com.baidu.tieba.w9
+        @Override // com.baidu.tieba.z8
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
@@ -242,7 +242,7 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
                         String str = buyInfo.buy_url;
                         String str2 = buyInfo.return_url;
                         if (buyInfo.buy_status != 2) {
-                            this.a.a.d0(String.valueOf(faceBuyData.buy_info.order_id));
+                            this.a.a.h0(String.valueOf(faceBuyData.buy_info.order_id));
                             IntentConfig intentConfig = new IntentConfig(this.a.getActivity());
                             intentConfig.getIntent().putExtra(WebViewActivityConfig.TAG_URL, str);
                             intentConfig.getIntent().putExtra("tag_hook_url", str2);
@@ -252,10 +252,10 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
                             return;
                         }
                         this.a.showToast(R.string.has_buy_book);
-                        FacePackageData facePackageData = this.a.a.V().faces_list;
+                        FacePackageData facePackageData = this.a.a.Z().faces_list;
                         facePackageData.buy_status = 1;
                         facePackageData.can_download = 1;
-                        this.a.a.e0(facePackageData);
+                        this.a.a.i0(facePackageData);
                         this.a.b.z();
                         return;
                     }
@@ -264,17 +264,17 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
                         this.a.showToast(str3);
                         return;
                     } else {
-                        this.a.showToast(R.string.obfuscated_res_0x7f0f0d11);
+                        this.a.showToast(R.string.obfuscated_res_0x7f0f0d1f);
                         return;
                     }
                 }
-                this.a.showToast(R.string.obfuscated_res_0x7f0f0d11);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f0d1f);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class e extends w9 {
+    public class e extends z8 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FacePackageDetailActivity a;
@@ -297,7 +297,7 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
             this.a = facePackageDetailActivity;
         }
 
-        @Override // com.baidu.tieba.w9
+        @Override // com.baidu.tieba.z8
         public void c(Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
@@ -305,17 +305,17 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
                     FaceBuyQueryData faceBuyQueryData = (FaceBuyQueryData) obj;
                     if (faceBuyQueryData.errno == 0 && faceBuyQueryData.usermsg != null) {
                         if (faceBuyQueryData.buy_result.status == 2) {
-                            this.a.J1();
+                            this.a.M1();
                             return;
                         } else {
-                            this.a.I1();
+                            this.a.L1();
                             return;
                         }
                     }
-                    this.a.I1();
+                    this.a.L1();
                     return;
                 }
-                this.a.I1();
+                this.a.L1();
             }
         }
     }
@@ -353,10 +353,10 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
             List<DownloadData> data;
             DownloadData downloadData;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || this.a.a == null || this.a.a.V() == null || this.a.b == null || customResponsedMessage.getCmd() != 2001118 || !(customResponsedMessage instanceof DownloadMessage) || (data = ((DownloadMessage) customResponsedMessage).getData()) == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || this.a.a == null || this.a.a.Z() == null || this.a.b == null || customResponsedMessage.getCmd() != 2001118 || !(customResponsedMessage instanceof DownloadMessage) || (data = ((DownloadMessage) customResponsedMessage).getData()) == null) {
                 return;
             }
-            FacePackageData facePackageData = this.a.a.V().faces_list;
+            FacePackageData facePackageData = this.a.a.Z().faces_list;
             if (data.size() >= 1 && (downloadData = data.get(0)) != null && downloadData.getId().equals(this.a.a.getPid())) {
                 int status = downloadData.getStatus();
                 if (status != 3 && status != 0) {
@@ -368,7 +368,7 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
                             facePackageData.downloadNow = downloadData.getLength();
                         }
                     } else {
-                        if (!dj.isEmpty(downloadData.getStatusMsg())) {
+                        if (!gi.isEmpty(downloadData.getStatusMsg())) {
                             this.a.showToast(downloadData.getStatusMsg());
                         }
                         if (this.a.c != null) {
@@ -382,7 +382,7 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
                     facePackageData.downloading = 0;
                 }
             }
-            this.a.a.e0(facePackageData);
+            this.a.a.i0(facePackageData);
             this.a.b.w(this.a.a);
         }
     }
@@ -412,9 +412,9 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             super.onChangeSkinType(i);
-            sq6 sq6Var = this.b;
-            if (sq6Var != null) {
-                sq6Var.l(i);
+            oq6 oq6Var = this.b;
+            if (oq6Var != null) {
+                oq6Var.l(i);
             }
         }
     }
@@ -424,20 +424,20 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, bundle) == null) {
             super.onCreate(bundle);
-            F1(bundle);
-            G1();
+            I1(bundle);
+            J1();
             refresh();
         }
     }
 
-    public final void A1() {
+    public final void E1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.b.b(this.i);
         }
     }
 
-    public void C1() {
+    public void F1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             showProgressBar();
@@ -445,36 +445,36 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
             FaceBuyModel faceBuyModel = new FaceBuyModel(getActivity());
             this.d = faceBuyModel;
             faceBuyModel.setLoadDataCallBack(new d(this));
-            this.d.U(pid);
+            this.d.Y(pid);
         }
     }
 
-    public final void G1() {
+    public final void J1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.b = new sq6(getPageContext());
-            A1();
+            this.b = new oq6(getPageContext());
+            E1();
             registerListener(this.k);
-            pq6.f();
+            lq6.f();
         }
     }
 
-    public void I1() {
+    public void L1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             this.b.r();
         }
     }
 
-    public void J1() {
+    public void M1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             this.b.h();
-            E1();
+            H1();
         }
     }
 
-    public final void K1() {
+    public final void N1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.b.q(this.i);
@@ -498,7 +498,7 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
             if (faceBuyModel != null) {
                 faceBuyModel.cancelLoadData();
             }
-            K1();
+            N1();
         }
     }
 
@@ -507,9 +507,9 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
             super.onDetachedFromWindow();
-            sq6 sq6Var = this.b;
-            if (sq6Var != null) {
-                sq6Var.p();
+            oq6 oq6Var = this.b;
+            if (oq6Var != null) {
+                oq6Var.p();
             }
         }
     }
@@ -518,9 +518,9 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
     public void onResume() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            sq6 sq6Var = this.b;
-            if (sq6Var != null) {
-                sq6Var.m();
+            oq6 oq6Var = this.b;
+            if (oq6Var != null) {
+                oq6Var.m();
             }
             super.onResume();
         }
@@ -534,28 +534,28 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
         }
     }
 
-    public void D1(String str, String str2, String str3) {
+    public void G1(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, str3) == null) {
-            pq6.f().j(str, str2, str3);
+            lq6.f().j(str, str2, str3);
         }
     }
 
-    public final void E1() {
+    public final void H1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             FacePackageDownloadModel facePackageDownloadModel = new FacePackageDownloadModel(getActivity());
             this.c = facePackageDownloadModel;
-            facePackageDownloadModel.U(this.a.getPid());
+            facePackageDownloadModel.Y(this.a.getPid());
             DownloadData downloadData = new DownloadData(this.a.getPid());
             downloadData.setType(11);
             downloadData.setStatus(2);
-            downloadData.setStatusMsg(getResources().getString(R.string.obfuscated_res_0x7f0f0d11));
+            downloadData.setStatusMsg(getResources().getString(R.string.obfuscated_res_0x7f0f0d1f));
             this.c.setLoadDataCallBack(new c(this, downloadData));
         }
     }
 
-    public final void F1(Bundle bundle) {
+    public final void I1(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             FacePackageDetailModel facePackageDetailModel = new FacePackageDetailModel(this);
@@ -563,14 +563,14 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
             if (bundle != null) {
                 facePackageDetailModel.setStType(bundle.getString("st_type"));
                 this.a.setPid(bundle.getString(IntentConfig.PKG_ID));
-                this.a.b0(bundle.getBoolean(IntentConfig.IS_DOWNLOADING));
+                this.a.f0(bundle.getBoolean(IntentConfig.IS_DOWNLOADING));
             } else {
                 facePackageDetailModel.setStType(getIntent().getStringExtra("st_type"));
                 this.a.setPid(getIntent().getStringExtra(IntentConfig.PKG_ID));
-                this.a.b0(getIntent().getBooleanExtra(IntentConfig.IS_DOWNLOADING, false));
+                this.a.f0(getIntent().getBooleanExtra(IntentConfig.IS_DOWNLOADING, false));
                 TiebaStatic.log(getIntent().getStringExtra("st_type"));
             }
-            this.a.c0(this.j);
+            this.a.g0(this.j);
         }
     }
 
@@ -589,11 +589,11 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
                 this.e = motionEvent.getX();
                 this.f = motionEvent.getY();
             }
-            sq6 sq6Var = this.b;
-            if (sq6Var == null) {
+            oq6 oq6Var = this.b;
+            if (oq6Var == null) {
                 return super.dispatchTouchEvent(motionEvent);
             }
-            if (sq6Var.j()) {
+            if (oq6Var.j()) {
                 int action = motionEvent.getAction();
                 if (action != 1) {
                     if (action == 2) {
@@ -606,8 +606,8 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
                         int pointToPosition = g.pointToPosition(rect.left, rect.top);
                         if (pointToPosition != -1) {
                             View childAt = g.getChildAt(pointToPosition - g.getFirstVisiblePosition());
-                            if (H1(x, y)) {
-                                L1(childAt, pointToPosition);
+                            if (K1(x, y)) {
+                                O1(childAt, pointToPosition);
                             }
                         }
                     }
@@ -621,7 +621,7 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
         return invokeL.booleanValue;
     }
 
-    public final boolean H1(float f2, float f3) {
+    public final boolean K1(float f2, float f3) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
@@ -635,7 +635,7 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
         return invokeCommon.booleanValue;
     }
 
-    public final void L1(View view2, int i) {
+    public final void O1(View view2, int i) {
         FacePackageData facePackageData;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLI(1048586, this, view2, i) != null) || view2 == null) {
@@ -643,7 +643,7 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
         }
         view2.getDrawingRect(this.h);
         ((ViewGroup) getWindow().getDecorView()).offsetDescendantRectToMyCoords(view2, this.h);
-        if (this.a.V() != null && (facePackageData = this.a.V().faces_list) != null) {
+        if (this.a.Z() != null && (facePackageData = this.a.Z().faces_list) != null) {
             this.b.C(i, this.h, facePackageData);
         }
     }
@@ -654,25 +654,25 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIL(1048588, this, i, i2, intent) == null) {
             super.onActivityResult(i, i2, intent);
-            if (i2 == -1 && this.b != null && (facePackageDetailModel = this.a) != null && facePackageDetailModel.V() != null) {
+            if (i2 == -1 && this.b != null && (facePackageDetailModel = this.a) != null && facePackageDetailModel.Z() != null) {
                 if (i == 10001) {
                     String stringExtra = intent.getStringExtra("tag_order_id");
-                    if (this.a.V().faces_list == null) {
+                    if (this.a.Z().faces_list == null) {
                         return;
                     }
-                    if (dj.isEmpty(stringExtra)) {
-                        stringExtra = this.a.Y();
+                    if (gi.isEmpty(stringExtra)) {
+                        stringExtra = this.a.c0();
                     }
                     this.b.y();
                     FaceBuyModel faceBuyModel = new FaceBuyModel(getActivity());
                     this.d = faceBuyModel;
                     faceBuyModel.setLoadDataCallBack(new e(this));
-                    this.d.V(stringExtra);
+                    this.d.Z(stringExtra);
                 } else if (i == 11003) {
-                    if (this.a.V().faces_list.can_download == 1) {
-                        E1();
+                    if (this.a.Z().faces_list.can_download == 1) {
+                        H1();
                     } else {
-                        C1();
+                        F1();
                     }
                 }
             }
@@ -681,38 +681,38 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
-        sq6 sq6Var;
+        oq6 oq6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048590, this, view2) == null) && this.a != null && (sq6Var = this.b) != null) {
-            if (view2 == sq6Var.e()) {
+        if ((interceptable == null || interceptable.invokeL(1048590, this, view2) == null) && this.a != null && (oq6Var = this.b) != null) {
+            if (view2 == oq6Var.e()) {
                 if (!TbadkCoreApplication.isLogin()) {
                     TbadkCoreApplication.getInst().login(getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(getPageContext().getPageActivity(), true, 11003)));
                     return;
                 } else if (!this.g) {
                     return;
                 } else {
-                    int Z = this.a.Z();
-                    if (Z != 2 && Z != 3) {
-                        if (Z == 4) {
+                    int d0 = this.a.d0();
+                    if (d0 != 2 && d0 != 3) {
+                        if (d0 == 4) {
                             TiebaStatic.log("emotion_package_detail_buy");
-                            C1();
+                            F1();
                         }
                     } else {
                         TiebaStatic.log("emotion_package_detail_free");
-                        String W = this.a.W();
+                        String a0 = this.a.a0();
                         DownloadData downloadData = new DownloadData(this.a.getPid());
                         downloadData.setStatus(1);
                         downloadData.setStatusMsg(null);
                         downloadData.setType(11);
-                        pq6.f().i(downloadData);
-                        if (!dj.isEmpty(W)) {
-                            if (this.a.V() != null && this.a.V().faces_list != null) {
-                                D1(this.a.getPid(), this.a.V().faces_list.pname, W);
+                        lq6.f().i(downloadData);
+                        if (!gi.isEmpty(a0)) {
+                            if (this.a.Z() != null && this.a.Z().faces_list != null) {
+                                G1(this.a.getPid(), this.a.Z().faces_list.pname, a0);
                             } else {
                                 return;
                             }
                         } else {
-                            E1();
+                            H1();
                         }
                     }
                 }
@@ -721,9 +721,9 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
                 downloadData2.setStatus(4);
                 downloadData2.setStatusMsg(null);
                 downloadData2.setType(11);
-                pq6.f().i(downloadData2);
-                this.a.b0(false);
-                pq6.f().e(this.a.getPid());
+                lq6.f().i(downloadData2);
+                this.a.f0(false);
+                lq6.f().e(this.a.getPid());
             }
             super.onClick(view2);
         }
@@ -734,7 +734,7 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048594, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)})) == null) {
-            L1(view2, i);
+            O1(view2, i);
             return true;
         }
         return invokeCommon.booleanValue;
@@ -748,7 +748,7 @@ public class FacePackageDetailActivity extends BaseActivity<FacePackageDetailAct
             if (facePackageDetailModel != null) {
                 bundle.putString("st_type", facePackageDetailModel.getStType());
                 bundle.putString(IntentConfig.PKG_ID, this.a.getPid());
-                bundle.putBoolean(IntentConfig.IS_DOWNLOADING, this.a.X());
+                bundle.putBoolean(IntentConfig.IS_DOWNLOADING, this.a.b0());
             }
             super.onSaveInstanceState(bundle);
         }

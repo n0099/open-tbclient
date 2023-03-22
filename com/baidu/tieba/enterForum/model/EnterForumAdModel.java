@@ -9,10 +9,10 @@ import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.da;
-import com.baidu.tieba.qm6;
-import com.baidu.tieba.w39;
-import com.baidu.tieba.y39;
+import com.baidu.tieba.ba9;
+import com.baidu.tieba.da9;
+import com.baidu.tieba.g9;
+import com.baidu.tieba.mm6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class EnterForumAdModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qm6 a;
+    public mm6 a;
     public boolean b;
     public HttpMessageListener c;
 
@@ -111,27 +111,27 @@ public class EnterForumAdModel extends BdBaseModel {
         MessageManager.getInstance().registerListener(this.c);
     }
 
-    public qm6 S() {
+    public mm6 W() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (qm6) invokeV.objValue;
+        return (mm6) invokeV.objValue;
     }
 
-    public void T() {
+    public void X() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             MessageManager.getInstance().sendMessage(new HttpMessage(CmdConfigHttp.CMD_ENTER_FORUM_AD_REQUEST));
         }
     }
 
-    public void U(Context context) {
-        qm6 qm6Var;
+    public void Y(Context context) {
+        mm6 mm6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && !this.b && (qm6Var = this.a) != null && qm6Var.a()) {
-            y39.g().c(da.a(context).getUniqueId(), w39.f("a025", "common_fill", true, 1, 5));
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && !this.b && (mm6Var = this.a) != null && mm6Var.a()) {
+            da9.g().c(g9.a(context).getUniqueId(), ba9.f("a025", "common_fill", true, 1, 5));
             this.b = true;
         }
     }

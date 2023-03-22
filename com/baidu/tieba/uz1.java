@@ -1,97 +1,112 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import android.util.Log;
+import android.util.Pair;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.px1;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class uz1 extends sz1 {
+public class uz1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.px1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "BrightnessApi" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements px1.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uz1 a;
-
-        public a(uz1 uz1Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948228189, "Lcom/baidu/tieba/uz1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uz1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = uz1Var;
-        }
-
-        @Override // com.baidu.tieba.px1.b
-        public m12 a(m93 m93Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, m93Var)) == null) {
-                float a = kj3.c().a(m93Var.w());
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("value", a);
-                    return new m12(0, jSONObject);
-                } catch (JSONException e) {
-                    this.a.p("json put data fail", e, false);
-                    return m12.c();
-                }
-            }
-            return (m12) invokeL.objValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uz1(@NonNull nx1 nx1Var) {
-        super(nx1Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {nx1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((nx1) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948228189, "Lcom/baidu/tieba/uz1;");
                 return;
             }
         }
+        a = do1.a;
+        b = new String[]{"swan", "swanAPI", "utils"};
     }
 
-    public m12 y() {
-        InterceptResult invokeV;
+    @NonNull
+    public static Pair<Boolean, sz1> a(tv1 tv1Var, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            q("#getBrightness", false);
-            return k(true, new a(this));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tv1Var, str)) == null) {
+            tz1 tz1Var = new tz1();
+            boolean b2 = b(str, tv1Var.a().g());
+            if (b2) {
+                tz1Var.b = 402;
+            }
+            return new Pair<>(Boolean.valueOf(b2), tz1Var);
         }
-        return (m12) invokeV.objValue;
+        return (Pair) invokeLL.objValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static boolean b(String str, CallbackHandler callbackHandler) {
+        InterceptResult invokeLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, callbackHandler)) == null) {
+            if (!(callbackHandler instanceof bu1)) {
+                if (a) {
+                    Log.d("SwanApiSafe", "intercept: false, handler is null or not WebSafeHolder");
+                }
+                return false;
+            } else if (TextUtils.isEmpty(str)) {
+                if (!a) {
+                    return false;
+                }
+                throw new RuntimeException("whitelistName is empty");
+            } else {
+                String b0 = ((bu1) callbackHandler).b0();
+                if ("ai_apps_widget".equals(b0)) {
+                    z = c(str);
+                } else if ("ai_apps_ad_landing".equals(b0)) {
+                    z = !k83.a(str);
+                } else {
+                    if (!"swan_app_alliance_login_widget".equals(b0) && !"swan_app_alliance_choose_address_widget".equals(b0) && a) {
+                        Log.d("SwanApiSafe", "intercept: false, source frame is not aiapps widget frame");
+                    }
+                    return false;
+                }
+                if (a) {
+                    Log.d("SwanApiSafe", "intercept: result=" + z + ", path=" + str);
+                }
+                return z;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean c(@NonNull String str) {
+        InterceptResult invokeL;
+        String[] strArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            int indexOf = str.indexOf("/");
+            if (indexOf < 0) {
+                return true;
+            }
+            if (str.startsWith("swan")) {
+                String substring = str.substring(indexOf + 1);
+                for (String str2 : b) {
+                    if (k83.g(str2 + "/" + substring)) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+            return !k83.g(str);
+        }
+        return invokeL.booleanValue;
     }
 }

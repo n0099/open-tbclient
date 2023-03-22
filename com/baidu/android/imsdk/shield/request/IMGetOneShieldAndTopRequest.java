@@ -207,37 +207,39 @@ public class IMGetOneShieldAndTopRequest extends IMSettingBaseHttpRequest {
                                 this.mGraphicStatus = jSONObject2.optInt("ability", 1);
                             } else if (optInt == 5) {
                                 this.mCommodityStatus = jSONObject2.optInt("ability", 1);
-                            } else if (optInt == 6) {
-                                try {
-                                    this.mShield = jSONObject2.optInt("ability");
-                                    this.mShieldTime = jSONObject2.optLong("timestamp");
+                            } else {
+                                if (optInt == 6) {
+                                    try {
+                                        this.mShield = jSONObject2.optInt("ability");
+                                        this.mShieldTime = jSONObject2.optLong("timestamp");
+                                        jSONArray.put(jSONObject2);
+                                    } catch (JSONException e) {
+                                        e = e;
+                                        z = true;
+                                        LogUtils.e(TAG, "JSONException", e);
+                                        i2 = 1010;
+                                        str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
+                                        GetShieldAndTopResult getShieldAndTopResult = new GetShieldAndTopResult();
+                                        getShieldAndTopResult.setErrorCode(i2);
+                                        getShieldAndTopResult.setErrorMsg(str);
+                                        getShieldAndTopResult.setContacter(this.mContacter);
+                                        getShieldAndTopResult.setMarkTop(this.mMarkTop);
+                                        getShieldAndTopResult.setMarkTopTime(this.mMarkTopTime);
+                                        getShieldAndTopResult.setValidShieldStatus(z);
+                                        getShieldAndTopResult.setShield(this.mShield);
+                                        getShieldAndTopResult.setShieldTime(this.mShieldTime);
+                                        getShieldAndTopResult.setDisturbStatus(this.mDisturb);
+                                        getShieldAndTopResult.setDisturbTime(this.mDisturbTime);
+                                        getShieldAndTopResult.setGraphicStatus(this.mGraphicStatus);
+                                        getShieldAndTopResult.setCommodityStatus(this.mCommodityStatus);
+                                        getShieldAndTopResult.setChatType(this.mChatType);
+                                        getShieldAndTopResult.setShieldTypes(str3);
+                                        ShieldAndTopManager.getInstance(this.mContext).onUserShieldAndTopResult(getShieldAndTopResult, this.mKey);
+                                    }
+                                } else if (optInt == 7 || optInt == 8 || optInt == 9) {
                                     jSONArray.put(jSONObject2);
-                                    z2 = true;
-                                } catch (JSONException e) {
-                                    e = e;
-                                    z = true;
-                                    LogUtils.e(TAG, "JSONException", e);
-                                    i2 = 1010;
-                                    str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-                                    GetShieldAndTopResult getShieldAndTopResult = new GetShieldAndTopResult();
-                                    getShieldAndTopResult.setErrorCode(i2);
-                                    getShieldAndTopResult.setErrorMsg(str);
-                                    getShieldAndTopResult.setContacter(this.mContacter);
-                                    getShieldAndTopResult.setMarkTop(this.mMarkTop);
-                                    getShieldAndTopResult.setMarkTopTime(this.mMarkTopTime);
-                                    getShieldAndTopResult.setValidShieldStatus(z);
-                                    getShieldAndTopResult.setShield(this.mShield);
-                                    getShieldAndTopResult.setShieldTime(this.mShieldTime);
-                                    getShieldAndTopResult.setDisturbStatus(this.mDisturb);
-                                    getShieldAndTopResult.setDisturbTime(this.mDisturbTime);
-                                    getShieldAndTopResult.setGraphicStatus(this.mGraphicStatus);
-                                    getShieldAndTopResult.setCommodityStatus(this.mCommodityStatus);
-                                    getShieldAndTopResult.setChatType(this.mChatType);
-                                    getShieldAndTopResult.setShieldTypes(str3);
-                                    ShieldAndTopManager.getInstance(this.mContext).onUserShieldAndTopResult(getShieldAndTopResult, this.mKey);
                                 }
-                            } else if (optInt == 7 || optInt == 8 || optInt == 9) {
-                                jSONArray.put(jSONObject2);
+                                z2 = true;
                             }
                         } catch (JSONException e2) {
                             e = e2;

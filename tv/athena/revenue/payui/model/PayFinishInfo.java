@@ -1,10 +1,10 @@
 package tv.athena.revenue.payui.model;
 
 import androidx.annotation.Keep;
-import com.baidu.tieba.iua;
+import com.baidu.tieba.eza;
 @Keep
 /* loaded from: classes9.dex */
-public class PayFinishInfo extends iua {
+public class PayFinishInfo extends eza {
     public int code;
     public String message;
     public int step;

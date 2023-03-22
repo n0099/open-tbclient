@@ -1,71 +1,62 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.Intent;
-import android.text.TextUtils;
-import com.baidu.tieba.sharesdk.bean.ShareEntity;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class pz8 extends mz8 {
+public class pz8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pz8(Context context) {
-        super(context);
+    public static void a(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeLL(65536, null, context, str) == null) {
+            UrlSchemaJumpHelper.jumpGameAlbum(context, str);
         }
     }
 
-    @Override // com.baidu.tieba.sz8
-    public void a(ShareEntity shareEntity, tz8 tz8Var) {
-        String str;
+    public static void b(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, shareEntity, tz8Var) == null) {
-            if (shareEntity != null && !TextUtils.isEmpty(shareEntity.getContent())) {
-                if (TextUtils.isEmpty(shareEntity.getContent())) {
-                    str = shareEntity.getTitle() + shareEntity.getLinkUrl();
-                } else {
-                    str = shareEntity.getContent() + shareEntity.getLinkUrl();
-                }
-                Intent intent = new Intent();
-                intent.setAction("android.intent.action.SEND");
-                intent.putExtra("android.intent.extra.TEXT", str);
-                intent.setType("text/plain");
-                Context context = this.b;
-                if (vz8.startActivity(context, Intent.createChooser(intent, context.getString(R.string.obfuscated_res_0x7f0f123b)))) {
-                    if (tz8Var != null) {
-                        tz8Var.b1(0, 1);
-                        return;
-                    }
-                    return;
-                } else if (tz8Var != null) {
-                    tz8Var.b1(0, 2);
-                    return;
-                } else {
-                    return;
-                }
-            }
-            ej.P(d(), R.string.obfuscated_res_0x7f0f120c);
-            if (tz8Var != null) {
-                tz8Var.b1(0, 2);
-            }
+        if (interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) {
+            UrlSchemaJumpHelper.jumpGameGodsPage(context, str);
         }
+    }
+
+    public static void c(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
+            UrlSchemaJumpHelper.jumpGameOrderPage(context, str);
+        }
+    }
+
+    public static void d(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, context, str) == null) {
+            UrlSchemaJumpHelper.jumpGameSkillDetail(context, str);
+        }
+    }
+
+    public static void e(Context context, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, z) == null) {
+            UrlSchemaJumpHelper.jumpPersonChat(context, str, z);
+        }
+    }
+
+    public static Ringtone f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            Ringtone ringtone = RingtoneManager.getRingtone(TbadkCoreApplication.getInst(), RingtoneManager.getDefaultUri(2));
+            ringtone.play();
+            return ringtone;
+        }
+        return (Ringtone) invokeV.objValue;
     }
 }

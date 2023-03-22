@@ -1,133 +1,101 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tva;
-import com.baidu.tieba.uva;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.IYYPayResultView;
-import tv.athena.revenue.payui.view.IYYPayWayView;
-import tv.athena.revenue.payui.view.impl.YYPayAmountView;
-import tv.athena.revenue.payui.view.impl.YYPayCampaignView;
-import tv.athena.revenue.payui.view.impl.YYPayConfirmView;
-import tv.athena.revenue.payui.view.impl.YYPayGiftView;
-import tv.athena.revenue.payui.view.impl.YYPayResultView;
-import tv.athena.revenue.payui.view.impl.YYPaySignView;
-import tv.athena.revenue.payui.view.impl.YYPaySplitOrderView;
-import tv.athena.revenue.payui.view.impl.YYPayWayView;
+import java.util.AbstractQueue;
+import java.util.Iterator;
+import java.util.concurrent.atomic.AtomicReferenceArray;
 /* loaded from: classes3.dex */
-public class aua implements usa {
+public abstract class aua<E> extends AbstractQueue<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public PayUIKitConfig c;
+    public final AtomicReferenceArray<E> a;
+    public final int b;
 
-    public aua(int i, int i2, PayUIKitConfig payUIKitConfig) {
+    public final int b(long j, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) ? ((int) j) & i : invokeCommon.intValue;
+    }
+
+    public aua(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), payUIKitConfig};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        RLog.info("PayFlowViewImpl", "create PayViewImpl mAppId:" + i + " mUserChannel:" + i2);
-        this.a = i;
-        this.b = i2;
-        this.c = payUIKitConfig;
+        int b = oua.b(i);
+        this.b = b - 1;
+        this.a = new AtomicReferenceArray<>(b);
     }
 
-    @Override // com.baidu.tieba.usa
-    public IYYPayAmountView a(Activity activity, IYYPayAmountView.ViewParams viewParams, ssa ssaVar) {
-        InterceptResult invokeLLL;
+    public final int a(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, activity, viewParams, ssaVar)) == null) {
-            return new YYPayAmountView(activity, this.a, this.b, this.c, viewParams, ssaVar);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            return this.b & ((int) j);
         }
-        return (IYYPayAmountView) invokeLLL.objValue;
+        return invokeJ.intValue;
     }
 
-    @Override // com.baidu.tieba.usa
-    public IYYPayResultView e(Activity activity, IYYPayResultView.c cVar, ssa ssaVar) {
-        InterceptResult invokeLLL;
+    public final E c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, activity, cVar, ssaVar)) == null) {
-            return new YYPayResultView(activity, this.c, this.a, this.b, cVar, ssaVar);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            return d(this.a, i);
         }
-        return (IYYPayResultView) invokeLLL.objValue;
+        return (E) invokeI.objValue;
     }
 
-    @Override // com.baidu.tieba.usa
-    public tva f(Activity activity, tva.b bVar, PayUIKitConfig payUIKitConfig) {
-        InterceptResult invokeLLL;
+    @Override // java.util.AbstractQueue, java.util.AbstractCollection, java.util.Collection
+    public void clear() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, activity, bVar, payUIKitConfig)) == null) {
-            return new YYPaySignView(activity, bVar, payUIKitConfig, this.a, this.b);
+        if (interceptable != null && interceptable.invokeV(1048579, this) != null) {
+            return;
         }
-        return (tva) invokeLLL.objValue;
+        while (true) {
+            if (poll() == null && isEmpty()) {
+                return;
+            }
+        }
     }
 
-    @Override // com.baidu.tieba.usa
-    public IYYPayWayView g(Activity activity, IYYPayWayView.b bVar, wsa wsaVar) {
-        InterceptResult invokeLLL;
+    @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
+    public Iterator<E> iterator() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, activity, bVar, wsaVar)) == null) {
-            return new YYPayWayView(activity, this.a, this.b, bVar, this.c, wsaVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            throw new UnsupportedOperationException();
         }
-        return (IYYPayWayView) invokeLLL.objValue;
+        return (Iterator) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.usa
-    public rva b(Activity activity) {
-        InterceptResult invokeL;
+    public final E d(AtomicReferenceArray<E> atomicReferenceArray, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
-            return new YYPayConfirmView(activity, this.a, this.b, this.c);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, atomicReferenceArray, i)) == null) {
+            return atomicReferenceArray.get(i);
         }
-        return (rva) invokeL.objValue;
+        return (E) invokeLI.objValue;
     }
 
-    @Override // com.baidu.tieba.usa
-    public qva c(Activity activity) {
-        InterceptResult invokeL;
+    public final void e(AtomicReferenceArray<E> atomicReferenceArray, int i, E e) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity)) == null) {
-            return new YYPayCampaignView(activity, this.a, this.b, this.c);
+        if (interceptable == null || interceptable.invokeLIL(1048581, this, atomicReferenceArray, i, e) == null) {
+            atomicReferenceArray.lazySet(i, e);
         }
-        return (qva) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.usa
-    public sva d(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, activity)) == null) {
-            return new YYPayGiftView(activity, this.a, this.b, this.c);
-        }
-        return (sva) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.usa
-    public uva h(Activity activity, PayUIKitConfig payUIKitConfig, uva.b bVar, wsa wsaVar) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, activity, payUIKitConfig, bVar, wsaVar)) == null) {
-            return new YYPaySplitOrderView(activity, payUIKitConfig, this.a, this.b, bVar, wsaVar);
-        }
-        return (uva) invokeLLLL.objValue;
     }
 }

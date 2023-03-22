@@ -7,10 +7,12 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Build;
+import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.db.DBTableDefine;
 import com.baidu.android.imsdk.db.DBVersionManager;
+import com.baidu.android.imsdk.group.db.GroupMessageDAOImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,6 +20,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
 /* loaded from: classes.dex */
 public class DBConnection extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic = null;
@@ -583,6 +586,62 @@ public class DBConnection extends SQLiteOpenHelper {
         }
     }
 
+    /* loaded from: classes.dex */
+    public class Version78And79Handler implements DBVersionManager.VersionHandler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ DBConnection this$0;
+
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
+            }
+        }
+
+        public Version78And79Handler(DBConnection dBConnection) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dBConnection};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = dBConnection;
+        }
+
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
+                try {
+                    LogUtils.d(DBConnection.TAG, "---Version78And79Handler---");
+                    if (!this.this$0.checkColumnExists(sQLiteDatabase, DBTableDefine.DB_TABLE_GROUP_LOCALMESSAGE, "auto_risk_control_status")) {
+                        sQLiteDatabase.execSQL("ALTER TABLE grouplocalmessage ADD COLUMN auto_risk_control_status  INTEGER DEFAULT '0'");
+                    }
+                    Iterator<String> it = GroupMessageDAOImpl.getExistGroupTableNames(sQLiteDatabase).iterator();
+                    while (it.hasNext()) {
+                        String next = it.next();
+                        LogUtils.d(DBConnection.TAG, "update group message table name:" + next);
+                        if (!TextUtils.isEmpty(next) && !this.this$0.checkColumnExists(sQLiteDatabase, next, "auto_risk_control_status")) {
+                            LogUtils.d(DBConnection.TAG, "update group message table");
+                            sQLiteDatabase.execSQL("ALTER TABLE " + next + " ADD COLUMN auto_risk_control_status  INTEGER DEFAULT '0'");
+                        }
+                    }
+                } catch (Exception e) {
+                    LogUtils.e(DBConnection.TAG, "DBConnection onUpgrade:78>79", e);
+                }
+            }
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public DBConnection(Context context, String str, int i) {
         super(context, str, (SQLiteDatabase.CursorFactory) null, i);
@@ -775,6 +834,10 @@ public class DBConnection extends SQLiteOpenHelper {
             }
             if (i <= 75 && i2 >= 76) {
                 new Version75And76Handler(this).onUpgrade(sQLiteDatabase, i, i2);
+                i = 76;
+            }
+            if (i <= 78 && i2 >= 79) {
+                new Version78And79Handler(this).onUpgrade(sQLiteDatabase, i, i2);
             }
         }
     }

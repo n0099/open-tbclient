@@ -229,7 +229,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
             @Override // kotlin.jvm.functions.Function0
             public final AnonymousClass1 invoke() {
                 return new MixInvokeAbility() { // from class: com.baidu.searchbox.live.list.controller.ListController$mMixEventDispatcher$2.1
-                    /* JADX WARN: Code restructure failed: missing block: B:34:0x006d, code lost:
+                    /* JADX WARN: Code restructure failed: missing block: B:34:0x006c, code lost:
                         if (android.text.TextUtils.isEmpty(r4) != false) goto L32;
                      */
                     @Override // com.baidu.searchbox.live.interfaces.mix.MixInvokeAbility
@@ -719,11 +719,11 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
                             if (intentData3 != null) {
                                 intentData3.setModel(parseSchemeData);
                             }
-                            Result.m766constructorimpl(Unit.INSTANCE);
+                            Result.m768constructorimpl(Unit.INSTANCE);
                         } catch (Throwable th2) {
                             th = th2;
                             Result.Companion companion2 = Result.Companion;
-                            Result.m766constructorimpl(ResultKt.createFailure(th));
+                            Result.m768constructorimpl(ResultKt.createFailure(th));
                             str10 = str7;
                             str11 = str8;
                             str12 = str9;
@@ -747,7 +747,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
                         th = th3;
                         str9 = "";
                         Result.Companion companion22 = Result.Companion;
-                        Result.m766constructorimpl(ResultKt.createFailure(th));
+                        Result.m768constructorimpl(ResultKt.createFailure(th));
                         str10 = str7;
                         str11 = str8;
                         str12 = str9;
@@ -772,7 +772,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
                     str8 = "";
                     str9 = str8;
                     Result.Companion companion222 = Result.Companion;
-                    Result.m766constructorimpl(ResultKt.createFailure(th));
+                    Result.m768constructorimpl(ResultKt.createFailure(th));
                     str10 = str7;
                     str11 = str8;
                     str12 = str9;
@@ -952,7 +952,7 @@ public final class ListController implements IExtLifecycle, EventAction<Abstract
         str7 = "";
         str8 = str7;
         str9 = str8;
-        Result.m766constructorimpl(Unit.INSTANCE);
+        Result.m768constructorimpl(Unit.INSTANCE);
         str10 = str7;
         str11 = str8;
         str12 = str9;

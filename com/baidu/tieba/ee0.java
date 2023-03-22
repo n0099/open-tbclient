@@ -1,163 +1,211 @@
 package com.baidu.tieba;
 
-import android.opengl.Matrix;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.mario.gldraw2d.params.MirrorType;
-import com.baidu.mario.gldraw2d.params.ScaleType;
+import android.graphics.Point;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ee0 {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "ee0";
+    public static float j = 0.0f;
+    public static float k = 0.0f;
+    public static float l = 1.0f;
+    public static float m = 1.0f;
+    public static float n;
+    public static List<Point> o;
+    public static List<Point> p;
+    public static List<Point> q;
+    public static List<Point> r;
+    public static List<List<Point>> s;
     public transient /* synthetic */ FieldHolder $fh;
+    public float a;
+    public float b;
+    public float c;
+    public float d;
+    public float e;
+    public List<Point> f;
+    public List<Point> g;
+    public List<Point> h;
+    public List<Point> i;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947731321, "Lcom/baidu/tieba/ee0;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947731321, "Lcom/baidu/tieba/ee0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947731321, "Lcom/baidu/tieba/ee0;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+        a();
+    }
+
+    public ee0() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947731321, "Lcom/baidu/tieba/ee0;");
+        this.a = j;
+        this.b = k;
+        this.c = l;
+        this.d = m;
+        this.e = n;
+        this.f = o;
+        this.g = p;
+        this.h = q;
+        this.i = r;
+    }
+
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            ArrayList arrayList = new ArrayList();
+            o = arrayList;
+            arrayList.add(new Point(0, 0));
+            o.add(new Point(255, 255));
+            ArrayList arrayList2 = new ArrayList();
+            p = arrayList2;
+            arrayList2.add(new Point(0, 0));
+            p.add(new Point(255, 255));
+            ArrayList arrayList3 = new ArrayList();
+            q = arrayList3;
+            arrayList3.add(new Point(0, 0));
+            q.add(new Point(255, 255));
+            ArrayList arrayList4 = new ArrayList();
+            r = arrayList4;
+            arrayList4.add(new Point(0, 0));
+            r.add(new Point(255, 255));
+            ArrayList arrayList5 = new ArrayList();
+            s = arrayList5;
+            arrayList5.add(o);
+            s.add(p);
+            s.add(q);
+            s.add(r);
         }
     }
 
-    /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-835960612, "Lcom/baidu/tieba/ee0$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
+    public static ee0 b(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        int i;
+        int i2;
+        int i3;
+        int i4;
+        int i5;
+        int i6;
+        int i7;
+        int i8;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
+            if (jSONObject == null || jSONObject.length() == 0) {
+                return null;
+            }
+            ee0 ee0Var = new ee0();
+            try {
+                JSONObject jSONObject2 = jSONObject.getJSONObject("female");
+                if (jSONObject2 != null) {
+                    jSONObject2.optDouble("intensity_smooth");
+                    jSONObject2.optDouble("intensity_white");
                 }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-835960612, "Lcom/baidu/tieba/ee0$a;");
-                    return;
+                JSONObject jSONObject3 = jSONObject.getJSONObject("male");
+                if (jSONObject3 != null) {
+                    jSONObject3.optDouble("intensity_smooth");
+                    jSONObject3.optDouble("intensity_white");
                 }
-            }
-            int[] iArr = new int[ScaleType.values().length];
-            a = iArr;
-            try {
-                iArr[ScaleType.FIT_XY.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[ScaleType.FIT_CENTER.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[ScaleType.CENTER_CROP.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[ScaleType.EQUAL_SCALE.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-        }
-    }
-
-    public static void a(float[] fArr, MirrorType mirrorType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, fArr, mirrorType) == null) {
-            if (fArr == null) {
-                Log.e(a, "mirrorDraw2DMVP mvpMatrix == NULLLLLLL!!!");
-            }
-            if (mirrorType == MirrorType.HORIZONTALLY) {
-                Matrix.rotateM(fArr, 0, 180.0f, 0.0f, 1.0f, 0.0f);
-            } else if (mirrorType == MirrorType.VERTICALLY) {
-                Matrix.rotateM(fArr, 0, 180.0f, 1.0f, 0.0f, 0.0f);
-                fArr[6] = 0.0f;
-                fArr[9] = 0.0f;
-            }
-        }
-    }
-
-    public static void b(float[] fArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, fArr) == null) {
-            Matrix.setIdentityM(fArr, 0);
-        }
-    }
-
-    public static void c(float[] fArr, float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(65539, null, fArr, f) == null) {
-            if (fArr == null) {
-                Log.e(a, "rotateDraw2DMVP mvpMatrix == NULLLLLLL!!!");
-            }
-            Matrix.rotateM(fArr, 0, f, 0.0f, 0.0f, 1.0f);
-        }
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x0062, code lost:
-        if (r0 > r5) goto L32;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x0067, code lost:
-        if (r0 > r5) goto L30;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x0069, code lost:
-        r5 = r5 / r0;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x006d, code lost:
-        r8 = r0 / r5;
-        r5 = 1.0f;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void d(float[] fArr, zd0 zd0Var, yd0 yd0Var, ScaleType scaleType, float f) {
-        float f2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{fArr, zd0Var, yd0Var, scaleType, Float.valueOf(f)}) == null) {
-            if (fArr == null) {
-                Log.e(a, "scaleDraw2DMVP mvpMatrix == NULLLLLLL!!!");
-            } else if (zd0Var != null && zd0Var.d() > 0 && zd0Var.b() > 0) {
-                if (yd0Var != null && yd0Var.c() > 0 && yd0Var.b() > 0) {
-                    float d = (zd0Var.d() * 1.0f) / zd0Var.b();
-                    float c = (yd0Var.c() * 1.0f) / yd0Var.b();
-                    int i = a.a[scaleType.ordinal()];
-                    if (i != 1) {
-                        if (i != 2) {
-                            if (i != 3) {
-                                if (i == 4) {
-                                    f2 = f;
-                                }
+                ee0Var.a = (float) jSONObject.optDouble("intensity_sharpness");
+                ee0Var.b = (float) jSONObject.optDouble("intensity_brightness");
+                ee0Var.c = (float) jSONObject.optDouble("intensity_contrast");
+                ee0Var.d = (float) jSONObject.optDouble("intensity_saturation");
+                JSONObject optJSONObject = jSONObject.optJSONObject("curves");
+                if (optJSONObject != null && optJSONObject.length() > 0) {
+                    ee0Var.e = (float) optJSONObject.optDouble("intensity_curves");
+                    JSONArray jSONArray = optJSONObject.getJSONArray("composite");
+                    if (jSONArray != null && jSONArray.length() > 0) {
+                        ee0Var.f = new CopyOnWriteArrayList();
+                        for (int i9 = 0; i9 < jSONArray.length(); i9++) {
+                            JSONObject jSONObject4 = jSONArray.getJSONObject(i9);
+                            if (jSONObject4 != null && jSONObject4.length() > 0) {
+                                i8 = jSONObject4.optInt("x");
+                                i7 = jSONObject4.optInt("y");
+                            } else {
+                                i7 = 0;
+                                i8 = 0;
                             }
+                            ee0Var.f.add(new Point(i8, i7));
                         }
-                        Matrix.scaleM(fArr, 0, f, f2, 1.0f);
-                        return;
                     }
-                    f2 = 1.0f;
-                    f = 1.0f;
-                    Matrix.scaleM(fArr, 0, f, f2, 1.0f);
-                    return;
+                    JSONArray jSONArray2 = optJSONObject.getJSONArray("red");
+                    if (jSONArray2 != null && jSONArray2.length() > 0) {
+                        ee0Var.g = new CopyOnWriteArrayList();
+                        for (int i10 = 0; i10 < jSONArray2.length(); i10++) {
+                            JSONObject jSONObject5 = jSONArray2.getJSONObject(i10);
+                            if (jSONObject5 != null && jSONObject5.length() > 0) {
+                                i6 = jSONObject5.optInt("x");
+                                i5 = jSONObject5.optInt("y");
+                            } else {
+                                i5 = 0;
+                                i6 = 0;
+                            }
+                            ee0Var.g.add(new Point(i6, i5));
+                        }
+                    }
+                    JSONArray jSONArray3 = optJSONObject.getJSONArray("green");
+                    if (jSONArray3 != null && jSONArray3.length() > 0) {
+                        ee0Var.h = new CopyOnWriteArrayList();
+                        for (int i11 = 0; i11 < jSONArray3.length(); i11++) {
+                            JSONObject jSONObject6 = jSONArray3.getJSONObject(i11);
+                            if (jSONObject6 != null && jSONObject6.length() > 0) {
+                                i4 = jSONObject6.optInt("x");
+                                i3 = jSONObject6.optInt("y");
+                            } else {
+                                i3 = 0;
+                                i4 = 0;
+                            }
+                            ee0Var.h.add(new Point(i4, i3));
+                        }
+                    }
+                    JSONArray jSONArray4 = optJSONObject.getJSONArray("blue");
+                    if (jSONArray4 != null && jSONArray4.length() > 0) {
+                        ee0Var.i = new CopyOnWriteArrayList();
+                        for (int i12 = 0; i12 < jSONArray4.length(); i12++) {
+                            JSONObject jSONObject7 = jSONArray4.getJSONObject(i12);
+                            if (jSONObject7 != null && jSONObject7.length() > 0) {
+                                i2 = jSONObject7.optInt("x");
+                                i = jSONObject7.optInt("y");
+                            } else {
+                                i = 0;
+                                i2 = 0;
+                            }
+                            ee0Var.i.add(new Point(i2, i));
+                        }
+                    }
                 }
-                Log.e(a, "scaleDraw2DMVP draw target error!!!");
-            } else {
-                Log.e(a, "scaleDraw2DMVP source texture error!!!");
+                return ee0Var;
+            } catch (JSONException unused) {
+                return null;
             }
         }
-    }
-
-    public static void e(float[] fArr, float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{fArr, Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            Matrix.translateM(fArr, 0, f, f2, 1.0f);
-        }
+        return (ee0) invokeL.objValue;
     }
 }

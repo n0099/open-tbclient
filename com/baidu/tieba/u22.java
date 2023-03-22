@@ -1,77 +1,68 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Path;
-import android.graphics.RectF;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class u22 extends s22 {
+public class u22 extends q22 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RectF a;
-    public float b;
-    public float c;
-    public boolean d;
+    public List<z02> k;
+    public i12 l;
 
-    public u22() {
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public u22(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.s22
-    public void a(t22 t22Var, Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, t22Var, canvas) == null) && this.a != null) {
-            if (!this.d && Math.abs(this.c) >= 360.0f) {
-                Path path = t22Var.f;
-                RectF rectF = this.a;
-                float f = rectF.bottom;
-                float f2 = rectF.top;
-                path.addCircle((rectF.right + rectF.left) / 2.0f, (f + f2) / 2.0f, (f - f2) / 2.0f, Path.Direction.CW);
-                t22Var.f.arcTo(this.a, 0.0f, this.b);
                 return;
             }
-            float f3 = this.c % 360.0f;
-            if (f3 < 0.0f && !this.d) {
-                f3 += 360.0f;
-            } else if (f3 > 0.0f && this.d) {
-                f3 -= 360.0f;
-            }
-            t22Var.f.arcTo(this.a, this.b, f3);
         }
+        this.k = new ArrayList();
+        i12 i12Var = new i12(str);
+        this.l = i12Var;
+        this.k.add(i12Var);
     }
 
-    @Override // com.baidu.tieba.s22
-    public void b(JSONArray jSONArray) {
+    public int h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            if (jSONArray.length() > 4) {
-                int g = dn3.g((float) jSONArray.optDouble(0));
-                int g2 = dn3.g((float) jSONArray.optDouble(1));
-                int g3 = dn3.g((float) jSONArray.optDouble(2));
-                float degrees = (float) Math.toDegrees((float) jSONArray.optDouble(3));
-                float degrees2 = (float) Math.toDegrees((float) jSONArray.optDouble(4));
-                this.a = new RectF(g - g3, g2 - g3, g + g3, g2 + g3);
-                this.b = degrees;
-                this.c = degrees2 - degrees;
-            }
-            if (jSONArray.length() > 5) {
-                this.d = jSONArray.optBoolean(5);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.l.c();
         }
+        return invokeV.intValue;
+    }
+
+    public List<z02> i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.k;
+        }
+        return (List) invokeV.objValue;
     }
 }

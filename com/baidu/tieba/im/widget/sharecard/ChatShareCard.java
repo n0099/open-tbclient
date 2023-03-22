@@ -34,13 +34,13 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.HeadPendantClickableView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b35;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.hi;
 import com.baidu.tieba.im.data.ShareForumMsgData;
 import com.baidu.tieba.im.data.ShareThreadMsgData;
 import com.baidu.tieba.im.db.pojo.MediaPojo;
-import com.baidu.tieba.ou5;
+import com.baidu.tieba.n15;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
+import com.baidu.tieba.ut5;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -135,14 +135,14 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
                 return;
             }
         }
-        V = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds1);
-        ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds5);
-        W = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds410);
-        a0 = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds595);
-        b0 = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds540);
-        c0 = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds1);
-        d0 = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds340);
-        e0 = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds548);
+        V = hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds1);
+        hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds5);
+        W = hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds410);
+        a0 = hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds595);
+        b0 = hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds540);
+        c0 = hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds1);
+        d0 = hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds340);
+        e0 = hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds548);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -173,7 +173,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
             ArrayList arrayList = new ArrayList();
             if (!ListUtils.isEmpty(list)) {
                 for (MediaPojo mediaPojo : list) {
-                    arrayList.add(mediaPojo.N());
+                    arrayList.add(mediaPojo.R());
                 }
             }
             return arrayList;
@@ -317,7 +317,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
     public final void b(ShareForumMsgData shareForumMsgData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareForumMsgData) == null) {
-            this.d.setText(shareForumMsgData.getForum_name() + getContext().getString(R.string.obfuscated_res_0x7f0f06ba));
+            this.d.setText(shareForumMsgData.getForum_name() + getContext().getString(R.string.obfuscated_res_0x7f0f06bd));
             if (!StringUtils.isNull(shareForumMsgData.getSlogan())) {
                 this.e.setVisibility(0);
                 this.e.setText(String.format(getContext().getString(R.string.forum_slogan), shareForumMsgData.getSlogan()));
@@ -325,7 +325,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
                 this.e.setVisibility(8);
             }
             this.f.setText(String.format(getContext().getString(R.string.attention_and_post), StringHelper.numberUniformFormatExtraWithRoundInt(shareForumMsgData.getMember_count()), StringHelper.numberUniformFormatExtraWithRoundInt(shareForumMsgData.getThread_count())));
-            this.c.K(shareForumMsgData.getAvatar(), 10, false);
+            this.c.M(shareForumMsgData.getAvatar(), 10, false);
         }
     }
 
@@ -406,8 +406,8 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
             if (!StringUtils.isNull(shareThreadMsgData.getForum_avatar())) {
                 this.i.setVisibility(8);
                 this.h.setVisibility(0);
-                this.h.K(shareThreadMsgData.getForum_avatar(), 10, false);
-                this.j.setText(shareThreadMsgData.getForum_name() + getContext().getString(R.string.obfuscated_res_0x7f0f06ba));
+                this.h.M(shareThreadMsgData.getForum_avatar(), 10, false);
+                this.j.setText(shareThreadMsgData.getForum_name() + getContext().getString(R.string.obfuscated_res_0x7f0f06bd));
                 return;
             }
             this.i.setVisibility(0);
@@ -425,15 +425,15 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
             } else if (!StringUtils.isNull(str) && str.endsWith("MsgrightView")) {
                 SkinManager.setBackgroundResource(this, R.drawable.icon_pic_im_bubble_share_right);
             }
-            b35 d = b35.d(this.d);
-            d.A(R.string.F_X02);
-            d.v(R.color.CAM_X0105);
-            b35.d(this.e).v(R.color.CAM_X0107);
-            b35.d(this.f).v(R.color.CAM_X0109);
-            b35.d(this.j).v(R.color.CAM_X0107);
-            b35.d(this.R).v(R.color.CAM_X0109);
-            b35 d2 = b35.d(this.z);
-            d2.n(R.string.J_X06);
+            n15 d = n15.d(this.d);
+            d.B(R.string.F_X02);
+            d.w(R.color.CAM_X0105);
+            n15.d(this.e).w(R.color.CAM_X0107);
+            n15.d(this.f).w(R.color.CAM_X0109);
+            n15.d(this.j).w(R.color.CAM_X0107);
+            n15.d(this.R).w(R.color.CAM_X0109);
+            n15 d2 = n15.d(this.z);
+            d2.o(R.string.J_X06);
             d2.f(R.color.CAM_X0204);
         }
     }
@@ -492,7 +492,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
                     tbImageViewArr[0].setPlaceHolder(3);
                     tbImageViewArr[0].setLongIconSupport(true);
                     tbImageViewArr[0].setGifIconSupport(true);
-                    tbImageViewArr[0].K(h.get(0), 10, false);
+                    tbImageViewArr[0].M(h.get(0), 10, false);
                     return;
                 }
                 tbImageViewArr[0].setVisibility(8);
@@ -503,7 +503,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
                 tbImageViewArr[1].setPlaceHolder(3);
                 tbImageViewArr[1].setLongIconSupport(false);
                 tbImageViewArr[1].setGifIconSupport(true);
-                tbImageViewArr[1].K(h.get(0), 10, false);
+                tbImageViewArr[1].M(h.get(0), 10, false);
             } else if (size == 2) {
                 tbImageViewArr[0].setVisibility(8);
                 tbImageViewArr[1].setVisibility(8);
@@ -514,12 +514,12 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
                 tbImageViewArr[2].setConrers(5);
                 tbImageViewArr[2].setDrawCorner(true);
                 tbImageViewArr[2].setPlaceHolder(2);
-                tbImageViewArr[2].K(h.get(0), 10, false);
+                tbImageViewArr[2].M(h.get(0), 10, false);
                 tbImageViewArr[3].setDrawCorner(true);
                 tbImageViewArr[3].setRadiusById(R.string.J_X05);
                 tbImageViewArr[3].setConrers(10);
                 tbImageViewArr[3].setPlaceHolder(2);
-                tbImageViewArr[3].K(h.get(1), 10, false);
+                tbImageViewArr[3].M(h.get(1), 10, false);
             } else if (size >= 3) {
                 for (int i2 = 0; i2 < 5; i2++) {
                     if (i2 < 2) {
@@ -532,16 +532,16 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
                 tbImageViewArr[2].setDrawCorner(true);
                 tbImageViewArr[2].setConrers(5);
                 tbImageViewArr[2].setPlaceHolder(2);
-                tbImageViewArr[2].K(h.get(0), 10, false);
+                tbImageViewArr[2].M(h.get(0), 10, false);
                 tbImageViewArr[3].setRadiusById(R.string.J_X02);
                 tbImageViewArr[3].setDrawCorner(false);
                 tbImageViewArr[3].setPlaceHolder(2);
-                tbImageViewArr[3].K(h.get(1), 10, false);
+                tbImageViewArr[3].M(h.get(1), 10, false);
                 tbImageViewArr[4].setRadiusById(R.string.J_X05);
                 tbImageViewArr[4].setDrawCorner(true);
                 tbImageViewArr[4].setConrers(10);
                 tbImageViewArr[4].setPlaceHolder(2);
-                tbImageViewArr[4].K(h.get(2), 10, false);
+                tbImageViewArr[4].M(h.get(2), 10, false);
                 if (size > 3) {
                     tbImageViewArr[4].setGifIconSupport(false);
                     textView.setVisibility(0);
@@ -569,7 +569,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
                 tbImageViewArr[0].setRadiusById(R.string.J_X05);
                 tbImageViewArr[0].setDrawCorner(true);
                 tbImageViewArr[0].setPlaceHolder(3);
-                tbImageViewArr[0].K(thumbnail_url, 10, false);
+                tbImageViewArr[0].M(thumbnail_url, 10, false);
             } else {
                 RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) relativeLayout.getLayoutParams();
                 layoutParams2.width = -1;
@@ -581,7 +581,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
                 tbImageViewArr[1].setRadiusById(R.string.J_X05);
                 tbImageViewArr[1].setDrawCorner(true);
                 tbImageViewArr[1].setPlaceHolder(3);
-                tbImageViewArr[1].K(thumbnail_url, 10, false);
+                tbImageViewArr[1].M(thumbnail_url, 10, false);
             }
             imageView.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
             textView.setText(StringHelper.stringForVideoTime(shareThreadMsgData.getVideo_duration() * 1000));
@@ -597,7 +597,7 @@ public class ChatShareCard extends LinearLayout implements View.OnClickListener 
                 threadData.threadType = 40;
                 threadData.setRichTitleList(ShareThreadMsgData.parseContent(shareThreadMsgData.getRich_title()));
                 threadData.setTitle(shareThreadMsgData.title);
-            } else if (!StringUtils.isNull(ou5.G(ShareThreadMsgData.parseContent(shareThreadMsgData.getRich_abstract())).toString())) {
+            } else if (!StringUtils.isNull(ut5.H(ShareThreadMsgData.parseContent(shareThreadMsgData.getRich_abstract())).toString())) {
                 threadData.setRichAbstractList(ShareThreadMsgData.parseContent(shareThreadMsgData.getRich_abstract()));
             } else if (!ListUtils.isEmpty(shareThreadMsgData.getRich_title())) {
                 threadData.setRichTitleList(ShareThreadMsgData.parseContent(shareThreadMsgData.getRich_title()));

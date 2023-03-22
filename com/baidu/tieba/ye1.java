@@ -1,66 +1,56 @@
 package com.baidu.tieba;
 
-import android.database.sqlite.SQLiteDatabase;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.util.soloader.SoLoader;
+import com.baidu.perf.signal.register.NativeSignalCapture;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class ye1 {
+public class ye1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
 
-    public abstract boolean b(SQLiteDatabase sQLiteDatabase);
-
-    public ye1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948327172, "Lcom/baidu/tieba/ye1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948327172, "Lcom/baidu/tieba/ye1;");
                 return;
             }
         }
-        this.a = false;
+        SoLoader.load(AppRuntime.getAppContext(), "signal-register");
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public static void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void c(SQLiteDatabase sQLiteDatabase) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
-            this.a = false;
-            try {
-                sQLiteDatabase.beginTransaction();
-                if (b(sQLiteDatabase)) {
-                    sQLiteDatabase.setTransactionSuccessful();
-                    this.a = true;
-                }
-            } catch (Exception unused) {
-            } catch (Throwable th) {
-                try {
-                    sQLiteDatabase.endTransaction();
-                } catch (Exception unused2) {
-                }
-                throw th;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            NativeSignalCapture.clearANRListener();
+            synchronized (NativeSignalCapture.sANRMutex) {
+                NativeSignalCapture.unRegisterANR();
             }
-            try {
-                sQLiteDatabase.endTransaction();
-            } catch (Exception unused3) {
+        }
+    }
+
+    public static void a(we1 we1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, we1Var) == null) {
+            NativeSignalCapture.addANRListener(we1Var);
+        }
+    }
+
+    public static void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
+            synchronized (NativeSignalCapture.sANRMutex) {
+                NativeSignalCapture.registerANR(i);
             }
         }
     }

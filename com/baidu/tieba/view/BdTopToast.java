@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gh;
+import com.baidu.tieba.jg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -240,7 +240,7 @@ public class BdTopToast extends LinearLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            gh.a().removeCallbacks(this.g);
+            jg.a().removeCallbacks(this.g);
             if (getContext() == null) {
                 return;
             }
@@ -269,7 +269,7 @@ public class BdTopToast extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.e = AnimationUtils.loadAnimation(getContext(), R.anim.in_from_top);
-            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100c7);
+            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f0100ed);
             this.f = loadAnimation;
             loadAnimation.setAnimationListener(new a(this));
             this.g = new b(this);
@@ -303,9 +303,9 @@ public class BdTopToast extends LinearLayout {
             e();
             startAnimation(this.e);
             if (this.h >= 0) {
-                gh.a().postDelayed(this.g, this.h);
+                jg.a().postDelayed(this.g, this.h);
             } else {
-                gh.a().postDelayed(this.g, 5000L);
+                jg.a().postDelayed(this.g, 5000L);
             }
         }
     }

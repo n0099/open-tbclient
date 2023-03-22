@@ -1,168 +1,87 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.tbadk.util.AdExtParam;
-import com.baidu.tieba.zo0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
-@Service
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public class cp0 extends bj0 {
+public final class cp0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public m81 a;
+    public w91 b;
 
-    @Override // com.baidu.tieba.bj0
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "reward" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes3.dex */
-    public class a implements zo0.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dc1 a;
-
-        public a(cp0 cp0Var, dc1 dc1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cp0Var, dc1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dc1Var;
-        }
-    }
-
-    public cp0() {
+    public cp0(bp0 bp0Var, Context context) {
+        Integer num;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bp0Var, context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(context, "context");
+        if (bp0Var != null) {
+            num = Integer.valueOf(bp0Var.b());
+        } else {
+            num = null;
+        }
+        if (num != null && num.intValue() == 1) {
+            this.a = new m81(context);
+        } else if (num != null && num.intValue() == 0) {
+            this.b = new w91(context);
+        }
+    }
+
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            w91 w91Var = this.b;
+            if (w91Var != null) {
+                w91Var.i();
+            }
+            m81 m81Var = this.a;
+            if (m81Var != null) {
+                m81Var.h();
             }
         }
     }
 
-    @Override // com.baidu.tieba.bj0
-    public boolean b(@NonNull Context context, @NonNull fj0 fj0Var, @Nullable Map<String, Object> map, @Nullable jj0 jj0Var) {
-        InterceptResult invokeLLLL;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, fj0Var, map, jj0Var)) == null) {
-            super.b(context, fj0Var, map, jj0Var);
-            String str = fj0Var.d().get("task_params");
-            if (TextUtils.isEmpty(str)) {
-                c(jj0Var, fj0Var, 202, false);
-                return true;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            w91 w91Var = this.b;
+            if (w91Var != null) {
+                w91Var.l();
             }
-            HashMap<String, String> e = e(str);
-            if (e != null && !e.isEmpty()) {
-                if (TextUtils.isEmpty(e.get("android_pid")) && ln0.b().a().a("reward_sdk_switch", 0) != 1) {
-                    c(jj0Var, fj0Var, 202, false);
-                    return true;
-                }
-                String str2 = e.get("android_pid");
-                e.remove("android_pid");
-                e.remove("ios_pid");
-                dc1 dc1Var = new dc1(context);
-                dc1Var.e(context.getString(R.string.nad_reward_video_lp_task_loading));
-                dc1Var.c(false);
-                dc1Var.d(false);
-                b51.b(dc1Var);
-                ep0 ep0Var = new ep0(e);
-                zo0 zo0Var = (zo0) ServiceManager.getService(zo0.a);
-                if (zo0Var != null && ln0.b().a().a("reward_sdk_switch", 0) == 1) {
-                    zo0Var.a(f(str), new a(this, dc1Var));
-                    return true;
-                }
-                ep0Var.e(dc1Var, str2);
-                c(jj0Var, fj0Var, 0, true);
-                return true;
+            m81 m81Var = this.a;
+            if (m81Var != null) {
+                m81Var.k();
             }
-            c(jj0Var, fj0Var, 202, false);
-            return true;
         }
-        return invokeLLLL.booleanValue;
     }
 
-    @Nullable
-    public final HashMap<String, String> e(String str) {
-        InterceptResult invokeL;
+    public final void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            w91 w91Var = this.b;
+            if (w91Var != null) {
+                w91Var.o(z);
             }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                HashMap<String, String> hashMap = new HashMap<>();
-                Iterator<String> keys = jSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    hashMap.put(next, jSONObject.optString(next));
-                }
-                return hashMap;
-            } catch (JSONException unused) {
-                return null;
+            m81 m81Var = this.a;
+            if (m81Var != null) {
+                m81Var.n(z);
             }
         }
-        return (HashMap) invokeL.objValue;
-    }
-
-    @Nullable
-    public final JSONObject f(@Nullable String str) {
-        InterceptResult invokeL;
-        lr0 a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                String optString = jSONObject.optString("ext_policy");
-                if (TextUtils.isEmpty(optString)) {
-                    a2 = lr0.e();
-                } else {
-                    a2 = lr0.a(new JSONObject(optString));
-                }
-                if (a2 != null) {
-                    a2.c = "1";
-                    jSONObject.putOpt("ext_policy", lr0.f(a2).toString());
-                    jSONObject.putOpt(AdExtParam.KEY_NAD_CORE_VERSION, "5.11.0.5");
-                }
-                return jSONObject;
-            } catch (JSONException unused) {
-                return null;
-            }
-        }
-        return (JSONObject) invokeL.objValue;
     }
 }

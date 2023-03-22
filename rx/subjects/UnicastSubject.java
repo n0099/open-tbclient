@@ -1,30 +1,30 @@
 package rx.subjects;
 
-import com.baidu.tieba.ena;
-import com.baidu.tieba.fna;
-import com.baidu.tieba.ipa;
-import com.baidu.tieba.iqa;
-import com.baidu.tieba.jpa;
-import com.baidu.tieba.jqa;
-import com.baidu.tieba.kra;
-import com.baidu.tieba.nna;
-import com.baidu.tieba.pqa;
-import com.baidu.tieba.sma;
-import com.baidu.tieba.tma;
-import com.baidu.tieba.uma;
-import com.baidu.tieba.yma;
-import com.baidu.tieba.zma;
+import com.baidu.tieba.asa;
+import com.baidu.tieba.bsa;
+import com.baidu.tieba.eua;
+import com.baidu.tieba.eva;
+import com.baidu.tieba.fua;
+import com.baidu.tieba.fva;
+import com.baidu.tieba.gwa;
+import com.baidu.tieba.jsa;
+import com.baidu.tieba.lva;
+import com.baidu.tieba.ora;
+import com.baidu.tieba.pra;
+import com.baidu.tieba.qra;
+import com.baidu.tieba.ura;
+import com.baidu.tieba.vra;
 import java.util.Queue;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.exceptions.OnErrorThrowable;
 import rx.internal.operators.NotificationLite;
 /* loaded from: classes9.dex */
-public final class UnicastSubject<T> extends kra<T, T> {
+public final class UnicastSubject<T> extends gwa<T, T> {
     public final State<T> b;
 
     /* loaded from: classes9.dex */
-    public static final class State<T> extends AtomicLong implements uma, tma<T>, sma.a<T>, zma {
+    public static final class State<T> extends AtomicLong implements qra, pra<T>, ora.a<T>, vra {
         public static final long serialVersionUID = -9044104859202255786L;
         public volatile boolean caughtUp;
         public volatile boolean done;
@@ -32,46 +32,46 @@ public final class UnicastSubject<T> extends kra<T, T> {
         public Throwable error;
         public boolean missed;
         public final Queue<Object> queue;
-        public final AtomicReference<yma<? super T>> subscriber = new AtomicReference<>();
-        public final AtomicReference<fna> terminateOnce;
+        public final AtomicReference<ura<? super T>> subscriber = new AtomicReference<>();
+        public final AtomicReference<bsa> terminateOnce;
 
-        public State(int i, fna fnaVar) {
-            AtomicReference<fna> atomicReference;
-            Queue<Object> ipaVar;
+        public State(int i, bsa bsaVar) {
+            AtomicReference<bsa> atomicReference;
+            Queue<Object> euaVar;
             Queue<Object> queue;
-            if (fnaVar != null) {
-                atomicReference = new AtomicReference<>(fnaVar);
+            if (bsaVar != null) {
+                atomicReference = new AtomicReference<>(bsaVar);
             } else {
                 atomicReference = null;
             }
             this.terminateOnce = atomicReference;
             if (i > 1) {
-                if (pqa.b()) {
-                    queue = new jqa<>(i);
+                if (lva.b()) {
+                    queue = new fva<>(i);
                 } else {
-                    queue = new jpa<>(i);
+                    queue = new fua<>(i);
                 }
             } else {
-                if (pqa.b()) {
-                    ipaVar = new iqa<>();
+                if (lva.b()) {
+                    euaVar = new eva<>();
                 } else {
-                    ipaVar = new ipa<>();
+                    euaVar = new eua<>();
                 }
-                queue = ipaVar;
+                queue = euaVar;
             }
             this.queue = queue;
         }
 
-        public void call(yma<? super T> ymaVar) {
-            if (this.subscriber.compareAndSet(null, ymaVar)) {
-                ymaVar.b(this);
-                ymaVar.f(this);
+        public void call(ura<? super T> uraVar) {
+            if (this.subscriber.compareAndSet(null, uraVar)) {
+                uraVar.b(this);
+                uraVar.f(this);
                 return;
             }
-            ymaVar.onError(new IllegalStateException("Only a single subscriber is allowed"));
+            uraVar.onError(new IllegalStateException("Only a single subscriber is allowed"));
         }
 
-        @Override // com.baidu.tieba.tma
+        @Override // com.baidu.tieba.pra
         public void onError(Throwable th) {
             if (!this.done) {
                 doTerminate();
@@ -93,12 +93,12 @@ public final class UnicastSubject<T> extends kra<T, T> {
             }
         }
 
-        @Override // com.baidu.tieba.uma
+        @Override // com.baidu.tieba.qra
         public void request(long j) {
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i >= 0) {
                 if (i > 0) {
-                    nna.b(this, j);
+                    jsa.b(this, j);
                     replay();
                     return;
                 } else if (this.done) {
@@ -111,23 +111,23 @@ public final class UnicastSubject<T> extends kra<T, T> {
             throw new IllegalArgumentException("n >= 0 required");
         }
 
-        @Override // com.baidu.tieba.sma.a, com.baidu.tieba.gna
+        @Override // com.baidu.tieba.ora.a, com.baidu.tieba.csa
         public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((yma) ((yma) obj));
+            call((ura) ((ura) obj));
         }
 
-        public boolean checkTerminated(boolean z, boolean z2, yma<? super T> ymaVar) {
-            if (ymaVar.isUnsubscribed()) {
+        public boolean checkTerminated(boolean z, boolean z2, ura<? super T> uraVar) {
+            if (uraVar.isUnsubscribed()) {
                 this.queue.clear();
                 return true;
             } else if (z) {
                 Throwable th = this.error;
                 if (th != null) {
                     this.queue.clear();
-                    ymaVar.onError(th);
+                    uraVar.onError(th);
                     return true;
                 } else if (z2) {
-                    ymaVar.onCompleted();
+                    uraVar.onCompleted();
                     return true;
                 } else {
                     return false;
@@ -138,19 +138,19 @@ public final class UnicastSubject<T> extends kra<T, T> {
         }
 
         public void doTerminate() {
-            fna fnaVar;
-            AtomicReference<fna> atomicReference = this.terminateOnce;
-            if (atomicReference != null && (fnaVar = atomicReference.get()) != null && atomicReference.compareAndSet(fnaVar, null)) {
-                fnaVar.call();
+            bsa bsaVar;
+            AtomicReference<bsa> atomicReference = this.terminateOnce;
+            if (atomicReference != null && (bsaVar = atomicReference.get()) != null && atomicReference.compareAndSet(bsaVar, null)) {
+                bsaVar.call();
             }
         }
 
-        @Override // com.baidu.tieba.zma
+        @Override // com.baidu.tieba.vra
         public boolean isUnsubscribed() {
             return this.done;
         }
 
-        @Override // com.baidu.tieba.tma
+        @Override // com.baidu.tieba.pra
         public void onCompleted() {
             if (!this.done) {
                 doTerminate();
@@ -171,7 +171,7 @@ public final class UnicastSubject<T> extends kra<T, T> {
             }
         }
 
-        @Override // com.baidu.tieba.zma
+        @Override // com.baidu.tieba.vra
         public void unsubscribe() {
             doTerminate();
             this.done = true;
@@ -184,7 +184,7 @@ public final class UnicastSubject<T> extends kra<T, T> {
             }
         }
 
-        @Override // com.baidu.tieba.tma
+        @Override // com.baidu.tieba.pra
         public void onNext(T t) {
             if (!this.done) {
                 if (!this.caughtUp) {
@@ -200,11 +200,11 @@ public final class UnicastSubject<T> extends kra<T, T> {
                         return;
                     }
                 }
-                yma<? super T> ymaVar = this.subscriber.get();
+                ura<? super T> uraVar = this.subscriber.get();
                 try {
-                    ymaVar.onNext(t);
+                    uraVar.onNext(t);
                 } catch (Throwable th) {
-                    ena.g(th, ymaVar, t);
+                    asa.g(th, uraVar, t);
                 }
             }
         }
@@ -238,9 +238,9 @@ public final class UnicastSubject<T> extends kra<T, T> {
                 this.emitting = true;
                 Queue<Object> queue = this.queue;
                 while (true) {
-                    yma<? super T> ymaVar = this.subscriber.get();
-                    if (ymaVar != null) {
-                        if (checkTerminated(this.done, queue.isEmpty(), ymaVar)) {
+                    ura<? super T> uraVar = this.subscriber.get();
+                    if (uraVar != null) {
+                        if (checkTerminated(this.done, queue.isEmpty(), uraVar)) {
                             return;
                         }
                         long j = get();
@@ -258,7 +258,7 @@ public final class UnicastSubject<T> extends kra<T, T> {
                             } else {
                                 z2 = false;
                             }
-                            if (checkTerminated(z3, z2, ymaVar)) {
+                            if (checkTerminated(z3, z2, uraVar)) {
                                 return;
                             }
                             if (z2) {
@@ -266,13 +266,13 @@ public final class UnicastSubject<T> extends kra<T, T> {
                             }
                             Object obj = (Object) NotificationLite.e(poll);
                             try {
-                                ymaVar.onNext(obj);
+                                uraVar.onNext(obj);
                                 j--;
                                 j2++;
                             } catch (Throwable th) {
                                 queue.clear();
-                                ena.e(th);
-                                ymaVar.onError(OnErrorThrowable.addValueAsLastCause(th, obj));
+                                asa.e(th);
+                                uraVar.onError(OnErrorThrowable.addValueAsLastCause(th, obj));
                                 return;
                             }
                         }
@@ -298,21 +298,21 @@ public final class UnicastSubject<T> extends kra<T, T> {
         this.b = state;
     }
 
-    @Override // com.baidu.tieba.tma
+    @Override // com.baidu.tieba.pra
     public void onError(Throwable th) {
         this.b.onError(th);
     }
 
-    @Override // com.baidu.tieba.tma
+    @Override // com.baidu.tieba.pra
     public void onNext(T t) {
         this.b.onNext(t);
     }
 
-    public static <T> UnicastSubject<T> D(int i, fna fnaVar) {
-        return new UnicastSubject<>(new State(i, fnaVar));
+    public static <T> UnicastSubject<T> D(int i, bsa bsaVar) {
+        return new UnicastSubject<>(new State(i, bsaVar));
     }
 
-    @Override // com.baidu.tieba.tma
+    @Override // com.baidu.tieba.pra
     public void onCompleted() {
         this.b.onCompleted();
     }

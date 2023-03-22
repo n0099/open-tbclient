@@ -1,166 +1,26 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.graphics.Color;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteKey;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.nadcore.widget.bubble.BubbleManager;
+import com.baidu.nadcore.widget.bubble.BubblePosition;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.Serializable;
-import java.util.HashMap;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ib1 {
+public class ib1 extends gb1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public c b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public a j;
-    public b k;
+    public mb1 c;
 
-    /* loaded from: classes4.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public int b;
-        public double c;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int i = this.b;
-                if ((i == 2 || i == 3) && this.c > 0.0d && !TextUtils.isEmpty(this.a)) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public static a b(@NonNull String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-                a aVar = new a();
-                JSONObject c = f21.c(str);
-                aVar.a = c.optString("defer_charge_url");
-                aVar.b = c.optInt("defer_type", 3);
-                aVar.c = c.optDouble("defer_time", 0.0d);
-                return aVar;
-            }
-            return (a) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public String d;
-        public String e;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public static b a(@NonNull String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-                b bVar = new b();
-                JSONObject c = f21.c(str);
-                bVar.e = c.optString("key");
-                c.optString(EmotionResourceInfo.JSON_KEY_PKG_NAME);
-                bVar.a = c.optString("download_url");
-                c.optString(BreakpointSQLiteKey.CONTENT_LENGTH);
-                bVar.b = c.optString("close_virtual_progress");
-                bVar.c = c.optString("apk_label");
-                bVar.d = c.optString("apk_icon");
-                return bVar;
-            }
-            return (b) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public static c a(@NonNull String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-                c cVar = new c();
-                JSONObject c = f21.c(str);
-                cVar.a = c.optString("receive_title_script");
-                c.optString("start_load_script");
-                return cVar;
-            }
-            return (c) invokeL.objValue;
-        }
-    }
-
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public ib1() {
+        this(new mb1());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -168,79 +28,147 @@ public class ib1 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                this((mb1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public boolean a() {
+    public mb1 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return !TextUtils.equals(this.e, "0");
+            return this.c;
         }
-        return invokeV.booleanValue;
+        return (mb1) invokeV.objValue;
     }
 
-    public static ib1 b(@NonNull Intent intent) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ib1(mb1 mb1Var) {
+        super(mb1Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mb1Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((jb1) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.c = mb1Var;
+    }
+
+    public ib1 i(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+            super.a(z);
+            return this;
+        }
+        return (ib1) invokeZ.objValue;
+    }
+
+    public ib1 k(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            super.c(i);
+            return this;
+        }
+        return (ib1) invokeI.objValue;
+    }
+
+    public ib1 n(BubblePosition bubblePosition) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, intent)) == null) {
-            Bundle extras = intent.getExtras();
-            ib1 ib1Var = null;
-            if (extras == null) {
-                return null;
-            }
-            Serializable serializable = extras.getSerializable("map");
-            if (!(serializable instanceof HashMap)) {
-                return null;
-            }
-            HashMap hashMap = (HashMap) serializable;
-            if (hashMap != null && !hashMap.isEmpty()) {
-                ib1Var = new ib1();
-                ib1Var.c = (String) g21.b(hashMap, LegoListActivityConfig.AD_ID);
-                ib1Var.a = (String) g21.b(hashMap, "url");
-                ib1Var.f = (String) g21.b(hashMap, "ext_info");
-                ib1Var.g = (String) g21.b(hashMap, TiebaStatic.Params.REFER);
-                ib1Var.d = (String) g21.b(hashMap, "charge_url");
-                ib1Var.e = (String) g21.b(hashMap, "ad_invoke_flag");
-                ib1Var.h = (String) g21.b(hashMap, "lp_real_url");
-                String str = (String) g21.b(hashMap, "log_switch");
-                if (TextUtils.isEmpty(str)) {
-                    str = "1";
-                }
-                ib1Var.i = str;
-                String str2 = (String) g21.b(hashMap, "sdk_script");
-                if (!TextUtils.isEmpty(str2)) {
-                    ib1Var.b = c.a(str2);
-                }
-                String str3 = (String) g21.b(hashMap, "defer_charge");
-                if (!TextUtils.isEmpty(str3)) {
-                    ib1Var.j = a.b(str3);
-                }
-                String str4 = (String) g21.b(hashMap, "download");
-                if (!TextUtils.isEmpty(str4)) {
-                    ib1Var.k = b.a(str4);
-                }
-                ib1Var.c();
-            }
-            return ib1Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bubblePosition)) == null) {
+            super.e(bubblePosition);
+            return this;
         }
         return (ib1) invokeL.objValue;
     }
 
-    public final void c() {
-        a aVar;
+    public ib1 o(BubbleManager.b bVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || TextUtils.isEmpty(this.g)) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bVar)) == null) {
+            super.f(bVar);
+            return this;
         }
-        if (this.g.contains("__CHARGE_URL__") && !TextUtils.isEmpty(this.d)) {
-            this.g = this.g.replace("__CHARGE_URL__", this.d);
+        return (ib1) invokeL.objValue;
+    }
+
+    public ib1 p(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TOUCHPAD, this, f)) == null) {
+            super.g(f);
+            return this;
         }
-        if (this.g.contains("__DEFER_CHARGE_URL__") && (aVar = this.j) != null && !TextUtils.isEmpty(aVar.a)) {
-            this.g = this.g.replace("__DEFER_CHARGE_URL__", this.j.a);
+        return (ib1) invokeF.objValue;
+    }
+
+    public ib1 q(CharSequence charSequence) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, charSequence)) == null) {
+            this.c.f().D(charSequence);
+            return this;
         }
+        return (ib1) invokeL.objValue;
+    }
+
+    public ib1 j(View view2, ViewGroup viewGroup) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, viewGroup)) == null) {
+            super.b(view2, viewGroup);
+            return this;
+        }
+        return (ib1) invokeLL.objValue;
+    }
+
+    public ib1 l(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048580, this, i, i2)) == null) {
+            super.d(i, i2);
+            return this;
+        }
+        return (ib1) invokeII.objValue;
+    }
+
+    public ib1 m(int i, float f) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) {
+            this.c.s(i, f);
+            return this;
+        }
+        return (ib1) invokeCommon.objValue;
+    }
+
+    public ib1 r(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048586, this, i, i2)) == null) {
+            try {
+                this.c.f().E(i, i2);
+                return this;
+            } catch (Exception e) {
+                hj0.h("BubbleTextBuilder", "", e);
+                this.c.f().E(Color.parseColor("#CC000000"), Color.parseColor("#CC000000"));
+                return this;
+            }
+        }
+        return (ib1) invokeII.objValue;
     }
 }

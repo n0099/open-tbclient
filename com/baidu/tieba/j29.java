@@ -1,252 +1,146 @@
 package com.baidu.tieba;
 
+import android.graphics.Color;
+import android.graphics.drawable.Drawable;
+import android.text.TextPaint;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.prologue.business.data.BaseVM;
-import com.baidu.searchbox.launch.stats.SpeedStatsManager;
-import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.switchs.FunAdDestroySwitch;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bumptech.glide.load.engine.GlideException;
 /* loaded from: classes5.dex */
-public class j29 implements uu4 {
+public class j29 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final c29 a;
-    @NonNull
-    public final d29 b;
-    @NonNull
-    public final k29 c;
-    public boolean d;
 
-    public j29(@NonNull c29 c29Var, @NonNull d29 d29Var, @NonNull k29 k29Var) {
+    public static int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {c29Var, d29Var, k29Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.d = false;
-        new FunAdDestroySwitch();
-        this.a = c29Var;
-        this.b = d29Var;
-        this.c = k29Var;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? (int) ((i * 9.0d) / 16.0d) : invokeI.intValue;
     }
 
-    @Override // com.baidu.tieba.uu4
-    public void a(int i) {
+    public static int b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (i > 0) {
-                SpeedStatsManager.getInstance().setAdLoadResult(i);
-            } else if (i == -1 && !this.d) {
-                SpeedStatsManager.getInstance().setAdLoadResult(i);
-                BaseVM.m(30);
-            } else if (i < -1) {
-                SpeedStatsManager.getInstance().setAdLoadResult(i);
-                BaseVM.m(30);
-            }
-            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_POLICY_SO_END);
-        }
+        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? (int) ((i * 16.0d) / 9.0d) : invokeI.intValue;
     }
 
-    @Override // com.baidu.tieba.uu4
-    public void b(String str) {
+    public static int c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            g89.a("BesAdLoadCallBackImpl onAdLoadFailed:" + str);
-            this.c.k(true);
-            this.a.getRootView().removeView(this.c.h());
-            this.c.j();
-            this.b.a();
-            im5.b().k(System.currentTimeMillis() - this.c.g());
-            int n = b55.m().n("ad_load_fail_count", 0);
-            SpeedStatsManager.getInstance().setAdFailCount(n);
-            b55.m().z("ad_load_fail_count", n + 1);
-            BaseVM.m(99);
-        }
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? (int) ((i * 9.0d) / 16.0d) : invokeI.intValue;
     }
 
-    @Override // com.baidu.tieba.uu4
-    public void c(String str) {
+    public static wj0 d(@NonNull AdCard adCard) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.a.c();
-            SpeedStatsManager.getInstance().setPlgAdType(str);
-            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_CALL_SHOW_START_STAMP_KEY);
-            this.c.i();
-        }
-    }
-
-    @Override // com.baidu.tieba.uu4
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_CALL_SHOW_END_STAMP_KEY);
-        }
-    }
-
-    @Override // com.baidu.tieba.uu4
-    public void e(boolean z, boolean z2, int i, String str, String str2, String str3) {
-        int i2;
-        int i3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), str, str2, str3}) == null) {
-            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_END_STAMP_KEY);
-            SpeedStatsManager.getInstance().setStatsFlag(-1);
-            if (!this.a.h()) {
-                TiebaStatic.log(new StatisticItem("ignore_speed").param("obj_source", "click2"));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, adCard)) == null) {
+            if (nj0.b().query(adCard.getDownloadKey()) != null) {
+                return nj0.b().query(adCard.getDownloadKey());
             }
-            this.a.e();
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_STATISTICS_MOBADS_CLICK);
-            this.a.getActivity().overridePendingTransition(0, 0);
-            int i4 = 2;
-            if (z2) {
-                i2 = 2;
-            } else {
-                i2 = 1;
-            }
-            statisticItem.param("obj_type", i2).param("obj_source", i);
-            if (str2 != null) {
-                statisticItem.param(TiebaStatic.Params.OBJ_TO, str2);
-            }
-            if (str3 != null) {
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str3);
-            }
-            TiebaStatic.log(statisticItem);
-            StatisticItem statisticItem2 = new StatisticItem(TbadkCoreStatisticKey.FUN_AD_CLICK);
-            statisticItem2.param("obj_source", i).param("obj_type", "a064").param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param(TiebaStatic.Params.SPLASH_UNI, this.a.i());
-            if (!StringUtils.isNull(str)) {
-                statisticItem2.param("nid", str);
-            }
-            if (!StringUtils.isNull(str2)) {
-                statisticItem2.param(TiebaStatic.Params.OBJ_TO, str2);
-            }
-            if (!StringUtils.isNull(str3)) {
-                statisticItem2.param(TiebaStatic.Params.OBJ_PARAM2, str3);
-            }
-            TiebaStatic.log(statisticItem2);
-            StatisticItem statisticItem3 = new StatisticItem("common_click");
-            statisticItem3.param("page_type", "a030").param(TiebaStatic.Params.OBJ_ISAD, 1).param(TiebaStatic.Params.OBJ_FLOOR, 1).param("obj_source", i).param(TiebaStatic.Params.OBJ_AD_LOCATE, 16);
-            if (z) {
-                if (z2) {
-                    i3 = 4;
-                } else {
-                    i3 = 3;
+            wj0 wj0Var = new wj0();
+            wj0Var.h(adCard.getDownloadKey());
+            if (adCard.downloadInfo != null) {
+                if (TextUtils.isEmpty(wj0Var.e())) {
+                    wj0Var.h(adCard.downloadInfo.b);
                 }
-                statisticItem3.param("obj_type", i3);
-            } else {
-                if (!z2) {
-                    i4 = 1;
-                }
-                statisticItem3.param("obj_type", i4);
+                c29 c29Var = adCard.downloadInfo;
+                wj0Var.g = c29Var.b;
+                wj0Var.d = c29Var.a;
             }
-            y39.g().c(this.a.getUniqueId(), statisticItem3);
+            if (TextUtils.isEmpty(wj0Var.e())) {
+                wj0Var.h(adCard.adId);
+            }
+            ak0 ak0Var = new ak0();
+            ak0Var.d = adCard.getButtonText();
+            ak0Var.j = adCard.adId;
+            ak0Var.a = adCard.getExtInfo();
+            jw4 jw4Var = adCard.appInfoModel;
+            if (jw4Var != null) {
+                ak0Var.g = jw4Var.b;
+                ak0Var.h = jw4Var.c;
+            }
+            if (ei0.n(adCard.cmdScheme)) {
+                ak0Var.c = adCard.cmdScheme;
+            }
+            wj0Var.p = ak0Var;
+            xj0 xj0Var = new xj0();
+            xj0Var.a = adCard.getAdvertAppInfo().j;
+            xj0Var.t = iv5.a().b();
+            xj0Var.s = iv5.a().h();
+            wj0Var.q = xj0Var;
+            return wj0Var;
         }
+        return (wj0) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.uu4
-    public void f(String str, boolean z) {
+    public static String e(String str, String str2, float f, TextPaint textPaint) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048581, this, str, z) == null) {
-            if ("5".equals(str)) {
-                this.d = true;
-                SpeedStatsManager.getInstance().setPlgLoadResult(z);
-                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_LOAD_PROLOGUE_END_STAMP_KEY);
-                if (!z) {
-                    BaseVM.m(99);
-                }
-            } else if ("6".equals(str)) {
-                SpeedStatsManager.getInstance().setBearLoadResult(z);
-                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_LOAD_BEAR_END_STAMP_KEY);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, Float.valueOf(f), textPaint})) == null) {
+            if (TextUtils.isEmpty(str2)) {
+                str2 = "";
             }
+            if (TextUtils.isEmpty(str)) {
+                str = "";
+            }
+            if (textPaint == null) {
+                textPaint = new TextPaint();
+            }
+            CharSequence ellipsize = TextUtils.ellipsize(str, textPaint, f - textPaint.measureText(GlideException.IndentedAppendable.INDENT + str2), TextUtils.TruncateAt.END);
+            if (ellipsize != null) {
+                return ellipsize.toString() + GlideException.IndentedAppendable.INDENT + str2;
+            }
+            return str2;
         }
+        return (String) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.uu4
-    public void g(boolean z, boolean z2, int i) {
-        int i2;
-        int i3;
+    public static Drawable f(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i)}) == null) {
-            b55.m().z("ad_load_fail_count", 0);
-            int i4 = 1;
-            this.c.k(true);
-            SpeedStatsManager.getInstance().setAdSource(String.valueOf(i));
-            this.a.b(i);
-            this.c.j();
-            if (z2) {
-                this.a.getRootView().setBackgroundDrawable(null);
-            }
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_STATISTICS_MOBADS_SHOW);
-            if (z2) {
-                i2 = 2;
-            } else {
-                i2 = 1;
-            }
-            TiebaStatic.log(statisticItem.param("obj_type", i2).param("obj_source", i));
-            StatisticItem statisticItem2 = new StatisticItem("common_exp");
-            statisticItem2.param("page_type", "a030").param(TiebaStatic.Params.OBJ_ISAD, 1).param(TiebaStatic.Params.OBJ_FLOOR, 1).param("obj_source", i).param(TiebaStatic.Params.OBJ_AD_LOCATE, 16);
-            if (z) {
-                if (z2) {
-                    i3 = 4;
-                } else {
-                    i3 = 3;
-                }
-                statisticItem2.param("obj_type", i3);
-            } else {
-                if (z2) {
-                    i4 = 2;
-                }
-                statisticItem2.param("obj_type", i4);
-            }
-            y39.g().d(this.a.getUniqueId(), "bes_ad_id", statisticItem2);
-            y39.g().h(this.a.getUniqueId(), false);
-            if (this.a.h()) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016522, this.a.getActivity()));
-            }
-            im5.b().m(System.currentTimeMillis());
-            im5.b().k(System.currentTimeMillis() - this.c.g());
-            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_START_STAMP_KEY);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921688, null));
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65541, null, i, i2, i3, i4)) == null) {
+            return l15.G(l15.n(m15.y(), i), i2, i3, i4);
         }
+        return (Drawable) invokeIIII.objValue;
     }
 
-    @Override // com.baidu.tieba.uu4
-    public void onAdDismiss() {
+    public static int g(float f, int i, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_END_STAMP_KEY);
-            this.a.e();
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getActivity().getClass().getSimpleName()).param("obj_param1", 1).param(TiebaStatic.Params.OBJ_PARAM2, hashCode()).param(TiebaStatic.Params.OBJ_PARAM3, String.valueOf(this.a.d())));
-            g89.a("BesAdLoadCallBackImpl onAdDismiss");
-            if (!this.a.d() && !uj1.r()) {
-                SpeedStatsManager.getInstance().setStatsFlag(-1);
-                if (!this.a.h()) {
-                    TiebaStatic.log(new StatisticItem("ignore_speed").param("obj_source", "dismiss"));
-                    return;
-                }
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            if (i == i2) {
+                return i;
             }
-            this.b.a();
+            if (f <= 0.0f) {
+                return i;
+            }
+            if (f >= 1.0f) {
+                return i2;
+            }
+            int red = Color.red(i);
+            int green = Color.green(i);
+            int blue = Color.blue(i);
+            int alpha = Color.alpha(i);
+            return Color.argb((int) (alpha + (f * (Color.alpha(i2) - alpha))), (int) (red + ((Color.red(i2) - red) * f)), (int) (green + ((Color.green(i2) - green) * f)), (int) (blue + ((Color.blue(i2) - blue) * f)));
         }
+        return invokeCommon.intValue;
+    }
+
+    public static int h(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, str, i)) == null) {
+            try {
+                return Color.parseColor(str);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return i;
+            }
+        }
+        return invokeLI.intValue;
     }
 }

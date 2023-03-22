@@ -16,8 +16,8 @@ public class DBTableDefine {
     public static final String DB_TABLE_GROUP_MESSAGE = "groupmessage";
     public static final String SQL_CREATE_TABLE_GROUPINFO = "CREATE TABLE groupinfo (group_id TEXT NOT NULL PRIMARY KEY, bduid LONG DEFALUT '0', uk LONG DEFALUT '0', group_name NOT NULL DEFAULT \"\", group_type INTEGER DEFAULT '0', group_size INTEGER DEFAULT '0', group_verify INTEGER DEFAULT 0, create_time LONG DEFAULT '0', delete_time LONG DEFAULT '9223372036854775807', members_version LONG DEFAULT '0', local_members_version LONG DEFAULT '0', groupinfo_version LONG DEFAULT '0', local_groupinfo_version LONG DEFAULT '0', active_state INTEGER DEFAULT '0', user_num INTEGER DEFAULT '0', state INTEGER DEFAULT '0', disturb INTEGER, table_exist INTEGER DEFAULT '0', description TEXT, marktop INTEGER DEFAULT 1, marktoptime LONG, group_notice TEXT, group_desc TEXT, brief INTEGER DEFAULT '0', group_sub_type INTEGER DEFAULT '0', group_setting_info TEXT, max_admin_size INTEGER DEFAULT '0', homepage TEXT, group_audit_state INTEGER DEFAULT '0', group_has_notice INTEGER DEFAULT '0', group_notice_ext TEXT, group_welcome_json_text TEXT);";
     public static final String SQL_CREATE_TABLE_GROUP_MEMBER = "CREATE TABLE groupmember (group_id TEXT NOT NULL, bduid LONG, uk LONG, name TEXT, nickname TEXT, join_time LONG, last_active_time LONG, msg_set INTEGER, status INTEGER, role INTEGER ,avatar TEXT, role_display_name TEXT, avatar_ext TEXT, role_decoration TEXT,  PRIMARY KEY (group_id,bduid));";
-    public static final String SQL_CREATE_TABLE_GROUP_MESSAGE = " (_id INTEGER PRIMARY KEY AUTOINCREMENT, msgid LONG UNIQUE, sendid TEXT DEFALUT '', groupid LONG, from_uk LONG, from_buid TEXT, type INTEGER, content TEXT, time LONG, is_read INTEGER, local_url TEXT, isclicked INTEGER,device_flag INTEGER,cmd INTEGER, status INTEGER DEFAULT0, msg_key TEXT);";
-    public static final String SQL_CREATE_TABLE_LOCALMESSAGE = "CREATE TABLE grouplocalmessage (_id INTEGER PRIMARY KEY AUTOINCREMENT, msgid LONG, sendid TEXT DEFALUT '', groupid LONG, from_uk LONG, from_buid TEXT, type INTEGER, content TEXT, time LONG, is_read INTEGER, local_url TEXT, isclicked INTEGER,device_flag INTEGER,cmd INTEGER, status INTEGER DEFAULT0, msg_key TEXT);";
+    public static final String SQL_CREATE_TABLE_GROUP_MESSAGE = " (_id INTEGER PRIMARY KEY AUTOINCREMENT, msgid LONG UNIQUE, sendid TEXT DEFALUT '', groupid LONG, from_uk LONG, from_buid TEXT, type INTEGER, content TEXT, time LONG, is_read INTEGER, local_url TEXT, isclicked INTEGER,device_flag INTEGER,cmd INTEGER, status INTEGER DEFAULT0, auto_risk_control_status INTEGER DEFAULT '0' , msg_key TEXT);";
+    public static final String SQL_CREATE_TABLE_LOCALMESSAGE = "CREATE TABLE grouplocalmessage (_id INTEGER PRIMARY KEY AUTOINCREMENT, msgid LONG, sendid TEXT DEFALUT '', groupid LONG, from_uk LONG, from_buid TEXT, type INTEGER, content TEXT, time LONG, is_read INTEGER, local_url TEXT, isclicked INTEGER,device_flag INTEGER,cmd INTEGER, status INTEGER DEFAULT0, auto_risk_control_status INTEGER DEFAULT '0' ,msg_key TEXT);";
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes.dex */
@@ -109,6 +109,7 @@ public class DBTableDefine {
     /* loaded from: classes.dex */
     public static final class GroupMessageColumns implements BaseColumns {
         public static /* synthetic */ Interceptable $ic = null;
+        public static final String COLUMN_AUTO_RISK_CONTROL_STATUS = "auto_risk_control_status";
         public static final String COLUMN_CMD = "cmd";
         public static final String COLUMN_CONTENT = "content";
         public static final String COLUMN_DEVICE_FLAG = "device_flag";

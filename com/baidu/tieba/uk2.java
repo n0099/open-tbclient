@@ -1,44 +1,30 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class uk2 extends wk2 {
+public class uk2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.vk2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
+    public static sk2 a(SwanAppActivity swanAppActivity, t73 t73Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "key_cur_remote_apps_extension_core_ver" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.vk2
-    @NonNull
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "key_cur_remote_apps_extension_core_ver_name" : (String) invokeV.objValue;
-    }
-
-    public uk2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, swanAppActivity, t73Var)) == null) {
+            if (t73Var == null || !t73Var.I()) {
+                return null;
             }
+            int k = t73Var.k();
+            if (k != 0) {
+                if (k != 1) {
+                    return null;
+                }
+                return br2.i().n(swanAppActivity, t73Var.b);
+            }
+            return new vk2(swanAppActivity, t73Var.b);
         }
+        return (sk2) invokeLL.objValue;
     }
 }

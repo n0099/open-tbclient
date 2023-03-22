@@ -1,32 +1,21 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.graphics.Color;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.concurrent.ConcurrentHashMap;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.JvmStatic;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public final class wb0 {
+public class wb0 extends tb0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ConcurrentHashMap<String, List<vb0>> a;
+    public static final HashMap<String, String[]> b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @JvmStatic
-    @JvmOverloads
-    public static final vb0 a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? c(null, str, 1, null) : (vb0) invokeL.objValue;
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -41,66 +30,67 @@ public final class wb0 {
                 return;
             }
         }
-        a = new ConcurrentHashMap<>();
+        b = new HashMap<>();
     }
 
-    @JvmStatic
-    @JvmOverloads
-    public static final vb0 b(String str, String str2) {
-        InterceptResult invokeLL;
+    public wb0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            LiveFeedPageSdk.liveLog("LiveFeedPlayerPool", "getPlayer pageId= " + str2 + WebvttCueParser.CHAR_SPACE + a.size());
-            List<vb0> list = a.get(str2);
-            if (list == null) {
-                list = new ArrayList<>();
-            }
-            if (!list.isEmpty() && list.size() >= 2) {
-                vb0 vb0Var = list.get(0);
-                Collections.swap(list, 0, 1);
-                if (vb0Var.isPlaying()) {
-                    vb0Var.detachFromContainer();
-                    vb0Var.stop();
-                }
-                LiveFeedPageSdk.liveLog("LiveFeedPlayerPool", "getPlayer " + vb0Var);
-                return vb0Var;
-            }
-            vb0 vb0Var2 = new vb0(new xb0(str, 0, null, null, 14, null));
-            list.add(vb0Var2);
-            a.put(str2, list);
-            return vb0Var2;
-        }
-        return (vb0) invokeLL.objValue;
-    }
-
-    public static /* synthetic */ vb0 c(String str, String str2, int i, Object obj) {
-        if ((i & 1) != 0) {
-            str = "";
-        }
-        return b(str, str2);
-    }
-
-    @JvmStatic
-    public static final void d(String str) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            LiveFeedPageSdk.liveLog("LiveFeedPlayerPool", "release playerMap= " + a.size());
-            List<vb0> list = a.get(str);
-            if (list != null && !list.isEmpty()) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            for (vb0 vb0Var : list) {
-                vb0Var.detachFromContainer();
-                vb0Var.release();
-            }
-            list.clear();
-            a.remove(str);
         }
+        b.put("color_1F1F1F", new String[]{"#1F1F1F", "", "", ""});
+        b.put("color_white1", new String[]{"#FFFFFF", "", "", ""});
+        b.put("color_white2", new String[]{"#FFFFFF", "", "", ""});
+        b.put("color_white3", new String[]{"#FFFFFF", "", "", ""});
+        b.put("color_F5F5F51", new String[]{"#F5F5F5", "", "", ""});
+        b.put("color_F5F5F52", new String[]{"#F5F5F5", "", "", ""});
+        b.put("color_F5F5F53", new String[]{"#F5F5F5", "", "", ""});
+        b.put("color_FF33551", new String[]{"#FF3355", "", "", ""});
+        b.put("color_FF33552", new String[]{"#1AFF3355", "", "", ""});
+        b.put("color_858585", new String[]{"#858585", "", "", ""});
+        b.put("color_525252", new String[]{"#525252", "", "", ""});
+        b.put("color_FF3333", new String[]{"#FF3333", "", "", ""});
+        b.put("color_768CAE", new String[]{"#768CAE", "", "", ""});
+        b.put("color_4E6EF2", new String[]{"#4E6EF2", "", "", ""});
+        b.put("color_8585852", new String[]{"#858585", "", "", ""});
+        b.put("color_5252522", new String[]{"#525252", "", "", ""});
+        b.put("color_btn_stroke", new String[]{"#EEEEEE", "", "", ""});
+        b.put("color_btn_fill", new String[]{"#00000000", "", "", ""});
+    }
+
+    @Override // com.baidu.tieba.tb0
+    public int a(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, str2)) == null) {
+            if (!b.containsKey(str2)) {
+                return -16777216;
+            }
+            String str3 = b.get(str2)[0];
+            if ("recommend".equals(str)) {
+                return xb0.c().a(context, str, str2);
+            }
+            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
+                str3 = b.get(str2)[3];
+            }
+            if (nb0.a(str3)) {
+                return -16777216;
+            }
+            try {
+                return Color.parseColor(str3);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return -16777216;
+            }
+        }
+        return invokeLLL.intValue;
     }
 }

@@ -1,67 +1,139 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.max.event.NestedEvent;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.nadcore.model.AdBaseModel;
+import com.baidu.nadcore.model.ParseError;
+import com.baidu.platform.comapi.map.MapBundleKey;
+import com.baidu.tbadk.core.atomData.RecommendDetailActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class np0 implements pj0 {
+public final class np0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final NestedEvent a;
-    public final boolean b;
+    @NonNull
+    public final AdBaseModel.STYLE a;
+    @NonNull
+    public final String b;
+    @NonNull
+    public String c;
+    @NonNull
+    public final String d;
+    @NonNull
+    public final String e;
+    @NonNull
+    public final String f;
+    @NonNull
+    public final String g;
+    @NonNull
+    public final String h;
+    @NonNull
+    public final String i;
+    @NonNull
+    public final List<String> j;
+    @NonNull
+    public final List<gp0> k;
+    @NonNull
+    public final String l;
+    @NonNull
+    public final String m;
 
-    public np0(NestedEvent type, boolean z) {
+    public np0(@NonNull AdBaseModel.STYLE style, @NonNull String str, int i, @NonNull JSONObject jSONObject, @NonNull JSONObject jSONObject2, @NonNull String str2) {
+        int length;
+        int length2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {type, Boolean.valueOf(z)};
+            Object[] objArr = {style, str, Integer.valueOf(i), jSONObject, jSONObject2, str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(type, "type");
-        this.a = type;
-        this.b = z;
+        this.a = style;
+        this.b = jSONObject2.optString("id");
+        this.c = jSONObject2.optString("scheme");
+        if (!TextUtils.isEmpty(str2)) {
+            this.d = str2;
+        } else {
+            this.d = jSONObject2.optString("ext_info");
+        }
+        this.e = jSONObject2.optString("user_name");
+        this.f = jSONObject2.optString(RecommendDetailActivityConfig.USER_PORTRAIT);
+        this.g = jSONObject2.optString("title");
+        if (jSONObject2.optInt("title_lines", 0) > 0) {
+        }
+        this.h = jSONObject2.optString("tag", "广告");
+        this.i = jSONObject2.optString("recommend_reason");
+        this.j = new ArrayList();
+        JSONArray optJSONArray = jSONObject2.optJSONArray("recommend_reason");
+        if (optJSONArray == null) {
+            length = 0;
+        } else {
+            length = optJSONArray.length();
+        }
+        for (int i4 = 0; i4 < length; i4++) {
+            String optString = optJSONArray.optString(i4);
+            if (!TextUtils.isEmpty(optString)) {
+                u01.b(this.j, optString);
+            }
+        }
+        this.k = new ArrayList();
+        JSONArray optJSONArray2 = jSONObject2.optJSONArray("pic_list");
+        if (optJSONArray2 == null) {
+            length2 = 0;
+        } else {
+            length2 = optJSONArray2.length();
+        }
+        for (int i5 = 0; i5 < length2; i5++) {
+            JSONObject optJSONObject = optJSONArray2.optJSONObject(i5);
+            if (optJSONObject != null) {
+                u01.b(this.k, gp0.a(optJSONObject));
+            }
+        }
+        fq0.a(jSONObject2.optJSONArray("lottie_list"));
+        this.l = jSONObject2.optString("refer_url");
+        this.m = jSONObject2.optString("prerender_scheme");
     }
 
-    @Override // com.baidu.tieba.pj0
-    public String a() {
-        InterceptResult invokeV;
+    public static np0 a(String str, int i, JSONObject jSONObject, JSONObject jSONObject2, String str2) throws ParseError {
+        InterceptResult invokeCommon;
+        AdBaseModel.STYLE style;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String simpleName = np0.class.getSimpleName();
-            Intrinsics.checkNotNullExpressionValue(simpleName, "NestedScrollUpEvent::class.java.simpleName");
-            return simpleName;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i), jSONObject, jSONObject2, str2})) == null) {
+            try {
+                style = AdBaseModel.STYLE.from(jSONObject2.optString(MapBundleKey.MapObjKey.OBJ_AD_STYLE, "hidden"));
+            } catch (Throwable unused) {
+                style = null;
+            }
+            AdBaseModel.STYLE style2 = style;
+            if (style2 != null) {
+                return new np0(style2, str, i, jSONObject, jSONObject2, str2);
+            }
+            throw ParseError.contentError(24, jSONObject2.optString(MapBundleKey.MapObjKey.OBJ_AD_STYLE));
         }
-        return (String) invokeV.objValue;
+        return (np0) invokeCommon.objValue;
     }
 
-    public final boolean b() {
-        InterceptResult invokeV;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            for (gp0 gp0Var : this.k) {
+                gp0Var.b();
+            }
         }
-        return invokeV.booleanValue;
-    }
-
-    public final NestedEvent getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (NestedEvent) invokeV.objValue;
     }
 }

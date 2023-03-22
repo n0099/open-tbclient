@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.svg.SvgPureType;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.hi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,10 +55,10 @@ public class ShareDialogItemView extends LinearLayout {
                 return;
             }
         }
-        g = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds104);
-        h = ej.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
-        i = ej.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
-        j = ej.g(TbadkCoreApplication.getInst(), R.dimen.T_X09);
+        g = hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds104);
+        h = hi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X005);
+        i = hi.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X003);
+        j = hi.g(TbadkCoreApplication.getInst(), R.dimen.T_X09);
         k = 1;
     }
 
@@ -239,7 +239,7 @@ public class ShareDialogItemView extends LinearLayout {
             setTag(Integer.valueOf(i2));
             this.b.setScaleType(ImageView.ScaleType.FIT_XY);
             TBSelector.makeDrawableSelector().setShape(1).defaultColor(R.color.CAM_X0207).into(this.c);
-            this.b.K(str, 12, false);
+            this.b.M(str, 12, false);
             this.b.setIsRound(true);
             if (metaData.getItemType() == k) {
                 UtilHelper.showHeadImageViewBigVForStranger(this.b, metaData);

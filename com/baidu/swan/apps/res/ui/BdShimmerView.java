@@ -6,22 +6,22 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 import com.baidu.swan.apps.res.ui.ShimmerFrameLayout;
 import com.baidu.tieba.R;
-import com.baidu.tieba.af3;
-import com.baidu.tieba.ts2;
-import com.baidu.tieba.v83;
+import com.baidu.tieba.ar2;
+import com.baidu.tieba.c73;
+import com.baidu.tieba.hd3;
 /* loaded from: classes3.dex */
-public class BdShimmerView extends ShimmerFrameLayout implements v83<BdShimmerView> {
+public class BdShimmerView extends ShimmerFrameLayout implements c73<BdShimmerView> {
     public ImageView s;
     public int t;
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.v83
+    @Override // com.baidu.tieba.c73
     public BdShimmerView getLoadingView() {
         return this;
     }
 
     /* loaded from: classes3.dex */
-    public class a implements af3 {
+    public class a implements hd3 {
         public a() {
         }
     }
@@ -53,13 +53,13 @@ public class BdShimmerView extends ShimmerFrameLayout implements v83<BdShimmerVi
     @Override // com.baidu.swan.apps.res.ui.ShimmerFrameLayout, android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        ts2.M().f(this, new a());
+        ar2.M().f(this, new a());
     }
 
     @Override // com.baidu.swan.apps.res.ui.ShimmerFrameLayout, android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        ts2.M().g(this);
+        ar2.M().g(this);
     }
 
     public void setPageResources() {
@@ -70,15 +70,15 @@ public class BdShimmerView extends ShimmerFrameLayout implements v83<BdShimmerVi
         int i = this.t;
         if (i != 0) {
             if (i == 1) {
-                this.s.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801ca));
+                this.s.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f0801cb));
                 setMaskShape(ShimmerFrameLayout.MaskShape.WHITE_LINEAR);
                 return;
             }
             return;
         }
-        this.s.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08012f));
+        this.s.setImageDrawable(getResources().getDrawable(R.drawable.obfuscated_res_0x7f080130));
         ShimmerFrameLayout.MaskShape maskShape = ShimmerFrameLayout.MaskShape.LINEAR;
-        if (ts2.M().a()) {
+        if (ar2.M().a()) {
             maskShape = ShimmerFrameLayout.MaskShape.WHITE_LINEAR;
         }
         setMaskShape(maskShape);

@@ -1,5 +1,5 @@
 package com.yy.hiidostatis.defs.obj;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class MediaType {
     public static final int MEDIA_TYPE_IMAGE = 2;
     public static final int MEDIA_TYPE_MUSIC = 4;

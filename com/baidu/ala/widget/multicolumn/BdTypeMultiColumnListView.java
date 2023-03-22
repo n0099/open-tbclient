@@ -6,8 +6,8 @@ import android.view.View;
 import android.widget.ListAdapter;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.Cdo;
-import com.baidu.tieba.qn;
+import com.baidu.tieba.gn;
+import com.baidu.tieba.tm;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -184,7 +184,7 @@ public class BdTypeMultiColumnListView extends BdMultiColumnListView {
         }
     }
 
-    public List<Cdo> getData() {
+    public List<gn> getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -193,10 +193,10 @@ public class BdTypeMultiColumnListView extends BdMultiColumnListView {
         return (List) invokeV.objValue;
     }
 
-    public void addAdapters(List<qn> list) {
+    public void addAdapters(List<tm> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            Iterator<qn> it = list.iterator();
+            Iterator<tm> it = list.iterator();
             while (it.hasNext()) {
                 this.mTypeAdapter.a(it.next());
             }
@@ -204,16 +204,16 @@ public class BdTypeMultiColumnListView extends BdMultiColumnListView {
         }
     }
 
-    public Cdo getItem(int i) {
+    public gn getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
             return this.mTypeAdapter.getItem(i);
         }
-        return (Cdo) invokeI.objValue;
+        return (gn) invokeI.objValue;
     }
 
-    public void setData(List<? extends Cdo> list) {
+    public void setData(List<? extends gn> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             this.mTypeAdapter.h(list);

@@ -1,12 +1,25 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import org.json.JSONArray;
 /* loaded from: classes6.dex */
 public interface ut1 {
-    long a(Context context);
+    cu1 a(Context context);
 
-    void b(Context context, String str, fo3<String> fo3Var);
+    yt1 b(Context context);
 
-    void c(Context context, JSONArray jSONArray, fo3<String> fo3Var);
+    cu1 c(Context context);
+
+    o92 d();
+
+    zt1 e(Context context, int i);
+
+    cu1 f(Context context);
+
+    cu1 g(Context context);
+
+    p92 h(Context context, int i);
+
+    cu1 i(Context context);
+
+    boolean j(int i);
 }

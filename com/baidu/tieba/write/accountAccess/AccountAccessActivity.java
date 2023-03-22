@@ -9,9 +9,9 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
 import com.baidu.tbadk.coreExtra.data.AccessState;
 import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.ml9;
-import com.baidu.tieba.nl9;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
+import com.baidu.tieba.vr9;
+import com.baidu.tieba.wr9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,8 +29,8 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
     public static final String j;
     public static final String k;
     public transient /* synthetic */ FieldHolder $fh;
-    public nl9 a;
-    public ml9 b;
+    public wr9 a;
+    public vr9 b;
     public NewWriteModel c;
     public AccessState d;
     public WriteData e;
@@ -117,7 +117,7 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            this.a = new nl9(this);
+            this.a = new wr9(this);
             Intent intent = getIntent();
             if (intent == null) {
                 return;
@@ -136,19 +136,19 @@ public class AccountAccessActivity extends BaseActivity<AccountAccessActivity> {
                     } else {
                         z = false;
                     }
-                    newWriteModel2.j0(z);
+                    newWriteModel2.n0(z);
                 }
-                ml9 ml9Var = new ml9(this.a, this.c);
-                this.b = ml9Var;
-                this.a.l(ml9Var);
-                this.b.h(w1());
+                vr9 vr9Var = new vr9(this.a, this.c);
+                this.b = vr9Var;
+                this.a.l(vr9Var);
+                this.b.h(z1());
                 return;
             }
             finish();
         }
     }
 
-    public String w1() {
+    public String z1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {

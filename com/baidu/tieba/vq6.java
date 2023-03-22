@@ -1,40 +1,71 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.gif.NSGif;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.EmotionUtil;
 import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.faceshop.EmotionGroupData;
-import com.baidu.tieba.faceshop.MyEmotionGroupData;
-import com.baidu.tieba.nd5;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
+import com.baidu.tieba.faceshop.CollectEmotionData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public class vq6 extends nd5 {
+public class vq6 extends dc5 {
     public static /* synthetic */ Interceptable $ic;
-    public static vq6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<qd5> a;
+    public ArrayList<String> e;
+    public Set<String> f;
 
-    @Override // com.baidu.tieba.nd5
-    public int c() {
+    @Override // com.baidu.tieba.dc5
+    public String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 4;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "用户收藏表情" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.dc5
+    public int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return 0;
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.nd5
-    public void d() {
+    @Override // com.baidu.tieba.dc5
+    public boolean j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return true;
         }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.dc5
+    public int l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     public vq6() {
@@ -50,42 +81,237 @@ public class vq6 extends nd5 {
                 return;
             }
         }
-        this.a = new LinkedList<>();
+        this.e = new ArrayList<>();
+        this.f = new HashSet();
+        w();
     }
 
-    public static vq6 e() {
+    public final void w() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+            t(2);
+            q(4);
+            rm rmVar = new rm(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.icon_bar_collection), false);
+            super.s(rmVar);
+            super.r(rmVar);
+            x();
+        }
+    }
+
+    @Override // com.baidu.tieba.dc5
+    public String b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i >= this.e.size()) {
+                return null;
+            }
+            return this.e.get(i);
+        }
+        return (String) invokeI.objValue;
+    }
+
+    @Override // com.baidu.tieba.dc5
+    public boolean m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            return this.f.contains(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.dc5
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (vq6.class) {
-                    if (b == null) {
-                        b = new vq6();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ArrayList<String> arrayList = this.e;
+            if (arrayList != null && arrayList.size() != 0) {
+                return this.e.size();
+            }
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.dc5
+    public rm e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return super.d();
+        }
+        return (rm) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.dc5
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return ne5.a();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.dc5
+    public EmotionGroupType h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return EmotionGroupType.USER_COLLECT;
+        }
+        return (EmotionGroupType) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:16:0x0052 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:28:0x006e */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v2, types: [java.io.File] */
+    /* JADX WARN: Type inference failed for: r1v3, types: [java.io.OutputStream] */
+    /* JADX WARN: Type inference failed for: r1v4 */
+    /* JADX WARN: Type inference failed for: r1v8 */
+    /* JADX WARN: Type inference failed for: r9v10, types: [java.io.FileInputStream, java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r9v4, types: [boolean] */
+    /* JADX WARN: Type inference failed for: r9v5, types: [java.io.InputStream] */
+    /* JADX WARN: Type inference failed for: r9v7 */
+    /* JADX WARN: Type inference failed for: r9v8 */
+    /* JADX WARN: Type inference failed for: r9v9, types: [java.io.InputStream] */
+    @Override // com.baidu.tieba.dc5
+    public rm n(String str) {
+        InterceptResult invokeL;
+        ByteArrayOutputStream byteArrayOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            File u = u(str);
+            if (u == null) {
+                return null;
+            }
+            ?? file = new File(u.getAbsolutePath().replace("_s.jpg", "_b.gif"));
+            ?? exists = file.exists();
+            try {
+                if (exists == 0) {
+                    return null;
+                }
+                try {
+                    exists = new FileInputStream((File) file);
+                    try {
+                        byteArrayOutputStream = new ByteArrayOutputStream(1024);
+                        try {
+                            byte[] bArr = new byte[1024];
+                            while (true) {
+                                int read = exists.read(bArr, 0, 1024);
+                                if (read != -1) {
+                                    byteArrayOutputStream.write(bArr, 0, read);
+                                } else {
+                                    byte[] byteArray = byteArrayOutputStream.toByteArray();
+                                    rm rmVar = new rm(NSGif.f(byteArray, 0, byteArray.length));
+                                    fg.c(exists);
+                                    fg.d(byteArrayOutputStream);
+                                    return rmVar;
+                                }
+                            }
+                        } catch (Exception e) {
+                            e = e;
+                            e.printStackTrace();
+                            fg.c(exists);
+                            fg.d(byteArrayOutputStream);
+                            return null;
+                        }
+                    } catch (Exception e2) {
+                        e = e2;
+                        byteArrayOutputStream = null;
+                    } catch (Throwable th) {
+                        file = 0;
+                        th = th;
+                        fg.c(exists);
+                        fg.d(file);
+                        throw th;
+                    }
+                } catch (Exception e3) {
+                    e = e3;
+                    exists = 0;
+                    byteArrayOutputStream = null;
+                } catch (Throwable th2) {
+                    file = 0;
+                    th = th2;
+                    exists = 0;
+                }
+            } catch (Throwable th3) {
+                th = th3;
+            }
+        } else {
+            return (rm) invokeL.objValue;
+        }
+    }
+
+    public File u(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            String replace = str.replace(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX, "");
+            String replace2 = replace.substring(0, replace.indexOf(",")).replace("collect_", "");
+            if (replace2.contains("_")) {
+                replace2 = replace2.substring(replace2.indexOf("_") + 1);
+            }
+            return new File(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.collect/" + ne5.d() + "/" + replace2 + "_s.jpg");
+        }
+        return (File) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.dc5
+    public rm o(String str) {
+        InterceptResult invokeL;
+        Bitmap bitmap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            if (ne5.f.equals(str)) {
+                return new rm(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.icon_emotion_set_n), false);
+            }
+            File u = u(str);
+            if (u != null) {
+                bitmap = FileHelper.getImage(u.getAbsolutePath());
+            } else {
+                bitmap = null;
+            }
+            if (bitmap == null) {
+                return null;
+            }
+            return new rm(bitmap, false, str);
+        }
+        return (rm) invokeL.objValue;
+    }
+
+    public boolean v(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            if (this.e != null && !TextUtils.isEmpty(str)) {
+                Iterator<String> it = this.e.iterator();
+                while (it.hasNext()) {
+                    if (it.next().contains(str)) {
+                        return true;
                     }
                 }
             }
-            return b;
+            return false;
         }
-        return (vq6) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.nd5
-    public void b(nd5.a aVar) {
+    public void x() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && FileHelper.checkSD()) {
-            List<MyEmotionGroupData> h = iq6.c().h(TbadkCoreApplication.getCurrentAccount());
-            this.a.clear();
-            for (MyEmotionGroupData myEmotionGroupData : h) {
-                EmotionGroupData n = qq6.o().n(myEmotionGroupData.getGroupId());
-                if (n != null) {
-                    kq6 kq6Var = new kq6(n);
-                    if (kq6Var.d() != null) {
-                        this.a.add(kq6Var);
-                        if (aVar != null) {
-                            aVar.a(kq6Var);
-                        }
-                    }
-                }
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            List<CollectEmotionData> q = mq6.o().q(TbadkCoreApplication.getCurrentAccountForEmotion());
+            this.e.clear();
+            this.f.clear();
+            for (CollectEmotionData collectEmotionData : q) {
+                this.e.add(collectEmotionData.getSharpText());
+                this.f.add(collectEmotionData.getSharpText());
             }
         }
     }

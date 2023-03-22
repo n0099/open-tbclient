@@ -1,14 +1,6 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.res.AssetFileDescriptor;
-import android.media.AudioAttributes;
-import android.media.AudioManager;
-import android.media.MediaPlayer;
-import android.media.SoundPool;
-import android.os.Build;
-import com.badlogic.gdx.Files;
+import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,176 +8,153 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class j3 implements q2 {
+public class j3 extends k1<i3, a> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SoundPool a;
-    public final AudioManager b;
-    public final List<c3> c;
+    public a b;
+    public com.badlogic.gdx.math.a c;
 
-    public j3(Context context, o2 o2Var) {
+    /* loaded from: classes5.dex */
+    public static class a extends u0<i3> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String b;
+        public int c;
+        public String[] d;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = "i ";
+            this.c = 1024;
+            this.d = new String[]{"png", "PNG", "jpeg", "JPEG", "jpg", "JPG", "cim", "CIM", "etc1", "ETC1", "ktx", "KTX", "zktx", "ZKTX"};
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j3(b1 b1Var) {
+        super(b1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, o2Var};
+            Object[] objArr = {b1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((b1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new ArrayList();
-        if (!o2Var.p) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                this.a = new SoundPool.Builder().setAudioAttributes(new AudioAttributes.Builder().setUsage(14).setContentType(4).build()).setMaxStreams(o2Var.q).build();
-            } else {
-                this.a = new SoundPool(o2Var.q, 3, 0);
-            }
-            this.b = (AudioManager) context.getSystemService("audio");
-            if (context instanceof Activity) {
-                ((Activity) context).setVolumeControlStream(3);
-                return;
-            }
-            return;
-        }
-        this.a = null;
-        this.b = null;
+        this.b = new a();
+        this.c = new com.badlogic.gdx.math.a();
     }
 
+    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.k1
-    public m2 a(q3 q3Var) {
-        InterceptResult invokeL;
+    /* renamed from: e */
+    public i3 c(w0 w0Var, String str, t2 t2Var, a aVar) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, q3Var)) == null) {
-            if (this.a != null) {
-                t2 t2Var = (t2) q3Var;
-                if (t2Var.t() == Files.FileType.Internal) {
-                    try {
-                        AssetFileDescriptor u = t2Var.u();
-                        f3 f3Var = new f3(this.a, this.b, this.a.load(u, 1));
-                        u.close();
-                        return f3Var;
-                    } catch (IOException e) {
-                        throw new GdxRuntimeException("Error loading audio file: " + q3Var + "\nNote: Internal audio files must be placed in the assets directory.", e);
-                    }
-                }
-                try {
-                    return new f3(this.a, this.b, this.a.load(t2Var.e().getPath(), 1));
-                } catch (Exception e2) {
-                    throw new GdxRuntimeException("Error loading audio file: " + q3Var, e2);
-                }
-            }
-            throw new GdxRuntimeException("Android audio is not enabled by the application config.");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, w0Var, str, t2Var, aVar)) == null) {
+            return f(new m3((Texture) w0Var.i(w0Var.n(str).first())), t2Var);
         }
-        return (m2) invokeL.objValue;
+        return (i3) invokeLLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.q2
-    public void d(c3 c3Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.x0
+    /* renamed from: d */
+    public k6<s0> a(String str, t2 t2Var, a aVar) {
+        InterceptResult invokeLLL;
+        String str2;
+        String[] strArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c3Var) == null) {
-            synchronized (this.c) {
-                this.c.remove(this);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, t2Var, aVar)) == null) {
+            if (aVar == null) {
+                aVar = this.b;
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.o7
-    public void dispose() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.a == null) {
-            return;
-        }
-        synchronized (this.c) {
-            Iterator it = new ArrayList(this.c).iterator();
-            while (it.hasNext()) {
-                ((c3) it.next()).dispose();
-            }
-        }
-        this.a.release();
-    }
-
-    @Override // com.baidu.tieba.q2
-    public void pause() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.a == null) {
-            return;
-        }
-        synchronized (this.c) {
-            for (c3 c3Var : this.c) {
-                if (c3Var.a()) {
-                    c3Var.pause();
-                    c3Var.d = true;
-                } else {
-                    c3Var.d = false;
-                }
-            }
-        }
-        this.a.autoPause();
-    }
-
-    @Override // com.baidu.tieba.q2
-    public void resume() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.a == null) {
-            return;
-        }
-        synchronized (this.c) {
-            for (int i = 0; i < this.c.size(); i++) {
-                if (this.c.get(i).d) {
-                    this.c.get(i).f();
-                }
-            }
-        }
-        this.a.autoResume();
-    }
-
-    @Override // com.baidu.tieba.k1
-    public l2 f(q3 q3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, q3Var)) == null) {
-            if (this.a != null) {
-                t2 t2Var = (t2) q3Var;
-                MediaPlayer mediaPlayer = new MediaPlayer();
-                if (t2Var.t() == Files.FileType.Internal) {
-                    try {
-                        AssetFileDescriptor u = t2Var.u();
-                        mediaPlayer.setDataSource(u.getFileDescriptor(), u.getStartOffset(), u.getLength());
-                        u.close();
-                        mediaPlayer.prepare();
-                        c3 c3Var = new c3(this, mediaPlayer);
-                        synchronized (this.c) {
-                            this.c.add(c3Var);
+            try {
+                BufferedReader q = t2Var.q(aVar.c);
+                while (true) {
+                    String readLine = q.readLine();
+                    if (readLine != null) {
+                        if (readLine.startsWith(aVar.b)) {
+                            str2 = readLine.substring(aVar.b.length());
+                            break;
                         }
-                        return c3Var;
-                    } catch (Exception e) {
-                        throw new GdxRuntimeException("Error loading audio file: " + q3Var + "\nNote: Internal audio files must be placed in the assets directory.", e);
+                    } else {
+                        str2 = null;
+                        break;
                     }
                 }
-                try {
-                    mediaPlayer.setDataSource(t2Var.e().getPath());
-                    mediaPlayer.prepare();
-                    c3 c3Var2 = new c3(this, mediaPlayer);
-                    synchronized (this.c) {
-                        this.c.add(c3Var2);
+                q.close();
+                if (str2 == null && (strArr = aVar.d) != null) {
+                    for (String str3 : strArr) {
+                        t2 s = t2Var.s(t2Var.h().concat("." + str3));
+                        if (s.c()) {
+                            str2 = s.g();
+                        }
                     }
-                    return c3Var2;
-                } catch (Exception e2) {
-                    throw new GdxRuntimeException("Error loading audio file: " + q3Var, e2);
                 }
+                if (str2 == null) {
+                    return null;
+                }
+                k6<s0> k6Var = new k6<>(1);
+                k6Var.a(new s0(t2Var.s(str2), Texture.class));
+                return k6Var;
+            } catch (IOException e) {
+                throw new GdxRuntimeException("Error reading " + str, e);
             }
-            throw new GdxRuntimeException("Android audio is not enabled by the application config.");
         }
-        return (l2) invokeL.objValue;
+        return (k6) invokeLLL.objValue;
+    }
+
+    public i3 f(m3 m3Var, t2 t2Var) {
+        InterceptResult invokeLL;
+        String readLine;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, m3Var, t2Var)) == null) {
+            BufferedReader q = t2Var.q(256);
+            do {
+                try {
+                    try {
+                        readLine = q.readLine();
+                        if (readLine == null) {
+                            s7.a(q);
+                            throw new GdxRuntimeException("Polygon shape not found: " + t2Var);
+                        }
+                    } catch (IOException e) {
+                        throw new GdxRuntimeException("Error reading polygon shape file: " + t2Var, e);
+                    }
+                } finally {
+                    s7.a(q);
+                }
+            } while (!readLine.startsWith("s"));
+            String[] split = readLine.substring(1).trim().split(",");
+            int length = split.length;
+            float[] fArr = new float[length];
+            for (int i = 0; i < length; i++) {
+                fArr[i] = Float.parseFloat(split[i]);
+            }
+            return new i3(m3Var, fArr, this.c.c(fArr).f());
+        }
+        return (i3) invokeLL.objValue;
     }
 }

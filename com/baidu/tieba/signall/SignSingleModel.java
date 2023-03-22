@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.data.SignData;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.data.AuthTokenData;
-import com.baidu.tieba.x9;
+import com.baidu.tieba.a9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -180,7 +180,7 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((x9) newInitContext.callArgs[0]);
+                super((a9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -191,14 +191,14 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         this.c = null;
     }
 
-    public void W(b bVar) {
+    public void a0(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             this.d = bVar;
         }
     }
 
-    public void V() {
+    public void Z() {
         c cVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (cVar = this.c) != null) {
@@ -207,7 +207,7 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         }
     }
 
-    public void X(String str, String str2) {
+    public void b0(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) && str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.c == null) {
             this.a = str;

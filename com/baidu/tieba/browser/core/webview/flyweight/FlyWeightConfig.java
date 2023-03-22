@@ -1,7 +1,9 @@
 package com.baidu.tieba.browser.core.webview.flyweight;
 
 import android.text.TextUtils;
-import com.baidu.tieba.ue6;
+import com.baidu.sapi2.SapiWebView;
+import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.tieba.zd6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,7 +11,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.ETAG;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
@@ -17,6 +18,7 @@ import java.util.Set;
 public class FlyWeightConfig {
     public static /* synthetic */ Interceptable $ic;
     public static final Set<String> a;
+    public static final Set<String> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -60,12 +62,54 @@ public class FlyWeightConfig {
                 add("woff2");
             }
         };
+        b = new HashSet<String>() { // from class: com.baidu.tieba.browser.core.webview.flyweight.FlyWeightConfig.2
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            {
+                Interceptable interceptable2 = $ic;
+                if (interceptable2 != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    interceptable2.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable2.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                add("jpg");
+                add("jpeg");
+                add("webp");
+                add("png");
+                add("ico");
+                add(NativeConstants.TYPE_GIF);
+                add("mp4");
+            }
+        };
     }
 
     public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            String a2 = zd6.a(str);
+            if (TextUtils.isEmpty(a2)) {
+                return false;
+            }
+            if (b.contains(a2)) {
+                return true;
+            }
+            return b.contains(a2.toLowerCase().trim());
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             if (TextUtils.isEmpty(str)) {
                 return false;
             }
@@ -77,15 +121,15 @@ public class FlyWeightConfig {
         return invokeL.booleanValue;
     }
 
-    public static boolean b(String str, Map<String, String> map) {
+    public static boolean c(String str, Map<String, String> map) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, map)) == null) {
-            String b = ue6.b(str);
-            if (TextUtils.isEmpty(b)) {
-                b = map.get(ETAG.KEY_EXTENSION);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, map)) == null) {
+            String a2 = zd6.a(str);
+            if (TextUtils.isEmpty(a2) && !TextUtils.isEmpty(map.get("Accept")) && map.get("Accept").contains(SapiWebView.DATA_MIME_TYPE)) {
+                a2 = "html";
             }
-            return a(b);
+            return b(a2);
         }
         return invokeLL.booleanValue;
     }

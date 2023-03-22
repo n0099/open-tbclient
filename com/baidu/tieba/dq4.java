@@ -1,30 +1,26 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
-import android.content.Context;
-import android.os.Build;
-import android.system.Os;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileOutputStream;
 /* loaded from: classes4.dex */
-public class dq4 implements aq4<String> {
+public abstract class dq4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public yp4 a;
+    public volatile long b;
+    public volatile boolean c;
+    public int d;
 
-    public dq4(Context context) {
+    public dq4(yp4 yp4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {yp4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,84 +30,77 @@ public class dq4 implements aq4<String> {
                 return;
             }
         }
-        this.a = context.getApplicationContext();
+        this.b = 0L;
+        this.c = false;
+        this.d = 0;
+        this.a = yp4Var;
     }
 
-    @Override // com.baidu.tieba.aq4
-    public boolean a() {
-        InterceptResult invokeV;
+    public synchronized void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return !new File(this.a.getFilesDir(), "libuuid.so").exists();
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            synchronized (this) {
+                this.b += i;
+            }
         }
-        return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.aq4
-    /* renamed from: b */
-    public String get() {
+    public synchronized void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            synchronized (this) {
+                this.c = z;
+            }
+        }
+    }
+
+    public void g(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            this.b = j;
+        }
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return d();
+            return this.b;
         }
-        return (String) invokeV.objValue;
+        return invokeV.longValue;
     }
 
-    public final String d() {
+    public yp4 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (yp4) invokeV.objValue;
+    }
+
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            File file = new File(this.a.getFilesDir(), "libuuid.so");
-            if (!file.exists()) {
-                return null;
-            }
-            return gq4.c(file);
+            return this.d;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.aq4
-    /* renamed from: c */
-    public void put(String str) {
+    public boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            e(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
         }
-    }
-
-    @SuppressLint({"WorldReadableFiles"})
-    @TargetApi(21)
-    public final void e(String str) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            File file = new File(this.a.getFilesDir(), "libuuid.so");
-            if (Build.VERSION.SDK_INT >= 24) {
-                i = 1;
-            } else {
-                i = 0;
-            }
-            FileOutputStream fileOutputStream = null;
-            try {
-                try {
-                    fileOutputStream = this.a.openFileOutput("libuuid.so", i ^ 1);
-                    fileOutputStream.write(str.getBytes());
-                    fileOutputStream.flush();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                if (i != 0) {
-                    try {
-                        Os.chmod(file.getAbsolutePath(), 436);
-                    } catch (Exception unused) {
-                    }
-                }
-            } finally {
-                gq4.a(fileOutputStream);
-            }
-        }
+        return invokeV.booleanValue;
     }
 }

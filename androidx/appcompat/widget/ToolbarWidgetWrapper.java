@@ -72,7 +72,7 @@ public class ToolbarWidgetWrapper implements DecorToolbar {
         if (this.mActionMenuPresenter == null) {
             ActionMenuPresenter actionMenuPresenter = new ActionMenuPresenter(this.mToolbar.getContext());
             this.mActionMenuPresenter = actionMenuPresenter;
-            actionMenuPresenter.setId(R.id.obfuscated_res_0x7f09006b);
+            actionMenuPresenter.setId(R.id.obfuscated_res_0x7f09006f);
         }
         this.mActionMenuPresenter.setCallback(callback);
         this.mToolbar.setMenu((MenuBuilder) menu, this.mActionMenuPresenter);

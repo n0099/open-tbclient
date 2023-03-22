@@ -1,101 +1,95 @@
 package com.baidu.tieba;
 
-import android.text.Selection;
-import android.text.SpanWatcher;
-import android.text.Spannable;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class v65 implements SpanWatcher {
+public class v65 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SpanGroupManager a;
-    public int b;
-    public int c;
+    public List<Double> a;
+    public List<Integer> b;
 
-    @Override // android.text.SpanWatcher
-    public void onSpanAdded(Spannable spannable, Object obj, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(1048576, this, spannable, obj, i, i2) == null) {
-        }
-    }
-
-    public v65(@NonNull SpanGroupManager spanGroupManager) {
+    public v65() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {spanGroupManager};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = spanGroupManager;
-    }
-
-    @Override // android.text.SpanWatcher
-    public void onSpanChanged(Spannable spannable, Object obj, int i, int i2, int i3, int i4) {
-        SpanGroupManager spanGroupManager;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{spannable, obj, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) != null) || (spanGroupManager = this.a) == null) {
-            return;
-        }
-        if (obj == Selection.SELECTION_END && this.c != i3) {
-            this.c = i3;
-            t65 D = spanGroupManager.D(i3);
-            if (D != null) {
-                int f = D.f();
-                int c = D.c();
-                if (Math.abs(this.c - c) <= Math.abs(this.c - f)) {
-                    f = c;
-                }
-                int selectionStart = Selection.getSelectionStart(spannable);
-                if (selectionStart > spannable.length()) {
-                    selectionStart = spannable.length();
-                }
-                if (f > spannable.length()) {
-                    f = spannable.length();
-                }
-                Selection.setSelection(spannable, selectionStart, f);
-            }
-        }
-        if (obj == Selection.SELECTION_START && this.b != i3) {
-            this.b = i3;
-            t65 D2 = this.a.D(i3);
-            if (D2 != null) {
-                int f2 = D2.f();
-                int c2 = D2.c();
-                if (Math.abs(this.b - c2) <= Math.abs(this.b - f2)) {
-                    f2 = c2;
-                }
-                int selectionEnd = Selection.getSelectionEnd(spannable);
-                if (selectionEnd > spannable.length()) {
-                    selectionEnd = spannable.length();
-                }
-                if (f2 > spannable.length()) {
-                    f2 = spannable.length();
-                }
-                Selection.setSelection(spannable, f2, selectionEnd);
             }
         }
     }
 
-    @Override // android.text.SpanWatcher
-    public void onSpanRemoved(Spannable spannable, Object obj, int i, int i2) {
-        SpanGroupManager spanGroupManager;
+    public int a(double d) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, spannable, obj, i, i2) == null) && (spanGroupManager = this.a) != null && this.b != this.c) {
-            spanGroupManager.r();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d)})) == null) {
+            if (!ListUtils.isEmpty(this.a) && !ListUtils.isEmpty(this.b)) {
+                for (int i = 0; i < this.a.size(); i++) {
+                    if (d <= this.a.get(i).doubleValue()) {
+                        return b(i);
+                    }
+                    if (i == this.a.size() - 1) {
+                        return b(i + 1);
+                    }
+                }
+            }
+            return -1;
+        }
+        return invokeCommon.intValue;
+    }
+
+    public final int b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i < this.b.size()) {
+                return this.b.get(i).intValue();
+            }
+            return -1;
+        }
+        return invokeI.intValue;
+    }
+
+    public void c(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                JSONArray optJSONArray = jSONObject.optJSONArray("divide");
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    this.a = new ArrayList();
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        double optDouble = optJSONArray.optDouble(i);
+                        if (!Double.isNaN(optDouble)) {
+                            this.a.add(Double.valueOf(optDouble));
+                        }
+                    }
+                }
+                JSONArray optJSONArray2 = jSONObject.optJSONArray("threshold");
+                if (optJSONArray2 != null && optJSONArray2.length() > 0) {
+                    this.b = new ArrayList();
+                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                        this.b.add(Integer.valueOf(optJSONArray2.optInt(i2)));
+                    }
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 }

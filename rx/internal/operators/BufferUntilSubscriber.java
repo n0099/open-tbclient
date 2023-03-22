@@ -1,44 +1,44 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.fna;
-import com.baidu.tieba.kra;
+import com.baidu.tieba.bsa;
+import com.baidu.tieba.gwa;
+import com.baidu.tieba.lwa;
+import com.baidu.tieba.ora;
 import com.baidu.tieba.pra;
-import com.baidu.tieba.sma;
-import com.baidu.tieba.tma;
-import com.baidu.tieba.yma;
+import com.baidu.tieba.ura;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes9.dex */
-public final class BufferUntilSubscriber<T> extends kra<T, T> {
-    public static final tma d = new a();
+public final class BufferUntilSubscriber<T> extends gwa<T, T> {
+    public static final pra d = new a();
     public final State<T> b;
     public boolean c;
 
     /* loaded from: classes9.dex */
-    public static class a implements tma {
-        @Override // com.baidu.tieba.tma
+    public static class a implements pra {
+        @Override // com.baidu.tieba.pra
         public void onCompleted() {
         }
 
-        @Override // com.baidu.tieba.tma
+        @Override // com.baidu.tieba.pra
         public void onError(Throwable th) {
         }
 
-        @Override // com.baidu.tieba.tma
+        @Override // com.baidu.tieba.pra
         public void onNext(Object obj) {
         }
     }
 
     /* loaded from: classes9.dex */
-    public static final class b<T> implements sma.a<T> {
+    public static final class b<T> implements ora.a<T> {
         public final State<T> a;
 
         /* loaded from: classes9.dex */
-        public class a implements fna {
+        public class a implements bsa {
             public a() {
             }
 
-            @Override // com.baidu.tieba.fna
+            @Override // com.baidu.tieba.bsa
             public void call() {
                 b.this.a.set(BufferUntilSubscriber.d);
             }
@@ -48,15 +48,15 @@ public final class BufferUntilSubscriber<T> extends kra<T, T> {
             this.a = state;
         }
 
-        @Override // com.baidu.tieba.sma.a, com.baidu.tieba.gna
+        @Override // com.baidu.tieba.ora.a, com.baidu.tieba.csa
         public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((yma) ((yma) obj));
+            call((ura) ((ura) obj));
         }
 
-        public void call(yma<? super T> ymaVar) {
+        public void call(ura<? super T> uraVar) {
             boolean z;
-            if (this.a.casObserverRef(null, ymaVar)) {
-                ymaVar.b(pra.a(new a()));
+            if (this.a.casObserverRef(null, uraVar)) {
+                uraVar.b(lwa.a(new a()));
                 synchronized (this.a.guard) {
                     z = true;
                     if (!this.a.emitting) {
@@ -82,7 +82,7 @@ public final class BufferUntilSubscriber<T> extends kra<T, T> {
                     }
                 }
             } else {
-                ymaVar.onError(new IllegalStateException("Only one subscriber allowed!"));
+                uraVar.onError(new IllegalStateException("Only one subscriber allowed!"));
             }
         }
     }
@@ -91,7 +91,7 @@ public final class BufferUntilSubscriber<T> extends kra<T, T> {
         return new BufferUntilSubscriber<>(new State());
     }
 
-    @Override // com.baidu.tieba.tma
+    @Override // com.baidu.tieba.pra
     public void onCompleted() {
         if (this.c) {
             this.b.get().onCompleted();
@@ -101,14 +101,14 @@ public final class BufferUntilSubscriber<T> extends kra<T, T> {
     }
 
     /* loaded from: classes9.dex */
-    public static final class State<T> extends AtomicReference<tma<? super T>> {
+    public static final class State<T> extends AtomicReference<pra<? super T>> {
         public static final long serialVersionUID = 8026705089538090368L;
         public boolean emitting;
         public final Object guard = new Object();
         public final ConcurrentLinkedQueue<Object> buffer = new ConcurrentLinkedQueue<>();
 
-        public boolean casObserverRef(tma<? super T> tmaVar, tma<? super T> tmaVar2) {
-            return compareAndSet(tmaVar, tmaVar2);
+        public boolean casObserverRef(pra<? super T> praVar, pra<? super T> praVar2) {
+            return compareAndSet(praVar, praVar2);
         }
     }
 
@@ -117,7 +117,7 @@ public final class BufferUntilSubscriber<T> extends kra<T, T> {
         this.b = state;
     }
 
-    @Override // com.baidu.tieba.tma
+    @Override // com.baidu.tieba.pra
     public void onError(Throwable th) {
         if (this.c) {
             this.b.get().onError(th);
@@ -126,7 +126,7 @@ public final class BufferUntilSubscriber<T> extends kra<T, T> {
         }
     }
 
-    @Override // com.baidu.tieba.tma
+    @Override // com.baidu.tieba.pra
     public void onNext(T t) {
         if (this.c) {
             this.b.get().onNext(t);

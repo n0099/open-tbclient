@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.switchs.ComplianceParmasSwitch;
-import com.baidu.tieba.wi;
+import com.baidu.tieba.zh;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +34,7 @@ public class ComplianceParmasHelper {
                 return;
             }
         }
-        TIEBAHOST_CHANGE_LIST = Arrays.asList("c/s/sync", "c/s/msg", "c/e/meme/suggest", TbConfig.LOG_UPLOAD_URL, TbConfig.LOAD_REG_PV_ADDRESS, TbConfig.URL_FUN_AD_RECORD, TbConfig.GET_PAY_CONFIG, TbConfig.URL_PLAY_STATISTICS, TbConfig.IMAGE_PB_ADDRESS, TbConfig.URL_PLAY_DURATION_STATISTICS, TbConfig.URL_CONCERN_CHECK_RED_NOTIFY, TbConfig.URL_VIDEO_HOLY_CARD, TbConfig.STAT_CLIENT_START);
+        TIEBAHOST_CHANGE_LIST = Arrays.asList("c/s/sync", "c/s/msg", "c/e/meme/suggest", TbConfig.LOG_UPLOAD_URL, TbConfig.LOAD_REG_PV_ADDRESS, TbConfig.URL_FUN_AD_RECORD, TbConfig.GET_PAY_CONFIG, TbConfig.URL_PLAY_STATISTICS, TbConfig.IMAGE_PB_ADDRESS, TbConfig.URL_PLAY_DURATION_STATISTICS, TbConfig.URL_VIDEO_HOLY_CARD, TbConfig.STAT_CLIENT_START);
         SERVER_ADDRESS_PEIWAN = TbConfig.SERVER_GAME_PLAY_ADRESS;
     }
 
@@ -57,7 +57,7 @@ public class ComplianceParmasHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
             if (!TextUtils.isEmpty(str)) {
-                return wi.j(str.getBytes());
+                return zh.j(str.getBytes());
             }
             return str;
         }

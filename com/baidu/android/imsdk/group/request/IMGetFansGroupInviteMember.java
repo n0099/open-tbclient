@@ -89,15 +89,14 @@ public class IMGetFansGroupInviteMember extends FansGroupBaseHttpRequest {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:28:0x00b9  */
-    /* JADX WARN: Removed duplicated region for block: B:38:? A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:32:0x00c4  */
+    /* JADX WARN: Removed duplicated region for block: B:42:? A[RETURN, SYNTHETIC] */
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public void onSuccess(int i, byte[] bArr) {
         String str;
-        int i2;
         IMListener removeListener;
         String str2;
         Interceptable interceptable = $ic;
@@ -105,14 +104,15 @@ public class IMGetFansGroupInviteMember extends FansGroupBaseHttpRequest {
             String str3 = new String(bArr);
             LogUtils.d(TAG, "onSuccess result = " + str3);
             ArrayList arrayList = new ArrayList();
+            int i2 = 1011;
             int i3 = 0;
             try {
                 JSONObject jSONObject = new JSONObject(str3);
-                i2 = jSONObject.optInt("error_code");
+                int optInt = jSONObject.optInt("error_code");
                 str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
-                if (i2 == 0 && jSONObject.has("response_params")) {
+                if (optInt == 0 && jSONObject.has("response_params")) {
                     JSONObject jSONObject2 = jSONObject.getJSONObject("response_params");
-                    int optInt = jSONObject2.optInt("server_sort", 0);
+                    int optInt2 = jSONObject2.optInt("server_sort", 0);
                     try {
                         if (jSONObject2.has("members")) {
                             JSONArray jSONArray = jSONObject2.getJSONArray("members");
@@ -133,18 +133,23 @@ public class IMGetFansGroupInviteMember extends FansGroupBaseHttpRequest {
                                 i3++;
                             }
                         }
-                        i3 = optInt;
+                        i3 = optInt2;
                     } catch (JSONException e) {
                         e = e;
-                        i3 = optInt;
+                        i3 = optInt2;
                         LogUtils.e(TAG, "IMGetFansGroupInviteMember JSONException", e);
-                        i2 = 1010;
-                        str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
+                        if (i == 1011) {
+                            str = Constants.ERROR_MSG_HTTP_RESPONSE_ERROR;
+                        } else {
+                            i2 = 1010;
+                            str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
+                        }
                         removeListener = ListenerManager.getInstance().removeListener(this.mKey);
                         if (!(removeListener instanceof BIMValueCallBack)) {
                         }
                     }
                 }
+                i2 = optInt;
             } catch (JSONException e2) {
                 e = e2;
             }

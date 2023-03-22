@@ -1,111 +1,167 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.app.Application;
+import android.content.Context;
+import android.os.Build;
+import android.telephony.TelephonyManager;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.content.ContextCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.bdtls.impl.model.Bdtls$ClientHello;
-import com.baidu.swan.bdtls.impl.model.Bdtls$ServerHello;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+@Singleton
+@Service
+@SuppressLint({"MissingPermission", "HardwareIds"})
 /* loaded from: classes6.dex */
-public final class us3 {
+public class us3 implements ws3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bdtls$ClientHello a;
-    public Bdtls$ServerHello b;
-    public byte[] c;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public us3() {
-        this(null, null, null, 7, null);
+    @Override // com.baidu.tieba.ws3
+    public String b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this((Bdtls$ClientHello) objArr[0], (Bdtls$ServerHello) objArr[1], (byte[]) objArr[2], ((Integer) objArr[3]).intValue(), (DefaultConstructorMarker) objArr[4]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? "" : (String) invokeL.objValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948221524, "Lcom/baidu/tieba/us3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948221524, "Lcom/baidu/tieba/us3;");
                 return;
             }
         }
+        a = do1.a;
     }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof us3) {
-                    us3 us3Var = (us3) obj;
-                    return Intrinsics.areEqual(this.a, us3Var.a) && Intrinsics.areEqual(this.b, us3Var.b) && Intrinsics.areEqual(this.c, us3Var.c);
-                }
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            Bdtls$ClientHello bdtls$ClientHello = this.a;
-            int hashCode = (bdtls$ClientHello != null ? bdtls$ClientHello.hashCode() : 0) * 31;
-            Bdtls$ServerHello bdtls$ServerHello = this.b;
-            int hashCode2 = (hashCode + (bdtls$ServerHello != null ? bdtls$ServerHello.hashCode() : 0)) * 31;
-            byte[] bArr = this.c;
-            return hashCode2 + (bArr != null ? Arrays.hashCode(bArr) : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "HandshakeParams(clientHello=" + this.a + ", serverHello=" + this.b + ", encodeDHPublicKey=" + Arrays.toString(this.c) + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public us3(Bdtls$ClientHello bdtls$ClientHello, Bdtls$ServerHello bdtls$ServerHello, byte[] bArr) {
+    public us3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdtls$ClientHello, bdtls$ServerHello, bArr};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = bdtls$ClientHello;
-        this.b = bdtls$ServerHello;
-        this.c = bArr;
     }
 
-    public /* synthetic */ us3(Bdtls$ClientHello bdtls$ClientHello, Bdtls$ServerHello bdtls$ServerHello, byte[] bArr, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i & 1) != 0 ? null : bdtls$ClientHello, (i & 2) != 0 ? null : bdtls$ServerHello, (i & 4) != 0 ? null : bArr);
-    }
-
-    public final void a(Bdtls$ServerHello bdtls$ServerHello) {
+    @Override // com.baidu.tieba.ws3
+    public String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bdtls$ServerHello) == null) {
-            this.b = bdtls$ServerHello;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            return ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
         }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ws3
+    public String c(Context context) {
+        InterceptResult invokeL;
+        String meid;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            if (Build.VERSION.SDK_INT >= 26) {
+                try {
+                    TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
+                    if (telephonyManager == null) {
+                        meid = "";
+                    } else {
+                        meid = telephonyManager.getMeid();
+                    }
+                    if (TextUtils.isEmpty(meid)) {
+                        return "";
+                    }
+                    return meid;
+                } catch (Exception e) {
+                    t42.o("DeviceInfoImpl", "getMeid: catch " + e + "\n" + Log.getStackTraceString(e));
+                }
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ws3
+    public String d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            try {
+                TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
+                if (telephonyManager != null) {
+                    String deviceId = ApiReplaceUtil.getDeviceId(telephonyManager);
+                    if (!TextUtils.isEmpty(deviceId)) {
+                        return deviceId;
+                    }
+                    if (Build.VERSION.SDK_INT >= 26) {
+                        deviceId = ApiReplaceUtil.getImei(telephonyManager);
+                    }
+                    if (TextUtils.isEmpty(deviceId)) {
+                        return "";
+                    }
+                    return deviceId;
+                }
+            } catch (Exception e) {
+                t42.o("DeviceInfoImpl", "getImei: catch " + e + "\n" + Log.getStackTraceString(e));
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ws3
+    public String getDeviceId(Context context) {
+        InterceptResult invokeL;
+        String deviceId;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+            if (Build.VERSION.SDK_INT >= 29) {
+                if (a) {
+                    Log.d("DeviceInfoImpl", "android 29 can not get imei");
+                }
+                return "";
+            }
+            Application c = ar2.c();
+            if (ContextCompat.checkSelfPermission(c, com.kuaishou.weapon.p0.h.c) != 0) {
+                return "";
+            }
+            try {
+                TelephonyManager telephonyManager = (TelephonyManager) c.getSystemService("phone");
+                if (telephonyManager == null) {
+                    deviceId = "";
+                } else {
+                    deviceId = ApiReplaceUtil.getDeviceId(telephonyManager);
+                }
+                if (TextUtils.isEmpty(deviceId)) {
+                    return "";
+                }
+                return deviceId;
+            } catch (Exception unused) {
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
     }
 }

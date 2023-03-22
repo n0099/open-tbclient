@@ -1,7 +1,6 @@
 package com.baidu.tieba.frs.headercomponent;
 
 import android.content.Context;
-import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,9 +19,9 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tbadk.gif.GifView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b35;
-import com.baidu.tieba.o27;
-import com.baidu.tieba.p27;
+import com.baidu.tieba.n15;
+import com.baidu.tieba.t37;
+import com.baidu.tieba.u37;
 import com.baidu.tieba.view.TbImageAutoSwitch;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -34,8 +33,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 import tbclient.FrsPage.LiveFuseForumData;
+import tbclient.TagLabelInfo;
 /* loaded from: classes4.dex */
-public class HeaderComponentSingleView extends FrameLayout implements p27 {
+public class HeaderComponentSingleView extends FrameLayout implements u37 {
     public static /* synthetic */ Interceptable $ic;
     public static final int n;
     public static final int o;
@@ -50,12 +50,12 @@ public class HeaderComponentSingleView extends FrameLayout implements p27 {
     public HeadImageView g;
     public TbImageAutoSwitch h;
     public List<String> i;
-    public o27 j;
+    public t37 j;
     public LiveFuseForumData k;
     public boolean l;
     public TbImageAutoSwitch.b m;
 
-    @Override // com.baidu.tieba.p27
+    @Override // com.baidu.tieba.u37
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -77,13 +77,13 @@ public class HeaderComponentSingleView extends FrameLayout implements p27 {
 
         /* renamed from: com.baidu.tieba.frs.headercomponent.HeaderComponentSingleView$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        public class View$OnClickListenerC0259a implements View.OnClickListener {
+        public class View$OnClickListenerC0265a implements View.OnClickListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ int a;
             public final /* synthetic */ a b;
 
-            public View$OnClickListenerC0259a(a aVar, int i) {
+            public View$OnClickListenerC0265a(a aVar, int i) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -134,8 +134,8 @@ public class HeaderComponentSingleView extends FrameLayout implements p27 {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) && (view2 instanceof HeadImageView)) {
                 HeadImageView headImageView = (HeadImageView) view2;
-                headImageView.K((String) this.a.i.get(i), 12, false);
-                headImageView.setOnClickListener(new View$OnClickListenerC0259a(this, i));
+                headImageView.M((String) this.a.i.get(i), 12, false);
+                headImageView.setOnClickListener(new View$OnClickListenerC0265a(this, i));
             }
         }
 
@@ -225,17 +225,17 @@ public class HeaderComponentSingleView extends FrameLayout implements p27 {
         p = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds2);
     }
 
-    public final void j() {
+    public final void k() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.k == null) {
+        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.k == null) {
             return;
         }
         if (TbadkCoreApplication.getInst().getSkinType() == 0) {
-            this.e.K(this.k.bjimg_light_big, 10, false);
+            this.e.M(this.k.bjimg_light_big, 10, false);
         } else {
-            this.e.K(this.k.bjimg_dark_big, 10, false);
+            this.e.M(this.k.bjimg_dark_big, 10, false);
         }
-        this.c.j0(this.k.icon_url, 38);
+        this.c.l0(this.k.icon_url, 38);
         this.c.setAlpha(1.0f);
     }
 
@@ -260,7 +260,7 @@ public class HeaderComponentSingleView extends FrameLayout implements p27 {
         this.i = new ArrayList();
         this.l = true;
         this.m = new a(this);
-        i();
+        j();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -285,7 +285,7 @@ public class HeaderComponentSingleView extends FrameLayout implements p27 {
         this.i = new ArrayList();
         this.l = true;
         this.m = new a(this);
-        i();
+        j();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -310,21 +310,29 @@ public class HeaderComponentSingleView extends FrameLayout implements p27 {
         this.i = new ArrayList();
         this.l = true;
         this.m = new a(this);
-        i();
+        j();
     }
 
-    @Override // com.baidu.tieba.p27
+    public final void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            int childCount = this.d.getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                View childAt = this.d.getChildAt(i);
+                if (childAt instanceof TitleTagsView) {
+                    ((TitleTagsView) childAt).f();
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.u37
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int childCount = this.d.getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                b35 d = b35.d((TextView) this.d.getChildAt(i));
-                d.v(R.color.CAM_X0105);
-                d.A(R.string.F_X02);
-            }
-            b35.d(this.b).v(R.color.CAM_X0108);
-            j();
+            l();
+            n15.d(this.b).w(R.color.CAM_X0108);
+            k();
             if (!ListUtils.isEmpty(this.h.getChildViews())) {
                 for (View view2 : this.h.getChildViews()) {
                     if (view2 instanceof HeadImageView) {
@@ -333,22 +341,46 @@ public class HeaderComponentSingleView extends FrameLayout implements p27 {
                 }
             }
             this.g.setBorderColor(SkinManager.getColor(R.color.CAM_X0402));
-            b35 d2 = b35.d(this.f);
-            d2.n(R.string.J_X06);
-            d2.f(R.color.CAM_X0201);
+            n15 d = n15.d(this.f);
+            d.o(R.string.J_X06);
+            d.f(R.color.CAM_X0201);
         }
     }
 
-    @Override // com.baidu.tieba.p27
-    public void b(List<LiveFuseForumData> list, o27 o27Var) {
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            List<String> list = this.k.title;
+            if (!ListUtils.isEmpty(list)) {
+                int size = list.size();
+                for (int i = 0; i < size; i++) {
+                    TitleTagsView titleTagsView = new TitleTagsView(getContext());
+                    titleTagsView.b(list.get(i));
+                    TagLabelInfo tagLabelInfo = (TagLabelInfo) ListUtils.getItem(this.k.label_infos, i);
+                    if (tagLabelInfo != null && !ListUtils.isEmpty(tagLabelInfo.labels)) {
+                        titleTagsView.a(tagLabelInfo.labels);
+                    }
+                    this.d.addView(titleTagsView, new ViewGroup.LayoutParams(-2, -1));
+                }
+                if (size > 1) {
+                    this.d.startFlipping();
+                } else {
+                    this.d.stopFlipping();
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.u37
+    public void b(List<LiveFuseForumData> list, t37 t37Var) {
         boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, o27Var) != null) || ListUtils.isEmpty(list)) {
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, t37Var) != null) || ListUtils.isEmpty(list)) {
             return;
         }
         LiveFuseForumData liveFuseForumData = list.get(0);
         this.k = liveFuseForumData;
-        this.j = o27Var;
+        this.j = t37Var;
         Integer num = liveFuseForumData.head_img_style;
         if (num != null && num.intValue() != 0) {
             z = false;
@@ -363,27 +395,7 @@ public class HeaderComponentSingleView extends FrameLayout implements p27 {
             this.g.setRadiusById(R.string.J_X05);
             this.g.setConrers(15);
         }
-        List<String> list2 = this.k.title;
-        if (!ListUtils.isEmpty(list2)) {
-            int size = list2.size();
-            for (int i = 0; i < list2.size(); i++) {
-                TextView textView = new TextView(getContext());
-                textView.setIncludeFontPadding(false);
-                textView.setLines(1);
-                textView.setEllipsize(TextUtils.TruncateAt.END);
-                textView.setText(list2.get(i));
-                b35 d = b35.d(textView);
-                d.v(R.color.CAM_X0105);
-                d.A(R.string.F_X02);
-                d.z(R.dimen.T_X06);
-                this.d.addView(textView);
-            }
-            if (size > 1) {
-                this.d.startFlipping();
-            } else {
-                this.d.stopFlipping();
-            }
-        }
+        i();
         this.b.setText(this.k.online_users);
         this.i.clear();
         if (!ListUtils.isEmpty(this.k.head_img)) {
@@ -391,7 +403,7 @@ public class HeaderComponentSingleView extends FrameLayout implements p27 {
             if (this.i.size() == 1) {
                 this.g.setVisibility(0);
                 this.h.setVisibility(8);
-                this.g.K(this.i.get(0), 12, false);
+                this.g.M(this.i.get(0), 12, false);
             } else {
                 this.h.setVisibility(0);
                 this.g.setVisibility(8);
@@ -403,33 +415,33 @@ public class HeaderComponentSingleView extends FrameLayout implements p27 {
         }
         a();
         setOnClickListener(new b(this));
-        o27 o27Var2 = this.j;
-        if (o27Var2 != null) {
-            o27Var2.a(1, this.k);
+        t37 t37Var2 = this.j;
+        if (t37Var2 != null) {
+            t37Var2.a(1, this.k);
         }
     }
 
-    public final void i() {
+    public final void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d032e, this);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0338, this);
             this.a = inflate;
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090726);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090745);
             this.e = tbImageView;
             tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
             this.e.setDrawCorner(true);
             this.e.setRadiusById(R.string.J_X06);
             this.e.setPlaceHolder(2);
             this.e.setConrers(15);
-            this.f = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f090730);
-            this.d = (ViewFlipper) this.a.findViewById(R.id.obfuscated_res_0x7f090728);
-            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090727);
-            GifView gifView = (GifView) this.a.findViewById(R.id.obfuscated_res_0x7f09072b);
+            this.f = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f09074f);
+            this.d = (ViewFlipper) this.a.findViewById(R.id.obfuscated_res_0x7f090747);
+            this.b = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f090746);
+            GifView gifView = (GifView) this.a.findViewById(R.id.obfuscated_res_0x7f09074a);
             this.c = gifView;
             gifView.setScaleType(ImageView.ScaleType.FIT_XY);
             this.c.setShowStaticDrawable(false);
             this.c.setDrawerType(1);
-            HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09072e);
+            HeadImageView headImageView = (HeadImageView) this.a.findViewById(R.id.obfuscated_res_0x7f09074d);
             this.g = headImageView;
             headImageView.setPlaceHolder(1);
             this.g.setIsRound(true);
@@ -437,7 +449,7 @@ public class HeaderComponentSingleView extends FrameLayout implements p27 {
             this.g.setBorderColor(R.color.CAM_X0402);
             this.g.setDrawBorder(true);
             this.g.setScaleType(ImageView.ScaleType.FIT_XY);
-            TbImageAutoSwitch tbImageAutoSwitch = (TbImageAutoSwitch) this.a.findViewById(R.id.obfuscated_res_0x7f09072a);
+            TbImageAutoSwitch tbImageAutoSwitch = (TbImageAutoSwitch) this.a.findViewById(R.id.obfuscated_res_0x7f090749);
             this.h = tbImageAutoSwitch;
             int i = n;
             tbImageAutoSwitch.l(4, i, i, o);

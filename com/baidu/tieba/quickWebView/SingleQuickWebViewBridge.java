@@ -5,10 +5,10 @@ import android.webkit.JsPromptResult;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tieba.cp;
-import com.baidu.tieba.n69;
+import com.baidu.tieba.c09;
+import com.baidu.tieba.fo;
 import com.baidu.tieba.quickWebView.data.QuickWebViewBridgeData;
-import com.baidu.tieba.zu8;
+import com.baidu.tieba.tc9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,22 +17,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Iterator;
 import org.json.JSONObject;
-@cp
-/* loaded from: classes5.dex */
+@fo
+/* loaded from: classes6.dex */
 public class SingleQuickWebViewBridge extends CommonTbJsBridge {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String REQUEST_BY_NATIVE;
-    public zu8 mProxy;
+    public c09 mProxy;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SingleQuickWebViewBridge(Context context, zu8 zu8Var) {
+    public SingleQuickWebViewBridge(Context context, c09 c09Var) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, zu8Var};
+            Object[] objArr = {context, c09Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,10 +44,10 @@ public class SingleQuickWebViewBridge extends CommonTbJsBridge {
             }
         }
         this.REQUEST_BY_NATIVE = "requestByNative";
-        this.mProxy = zu8Var;
+        this.mProxy = c09Var;
     }
 
-    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, com.baidu.tieba.j69
+    @Override // com.baidu.tbadk.browser.CommonTbJsBridge, com.baidu.tieba.pc9
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -71,11 +71,11 @@ public class SingleQuickWebViewBridge extends CommonTbJsBridge {
         return invokeLLLL.booleanValue;
     }
 
-    public n69 requestByNative(String str, String str2, String str3, JSONObject jSONObject) {
+    public tc9 requestByNative(String str, String str2, String str3, JSONObject jSONObject) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, jSONObject)) == null) {
-            n69 n69Var = new n69();
+            tc9 tc9Var = new tc9();
             QuickWebViewBridgeData quickWebViewBridgeData = new QuickWebViewBridgeData();
             quickWebViewBridgeData.url = str;
             quickWebViewBridgeData.type = str2;
@@ -90,28 +90,28 @@ public class SingleQuickWebViewBridge extends CommonTbJsBridge {
                 quickWebViewBridgeData.data = hashMap;
             }
             quickWebViewBridgeData.begin = System.currentTimeMillis();
-            zu8 zu8Var = this.mProxy;
-            if (zu8Var != null) {
-                zu8Var.k(quickWebViewBridgeData, quickWebViewBridgeData.callBack, true);
+            c09 c09Var = this.mProxy;
+            if (c09Var != null) {
+                c09Var.k(quickWebViewBridgeData, quickWebViewBridgeData.callBack, true);
             }
-            n69Var.w(str);
-            return n69Var;
+            tc9Var.w(str);
+            return tc9Var;
         }
-        return (n69) invokeLLLL.objValue;
+        return (tc9) invokeLLLL.objValue;
     }
 
-    public n69 requestByNativeToH5(HashMap<String, String> hashMap) {
+    public tc9 requestByNativeToH5(HashMap<String, String> hashMap) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap)) == null) {
-            n69 n69Var = new n69();
+            tc9 tc9Var = new tc9();
             if (hashMap != null && hashMap.get("result") != null) {
-                n69Var.o(hashMap.get("result"));
-                n69Var.w(hashMap.get("NotificationKey"));
+                tc9Var.o(hashMap.get("result"));
+                tc9Var.w(hashMap.get("NotificationKey"));
             }
-            n69Var.z(true);
-            return n69Var;
+            tc9Var.z(true);
+            return tc9Var;
         }
-        return (n69) invokeL.objValue;
+        return (tc9) invokeL.objValue;
     }
 }

@@ -10,7 +10,7 @@ import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.LifecycleObserver;
 import androidx.lifecycle.OnLifecycleEvent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.rq5;
+import com.baidu.tieba.pp5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -377,7 +377,7 @@ public class PriorityOrganizer implements LifecycleObserver {
                 } else {
                     z = false;
                 }
-                rq5.e(z, "任务需先添加到 PriorityOrganizer");
+                pp5.e(z, "任务需先添加到 PriorityOrganizer");
                 return this.b;
             }
             return (PriorityOrganizer) invokeV.objValue;
@@ -391,7 +391,7 @@ public class PriorityOrganizer implements LifecycleObserver {
                 y();
                 PriorityOrganizer priorityOrganizer = this.b;
                 if (priorityOrganizer != null) {
-                    priorityOrganizer.p(this);
+                    priorityOrganizer.o(this);
                 }
             }
         }
@@ -411,7 +411,7 @@ public class PriorityOrganizer implements LifecycleObserver {
             if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
                 z();
                 if (this.d > 0) {
-                    this.i.add(C().t(new b(this), this.d));
+                    this.i.add(C().q(new b(this), this.d));
                 }
             }
         }
@@ -422,7 +422,7 @@ public class PriorityOrganizer implements LifecycleObserver {
                 this.h = Status.FINISHED;
                 q();
                 A();
-                C().p(this);
+                C().o(this);
             }
         }
 
@@ -431,7 +431,7 @@ public class PriorityOrganizer implements LifecycleObserver {
             if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
                 this.h = Status.EXECUTING;
                 if (this.e > 0) {
-                    this.i.add(C().t(new a(this), this.e));
+                    this.i.add(C().q(new a(this), this.e));
                 } else {
                     r();
                 }
@@ -583,7 +583,7 @@ public class PriorityOrganizer implements LifecycleObserver {
         this.f = i;
     }
 
-    public void w(@NonNull Task task) {
+    public void u(@NonNull Task task) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, task) == null) {
             if (task.g > 0) {
@@ -597,7 +597,7 @@ public class PriorityOrganizer implements LifecycleObserver {
                         this.c.put(task.f, list);
                     }
                 }
-                task.i.add(t(new b(this, task), task.g));
+                task.i.add(q(new b(this, task), task.g));
                 return;
             }
             j(task, true);
@@ -626,7 +626,7 @@ public class PriorityOrganizer implements LifecycleObserver {
         return (Task) invokeL.objValue;
     }
 
-    public final void p(@NonNull Task task) {
+    public final void o(@NonNull Task task) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, task) == null) {
             this.b.remove(task);
@@ -650,7 +650,7 @@ public class PriorityOrganizer implements LifecycleObserver {
     }
 
     @NonNull
-    public final TimerTask t(@NonNull Runnable runnable, long j) {
+    public final TimerTask q(@NonNull Runnable runnable, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048582, this, runnable, j)) == null) {
@@ -662,7 +662,7 @@ public class PriorityOrganizer implements LifecycleObserver {
     }
 
     @NonNull
-    public static PriorityOrganizer i() {
+    public static PriorityOrganizer h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {

@@ -2,52 +2,87 @@ package com.baidu.tieba;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public final class ii0 implements yn0 {
+public class ii0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final List<om0> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ii0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes4.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                for (om0 om0Var : ii0.a) {
+                    om0Var.b();
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.yn0
-    public void a(@NonNull Application application) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, application) == null) {
-            gi0.a().b(hi0.e());
-            application.registerActivityLifecycleCallbacks(gi0.a());
-            hi0.e().b(new ci0());
-            hi0.e().h(new di0());
-            do0.c(hi0.e());
+    static {
+        InterceptResult invokeClinit;
+        List<om0> list;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947854329, "Lcom/baidu/tieba/ii0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947854329, "Lcom/baidu/tieba/ii0;");
+                return;
+            }
+        }
+        a = new ArrayList();
+        dj1<om0> dj1Var = new qm0().a;
+        if (dj1Var != null && (list = dj1Var.getList()) != null) {
+            a.addAll(list);
         }
     }
 
-    @Override // com.baidu.tieba.yn0
-    public void b() {
+    public static void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !u51.b()) {
-            return;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            l21.c(new a(), "nad_core_init_on_create", 0);
         }
-        hi0.e().b(new ei0());
-        ln0.b().request().a(false);
-        bo0.a().request();
+    }
+
+    public static void b(@NonNull Application application) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, application) == null) {
+            hi0.a = application;
+            oq0.a(application);
+            for (om0 om0Var : a) {
+                om0Var.a(application);
+            }
+        }
     }
 }

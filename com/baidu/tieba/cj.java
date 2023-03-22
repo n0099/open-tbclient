@@ -1,15 +1,19 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public abstract class cj {
+public abstract class cj implements fk {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public volatile byte[] a;
+    public volatile boolean b;
 
-    public abstract void a(boolean z);
+    public abstract byte[] d();
 
     public cj() {
         Interceptable interceptable = $ic;
@@ -21,7 +25,25 @@ public abstract class cj {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = null;
+        this.b = false;
+    }
+
+    public byte[] e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this) {
+                if (!this.b) {
+                    this.b = true;
+                    this.a = d();
+                }
+            }
+            return this.a;
+        }
+        return (byte[]) invokeV.objValue;
     }
 }

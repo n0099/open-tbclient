@@ -1,24 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.newfaceshop.facemake.FaceGroupDraft;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetVipInfo.VipBasicList;
+import tbclient.GetVipInfo.VipSpecialItem;
 /* loaded from: classes6.dex */
-public class v98 {
+public class v98 implements gn {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
+    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
+    public w98 a;
+    public List<VipSpecialItem> b;
+    public int c;
+    public String d;
 
     static {
         InterceptResult invokeClinit;
@@ -33,139 +36,57 @@ public class v98 {
                 return;
             }
         }
-        a = n98.c + "draft/";
-        b = a + "upload_draft";
+        e = BdUniqueId.gen();
     }
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            File file = new File(b);
-            if (file.exists()) {
-                file.delete();
-            }
-        }
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x0010 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r2v1 */
-    /* JADX WARN: Type inference failed for: r2v2, types: [java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r2v6, types: [com.baidu.tieba.newfaceshop.facemake.FaceGroupDraft] */
-    public static FaceGroupDraft b() {
+    public List<VipSpecialItem> a() {
         InterceptResult invokeV;
-        FaceGroupDraft faceGroupDraft;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            File file = new File(b);
-            ?? r2 = 0;
-            r2 = null;
-            r2 = null;
-            r2 = null;
-            r2 = null;
-            FaceGroupDraft faceGroupDraft2 = null;
-            r2 = null;
-            r2 = null;
-            ObjectInputStream objectInputStream = null;
-            try {
-                if (!file.exists()) {
-                    return null;
-                }
-                try {
-                    ObjectInputStream objectInputStream2 = new ObjectInputStream(new FileInputStream(file));
-                    try {
-                        Object readObject = objectInputStream2.readObject();
-                        if (readObject != null && (readObject instanceof FaceGroupDraft)) {
-                            faceGroupDraft2 = (FaceGroupDraft) readObject;
-                        }
-                        objectInputStream2.close();
-                        ch.c(objectInputStream2);
-                        return faceGroupDraft2;
-                    } catch (IOException e) {
-                        e = e;
-                        FaceGroupDraft faceGroupDraft3 = faceGroupDraft2;
-                        objectInputStream = objectInputStream2;
-                        faceGroupDraft = faceGroupDraft3;
-                        e.printStackTrace();
-                        ch.c(objectInputStream);
-                        r2 = faceGroupDraft;
-                        return r2;
-                    } catch (ClassNotFoundException e2) {
-                        e = e2;
-                        FaceGroupDraft faceGroupDraft4 = faceGroupDraft2;
-                        objectInputStream = objectInputStream2;
-                        faceGroupDraft = faceGroupDraft4;
-                        e.printStackTrace();
-                        ch.c(objectInputStream);
-                        r2 = faceGroupDraft;
-                        return r2;
-                    } catch (Throwable th) {
-                        th = th;
-                        FaceGroupDraft faceGroupDraft5 = faceGroupDraft2;
-                        objectInputStream = objectInputStream2;
-                        faceGroupDraft = faceGroupDraft5;
-                        th.printStackTrace();
-                        ch.c(objectInputStream);
-                        r2 = faceGroupDraft;
-                        return r2;
-                    }
-                } catch (IOException e3) {
-                    e = e3;
-                    faceGroupDraft = null;
-                } catch (ClassNotFoundException e4) {
-                    e = e4;
-                    faceGroupDraft = null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    faceGroupDraft = null;
-                }
-            } catch (Throwable th3) {
-                ch.c(r2);
-                throw th3;
-            }
-        } else {
-            return (FaceGroupDraft) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
+        return (List) invokeV.objValue;
     }
 
-    public static void c(FaceGroupDraft faceGroupDraft) {
-        ObjectOutputStream objectOutputStream;
+    @Override // com.baidu.tieba.gn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, faceGroupDraft) == null) {
-            ObjectOutputStream objectOutputStream2 = null;
-            try {
-                try {
-                    File file = new File(a);
-                    if (!file.exists()) {
-                        file.mkdirs();
-                    }
-                    a();
-                    objectOutputStream = new ObjectOutputStream(new FileOutputStream(b));
-                } finally {
-                    ch.d(objectOutputStream2);
-                }
-            } catch (FileNotFoundException e) {
-                e = e;
-            } catch (IOException e2) {
-                e = e2;
-            } catch (Throwable th) {
-                th = th;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return e;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public v98(VipBasicList vipBasicList) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vipBasicList};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            try {
-                objectOutputStream.writeObject(faceGroupDraft);
-                ch.d(objectOutputStream);
-            } catch (FileNotFoundException e3) {
-                e = e3;
-                objectOutputStream2 = objectOutputStream;
-                e.printStackTrace();
-            } catch (IOException e4) {
-                e = e4;
-                objectOutputStream2 = objectOutputStream;
-                e.printStackTrace();
-            } catch (Throwable th2) {
-                th = th2;
-                objectOutputStream2 = objectOutputStream;
-                th.printStackTrace();
+        }
+        this.c = 0;
+        this.d = "";
+        if (vipBasicList != null && vipBasicList.item.size() > 0) {
+            this.d = vipBasicList.card_id;
+            this.c = vipBasicList.card_type.intValue();
+            w98 w98Var = new w98();
+            this.a = w98Var;
+            w98Var.e(5);
+            this.a.d(vipBasicList.class_name);
+            this.a.f(vipBasicList.class_url_name);
+            this.a.g(vipBasicList.class_url);
+            this.b = new ArrayList();
+            for (VipSpecialItem vipSpecialItem : vipBasicList.item) {
+                this.b.add(vipSpecialItem);
             }
         }
     }

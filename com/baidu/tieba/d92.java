@@ -1,18 +1,18 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class d92 implements c92 {
+public class d92 extends u82<JSONObject, tz1> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<c92> a;
 
     public d92() {
         Interceptable interceptable = $ic;
@@ -24,56 +24,40 @@ public class d92 implements c92 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new CopyOnWriteArrayList();
-    }
-
-    @Override // com.baidu.tieba.c92
-    public void a() {
-        List<c92> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (list = this.a) != null && list.size() > 0) {
-            for (c92 c92Var : this.a) {
-                c92Var.a();
             }
         }
     }
 
-    @Override // com.baidu.tieba.c92
-    public void b() {
-        List<c92> list;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.y82
+    @NonNull
+    /* renamed from: c */
+    public tz1 a(@NonNull JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (list = this.a) != null && list.size() > 0) {
-            for (c92 c92Var : this.a) {
-                c92Var.b();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
+            if (b()) {
+                if (u82.a) {
+                    t42.b("Api-HandleException", "has triggered fmp before remove skeleton");
+                }
+                return new tz1(0);
+            } else if (jSONObject == null) {
+                return new tz1(202);
+            } else {
+                JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                if (optJSONObject == null) {
+                    return new tz1(202, "data is required");
+                }
+                String optString = optJSONObject.optString("path");
+                if (TextUtils.isEmpty(optString)) {
+                    return new tz1(202, "path is required");
+                }
+                s82 s82Var = new s82();
+                s82Var.g(optString);
+                s82Var.e();
+                return new tz1(0);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.c92
-    public void c() {
-        List<c92> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (list = this.a) != null && list.size() > 0) {
-            for (c92 c92Var : this.a) {
-                c92Var.c();
-            }
-        }
-    }
-
-    public void d(@NonNull c92 c92Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, c92Var) == null) {
-            this.a.add(c92Var);
-        }
-    }
-
-    public void e(@NonNull c92 c92Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, c92Var) == null) {
-            this.a.remove(c92Var);
-        }
+        return (tz1) invokeL.objValue;
     }
 }

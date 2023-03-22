@@ -1,178 +1,294 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.SparseArray;
-import androidx.core.view.InputDeviceCompat;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
+import android.os.CountDownTimer;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.DeleteThreadInfo;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.pb.pb.main.PbModel;
-import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.pb.ejection.value.Direction;
+import com.baidu.tieba.pb.ejection.value.LifeCycleState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class hj8 {
+public class hj8 extends gj8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean A;
+    public final PorterDuffColorFilter B;
+    public Bitmap z;
 
     /* loaded from: classes4.dex */
-    public static class a implements qt5 {
+    public class a extends CountDownTimer {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PbModel a;
-        public final /* synthetic */ lh8 b;
+        public final /* synthetic */ hj8 a;
 
-        public a(PbModel pbModel, lh8 lh8Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(hj8 hj8Var, long j, long j2) {
+            super(j, j2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pbModel, lh8Var};
+                Object[] objArr = {hj8Var, Long.valueOf(j), Long.valueOf(j2)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Long) objArr2[0]).longValue(), ((Long) objArr2[1]).longValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = pbModel;
-            this.b = lh8Var;
+            this.a = hj8Var;
         }
 
-        @Override // com.baidu.tieba.qt5
-        public void a() {
+        @Override // android.os.CountDownTimer
+        public void onFinish() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.z4(false);
+                hj8 hj8Var = this.a;
+                hj8Var.v = LifeCycleState.DEAD;
+                hj8Var.w.cancel();
             }
         }
 
-        @Override // com.baidu.tieba.qt5
-        public void b(List<String> list) {
+        @Override // android.os.CountDownTimer
+        public void onTick(long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || this.a.s1() == null) {
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+                if (j <= 2000) {
+                    hj8 hj8Var = this.a;
+                    hj8Var.g = (int) (hj8Var.g - hj8Var.h);
+                }
+                hj8 hj8Var2 = this.a;
+                int i = hj8Var2.t + 10;
+                hj8Var2.t = i;
+                if (i > 360) {
+                    hj8Var2.t = 0;
+                }
+            }
+        }
+    }
+
+    public hj8(Bitmap bitmap, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bitmap, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i5 = newInitContext.flag;
+            if ((i5 & 1) != 0) {
+                int i6 = i5 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            ArrayList<PostData> H = this.a.s1().H();
-            if (!ListUtils.isEmpty(H) && !ListUtils.isEmpty(list)) {
-                Iterator<PostData> it = H.iterator();
-                while (it.hasNext()) {
-                    PostData next = it.next();
-                    int i = 0;
-                    while (true) {
-                        if (i >= list.size()) {
-                            break;
-                        } else if (TextUtils.equals(list.get(i), next.O())) {
-                            it.remove();
-                            if (this.a.s1().Q() != null) {
-                                this.a.s1().Q().setReply_num(this.a.s1().Q().getReply_num() - 1);
-                            }
-                        } else {
-                            i++;
-                        }
-                    }
+        }
+        this.A = false;
+        this.z = bitmap;
+        this.b = i;
+        this.c = i2;
+        this.d = i;
+        this.e = i2;
+        int nextInt = this.x.nextInt(91) + 45;
+        this.a = nextInt;
+        if (nextInt < 90) {
+            this.o = Direction.RIGHT;
+        } else {
+            this.o = Direction.LEFT;
+            this.a = 180 - nextInt;
+        }
+        int sqrt = (int) (Math.sqrt(Math.pow(bitmap.getWidth(), 2.0d) + Math.pow(bitmap.getHeight(), 2.0d)) / 2.0d);
+        this.f = sqrt;
+        this.p = sqrt;
+        this.q = i3 - sqrt;
+        this.r = sqrt;
+        this.s = i4 - sqrt;
+        this.B = new PorterDuffColorFilter(SkinManager.getColor(R.color.CAM_X0501), PorterDuff.Mode.SRC_ATOP);
+        a aVar = new a(this, 3000L, 10L);
+        this.w = aVar;
+        aVar.start();
+    }
+
+    @Override // com.baidu.tieba.gj8
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (!this.A) {
+                this.A = true;
+                return;
+            }
+            int i = this.l + 1;
+            this.l = i;
+            this.i = (int) ((this.k * i) + ((this.m * Math.pow(i, 2.0d)) / 2.0d));
+            double radians = Math.toRadians(this.a);
+            if (this.n == Direction.TOP) {
+                if (this.o == Direction.RIGHT) {
+                    f(radians);
+                } else {
+                    d(radians);
                 }
-                this.b.N1(this.a.s1());
+            } else if (this.o == Direction.RIGHT) {
+                e(radians);
+            } else {
+                c(radians);
             }
         }
     }
 
-    public static void a() {
+    @Override // com.baidu.tieba.gj8
+    public void b(Canvas canvas) {
+        Bitmap bitmap;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            pt5.b().a();
-        }
-    }
-
-    public static st5 b(PbModel pbModel, lh8 lh8Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, pbModel, lh8Var)) == null) {
-            if (pbModel != null && lh8Var != null) {
-                st5 st5Var = new st5();
-                if (pbModel.s1() != null && pbModel.s1().l() != null) {
-                    if (pbModel.s1().l().getDeletedReasonInfo() != null) {
-                        st5Var.p(pbModel.s1().l().getDeletedReasonInfo().is_grays_cale_forum.intValue());
-                        st5Var.o(pbModel.s1().l().getDeletedReasonInfo().is_boomgrow.intValue());
-                    }
-                    st5Var.l(pbModel.s1().l().getId());
-                    st5Var.m(pbModel.s1().l().getName());
-                    st5Var.k(pbModel.s1().l().getImage_url());
-                    st5Var.t(pbModel.s1().l().getUser_level());
-                }
-                if (pbModel.s1() != null && pbModel.s1().o() != null) {
-                    st5Var.n(pbModel.s1().o().has_forum_rule.intValue());
-                }
-                if (pbModel.s1() != null && pbModel.s1().X() != null) {
-                    st5Var.s(pbModel.s1().X());
-                }
-                st5Var.q(new a(pbModel, lh8Var));
-                if (pbModel.s1() != null) {
-                    AntiData d = pbModel.s1().d();
-                    SparseArray<String> sparseArray = new SparseArray<>();
-                    if (d != null && d.getDelThreadInfoList() != null) {
-                        List<DeleteThreadInfo> delThreadInfoList = d.getDelThreadInfoList();
-                        for (int i = 0; i < delThreadInfoList.size(); i++) {
-                            if (delThreadInfoList.get(i) != null && !TextUtils.isEmpty(delThreadInfoList.get(i).text_info)) {
-                                sparseArray.put(delThreadInfoList.get(i).text_id, delThreadInfoList.get(i).text_info);
-                            }
-                        }
-                    }
-                    st5Var.r(sparseArray);
-                }
-                return st5Var;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) && (bitmap = this.z) != null && !bitmap.isRecycled()) {
+            if (this.g < 0) {
+                this.g = 0;
             }
-            return null;
-        }
-        return (st5) invokeLL.objValue;
-    }
-
-    public static boolean c(hd8 hd8Var, PostData postData) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, hd8Var, postData)) == null) {
-            if (hd8Var != null && postData != null) {
-                ut5 ut5Var = new ut5();
-                ut5Var.d(postData.K() + "");
-                if (hd8Var.Q() != null) {
-                    ut5Var.f(hd8Var.Q().getId());
-                }
-                ut5Var.e(postData.O());
-                return pt5.b().c(ut5Var);
+            this.u.setAlpha(this.g);
+            if (this.y == 4) {
+                this.u.setColorFilter(this.B);
             }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static void d(TbPageContext<BaseFragmentActivity> tbPageContext, PbModel pbModel, lh8 lh8Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65539, null, tbPageContext, pbModel, lh8Var) == null) && tbPageContext != null && pbModel != null && lh8Var != null) {
-            pt5.b().e(tbPageContext, lh8Var.t1(), b(pbModel, lh8Var));
-            pt5.b().d(1);
+            canvas.save();
+            canvas.rotate(this.t, this.d, this.e);
+            Bitmap bitmap2 = this.z;
+            canvas.drawBitmap(bitmap2, this.d - (bitmap2.getWidth() / 2.0f), this.e - (this.z.getHeight() / 2.0f), this.u);
+            canvas.restore();
         }
     }
 
-    public static boolean e(PostData postData) {
-        InterceptResult invokeL;
+    public final void c(double d) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, postData)) == null) {
-            if (postData == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.d = this.b - ((int) ((this.i - this.j) * Math.cos(d)));
+            this.e = this.c + ((int) ((this.i - this.j) * Math.sin(d)));
+            int i = this.d;
+            int i2 = this.p;
+            if (i <= i2) {
+                int tan = this.c + ((int) ((this.b - i2) * Math.tan(d)));
+                this.e = tan;
+                this.o = Direction.RIGHT;
+                int i3 = this.p;
+                this.b = i3;
+                this.c = tan;
+                this.d = i3;
+                this.j = this.i;
             }
-            return pt5.b().f(postData.O());
+            int i4 = this.e;
+            int i5 = this.s;
+            if (i4 >= i5) {
+                int tan2 = this.b - ((int) ((i5 - this.c) / Math.tan(d)));
+                this.d = tan2;
+                this.n = Direction.TOP;
+                int i6 = this.s;
+                this.c = i6;
+                this.b = tan2;
+                this.e = i6;
+                this.j = this.i;
+            }
         }
-        return invokeL.booleanValue;
+    }
+
+    public final void d(double d) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.d = this.b - ((int) ((this.i - this.j) * Math.cos(d)));
+            this.e = this.c - ((int) ((this.i - this.j) * Math.sin(d)));
+            int i = this.d;
+            int i2 = this.p;
+            if (i <= i2) {
+                int tan = this.c - ((int) ((this.b - i2) * Math.tan(d)));
+                this.e = tan;
+                this.o = Direction.RIGHT;
+                int i3 = this.p;
+                this.b = i3;
+                this.c = tan;
+                this.d = i3;
+                this.j = this.i;
+            }
+            int i4 = this.e;
+            int i5 = this.r;
+            if (i4 <= i5) {
+                int tan2 = this.b - ((int) ((this.c - i5) / Math.tan(d)));
+                this.d = tan2;
+                this.n = Direction.BOTTOM;
+                int i6 = this.r;
+                this.c = i6;
+                this.b = tan2;
+                this.e = i6;
+                this.j = this.i;
+            }
+        }
+    }
+
+    public final void e(double d) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.d = ((int) ((this.i - this.j) * Math.cos(d))) + this.b;
+            this.e = this.c + ((int) ((this.i - this.j) * Math.sin(d)));
+            int i = this.d;
+            int i2 = this.q;
+            if (i >= i2) {
+                int tan = this.c + ((int) ((i2 - this.b) * Math.tan(d)));
+                this.e = tan;
+                this.o = Direction.LEFT;
+                int i3 = this.q;
+                this.b = i3;
+                this.c = tan;
+                this.d = i3;
+                this.j = this.i;
+            }
+            int i4 = this.e;
+            int i5 = this.s;
+            if (i4 >= i5) {
+                int tan2 = this.b + ((int) ((i5 - this.c) / Math.tan(d)));
+                this.d = tan2;
+                this.n = Direction.TOP;
+                int i6 = this.s;
+                this.c = i6;
+                this.b = tan2;
+                this.e = i6;
+                this.j = this.i;
+            }
+        }
+    }
+
+    public final void f(double d) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Double.valueOf(d)}) == null) {
+            this.d = ((int) ((this.i - this.j) * Math.cos(d))) + this.b;
+            this.e = this.c - ((int) ((this.i - this.j) * Math.sin(d)));
+            int i = this.d;
+            int i2 = this.q;
+            if (i >= i2) {
+                int tan = this.c - ((int) ((i2 - this.b) * Math.tan(d)));
+                this.e = tan;
+                this.j = this.i;
+                this.o = Direction.LEFT;
+                int i3 = this.q;
+                this.b = i3;
+                this.c = tan;
+                this.d = i3;
+            }
+            int i4 = this.e;
+            int i5 = this.r;
+            if (i4 <= i5) {
+                int tan2 = this.b + ((int) ((this.c - i5) / Math.tan(d)));
+                this.d = tan2;
+                this.n = Direction.BOTTOM;
+                this.b = tan2;
+                int i6 = this.r;
+                this.c = i6;
+                this.e = i6;
+                this.j = this.i;
+            }
+        }
     }
 }

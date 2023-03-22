@@ -1,16 +1,17 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.WeakHashMap;
 /* loaded from: classes5.dex */
-public class ox5 {
+public final class ox5<K, V> {
     public static /* synthetic */ Interceptable $ic;
-    public static ox5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public pn0 a;
+    public final WeakHashMap<K, V> a;
 
     public ox5() {
         Interceptable interceptable = $ic;
@@ -25,31 +26,38 @@ public class ox5 {
                 return;
             }
         }
-        this.a = ln0.b().a();
+        this.a = new WeakHashMap<>();
     }
 
-    public static ox5 a() {
-        InterceptResult invokeV;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (ox5.class) {
-                    if (b == null) {
-                        b = new ox5();
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.clear();
         }
-        return (ox5) invokeV.objValue;
     }
 
-    public int b(String str, int i) {
-        InterceptResult invokeLI;
+    public final boolean b(K k) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            return this.a.a(str, i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k)) == null) {
+            return this.a.containsKey(k);
         }
-        return invokeLI.intValue;
+        return invokeL.booleanValue;
+    }
+
+    public final V c(K k) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k)) == null) {
+            return this.a.get(k);
+        }
+        return (V) invokeL.objValue;
+    }
+
+    public final void d(K k, V v) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, k, v) == null) {
+            this.a.put(k, v);
+        }
     }
 }

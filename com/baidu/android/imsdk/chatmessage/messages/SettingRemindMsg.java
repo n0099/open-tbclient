@@ -160,7 +160,7 @@ public class SettingRemindMsg extends NormalMsg {
                     this.mPage = jSONObject.optString("page");
                     return true;
                 } catch (JSONException e) {
-                    LogUtils.e("TextMsg", "parse json err!", e);
+                    LogUtils.e(TextMsg.TAG, "parse json err!", e);
                 }
             }
             return false;

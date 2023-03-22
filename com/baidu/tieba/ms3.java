@@ -1,209 +1,263 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.bdtls.AES;
-import com.baidu.swan.bdtls.impl.model.Bdtls$Alert;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Method;
 /* loaded from: classes5.dex */
 public class ms3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ms3 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Object a;
+    public Method b;
+    public Method c;
+    public Method d;
+    public Method e;
+    public Method f;
+    public Method g;
+    public Method h;
+    public boolean i;
 
-    public static byte[] g(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) ? new byte[]{(byte) ((i >> 24) & 255), (byte) ((i >> 16) & 255), (byte) ((i >> 8) & 255), (byte) (i & 255)} : (byte[]) invokeI.objValue;
-    }
-
-    public ms3() {
+    public ms3(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = obj;
     }
 
-    public static ms3 f() {
+    @SuppressLint({"WrongConstant"})
+    public static ms3 a(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            Object obj = null;
+            try {
+                obj = context.getSystemService("mtk-perfservice");
+                if (obj != null) {
+                    vb4.c(obj.getClass());
+                }
+            } catch (Throwable unused) {
+            }
+            return new ms3(obj);
+        }
+        return (ms3) invokeL.objValue;
+    }
+
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (a == null) {
-                synchronized (ms3.class) {
-                    if (a == null) {
-                        a = new ms3();
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!c()) {
+                return false;
+            }
+            if (this.i) {
+                if (this.b == null) {
+                    return false;
                 }
-            }
-            return a;
-        }
-        return (ms3) invokeV.objValue;
-    }
-
-    public static int a(byte[] bArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            if (bArr == null) {
-                return 0;
-            }
-            int i = 0;
-            for (byte b : bArr) {
-                i = (i << 8) | (b & 255);
-            }
-            return i;
-        }
-        return invokeL.intValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: char */
-    /* JADX WARN: Multi-variable type inference failed */
-    public static String d(byte[] bArr) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (int i2 = 0; i2 < bArr.length; i2++) {
-                if (bArr[i2] > 0) {
-                    i = bArr[i2];
-                } else {
-                    i = bArr[i2] & 255;
-                }
-                sb.append(i);
-                sb.append(",");
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public byte[] b(xs3 xs3Var, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, xs3Var, str)) == null) {
-            if (xs3Var == null) {
-                return null;
+                return true;
             }
             try {
-                vs3 a2 = vs3.j.a();
-                a2.r((byte) 23);
-                byte[] i = xs3Var.i();
-                if (i != null && i.length > 0 && i.length <= 32767) {
-                    a2.q((short) i.length);
-                    a2.o(i);
-                }
-                if (!TextUtils.isEmpty(str)) {
-                    byte[] aesEncrypt = AES.aesEncrypt(str, xs3Var.c());
-                    a2.k(aesEncrypt.length);
-                    a2.j(aesEncrypt);
-                }
-                a2.l(bm4.e().d().longValue());
-                return zs3.b(a2);
-            } catch (Exception e) {
-                if (!is3.a) {
-                    return null;
-                }
-                e.printStackTrace();
-                Log.d("BDTLS", "exception=" + e.getMessage());
-                return null;
-            }
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public ws3 c(xs3 xs3Var, byte[] bArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xs3Var, bArr)) == null) {
-            ws3 ws3Var = new ws3();
-            try {
-                vs3 a2 = zs3.a(bArr);
-                byte i = a2.i();
-                if (i != 21) {
-                    if (i == 23) {
-                        ws3Var.c(new String(AES.aesDecrypt(a2.a(), xs3Var.c())));
-                        ws3Var.d(1);
-                    }
-                } else {
-                    Bdtls$Alert parseFrom = Bdtls$Alert.parseFrom(a2.f());
-                    if (parseFrom != null) {
-                        String str = new String(parseFrom.getDescription().toByteArray());
-                        if (is3.a) {
-                            Log.d("BDTLS", "bdtls ubc application alert : " + str);
-                        }
-                        ns3.b(xs3Var, parseFrom);
-                        if (1 == parseFrom.getLevel()) {
-                            ws3Var.d(-2);
-                        } else if (TextUtils.equals(str, "down grade")) {
-                            ws3Var.d(2);
-                        } else {
-                            ws3Var.d(-1);
-                        }
-                        if (is3.a) {
-                            if (parseFrom.getDescription() != null) {
-                                if (is3.a) {
-                                    Log.d("BDTLS", "BdtlsPostRequest response alert message=" + str);
-                                }
-                            } else if (is3.a) {
-                                Log.d("BDTLS", "BdtlsPostRequest response alert messag=null");
-                            }
-                        }
-                    } else {
-                        ws3Var.d(-1);
+                this.i = true;
+                if (this.b == null) {
+                    Method i = xb4.i(this.a.getClass(), "userRegBigLittle", Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE);
+                    this.b = i;
+                    if (i != null) {
+                        i.setAccessible(true);
                     }
                 }
-            } catch (Exception e) {
-                if (is3.a) {
-                    e.printStackTrace();
-                    Log.d("BDTLS", "exception=" + e.getMessage());
-                }
-                ws3Var.d(-1);
+            } catch (Throwable unused) {
             }
-            return ws3Var;
+            if (this.b == null) {
+                return false;
+            }
+            return true;
         }
-        return (ws3) invokeLL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public byte[] e(xs3 xs3Var) {
-        InterceptResult invokeL;
+    public int g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xs3Var)) == null) {
-            if (xs3Var == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (!c()) {
+                return -1;
             }
             try {
-                byte[] b = ys3.b(xs3Var, new us3());
-                if (b == null) {
-                    return null;
+                if (this.c == null) {
+                    Method i = xb4.i(this.a.getClass(), "userRegScn", new Class[0]);
+                    this.c = i;
+                    if (i != null) {
+                        i.setAccessible(true);
+                    }
                 }
-                vs3 a2 = vs3.j.a();
-                a2.r((byte) 22);
-                a2.q((short) b.length);
-                a2.l(bm4.e().d().longValue());
-                a2.o(b);
-                return zs3.b(a2);
-            } catch (Exception e) {
-                if (is3.a) {
-                    e.printStackTrace();
-                    Log.d("BDTLS", "exception=" + e.getMessage());
+                Object obj = null;
+                if (this.c != null) {
+                    obj = this.c.invoke(this.a, new Object[0]);
                 }
-                return null;
+                if (obj != null) {
+                    return ((Integer) obj).intValue();
+                }
+            } catch (Throwable unused) {
+            }
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) || !c()) {
+            return;
+        }
+        try {
+            if (this.f == null) {
+                Method i2 = xb4.i(this.a.getClass(), "userDisable", Integer.TYPE);
+                this.f = i2;
+                if (i2 != null) {
+                    i2.setAccessible(true);
+                }
+            }
+            if (this.f != null) {
+                this.f.invoke(this.a, Integer.valueOf(i));
+            }
+        } catch (Throwable unused) {
+        }
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048583, this, i) != null) || !c()) {
+            return;
+        }
+        try {
+            if (this.g == null) {
+                Method i2 = xb4.i(this.a.getClass(), "userUnreg", Integer.TYPE);
+                this.g = i2;
+                if (i2 != null) {
+                    i2.setAccessible(true);
+                }
+            }
+            if (this.g != null) {
+                this.g.invoke(this.a, Integer.valueOf(i));
+            }
+        } catch (Throwable unused) {
+        }
+    }
+
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) != null) || !c()) {
+            return;
+        }
+        try {
+            if (this.h == null) {
+                Method i2 = xb4.i(this.a.getClass(), "userUnregScn", Integer.TYPE);
+                this.h = i2;
+                if (i2 != null) {
+                    i2.setAccessible(true);
+                }
+            }
+            if (this.h != null) {
+                this.h.invoke(this.a, Integer.valueOf(i));
+            }
+        } catch (Throwable unused) {
+        }
+    }
+
+    public void e(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeII(1048579, this, i, i2) != null) || !c()) {
+            return;
+        }
+        try {
+            if (this.e == null) {
+                Method i3 = xb4.i(this.a.getClass(), "userEnableTimeoutMs", Integer.TYPE, Integer.TYPE);
+                this.e = i3;
+                if (i3 != null) {
+                    i3.setAccessible(true);
+                }
+            }
+            if (this.e != null) {
+                this.e.invoke(this.a, Integer.valueOf(i), Integer.valueOf(i2));
+            }
+        } catch (Throwable unused) {
+        }
+    }
+
+    public int f(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
+        Object invoke;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048580, this, i, i2, i3, i4)) == null) {
+            if (!c()) {
+                return -1;
+            }
+            try {
+                if (this.b == null) {
+                    Method i5 = xb4.i(this.a.getClass(), "userRegBigLittle", Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE);
+                    this.b = i5;
+                    if (i5 != null) {
+                        i5.setAccessible(true);
+                    }
+                }
+                if (this.b == null || (invoke = this.b.invoke(this.a, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4))) == null) {
+                    return -1;
+                }
+                return ((Integer) invoke).intValue();
+            } catch (Throwable unused) {
+                return -1;
             }
         }
-        return (byte[]) invokeL.objValue;
+        return invokeIIII.intValue;
+    }
+
+    public void h(int i, int i2, int i3, int i4, int i5, int i6) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) != null) || !c()) {
+            return;
+        }
+        try {
+            if (this.d == null) {
+                Method i7 = xb4.i(this.a.getClass(), "userRegScnConfig", Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE);
+                this.d = i7;
+                if (i7 != null) {
+                    i7.setAccessible(true);
+                }
+            }
+            if (this.d != null) {
+                this.d.invoke(this.a, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6));
+            }
+        } catch (Throwable unused) {
+        }
     }
 }

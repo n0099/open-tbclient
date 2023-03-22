@@ -1,16 +1,69 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.data.GodUserData;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.module.frs.Frs$From;
+import com.baidu.tieba.frs.voiceroom.VoiceRoomListActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class tw6 implements vk7 {
+public final class tw6 extends pj1<ug5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MetaData a;
+
+    /* loaded from: classes6.dex */
+    public static final class a implements ug5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.ug5
+        public void a(TbPageContext<?> tbPageContext, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLJ(1048576, this, tbPageContext, j) == null) {
+                Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
+                c(tbPageContext, "bdtiebalive://video/mixlive?room_id=" + j);
+            }
+        }
+
+        public void c(TbPageContext<?> tbPageContext, String scheme) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, scheme) == null) {
+                Intrinsics.checkNotNullParameter(tbPageContext, "tbPageContext");
+                Intrinsics.checkNotNullParameter(scheme, "scheme");
+                UrlManager.getInstance().dealOneLink(tbPageContext, new String[]{scheme});
+            }
+        }
+
+        @Override // com.baidu.tieba.ug5
+        public void b(Context context, Frs$From from, Long l, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, from, l, str) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                Intrinsics.checkNotNullParameter(from, "from");
+                VoiceRoomListActivity.a.a(context, from, l, str);
+            }
+        }
+    }
 
     public tw6() {
         Interceptable interceptable = $ic;
@@ -22,13 +75,19 @@ public class tw6 implements vk7 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        MetaData metaData = new MetaData();
-        this.a = metaData;
-        if (metaData.getGodUserData() == null) {
-            this.a.setGodUserData(new GodUserData());
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.pj1
+    /* renamed from: a */
+    public ug5 createService() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a();
         }
+        return (ug5) invokeV.objValue;
     }
 }

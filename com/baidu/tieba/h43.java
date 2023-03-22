@@ -1,10 +1,9 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.os.Message;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,107 +14,74 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes4.dex */
-public class h43 implements qu2 {
+public class h43 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, ProviderDelegation> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<Runnable, String> c;
 
-    /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final h43 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-795236284, "Lcom/baidu/tieba/h43$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-795236284, "Lcom/baidu/tieba/h43$b;");
-                    return;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947773698, "Lcom/baidu/tieba/h43;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            a = new h43(null);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947773698, "Lcom/baidu/tieba/h43;");
+                return;
+            }
         }
+        a = new ConcurrentHashMap();
+        c(sv1.a());
+        c(ar2.s().d());
     }
 
     public h43() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.c = new ConcurrentHashMap();
     }
 
-    public static h43 b() {
-        InterceptResult invokeV;
+    @Nullable
+    public static ProviderDelegation a(@NonNull Class<? extends ProviderDelegation> cls) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) {
+            return a.get(cls.getName());
         }
-        return (h43) invokeV.objValue;
+        return (ProviderDelegation) invokeL.objValue;
     }
 
-    public /* synthetic */ h43(a aVar) {
-        this();
-    }
-
-    public void d(String str) {
+    @Nullable
+    public static ProviderDelegation b(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (qu2.a) {
-                Log.e("SwanPerformance", "main process launch start，appId = " + str);
-            }
-            System.currentTimeMillis();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return a.get(str);
         }
+        return (ProviderDelegation) invokeL.objValue;
     }
 
-    public final void a() {
+    public static void c(@Nullable Map<Class, Object> map) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.c.isEmpty()) {
-            return;
-        }
-        if (qu2.a) {
-            Log.d("SwanPerformance", "main process batch handle thread, size = " + this.c.size());
-        }
-        for (Map.Entry<Runnable, String> entry : this.c.entrySet()) {
-            if (entry != null) {
-                ExecutorUtilsExt.postOnElastic(entry.getKey(), entry.getValue(), 2);
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, map) == null) && map != null) {
+            for (Class cls : map.keySet()) {
+                if (cls != null) {
+                    Object obj = map.get(cls);
+                    if (obj instanceof ProviderDelegation) {
+                        a.put(cls.getName(), (ProviderDelegation) obj);
+                    }
+                }
             }
         }
-        this.c.clear();
-    }
-
-    public void c(Message message) {
-        Object obj;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) != null) || message == null || (obj = message.obj) == null || !(obj instanceof Bundle)) {
-            return;
-        }
-        Bundle bundle = (Bundle) obj;
-        boolean z = bundle.getBoolean("is_timeout", false);
-        String string = bundle.getString("app_id", null);
-        if (qu2.a) {
-            Log.e("SwanPerformance", "main process launch end，timeout = " + z + " ; appId = " + string);
-        }
-        a();
     }
 }

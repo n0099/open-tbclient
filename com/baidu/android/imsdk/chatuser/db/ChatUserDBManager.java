@@ -1121,6 +1121,9 @@ public class ChatUserDBManager extends DBBase {
                 if (chatUserByBuid == null) {
                     return false;
                 }
+                if (chatUserByBuid.getUk() > 0) {
+                    IMUserManager.getInstance(this.mContext).removeChatObject(chatUserByBuid.getUk());
+                }
                 if (chatUserByBuid.getHasSpecialIdentity() == 0 && (chatUserByBuid.getSubscribe() == 0 || chatUserByBuid.getSubscribe() == 2)) {
                     z2 = true;
                 } else {

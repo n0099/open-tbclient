@@ -1,188 +1,166 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.nadcore.widget.uitemplate.SimpleFeedAdInfoView;
-import com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView;
-import com.baidu.nadcore.widget.view.NadExpressNaBaseView;
-import com.baidu.tieba.j51;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.os.Build;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.nps.pm.BundleInfo;
+import com.baidu.nps.utils.Constant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Array;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class qd1 extends sd1 {
+public class qd1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int k;
+    public static volatile qd1 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final SimpleFeedAdInfoView j;
+    public Map<String, sd1> a;
 
-    /* loaded from: classes5.dex */
-    public class a implements SimpleAdInfoView.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AdBaseModel a;
-        public final /* synthetic */ qd1 b;
-
-        public a(qd1 qd1Var, AdBaseModel adBaseModel) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qd1Var, adBaseModel};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = qd1Var;
-            this.a = adBaseModel;
-        }
-
-        @Override // com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView.c
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                qd1 qd1Var = this.b;
-                qd1Var.q(ClogBuilder.LogType.FREE_CLICK.type, qd1Var.c, str, this.a.f.d);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AdBaseModel a;
-        public final /* synthetic */ qd1 b;
-
-        public b(qd1 qd1Var, AdBaseModel adBaseModel) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {qd1Var, adBaseModel};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = qd1Var;
-            this.a = adBaseModel;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                gd1 gd1Var = this.b.d;
-                if (gd1Var != null) {
-                    gd1Var.a(this.a);
-                }
-                u21.b(new ClogBuilder().y(ClogBuilder.LogType.CLOSE).p(this.a.f.d));
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948087883, "Lcom/baidu/tieba/qd1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948087883, "Lcom/baidu/tieba/qd1;");
-                return;
-            }
-        }
-        k = j51.c.a(rj0.b(), 15.0f);
-    }
-
-    private void m() {
-        SimpleFeedAdInfoView simpleFeedAdInfoView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && (simpleFeedAdInfoView = this.j) != null) {
-            simpleFeedAdInfoView.c();
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qd1(int i, View view2) {
-        super(i, view2);
+    public qd1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), view2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), (View) objArr2[1]);
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.j = (SimpleFeedAdInfoView) view2.findViewById(R.id.feed_ad_operate_app_info_view);
-        m();
+        this.a = new HashMap();
     }
 
-    public final void q(String str, String str2, String str3, String str4) {
+    public static qd1 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, str3, str4) == null) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.z(str);
-            clogBuilder.v(str2);
-            clogBuilder.p(str4);
-            clogBuilder.j(str3);
-            u21.b(clogBuilder);
-        }
-    }
-
-    public final void r(AdBaseModel adBaseModel) {
-        SimpleFeedAdInfoView simpleFeedAdInfoView;
-        View findViewById;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adBaseModel) != null) || adBaseModel == null || (simpleFeedAdInfoView = this.j) == null || (findViewById = simpleFeedAdInfoView.findViewById(R.id.nad_base_delete_id)) == null) {
-            return;
-        }
-        fc1.a(this.j, findViewById, k);
-        findViewById.setOnClickListener(new b(this, adBaseModel));
-    }
-
-    @Override // com.baidu.tieba.sd1, com.baidu.tieba.od1
-    public void update(AdBaseModel adBaseModel, NadExpressNaBaseView nadExpressNaBaseView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, adBaseModel, nadExpressNaBaseView) == null) {
-            super.update(adBaseModel, nadExpressNaBaseView);
-            m();
-            SimpleFeedAdInfoView simpleFeedAdInfoView = this.j;
-            if (simpleFeedAdInfoView != null) {
-                simpleFeedAdInfoView.update(adBaseModel);
-                hr0 hr0Var = adBaseModel.p;
-                if (hr0Var == null || hr0Var.k) {
-                    this.j.setBackground(getResources().getDrawable(R.drawable.nad_operate_download_bg));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b == null) {
+                synchronized (qd1.class) {
+                    if (b == null) {
+                        b = new qd1();
+                    }
                 }
-                this.j.setAfterListener(new a(this, adBaseModel));
             }
-            r(adBaseModel);
+            return b;
         }
+        return (qd1) invokeV.objValue;
+    }
+
+    public static <T> T[] a(Class<T> cls, Object[] objArr, Object[] objArr2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, cls, objArr, objArr2)) == null) {
+            T[] tArr = (T[]) ((Object[]) Array.newInstance((Class<?>) cls, objArr.length + objArr2.length));
+            System.arraycopy(objArr, 0, tArr, 0, objArr.length);
+            System.arraycopy(objArr2, 0, tArr, objArr.length, objArr2.length);
+            return tArr;
+        }
+        return (T[]) ((Object[]) invokeLLL.objValue);
+    }
+
+    public static void e(Field field, Object obj, Object obj2) throws IllegalAccessException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, field, obj, obj2) == null) {
+            field.set(obj, c((Object[]) field.get(obj), (Object[]) field.get(obj2)));
+        }
+    }
+
+    public static Object[] c(Object[] objArr, Object[] objArr2) throws IllegalArgumentException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, objArr, objArr2)) == null) {
+            ArrayList arrayList = new ArrayList(Arrays.asList(objArr));
+            for (Object obj : objArr2) {
+                if (!arrayList.contains(obj)) {
+                    arrayList.add(obj);
+                }
+            }
+            Object[] objArr3 = (Object[]) Array.newInstance(objArr.getClass().getComponentType(), arrayList.size());
+            for (int i = 0; i < objArr3.length; i++) {
+                objArr3[i] = arrayList.get(i);
+            }
+            return objArr3;
+        }
+        return (Object[]) invokeLL.objValue;
+    }
+
+    public static void f(Field field, Object obj, Object obj2) throws IllegalAccessException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65541, null, field, obj, obj2) == null) {
+            List list = (List) field.get(obj);
+            list.addAll((List) field.get(obj2));
+            field.set(obj, list);
+            Field b2 = fe1.b(obj.getClass(), "nativeLibraryPathElements");
+            b2.set(obj, c((Object[]) b2.get(obj), (Object[]) b2.get(obj2)));
+        }
+    }
+
+    public static ClassLoader g(sd1 sd1Var, sd1 sd1Var2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, sd1Var, sd1Var2)) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                h(sd1Var, sd1Var2);
+                return sd1Var;
+            }
+            return null;
+        }
+        return (ClassLoader) invokeLL.objValue;
+    }
+
+    public static ClassLoader h(sd1 sd1Var, sd1 sd1Var2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, sd1Var, sd1Var2)) == null) {
+            Field b2 = fe1.b(sd1.class, "pathList");
+            try {
+                Object obj = b2.get(sd1Var);
+                Field b3 = fe1.b(obj.getClass(), "dexElements");
+                Field b4 = fe1.b(obj.getClass(), "nativeLibraryDirectories");
+                Object[] objArr = (Object[]) b3.get(obj);
+                Object obj2 = b2.get(sd1Var2);
+                b3.set(obj, a(objArr.getClass().getComponentType(), objArr, (Object[]) b3.get(obj2)));
+                if (Build.VERSION.SDK_INT >= 23) {
+                    f(b4, obj, obj2);
+                } else {
+                    e(b4, obj, obj2);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return sd1Var;
+        }
+        return (ClassLoader) invokeLL.objValue;
+    }
+
+    public sd1 b(BundleInfo bundleInfo, Context context) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bundleInfo, context)) == null) {
+            boolean z = !TextUtils.isEmpty(bundleInfo.getGroupName());
+            sd1 sd1Var = new sd1(ae1.d(context, bundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath(), ae1.f(context, bundleInfo.getPackageName()).getAbsolutePath(), ae1.e(context, bundleInfo.getPackageName()).getAbsolutePath(), context);
+            if (z && Build.VERSION.SDK_INT >= 21) {
+                sd1 sd1Var2 = this.a.get(bundleInfo.getGroupName());
+                if (sd1Var2 == null) {
+                    this.a.put(bundleInfo.getGroupName(), sd1Var);
+                    return sd1Var;
+                }
+                g(sd1Var2, sd1Var);
+                return sd1Var2;
+            }
+            return sd1Var;
+        }
+        return (sd1) invokeLL.objValue;
     }
 }

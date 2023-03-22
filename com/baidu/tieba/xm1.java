@@ -1,22 +1,23 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8ExceptionInfo;
+import android.annotation.TargetApi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@TargetApi(9)
 /* loaded from: classes6.dex */
-public class xm1 extends bn1 {
+public abstract class xm1 implements vm1<xm1> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean c;
-    public long d;
-    public V8ExceptionInfo e;
-    public int f;
+    public int a;
 
+    public abstract void b();
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public xm1() {
+        this(5);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -24,68 +25,49 @@ public class xm1 extends bn1 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                this(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = false;
     }
 
-    public final void d() {
+    @Override // java.lang.Runnable
+    public void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e = null;
-            this.d = 0L;
-            this.f = -1;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            b();
         }
     }
 
-    @Override // com.baidu.tieba.bn1
-    public synchronized void a(int i, V8ExceptionInfo v8ExceptionInfo) {
+    public xm1(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, v8ExceptionInfo) == null) {
-            synchronized (this) {
-                if (this.e == null && v8ExceptionInfo != null) {
-                    this.e = new V8ExceptionInfo(v8ExceptionInfo.exceptionTime, v8ExceptionInfo.exceptionMsg, v8ExceptionInfo.exceptionTrace, v8ExceptionInfo.exceptionType, v8ExceptionInfo.filePath);
-                    this.f = i;
-                    if (this.b != null) {
-                        this.b.a();
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = i;
     }
 
-    public synchronized void e() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(xm1 xm1Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                if (this.c) {
-                    return;
-                }
-                if (this.b != null && this.d > 0 && this.e != null) {
-                    if (System.currentTimeMillis() - this.e.exceptionTime > this.a && this.e.exceptionTime > this.d) {
-                        this.b.b(new an1(this.f, this.e, this.d));
-                        d();
-                    }
-                    return;
-                }
-                Log.e("StuckScreenHandler", "[StuckScreen] 未设置冻屏监听器， 或者异常信息已经被清空（需等待下次上屏）。");
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, xm1Var)) == null) {
+            return xm1Var.a - this.a;
         }
-    }
-
-    public synchronized void f(boolean z, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
-            synchronized (this) {
-                this.c = z;
-                if (z) {
-                    this.d = j;
-                    this.e = null;
-                }
-            }
-        }
+        return invokeL.intValue;
     }
 }

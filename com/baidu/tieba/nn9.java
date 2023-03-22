@@ -1,233 +1,42 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.graphics.Bitmap;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tbadk.img.WriteImagesInfo;
-import com.baidu.tieba.frs.ForumWriteData;
-import com.baidu.tieba.q15;
-import com.baidu.tieba.write.write.MultiImagePagerAdapter;
-import com.baidu.tieba.write.write.WriteMultiImgsActivity;
-import com.baidu.tieba.write.write.model.StickerModel;
-import com.baidu.tieba.write.write.sticker.view.StickerLayout;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
-public class nn9 implements lq9, MultiImagePagerAdapter.b {
+public class nn9 extends nb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<WriteMultiImgsActivity> a;
-    public mn9 b;
-    public MultiImagePagerAdapter c;
-    public int d;
-    public ForumWriteData e;
-    public q15 f;
-    public StickerModel g;
-    public int h;
-    public WriteImagesInfo i;
-    public int j;
-    public HashMap<String, String> k;
-    public PermissionJudgePolicy l;
+    public b a;
 
-    @Override // com.baidu.tieba.write.write.MultiImagePagerAdapter.b
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(String str);
     }
 
     /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
+    public class a implements mb5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nn9 a;
-
-        public a(nn9 nn9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nn9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nn9Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2.getTag() != null) {
-                this.a.c.i(Integer.parseInt(view2.getTag().toString()), this.a.c());
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nn9 a;
-
-        public b(nn9 nn9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nn9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nn9Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.a == null) {
-                return;
-            }
-            Activity pageActivity = this.a.a.getPageActivity();
-            if (this.a.l == null) {
-                this.a.l = new PermissionJudgePolicy();
-            }
-            this.a.l.clearRequestPermissionList();
-            this.a.l.appendRequestPermission(pageActivity, "android.permission.WRITE_EXTERNAL_STORAGE");
-            if (this.a.l.startRequestPermission(pageActivity)) {
-                return;
-            }
-            this.a.c.g(false);
-            if (this.a.b == null) {
-                return;
-            }
-            if (this.a.i != null && this.a.i.getChosedFiles() != null && this.a.i.getChosedFiles().size() > 0 && this.a.i.isOriginalImg() && this.a.h > 0 && this.a.o()) {
-                this.a.b.q();
-            } else {
-                this.a.b.k(true, this.a.i);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements q15.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ boolean b;
-        public final /* synthetic */ nn9 c;
-
-        public c(nn9 nn9Var, int i, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nn9Var, Integer.valueOf(i), Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = nn9Var;
-            this.a = i;
-            this.b = z;
-        }
-
-        @Override // com.baidu.tieba.q15.e
-        public void onClick(q15 q15Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, q15Var) == null) {
-                if (this.c.f != null) {
-                    this.c.f.dismiss();
-                }
-                MultiImagePagerAdapter multiImagePagerAdapter = this.c.c;
-                if (multiImagePagerAdapter != null) {
-                    multiImagePagerAdapter.i(this.a, this.b);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements q15.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nn9 a;
-
-        public d(nn9 nn9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nn9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nn9Var;
-        }
-
-        @Override // com.baidu.tieba.q15.e
-        public void onClick(q15 q15Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, q15Var) == null) && this.a.f != null) {
-                this.a.f.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class e implements q15.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Bitmap a;
+        public final /* synthetic */ mn9 a;
         public final /* synthetic */ nn9 b;
 
-        public e(nn9 nn9Var, Bitmap bitmap) {
+        public a(nn9 nn9Var, mn9 mn9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {nn9Var, bitmap};
+                Object[] objArr = {nn9Var, mn9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -238,338 +47,123 @@ public class nn9 implements lq9, MultiImagePagerAdapter.b {
                 }
             }
             this.b = nn9Var;
-            this.a = bitmap;
+            this.a = mn9Var;
         }
 
-        @Override // com.baidu.tieba.q15.e
-        public void onClick(q15 q15Var) {
+        @Override // com.baidu.tieba.mb5
+        public void C(lb5 lb5Var) {
+            mn9 mn9Var;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, q15Var) == null) {
-                if (this.b.f != null) {
-                    this.b.f.dismiss();
-                }
-                this.b.b.i(this.a);
+            if ((interceptable != null && interceptable.invokeL(1048576, this, lb5Var) != null) || (mn9Var = this.a) == null || mn9Var.b() == null || lb5Var == null) {
+                return;
             }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class f implements q15.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nn9 a;
-
-        public f(nn9 nn9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nn9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            int i = lb5Var.a;
+            if (i != 4) {
+                if (i != 7) {
+                    if (i == 8) {
+                        this.a.z();
+                        if (!this.b.h(this.a.getContext(), 25066)) {
+                            return;
+                        }
+                        this.a.p();
+                        if (this.b.a != null) {
+                            this.b.a.a(this.a.m());
+                            return;
+                        }
+                        return;
+                    }
                     return;
                 }
+                this.a.getContext().showToast((int) R.string.over_limit_tip);
+                return;
             }
-            this.a = nn9Var;
-        }
-
-        @Override // com.baidu.tieba.q15.e
-        public void onClick(q15 q15Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, q15Var) == null) && this.a.f != null) {
-                this.a.f.dismiss();
-            }
+            this.a.v((String) lb5Var.c);
         }
     }
 
-    public nn9(TbPageContext<WriteMultiImgsActivity> tbPageContext, mn9 mn9Var, Bundle bundle) {
+    public nn9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, mn9Var, bundle};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = null;
-        this.d = 0;
-        this.h = 0;
-        this.i = null;
-        this.j = TbadkCoreApplication.getInst().getSkinType();
-        this.k = new HashMap<>();
-        this.a = tbPageContext;
-        this.b = mn9Var;
-        x(bundle);
-        y();
-        A();
-    }
-
-    @Override // com.baidu.tieba.lq9
-    public void e(List<String> list) {
-        mn9 mn9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, list) == null) && (mn9Var = this.b) != null) {
-            mn9Var.a(list);
-        }
-    }
-
-    public void r(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            if (c()) {
-                this.b.e.setmDisallowSlip(true);
-            } else {
-                this.b.e.setmDisallowSlip(false);
             }
         }
     }
 
-    @Override // com.baidu.tieba.write.write.MultiImagePagerAdapter.b
-    public void b(int i, boolean z) {
+    @Override // com.baidu.tieba.nb5
+    public pb5 b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            p(i, z);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            EditorTools editorTools = new EditorTools(context);
+            editorTools.setHideBigEmotion(true);
+            editorTools.setBarLauncherType(4);
+            editorTools.setBackgroundColorId(R.color.CAM_X0207);
+            return new mn9(editorTools);
         }
+        return (pb5) invokeL.objValue;
     }
 
-    public void A() {
+    @Override // com.baidu.tieba.nb5
+    public void c(pb5 pb5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pb5Var) != null) || !(pb5Var instanceof mn9)) {
             return;
         }
-        if (!BdNetTypeUtil.isNetWorkAvailable()) {
-            if (this.a.getContext() != null) {
-                ej.P(this.a.getContext(), R.string.obfuscated_res_0x7f0f0d11);
-                return;
-            }
+        EditorTools b2 = pb5Var.b();
+        a aVar = new a(this, (mn9) pb5Var);
+        b2.setActionListener(4, aVar);
+        b2.setActionListener(7, aVar);
+        b2.setActionListener(8, aVar);
+    }
+
+    @Override // com.baidu.tieba.nb5
+    public void d(pb5 pb5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pb5Var) != null) || pb5Var == null) {
             return;
         }
-        if (this.g == null) {
-            this.g = new StickerModel(this.a);
+        EditorTools b2 = pb5Var.b();
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(5);
+        b2.h(arrayList);
+        wb5 p = b2.p(5);
+        if (p != null) {
+            p.e(false);
+            p.d = 0;
         }
-        this.g.loadData();
-        this.g.O(this);
+        b2.d(new on9(b2.getContext()));
+        b2.f();
+        b2.C(new lb5(35, 5, Boolean.FALSE));
+        b2.q();
     }
 
-    @Override // com.baidu.tieba.write.write.MultiImagePagerAdapter.b
-    public void a() {
+    public pb5 g(Context context, b bVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            s();
-            r(false);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, bVar)) == null) {
+            this.a = bVar;
+            return super.a(context);
         }
+        return (pb5) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.write.write.MultiImagePagerAdapter.b
-    public boolean c() {
-        InterceptResult invokeV;
-        StickerLayout stickerLayout;
+    public final boolean h(TbPageContext<?> tbPageContext, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            mn9 mn9Var = this.b;
-            if (mn9Var != null && (stickerLayout = mn9Var.f) != null && !ListUtils.isEmpty(stickerLayout.getStickerViews())) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, tbPageContext, i)) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (currentAccount != null && currentAccount.length() > 0) {
                 return true;
             }
+            TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig(tbPageContext.getPageActivity(), true, i)));
             return false;
         }
-        return invokeV.booleanValue;
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.h++;
-        }
-    }
-
-    public void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.h--;
-        }
-    }
-
-    public void t() {
-        StickerModel stickerModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (stickerModel = this.g) != null) {
-            stickerModel.destroy();
-        }
-    }
-
-    public int u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public ForumWriteData v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.e;
-        }
-        return (ForumWriteData) invokeV.objValue;
-    }
-
-    public WriteImagesInfo w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.i;
-        }
-        return (WriteImagesInfo) invokeV.objValue;
-    }
-
-    public final void y() {
-        mn9 mn9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048593, this) != null) || (mn9Var = this.b) == null) {
-            return;
-        }
-        vm9 vm9Var = mn9Var.d;
-        if (vm9Var != null) {
-            vm9Var.n(new a(this));
-        }
-        TextView textView = this.b.g;
-        if (textView != null) {
-            textView.setOnClickListener(new b(this));
-        }
-    }
-
-    public final boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            WriteImagesInfo writeImagesInfo = this.i;
-            if (writeImagesInfo != null && writeImagesInfo.isOriginalImg() && this.i.getChosedFiles() != null && this.i.getChosedFiles().size() != 0) {
-                Iterator<ImageFileInfo> it = this.i.getChosedFiles().iterator();
-                while (it.hasNext()) {
-                    ImageFileInfo next = it.next();
-                    if (next != null && next.hasActionsWithoutResize() && StringUtils.isNull(this.k.get(next.getFilePath()))) {
-                        return true;
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void p(int i, boolean z) {
-        TbPageContext<WriteMultiImgsActivity> tbPageContext;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) && (tbPageContext = this.a) != null && tbPageContext.getPageActivity() != null) {
-            if (this.f == null) {
-                q15 q15Var = new q15(this.a.getPageActivity());
-                this.f = q15Var;
-                q15Var.setMessageId(R.string.obfuscated_res_0x7f0f0de3);
-                this.f.setPositiveButton(R.string.alert_yes_button, new c(this, i, z));
-                this.f.setNegativeButton(R.string.obfuscated_res_0x7f0f038d, new d(this));
-                this.f.create(this.a);
-            }
-            this.f.show();
-        }
-    }
-
-    public boolean q(Bitmap bitmap) {
-        InterceptResult invokeL;
-        TbPageContext<WriteMultiImgsActivity> tbPageContext;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, bitmap)) == null) {
-            if (!this.c.l() || (tbPageContext = this.a) == null || tbPageContext.getPageActivity() == null) {
-                return false;
-            }
-            if (this.f == null) {
-                q15 q15Var = new q15(this.a.getPageActivity());
-                this.f = q15Var;
-                q15Var.setMessageId(R.string.obfuscated_res_0x7f0f0de3);
-                this.f.setPositiveButton(R.string.alert_yes_button, new e(this, bitmap));
-                this.f.setNegativeButton(R.string.obfuscated_res_0x7f0f038d, new f(this));
-                this.f.create(this.a);
-            }
-            this.f.show();
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void x(Bundle bundle) {
-        String str;
-        int i;
-        Intent intent;
-        int intExtra;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, bundle) == null) {
-            if (bundle != null) {
-                str = bundle.getString("OutState_Write_Img_Info");
-                intExtra = bundle.getInt("OutState_Current_Index");
-                this.d = bundle.getInt("OutState_Write_Entrance");
-                this.e = (ForumWriteData) bundle.getSerializable("OutState_Write_Info_Data");
-                this.j = bundle.getInt(WriteMulitImageActivityConfig.SKIN_TYPE, TbadkCoreApplication.getInst().getSkinType());
-            } else {
-                TbPageContext<WriteMultiImgsActivity> tbPageContext = this.a;
-                if (tbPageContext != null && tbPageContext.getPageActivity() != null && (intent = this.a.getPageActivity().getIntent()) != null) {
-                    str = intent.getStringExtra(WriteMulitImageActivityConfig.EXTRA_WRITE_IMG_INFO_JSON_STR);
-                    intExtra = intent.getIntExtra(WriteMulitImageActivityConfig.EXTRA_IMG_CURRENT_INDEX, 0);
-                    this.d = intent.getIntExtra(WriteMulitImageActivityConfig.FOURM_WRITE_ENTRANCE, 0);
-                    this.e = (ForumWriteData) intent.getSerializableExtra(WriteMulitImageActivityConfig.FOURM_WRITE_DATA);
-                    this.j = intent.getIntExtra(WriteMulitImageActivityConfig.SKIN_TYPE, TbadkCoreApplication.getInst().getSkinType());
-                } else {
-                    str = null;
-                    i = -1;
-                    if (str == null && i != -1) {
-                        WriteImagesInfo writeImagesInfo = new WriteImagesInfo();
-                        this.i = writeImagesInfo;
-                        writeImagesInfo.parseJson(str);
-                        z();
-                        mn9 mn9Var = this.b;
-                        if (mn9Var != null && mn9Var.e != null) {
-                            MultiImagePagerAdapter multiImagePagerAdapter = new MultiImagePagerAdapter(this.a.getOrignalPage(), this.b.e, this.i.getChosedFiles(), i, this, this.b, this.i.mIsFromIm);
-                            this.c = multiImagePagerAdapter;
-                            this.b.e.setAdapter(multiImagePagerAdapter);
-                            int k = this.c.k();
-                            this.b.e.setCurrentItem(k, true);
-                            if (k == 0) {
-                                this.c.onPageSelected(0);
-                            }
-                            this.b.p(this.i);
-                            return;
-                        }
-                        return;
-                    }
-                }
-            }
-            i = intExtra;
-            if (str == null) {
-            }
-        }
-    }
-
-    public final void z() {
-        WriteImagesInfo writeImagesInfo;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && (writeImagesInfo = this.i) != null && writeImagesInfo.isOriginalImg() && this.i.getChosedFiles() != null && this.i.getChosedFiles().size() != 0) {
-            Iterator<ImageFileInfo> it = this.i.getChosedFiles().iterator();
-            while (it.hasNext()) {
-                ImageFileInfo next = it.next();
-                if (next != null && next.hasActionsWithoutResize()) {
-                    this.k.put(next.getFilePath(), "1");
-                }
-            }
-        }
+        return invokeLI.booleanValue;
     }
 }

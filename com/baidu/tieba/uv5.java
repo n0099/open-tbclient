@@ -1,53 +1,28 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
-import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import java.util.List;
 /* loaded from: classes6.dex */
-public final class uv5 extends Handler {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final WheelView a;
+public interface uv5 extends xv5<zv5> {
+    void a(int i);
 
-    public uv5(WheelView wheelView) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wheelView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = wheelView;
-    }
+    List<Integer> d();
 
-    @Override // android.os.Handler
-    public final void handleMessage(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-            int i = message.what;
-            if (i != 1000) {
-                if (i != 2000) {
-                    if (i == 3000) {
-                        this.a.n();
-                        return;
-                    }
-                    return;
-                }
-                this.a.r(WheelView.ACTION.FLING);
-                return;
-            }
-            this.a.invalidate();
-        }
-    }
+    void e(List<tv5> list, String str, String str2, String str3, String str4, boolean z, int i);
+
+    TypeAdapter.ViewHolder g(ViewGroup viewGroup, Object obj);
+
+    void i(List<tv5> list, int i);
+
+    void k(List<Object> list);
+
+    View m(int i, View view2, ViewGroup viewGroup, Object obj);
+
+    void n(int i, ViewGroup viewGroup, TypeAdapter.ViewHolder viewHolder, Object obj);
+
+    void o(List<tv5> list, List<tv5> list2, boolean z, int i);
+
+    void p(String str);
 }

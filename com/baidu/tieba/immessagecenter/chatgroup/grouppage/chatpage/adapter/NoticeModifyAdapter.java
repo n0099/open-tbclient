@@ -12,11 +12,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b35;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.NoticeModifySysMsg;
-import com.baidu.tieba.qu7;
+import com.baidu.tieba.n15;
+import com.baidu.tieba.nx7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,8 +27,8 @@ import java.util.List;
 public class NoticeModifyAdapter extends BaseSysAdapter<NoticeModifySysMsg, Holder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long f;
     public long g;
+    public long h;
 
     /* loaded from: classes4.dex */
     public static class Holder extends BaseViewHolder {
@@ -59,12 +59,12 @@ public class NoticeModifyAdapter extends BaseSysAdapter<NoticeModifySysMsg, Hold
                     return;
                 }
             }
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09184f);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f7a);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f7f);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e1a);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091852);
-            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091851);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09188e);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090faa);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090faf);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e48);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091891);
+            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091890);
         }
 
         @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder
@@ -101,68 +101,68 @@ public class NoticeModifyAdapter extends BaseSysAdapter<NoticeModifySysMsg, Hold
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter
     @NonNull
-    /* renamed from: E */
-    public Holder z(@NonNull ViewGroup viewGroup) {
+    /* renamed from: I */
+    public Holder D(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
-            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01e1, viewGroup, false));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01e5, viewGroup, false));
         }
         return (Holder) invokeL.objValue;
     }
 
-    public void G(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.f = j;
-        }
-    }
-
-    public void H(long j) {
+    public void L(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
             this.g = j;
         }
     }
 
+    public void M(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.h = j;
+        }
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter
     @NonNull
-    /* renamed from: F */
-    public View B(int i, @NonNull ViewGroup viewGroup, @NonNull NoticeModifySysMsg noticeModifySysMsg, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
+    /* renamed from: J */
+    public View F(int i, @NonNull ViewGroup viewGroup, @NonNull NoticeModifySysMsg noticeModifySysMsg, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), viewGroup, noticeModifySysMsg, holder, list, Integer.valueOf(i2)})) == null) {
-            b35 d = b35.d(holder.a);
-            d.n(R.string.J_X04);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), viewGroup, noticeModifySysMsg, holder, list, Integer.valueOf(i2)})) == null) {
+            n15 d = n15.d(holder.a);
+            d.o(R.string.J_X04);
             d.f(R.color.CAM_X0625);
-            b35 d2 = b35.d(holder.b);
-            d2.v(R.color.CAM_X0101);
-            d2.z(R.dimen.T_X09);
-            d2.A(R.string.F_X01);
-            b35 d3 = b35.d(holder.c);
-            d3.v(R.color.CAM_X0101);
-            d3.z(R.dimen.T_X09);
-            d3.A(R.string.F_X01);
-            b35 d4 = b35.d(holder.d);
-            d4.v(R.color.CAM_X0101);
-            d4.z(R.dimen.T_X09);
-            d4.A(R.string.F_X01);
-            b35 d5 = b35.d(holder.e);
-            d5.z(R.dimen.T_X09);
-            d5.v(R.color.CAM_X0304);
-            d5.A(R.string.F_X01);
+            n15 d2 = n15.d(holder.b);
+            d2.w(R.color.CAM_X0101);
+            d2.A(R.dimen.T_X09);
+            d2.B(R.string.F_X01);
+            n15 d3 = n15.d(holder.c);
+            d3.w(R.color.CAM_X0101);
+            d3.A(R.dimen.T_X09);
+            d3.B(R.string.F_X01);
+            n15 d4 = n15.d(holder.d);
+            d4.w(R.color.CAM_X0101);
+            d4.A(R.dimen.T_X09);
+            d4.B(R.string.F_X01);
+            n15 d5 = n15.d(holder.e);
+            d5.A(R.dimen.T_X09);
+            d5.w(R.color.CAM_X0304);
+            d5.B(R.string.F_X01);
             if (noticeModifySysMsg != null && noticeModifySysMsg.getUserFrom() != null) {
                 holder.c.setText(noticeModifySysMsg.getUserFrom().getUsername());
                 int role = noticeModifySysMsg.getUserFrom().getRole();
                 if (role == 1) {
-                    holder.b.setText(R.string.obfuscated_res_0x7f0f0888);
+                    holder.b.setText(R.string.obfuscated_res_0x7f0f0892);
                 } else if (role == 2 || role == 3) {
-                    holder.b.setText(R.string.obfuscated_res_0x7f0f088a);
+                    holder.b.setText(R.string.obfuscated_res_0x7f0f0894);
                 }
-                holder.d.setText(R.string.obfuscated_res_0x7f0f0881);
-                holder.e.setText(R.string.obfuscated_res_0x7f0f166d);
-                qu7.a("c15095", 2, this.f, this.g, TbadkCoreApplication.getCurrentAccount());
+                holder.d.setText(R.string.obfuscated_res_0x7f0f088a);
+                holder.e.setText(R.string.obfuscated_res_0x7f0f1681);
+                nx7.a("c15095", 2, this.g, this.h, TbadkCoreApplication.getCurrentAccount());
             }
             return holder.getView();
         }

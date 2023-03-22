@@ -61,7 +61,7 @@ public class v {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m757a(String str) {
+    public boolean m759a(String str) {
         boolean contains;
         synchronized (this.f1008a) {
             contains = this.f1008a.contains(str);
@@ -79,7 +79,7 @@ public class v {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m758b(String str) {
+    public boolean m760b(String str) {
         boolean contains;
         synchronized (this.b) {
             contains = this.b.contains(str);
@@ -97,7 +97,7 @@ public class v {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public boolean m759c(String str) {
+    public boolean m761c(String str) {
         boolean contains;
         synchronized (this.c) {
             contains = this.c.contains(str);

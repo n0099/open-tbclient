@@ -1,50 +1,56 @@
 package com.baidu.tieba;
 
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.CharArrayWriter;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStream;
+import okhttp3.Dns;
+import okhttp3.Interceptor;
+import okhttp3.Request;
+import okhttp3.Response;
 /* loaded from: classes6.dex */
-public class s50 {
+public class s50 implements Interceptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Dns a;
 
-    public static void a(InputStream inputStream, OutputStream outputStream, int i) throws IOException {
+    public s50(Dns dns) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65536, null, inputStream, outputStream, i) == null) {
-            byte[] bArr = new byte[i];
-            while (true) {
-                int read = inputStream.read(bArr);
-                if (read > 0) {
-                    outputStream.write(bArr, 0, read);
-                } else {
-                    return;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dns};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = dns;
     }
 
-    public static String b(InputStream inputStream, String str) throws IOException {
-        InterceptResult invokeLL;
+    @Override // okhttp3.Interceptor
+    public Response intercept(Interceptor.Chain chain) throws IOException {
+        InterceptResult invokeL;
+        Dns dns;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, inputStream, str)) == null) {
-            CharArrayWriter charArrayWriter = new CharArrayWriter();
-            InputStreamReader inputStreamReader = new InputStreamReader(inputStream, str);
-            char[] cArr = new char[8192];
-            while (true) {
-                int read = inputStreamReader.read(cArr);
-                if (read > 0) {
-                    charArrayWriter.write(cArr, 0, read);
-                } else {
-                    return charArrayWriter.toString();
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, chain)) == null) {
+            Request request = chain.request();
+            com.baidu.searchbox.network.outback.core.Request request2 = (com.baidu.searchbox.network.outback.core.Request) request.tag(com.baidu.searchbox.network.outback.core.Request.class);
+            if (request2 == null) {
+                return chain.proceed(request);
             }
-        } else {
-            return (String) invokeLL.objValue;
+            if ((request2.getNetworkStatRecord().dnsDetail == null || (request2.getNetworkStatRecord().dnsDetail != null && StringUtil.EMPTY_ARRAY.equalsIgnoreCase(request2.getNetworkStatRecord().dnsDetail.toString().trim()))) && (dns = this.a) != null) {
+                dns.lookup(request2.url().host());
+            }
+            return chain.proceed(request);
         }
+        return (Response) invokeL.objValue;
     }
 }

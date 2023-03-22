@@ -1,71 +1,52 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import android.graphics.Canvas;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class m22 extends j22 {
+public class m22 extends z02 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public h12 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m22(ja3 ja3Var) {
-        super(ja3Var, "/swanAPI/canvas/insert");
+    public m22() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ja3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((ja3) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.jb3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m93 m93Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.tieba.z02
+    public void a(a12 a12Var, Canvas canvas) {
+        h12 h12Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, m93Var)) == null) {
-            j42 k = k(unitedSchemeEntity);
-            if (k == null) {
-                unitedSchemeEntity.result = l(201);
-                m62.c("SwanAppCanvas", "insert action parse model is null");
-                return false;
-            } else if (context == null) {
-                m62.c("SwanAppCanvas", "context is null");
-                unitedSchemeEntity.result = l(1001);
-                return false;
-            } else {
-                String str = k.b;
-                sz2 sz2Var = k.h;
-                if (!TextUtils.isEmpty(str) && sz2Var != null && sz2Var.h()) {
-                    d52 insert = new m52(context, k).insert();
-                    boolean a = insert.a();
-                    if (!a) {
-                        m62.c("SwanAppCanvas", "insert canvas fail: " + insert.b);
-                    }
-                    j(unitedSchemeEntity, callbackHandler, a);
-                    return a;
-                }
-                m62.c("SwanAppCanvas", "canvas id is empty or position is null");
-                unitedSchemeEntity.result = l(202);
-                return false;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, a12Var, canvas) == null) && (h12Var = this.a) != null && h12Var.d()) {
+            if (this.a.c()) {
+                a12Var.c.setShader(this.a.b());
+                return;
             }
+            a12Var.m = this.a.a();
+            a12Var.c.setColor(this.a.a());
+            a12Var.b.setShader(null);
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.z02
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
+            this.a = new h12(jSONArray);
+        }
     }
 }

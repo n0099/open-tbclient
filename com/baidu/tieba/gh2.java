@@ -1,103 +1,157 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8Engine;
+import com.baidu.tieba.sk4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@SuppressLint({"SwanDebugLog"})
 /* loaded from: classes4.dex */
-public class gh2 implements V8Engine.V8EngineConsole {
+public final class gh2 implements sk4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ug2 a;
+    public String a;
     public boolean b;
+    public sk4 c;
 
-    public gh2(ug2 ug2Var) {
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public gh2 a;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public gh2 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                gh2 gh2Var = this.a;
+                this.a = null;
+                return gh2Var;
+            }
+            return (gh2) invokeV.objValue;
+        }
+
+        public final gh2 c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                if (this.a == null) {
+                    this.a = new gh2(null);
+                }
+                return this.a;
+            }
+            return (gh2) invokeV.objValue;
+        }
+
+        public b b(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) != null) {
+                return (b) invokeZ.objValue;
+            }
+            c().b = z;
+            return this;
+        }
+
+        public b d(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeL = interceptable.invokeL(1048579, this, str)) != null) {
+                return (b) invokeL.objValue;
+            }
+            c().a = str;
+            return this;
+        }
+
+        public b e(sk4 sk4Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeL = interceptable.invokeL(1048580, this, sk4Var)) != null) {
+                return (b) invokeL.objValue;
+            }
+            c().c = sk4Var;
+            return this;
+        }
+    }
+
+    public gh2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ug2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = true;
-        this.a = ug2Var;
     }
 
-    @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
-    public void onDebugConsole(String str) {
+    public String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (this.b) {
-                Log.d("V8Console", this.a.m0() + str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "SoLib:: libName=" + this.a + " buildin=" + this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public /* synthetic */ gh2(a aVar) {
+        this();
+    }
+
+    @Override // com.baidu.tieba.sk4
+    public void a(String str, sk4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) {
+            sk4 sk4Var = this.c;
+            if (sk4Var != null) {
+                sk4Var.a(str, aVar);
+            } else if (aVar != null) {
+                aVar.a(true);
             }
-            us2.h().e(2, str);
-        }
-    }
-
-    @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
-    public void onInfoConsole(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (this.b) {
-                Log.i("V8Console", this.a.m0() + str);
-            }
-            us2.h().e(3, str);
-        }
-    }
-
-    @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
-    public void onLogConsole(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            if (this.b) {
-                Log.v("V8Console", this.a.m0() + str);
-            }
-            us2.h().e(1, str);
-        }
-    }
-
-    @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
-    public void onTraceConsole(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            if (this.b) {
-                Log.d("V8Console", this.a.m0() + str);
-            }
-            us2.h().e(6, str);
-        }
-    }
-
-    @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
-    public void onErrorConsole(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            us2.h().e(4, str);
-            Log.e("V8Console", this.a.m0() + str);
-            lu1 p0 = ts2.p0();
-            p0.e("V8Console", this.a.m0() + str);
-        }
-    }
-
-    @Override // com.baidu.searchbox.v8engine.V8Engine.V8EngineConsole
-    public void onWarnConsole(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            us2.h().e(5, str);
-            Log.w("V8Console", this.a.m0() + str);
-            lu1 p0 = ts2.p0();
-            p0.w("V8Console", this.a.m0() + str);
         }
     }
 }

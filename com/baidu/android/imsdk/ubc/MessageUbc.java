@@ -13,8 +13,8 @@ import com.baidu.android.imsdk.retrieve.RetrieveReportRequest;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.searchbox.launched.LaunchedTaskSpeedStats;
 import com.baidu.searchbox.logsystem.basic.upload.Constant;
-import com.baidu.tieba.e80;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
+import com.baidu.tieba.u60;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -220,7 +220,7 @@ public class MessageUbc {
         if (interceptable == null || interceptable.invokeLILL(65541, null, context, i, str, debugInfo) == null) {
             MessageUbc messageUbc = new MessageUbc(context, new TextMsg());
             messageUbc.setDebugInfo(debugInfo);
-            e80.d().f(messageUbc.generateUBCData(String.valueOf(i), str), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+            u60.d().f(messageUbc.generateUBCData(String.valueOf(i), str), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
         }
     }
 

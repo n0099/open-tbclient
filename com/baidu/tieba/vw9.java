@@ -1,158 +1,217 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.message.EvaluateRelevanceItemUpdatedMessage;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.write.write.relevance.RelevanceItemSearchData;
+import com.baidu.tieba.write.write.relevance.RelevanceItemSearchResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.TimeZone;
+import java.util.List;
 /* loaded from: classes6.dex */
-public final class vw9 {
+public class vw9 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static boolean b;
-    public static StringBuffer c;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public BdUniqueId b;
+    public final String c;
+    public b d;
+    public List<String> e;
+    public HttpMessageListener f;
 
     /* loaded from: classes6.dex */
-    public static class a extends xw9 {
+    public interface b {
+        void a();
+
+        void c(RelevanceItemSearchData relevanceItemSearchData);
+
+        void d();
+
+        void onError(int i, String str);
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
+        public final /* synthetic */ vw9 a;
 
-        public a(String str, String str2, String str3) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(vw9 vw9Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, str3};
+                Object[] objArr = {vw9Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = str;
-            this.b = str2;
-            this.c = str3;
+            this.a = vw9Var;
         }
 
-        @Override // com.baidu.tieba.xw9
-        public final void a() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            RelevanceItemSearchData relevanceItemSearchData;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                StringBuffer stringBuffer = new StringBuffer();
-                SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd_HH:mm:ss:SSS");
-                simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT+08"));
-                stringBuffer.append(simpleDateFormat.format(new Date()));
-                stringBuffer.append("\t");
-                stringBuffer.append(this.a);
-                stringBuffer.append("\t");
-                stringBuffer.append(this.b);
-                stringBuffer.append("\t");
-                stringBuffer.append(this.c);
-                ax9.d(stringBuffer.toString(), com.baidu.ubs.analytics.d.a.c, vw9.c.toString());
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && this.a.d != null) {
+                if (httpResponsedMessage.getOrginalMessage() != null && httpResponsedMessage.getOrginalMessage().getTag() != this.a.b) {
+                    return;
+                }
+                if (httpResponsedMessage instanceof RelevanceItemSearchResponse) {
+                    relevanceItemSearchData = ((RelevanceItemSearchResponse) httpResponsedMessage).getResponseData();
+                } else {
+                    relevanceItemSearchData = null;
+                }
+                if (relevanceItemSearchData != null && relevanceItemSearchData.getData() != null) {
+                    if (!ListUtils.equalList(this.a.e, relevanceItemSearchData.getData().getTab_option())) {
+                        this.a.e = relevanceItemSearchData.getData().getTab_option();
+                        MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemUpdatedMessage(this.a.e));
+                    }
+                    if (httpResponsedMessage.getError() == 0) {
+                        if (ListUtils.isEmpty(relevanceItemSearchData.getData().getItem_list())) {
+                            if (this.a.a == 1) {
+                                this.a.d.a();
+                                return;
+                            } else {
+                                this.a.d.d();
+                                return;
+                            }
+                        } else if (relevanceItemSearchData != null) {
+                            this.a.d.c(relevanceItemSearchData);
+                            if (this.a.a == 1 && relevanceItemSearchData.getData().getItem_list().size() < 20) {
+                                this.a.d.d();
+                            }
+                            vw9.f(this.a);
+                            return;
+                        } else {
+                            return;
+                        }
+                    }
+                    this.a.d.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
+                    this.a.l();
+                    return;
+                }
+                MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemUpdatedMessage(null));
+                this.a.d.onError(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d1f));
+                this.a.l();
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948255345, "Lcom/baidu/tieba/vw9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948255345, "Lcom/baidu/tieba/vw9;");
+    public vw9(BdUniqueId bdUniqueId, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdUniqueId, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        c = new StringBuffer();
-        if (uv9.h() != null) {
-            a = !com.baidu.ubs.analytics.d.a.a();
-            b = true;
-            c.append("ABsdkLog-");
-            c.append(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
-            c.append("_");
-            try {
-                c.append(c(qw9.g(uv9.h().getContext()).getBytes("UTF-8")));
-            } catch (UnsupportedEncodingException e) {
-                dx9.d(e);
-            } catch (Exception e2) {
-                dx9.d(e2);
-            }
-            c.append(".log");
+        this.a = 1;
+        a aVar = new a(this, CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
+        this.f = aVar;
+        this.b = bdUniqueId;
+        this.c = str;
+        aVar.setTag(bdUniqueId);
+        k();
+        MessageManager.getInstance().registerListener(this.f);
+    }
+
+    public static /* synthetic */ int f(vw9 vw9Var) {
+        int i = vw9Var.a;
+        vw9Var.a = i + 1;
+        return i;
+    }
+
+    public void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            l();
+            i(str);
         }
     }
 
-    public static void a(String str) {
+    public void m(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            if (a) {
-                Log.w("BaiDuUbs", str);
-            }
-            d("w", "BaiDuUbs", str);
+        if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
+            this.d = bVar;
         }
     }
 
-    public static void b(String str) {
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            if (a) {
-                Log.e("BaiDuUbs", str);
-            }
-            d("e", "BaiDuUbs", str);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
+            httpMessage.addParam("tab_name", this.c);
+            httpMessage.addParam("pn", this.a);
+            httpMessage.addParam("rn", 20);
+            httpMessage.setTag(this.b);
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
-    public static String c(byte[] bArr) {
-        InterceptResult invokeL;
+    public final void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
-            StringBuilder sb = new StringBuilder("");
-            if (bArr != null && bArr.length > 0) {
-                for (byte b2 : bArr) {
-                    String hexString = Integer.toHexString(b2 & 255);
-                    if (hexString.length() < 2) {
-                        sb.append(0);
-                    }
-                    sb.append(hexString);
-                }
-                return sb.toString();
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH, TbConfig.SERVER_ADDRESS + TbConfig.RELEVANCE_ITEM_SEARCH_URL);
+            tbHttpMessageTask.setIsNeedAddCommenParam(true);
+            tbHttpMessageTask.setResponsedClass(RelevanceItemSearchResponse.class);
+            tbHttpMessageTask.setPriority(4);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
-        return (String) invokeL.objValue;
     }
 
-    public static void d(String str, String str2, String str3) {
+    public final void i(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, str3) != null) || !b) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
+            httpMessage.addParam("tab_name", this.c);
+            httpMessage.addParam("keyword", str);
+            httpMessage.addParam("pn", this.a);
+            httpMessage.addParam("rn", 20);
+            httpMessage.setTag(this.b);
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
-        ww9.a(new a(str, str2, str3));
     }
 
-    public static String e() {
-        InterceptResult invokeV;
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return c.toString();
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MessageManager.getInstance().removeMessage(this.b);
+            MessageManager.getInstance().unRegisterListener(this.b);
         }
-        return (String) invokeV.objValue;
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.a = 1;
+        }
     }
 }

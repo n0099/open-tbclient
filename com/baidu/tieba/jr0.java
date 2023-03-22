@@ -1,274 +1,188 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import java.util.ArrayList;
 import java.util.List;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import okhttp3.Cookie;
+import okhttp3.CookieJar;
+import okhttp3.HttpUrl;
 /* loaded from: classes5.dex */
-public final class jr0 {
+public class jr0 implements CookieJar {
     public static /* synthetic */ Interceptable $ic;
-    public static final a i;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final String c;
-    public final List<wr0> d;
-    public final String e;
-    public final String f;
-    public String g;
-    public final String h;
+    public kr0 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947892769, "Lcom/baidu/tieba/jr0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947892769, "Lcom/baidu/tieba/jr0;");
-                return;
-            }
-        }
-        i = new a(null);
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof jr0) {
-                    jr0 jr0Var = (jr0) obj;
-                    return Intrinsics.areEqual(this.a, jr0Var.a) && Intrinsics.areEqual(this.b, jr0Var.b) && Intrinsics.areEqual(this.c, jr0Var.c) && Intrinsics.areEqual(this.d, jr0Var.d) && Intrinsics.areEqual(this.e, jr0Var.e) && Intrinsics.areEqual(this.f, jr0Var.f) && Intrinsics.areEqual(this.g, jr0Var.g) && Intrinsics.areEqual(this.h, jr0Var.h);
-                }
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            String str = this.a;
-            int hashCode = (str != null ? str.hashCode() : 0) * 31;
-            String str2 = this.b;
-            int hashCode2 = (hashCode + (str2 != null ? str2.hashCode() : 0)) * 31;
-            String str3 = this.c;
-            int hashCode3 = (hashCode2 + (str3 != null ? str3.hashCode() : 0)) * 31;
-            List<wr0> list = this.d;
-            int hashCode4 = (hashCode3 + (list != null ? list.hashCode() : 0)) * 31;
-            String str4 = this.e;
-            int hashCode5 = (hashCode4 + (str4 != null ? str4.hashCode() : 0)) * 31;
-            String str5 = this.f;
-            int hashCode6 = (hashCode5 + (str5 != null ? str5.hashCode() : 0)) * 31;
-            String str6 = this.g;
-            int hashCode7 = (hashCode6 + (str6 != null ? str6.hashCode() : 0)) * 31;
-            String str7 = this.h;
-            return hashCode7 + (str7 != null ? str7.hashCode() : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return "BigCardData(avatar=" + this.a + ", brandName=" + this.b + ", title=" + this.c + ", tagList=" + this.d + ", btnText=" + this.e + ", btnColor=" + this.f + ", btnScheme=" + this.g + ", showTime=" + this.h + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public final jr0 a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-                if (jSONObject != null) {
-                    String optString = jSONObject.optString("avatar");
-                    Intrinsics.checkNotNullExpressionValue(optString, "jsonObj.optString(\"avatar\")");
-                    String optString2 = jSONObject.optString("brand_name");
-                    Intrinsics.checkNotNullExpressionValue(optString2, "jsonObj.optString(\"brand_name\")");
-                    String optString3 = jSONObject.optString("title");
-                    Intrinsics.checkNotNullExpressionValue(optString3, "jsonObj.optString(\"title\")");
-                    List<wr0> b = jr0.i.b(jSONObject.optJSONArray(PushConstants.SUB_TAGS_STATUS_LIST));
-                    String optString4 = jSONObject.optString(GameGuideConfigInfo.KEY_BUTTON_TEXT);
-                    Intrinsics.checkNotNullExpressionValue(optString4, "jsonObj.optString(\"button_text\")");
-                    String optString5 = jSONObject.optString("button_color");
-                    Intrinsics.checkNotNullExpressionValue(optString5, "jsonObj.optString(\"button_color\")");
-                    String optString6 = jSONObject.optString("button_scheme");
-                    Intrinsics.checkNotNullExpressionValue(optString6, "jsonObj.optString(\"button_scheme\")");
-                    String optString7 = jSONObject.optString("show_time");
-                    Intrinsics.checkNotNullExpressionValue(optString7, "jsonObj.optString(\"show_time\")");
-                    return new jr0(optString, optString2, optString3, b, optString4, optString5, optString6, optString7);
-                }
-                return null;
-            }
-            return (jr0) invokeL.objValue;
-        }
-
-        public final List<wr0> b(JSONArray jSONArray) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray)) == null) {
-                if (jSONArray != null && jSONArray.length() > 0) {
-                    ArrayList arrayList = new ArrayList();
-                    int length = jSONArray.length();
-                    for (int i = 0; i < length; i++) {
-                        wr0 a = wr0.b.a(jSONArray.optJSONObject(i));
-                        if (a != null) {
-                            arrayList.add(a);
-                        }
-                    }
-                    return arrayList;
-                }
-                return new ArrayList();
-            }
-            return (List) invokeL.objValue;
-        }
-    }
-
-    public jr0(String avatar, String brandName, String title, List<wr0> tagList, String btnText, String btnColor, String btnScheme, String showTime) {
+    public jr0(kr0 kr0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {avatar, brandName, title, tagList, btnText, btnColor, btnScheme, showTime};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {kr0Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(avatar, "avatar");
-        Intrinsics.checkNotNullParameter(brandName, "brandName");
-        Intrinsics.checkNotNullParameter(title, "title");
-        Intrinsics.checkNotNullParameter(tagList, "tagList");
-        Intrinsics.checkNotNullParameter(btnText, "btnText");
-        Intrinsics.checkNotNullParameter(btnColor, "btnColor");
-        Intrinsics.checkNotNullParameter(btnScheme, "btnScheme");
-        Intrinsics.checkNotNullParameter(showTime, "showTime");
-        this.a = avatar;
-        this.b = brandName;
-        this.c = title;
-        this.d = tagList;
-        this.e = btnText;
-        this.f = btnColor;
-        this.g = btnScheme;
-        this.h = showTime;
+        this.a = kr0Var;
     }
 
-    public final String a() {
-        InterceptResult invokeV;
+    public static int a(@NonNull String str, int i, int i2, char c) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Character.valueOf(c)})) == null) {
+            while (i < i2) {
+                if (str.charAt(i) == c) {
+                    return i;
+                }
+                i++;
+            }
+            return i2;
         }
-        return (String) invokeV.objValue;
+        return invokeCommon.intValue;
     }
 
-    public final String b() {
-        InterceptResult invokeV;
+    public static int d(@NonNull String str, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, str, i, i2)) == null) {
+            while (i < i2) {
+                char charAt = str.charAt(i);
+                if (charAt != '\t' && charAt != '\n' && charAt != '\f' && charAt != '\r' && charAt != ' ') {
+                    return i;
+                }
+                i++;
+            }
+            return i2;
         }
-        return (String) invokeV.objValue;
+        return invokeLII.intValue;
     }
 
-    public final String c() {
-        InterceptResult invokeV;
+    public static String f(@NonNull String str, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, str, i, i2)) == null) {
+            int d = d(str, i, i2);
+            return str.substring(d, e(str, d, i2));
         }
-        return (String) invokeV.objValue;
+        return (String) invokeLII.objValue;
     }
 
-    public final String d() {
-        InterceptResult invokeV;
+    public static int e(@NonNull String str, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.g;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, str, i, i2)) == null) {
+            for (int i3 = i2 - 1; i3 >= i; i3--) {
+                char charAt = str.charAt(i3);
+                if (charAt != '\t' && charAt != '\n' && charAt != '\f' && charAt != '\r' && charAt != ' ') {
+                    return i3 + 1;
+                }
+            }
+            return i;
         }
-        return (String) invokeV.objValue;
+        return invokeLII.intValue;
     }
 
-    public final String e() {
-        InterceptResult invokeV;
+    public final String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (str == null) {
+                return "";
+            }
+            StringBuilder sb = new StringBuilder();
+            int length = str.length();
+            for (int i = 0; i < length; i++) {
+                char charAt = str.charAt(i);
+                if (charAt > 31 && charAt < 127) {
+                    sb.append(charAt);
+                } else {
+                    sb.append(String.format("\\u%04x", Integer.valueOf(charAt)));
+                }
+            }
+            return sb.toString();
         }
-        return (String) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public final String f() {
-        InterceptResult invokeV;
+    public final List<Cookie> c(@NonNull HttpUrl httpUrl, @NonNull String str) {
+        InterceptResult invokeLL;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.h;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpUrl, str)) == null) {
+            ArrayList arrayList = new ArrayList();
+            int length = str.length();
+            int i = 0;
+            while (i < length) {
+                int a = a(str, i, length, WebvttCueParser.CHAR_SEMI_COLON);
+                int a2 = a(str, i, a, '=');
+                String f = f(str, i, a2);
+                if (a2 < a) {
+                    str2 = f(str, a2 + 1, a);
+                } else {
+                    str2 = "";
+                }
+                if (str2.startsWith("\"") && str2.endsWith("\"")) {
+                    str2 = str2.substring(1, str2.length() - 1);
+                }
+                String b = b(f);
+                String b2 = b(str2);
+                if (!TextUtils.isEmpty(b) && this.a.shouldSendCookie(httpUrl.toString(), b)) {
+                    arrayList.add(new Cookie.Builder().name(b).value(b2).domain(httpUrl.host()).build());
+                }
+                i = a + 1;
+            }
+            return arrayList;
         }
-        return (String) invokeV.objValue;
+        return (List) invokeLL.objValue;
     }
 
-    public final String g() {
-        InterceptResult invokeV;
+    @Override // okhttp3.CookieJar
+    public List<Cookie> loadForRequest(HttpUrl httpUrl) {
+        InterceptResult invokeL;
+        kr0 kr0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, httpUrl)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (httpUrl != null && (kr0Var = this.a) != null) {
+                String cookie = kr0Var.getCookie(httpUrl.toString());
+                if (!TextUtils.isEmpty(cookie)) {
+                    arrayList.addAll(c(httpUrl, cookie));
+                }
+            }
+            return arrayList;
         }
-        return (String) invokeV.objValue;
+        return (List) invokeL.objValue;
     }
 
-    public final void h(String str) {
+    @Override // okhttp3.CookieJar
+    public void saveFromResponse(HttpUrl httpUrl, List<Cookie> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.g = str;
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, httpUrl, list) != null) || httpUrl == null || u01.g(list) || this.a == null) {
+            return;
         }
+        ArrayList arrayList = new ArrayList();
+        String httpUrl2 = httpUrl.toString();
+        for (Cookie cookie : list) {
+            if (cookie != null) {
+                String cookie2 = cookie.toString();
+                if (!TextUtils.isEmpty(cookie2) && this.a.shouldAcceptCookie(httpUrl2, cookie2)) {
+                    arrayList.add(cookie2);
+                }
+            }
+        }
+        this.a.storeCookie(httpUrl.toString(), arrayList);
     }
 }

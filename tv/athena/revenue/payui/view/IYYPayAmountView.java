@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.view.View;
 import android.view.Window;
 import androidx.annotation.Keep;
-import com.baidu.tieba.lua;
-import com.baidu.tieba.pva;
+import com.baidu.tieba.hza;
+import com.baidu.tieba.l0b;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
 import java.util.List;
 import java.util.Map;
@@ -13,7 +13,7 @@ import tv.athena.revenue.api.pay.params.AppCustomExpand;
 import tv.athena.revenue.payui.model.PayScene;
 @Keep
 /* loaded from: classes9.dex */
-public interface IYYPayAmountView extends pva {
+public interface IYYPayAmountView extends l0b {
 
     @Keep
     /* loaded from: classes9.dex */
@@ -26,19 +26,19 @@ public interface IYYPayAmountView extends pva {
 
         void toHelpCenterPage();
 
-        void toPayWayDialog(lua luaVar, List<PayWayInfo> list, String str);
+        void toPayWayDialog(hza hzaVar, List<PayWayInfo> list, String str);
     }
 
-    @Override // com.baidu.tieba.pva
+    @Override // com.baidu.tieba.l0b
     /* synthetic */ void attachWindow(Window window);
 
-    @Override // com.baidu.tieba.pva
+    @Override // com.baidu.tieba.l0b
     /* synthetic */ View getContentView();
 
-    @Override // com.baidu.tieba.pva
+    @Override // com.baidu.tieba.l0b
     /* synthetic */ void refreshView();
 
-    @Override // com.baidu.tieba.pva
+    @Override // com.baidu.tieba.l0b
     /* synthetic */ void refreshWindow(WindowParams windowParams);
 
     void setCallback(Callback callback);

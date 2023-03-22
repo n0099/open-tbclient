@@ -15,12 +15,12 @@ public class cr extends ContentObserver {
 
     @Override // android.database.ContentObserver
     public void onChange(boolean z) {
-        boolean m659g;
+        boolean m661g;
         super.onChange(z);
-        m659g = this.a.m659g();
-        com.xiaomi.channel.commonutils.logger.b.m97a("SuperPowerMode:" + m659g);
+        m661g = this.a.m661g();
+        com.xiaomi.channel.commonutils.logger.b.m99a("SuperPowerMode:" + m661g);
         this.a.e();
-        if (!m659g) {
+        if (!m661g) {
             this.a.a(true);
             return;
         }

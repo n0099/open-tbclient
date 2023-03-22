@@ -26,10 +26,10 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tbadk.pageExtra.TbPageExtraHelper;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.i69;
-import com.baidu.tieba.n69;
-import com.baidu.tieba.ol5;
-import com.baidu.tieba.sb5;
+import com.baidu.tieba.ea5;
+import com.baidu.tieba.lk5;
+import com.baidu.tieba.oc9;
+import com.baidu.tieba.tc9;
 import com.baidu.tieba.video.VideoConvertUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -45,7 +45,7 @@ public final class AliAuthHttpProxy {
     public transient /* synthetic */ FieldHolder $fh;
     public final WeakReference<WebView> a;
     public final BdUniqueId b;
-    public i69 c;
+    public oc9 c;
     public final Handler d;
 
     /* loaded from: classes3.dex */
@@ -86,7 +86,7 @@ public final class AliAuthHttpProxy {
                 if (message.what == 1118481) {
                     final AuthHttpRequestMsg authHttpRequestMsg = (AuthHttpRequestMsg) message.obj;
                     authHttpRequestMsg.pollingTimesIncrease();
-                    this.a.d.postDelayed(new Runnable() { // from class: com.baidu.tieba.iv4
+                    this.a.d.postDelayed(new Runnable() { // from class: com.baidu.tieba.pt4
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
 
@@ -197,11 +197,11 @@ public final class AliAuthHttpProxy {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null) {
                 Object data = customResponsedMessage.getData();
-                if (data instanceof ol5) {
-                    ol5 ol5Var = (ol5) data;
-                    int i = ol5Var.b;
-                    String str = ol5Var.c;
-                    Bundle bundle = ol5Var.d;
+                if (data instanceof lk5) {
+                    lk5 lk5Var = (lk5) data;
+                    int i = lk5Var.b;
+                    String str = lk5Var.c;
+                    Bundle bundle = lk5Var.d;
                     if (i == 9000) {
                         Object obj = bundle.get("auth_code");
                         if (obj != null && !TextUtils.isEmpty(obj.toString())) {
@@ -247,10 +247,10 @@ public final class AliAuthHttpProxy {
         MessageManager.getInstance().registerListener(cVar);
     }
 
-    public void m(i69 i69Var) {
+    public void m(oc9 oc9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, i69Var) == null) {
-            this.c = i69Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, oc9Var) == null) {
+            this.c = oc9Var;
         }
     }
 
@@ -335,15 +335,15 @@ public final class AliAuthHttpProxy {
         return (HttpMessage) invokeL.objValue;
     }
 
-    public n69 l() {
+    public tc9 l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            n69 n69Var = new n69();
-            n69Var.x(0);
+            tc9 tc9Var = new tc9();
+            tc9Var.x(0);
             Activity activityByView = TbPageExtraHelper.getActivityByView(this.a.get());
             if (activityByView == null) {
-                return n69Var;
+                return tc9Var;
             }
             HashMap<String, String> hashMap = new HashMap<String, String>(this) { // from class: com.baidu.tbadk.browser.auth.AliAuthHttpProxy.4
                 public static /* synthetic */ Interceptable $ic;
@@ -369,14 +369,14 @@ public final class AliAuthHttpProxy {
                     put("url", "https://authweb.alipay.com/auth?auth_type=PURE_OAUTH_SDK&app_id=2021003145680066&scope=auth_user&state=init");
                 }
             };
-            sb5 sb5Var = new sb5();
-            sb5Var.a = activityByView;
-            sb5Var.b = "__tb_account_auth__";
-            sb5Var.c = hashMap;
-            sb5Var.d = this.b;
-            MessageManager.getInstance().runTask(2921793, String.class, sb5Var);
-            return n69Var;
+            ea5 ea5Var = new ea5();
+            ea5Var.a = activityByView;
+            ea5Var.b = "__tb_account_auth__";
+            ea5Var.c = hashMap;
+            ea5Var.d = this.b;
+            MessageManager.getInstance().runTask(2921793, String.class, ea5Var);
+            return tc9Var;
         }
-        return (n69) invokeV.objValue;
+        return (tc9) invokeV.objValue;
     }
 }

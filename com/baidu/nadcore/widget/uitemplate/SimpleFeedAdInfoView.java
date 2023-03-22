@@ -13,8 +13,8 @@ import androidx.appcompat.widget.AppCompatRatingBar;
 import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hr0;
-import com.baidu.tieba.ir0;
+import com.baidu.tieba.xp0;
+import com.baidu.tieba.yp0;
 /* loaded from: classes2.dex */
 public class SimpleFeedAdInfoView extends SimpleAdInfoView {
     public TextView i;
@@ -48,14 +48,14 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
     }
 
     public void update(AdBaseModel adBaseModel) {
-        ir0 ir0Var;
-        hr0.a aVar;
+        yp0 yp0Var;
+        xp0.a aVar;
         int i;
-        if (adBaseModel != null && (ir0Var = adBaseModel.i) != null) {
-            setAdInfo(ir0Var);
+        if (adBaseModel != null && (yp0Var = adBaseModel.i) != null) {
+            setAdInfo(yp0Var);
             c();
-            hr0 hr0Var = adBaseModel.p;
-            if (hr0Var != null && (aVar = hr0Var.j) != null && (i = aVar.h) != 0) {
+            xp0 xp0Var = adBaseModel.p;
+            if (xp0Var != null && (aVar = xp0Var.j) != null && (i = aVar.h) != 0) {
                 setRatingBarViewLP(i);
             }
         }
@@ -101,11 +101,11 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
     }
 
     @Override // com.baidu.nadcore.widget.uiwidget.SimpleAdInfoView
-    public void setAdInfo(ir0 ir0Var) {
-        super.setAdInfo(ir0Var);
+    public void setAdInfo(yp0 yp0Var) {
+        super.setAdInfo(yp0Var);
         if (this.i != null) {
-            if (!TextUtils.isEmpty(ir0Var.c)) {
-                this.i.setText(ir0Var.c);
+            if (!TextUtils.isEmpty(yp0Var.c)) {
+                this.i.setText(yp0Var.c);
                 this.i.setVisibility(0);
             } else {
                 this.i.setVisibility(8);
@@ -113,7 +113,7 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
         }
         TextView textView = this.k;
         if (textView != null) {
-            double d = ir0Var.e;
+            double d = yp0Var.e;
             if (d != -1.0d) {
                 textView.setText(String.valueOf(d));
                 this.k.setVisibility(0);
@@ -123,7 +123,7 @@ public class SimpleFeedAdInfoView extends SimpleAdInfoView {
         }
         AppCompatRatingBar appCompatRatingBar = this.j;
         if (appCompatRatingBar != null) {
-            double d2 = ir0Var.e;
+            double d2 = yp0Var.e;
             if (d2 != -1.0d) {
                 appCompatRatingBar.setRating((float) d2);
                 this.j.setVisibility(0);

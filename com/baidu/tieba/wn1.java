@@ -1,63 +1,23 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
-import com.baidu.android.imsdk.IMConstants;
+import android.content.Context;
+import android.net.Uri;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
+import com.vivo.identifier.IdentifierIdClient;
 /* loaded from: classes6.dex */
-public class wn1 {
+public class wn1 implements nn1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile wn1 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public HandlerThread a;
-    public Handler b;
-
-    /* loaded from: classes6.dex */
-    public class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(wn1 wn1Var, Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wn1Var, looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                tn1 tn1Var = new tn1();
-                tn1Var.a = message.arg2;
-                int i = message.arg1;
-                if (i == -1) {
-                    i = un1.m().a();
-                }
-                un1.m().d(message.what, 3, IMConstants.IM_MSG_TYPE_ADVISORY_DISCLAIMER, i, "out time.", tn1Var, true);
-            }
-        }
-    }
+    public vn1 a;
+    public String b;
+    public un1 c;
 
     public wn1() {
         Interceptable interceptable = $ic;
@@ -69,43 +29,54 @@ public class wn1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        HandlerThread handlerThread = new HandlerThread("callback-handler");
-        this.a = handlerThread;
-        this.b = null;
-        handlerThread.start();
-        this.b = new a(this, this.a.getLooper());
     }
 
-    public static wn1 a() {
+    @Override // com.baidu.tieba.nn1
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (wn1.class) {
-                    if (c == null) {
-                        c = new wn1();
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (TextUtils.isEmpty(this.b)) {
+                this.b = this.a.a(0, null);
             }
-            return c;
+            return this.b;
         }
-        return (wn1) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void b(int i) {
+    @Override // com.baidu.tieba.nn1
+    public void a(Context context, on1 on1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.b.removeMessages(i);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, on1Var) == null) {
+            this.a = new vn1(context);
+            if (b()) {
+                this.c = new un1(this);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, this.c);
+            }
+            if (on1Var != null) {
+                on1Var.a();
+            }
         }
     }
 
-    public void c(Message message, long j) {
+    public boolean b() {
+        InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message, j) == null) {
-            this.b.sendMessageDelayed(message, j);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            try {
+                Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
+                str = (String) cls.getMethod("get", String.class, String.class).invoke(cls, IdentifierIdClient.SYS_IDENTIFIERID_SUPPORTED, "0");
+            } catch (Throwable unused) {
+                str = null;
+            }
+            if ("1".equals(str)) {
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 }

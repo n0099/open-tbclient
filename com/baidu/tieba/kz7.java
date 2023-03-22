@@ -2,184 +2,100 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
-import android.widget.TextView;
-import androidx.viewpager.widget.ViewPager;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.lego.indicator.SlidingTabLayout;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class kz7 {
+public class kz7 extends tm<gz7, CardViewHolder<lz7>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageView a;
-    public View b;
-    public TextView c;
-    public SlidingTabLayout d;
-    public Context e;
-    public Animation f;
-    public Animation g;
-    public boolean h;
-    public fh i;
+    public TbPageContext<?> a;
+    public lf6 b;
+    public String c;
 
-    /* loaded from: classes5.dex */
-    public class a extends fh {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kz7 a;
-
-        public a(kz7 kz7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kz7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = kz7Var;
-        }
-
-        @Override // com.baidu.tieba.fh
-        public void a(Animation animation) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, animation) != null) || this.a.c == null) {
-                return;
-            }
-            if (animation == this.a.f) {
-                this.a.c.setVisibility(0);
-                this.a.c.setClickable(true);
-            } else if (animation == this.a.g) {
-                this.a.c.setVisibility(8);
-                this.a.c.setClickable(false);
-            }
-        }
-    }
-
-    public kz7(Context context, View view2) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kz7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getContext(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, view2};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.h = true;
-        this.i = new a(this);
-        this.b = view2;
-        this.e = context;
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921b5);
-        this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0921b3);
-        this.d = (SlidingTabLayout) view2.findViewById(R.id.obfuscated_res_0x7f0921b4);
+        this.a = tbPageContext;
     }
 
-    public void h(View.OnClickListener onClickListener) {
-        ImageView imageView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) && (imageView = this.a) != null) {
-            imageView.setOnClickListener(onClickListener);
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.h = true;
-            TextView textView = this.c;
-            if (textView != null) {
-                textView.clearAnimation();
-                this.c.startAnimation(f());
-            }
-            SkinManager.setImageResource(this.a, R.drawable.lego_icon_triangle_down_normal);
-        }
-    }
-
-    public final Animation e() {
+    @Override // com.baidu.tieba.tm
+    public qn getOnAdapterItemClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.f == null) {
-                Animation loadAnimation = AnimationUtils.loadAnimation(this.e, R.anim.fade_in);
-                this.f = loadAnimation;
-                loadAnimation.setAnimationListener(this.i);
-            }
-            return this.f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return super.getOnAdapterItemClickListener();
         }
-        return (Animation) invokeV.objValue;
+        return (qn) invokeV.objValue;
     }
 
-    public final Animation f() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.tm
+    /* renamed from: s */
+    public CardViewHolder<lz7> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.g == null) {
-                Animation loadAnimation = AnimationUtils.loadAnimation(this.e, R.anim.obfuscated_res_0x7f010064);
-                this.g = loadAnimation;
-                loadAnimation.setAnimationListener(this.i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            lz7 lz7Var = new lz7(this.a, viewGroup);
+            lf6 lf6Var = this.b;
+            if (lf6Var != null) {
+                lz7Var.n(lf6Var);
             }
-            return this.g;
+            return new CardViewHolder<>(lz7Var);
         }
-        return (Animation) invokeV.objValue;
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    public void j() {
+    public void u(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.h = false;
-            TextView textView = this.c;
-            if (textView != null) {
-                textView.clearAnimation();
-                this.c.setVisibility(0);
-                this.c.startAnimation(e());
-            }
-            SkinManager.setImageResource(this.a, R.drawable.lego_icon_triangle_up_normal);
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.c = str;
         }
     }
 
-    public void g(int i) {
+    public void x(lf6 lf6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0205);
-            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0205);
-            SkinManager.setViewTextColor(this.c, R.color.CAM_X0106, 1);
-            if (this.h) {
-                SkinManager.setImageResource(this.a, R.drawable.lego_icon_triangle_down_normal);
-            } else {
-                SkinManager.setImageResource(this.a, R.drawable.lego_icon_triangle_up_normal);
-            }
-            SkinManager.setBackgroundResource(this.a, R.drawable.lego_btn_more_selector);
-            SlidingTabLayout slidingTabLayout = this.d;
-            if (slidingTabLayout != null) {
-                slidingTabLayout.onChangeSkinType(i);
-            }
+        if (interceptable == null || interceptable.invokeL(1048582, this, lf6Var) == null) {
+            this.b = lf6Var;
         }
     }
 
-    public void i(ViewPager viewPager, int i) {
-        SlidingTabLayout slidingTabLayout;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.tm
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, gz7 gz7Var, CardViewHolder<lz7> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048581, this, viewPager, i) == null) && (slidingTabLayout = this.d) != null) {
-            slidingTabLayout.setViewPager(viewPager, i);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, gz7Var, cardViewHolder})) == null) {
+            if (gz7Var != null && cardViewHolder != null && cardViewHolder.a() != null) {
+                cardViewHolder.a().z(this.c);
+                cardViewHolder.a().l(gz7Var);
+                return cardViewHolder.getView();
+            }
+            return null;
         }
+        return (View) invokeCommon.objValue;
     }
 }

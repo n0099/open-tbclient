@@ -122,6 +122,7 @@ public final class Constants {
     public static final String EXTRA_PUSH_APP_ID = "push_app_id";
     public static final String EXTRA_PUSH_CHANNEL_ID = "push_channel_id";
     public static final String EXTRA_PUSH_USER_ID = "push_user_id";
+    public static final String EXTRA_REMAIN_EMPTY_SESSION = "remain_empty_session";
     public static final String EXTRA_RETRY_TIME = "retry_time";
     public static final String EXTRA_ROOM_ID = "room_id";
     public static final String EXTRA_SAVE_TO_DB = "save_to_db";
@@ -196,7 +197,7 @@ public final class Constants {
     public static final String KEY_USER_SETTING_NOT_CONCERNED = "user_setting_not_concerned";
     public static final String KEY_VCODE = "imsdk_product_vcode";
     public static final String KEY_ZID = "imsdk_product_zid";
-    public static final String LITTLE_VERSION = "5";
+    public static final String LITTLE_VERSION = "1";
     public static final int LOGIN_STATE_LOGIN = 3;
     public static final int LOGIN_STATE_LOGINING = 1;
     public static final int LOGIN_STATE_LOGIN_FAILED = 2;
@@ -263,7 +264,7 @@ public final class Constants {
     public static final int METHOD_MEDIA_NOTIFY = 226;
     public static final int METHOD_SEND_USER_MSG = 1048578;
     public static final int METHOD_SYNC_DIALOG = 94;
-    public static final String MIDDLE_VERSION = "0";
+    public static final String MIDDLE_VERSION = "3";
     public static final int MSG_NOTIFY = 1;
     public static final int MSG_NOT_NOTIFY = 0;
     public static final int NOT_CLEAR_AFTER_LOGOUT = 0;

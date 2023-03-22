@@ -11,6 +11,6 @@ public final class f extends c {
 
     @Override // com.kwad.components.core.widget.b
     public final int getLayoutId() {
-        return R.layout.obfuscated_res_0x7f0d044d;
+        return R.layout.obfuscated_res_0x7f0d0459;
     }
 }

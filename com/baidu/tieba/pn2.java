@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,16 +10,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes5.dex */
-public class pn2 extends gn2<mn2> {
+public class pn2 extends nl2<eo2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.gn2
+    @Override // com.baidu.tieba.nl2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "pageScrollBack" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setCameraFace" : (String) invokeV.objValue;
     }
 
     public pn2() {
@@ -36,13 +37,22 @@ public class pn2 extends gn2<mn2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gn2
+    @Override // com.baidu.tieba.nl2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull mn2 mn2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull eo2 eo2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, mn2Var) == null) {
-            d(mn2Var, command.what, null, false);
-            mn2Var.x0();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, eo2Var) == null) {
+            String str = command.what;
+            d(eo2Var, str, "" + command.obj, true);
+            Object obj = command.obj;
+            if (obj instanceof String) {
+                String str2 = (String) obj;
+                if (TextUtils.equals(str2, "back")) {
+                    eo2Var.setCameraFace(false);
+                } else if (TextUtils.equals(str2, "front")) {
+                    eo2Var.setCameraFace(true);
+                }
+            }
         }
     }
 }

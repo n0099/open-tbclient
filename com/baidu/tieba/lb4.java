@@ -1,41 +1,33 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmField;
-import kotlin.jvm.internal.Intrinsics;
+import okhttp3.Callback;
+import okhttp3.HttpUrl;
+import okhttp3.Request;
 /* loaded from: classes5.dex */
-public final class lb4 {
+public class lb4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    @JvmField
-    public final byte[] message;
-    @V8JavascriptField
-    @JvmField
-    public final Object remoteInfo;
 
-    public lb4(byte[] message, Object remoteInfo) {
+    public static void a(Callback callback) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {message, remoteInfo};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(65536, null, callback) == null) {
+            b(callback, "6");
         }
-        Intrinsics.checkNotNullParameter(message, "message");
-        Intrinsics.checkNotNullParameter(remoteInfo, "remoteInfo");
-        this.message = message;
-        this.remoteInfo = remoteInfo;
+    }
+
+    public static void b(Callback callback, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65537, null, callback, str) != null) || t73.M() == null) {
+            return;
+        }
+        HttpUrl.Builder newBuilder = HttpUrl.parse("https://gamecenter.baidu.com/api/exchange/list").newBuilder();
+        newBuilder.addQueryParameter(Constants.EXTRA_CONFIG_LIMIT, str);
+        newBuilder.addQueryParameter(GameGuideConfigInfo.KEY_APP_KEY, t73.M().O());
+        newBuilder.addQueryParameter("source", "4");
+        ((a64) t73.M().i0()).call(new Request.Builder().url(newBuilder.build()).build(), callback);
     }
 }

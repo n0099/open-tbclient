@@ -8,7 +8,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.hi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -100,7 +100,7 @@ public class CommonLikeButton extends AppCompatTextView {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             setSingleLine();
             setIncludeFontPadding(false);
-            setTextSize(0, ej.g(getContext(), R.dimen.tbds34));
+            setTextSize(0, hi.g(getContext(), R.dimen.tbds34));
             setGravity(17);
         }
     }

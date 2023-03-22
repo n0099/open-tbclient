@@ -1,119 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.sapi2.callback.GetTplStokenCallback;
-import com.baidu.sapi2.result.GetTplStokenResult;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.switchs.StokenEnableSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.Map;
+import java.util.ArrayList;
+import tbclient.FrsPage.ForumHeadlineImgInfo;
 /* loaded from: classes5.dex */
 public class lx4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public interface b {
-        void onFailed();
-
-        void onSuccess(String str);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends GetTplStokenCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFinish() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            }
-        }
-
-        public a(lx4 lx4Var, b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lx4Var, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bVar;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFailure(GetTplStokenResult getTplStokenResult) {
-            b bVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, getTplStokenResult) == null) && (bVar = this.a) != null) {
-                bVar.onFailed();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onSuccess(GetTplStokenResult getTplStokenResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, getTplStokenResult) == null) {
-                if (getTplStokenResult == null) {
-                    b bVar = this.a;
-                    if (bVar != null) {
-                        bVar.onFailed();
-                        return;
-                    }
-                    return;
-                }
-                Map<String, String> map = getTplStokenResult.tplStokenMap;
-                if (map != null && map.size() > 0) {
-                    String str = map.get(TbConfig.PassConfig.TPL);
-                    if (StringUtils.isNULL(str)) {
-                        b bVar2 = this.a;
-                        if (bVar2 != null) {
-                            bVar2.onFailed();
-                            return;
-                        }
-                        return;
-                    }
-                    b bVar3 = this.a;
-                    if (bVar3 != null) {
-                        bVar3.onSuccess(str);
-                        return;
-                    }
-                    return;
-                }
-                b bVar4 = this.a;
-                if (bVar4 != null) {
-                    bVar4.onFailed();
-                }
-            }
-        }
-    }
+    public String a;
+    public String b;
+    public hx4 c;
 
     public lx4() {
         Interceptable interceptable = $ic;
@@ -125,43 +26,48 @@ public class lx4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (SwitchManager.getInstance().findType(StokenEnableSwitch.KEY) == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static String a(AccountData accountData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, accountData)) == null) {
-            if (accountData == null || !b()) {
-                return null;
-            }
-            return accountData.getStoken();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void c(String str, b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, str, bVar) == null) && !StringUtils.isNull(str)) {
-            LinkedList linkedList = new LinkedList();
-            linkedList.add(TbConfig.PassConfig.TPL);
-            if (SapiAccountManager.getInstance().getAccountService() == null) {
                 return;
             }
-            SapiAccountManager.getInstance().getAccountService().getTplStoken(new a(this, bVar), str, linkedList);
         }
+        this.a = "";
+        this.b = "";
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void b(ForumHeadlineImgInfo forumHeadlineImgInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumHeadlineImgInfo) != null) || forumHeadlineImgInfo == null) {
+            return;
+        }
+        forumHeadlineImgInfo.thread_id.longValue();
+        forumHeadlineImgInfo.thread_user_id.longValue();
+        String str = forumHeadlineImgInfo.thread_user_name;
+        forumHeadlineImgInfo.img_user_id.longValue();
+        String str2 = forumHeadlineImgInfo.img_user_name;
+        this.a = forumHeadlineImgInfo.img_url;
+        this.b = forumHeadlineImgInfo.headline_url;
+        this.c = new hx4();
+        ArrayList<kx4> arrayList = new ArrayList<>();
+        String str3 = this.a;
+        String str4 = "";
+        if (str3 == null) {
+            str3 = "";
+        }
+        String str5 = this.b;
+        if (str5 != null) {
+            str4 = str5;
+        }
+        kx4 kx4Var = new kx4(str3, str4, null);
+        kx4Var.r(true);
+        arrayList.add(kx4Var);
+        this.c.g(arrayList);
     }
 }

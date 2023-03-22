@@ -15,7 +15,7 @@ import com.yy.hiidostatis.inner.util.log.ActLog;
 import com.yy.hiidostatis.inner.util.log.L;
 import com.yy.hiidostatis.pref.HdStatisConfig;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public enum DataTrack {
     instance;
     
@@ -29,7 +29,7 @@ public enum DataTrack {
     public volatile long mUid = -1;
     public long reportTime = 0;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface IDataTrackListener {
         JSONObject getConfig(String str, long j, String str2);
     }

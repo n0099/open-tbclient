@@ -1,15 +1,20 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
+import android.webkit.JavascriptInterface;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class k92 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -25,16 +30,41 @@ public class k92 {
                 return;
             }
         }
-        a = "检测到白屏区域超过" + a(0.7d) + "；";
-        b = "检测到白屏区域超过" + a(0.5d) + "且正在loading；";
+        a = do1.a;
     }
 
-    public static String a(double d) {
-        InterceptResult invokeCommon;
+    public k92(r62 r62Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d)})) == null) {
-            return ((int) (d * 100.0d)) + "%";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {r62Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
-        return (String) invokeCommon.objValue;
+    }
+
+    @JavascriptInterface
+    public String setData(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (a) {
+                Log.d("DaemonJsBridge", "slave id: " + str + " data: " + str2);
+            }
+            int i = 0;
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                gt2.U().y(new wh2(str, str2), false);
+            } else {
+                i = 202;
+            }
+            return UnitedSchemeUtility.wrapCallbackParams(i).toString();
+        }
+        return (String) invokeLL.objValue;
     }
 }

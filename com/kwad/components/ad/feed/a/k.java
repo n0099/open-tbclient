@@ -45,14 +45,14 @@ public final class k extends a implements View.OnClickListener {
 
     @Override // com.kwad.components.core.widget.b
     public final void bg() {
-        this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f09117f);
-        ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911f6)).setRatio(0.66f);
-        RoundAngleImageView roundAngleImageView = (RoundAngleImageView) findViewById(R.id.obfuscated_res_0x7f091185);
+        this.de = (TextView) findViewById(R.id.obfuscated_res_0x7f0911b1);
+        ((RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f091228)).setRatio(0.66f);
+        RoundAngleImageView roundAngleImageView = (RoundAngleImageView) findViewById(R.id.obfuscated_res_0x7f0911b7);
         this.dI = roundAngleImageView;
         roundAngleImageView.setRadius(com.kwad.sdk.b.kwai.a.a(getContext(), 3.0f));
-        this.dg = (ImageView) findViewById(R.id.obfuscated_res_0x7f091181);
-        this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f091198);
-        this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f0911ec);
+        this.dg = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911b3);
+        this.dk = (DownloadProgressView) findViewById(R.id.obfuscated_res_0x7f0911ca);
+        this.bq = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f09121e);
     }
 
     @Override // com.kwad.components.core.widget.b
@@ -87,7 +87,7 @@ public final class k extends a implements View.OnClickListener {
 
     @Override // com.kwad.components.core.widget.b
     public final int getLayoutId() {
-        return R.layout.obfuscated_res_0x7f0d0452;
+        return R.layout.obfuscated_res_0x7f0d045e;
     }
 
     @Override // android.view.View.OnClickListener
@@ -105,7 +105,7 @@ public final class k extends a implements View.OnClickListener {
             i = 1;
         }
         g(false);
-        com.kwad.components.core.c.a.a.a(new a.C0588a(com.kwad.sdk.b.kwai.a.x(this)).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(view2 == this.dk ? 1 : 2).aj(view2 == this.dk).a(new a.b() { // from class: com.kwad.components.ad.feed.a.k.1
+        com.kwad.components.core.c.a.a.a(new a.C0593a(com.kwad.sdk.b.kwai.a.x(this)).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(view2 == this.dk ? 1 : 2).aj(view2 == this.dk).a(new a.b() { // from class: com.kwad.components.ad.feed.a.k.1
             @Override // com.kwad.components.core.c.a.a.b
             public final void onAdClicked() {
                 k.this.aq(i);

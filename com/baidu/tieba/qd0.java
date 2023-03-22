@@ -1,109 +1,127 @@
 package com.baidu.tieba;
 
-import android.graphics.SurfaceTexture;
-import android.view.Surface;
-import android.view.SurfaceHolder;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.od0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class qd0 extends sd0 {
+public abstract class qd0 implements od0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Surface d;
-    public boolean e;
+    public od0.d a;
+    public od0.a b;
+    public od0.e c;
+    public od0.b d;
+    public od0.c e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qd0(rd0 rd0Var, SurfaceTexture surfaceTexture) {
-        super(rd0Var);
+    public qd0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {rd0Var, surfaceTexture};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((rd0) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        a(surfaceTexture);
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qd0(rd0 rd0Var, Surface surface, boolean z) {
-        super(rd0Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {rd0Var, surface, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((rd0) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        a(surface);
-        this.d = surface;
-        this.e = z;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qd0(rd0 rd0Var, SurfaceHolder surfaceHolder) {
-        super(rd0Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {rd0Var, surfaceHolder};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((rd0) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        a(surfaceHolder);
-    }
-
-    public void f(rd0 rd0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, rd0Var) == null) {
-            Surface surface = this.d;
-            if (surface != null) {
-                this.a = rd0Var;
-                a(surface);
-                return;
-            }
-            throw new RuntimeException("not yet implemented for SurfaceTexture");
         }
     }
 
-    public void g() {
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c();
-            Surface surface = this.d;
-            if (surface != null) {
-                if (this.e) {
-                    surface.release();
-                }
-                this.d = null;
-            }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = null;
+            this.b = null;
+            this.c = null;
+            this.d = null;
+            this.e = null;
+        }
+    }
+
+    public final boolean a(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
+            od0.b bVar = this.d;
+            return bVar != null && bVar.d(this, i, i2);
+        }
+        return invokeII.booleanValue;
+    }
+
+    public final boolean a(int i, int i2, Object obj) {
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(Constants.METHOD_SEND_USER_MSG, this, i, i2, obj)) == null) {
+            od0.c cVar = this.e;
+            return cVar != null && cVar.e(this, i, i2, obj);
+        }
+        return invokeIIL.booleanValue;
+    }
+
+    public final void b() {
+        od0.d dVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048579, this) == null) || (dVar = this.a) == null) {
+            return;
+        }
+        dVar.c(this);
+    }
+
+    public final void c() {
+        od0.a aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048580, this) == null) || (aVar = this.b) == null) {
+            return;
+        }
+        aVar.b(this);
+    }
+
+    public final void d() {
+        od0.e eVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (eVar = this.c) == null) {
+            return;
+        }
+        eVar.a(this);
+    }
+
+    public final void setOnCompletionListener(od0.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
+            this.b = aVar;
+        }
+    }
+
+    public final void setOnErrorListener(od0.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
+            this.d = bVar;
+        }
+    }
+
+    public final void setOnInfoListener(od0.c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) {
+            this.e = cVar;
+        }
+    }
+
+    public final void setOnPreparedListener(od0.d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, dVar) == null) {
+            this.a = dVar;
+        }
+    }
+
+    public final void setOnTerminalListener(od0.e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, eVar) == null) {
+            this.c = eVar;
         }
     }
 }

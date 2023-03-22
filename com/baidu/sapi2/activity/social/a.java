@@ -25,11 +25,11 @@ public class a {
 
     /* renamed from: com.baidu.sapi2.activity.social.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0136a extends HttpHandlerWrap {
+    public class C0135a extends HttpHandlerWrap {
         public final /* synthetic */ ThirdLoginCallback a;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public C0136a(Looper looper, ThirdLoginCallback thirdLoginCallback) {
+        public C0135a(Looper looper, ThirdLoginCallback thirdLoginCallback) {
             super(looper);
             this.a = thirdLoginCallback;
         }
@@ -109,6 +109,6 @@ public class a {
         }
         hashMap.put("json", "1");
         String addExtras = ParamsUtil.addExtras(str, hashMap);
-        new HttpClientWrap().get(addExtras, ReqPriority.IMMEDIATE, ParamsUtil.buildNaCookie(addExtras, SapiAccountManager.getInstance().getConfignation()), new C0136a(Looper.getMainLooper(), thirdLoginCallback));
+        new HttpClientWrap().get(addExtras, ReqPriority.IMMEDIATE, ParamsUtil.buildNaCookie(addExtras, SapiAccountManager.getInstance().getConfignation()), new C0135a(Looper.getMainLooper(), thirdLoginCallback));
     }
 }

@@ -84,7 +84,7 @@ public final class OpusReader extends StreamReader {
             arrayList.add(copyOf);
             putNativeOrderLong(arrayList, ((copyOf[11] & 255) << 8) | (copyOf[10] & 255));
             putNativeOrderLong(arrayList, 3840);
-            setupData.format = Format.createAudioSampleFormat(null, MimeTypes.AUDIO_OPUS, null, -1, -1, i, 48000, arrayList, null, 0, null);
+            setupData.format = Format.createAudioSampleFormat(null, MimeTypes.AUDIO_OPUS, null, -1, -1, i, SAMPLE_RATE, arrayList, null, 0, null);
             this.headerRead = true;
             return true;
         }

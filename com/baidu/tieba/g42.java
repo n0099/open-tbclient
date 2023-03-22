@@ -1,119 +1,134 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.text.TextPaint;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class g42 extends s22 {
+public class g42 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public int c;
-    public float d;
-    public float e;
-    public float f;
 
-    public g42() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947743876, "Lcom/baidu/tieba/g42;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947743876, "Lcom/baidu/tieba/g42;");
                 return;
             }
         }
-        this.d = -1.0f;
-        this.e = 0.0f;
-        this.f = 1.0f;
+        boolean z = do1.a;
     }
 
-    @Override // com.baidu.tieba.s22
-    public void a(t22 t22Var, Canvas canvas) {
-        float f;
+    @Nullable
+    public static <C extends i32> C a(j32 j32Var) {
+        InterceptResult invokeL;
+        C c;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, t22Var, canvas) == null) && !TextUtils.isEmpty(this.a)) {
-            TextPaint textPaint = t22Var.e;
-            int i = t22Var.k;
-            Paint.FontMetrics fontMetrics = textPaint.getFontMetrics();
-            float f2 = fontMetrics.top;
-            int i2 = this.c;
-            float f3 = i2 + f2;
-            float f4 = fontMetrics.ascent + i2;
-            float f5 = fontMetrics.bottom;
-            float f6 = i2 + f5;
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        f = i2;
-                    } else {
-                        f = i2 - (f4 - f3);
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, j32Var)) == null) {
+            if (j32Var == null) {
+                m42.a("Component-Finder", "find a null component: null model");
+                return null;
+            }
+            String d = j32Var.d();
+            String str = j32Var.c;
+            if (TextUtils.isEmpty(str)) {
+                t42.c("Component-Finder", "find a null " + d + " : slaveId is empty");
+                return null;
+            }
+            j42 d2 = d(str);
+            if (d2 == null) {
+                t42.c("Component-Finder", "find a null " + d + " : null component context");
+                return null;
+            }
+            String str2 = j32Var.b;
+            if (TextUtils.isEmpty(str2)) {
+                t42.o("Component-Finder", "find " + d + " with a empty componentId");
+                List<i32> list = d2.a().c.get(j32Var.a);
+                if (list == null) {
+                    t42.c("Component-Finder", "find a null " + d + " with a empty componentId: fallbackComponents are null ");
+                    return null;
+                } else if (list.size() <= 0) {
+                    t42.c("Component-Finder", "find a null " + d + " with a empty componentId: fallbackComponents are empty ");
+                    return null;
                 } else {
-                    f = (i2 + ((f5 - f2) / 2.0f)) - f5;
+                    t42.o("Component-Finder", "find " + d + " with a empty componentId: fina a fallback component");
+                    c = (C) list.get(0);
                 }
             } else {
-                f = i2 + ((f6 - f3) / 2.0f) + (f4 - f3);
+                c = (C) d2.a().b.get(str2);
             }
-            if (this.e == 0.0d) {
-                Rect rect = new Rect();
-                String str = this.a;
-                textPaint.getTextBounds(str, 0, str.length(), rect);
-                if (this.d != -1.0f) {
-                    float f7 = this.d;
-                    if (rect.width() > f7) {
-                        this.e = f7 / rect.width();
-                    }
-                }
-                this.e = 1.0f;
+            if (c == null) {
+                t42.c("Component-Finder", "find a null " + d + " : not exist");
+                return null;
             }
-            canvas.save();
-            int alpha = textPaint.getAlpha();
-            int color = textPaint.getColor();
-            textPaint.setStyle(Paint.Style.STROKE);
-            textPaint.setStrokeWidth(this.f);
-            textPaint.setColor(t22Var.m);
-            t22Var.c(textPaint);
-            canvas.scale(this.e, 1.0f);
-            canvas.drawText(this.a, this.b, f, textPaint);
-            textPaint.setStyle(Paint.Style.FILL);
-            textPaint.setAlpha(alpha);
-            textPaint.setColor(color);
-            canvas.restore();
+            return c;
         }
+        return (C) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.s22
-    public void b(JSONArray jSONArray) {
+    @Nullable
+    public static <C extends i32> C b(@Nullable String str, @Nullable String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() > 2) {
-                    this.a = jSONArray.optString(0);
-                    this.b = dn3.g((float) jSONArray.optDouble(1));
-                    this.c = dn3.g((float) jSONArray.optDouble(2));
-                    if (jSONArray.length() > 3) {
-                        this.d = dn3.g((float) jSONArray.optDouble(3));
-                    }
-                    this.f = dn3.g(1.0f);
-                }
-            } catch (Exception e) {
-                if (wp1.a) {
-                    e.printStackTrace();
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return null;
             }
+            j42 d = d(str);
+            if (d == null) {
+                t42.c("Component-Finder", "find a null " + str2 + " : null component context");
+                return null;
+            }
+            C c = (C) d.a().b.get(str2);
+            if (c == null) {
+                t42.c("Component-Finder", "find a null " + str2 + " : not exist");
+                return null;
+            }
+            return c;
         }
+        return (C) invokeLL.objValue;
+    }
+
+    @Nullable
+    public static j42 c(j32 j32Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, j32Var)) == null) {
+            if (j32Var == null) {
+                m42.a("Component-Finder", "find component context with a null model");
+                return null;
+            }
+            return d(j32Var.c);
+        }
+        return (j42) invokeL.objValue;
+    }
+
+    @Nullable
+    public static j42 d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                t42.c("Component-Finder", "find component context with a null slave id");
+                return null;
+            }
+            bu1 A = gt2.U().A(str);
+            if (!(A instanceof zt1)) {
+                return null;
+            }
+            return ((zt1) A).c0();
+        }
+        return (j42) invokeL.objValue;
     }
 }

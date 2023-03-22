@@ -7,6 +7,7 @@ import com.coremedia.iso.boxes.SampleDescriptionBox;
 import com.coremedia.iso.boxes.SoundMediaHeaderBox;
 import com.coremedia.iso.boxes.SubSampleInformationBox;
 import com.coremedia.iso.boxes.sampleentry.AudioSampleEntry;
+import com.google.android.exoplayer2.extractor.ogg.OpusReader;
 import com.googlecode.mp4parser.DataSource;
 import com.googlecode.mp4parser.authoring.AbstractTrack;
 import com.googlecode.mp4parser.authoring.Sample;
@@ -151,7 +152,7 @@ public class AACTrackImpl extends AbstractTrack {
         hashMap2.put(96000, 0);
         samplingFrequencyIndexMap.put(88200, 1);
         samplingFrequencyIndexMap.put(64000, 2);
-        samplingFrequencyIndexMap.put(48000, 3);
+        samplingFrequencyIndexMap.put(Integer.valueOf((int) OpusReader.SAMPLE_RATE), 3);
         samplingFrequencyIndexMap.put(44100, 4);
         samplingFrequencyIndexMap.put(32000, 5);
         samplingFrequencyIndexMap.put(24000, 6);
@@ -163,7 +164,7 @@ public class AACTrackImpl extends AbstractTrack {
         samplingFrequencyIndexMap.put(0, 96000);
         samplingFrequencyIndexMap.put(1, 88200);
         samplingFrequencyIndexMap.put(2, 64000);
-        samplingFrequencyIndexMap.put(3, 48000);
+        samplingFrequencyIndexMap.put(3, Integer.valueOf((int) OpusReader.SAMPLE_RATE));
         samplingFrequencyIndexMap.put(4, 44100);
         samplingFrequencyIndexMap.put(5, 32000);
         samplingFrequencyIndexMap.put(6, 24000);

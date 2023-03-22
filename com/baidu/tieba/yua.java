@@ -1,56 +1,52 @@
 package com.baidu.tieba;
 
-import android.animation.ObjectAnimator;
-import android.view.View;
-import android.view.animation.LinearInterpolator;
-import android.widget.ImageView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class yua {
+public abstract class yua<E> extends lua<E> {
     public static /* synthetic */ Interceptable $ic;
+    public static final Integer f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(View view2, ImageView imageView) {
-        ObjectAnimator objectAnimator;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, view2, imageView) == null) && view2 != null && imageView != null) {
-            view2.setVisibility(8);
-            if (imageView.getTag() != null) {
-                objectAnimator = (ObjectAnimator) imageView.getTag();
-            } else {
-                objectAnimator = null;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948344036, "Lcom/baidu/tieba/yua;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (objectAnimator != null) {
-                objectAnimator.cancel();
-                imageView.setTag(null);
-                RLog.debug("ObjectAnimatorUtils", "hideDialogLoading->oldRotateAnimator.cancel()");
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948344036, "Lcom/baidu/tieba/yua;");
+                return;
             }
         }
+        f = Integer.getInteger("jctools.spsc.max.lookahead.step", 4096);
     }
 
-    public static void b(View view2, ImageView imageView) {
-        ObjectAnimator objectAnimator;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yua(int i) {
+        super(i);
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, view2, imageView) == null) && view2 != null && imageView != null) {
-            if (imageView.getTag() != null) {
-                objectAnimator = (ObjectAnimator) imageView.getTag();
-            } else {
-                objectAnimator = null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            if (objectAnimator != null) {
-                objectAnimator.cancel();
-                imageView.setTag(null);
-                RLog.debug("ObjectAnimatorUtils", "showDialogLoading->oldRotateAnimator.cancel()");
-            }
-            view2.setVisibility(0);
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(imageView, "rotation", 0.0f, 360.0f);
-            ofFloat.setDuration(1000L);
-            ofFloat.setInterpolator(new LinearInterpolator());
-            ofFloat.setRepeatCount(-1);
-            ofFloat.start();
-            imageView.setTag(ofFloat);
         }
+        Math.min(i / 4, f.intValue());
     }
 }

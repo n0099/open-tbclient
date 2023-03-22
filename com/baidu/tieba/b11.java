@@ -1,7 +1,18 @@
 package com.baidu.tieba;
-/* loaded from: classes3.dex */
-public interface b11 {
-    void end(int i);
 
-    void stop(int i);
+import com.baidu.nadcore.download.consts.AdDownloadStatus;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+/* loaded from: classes3.dex */
+public final /* synthetic */ class b11 {
+    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        int[] iArr = new int[AdDownloadStatus.values().length];
+        $EnumSwitchMapping$0 = iArr;
+        iArr[AdDownloadStatus.NONE.ordinal()] = 1;
+        $EnumSwitchMapping$0[AdDownloadStatus.DOWNLOADING.ordinal()] = 2;
+    }
 }

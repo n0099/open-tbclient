@@ -1,44 +1,55 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.model.LatLng;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ld4 {
+public class ld4 extends nd4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public String url;
 
-    public ld4(String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ld4(@NonNull Context context) {
+        super(BaiduMap.e, context.getString(R.string.obfuscated_res_0x7f0f0de3), "com.baidu.BaiduMap");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.url = str;
+        this.c = true;
     }
 
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.nd4
+    public void e(Context context, LatLng latLng, LatLng latLng2, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "GameWebViewCommonResult{url='" + this.url + "'}";
+        if ((interceptable == null || interceptable.invokeLLLLL(1048576, this, context, latLng, latLng2, str, str2) == null) && latLng != null && latLng2 != null) {
+            Intent intent = new Intent();
+            Uri.Builder buildUpon = Uri.parse("baidumap://map/direction?").buildUpon();
+            buildUpon.appendQueryParameter("origin", "name:" + str + "|latlng:" + latLng.latitude + "," + latLng.longitude);
+            buildUpon.appendQueryParameter("destination", "name:" + str2 + "|latlng:" + latLng2.latitude + "," + latLng2.longitude);
+            buildUpon.appendQueryParameter("mode", "driving");
+            buildUpon.appendQueryParameter("target", "1");
+            buildUpon.appendQueryParameter("src", context.getPackageName());
+            intent.setData(buildUpon.build());
+            context.startActivity(intent);
         }
-        return (String) invokeV.objValue;
     }
 }

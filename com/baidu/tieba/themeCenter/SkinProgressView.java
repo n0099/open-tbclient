@@ -12,7 +12,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.hi;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -114,8 +114,8 @@ public class SkinProgressView extends View {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.k = ej.g(this.a, R.dimen.obfuscated_res_0x7f0702e7);
-            this.g = ej.g(this.a, R.dimen.obfuscated_res_0x7f0702b3);
+            this.k = hi.g(this.a, R.dimen.obfuscated_res_0x7f0702e7);
+            this.g = hi.g(this.a, R.dimen.obfuscated_res_0x7f0702b3);
             this.e = R.color.CAM_X0302;
             this.h = R.color.CAM_X0108;
             Paint paint = new Paint();
@@ -146,7 +146,7 @@ public class SkinProgressView extends View {
                         } else if (i4 == 2) {
                             setText(R.string.obfuscated_res_0x7f0f02dc);
                         } else {
-                            setText(R.string.obfuscated_res_0x7f0f14a1);
+                            setText(R.string.obfuscated_res_0x7f0f14b5);
                             setEnabled(false);
                         }
                         setTextColor(R.color.CAM_X0105);
@@ -166,7 +166,7 @@ public class SkinProgressView extends View {
                                     setBgColor(R.color.CAM_X0302);
                                     break;
                                 } else {
-                                    setText(R.string.obfuscated_res_0x7f0f0533);
+                                    setText(R.string.obfuscated_res_0x7f0f0536);
                                     setBgColor(R.color.CAM_X0302);
                                     break;
                                 }
@@ -174,7 +174,7 @@ public class SkinProgressView extends View {
                                 setText(R.string.obfuscated_res_0x7f0f035c);
                                 break;
                             } else if (i2 > 1) {
-                                setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0363), Integer.valueOf(i2)));
+                                setText(String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0364), Integer.valueOf(i2)));
                                 break;
                             } else {
                                 setText(R.string.obfuscated_res_0x7f0f0317);
@@ -182,7 +182,7 @@ public class SkinProgressView extends View {
                             }
                         }
                     case 2:
-                        setText(R.string.obfuscated_res_0x7f0f038d);
+                        setText(R.string.obfuscated_res_0x7f0f038e);
                         if (f > 0.5d) {
                             setTextColor(R.color.CAM_X0101);
                             break;
@@ -222,7 +222,7 @@ public class SkinProgressView extends View {
                     setText(R.string.use_immediately);
                     setTextColor(R.color.CAM_X0105);
                 } else if (i2 == 0) {
-                    setText(R.string.obfuscated_res_0x7f0f1607);
+                    setText(R.string.obfuscated_res_0x7f0f161b);
                     setTextColor(R.color.CAM_X0105);
                 } else {
                     setTextColor(R.color.CAM_X0101);
@@ -258,16 +258,16 @@ public class SkinProgressView extends View {
             setEnabled(true);
             switch (i) {
                 case 0:
-                    setText(R.string.obfuscated_res_0x7f0f14a1);
+                    setText(R.string.obfuscated_res_0x7f0f14b5);
                     setTextColor(R.color.CAM_X0105);
                     setEnabled(false);
                     break;
                 case 1:
-                    setText(R.string.obfuscated_res_0x7f0f0533);
+                    setText(R.string.obfuscated_res_0x7f0f0536);
                     setTextColor(R.color.CAM_X0105);
                     break;
                 case 2:
-                    setText(R.string.obfuscated_res_0x7f0f038d);
+                    setText(R.string.obfuscated_res_0x7f0f038e);
                     if (f > 0.5d) {
                         setTextColor(R.color.CAM_X0101);
                         break;
@@ -276,11 +276,11 @@ public class SkinProgressView extends View {
                         break;
                     }
                 case 3:
-                    setText(R.string.obfuscated_res_0x7f0f0533);
+                    setText(R.string.obfuscated_res_0x7f0f0536);
                     setTextColor(R.color.CAM_X0105);
                     break;
                 case 4:
-                    setText(R.string.obfuscated_res_0x7f0f14a4);
+                    setText(R.string.obfuscated_res_0x7f0f14b8);
                     setTextColor(R.color.CAM_X0105);
                     break;
                 case 5:

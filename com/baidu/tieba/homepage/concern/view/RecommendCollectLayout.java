@@ -7,7 +7,6 @@ import android.text.TextUtils;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import com.baidu.adp.BdUniqueId;
@@ -18,16 +17,18 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tbadk.core.util.tbselector.shadow.ShadowDrawable;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b35;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.ey;
-import com.baidu.tieba.fc7;
+import com.baidu.tieba.bg;
+import com.baidu.tieba.cg;
+import com.baidu.tieba.hi;
 import com.baidu.tieba.homepage.concern.adapter.ContentCollectListAdapter;
-import com.baidu.tieba.on;
-import com.baidu.tieba.td9;
-import com.baidu.tieba.yg;
-import com.baidu.tieba.zg;
+import com.baidu.tieba.hx;
+import com.baidu.tieba.ik9;
+import com.baidu.tieba.ld7;
+import com.baidu.tieba.n15;
+import com.baidu.tieba.rm;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,23 +38,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes4.dex */
-public class RecommendCollectLayout extends RelativeLayout implements ey {
+public class RecommendCollectLayout extends RelativeLayout implements hx {
     public static /* synthetic */ Interceptable $ic;
     public static final Integer k;
     public transient /* synthetic */ FieldHolder $fh;
     public final TbPageContext a;
     public ContentCollectListAdapter b;
     public BdRecyclerView c;
-    public ImageView d;
-    public EMTextView e;
-    public int f;
-    public fc7 g;
-    public int h;
-    public BdUniqueId i;
-    public final yg<on> j;
+    public EMTextView d;
+    public int e;
+    public ld7 f;
+    public int g;
+    public BdUniqueId h;
+    public Boolean i;
+    public final bg<rm> j;
 
     /* loaded from: classes4.dex */
-    public class a extends yg<on> {
+    public class a extends bg<rm> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RecommendCollectLayout a;
@@ -77,14 +78,14 @@ public class RecommendCollectLayout extends RelativeLayout implements ey {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.yg
-        public void onLoaded(on onVar, String str, int i) {
+        @Override // com.baidu.tieba.bg
+        public void onLoaded(rm rmVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, onVar, str, i) == null) {
-                if (onVar != null && onVar.j() != null) {
-                    this.a.setBackground(onVar.j());
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, rmVar, str, i) == null) {
+                if (rmVar != null && rmVar.j() != null) {
+                    this.a.setBackground(rmVar.j());
                 } else {
-                    this.a.d(true);
+                    this.a.c(true);
                 }
             }
         }
@@ -125,112 +126,184 @@ public class RecommendCollectLayout extends RelativeLayout implements ey {
                 return;
             }
         }
-        this.h = 3;
+        this.g = 3;
+        this.i = null;
         this.j = new a(this);
         this.a = tbPageContext;
-        c();
+        b();
     }
 
-    public final int b(int i) {
-        InterceptResult invokeI;
+    public final void c(boolean z) {
+        ld7 ld7Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i > k.intValue()) {
-                return R.drawable.bg_home_card_heji;
+        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) != null) || (ld7Var = this.f) == null) {
+            return;
+        }
+        if (!z && ld7Var.f() != null && !TextUtils.isEmpty(ik9.f(this.f.f()))) {
+            rm rmVar = (rm) cg.h().m(ik9.f(this.f.f()), 45, this.j, this.h);
+            if (rmVar != null) {
+                setBackground(rmVar.j());
+                return;
             }
-            return R.drawable.bg_home_card_heji_two;
+            return;
         }
-        return invokeI.intValue;
+        setBackground(WebPManager.getMaskDrawable(getDefaultIdByNumber(), WebPManager.ResourceStateType.NORMAL));
     }
 
-    public void setPageUniqueId(BdUniqueId bdUniqueId) {
+    private int getDefaultIdByNumber() {
+        InterceptResult invokeV;
+        ld7 ld7Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
-            this.i = bdUniqueId;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            ld7 ld7Var2 = this.f;
+            if ((ld7Var2 != null && ld7Var2.g()) || (ld7Var = this.f) == null || ListUtils.getCount(ld7Var.getDataList()) <= k.intValue()) {
+                return R.drawable.bg_home_card_heji_two;
+            }
+            return R.drawable.bg_home_card_heji;
         }
+        return invokeV.intValue;
     }
 
-    public void setSourceForPb(int i) {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07c0, (ViewGroup) this, true);
-            int g = ej.g(getContext(), R.dimen.M_W_X004);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07d1, (ViewGroup) this, true);
+            int g = hi.g(getContext(), R.dimen.M_W_X004);
             setPadding(g, 0, g, 0);
             setLayoutParams(new ViewGroup.LayoutParams(-2, -2));
-            this.c = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f0906f0);
-            this.e = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0906f6);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091da0);
+            this.c = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f09070f);
+            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090715);
             this.b = new ContentCollectListAdapter(this.a);
             this.c.setLayoutManager(new LinearLayoutManager(this.a.getPageActivity()));
             this.c.setAdapter(this.b);
         }
     }
 
-    public final void d(boolean z) {
-        fc7 fc7Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) || (fc7Var = this.g) == null) {
-            return;
-        }
-        if (!z && fc7Var.f() != null && !TextUtils.isEmpty(td9.d(this.g.f()))) {
-            on onVar = (on) zg.h().m(td9.d(this.g.f()), 45, this.j, this.i);
-            if (onVar != null) {
-                setBackground(onVar.j());
-                return;
-            }
-            return;
-        }
-        setBackground(WebPManager.getMaskDrawable(b(ListUtils.getCount(this.g.getDataList())), WebPManager.ResourceStateType.NORMAL));
-    }
-
-    @Override // com.baidu.tieba.ey
+    @Override // com.baidu.tieba.hx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        int i2;
+        int i3;
+        int i4;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) && this.h != i) {
-            b35 d = b35.d(this.e);
-            d.A(R.string.F_X02);
-            d.z(R.dimen.T_X07);
-            d.v(R.color.CAM_X0105);
-            d(false);
+        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) && this.g != i) {
+            n15 d = n15.d(this.d);
+            d.B(R.string.F_X02);
+            d.A(R.dimen.T_X07);
+            d.w(R.color.CAM_X0105);
+            int i5 = 0;
+            c(false);
             ContentCollectListAdapter contentCollectListAdapter = this.b;
             if (contentCollectListAdapter != null) {
                 contentCollectListAdapter.notifyDataSetChanged();
             }
-            this.h = i;
+            if (this.i != null) {
+                ShadowDrawable makeShadowDrawable = TBSelector.makeShadowDrawable();
+                if (this.i.booleanValue()) {
+                    i2 = R.color.CAM_X0205;
+                } else {
+                    i2 = R.color.transparent;
+                }
+                ShadowDrawable shadowColor = makeShadowDrawable.setBgColor(i2).setShadowColor(R.color.CAM_X0802);
+                if (this.i.booleanValue()) {
+                    i3 = hi.g(getContext(), R.dimen.tbds31);
+                } else {
+                    i3 = 0;
+                }
+                ShadowDrawable shadowSide = shadowColor.setShapeRadius(i3).setShadowSide(ShadowDrawable.ALL);
+                if (this.i.booleanValue()) {
+                    i4 = hi.g(getContext(), R.dimen.tbds10);
+                } else {
+                    i4 = 0;
+                }
+                ShadowDrawable offsetX = shadowSide.setShadowRadius(i4).setOffsetX(0);
+                if (this.i.booleanValue()) {
+                    i5 = hi.g(getContext(), R.dimen.tbds5);
+                }
+                offsetX.setOffsetY(i5).into(this.c);
+            }
+            this.g = i;
         }
     }
 
-    public void setData(fc7 fc7Var) {
+    public void setData(ld7 ld7Var) {
+        int i;
+        int i2;
+        int i3;
+        int i4;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, fc7Var) != null) || fc7Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, ld7Var) != null) || ld7Var == null) {
             return;
         }
-        this.g = fc7Var;
+        this.f = ld7Var;
         if (getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) getLayoutParams();
-            if (fc7Var.c() > 0) {
-                marginLayoutParams.topMargin = ej.g(getContext(), R.dimen.M_H_X001);
+            if (ld7Var.c() > 0) {
+                marginLayoutParams.topMargin = hi.g(getContext(), R.dimen.M_H_X001);
             } else {
                 marginLayoutParams.topMargin = 0;
             }
             setLayoutParams(marginLayoutParams);
         }
-        Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809b9, SkinManager.getColor(R.color.CAM_X0306), null);
-        pureDrawable.setBounds(0, 0, ej.g(getContext(), R.dimen.tbds96), ej.g(getContext(), R.dimen.T_X07));
-        this.e.setCompoundDrawables(pureDrawable, null, null, null);
-        this.e.setCompoundDrawablePadding(ej.g(getContext(), R.dimen.M_W_X001));
-        this.e.setText(fc7Var.getTitle());
-        this.d.setImageDrawable(WebPManager.getMaskDrawable((int) R.drawable.obfuscated_res_0x7f08083a, true));
-        this.b.i(fc7Var.getDataList());
-        this.b.j(this.f);
+        Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f0809cb, SkinManager.getColor(R.color.CAM_X0306), null);
+        pureDrawable.setBounds(0, 0, hi.g(getContext(), R.dimen.tbds96), hi.g(getContext(), R.dimen.T_X07));
+        this.d.setCompoundDrawables(pureDrawable, null, null, null);
+        this.d.setCompoundDrawablePadding(hi.g(getContext(), R.dimen.M_W_X001));
+        this.d.setText(ld7Var.getTitle());
+        this.b.j(ld7Var.getDataList());
+        this.b.k(this.e);
+        Boolean bool = this.i;
+        if (bool == null || bool.booleanValue() != ld7Var.g()) {
+            boolean g = ld7Var.g();
+            if (g) {
+                this.b.i(ContentCollectListAdapter.CornerType.FULL);
+            } else {
+                this.b.i(ContentCollectListAdapter.CornerType.ITEM);
+            }
+            ShadowDrawable makeShadowDrawable = TBSelector.makeShadowDrawable();
+            if (g) {
+                i = R.color.CAM_X0205;
+            } else {
+                i = R.color.transparent;
+            }
+            ShadowDrawable shadowColor = makeShadowDrawable.setBgColor(i).setShadowColor(R.color.CAM_X0802);
+            if (g) {
+                i2 = hi.g(getContext(), R.dimen.tbds31);
+            } else {
+                i2 = 0;
+            }
+            ShadowDrawable shadowSide = shadowColor.setShapeRadius(i2).setShadowSide(ShadowDrawable.ALL);
+            if (g) {
+                i3 = hi.g(getContext(), R.dimen.tbds10);
+            } else {
+                i3 = 0;
+            }
+            ShadowDrawable offsetX = shadowSide.setShadowRadius(i3).setOffsetX(0);
+            if (g) {
+                i4 = hi.g(getContext(), R.dimen.tbds5);
+            } else {
+                i4 = 0;
+            }
+            offsetX.setOffsetY(i4).into(this.c);
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.c.getLayoutParams();
+            layoutParams.height = -2;
+            this.c.setLayoutParams(layoutParams);
+            this.i = Boolean.valueOf(g);
+        }
         this.b.notifyDataSetChanged();
-        d(false);
+        c(false);
+    }
+
+    public void setPageUniqueId(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
+            this.h = bdUniqueId;
+        }
+    }
+
+    public void setSourceForPb(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.e = i;
+        }
     }
 }

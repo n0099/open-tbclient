@@ -18,7 +18,7 @@ import java.io.InputStreamReader;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FindEmulator {
     public static int emurs;
     public static boolean isCheck;
@@ -31,7 +31,7 @@ public class FindEmulator {
     public static final String[] known_geny_files = {"/dev/socket/genyd", "/dev/socket/baseband_genyd"};
     public static final String[] known_qemu_drivers = {"goldfish"};
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class Property {
         public String name;
         public String seek_value;
@@ -42,7 +42,7 @@ public class FindEmulator {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class tcp {
         public int id;
         public long localIp;

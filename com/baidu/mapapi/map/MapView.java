@@ -26,6 +26,7 @@ import com.baidu.mapapi.map.MapViewLayoutParams;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.platform.comapi.map.MapSurfaceView;
+import com.google.android.exoplayer2.extractor.ogg.DefaultOggSeeker;
 import java.io.File;
 /* loaded from: classes2.dex */
 public final class MapView extends ViewGroup {
@@ -86,7 +87,7 @@ public final class MapView extends ViewGroup {
         q.append(4, 1000000);
         q.append(5, 500000);
         q.append(6, 200000);
-        q.append(7, 100000);
+        q.append(7, DefaultOggSeeker.MATCH_BYTE_RANGE);
         q.append(8, 50000);
         q.append(9, 25000);
         q.append(10, 20000);

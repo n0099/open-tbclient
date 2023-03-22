@@ -22,9 +22,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b35;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.uu5;
+import com.baidu.tieba.au5;
+import com.baidu.tieba.hi;
+import com.baidu.tieba.n15;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -829,7 +829,7 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
             this.G = (int) TypedValue.applyDimension(1, this.G, displayMetrics);
             this.I = i;
             this.J = i2;
-            int g = ej.g(getContext(), R.dimen.tbds74);
+            int g = hi.g(getContext(), R.dimen.tbds74);
             this.K = g;
             int i4 = this.I;
             this.L = (this.J * 1.0f) / i4;
@@ -847,19 +847,19 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
             this.p.setStyle(Paint.Style.FILL);
             this.p.setColor(SkinManager.getColor(R.color.CAM_X0301));
             this.q = new RectF();
-            this.Q = ej.g(getContext(), R.dimen.tbds20);
-            this.R = ej.g(getContext(), R.dimen.tbds16);
-            this.S = ej.g(getContext(), R.dimen.tbds25);
+            this.Q = hi.g(getContext(), R.dimen.tbds20);
+            this.R = hi.g(getContext(), R.dimen.tbds16);
+            this.S = hi.g(getContext(), R.dimen.tbds25);
             this.a = new LinearLayout.LayoutParams(-2, -1);
-            this.b = new LinearLayout.LayoutParams(ej.g(getContext(), R.dimen.tbds200), -1);
-            this.B = ej.g(getContext(), R.dimen.tbds22);
-            this.A = ej.g(getContext(), R.dimen.tbds20);
-            this.D = ej.g(getContext(), R.dimen.tbds15);
+            this.b = new LinearLayout.LayoutParams(hi.g(getContext(), R.dimen.tbds200), -1);
+            this.B = hi.g(getContext(), R.dimen.tbds22);
+            this.A = hi.g(getContext(), R.dimen.tbds20);
+            this.D = hi.g(getContext(), R.dimen.tbds15);
             if (this.a0 == null) {
                 this.a0 = getResources().getConfiguration().locale;
             }
             if (this.s && this.N != null) {
-                this.P = ej.g(getContext(), R.dimen.tbds32);
+                this.P = hi.g(getContext(), R.dimen.tbds32);
                 TextView textView = new TextView(getContext());
                 this.O = textView;
                 textView.setGravity(17);
@@ -867,7 +867,7 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
                 this.O.setSingleLine();
                 this.O.setTextColor(this.x);
                 LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -1);
-                layoutParams2.leftMargin = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds_30);
+                layoutParams2.leftMargin = hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds_30);
                 layoutParams2.gravity = 16;
                 this.N.addView(this.O, layoutParams2);
             }
@@ -882,8 +882,8 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
             this.i = this.h.getAdapter().getCount();
             boolean z = false;
             for (int i = 0; i < this.i; i++) {
-                if (this.h.getAdapter() instanceof uu5) {
-                    z = ((uu5) this.h.getAdapter()).a(i);
+                if (this.h.getAdapter() instanceof au5) {
+                    z = ((au5) this.h.getAdapter()).a(i);
                 }
                 w(i, this.h.getAdapter().getPageTitle(i).toString(), z);
             }
@@ -1061,7 +1061,7 @@ public class NewPagerSlidingTabBaseStrip extends HorizontalScrollView {
             tabTextView.setHasRedDot(z);
             tabTextView.setText(str);
             if (this.c0 != 0) {
-                b35.d(tabTextView).y(this.c0);
+                n15.d(tabTextView).z(this.c0);
             }
             tabTextView.setGravity(17);
             tabTextView.setTextSize(0, this.I);

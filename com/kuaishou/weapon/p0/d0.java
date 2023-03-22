@@ -11,6 +11,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.extractor.ogg.DefaultOggSeeker;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileDescriptor;
@@ -152,7 +153,7 @@ public class d0 {
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Process.myUid() / 100000 != 0 : invokeV.booleanValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Process.myUid() / DefaultOggSeeker.MATCH_BYTE_RANGE != 0 : invokeV.booleanValue;
     }
 
     public String b(Context context) {

@@ -398,12 +398,12 @@ public class c {
 
     /* renamed from: com.baidu.sofire.b.c$c  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
-    public static class C0165c implements GzfiCallback {
+    public static class C0164c implements GzfiCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ com.baidu.sofire.d.a a;
 
-        public C0165c(com.baidu.sofire.d.a aVar) {
+        public C0164c(com.baidu.sofire.d.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -469,10 +469,10 @@ public class c {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:21:0x006f  */
-    /* JADX WARN: Removed duplicated region for block: B:23:0x0073 A[Catch: all -> 0x008f, TryCatch #2 {all -> 0x0177, blocks: (B:5:0x0010, B:8:0x0027, B:10:0x002c, B:31:0x0095, B:33:0x009f, B:35:0x00a4, B:70:0x014c, B:72:0x0154, B:74:0x0161, B:75:0x0165, B:77:0x0173, B:36:0x00a9, B:38:0x00c2, B:39:0x00c5, B:41:0x00c8, B:43:0x00d2, B:45:0x00da, B:47:0x00e0, B:49:0x00ed, B:48:0x00e3, B:50:0x00f0, B:53:0x00f6, B:55:0x00ff, B:57:0x0108, B:59:0x011d, B:66:0x013f, B:56:0x0104, B:61:0x0124, B:63:0x0134, B:11:0x0031, B:13:0x0042, B:15:0x0047, B:24:0x0078, B:26:0x0082, B:27:0x0086, B:23:0x0073, B:16:0x0055, B:18:0x0058), top: B:86:0x0010 }] */
-    /* JADX WARN: Removed duplicated region for block: B:26:0x0082 A[Catch: all -> 0x008f, TryCatch #2 {all -> 0x0177, blocks: (B:5:0x0010, B:8:0x0027, B:10:0x002c, B:31:0x0095, B:33:0x009f, B:35:0x00a4, B:70:0x014c, B:72:0x0154, B:74:0x0161, B:75:0x0165, B:77:0x0173, B:36:0x00a9, B:38:0x00c2, B:39:0x00c5, B:41:0x00c8, B:43:0x00d2, B:45:0x00da, B:47:0x00e0, B:49:0x00ed, B:48:0x00e3, B:50:0x00f0, B:53:0x00f6, B:55:0x00ff, B:57:0x0108, B:59:0x011d, B:66:0x013f, B:56:0x0104, B:61:0x0124, B:63:0x0134, B:11:0x0031, B:13:0x0042, B:15:0x0047, B:24:0x0078, B:26:0x0082, B:27:0x0086, B:23:0x0073, B:16:0x0055, B:18:0x0058), top: B:86:0x0010 }] */
-    /* JADX WARN: Removed duplicated region for block: B:27:0x0086 A[Catch: all -> 0x008f, TRY_LEAVE, TryCatch #2 {all -> 0x0177, blocks: (B:5:0x0010, B:8:0x0027, B:10:0x002c, B:31:0x0095, B:33:0x009f, B:35:0x00a4, B:70:0x014c, B:72:0x0154, B:74:0x0161, B:75:0x0165, B:77:0x0173, B:36:0x00a9, B:38:0x00c2, B:39:0x00c5, B:41:0x00c8, B:43:0x00d2, B:45:0x00da, B:47:0x00e0, B:49:0x00ed, B:48:0x00e3, B:50:0x00f0, B:53:0x00f6, B:55:0x00ff, B:57:0x0108, B:59:0x011d, B:66:0x013f, B:56:0x0104, B:61:0x0124, B:63:0x0134, B:11:0x0031, B:13:0x0042, B:15:0x0047, B:24:0x0078, B:26:0x0082, B:27:0x0086, B:23:0x0073, B:16:0x0055, B:18:0x0058), top: B:86:0x0010 }] */
+    /* JADX WARN: Removed duplicated region for block: B:21:0x006e  */
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0072 A[Catch: all -> 0x008e, TryCatch #2 {all -> 0x0176, blocks: (B:5:0x0010, B:8:0x0026, B:10:0x002b, B:31:0x0094, B:33:0x009e, B:35:0x00a3, B:70:0x014b, B:72:0x0153, B:74:0x0160, B:75:0x0164, B:77:0x0172, B:36:0x00a8, B:38:0x00c1, B:39:0x00c4, B:41:0x00c7, B:43:0x00d1, B:45:0x00d9, B:47:0x00df, B:49:0x00ec, B:48:0x00e2, B:50:0x00ef, B:53:0x00f5, B:55:0x00fe, B:57:0x0107, B:59:0x011c, B:66:0x013e, B:56:0x0103, B:61:0x0123, B:63:0x0133, B:11:0x0030, B:13:0x0041, B:15:0x0046, B:24:0x0077, B:26:0x0081, B:27:0x0085, B:23:0x0072, B:16:0x0054, B:18:0x0057), top: B:86:0x0010 }] */
+    /* JADX WARN: Removed duplicated region for block: B:26:0x0081 A[Catch: all -> 0x008e, TryCatch #2 {all -> 0x0176, blocks: (B:5:0x0010, B:8:0x0026, B:10:0x002b, B:31:0x0094, B:33:0x009e, B:35:0x00a3, B:70:0x014b, B:72:0x0153, B:74:0x0160, B:75:0x0164, B:77:0x0172, B:36:0x00a8, B:38:0x00c1, B:39:0x00c4, B:41:0x00c7, B:43:0x00d1, B:45:0x00d9, B:47:0x00df, B:49:0x00ec, B:48:0x00e2, B:50:0x00ef, B:53:0x00f5, B:55:0x00fe, B:57:0x0107, B:59:0x011c, B:66:0x013e, B:56:0x0103, B:61:0x0123, B:63:0x0133, B:11:0x0030, B:13:0x0041, B:15:0x0046, B:24:0x0077, B:26:0x0081, B:27:0x0085, B:23:0x0072, B:16:0x0054, B:18:0x0057), top: B:86:0x0010 }] */
+    /* JADX WARN: Removed duplicated region for block: B:27:0x0085 A[Catch: all -> 0x008e, TRY_LEAVE, TryCatch #2 {all -> 0x0176, blocks: (B:5:0x0010, B:8:0x0026, B:10:0x002b, B:31:0x0094, B:33:0x009e, B:35:0x00a3, B:70:0x014b, B:72:0x0153, B:74:0x0160, B:75:0x0164, B:77:0x0172, B:36:0x00a8, B:38:0x00c1, B:39:0x00c4, B:41:0x00c7, B:43:0x00d1, B:45:0x00d9, B:47:0x00df, B:49:0x00ec, B:48:0x00e2, B:50:0x00ef, B:53:0x00f5, B:55:0x00fe, B:57:0x0107, B:59:0x011c, B:66:0x013e, B:56:0x0103, B:61:0x0123, B:63:0x0133, B:11:0x0030, B:13:0x0041, B:15:0x0046, B:24:0x0077, B:26:0x0081, B:27:0x0085, B:23:0x0072, B:16:0x0054, B:18:0x0057), top: B:86:0x0010 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -978,7 +978,7 @@ public class c {
                 int i4 = bundle.getInt("timeout", 20);
                 BinderHolder binderHolder = (BinderHolder) bundle.getParcelable("binderHolder");
                 if (binderHolder != null && (iBinder = binderHolder.a) != null) {
-                    C0165c c0165c = new C0165c(a.AbstractBinderC0167a.a(iBinder));
+                    C0164c c0164c = new C0164c(a.AbstractBinderC0166a.a(iBinder));
                     synchronized (c.class) {
                         try {
                             if (com.baidu.sofire.b.b.e == null) {
@@ -986,10 +986,10 @@ public class c {
                             }
                             Pair<Integer, String> a2 = a(context);
                             if (a2 != null && ((Integer) a2.first).intValue() == 1) {
-                                c0165c.onComplete(((Integer) a2.first).intValue(), a(context, string, i2, string2), "");
+                                c0164c.onComplete(((Integer) a2.first).intValue(), a(context, string, i2, string2), "");
                             } else {
                                 synchronized (i) {
-                                    i.add(c0165c);
+                                    i.add(c0164c);
                                 }
                                 if (i4 > 0) {
                                     i3 = i4;

@@ -1,81 +1,96 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Bitmap;
+import android.graphics.Rect;
+import android.util.Log;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class py2 extends oy2 {
+public class py2 extends ny2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948078304, "Lcom/baidu/tieba/py2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948078304, "Lcom/baidu/tieba/py2;");
-                return;
-            }
-        }
-        boolean z = wp1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public py2(String str) {
-        super(str);
+    public py2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.oy2
-    public boolean a(ey2 ey2Var, gy2 gy2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m93 m93Var) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.ny2
+    public boolean a(Bitmap bitmap, Rect rect) {
+        InterceptResult invokeLL;
+        boolean z;
+        Set<Integer> set;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{ey2Var, gy2Var, context, unitedSchemeEntity, callbackHandler, m93Var})) == null) {
-            m62.i("video", "remove, video id:" + gy2Var.j + " slave id: " + gy2Var.c);
-            d(ey2Var, gy2Var, unitedSchemeEntity, callbackHandler);
-            return true;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public final void d(ey2 ey2Var, gy2 gy2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ey2Var, gy2Var, unitedSchemeEntity, callbackHandler) == null) {
-            b52 a = z52.a(gy2Var);
-            if (a != null) {
-                a.B();
-            } else {
-                f62.a("VideoPlayerAction", "remove with a null component");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, rect)) == null) {
+            if (ny2.c) {
+                Log.d("SimpleErrorPageParser", "SimpleErrorPageParser: start error page parse");
             }
-            ey2Var.onDestroy();
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+            if (bitmap == null) {
+                return false;
+            }
+            if (!b(bitmap, rect)) {
+                rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+            }
+            try {
+                int pixel = bitmap.getPixel(rect.left + 1, rect.top + 1);
+                if (pixel != -1 && pixel != -657931) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                if (!z && (set = this.b) != null) {
+                    Iterator<Integer> it = set.iterator();
+                    while (true) {
+                        if (it.hasNext()) {
+                            if (it.next().intValue() == pixel) {
+                                z = true;
+                                break;
+                            }
+                        } else {
+                            break;
+                        }
+                    }
+                }
+                if (!z) {
+                    return false;
+                }
+                for (int i = rect.left + 1; i < rect.right - 1; i++) {
+                    for (int i2 = rect.top + 1; i2 < rect.bottom - 1; i2++) {
+                        if (pixel != bitmap.getPixel(i, i2)) {
+                            if (do1.a) {
+                                Log.d("SimpleErrorPageParser", "非白屏, 图片大小 " + bitmap.getWidth() + " x " + bitmap.getHeight() + "; rect + " + rect.toShortString() + "; (" + i + "," + i2 + SmallTailInfo.EMOTION_SUFFIX);
+                            }
+                            return false;
+                        }
+                    }
+                }
+                if (ny2.c) {
+                    Log.d("SimpleErrorPageParser", "白屏, 图片大小 " + rect.width() + " x " + rect.height());
+                }
+                return true;
+            } catch (IllegalArgumentException e) {
+                if (ny2.c) {
+                    Log.d("SimpleErrorPageParser", "W:" + bitmap.getWidth() + "; H:" + bitmap.getHeight());
+                    e.printStackTrace();
+                }
+                return false;
+            }
         }
+        return invokeLL.booleanValue;
     }
 }

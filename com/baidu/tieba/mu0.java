@@ -1,21 +1,45 @@
 package com.baidu.tieba;
 
-import android.view.MotionEvent;
+import com.baidu.nadcore.player.constants.PlayerStatus;
+import com.baidu.searchbox.player.event.StateEvent;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface mu0 {
-    void onBeforeSwitchToFull();
+public class mu0 extends ru0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void onBeforeSwitchToHalf();
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mu0() {
+        super(StateEvent.ACTION_STATE_CHANGED);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        v(5);
+    }
 
-    void onGestureActionEnd();
-
-    void onGestureActionStart();
-
-    boolean onGestureDoubleClick(MotionEvent motionEvent);
-
-    void onPanelVisibilityChanged(boolean z);
-
-    void onVideoSwitchToFull();
-
-    void onVideoSwitchToHalf();
+    public static ru0 w(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, playerStatus, playerStatus2)) == null) {
+            ru0 m = ru0.m(StateEvent.ACTION_STATE_CHANGED, 5);
+            m.n(1, playerStatus);
+            m.n(2, playerStatus2);
+            return m;
+        }
+        return (ru0) invokeLL.objValue;
+    }
 }

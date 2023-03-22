@@ -1,41 +1,98 @@
 package com.baidu.tieba;
 
-import androidx.annotation.CallSuper;
-import com.baidu.bdtask.ctrl.SubTaskState;
-import com.baidu.bdtask.model.info.TaskInfo;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes4.dex */
-public interface iv {
-    @CallSuper
-    void a(SubTaskState subTaskState);
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Stack;
+import java.util.concurrent.locks.ReentrantLock;
+import kotlin.Unit;
+/* loaded from: classes5.dex */
+public final class iv<T> implements hv<T> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final Stack<T> a;
+    public final ReentrantLock b;
 
-    boolean b(TaskInfo taskInfo, int i);
-
-    /* loaded from: classes4.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static boolean b(iv ivVar, TaskInfo taskInfo, int i) {
-            InterceptResult invokeLLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, ivVar, taskInfo, i)) == null) ? i == 304 : invokeLLI.booleanValue;
-        }
-
-        public static void a(iv ivVar, SubTaskState subTaskState) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(65536, null, ivVar, subTaskState) == null) && !ivVar.b(subTaskState.getTaskInfo(), subTaskState.getTaskStatus().getCurStatusCode())) {
-                ivVar.a(subTaskState);
+    public iv() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new Stack<>();
+        this.b = new ReentrantLock(true);
+    }
 
-        @CallSuper
-        public static void c(iv ivVar, SubTaskState subTaskState) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65538, null, ivVar, subTaskState) == null) {
-                lv.c.b(subTaskState);
+    @Override // com.baidu.tieba.hv
+    public T a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ReentrantLock reentrantLock = this.b;
+            reentrantLock.lock();
+            try {
+                if (!c()) {
+                    return this.a.pop();
+                }
+                return null;
+            } finally {
+                reentrantLock.unlock();
+            }
+        }
+        return (T) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.hv
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            ReentrantLock reentrantLock = this.b;
+            reentrantLock.lock();
+            try {
+                this.a.clear();
+                Unit unit = Unit.INSTANCE;
+            } finally {
+                reentrantLock.unlock();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.hv
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            ReentrantLock reentrantLock = this.b;
+            reentrantLock.lock();
+            try {
+                return this.a.isEmpty();
+            } finally {
+                reentrantLock.unlock();
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.hv
+    public void a(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+            ReentrantLock reentrantLock = this.b;
+            reentrantLock.lock();
+            try {
+                this.a.push(t);
+            } finally {
+                reentrantLock.unlock();
             }
         }
     }

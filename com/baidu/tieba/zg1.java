@@ -1,24 +1,25 @@
 package com.baidu.tieba;
 
-import android.widget.ImageView;
+import android.os.Bundle;
+import com.baidu.poly.widget.PayChannelEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class zg1 {
     public static /* synthetic */ Interceptable $ic;
-    public static zg1 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ah1 a;
+    public ef1 a;
+    public Bundle b;
+    public PayChannelEntity c;
 
-    public zg1(ah1 ah1Var) {
+    public zg1(ef1 ef1Var, Bundle bundle, PayChannelEntity payChannelEntity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ah1Var};
+            Object[] objArr = {ef1Var, bundle, payChannelEntity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,34 +29,8 @@ public class zg1 {
                 return;
             }
         }
-        this.a = ah1Var;
-    }
-
-    public static void c(ah1 ah1Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, ah1Var) == null) && b == null) {
-            synchronized (zg1.class) {
-                if (b == null) {
-                    b = new zg1(ah1Var);
-                }
-            }
-        }
-    }
-
-    public static zg1 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return b;
-        }
-        return (zg1) invokeV.objValue;
-    }
-
-    public void a(ImageView imageView, String str) {
-        ah1 ah1Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, imageView, str) == null) && (ah1Var = this.a) != null) {
-            ah1Var.a(imageView, str);
-        }
+        this.a = ef1Var;
+        this.b = bundle;
+        this.c = payChannelEntity;
     }
 }

@@ -51,7 +51,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes7.dex */
 public class AppBarLayout extends LinearLayout implements CoordinatorLayout.AttachedBehavior {
-    public static final int DEF_STYLE_RES = 2131755827;
+    public static final int DEF_STYLE_RES = 2131755831;
     public static final int INVALID_SCROLL_RANGE = -1;
     public static final int PENDING_ACTION_ANIMATE_ENABLED = 4;
     public static final int PENDING_ACTION_COLLAPSED = 2;
@@ -1693,27 +1693,27 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         int[] iArr = this.tmpStatesArray;
         int[] onCreateDrawableState = super.onCreateDrawableState(i + iArr.length);
         if (this.liftable) {
-            i2 = com.baidu.tieba.R.attr.obfuscated_res_0x7f040660;
+            i2 = com.baidu.tieba.R.attr.obfuscated_res_0x7f04066b;
         } else {
-            i2 = -2130970208;
+            i2 = -2130970219;
         }
         iArr[0] = i2;
         if (this.liftable && this.lifted) {
-            i3 = com.baidu.tieba.R.attr.obfuscated_res_0x7f040661;
+            i3 = com.baidu.tieba.R.attr.obfuscated_res_0x7f04066c;
         } else {
-            i3 = -2130970209;
+            i3 = -2130970220;
         }
         iArr[1] = i3;
         if (this.liftable) {
-            i4 = com.baidu.tieba.R.attr.obfuscated_res_0x7f04065e;
+            i4 = com.baidu.tieba.R.attr.obfuscated_res_0x7f040669;
         } else {
-            i4 = -2130970206;
+            i4 = -2130970217;
         }
         iArr[2] = i4;
         if (this.liftable && this.lifted) {
-            i5 = com.baidu.tieba.R.attr.obfuscated_res_0x7f04065d;
+            i5 = com.baidu.tieba.R.attr.obfuscated_res_0x7f040668;
         } else {
-            i5 = -2130970205;
+            i5 = -2130970216;
         }
         iArr[3] = i5;
         return LinearLayout.mergeDrawableStates(onCreateDrawableState, iArr);

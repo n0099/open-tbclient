@@ -468,7 +468,7 @@ public final class CombineKt$zipImpl$$inlined$unsafeFlow$1$lambda$1 extends Susp
                 receiveChannel = CombineKt.asChannel(coroutineScope2, this.this$0.$flow$inlined);
                 receiveChannel2 = CombineKt.asChannel(coroutineScope2, this.this$0.$flow2$inlined);
                 if (receiveChannel2 != null) {
-                    ((SendChannel) receiveChannel2).mo2224invokeOnClose(new Function1<Throwable, Unit>() { // from class: kotlinx.coroutines.flow.internal.CombineKt$zipImpl$$inlined$unsafeFlow$1$lambda$1.1
+                    ((SendChannel) receiveChannel2).mo2240invokeOnClose(new Function1<Throwable, Unit>() { // from class: kotlinx.coroutines.flow.internal.CombineKt$zipImpl$$inlined$unsafeFlow$1$lambda$1.1
                         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
                         {
                             super(1);

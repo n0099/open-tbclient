@@ -1,139 +1,139 @@
 package rx.internal.schedulers;
 
-import com.baidu.tieba.fna;
-import com.baidu.tieba.kna;
+import com.baidu.tieba.bsa;
+import com.baidu.tieba.gsa;
+import com.baidu.tieba.lwa;
+import com.baidu.tieba.mra;
+import com.baidu.tieba.nra;
+import com.baidu.tieba.ora;
 import com.baidu.tieba.pra;
-import com.baidu.tieba.qma;
-import com.baidu.tieba.rma;
-import com.baidu.tieba.sma;
-import com.baidu.tieba.tma;
-import com.baidu.tieba.uqa;
-import com.baidu.tieba.vma;
-import com.baidu.tieba.zma;
+import com.baidu.tieba.qva;
+import com.baidu.tieba.rra;
+import com.baidu.tieba.vra;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.internal.operators.BufferUntilSubscriber;
 import rx.subjects.PublishSubject;
 /* loaded from: classes9.dex */
-public class SchedulerWhen extends vma implements zma {
-    public static final zma d = new c();
-    public static final zma e = pra.c();
-    public final vma a;
-    public final tma<sma<qma>> b;
-    public final zma c;
+public class SchedulerWhen extends rra implements vra {
+    public static final vra d = new c();
+    public static final vra e = lwa.c();
+    public final rra a;
+    public final pra<ora<mra>> b;
+    public final vra c;
 
     /* loaded from: classes9.dex */
-    public static class c implements zma {
-        @Override // com.baidu.tieba.zma
+    public static class c implements vra {
+        @Override // com.baidu.tieba.vra
         public boolean isUnsubscribed() {
             return false;
         }
 
-        @Override // com.baidu.tieba.zma
+        @Override // com.baidu.tieba.vra
         public void unsubscribe() {
         }
     }
 
     /* loaded from: classes9.dex */
-    public class a implements kna<ScheduledAction, qma> {
-        public final /* synthetic */ vma.a a;
+    public class a implements gsa<ScheduledAction, mra> {
+        public final /* synthetic */ rra.a a;
 
         /* renamed from: rx.internal.schedulers.SchedulerWhen$a$a  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class C0740a implements qma.f {
+        public class C0747a implements mra.f {
             public final /* synthetic */ ScheduledAction a;
 
-            public C0740a(ScheduledAction scheduledAction) {
+            public C0747a(ScheduledAction scheduledAction) {
                 this.a = scheduledAction;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.qma.f, com.baidu.tieba.gna
-            public void call(rma rmaVar) {
-                rmaVar.onSubscribe(this.a);
-                this.a.call(a.this.a, rmaVar);
+            @Override // com.baidu.tieba.mra.f, com.baidu.tieba.csa
+            public void call(nra nraVar) {
+                nraVar.onSubscribe(this.a);
+                this.a.call(a.this.a, nraVar);
             }
         }
 
-        public a(SchedulerWhen schedulerWhen, vma.a aVar) {
+        public a(SchedulerWhen schedulerWhen, rra.a aVar) {
             this.a = aVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.kna
-        public qma call(ScheduledAction scheduledAction) {
-            return qma.b(new C0740a(scheduledAction));
+        @Override // com.baidu.tieba.gsa
+        public mra call(ScheduledAction scheduledAction) {
+            return mra.b(new C0747a(scheduledAction));
         }
     }
 
     /* loaded from: classes9.dex */
     public static class DelayedAction extends ScheduledAction {
-        public final fna action;
+        public final bsa action;
         public final long delayTime;
         public final TimeUnit unit;
 
-        public DelayedAction(fna fnaVar, long j, TimeUnit timeUnit) {
-            this.action = fnaVar;
+        public DelayedAction(bsa bsaVar, long j, TimeUnit timeUnit) {
+            this.action = bsaVar;
             this.delayTime = j;
             this.unit = timeUnit;
         }
 
         @Override // rx.internal.schedulers.SchedulerWhen.ScheduledAction
-        public zma callActual(vma.a aVar, rma rmaVar) {
-            return aVar.c(new d(this.action, rmaVar), this.delayTime, this.unit);
+        public vra callActual(rra.a aVar, nra nraVar) {
+            return aVar.c(new d(this.action, nraVar), this.delayTime, this.unit);
         }
     }
 
     /* loaded from: classes9.dex */
     public static class ImmediateAction extends ScheduledAction {
-        public final fna action;
+        public final bsa action;
 
-        public ImmediateAction(fna fnaVar) {
-            this.action = fnaVar;
+        public ImmediateAction(bsa bsaVar) {
+            this.action = bsaVar;
         }
 
         @Override // rx.internal.schedulers.SchedulerWhen.ScheduledAction
-        public zma callActual(vma.a aVar, rma rmaVar) {
-            return aVar.b(new d(this.action, rmaVar));
+        public vra callActual(rra.a aVar, nra nraVar) {
+            return aVar.b(new d(this.action, nraVar));
         }
     }
 
     /* loaded from: classes9.dex */
-    public static abstract class ScheduledAction extends AtomicReference<zma> implements zma {
-        public abstract zma callActual(vma.a aVar, rma rmaVar);
+    public static abstract class ScheduledAction extends AtomicReference<vra> implements vra {
+        public abstract vra callActual(rra.a aVar, nra nraVar);
 
         public ScheduledAction() {
             super(SchedulerWhen.d);
         }
 
-        @Override // com.baidu.tieba.zma
+        @Override // com.baidu.tieba.vra
         public boolean isUnsubscribed() {
             return get().isUnsubscribed();
         }
 
-        @Override // com.baidu.tieba.zma
+        @Override // com.baidu.tieba.vra
         public void unsubscribe() {
-            zma zmaVar;
-            zma zmaVar2 = SchedulerWhen.e;
+            vra vraVar;
+            vra vraVar2 = SchedulerWhen.e;
             do {
-                zmaVar = get();
-                if (zmaVar == SchedulerWhen.e) {
+                vraVar = get();
+                if (vraVar == SchedulerWhen.e) {
                     return;
                 }
-            } while (!compareAndSet(zmaVar, zmaVar2));
-            if (zmaVar != SchedulerWhen.d) {
-                zmaVar.unsubscribe();
+            } while (!compareAndSet(vraVar, vraVar2));
+            if (vraVar != SchedulerWhen.d) {
+                vraVar.unsubscribe();
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void call(vma.a aVar, rma rmaVar) {
-            zma zmaVar = get();
-            if (zmaVar == SchedulerWhen.e || zmaVar != SchedulerWhen.d) {
+        public void call(rra.a aVar, nra nraVar) {
+            vra vraVar = get();
+            if (vraVar == SchedulerWhen.e || vraVar != SchedulerWhen.d) {
                 return;
             }
-            zma callActual = callActual(aVar, rmaVar);
+            vra callActual = callActual(aVar, nraVar);
             if (!compareAndSet(SchedulerWhen.d, callActual)) {
                 callActual.unsubscribe();
             }
@@ -141,36 +141,36 @@ public class SchedulerWhen extends vma implements zma {
     }
 
     /* loaded from: classes9.dex */
-    public class b extends vma.a {
+    public class b extends rra.a {
         public final AtomicBoolean a = new AtomicBoolean();
-        public final /* synthetic */ vma.a b;
-        public final /* synthetic */ tma c;
+        public final /* synthetic */ rra.a b;
+        public final /* synthetic */ pra c;
 
-        public b(SchedulerWhen schedulerWhen, vma.a aVar, tma tmaVar) {
+        public b(SchedulerWhen schedulerWhen, rra.a aVar, pra praVar) {
             this.b = aVar;
-            this.c = tmaVar;
+            this.c = praVar;
         }
 
-        @Override // com.baidu.tieba.vma.a
-        public zma c(fna fnaVar, long j, TimeUnit timeUnit) {
-            DelayedAction delayedAction = new DelayedAction(fnaVar, j, timeUnit);
+        @Override // com.baidu.tieba.rra.a
+        public vra c(bsa bsaVar, long j, TimeUnit timeUnit) {
+            DelayedAction delayedAction = new DelayedAction(bsaVar, j, timeUnit);
             this.c.onNext(delayedAction);
             return delayedAction;
         }
 
-        @Override // com.baidu.tieba.vma.a
-        public zma b(fna fnaVar) {
-            ImmediateAction immediateAction = new ImmediateAction(fnaVar);
+        @Override // com.baidu.tieba.rra.a
+        public vra b(bsa bsaVar) {
+            ImmediateAction immediateAction = new ImmediateAction(bsaVar);
             this.c.onNext(immediateAction);
             return immediateAction;
         }
 
-        @Override // com.baidu.tieba.zma
+        @Override // com.baidu.tieba.vra
         public boolean isUnsubscribed() {
             return this.a.get();
         }
 
-        @Override // com.baidu.tieba.zma
+        @Override // com.baidu.tieba.vra
         public void unsubscribe() {
             if (this.a.compareAndSet(false, true)) {
                 this.b.unsubscribe();
@@ -180,16 +180,16 @@ public class SchedulerWhen extends vma implements zma {
     }
 
     /* loaded from: classes9.dex */
-    public static class d implements fna {
-        public rma a;
-        public fna b;
+    public static class d implements bsa {
+        public nra a;
+        public bsa b;
 
-        public d(fna fnaVar, rma rmaVar) {
-            this.b = fnaVar;
-            this.a = rmaVar;
+        public d(bsa bsaVar, nra nraVar) {
+            this.b = bsaVar;
+            this.a = nraVar;
         }
 
-        @Override // com.baidu.tieba.fna
+        @Override // com.baidu.tieba.bsa
         public void call() {
             try {
                 this.b.call();
@@ -199,33 +199,33 @@ public class SchedulerWhen extends vma implements zma {
         }
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: com.baidu.tieba.tma<com.baidu.tieba.sma<com.baidu.tieba.qma>> */
+    /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: com.baidu.tieba.pra<com.baidu.tieba.ora<com.baidu.tieba.mra>> */
     /* JADX WARN: Multi-variable type inference failed */
-    @Override // com.baidu.tieba.vma
-    public vma.a createWorker() {
-        vma.a createWorker = this.a.createWorker();
+    @Override // com.baidu.tieba.rra
+    public rra.a createWorker() {
+        rra.a createWorker = this.a.createWorker();
         BufferUntilSubscriber D = BufferUntilSubscriber.D();
-        uqa uqaVar = new uqa(D);
+        qva qvaVar = new qva(D);
         Object h = D.h(new a(this, createWorker));
-        b bVar = new b(this, createWorker, uqaVar);
+        b bVar = new b(this, createWorker, qvaVar);
         this.b.onNext(h);
         return bVar;
     }
 
-    @Override // com.baidu.tieba.zma
+    @Override // com.baidu.tieba.vra
     public boolean isUnsubscribed() {
         return this.c.isUnsubscribed();
     }
 
-    @Override // com.baidu.tieba.zma
+    @Override // com.baidu.tieba.vra
     public void unsubscribe() {
         this.c.unsubscribe();
     }
 
-    public SchedulerWhen(kna<sma<sma<qma>>, qma> knaVar, vma vmaVar) {
-        this.a = vmaVar;
+    public SchedulerWhen(gsa<ora<ora<mra>>, mra> gsaVar, rra rraVar) {
+        this.a = rraVar;
         PublishSubject D = PublishSubject.D();
-        this.b = new uqa(D);
-        this.c = knaVar.call(D.n()).f();
+        this.b = new qva(D);
+        this.c = gsaVar.call(D.n()).f();
     }
 }

@@ -1,169 +1,142 @@
 package com.baidu.tieba;
 
-import android.view.View;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.SmartLaunchStats;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.switchs.TbBrowseModeSwitch;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.tieba.mh6;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class kh6 {
     public static /* synthetic */ Interceptable $ic;
+    public static mh6 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final BaseFragmentActivity a;
-    public q15 b;
-    public q15 c;
-    public q15 d;
-    public int e;
-    public View.OnClickListener f;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947913136, "Lcom/baidu/tieba/kh6;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947913136, "Lcom/baidu/tieba/kh6;");
+        }
+    }
 
     /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
+    public static class a implements mh6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kh6 a;
 
-        public a(kh6 kh6Var) {
+        @Override // com.baidu.tieba.mh6
+        public <T extends lh6> void b(@Nullable T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.mh6
+        public void unregister(@NonNull Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            }
+        }
+
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {kh6Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = kh6Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            int i;
+        @Override // com.baidu.tieba.mh6
+        public <T extends lh6> void a(@NonNull Object obj, @NonNull nh6<T> nh6Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                int id = view2.getId();
-                if (id == R.id.private_yes || id == R.id.obfuscated_res_0x7f09288b) {
-                    this.a.j();
-                } else if (id == R.id.private_no) {
-                    if (this.a.b.isShowing()) {
-                        this.a.b.dismiss();
-                        l29.a("1", "2");
-                    }
-                    if (this.a.c == null) {
-                        kh6 kh6Var = this.a;
-                        kh6Var.c = qx5.a(kh6Var.a.getPageContext(), this.a.f, R.string.privacy_policy_guide_one, R.string.secret_hint_no_agree);
-                    }
-                    this.a.c.show();
-                    l29.b("2");
-                } else if (id == R.id.obfuscated_res_0x7f09045c) {
-                    kh6.g(this.a);
-                    if (this.a.c.isShowing()) {
-                        this.a.c.dismiss();
-                        l29.a("2", "2");
-                        if (this.a.d == null) {
-                            kh6 kh6Var2 = this.a;
-                            TbPageContext<BaseFragmentActivity> pageContext = kh6Var2.a.getPageContext();
-                            View.OnClickListener onClickListener = this.a.f;
-                            if (TbBrowseModeSwitch.isOn()) {
-                                i = R.string.secret_hint_browser;
-                            } else {
-                                i = R.string.secret_hint_browser_exit;
-                            }
-                            kh6Var2.d = qx5.a(pageContext, onClickListener, R.string.privacy_policy_guide_two, i);
-                            this.a.d.show();
-                            l29.b("3");
-                        }
-                    }
-                    if (this.a.d.isShowing() && this.a.e == 2) {
-                        this.a.d.dismiss();
-                        l29.a("3", "2");
-                        if (TbBrowseModeSwitch.isOn()) {
-                            PermissionUtil.doBrowseModeInit();
-                            PermissionUtil.starMainTabActivity(this.a.a, 2);
-                        }
-                        this.a.a.finish();
-                    }
-                }
+            if (interceptable == null || interceptable.invokeLL(1048576, this, obj, nh6Var) == null) {
+                throw new IllegalStateException("Unable to find eventbus service!");
             }
         }
     }
 
-    public kh6(@NonNull BaseFragmentActivity baseFragmentActivity) {
+    /* loaded from: classes5.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final mh6.a a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-661236366, "Lcom/baidu/tieba/kh6$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-661236366, "Lcom/baidu/tieba/kh6$b;");
+                    return;
+                }
+            }
+            a = (mh6.a) ServiceManager.getService(mh6.a.a);
+        }
+    }
+
+    public kh6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.e = 0;
-        this.f = new a(this);
-        this.a = baseFragmentActivity;
     }
 
-    public static /* synthetic */ int g(kh6 kh6Var) {
-        int i = kh6Var.e;
-        kh6Var.e = i + 1;
-        return i;
-    }
-
-    public final void j() {
+    public static void a(@NonNull BdUniqueId bdUniqueId) {
+        mh6.a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            q15 q15Var = this.b;
-            if (q15Var != null && q15Var.isShowing()) {
-                this.b.dismiss();
-                SmartLaunchStats.onConfirmPrivacy();
-                l29.a("1", "1");
-                p35.k("logoController", false);
-            }
-            q15 q15Var2 = this.c;
-            if (q15Var2 != null && q15Var2.isShowing()) {
-                this.c.dismiss();
-                l29.a("2", "1");
-                p35.k("logoController", false);
-            }
-            q15 q15Var3 = this.d;
-            if (q15Var3 != null && q15Var3.isShowing()) {
-                this.d.dismiss();
-                l29.a("3", "1");
-                p35.k("logoController", false);
-            }
-            b55.m().A("key_first_enter_app_timestamp", System.currentTimeMillis());
-            PermissionUtil.doAgreePrivacyInit();
-            PermissionUtil.starMainTabActivity(this.a, 2);
-            this.a.finish();
+        if ((interceptable == null || interceptable.invokeL(65538, null, bdUniqueId) == null) && (aVar = b.a) != null) {
+            aVar.a(bdUniqueId);
         }
     }
 
-    public void k() {
+    public static mh6 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            q15 b = qx5.b(this.a.getPageContext(), this.f);
-            this.b = b;
-            b.show();
-            l29.b("1");
-            TbSingleton.setExceptInsertAdDiaShow(true);
-            SmartLaunchStats.onPrivacyDialogShow();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (a == null) {
+                synchronized (kh6.class) {
+                    if (a == null) {
+                        a = (mh6) ServiceManager.getService(mh6.a);
+                    }
+                    if (a == null) {
+                        a = new a();
+                    }
+                }
+            }
+            return a;
         }
+        return (mh6) invokeV.objValue;
     }
 }

@@ -31,7 +31,7 @@ public class LoadRecyclerView extends RecyclerView {
         void b(boolean z);
     }
 
-    public final void g() {
+    public final void init() {
     }
 
     /* loaded from: classes2.dex */
@@ -69,9 +69,9 @@ public class LoadRecyclerView extends RecyclerView {
                 i3 = 0;
             }
             if (this.a && i2 + LoadRecyclerView.this.f == LoadRecyclerView.this.g.getItemCount() - 1) {
-                LoadRecyclerView.this.i();
+                LoadRecyclerView.this.g();
             } else if (i3 == 0) {
-                LoadRecyclerView.this.j();
+                LoadRecyclerView.this.h();
             }
             LoadRecyclerView.this.k = false;
         }
@@ -94,7 +94,7 @@ public class LoadRecyclerView extends RecyclerView {
         this.f = 0;
         this.j = ViewConfiguration.get(getContext()).getScaledTouchSlop();
         this.l = new a();
-        g();
+        init();
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView
@@ -116,7 +116,7 @@ public class LoadRecyclerView extends RecyclerView {
         this.f = 0;
         this.j = ViewConfiguration.get(getContext()).getScaledTouchSlop();
         this.l = new a();
-        g();
+        init();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -128,9 +128,9 @@ public class LoadRecyclerView extends RecyclerView {
                 float abs2 = Math.abs(this.c - motionEvent.getY());
                 if (abs2 > abs && abs2 >= this.j) {
                     if (motionEvent.getY() > this.c && this.d == 0) {
-                        j();
+                        h();
                     } else if (motionEvent.getY() < this.c && this.e == this.g.getItemCount() - 1) {
-                        i();
+                        g();
                     }
                 }
             }
@@ -156,11 +156,11 @@ public class LoadRecyclerView extends RecyclerView {
         }
     }
 
-    public void h() {
+    public void f() {
         this.i = false;
     }
 
-    public final void i() {
+    public final void g() {
         if (!this.i) {
             this.i = true;
             b bVar = this.a;
@@ -170,7 +170,7 @@ public class LoadRecyclerView extends RecyclerView {
         }
     }
 
-    public final void j() {
+    public final void h() {
         if (!this.h) {
             this.h = true;
             b bVar = this.a;

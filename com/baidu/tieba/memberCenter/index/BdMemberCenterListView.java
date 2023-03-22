@@ -11,7 +11,7 @@ import android.widget.Scroller;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.rx5;
+import com.baidu.tieba.xw5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -120,12 +120,12 @@ public class BdMemberCenterListView extends BdTypeListView {
         this.J = context;
         this.K = new Scroller(this.J);
         this.S = ViewConfiguration.get(context).getScaledTouchSlop();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, rx5.ExpandListView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, xw5.ExpandListView);
         this.T = obtainStyledAttributes.getDimensionPixelSize(V, 0);
         obtainStyledAttributes.recycle();
     }
 
-    public final void I(float f) {
+    public final void H(float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
             this.U.a(360.0f - ((f * 360.0f) / this.T));
@@ -165,7 +165,7 @@ public class BdMemberCenterListView extends BdTypeListView {
         }
     }
 
-    public void J() {
+    public void I() {
         a aVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (aVar = this.U) != null) {
@@ -173,7 +173,7 @@ public class BdMemberCenterListView extends BdTypeListView {
         }
     }
 
-    public void K() {
+    public void J() {
         int height;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.O == null) {
@@ -186,7 +186,7 @@ public class BdMemberCenterListView extends BdTypeListView {
             height = view2.getHeight();
         }
         if (height >= this.O.b - (this.T / 2)) {
-            J();
+            I();
         } else {
             this.U.b();
         }
@@ -239,7 +239,7 @@ public class BdMemberCenterListView extends BdTypeListView {
                             if (a2 > bVar.a && a2 <= bVar.b) {
                                 this.P = true;
                                 this.L.setLayoutParams(new AbsListView.LayoutParams(this.L.getWidth(), a2));
-                                I(a2 - this.O.a);
+                                H(a2 - this.O.a);
                             } else {
                                 b bVar2 = this.O;
                                 if (a2 <= bVar2.a) {
@@ -256,7 +256,7 @@ public class BdMemberCenterListView extends BdTypeListView {
                     }
                 }
                 if (this.P) {
-                    K();
+                    J();
                 } else {
                     this.U.b();
                 }

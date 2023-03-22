@@ -17,7 +17,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @UpdateAction(action = JsNativeDomainWhiteListListener.JSNATIVE_DOMAIN_WLIST_ACTION, module = "scheme")
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class JsNativeDomainWhiteListListener extends JSONObjectCommandListener {
     public static final String JSNATIVE_DOMAIN_WLIST_ACTION = "jsnative_domain_wlist";
     public static final String JSNATIVE_DOMAIN_WLIST_VERSION = "jsnative_domain_wlist_v";

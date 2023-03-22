@@ -11,11 +11,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b35;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.RecallSysMsg;
-import com.baidu.tieba.qu7;
+import com.baidu.tieba.n15;
+import com.baidu.tieba.nx7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,8 +26,8 @@ import java.util.List;
 public class RecallAdapter extends BaseSysAdapter<RecallSysMsg, Holder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long f;
     public long g;
+    public long h;
 
     /* loaded from: classes4.dex */
     public static class Holder extends BaseViewHolder {
@@ -56,10 +56,10 @@ public class RecallAdapter extends BaseSysAdapter<RecallSysMsg, Holder> {
                     return;
                 }
             }
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091cc9);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f7a);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091d0f);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090faa);
             this.c = (TextView) view2.findViewById(R.id.user_name);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092659);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926b7);
         }
     }
 
@@ -87,53 +87,53 @@ public class RecallAdapter extends BaseSysAdapter<RecallSysMsg, Holder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter
     @NonNull
-    /* renamed from: E */
-    public Holder z(@NonNull ViewGroup viewGroup) {
+    /* renamed from: I */
+    public Holder D(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
-            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01e2, viewGroup, false));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d01e6, viewGroup, false));
         }
         return (Holder) invokeL.objValue;
     }
 
-    public void G(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.f = j;
-        }
-    }
-
-    public void H(long j) {
+    public void L(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
             this.g = j;
         }
     }
 
+    public void M(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            this.h = j;
+        }
+    }
+
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter
     @NonNull
-    /* renamed from: F */
-    public View B(int i, @NonNull ViewGroup viewGroup, @NonNull RecallSysMsg recallSysMsg, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
+    /* renamed from: J */
+    public View F(int i, @NonNull ViewGroup viewGroup, @NonNull RecallSysMsg recallSysMsg, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), viewGroup, recallSysMsg, holder, list, Integer.valueOf(i2)})) == null) {
-            b35 d = b35.d(holder.a);
-            d.n(R.string.J_X04);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), viewGroup, recallSysMsg, holder, list, Integer.valueOf(i2)})) == null) {
+            n15 d = n15.d(holder.a);
+            d.o(R.string.J_X04);
             d.f(R.color.CAM_X0625);
-            b35 d2 = b35.d(holder.b);
-            d2.v(R.color.CAM_X0101);
-            d2.z(R.dimen.T_X09);
-            d2.A(R.string.F_X01);
-            b35 d3 = b35.d(holder.c);
-            d3.v(R.color.CAM_X0101);
-            d3.z(R.dimen.T_X09);
-            d3.A(R.string.F_X01);
-            b35 d4 = b35.d(holder.d);
-            d4.v(R.color.CAM_X0101);
-            d4.z(R.dimen.T_X09);
-            d4.A(R.string.F_X01);
+            n15 d2 = n15.d(holder.b);
+            d2.w(R.color.CAM_X0101);
+            d2.A(R.dimen.T_X09);
+            d2.B(R.string.F_X01);
+            n15 d3 = n15.d(holder.c);
+            d3.w(R.color.CAM_X0101);
+            d3.A(R.dimen.T_X09);
+            d3.B(R.string.F_X01);
+            n15 d4 = n15.d(holder.d);
+            d4.w(R.color.CAM_X0101);
+            d4.A(R.dimen.T_X09);
+            d4.B(R.string.F_X01);
             if (recallSysMsg != null && recallSysMsg.getUserTo() != null && recallSysMsg.getUserFrom() != null) {
                 int msgType = recallSysMsg.getMsgType();
                 if (msgType == 7002) {
@@ -141,32 +141,32 @@ public class RecallAdapter extends BaseSysAdapter<RecallSysMsg, Holder> {
                         int role = recallSysMsg.getUserFrom().getRole();
                         if (role != 2 && role != 3) {
                             if (role == 1) {
-                                holder.b.setText(R.string.obfuscated_res_0x7f0f0887);
+                                holder.b.setText(R.string.obfuscated_res_0x7f0f0891);
                             }
                         } else {
-                            holder.b.setText(R.string.obfuscated_res_0x7f0f086a);
+                            holder.b.setText(R.string.obfuscated_res_0x7f0f0873);
                         }
                         holder.c.setText("");
-                        holder.d.setText(R.string.obfuscated_res_0x7f0f0885);
+                        holder.d.setText(R.string.obfuscated_res_0x7f0f088e);
                     } else {
                         int role2 = recallSysMsg.getUserFrom().getRole();
                         if (role2 != 2 && role2 != 3) {
                             if (role2 == 1) {
-                                holder.b.setText(R.string.obfuscated_res_0x7f0f0887);
+                                holder.b.setText(R.string.obfuscated_res_0x7f0f0891);
                             }
                         } else {
-                            holder.b.setText(R.string.obfuscated_res_0x7f0f086a);
+                            holder.b.setText(R.string.obfuscated_res_0x7f0f0873);
                         }
                         holder.c.setText(recallSysMsg.getUserTo().getUsername());
-                        holder.d.setText(R.string.obfuscated_res_0x7f0f0884);
+                        holder.d.setText(R.string.obfuscated_res_0x7f0f088d);
                     }
                 } else if (msgType == 7015) {
                     holder.b.setText("");
                     holder.c.setText(recallSysMsg.getUserTo().getUsername());
-                    holder.d.setText(R.string.obfuscated_res_0x7f0f088b);
+                    holder.d.setText(R.string.obfuscated_res_0x7f0f0895);
                 }
             }
-            qu7.a("c15095", 3, this.f, this.g, TbadkCoreApplication.getCurrentAccount());
+            nx7.a("c15095", 3, this.g, this.h, TbadkCoreApplication.getCurrentAccount());
             return holder.getView();
         }
         return (View) invokeCommon.objValue;

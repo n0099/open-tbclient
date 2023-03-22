@@ -1,18 +1,14 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
+import android.view.ViewGroup;
+import com.baidu.tieba.jx0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-@Singleton
-@Service
 /* loaded from: classes5.dex */
-public class kx0 implements vw0 {
+public abstract class kx0<VG extends ViewGroup, BE extends jx0> extends ox0<VG, BE> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -30,14 +26,19 @@ public class kx0 implements vw0 {
         }
     }
 
-    @Override // com.baidu.tieba.vw0
-    @NonNull
-    public xw0 a(Map<String, String> map, Object obj) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ex0
+    /* renamed from: U */
+    public yr0 u() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, map, obj)) == null) {
-            return new rx0(map, obj);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            xr0 u = super.u();
+            if (u != null) {
+                return (yr0) u;
+            }
+            throw new NullPointerException("null cannot be cast to non-null type com.baidu.nadcore.player.BaseVideoPlayer");
         }
-        return (xw0) invokeLL.objValue;
+        return (yr0) invokeV.objValue;
     }
 }

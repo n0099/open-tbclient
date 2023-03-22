@@ -2,7 +2,7 @@ package com.baidu.searchbox.util;
 
 import android.text.TextUtils;
 import com.baidu.util.Base64Encoder;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class CT {
     public static final String DEFAULT_CTV = "1";
     public String mCtv;

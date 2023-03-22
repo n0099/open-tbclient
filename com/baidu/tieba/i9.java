@@ -1,34 +1,41 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteAbortException;
+import android.database.sqlite.SQLiteConstraintException;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteDatabaseCorruptException;
+import android.database.sqlite.SQLiteDiskIOException;
+import android.database.sqlite.SQLiteDoneException;
+import android.database.sqlite.SQLiteException;
+import android.database.sqlite.SQLiteFullException;
+import android.database.sqlite.SQLiteMisuseException;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.h9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.sql.SQLException;
 /* loaded from: classes4.dex */
 public class i9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public k9 a;
-    public Context b;
-    public int c;
+    public SQLiteDatabase a;
+    public h9.a b;
+    public h9 c;
 
-    public i9(Context context) {
+    public i9(h9 h9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {h9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,103 +45,185 @@ public class i9 {
                 return;
             }
         }
-        this.b = context;
-        this.a = new l9(context);
-        this.c = q9.b().a();
+        this.a = null;
+        this.b = null;
+        this.c = h9Var;
     }
 
-    public k9 a() {
-        InterceptResult invokeV;
+    public final void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            synchronized (i9.class) {
+                if (this.a != null && this.a.isOpen()) {
+                    return;
+                }
+                try {
+                    this.c.setOnCreateCallback(this.b);
+                    this.a = this.c.getWritableDatabase();
+                } catch (RuntimeException e) {
+                    if (z) {
+                        i(e, "ensureDatabaseReady");
+                    } else {
+                        throw e;
+                    }
+                }
+            }
         }
-        return (k9) invokeV.objValue;
     }
 
-    public HashMap<String, g9> b(String str) {
+    public boolean d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            HashMap<String, g9> hashMap = new HashMap<>();
-            if (!TextUtils.isEmpty(str)) {
-                try {
-                    JSONArray jSONArray = new JSONObject(str).getJSONArray("exps");
-                    if (jSONArray != null && jSONArray.length() > 0) {
-                        int length = jSONArray.length();
-                        for (int i = 0; i < length; i++) {
-                            JSONObject jSONObject = jSONArray.getJSONObject(i);
-                            if (jSONObject != null) {
-                                int i2 = jSONObject.getInt("exp_id");
-                                long j = jSONObject.getLong("expired_time");
-                                int i3 = jSONObject.getInt("components_key");
-                                if (System.currentTimeMillis() / 1000 <= j) {
-                                    g9 g9Var = new g9(i2, i3, j);
-                                    hashMap.put(i2 + "_" + i3, g9Var);
-                                }
-                            }
-                        }
-                    }
-                } catch (JSONException e) {
-                    j9.a("V1DataProcessor", "parse config JSONException!", e);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            SQLiteDatabase f = f();
+            if (f == null) {
+                return false;
             }
-            return hashMap;
+            try {
+                f.execSQL(str);
+                return true;
+            } catch (Throwable th) {
+                i(th, "execSQLNoException:" + str);
+                return false;
+            }
         }
-        return (HashMap) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public List<o9> c(int i) {
-        InterceptResult invokeI;
-        JSONObject jSONObject;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            ArrayList arrayList = new ArrayList();
-            String d = this.a.d();
-            if (!TextUtils.isEmpty(d)) {
-                try {
-                    JSONArray jSONArray = new JSONObject(d).getJSONArray("exps");
-                    if (jSONArray != null && jSONArray.length() > 0) {
-                        int length = jSONArray.length();
-                        for (int i2 = 0; i2 < length; i2++) {
-                            JSONObject jSONObject2 = jSONArray.getJSONObject(i2);
-                            if (jSONObject2 != null && (jSONObject = jSONObject2.getJSONObject("components_values")) != null) {
-                                Iterator<String> keys = jSONObject.keys();
-                                while (keys.hasNext()) {
-                                    String next = keys.next();
-                                    if (c30.a(next, this.c) == i) {
-                                        arrayList.add(new o9(next, jSONObject.get(next)));
-                                    }
-                                }
-                            }
-                        }
-                    }
-                } catch (JSONException e) {
-                    j9.a("V1DataProcessor", "parse config JSONException!", e);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                if (this.a != null) {
+                    this.a.close();
+                    this.a = null;
                 }
+            } catch (Exception e) {
+                BdLog.e("closeDatabase：" + e.getMessage());
             }
-            return arrayList;
         }
-        return (List) invokeI.objValue;
     }
 
-    public synchronized void d() {
+    public boolean b() {
+        InterceptResult invokeV;
+        boolean dropDatabase;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                JSONObject jSONObject = new JSONObject();
-                String e = this.a.e();
-                String d = this.a.d();
-                if (!TextUtils.isEmpty(e) && !TextUtils.isEmpty(d)) {
-                    try {
-                        jSONObject.put("version", e);
-                        jSONObject.put("data", new JSONObject(d));
-                        t20.i(jSONObject);
-                    } catch (JSONException e2) {
-                        e2.printStackTrace();
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (i9.class) {
+                a();
+                try {
+                    dropDatabase = this.c.dropDatabase(BdBaseApplication.getInst().getContext());
+                } catch (Exception e) {
+                    BdLog.e("deleteDatabase：" + e.getMessage());
+                    this.a = null;
+                    return false;
                 }
             }
+            return dropDatabase;
         }
+        return invokeV.booleanValue;
+    }
+
+    public boolean e(String str, Object[] objArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, objArr)) == null) {
+            SQLiteDatabase f = f();
+            if (f == null) {
+                return false;
+            }
+            try {
+                f.execSQL(str, objArr);
+                return true;
+            } catch (Throwable th) {
+                i(th, "execSQLNoException:" + str);
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public SQLiteDatabase f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return g(true);
+        }
+        return (SQLiteDatabase) invokeV.objValue;
+    }
+
+    public SQLiteDatabase g(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
+            c(z);
+            return this.a;
+        }
+        return (SQLiteDatabase) invokeZ.objValue;
+    }
+
+    public void k(h9.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, aVar) == null) {
+            this.b = aVar;
+        }
+    }
+
+    public void h(String str, int i, String str2, Object... objArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLILL(1048583, this, str, i, str2, objArr) == null) {
+            try {
+                BdStatisticsManager.getInstance().db(str, "", i, str2, objArr);
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
+        }
+    }
+
+    public void i(Throwable th, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, th, str) != null) || th == null || !(th instanceof SQLiteException)) {
+            return;
+        }
+        int i = -17;
+        if (((SQLiteException) th) instanceof SQLiteDatabaseCorruptException) {
+            BdLog.w("database corrupted. recreate!");
+            try {
+                b();
+            } catch (Throwable th2) {
+                BdLog.detailException("failed to drop database. msg:", th2);
+            }
+            i = -14;
+            this.a = null;
+        } else if (th instanceof SQLiteAbortException) {
+            i = -11;
+        } else if (th instanceof SQLiteConstraintException) {
+            i = -12;
+        } else if (th instanceof SQLiteDiskIOException) {
+            i = -15;
+            this.a = null;
+        } else if (th instanceof SQLiteFullException) {
+            i = -16;
+            this.a = null;
+        } else if (th instanceof SQLiteDoneException) {
+            i = -19;
+            this.a = null;
+        } else if (!(th instanceof SQLiteMisuseException)) {
+            this.a = null;
+        }
+        h(str, i, th.getMessage(), new Object[0]);
+    }
+
+    public Cursor j(String str, String[] strArr) throws Exception {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, strArr)) == null) {
+            SQLiteDatabase g = g(false);
+            if (g != null) {
+                return g.rawQuery(str, strArr);
+            }
+            throw new SQLException("unable to open database.");
+        }
+        return (Cursor) invokeLL.objValue;
     }
 }

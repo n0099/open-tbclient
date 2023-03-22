@@ -10,10 +10,10 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.faceshop.EmotionPackageData;
-import com.baidu.tieba.gh;
-import com.baidu.tieba.ha8;
-import com.baidu.tieba.na8;
+import com.baidu.tieba.jg;
+import com.baidu.tieba.kf8;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.model.SingleThreadEmotionModel;
+import com.baidu.tieba.qf8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,15 +21,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class SingleThreadEmotionFragment extends BaseFragment implements ha8<List<EmotionPackageData>> {
+public class SingleThreadEmotionFragment extends BaseFragment implements kf8<List<EmotionPackageData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public na8 a;
+    public qf8 a;
     public SingleThreadEmotionModel b;
     public CustomMessageListener c;
 
-    @Override // com.baidu.tieba.ha8
-    public void Q0() {
+    @Override // com.baidu.tieba.kf8
+    public void R0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
@@ -103,7 +103,7 @@ public class SingleThreadEmotionFragment extends BaseFragment implements ha8<Lis
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a != null) {
                 this.b.a.update(this.a);
-                this.b.G1();
+                this.b.I1();
             }
         }
     }
@@ -157,7 +157,7 @@ public class SingleThreadEmotionFragment extends BaseFragment implements ha8<Lis
         this.c = new a(this, 2921314);
     }
 
-    public final void F1() {
+    public final void H1() {
         SingleThreadEmotionModel singleThreadEmotionModel;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (singleThreadEmotionModel = this.b) != null) {
@@ -165,11 +165,11 @@ public class SingleThreadEmotionFragment extends BaseFragment implements ha8<Lis
         }
     }
 
-    public final void G1() {
-        na8 na8Var;
+    public final void I1() {
+        qf8 qf8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (na8Var = this.a) != null) {
-            na8Var.b();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (qf8Var = this.a) != null) {
+            qf8Var.b();
         }
     }
 
@@ -183,26 +183,26 @@ public class SingleThreadEmotionFragment extends BaseFragment implements ha8<Lis
             }
             SingleThreadEmotionModel singleThreadEmotionModel = this.b;
             if (singleThreadEmotionModel != null) {
-                singleThreadEmotionModel.T();
+                singleThreadEmotionModel.X();
             }
         }
     }
 
-    @Override // com.baidu.tieba.ha8
+    @Override // com.baidu.tieba.kf8
     public void onFail() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            gh.a().post(new c(this));
+            jg.a().post(new c(this));
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ha8
-    /* renamed from: H1 */
+    @Override // com.baidu.tieba.kf8
+    /* renamed from: J1 */
     public void onSuccess(List<EmotionPackageData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            gh.a().post(new b(this, list));
+            jg.a().post(new b(this, list));
         }
     }
 
@@ -211,9 +211,9 @@ public class SingleThreadEmotionFragment extends BaseFragment implements ha8<Lis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             super.onChangeSkinType(i);
-            na8 na8Var = this.a;
-            if (na8Var != null) {
-                na8Var.d(i);
+            qf8 qf8Var = this.a;
+            if (qf8Var != null) {
+                qf8Var.d(i);
             }
         }
     }
@@ -223,12 +223,12 @@ public class SingleThreadEmotionFragment extends BaseFragment implements ha8<Lis
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.a = new na8(getPageContext());
+            this.a = new qf8(getPageContext());
             SingleThreadEmotionModel singleThreadEmotionModel = new SingleThreadEmotionModel();
             this.b = singleThreadEmotionModel;
-            singleThreadEmotionModel.V(this);
+            singleThreadEmotionModel.Z(this);
             registerListener(this.c);
-            F1();
+            H1();
             return this.a.a();
         }
         return (View) invokeLLL.objValue;

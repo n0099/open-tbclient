@@ -1,19 +1,23 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.app.Activity;
+import android.content.Context;
+import android.os.Build;
+import android.os.Bundle;
+import android.util.AttributeSet;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class jl4 {
+public abstract class jl4 extends Activity {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile jl4 a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract View h(View view2, String str, Context context, AttributeSet attributeSet);
 
     public jl4() {
         Interceptable interceptable = $ic;
@@ -29,43 +33,28 @@ public class jl4 {
         }
     }
 
-    public static jl4 a() {
-        InterceptResult invokeV;
+    @Override // android.app.Activity
+    public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (jl4.class) {
-                    if (a == null) {
-                        a = new jl4();
-                    }
-                }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            if (Build.VERSION.SDK_INT < 11 && getLayoutInflater().getFactory() == null) {
+                getLayoutInflater().setFactory(this);
             }
-            return a;
+            super.onCreate(bundle);
         }
-        return (jl4) invokeV.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    @Override // android.app.Activity, android.view.LayoutInflater.Factory
+    public View onCreateView(String str, Context context, AttributeSet attributeSet) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return xg4.b().i().getString("get_pkg_retry_version", "0");
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, context, attributeSet)) == null) {
+            View h = h(null, str, context, attributeSet);
+            if (h == null) {
+                return super.onCreateView(str, context, attributeSet);
+            }
+            return h;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public void c(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        String optString = jSONObject.optString("version");
-        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || !optJSONObject.has(SetImageWatermarkTypeReqMsg.SWITCH)) {
-            return;
-        }
-        int optInt = optJSONObject.optInt(SetImageWatermarkTypeReqMsg.SWITCH, 0);
-        xg4.b().i().putString("get_pkg_retry_version", optString);
-        xg4.b().i().putInt("get_pkg_retry_switch", optInt);
+        return (View) invokeLLL.objValue;
     }
 }

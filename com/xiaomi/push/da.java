@@ -36,17 +36,17 @@ public class da {
                     try {
                         if (isVar instanceof hy) {
                             String str = ((hy) isVar).f593d;
-                            if (!TextUtils.isEmpty(str) && em.a(em.m368a(str)) != -1) {
-                                a = em.a(em.m368a(str));
+                            if (!TextUtils.isEmpty(str) && em.a(em.m370a(str)) != -1) {
+                                a = em.a(em.m370a(str));
                                 break;
                             }
                         } else if (isVar instanceof ig) {
                             String str2 = ((ig) isVar).f655d;
                             if (!TextUtils.isEmpty(str2)) {
-                                if (em.a(em.m368a(str2)) != -1) {
-                                    a = em.a(em.m368a(str2));
+                                if (em.a(em.m370a(str2)) != -1) {
+                                    a = em.a(em.m370a(str2));
                                 }
-                                if (hr.UploadTinyData.equals(em.m368a(str2))) {
+                                if (hr.UploadTinyData.equals(em.m370a(str2))) {
                                     return -1;
                                 }
                             }
@@ -121,7 +121,7 @@ public class da {
             ir.a(idVar, bArr);
             a(str, context, idVar, bArr.length);
         } catch (ix unused) {
-            com.xiaomi.channel.commonutils.logger.b.m97a("fail to convert bytes to container");
+            com.xiaomi.channel.commonutils.logger.b.m99a("fail to convert bytes to container");
         }
     }
 }

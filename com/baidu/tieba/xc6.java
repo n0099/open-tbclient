@@ -1,58 +1,87 @@
 package com.baidu.tieba;
 
-import android.webkit.URLUtil;
-import android.webkit.WebResourceResponse;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes6.dex */
-public class xc6 extends yc6<WebResourceResponse> {
+public class xc6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
+    public final String c;
+    public final Map<String, String> d;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.yc6
-    /* renamed from: e */
-    public WebResourceResponse c(String str, Map<String, String> map) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, map)) == null) {
-            return null;
-        }
-        return (WebResourceResponse) invokeLL.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xc6(yc6<WebResourceResponse> yc6Var) {
-        super(yc6Var);
+    public xc6(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {yc6Var};
+            Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((yc6) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.d = new HashMap();
+        this.a = str;
+        this.b = str2;
+        this.c = str3;
     }
 
-    @Override // com.baidu.tieba.yc6
-    public boolean d(String str, Map<String, String> map) {
-        InterceptResult invokeLL;
+    public void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map)) == null) {
-            return URLUtil.isAssetUrl(str);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            this.d.put(str, str2);
         }
-        return invokeLL.booleanValue;
+    }
+
+    public Map<String, String> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new HashMap(this.d);
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (!TextUtils.isEmpty(this.b) && !TextUtils.equals("GET", this.b.toUpperCase())) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

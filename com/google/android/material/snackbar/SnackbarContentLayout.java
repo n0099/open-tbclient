@@ -14,7 +14,7 @@ import androidx.core.view.ViewCompat;
 import com.baidu.tieba.R;
 import com.google.android.material.color.MaterialColors;
 @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SnackbarContentLayout extends LinearLayout implements ContentViewCallback {
     public Button actionView;
     public int maxInlineActionWidth;
@@ -101,8 +101,8 @@ public class SnackbarContentLayout extends LinearLayout implements ContentViewCa
     @Override // android.view.View
     public void onFinishInflate() {
         super.onFinishInflate();
-        this.messageView = (TextView) findViewById(R.id.obfuscated_res_0x7f092097);
-        this.actionView = (Button) findViewById(R.id.obfuscated_res_0x7f092096);
+        this.messageView = (TextView) findViewById(R.id.obfuscated_res_0x7f0920e2);
+        this.actionView = (Button) findViewById(R.id.obfuscated_res_0x7f0920e1);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:17:0x0055, code lost:

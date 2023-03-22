@@ -9,14 +9,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public interface s91 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "nairobiKernelInit");
+    public static final ServiceReference a = new ServiceReference("nad.core", "webViewInit");
     public static final s91 b = new a();
 
     /* loaded from: classes6.dex */
     public interface b {
         void a();
-
-        void b();
     }
 
     int a(Context context, b bVar);

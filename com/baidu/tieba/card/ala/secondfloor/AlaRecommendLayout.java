@@ -28,9 +28,9 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ag6;
-import com.baidu.tieba.bg6;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.hi;
+import com.baidu.tieba.of6;
+import com.baidu.tieba.pf6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -190,11 +190,11 @@ public class AlaRecommendLayout extends RelativeLayout implements View.OnClickLi
         }
     }
 
-    public void setData(bg6 bg6Var) {
+    public void setData(pf6 pf6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, bg6Var) == null) && bg6Var != null && !ListUtils.isEmpty(bg6Var.c())) {
-            this.g = bg6Var.c();
-            this.h = bg6Var.f();
+        if ((interceptable == null || interceptable.invokeL(1048585, this, pf6Var) == null) && pf6Var != null && !ListUtils.isEmpty(pf6Var.c())) {
+            this.g = pf6Var.c();
+            this.h = pf6Var.f();
             e();
         }
     }
@@ -222,10 +222,10 @@ public class AlaRecommendLayout extends RelativeLayout implements View.OnClickLi
             this.e.setClipChildren(false);
             this.e.setLayoutManager(new LinearLayoutManager(this.a, 0, false));
             this.e.setItemAnimator(new DefaultItemAnimator());
-            int g = ej.g(this.a, R.dimen.M_W_X001);
-            this.e.addItemDecoration(new CommonSpaceItemDecoration(g, ej.g(this.a, R.dimen.M_W_X003), g));
+            int g = hi.g(this.a, R.dimen.M_W_X001);
+            this.e.addItemDecoration(new CommonSpaceItemDecoration(g, hi.g(this.a, R.dimen.M_W_X003), g));
             BdRecyclerView bdRecyclerView = this.e;
-            bdRecyclerView.setPadding(bdRecyclerView.getPaddingLeft(), ej.g(this.e.getContext(), R.dimen.tbds27), this.e.getPaddingRight(), ej.g(this.e.getContext(), R.dimen.M_H_X005));
+            bdRecyclerView.setPadding(bdRecyclerView.getPaddingLeft(), hi.g(this.e.getContext(), R.dimen.tbds27), this.e.getPaddingRight(), hi.g(this.e.getContext(), R.dimen.M_H_X005));
         }
     }
 
@@ -233,7 +233,7 @@ public class AlaRecommendLayout extends RelativeLayout implements View.OnClickLi
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yyExtData) == null) && ViewHelper.checkUpIsLogin(this.a)) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveTabMyConcernActivityConfig(this.a, this.h)));
-            TiebaStatic.log(ag6.d("c13624", ag6.f(this.h), YYLiveUtil.calculateLiveType(yyExtData), TiebaStatic.YYValues.YY_LIVE, this.i));
+            TiebaStatic.log(of6.d("c13624", of6.f(this.h), YYLiveUtil.calculateLiveType(yyExtData), TiebaStatic.YYValues.YY_LIVE, this.i));
         }
     }
 

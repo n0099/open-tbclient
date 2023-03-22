@@ -1,256 +1,119 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.ByteArrayOutputStream;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 /* loaded from: classes6.dex */
-public class s7 {
+public final class s7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int[] a;
-    public int b;
-    public boolean c;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public s7() {
-        this(true, 16);
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448315401, "Lcom/baidu/tieba/s7;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this(((Boolean) objArr[0]).booleanValue(), ((Integer) objArr[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448315401, "Lcom/baidu/tieba/s7;");
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class a extends ByteArrayOutputStream {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // java.io.ByteArrayOutputStream
+        public synchronized byte[] toByteArray() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                synchronized (this) {
+                    if (((ByteArrayOutputStream) this).count == ((ByteArrayOutputStream) this).buf.length) {
+                        return ((ByteArrayOutputStream) this).buf;
+                    }
+                    return super.toByteArray();
+                }
+            }
+            return (byte[]) invokeV.objValue;
+        }
+    }
+
+    public static void a(Closeable closeable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, null, closeable) == null) && closeable != null) {
+            try {
+                closeable.close();
+            } catch (Throwable unused) {
+            }
+        }
+    }
+
+    public static void b(InputStream inputStream, OutputStream outputStream) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, inputStream, outputStream) == null) {
+            c(inputStream, outputStream, new byte[4096]);
+        }
+    }
+
+    public static byte[] d(InputStream inputStream, int i) throws IOException {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, inputStream, i)) == null) {
+            a aVar = new a(Math.max(0, i));
+            b(inputStream, aVar);
+            return aVar.toByteArray();
+        }
+        return (byte[]) invokeLI.objValue;
+    }
+
+    public static void c(InputStream inputStream, OutputStream outputStream, byte[] bArr) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLLL(65539, null, inputStream, outputStream, bArr) != null) {
+            return;
+        }
+        while (true) {
+            int read = inputStream.read(bArr);
+            if (read != -1) {
+                outputStream.write(bArr, 0, read);
+            } else {
                 return;
             }
         }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public s7(int i) {
-        this(true, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Boolean) objArr2[0]).booleanValue(), ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public int[] e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            if (i >= 0) {
-                int i2 = this.b + i;
-                if (i2 > this.a.length) {
-                    g(Math.max(Math.max(8, i2), (int) (this.b * 1.75f)));
-                }
-                return this.a;
-            }
-            throw new IllegalArgumentException("additionalCapacity must be >= 0: " + i);
-        }
-        return (int[]) invokeI.objValue;
-    }
-
-    public int f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            int i2 = this.b;
-            if (i < i2) {
-                int[] iArr = this.a;
-                int i3 = iArr[i];
-                int i4 = i2 - 1;
-                this.b = i4;
-                if (this.c) {
-                    System.arraycopy(iArr, i + 1, iArr, i, i4 - i);
-                } else {
-                    iArr[i] = iArr[i4];
-                }
-                return i3;
-            }
-            throw new IndexOutOfBoundsException("index can't be >= size: " + i + " >= " + this.b);
-        }
-        return invokeI.intValue;
-    }
-
-    public s7(boolean z, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-        this.c = z;
-        this.a = new int[i];
-    }
-
-    public void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            int[] iArr = this.a;
-            int i2 = this.b;
-            if (i2 == iArr.length) {
-                iArr = g(Math.max(8, (int) (i2 * 1.75f)));
-            }
-            int i3 = this.b;
-            this.b = i3 + 1;
-            iArr[i3] = i;
-        }
-    }
-
-    public void b(int... iArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr) == null) {
-            c(iArr, 0, iArr.length);
-        }
-    }
-
-    public int[] g(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            int[] iArr = new int[i];
-            System.arraycopy(this.a, 0, iArr, 0, Math.min(this.b, i));
-            this.a = iArr;
-            return iArr;
-        }
-        return (int[]) invokeI.objValue;
-    }
-
-    public void c(int[] iArr, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, iArr, i, i2) == null) {
-            int[] iArr2 = this.a;
-            int i3 = this.b + i2;
-            if (i3 > iArr2.length) {
-                iArr2 = g(Math.max(Math.max(8, i3), (int) (this.b * 1.75f)));
-            }
-            System.arraycopy(iArr, i, iArr2, this.b, i2);
-            this.b += i2;
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = 0;
-        }
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (!this.c) {
-                return super.hashCode();
-            }
-            int[] iArr = this.a;
-            int i = this.b;
-            int i2 = 1;
-            for (int i3 = 0; i3 < i; i3++) {
-                i2 = (i2 * 31) + iArr[i3];
-            }
-            return i2;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (obj == this) {
-                return true;
-            }
-            if (!this.c || !(obj instanceof s7)) {
-                return false;
-            }
-            s7 s7Var = (s7) obj;
-            if (!s7Var.c || (i = this.b) != s7Var.b) {
-                return false;
-            }
-            int[] iArr = this.a;
-            int[] iArr2 = s7Var.a;
-            for (int i2 = 0; i2 < i; i2++) {
-                if (iArr[i2] != iArr2[i2]) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void insert(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
-            int i3 = this.b;
-            if (i <= i3) {
-                int[] iArr = this.a;
-                if (i3 == iArr.length) {
-                    iArr = g(Math.max(8, (int) (i3 * 1.75f)));
-                }
-                if (this.c) {
-                    System.arraycopy(iArr, i, iArr, i + 1, this.b - i);
-                } else {
-                    iArr[this.b] = iArr[i];
-                }
-                this.b++;
-                iArr[i] = i2;
-                return;
-            }
-            throw new IndexOutOfBoundsException("index can't be > size: " + i + " > " + this.b);
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (this.b == 0) {
-                return "[]";
-            }
-            int[] iArr = this.a;
-            q8 q8Var = new q8(32);
-            q8Var.a('[');
-            q8Var.d(iArr[0]);
-            for (int i = 1; i < this.b; i++) {
-                q8Var.n(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                q8Var.d(iArr[i]);
-            }
-            q8Var.a(']');
-            return q8Var.toString();
-        }
-        return (String) invokeV.objValue;
     }
 }

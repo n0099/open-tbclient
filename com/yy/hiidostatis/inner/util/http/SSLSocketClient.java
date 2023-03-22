@@ -18,7 +18,7 @@ import javax.net.ssl.SSLException;
 import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocketFactory;
 import okhttp3.CertificatePinner;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SSLSocketClient {
     public static final int ALT_DNS_NAME = 2;
     public static final Pattern VERIFY_AS_IP_ADDRESS = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");

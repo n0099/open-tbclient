@@ -1,25 +1,34 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.V8EngineConfiguration;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class g24 extends s14 {
+public class g24 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public static int b(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            if (z && z2) {
+                return 3;
+            }
+            if (z) {
+                return 1;
+            }
+            return z2 ? 2 : 0;
+        }
+        return invokeCommon.intValue;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -34,109 +43,43 @@ public class g24 extends s14 {
                 return;
             }
         }
-        c = wp1.a;
+        a = do1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g24() {
-        super("ReservationGame");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.s14
-    public m12 a(@NonNull JSONObject jSONObject, @NonNull qm2 qm2Var) {
+    @NonNull
+    public static V8EngineConfiguration.CodeCacheSetting a(String str, @NonNull String str2) {
         InterceptResult invokeLL;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, qm2Var)) == null) {
-            if (jSONObject == null) {
-                qm2Var.onFail(202, "params may be error");
-                return null;
-            }
-            if (c) {
-                Log.e("ReservationGameAction", "params is " + jSONObject.toString());
-            }
-            String optString = jSONObject.optString("apkId");
-            int optInt = jSONObject.optInt("isReservation");
-            if (TextUtils.isEmpty(optString)) {
-                qm2Var.onFail(31023, "reservation apk id is empty");
-                return null;
-            } else if (optInt == 0) {
-                qm2Var.onFail(31024, "reservation status error");
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            V8EngineConfiguration.CodeCacheSetting codeCacheSetting = new V8EngineConfiguration.CodeCacheSetting();
+            codeCacheSetting.id = str;
+            ArrayList<String> arrayList = new ArrayList<>();
+            codeCacheSetting.pathList = arrayList;
+            arrayList.add(str2);
+            if (str.hashCode() == -1253235525 && str.equals("gamejs")) {
+                c = 0;
             } else {
-                String string = ai3.a().getString("reservation_apk_ids", "");
-                if (optInt != 1) {
-                    if (optInt == 2) {
-                        if (b(string, optString)) {
-                            qm2Var.a(null);
-                        } else {
-                            qm2Var.onFail(31025, "reservation cancel fail");
-                        }
-                    }
-                } else {
-                    d(string, optString);
-                    qm2Var.a(null);
-                }
-                return null;
+                c = 65535;
             }
-        }
-        return (m12) invokeLL.objValue;
-    }
-
-    public final boolean b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return true;
-            }
-            ArrayList<String> arrayList = new ArrayList<>(Arrays.asList(str.split(",")));
-            boolean remove = arrayList.remove(str2);
-            if (remove) {
-                c(arrayList);
-            }
-            return remove;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final void c(ArrayList<String> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            StringBuffer stringBuffer = new StringBuffer();
-            for (int i = 0; i < arrayList.size(); i++) {
-                stringBuffer.append(arrayList.get(i));
-                if (i < arrayList.size() - 1) {
-                    stringBuffer.append(",");
-                }
-            }
-            ai3.a().putString("reservation_apk_ids", stringBuffer.toString());
-        }
-    }
-
-    public final void d(String str, String str2) {
-        HashSet hashSet;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-            if (TextUtils.isEmpty(str)) {
-                hashSet = new HashSet();
+            if (c != 0) {
+                codeCacheSetting.maxCount = 20;
+                codeCacheSetting.sizeLimit = 102400;
             } else {
-                hashSet = new HashSet(Arrays.asList(str.split(",")));
+                e24 a2 = f24.a();
+                codeCacheSetting.maxCount = a2.a;
+                codeCacheSetting.sizeLimit = a2.b;
+                codeCacheSetting.diskCodeCacheSizeThreshold = a2.c;
             }
-            hashSet.add(str2);
-            c(new ArrayList<>(hashSet));
+            if (a) {
+                Log.d("GameV8CodeCacheHelper", "buildCacheSetting cacheType: " + str);
+                Log.d("GameV8CodeCacheHelper", "buildCacheSetting cachePath: " + str2);
+                Log.d("GameV8CodeCacheHelper", "buildCacheSetting maxCount: " + codeCacheSetting.maxCount);
+                Log.d("GameV8CodeCacheHelper", "buildCacheSetting sizeLimit: " + codeCacheSetting.sizeLimit);
+                Log.d("GameV8CodeCacheHelper", "buildCacheSetting diskCodeCacheSizeThreshold: " + codeCacheSetting.diskCodeCacheSizeThreshold);
+            }
+            return codeCacheSetting;
         }
+        return (V8EngineConfiguration.CodeCacheSetting) invokeLL.objValue;
     }
 }

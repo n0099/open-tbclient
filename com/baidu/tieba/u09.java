@@ -1,27 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.graphics.drawable.Drawable;
+import com.baidu.tieba.t19;
+import com.baidu.tieba.video.VideoItemModel;
 /* loaded from: classes6.dex */
-public class u09 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile t09 a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface u09 {
+    void onDestroy();
 
-    public static synchronized t09 a() {
-        InterceptResult invokeV;
-        t09 t09Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (u09.class) {
-                if (a == null) {
-                    a = new t09();
-                }
-                t09Var = a;
-            }
-            return t09Var;
-        }
-        return (t09) invokeV.objValue;
-    }
+    void onPause();
+
+    void onPrimary(boolean z);
+
+    void onUserVisibleHint(boolean z);
+
+    void onViewClick();
+
+    void onViewDoubleClick();
+
+    void onViewDragToRight();
+
+    void setDrawables(Drawable drawable, Drawable drawable2, Drawable drawable3, Drawable drawable4, Drawable drawable5, Drawable drawable6);
+
+    void setPageChangeHandler(t19.a aVar, int i);
+
+    void updateTiebaData(int i, VideoItemModel videoItemModel);
 }

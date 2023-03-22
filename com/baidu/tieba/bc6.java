@@ -1,29 +1,35 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
-import android.webkit.WebSettings;
-import android.webkit.WebView;
+import android.webkit.WebResourceResponse;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.browser.core.webview.flyweight.loader.WebViewDiskLoader;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
+import java.util.Map;
 /* loaded from: classes3.dex */
-public abstract class bc6 {
+public class bc6 extends cc6<WebResourceResponse> {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile bc6 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WebView a;
+    public final dc6 b;
 
-    public bc6(WebView webView) {
+    @Override // com.baidu.tieba.cc6
+    public boolean e(String str, String str2, Map<String, String> map) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, map)) == null) {
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public bc6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {webView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,79 +39,47 @@ public abstract class bc6 {
                 return;
             }
         }
-        this.a = webView;
-        webView.setDrawingCacheEnabled(false);
-        webView.setLayerType(2, null);
-        webView.setScrollBarStyle(0);
-        webView.requestFocusFromTouch();
-        if (Build.VERSION.SDK_INT >= 26) {
-            webView.setRendererPriorityPolicy(2, false);
-        }
+        this.b = new dc6();
+        WebViewDiskLoader webViewDiskLoader = new WebViewDiskLoader();
+        webViewDiskLoader.d(this.b);
+        d(webViewDiskLoader);
     }
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            WebSettings c = c();
-            c.setJavaScriptEnabled(true);
-            c.setCacheMode(-1);
-            if (Build.VERSION.SDK_INT >= 21) {
-                c.setMixedContentMode(0);
-            }
-            c.setGeolocationEnabled(true);
-            c.setLoadsImagesAutomatically(true);
-            c.setBlockNetworkImage(false);
-            c.setBlockNetworkLoads(false);
-            c.setLoadWithOverviewMode(true);
-            c.setAllowFileAccess(true);
-            c.setUseWideViewPort(true);
-            c.setSupportZoom(true);
-            c.setBuiltInZoomControls(false);
-            c.setDisplayZoomControls(false);
-            c.setMediaPlaybackRequiresUserGesture(false);
-            c.setDomStorageEnabled(true);
-            try {
-                c.setAppCacheEnabled(true);
-                c.setAppCachePath(b(getContext(), "tb_web_cache").getPath());
-            } catch (IOException unused) {
-                c.setAppCachePath(getContext().getCacheDir().getPath());
-            }
-            String userAgentString = c().getUserAgentString();
-            String b = jb6.b();
-            if (!userAgentString.endsWith(b)) {
-                c.setUserAgentString(userAgentString + " " + b);
-            }
-        }
-    }
-
-    public final File b(Context context, String str) throws IOException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
-            File file = new File(context.getCacheDir(), str);
-            if (!file.exists() && !file.mkdirs()) {
-                throw new IOException(file.getAbsolutePath() + "文件夹创建失败！");
-            }
-            return file;
-        }
-        return (File) invokeLL.objValue;
-    }
-
-    public WebSettings c() {
+    public static bc6 g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a.getSettings();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (bc6.class) {
+                    if (c == null) {
+                        c = new bc6();
+                    }
+                }
+            }
+            return c;
         }
-        return (WebSettings) invokeV.objValue;
+        return (bc6) invokeV.objValue;
     }
 
-    public Context getContext() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.cc6
+    /* renamed from: h */
+    public WebResourceResponse c(String str, String str2, Map<String, String> map) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.getContext();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, str2, map)) == null) {
+            if (a() != null) {
+                return a().b(str, str2, map);
+            }
+            return null;
         }
-        return (Context) invokeV.objValue;
+        return (WebResourceResponse) invokeLLL.objValue;
+    }
+
+    public void f(String str, Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, map) == null) {
+            this.b.p(str, map);
+        }
     }
 }

@@ -1,39 +1,35 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.content.Context;
 /* loaded from: classes6.dex */
-public class ur2 extends sr2 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ur2 {
+    boolean a(Context context, ju2 ju2Var, cu2 cu2Var, t73 t73Var);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ur2(String str) {
-        super(str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
+    boolean b(Context context, eu2 eu2Var, cu2 cu2Var, t73 t73Var);
 
-    @Override // com.baidu.tieba.wr2, com.baidu.tieba.vr2
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            d();
-        }
-    }
+    boolean c(Context context, fu2 fu2Var, cu2 cu2Var, t73 t73Var);
+
+    void d(zt1 zt1Var);
+
+    boolean e(Context context, du2 du2Var, cu2 cu2Var, t73 t73Var);
+
+    void f(zt1 zt1Var);
+
+    boolean g(Context context, fu2 fu2Var, cu2 cu2Var, t73 t73Var);
+
+    boolean h(Context context, hu2 hu2Var, cu2 cu2Var, t73 t73Var);
+
+    void i(zt1 zt1Var);
+
+    boolean j(Context context, iu2 iu2Var, cu2 cu2Var, t73 t73Var);
+
+    boolean k(Context context, fu2 fu2Var, cu2 cu2Var, t73 t73Var);
+
+    boolean l(Context context, fu2 fu2Var, cu2 cu2Var, t73 t73Var);
+
+    boolean m(Context context, fu2 fu2Var, cu2 cu2Var, t73 t73Var);
+
+    boolean n(Context context, fu2 fu2Var, cu2 cu2Var, t73 t73Var);
+
+    boolean update(Context context, fu2 fu2Var, cu2 cu2Var, t73 t73Var);
 }

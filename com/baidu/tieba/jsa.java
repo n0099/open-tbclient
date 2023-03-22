@@ -1,233 +1,187 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.graphics.Rect;
-import android.os.Build;
-import android.view.View;
-import android.view.ViewTreeObserver;
-import android.view.Window;
-import android.widget.FrameLayout;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Queue;
+import java.util.concurrent.atomic.AtomicLong;
+import rx.internal.util.UtilityFunctions;
 /* loaded from: classes5.dex */
-public class jsa {
+public final class jsa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public Window b;
-    public View c;
-    public View d;
-    public View e;
-    public gsa f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public int k;
-    public int l;
-    public int m;
-    public int n;
-    public boolean o;
-    public ViewTreeObserver.OnGlobalLayoutListener p;
 
-    /* loaded from: classes5.dex */
-    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jsa a;
-
-        public a(jsa jsaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jsaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static long a(long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            long j3 = j + j2;
+            if (j3 < 0) {
+                return Long.MAX_VALUE;
             }
-            this.a = jsaVar;
+            return j3;
         }
+        return invokeCommon.longValue;
+    }
 
-        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
-        public void onGlobalLayout() {
-            int i;
-            int i2;
-            int i3;
-            int height;
-            int i4;
-            int i5;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.a.o) {
+    public static long b(AtomicLong atomicLong, long j) {
+        long j2;
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, atomicLong, j)) == null) {
+            do {
+                j2 = atomicLong.get();
+            } while (!atomicLong.compareAndSet(j2, a(j2, j)));
+            return j2;
+        }
+        return invokeLJ.longValue;
+    }
+
+    public static long c(long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            long j3 = j * j2;
+            if (((j | j2) >>> 31) != 0 && j2 != 0 && j3 / j2 != j) {
+                return Long.MAX_VALUE;
+            }
+            return j3;
+        }
+        return invokeCommon.longValue;
+    }
+
+    /* JADX DEBUG: Type inference failed for r10v3. Raw type applied. Possible types: R, ? super R */
+    /* JADX DEBUG: Type inference failed for r8v4. Raw type applied. Possible types: R, ? super R */
+    public static <T, R> void d(AtomicLong atomicLong, Queue<T> queue, ura<? super R> uraVar, gsa<? super T, ? extends R> gsaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65539, null, atomicLong, queue, uraVar, gsaVar) == null) {
+            long j = atomicLong.get();
+            if (j == Long.MAX_VALUE) {
+                while (!uraVar.isUnsubscribed()) {
+                    Object poll = queue.poll();
+                    if (poll == null) {
+                        uraVar.onCompleted();
+                        return;
+                    }
+                    uraVar.onNext((R) gsaVar.call(poll));
+                }
                 return;
             }
-            Rect rect = new Rect();
-            this.a.c.getWindowVisibleDisplayFrame(rect);
-            boolean z = true;
-            if (this.a.f.x) {
-                int height2 = (this.a.d.getHeight() - rect.bottom) - this.a.n;
-                if (this.a.f.z != null) {
-                    if (height2 <= this.a.n) {
-                        z = false;
-                    }
-                    this.a.f.z.a(z, height2);
-                }
-            } else if (this.a.e != null) {
-                if (this.a.f.s) {
-                    height = this.a.d.getHeight() + this.a.l + this.a.m;
-                    i4 = rect.bottom;
-                } else if (this.a.f.n) {
-                    height = this.a.d.getHeight() + this.a.l;
-                    i4 = rect.bottom;
-                } else {
-                    height = this.a.d.getHeight();
-                    i4 = rect.bottom;
-                }
-                int i6 = height - i4;
-                if (this.a.f.e) {
-                    i5 = i6 - this.a.n;
-                } else {
-                    i5 = i6;
-                }
-                if (this.a.f.e && i6 == this.a.n) {
-                    i6 -= this.a.n;
-                }
-                if (i5 != this.a.k) {
-                    this.a.d.setPadding(this.a.g, this.a.h, this.a.i, i6 + this.a.j);
-                    this.a.k = i5;
-                    if (this.a.f.z != null) {
-                        if (i5 <= this.a.n) {
-                            z = false;
+            do {
+                long j2 = Long.MIN_VALUE;
+                while (true) {
+                    int i = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                    if (i != 0) {
+                        if (uraVar.isUnsubscribed()) {
+                            return;
                         }
-                        this.a.f.z.a(z, i5);
-                    }
-                }
-            } else {
-                int height3 = this.a.d.getHeight() - rect.bottom;
-                if (this.a.f.v && this.a.f.w) {
-                    if (Build.VERSION.SDK_INT == 19 || ksa.i()) {
-                        i2 = this.a.n;
-                    } else if (this.a.f.e) {
-                        i2 = this.a.n;
+                        Object poll2 = queue.poll();
+                        if (poll2 == null) {
+                            uraVar.onCompleted();
+                            return;
+                        } else {
+                            uraVar.onNext((R) gsaVar.call(poll2));
+                            j2++;
+                        }
                     } else {
-                        i3 = height3;
-                        if (this.a.f.e && height3 == this.a.n) {
-                            height3 -= this.a.n;
+                        if (i == 0) {
+                            if (uraVar.isUnsubscribed()) {
+                                return;
+                            }
+                            if (queue.isEmpty()) {
+                                uraVar.onCompleted();
+                                return;
+                            }
                         }
-                        int i7 = height3;
-                        height3 = i3;
-                        i = i7;
+                        j = atomicLong.get();
+                        if (j == j2) {
+                            j = atomicLong.addAndGet(-(j2 & Long.MAX_VALUE));
+                        }
                     }
-                    i3 = height3 - i2;
-                    if (this.a.f.e) {
-                        height3 -= this.a.n;
+                }
+            } while (j != Long.MIN_VALUE);
+        }
+    }
+
+    public static <T> boolean e(AtomicLong atomicLong, long j, Queue<T> queue, ura<? super T> uraVar) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{atomicLong, Long.valueOf(j), queue, uraVar})) == null) {
+            return f(atomicLong, j, queue, uraVar, UtilityFunctions.b());
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public static <T, R> boolean f(AtomicLong atomicLong, long j, Queue<T> queue, ura<? super R> uraVar, gsa<? super T, ? extends R> gsaVar) {
+        InterceptResult invokeCommon;
+        long j2;
+        long j3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{atomicLong, Long.valueOf(j), queue, uraVar, gsaVar})) == null) {
+            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (i >= 0) {
+                if (i == 0) {
+                    if ((atomicLong.get() & Long.MIN_VALUE) == 0) {
+                        return true;
                     }
-                    int i72 = height3;
-                    height3 = i3;
-                    i = i72;
+                    return false;
+                }
+                while (true) {
+                    j2 = atomicLong.get();
+                    j3 = j2 & Long.MIN_VALUE;
+                    if (atomicLong.compareAndSet(j2, a(Long.MAX_VALUE & j2, j) | j3)) {
+                        break;
+                    }
+                }
+                if (j2 == Long.MIN_VALUE) {
+                    d(atomicLong, queue, uraVar, gsaVar);
+                    return false;
+                } else if (j3 == 0) {
+                    return true;
                 } else {
-                    i = height3;
-                }
-                if (height3 != this.a.k) {
-                    if (this.a.f.s) {
-                        this.a.d.setPadding(0, this.a.l + this.a.m, 0, i);
-                    } else if (this.a.f.n) {
-                        this.a.d.setPadding(0, this.a.l, 0, i);
-                    } else {
-                        this.a.d.setPadding(0, 0, 0, i);
-                    }
-                    this.a.k = height3;
-                    if (this.a.f.z != null) {
-                        if (height3 <= this.a.n) {
-                            z = false;
-                        }
-                        this.a.f.z.a(z, height3);
-                    }
+                    return false;
                 }
             }
+            throw new IllegalArgumentException("n >= 0 required but it was " + j);
         }
+        return invokeCommon.booleanValue;
     }
 
-    public jsa(Activity activity, Window window) {
+    public static long g(AtomicLong atomicLong, long j) {
+        long j2;
+        long j3;
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, window};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, atomicLong, j)) == null) {
+            do {
+                j2 = atomicLong.get();
+                if (j2 == Long.MAX_VALUE) {
+                    return Long.MAX_VALUE;
+                }
+                j3 = j2 - j;
+                if (j3 < 0) {
+                    throw new IllegalStateException("More produced than requested: " + j3);
+                }
+            } while (!atomicLong.compareAndSet(j2, j3));
+            return j3;
+        }
+        return invokeLJ.longValue;
+    }
+
+    public static boolean h(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65543, null, j)) == null) {
+            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (i >= 0) {
+                if (i != 0) {
+                    return true;
+                }
+                return false;
             }
+            throw new IllegalArgumentException("n >= 0 required but it was " + j);
         }
-        this.p = new a(this);
-        this.a = activity;
-        this.b = window;
-        View decorView = window.getDecorView();
-        this.c = decorView;
-        FrameLayout frameLayout = (FrameLayout) decorView.findViewById(16908290);
-        if (frameLayout == null) {
-            return;
-        }
-        View childAt = frameLayout.getChildAt(0);
-        this.e = childAt;
-        frameLayout = childAt != null ? childAt : frameLayout;
-        this.d = frameLayout;
-        this.g = frameLayout.getPaddingLeft();
-        this.h = this.d.getPaddingTop();
-        this.i = this.d.getPaddingRight();
-        this.j = this.d.getPaddingBottom();
-        fsa fsaVar = new fsa(this.a);
-        this.l = fsaVar.i();
-        this.n = fsaVar.d();
-        this.m = fsaVar.a();
-        this.o = fsaVar.l();
-    }
-
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            if (Build.VERSION.SDK_INT >= 19) {
-                this.b.setSoftInputMode(i);
-                this.c.getViewTreeObserver().removeOnGlobalLayoutListener(this.p);
-            }
-            this.a = null;
-        }
-    }
-
-    public void p(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && Build.VERSION.SDK_INT >= 19) {
-            this.b.setSoftInputMode(i);
-            this.c.getViewTreeObserver().addOnGlobalLayoutListener(this.p);
-        }
-    }
-
-    public void r(gsa gsaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gsaVar) == null) {
-            this.f = gsaVar;
-        }
-    }
-
-    public static jsa q(Activity activity, Window window) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65551, null, activity, window)) == null) {
-            return new jsa(activity, window);
-        }
-        return (jsa) invokeLL.objValue;
+        return invokeJ.booleanValue;
     }
 }

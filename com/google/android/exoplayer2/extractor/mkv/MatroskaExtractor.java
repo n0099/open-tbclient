@@ -803,14 +803,14 @@ public final class MatroskaExtractor implements Extractor {
             String str5 = MimeTypes.AUDIO_UNKNOWN;
             switch (c) {
                 case 0:
-                    str = "video/x-vnd.on2.vp8";
+                    str = MimeTypes.VIDEO_VP8;
                     str5 = str;
                     singletonList = null;
                     i2 = -1;
                     i3 = -1;
                     break;
                 case 1:
-                    str = "video/x-vnd.on2.vp9";
+                    str = MimeTypes.VIDEO_VP9;
                     str5 = str;
                     singletonList = null;
                     i2 = -1;

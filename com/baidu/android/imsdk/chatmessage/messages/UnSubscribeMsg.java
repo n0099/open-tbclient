@@ -225,7 +225,7 @@ public class UnSubscribeMsg extends NormalMsg {
                     this.text = new JSONObject(jsonContent).optString("text");
                     return true;
                 } catch (JSONException e) {
-                    LogUtils.e("TextMsg", "parse json err!", e);
+                    LogUtils.e(TextMsg.TAG, "parse json err!", e);
                 }
             }
             return false;

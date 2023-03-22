@@ -4,11 +4,12 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
+import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tieba.ay8;
-import com.baidu.tieba.hi5;
+import com.baidu.tieba.eh5;
+import com.baidu.tieba.g39;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ChatRoomDispatcher implements ay8 {
+public class ChatRoomDispatcher implements g39 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String OPEN_GROUPCHAT_SCHEME = "com.baidu.tieba://unidispatch/router/portal";
     public transient /* synthetic */ FieldHolder $fh;
@@ -52,13 +53,14 @@ public class ChatRoomDispatcher implements ay8 {
         return (JSONObject) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ay8
+    @Override // com.baidu.tieba.g39
     public void dispatch(JSONObject jSONObject, Context context) {
+        long j;
+        String str;
+        boolean z;
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) {
-            if (jSONObject == null && context == null) {
-                return;
-            }
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {
             long optLong = jSONObject.optLong("roomId");
             String optString = jSONObject.optString(IntentConfig.BACK_SCHEME);
             LoginActivityConfig loginActivityConfig = new LoginActivityConfig(context, true);
@@ -67,7 +69,21 @@ public class ChatRoomDispatcher implements ay8 {
             if (!ViewHelper.checkUpIsLoginFromH5(loginActivityConfig)) {
                 return;
             }
-            hi5.a().a(context, optLong, -1, optString);
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("ability");
+            if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("ability_conf")) != null) {
+                String optString2 = optJSONObject.optString("bot_uk");
+                j = optJSONObject.optLong("skill_id");
+                str = optString2;
+            } else {
+                j = 0;
+                str = "";
+            }
+            if (jSONObject.optInt(FrsActivityConfig.IS_SHOW_IM_GROUP_LIST) == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            eh5.a().d(context, optLong, -1, optString, str, j, z);
         }
     }
 }

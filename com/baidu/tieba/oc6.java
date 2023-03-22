@@ -1,24 +1,29 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import androidx.core.util.Pair;
+import android.webkit.JsPromptResult;
+import android.webkit.WebView;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.browser.core.webview.offline.data.OfflineBridgeData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import okhttp3.CacheControl;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
+import java.util.HashMap;
+import java.util.Iterator;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class oc6 implements lc6<Pair<String, Map<String, String>>, Response> {
+public class oc6 implements jd6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final OkHttpClient a;
+    public final nc6 a;
+
+    @Override // com.baidu.tieba.jd6
+    public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
+        id6.a(this, webView, str, jSONObject);
+    }
 
     public oc6() {
         Interceptable interceptable = $ic;
@@ -33,40 +38,84 @@ public class oc6 implements lc6<Pair<String, Map<String, String>>, Response> {
                 return;
             }
         }
-        this.a = sb6.b(wd6.getContext());
+        this.a = new nc6();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.lc6
-    @Nullable
-    /* renamed from: b */
-    public Response a(Pair<String, Map<String, String>> pair) throws Exception {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.jd6
+    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pair)) == null) {
-            if (pair != null && !TextUtils.isEmpty(pair.first)) {
-                return c(pair.first, pair.second);
-            }
-            return null;
-        }
-        return (Response) invokeL.objValue;
-    }
-
-    public final Response c(String str, @Nullable Map<String, String> map) throws Exception {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, map)) == null) {
-            Request.Builder url = new Request.Builder().url(str);
-            if (map != null && !map.isEmpty()) {
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    url.addHeader(entry.getKey(), entry.getValue());
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            if (TextUtils.equals("requestByNative", str2)) {
+                try {
+                    OfflineBridgeData offlineBridgeData = (OfflineBridgeData) OrmObject.objectWithJsonStr(str3, OfflineBridgeData.class);
+                    offlineBridgeData.begin = System.currentTimeMillis();
+                    this.a.j(webView, offlineBridgeData, offlineBridgeData.callBack);
+                    jsPromptResult.confirm();
+                    return true;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return false;
                 }
             }
-            if (!wd6.c()) {
-                url.cacheControl(CacheControl.FORCE_CACHE);
-            }
-            return this.a.newCall(url.build()).execute();
+            return false;
         }
-        return (Response) invokeLL.objValue;
+        return invokeLLLLL.booleanValue;
+    }
+
+    public /* synthetic */ void c(WebView webView, OfflineBridgeData offlineBridgeData) {
+        this.a.k(webView, offlineBridgeData, offlineBridgeData.callBack, true);
+    }
+
+    public tc9 d(final WebView webView, String str, String str2, String str3, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, webView, str, str2, str3, jSONObject)) == null) {
+            tc9 tc9Var = new tc9();
+            final OfflineBridgeData offlineBridgeData = new OfflineBridgeData();
+            offlineBridgeData.url = str;
+            offlineBridgeData.type = str2;
+            offlineBridgeData.module = str3;
+            if (jSONObject != null) {
+                HashMap hashMap = new HashMap();
+                Iterator<String> keys = jSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    hashMap.put(next, jSONObject.optString(next));
+                }
+                offlineBridgeData.data = hashMap;
+            }
+            offlineBridgeData.begin = System.currentTimeMillis();
+            jg.a().post(new Runnable() { // from class: com.baidu.tieba.jc6
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        oc6.this.c(webView, offlineBridgeData);
+                    }
+                }
+            });
+            tc9Var.w(str);
+            return tc9Var;
+        }
+        return (tc9) invokeLLLLL.objValue;
+    }
+
+    public tc9 e(WebView webView, HashMap<String, String> hashMap) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, hashMap)) == null) {
+            tc9 tc9Var = new tc9();
+            if (hashMap != null && hashMap.get("result") != null) {
+                tc9Var.o(hashMap.get("result"));
+                tc9Var.w(hashMap.get("NotificationKey"));
+            }
+            tc9Var.z(true);
+            return tc9Var;
+        }
+        return (tc9) invokeLL.objValue;
     }
 }

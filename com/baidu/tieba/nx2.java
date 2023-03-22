@@ -1,245 +1,63 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
-import android.media.MediaMetadataRetriever;
-import android.os.Handler;
-import android.os.Message;
-import android.provider.MediaStore;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.media.chooser.model.ImageModel;
-import com.baidu.swan.apps.media.chooser.model.MediaModel;
-import com.baidu.swan.apps.media.chooser.model.VideoModel;
+import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Iterator;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class nx2 implements Runnable {
+public class nx2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<mx2> a;
-    public ArrayList<MediaModel> b;
+    public String a;
+    public String b;
     public String c;
-    public Handler d;
+    public String d;
+    public String e;
+    public String f;
 
-    public nx2(String str, Handler handler) {
+    public nx2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, handler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = new ArrayList<>();
-        this.b = new ArrayList<>();
-        this.c = str;
-        this.d = handler;
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || TextUtils.equals(this.c, "video")) {
-            return;
-        }
-        Cursor cursor = null;
-        try {
-            try {
-                cursor = AppRuntime.getAppContext().getContentResolver().query(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, null, null, null, "date_added DESC");
-            } catch (Exception e) {
-                if (bx2.a) {
-                    e.printStackTrace();
-                }
-            }
-            if (cursor == null) {
-                return;
-            }
-            while (cursor.moveToNext()) {
-                String string = cursor.getString(cursor.getColumnIndex("_data"));
-                long j = cursor.getLong(cursor.getColumnIndexOrThrow("date_added"));
-                long j2 = cursor.getLong(cursor.getColumnIndexOrThrow("_size"));
-                File file = new File(string);
-                if (file.exists() && (bx2.d || !cx2.d(string))) {
-                    ImageModel imageModel = new ImageModel(string);
-                    imageModel.setAddDate(j);
-                    imageModel.setSize(j2);
-                    d(file, imageModel);
-                }
-            }
-        } finally {
-            qp4.d(null);
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x00a0, code lost:
-        if (r11 != null) goto L30;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void b() {
-        Cursor cursor;
-        Throwable th;
-        Exception e;
-        MediaMetadataRetriever mediaMetadataRetriever;
-        Throwable th2;
+    public static nx2 a(JSONObject jSONObject, String str) {
+        InterceptResult invokeLL;
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || TextUtils.equals(this.c, "Image")) {
-            return;
-        }
-        try {
-            cursor = AppRuntime.getAppContext().getContentResolver().query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, null, null, null, "date_added DESC");
-        } catch (Exception e2) {
-            cursor = null;
-            e = e2;
-        } catch (Throwable th3) {
-            cursor = null;
-            th = th3;
-            qp4.d(cursor);
-            throw th;
-        }
-        if (cursor == null) {
-            qp4.d(cursor);
-            return;
-        }
-        while (cursor.moveToNext()) {
-            try {
-                try {
-                    String string = cursor.getString(cursor.getColumnIndexOrThrow("_data"));
-                    long j = cursor.getLong(cursor.getColumnIndexOrThrow("date_added"));
-                    long j2 = cursor.getInt(cursor.getColumnIndexOrThrow("duration"));
-                    long j3 = cursor.getLong(cursor.getColumnIndexOrThrow("_size"));
-                    int i = cursor.getInt(cursor.getColumnIndexOrThrow("width"));
-                    int i2 = cursor.getInt(cursor.getColumnIndexOrThrow("height"));
-                    if (i <= 0 || i2 <= 0) {
-                        try {
-                            mediaMetadataRetriever = new MediaMetadataRetriever();
-                            try {
-                                try {
-                                    mediaMetadataRetriever.setDataSource(string);
-                                    String extractMetadata = mediaMetadataRetriever.extractMetadata(18);
-                                    String extractMetadata2 = mediaMetadataRetriever.extractMetadata(19);
-                                    i = Integer.parseInt(extractMetadata);
-                                    i2 = Integer.parseInt(extractMetadata2);
-                                } catch (Throwable th4) {
-                                    th2 = th4;
-                                    if (mediaMetadataRetriever != null) {
-                                        mediaMetadataRetriever.release();
-                                    }
-                                    throw th2;
-                                }
-                            } catch (Exception e3) {
-                                e = e3;
-                                if (bx2.a) {
-                                    e.printStackTrace();
-                                }
-                            }
-                        } catch (Exception e4) {
-                            e = e4;
-                            mediaMetadataRetriever = null;
-                        } catch (Throwable th5) {
-                            mediaMetadataRetriever = null;
-                            th2 = th5;
-                        }
-                        mediaMetadataRetriever.release();
-                    }
-                    File file = new File(string);
-                    if (file.exists()) {
-                        VideoModel videoModel = new VideoModel(string);
-                        videoModel.setAddDate(j);
-                        videoModel.setDuration(j2);
-                        videoModel.setSize(j3);
-                        videoModel.setWidth(i);
-                        videoModel.setHeight(i2);
-                        d(file, videoModel);
-                    }
-                } catch (Exception e5) {
-                    e = e5;
-                    if (bx2.a) {
-                        e.printStackTrace();
-                    }
-                    qp4.d(cursor);
-                }
-            } catch (Throwable th6) {
-                th = th6;
-                qp4.d(cursor);
-                throw th;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, jSONObject, str)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
+            JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
+            String optString = jSONObject.optString("error");
+            if (optJSONObject2 == null || !TextUtils.equals(optString, "0")) {
+                return null;
+            }
+            nx2 nx2Var = new nx2();
+            nx2Var.a = optJSONObject2.optString("ak");
+            nx2Var.b = optJSONObject2.optString("sk");
+            nx2Var.c = optJSONObject2.optString("token");
+            nx2Var.d = optJSONObject2.optString(ContentUtil.RESULT_KEY_BUCKET);
+            JSONObject optJSONObject3 = optJSONObject2.optJSONObject("oname_list");
+            if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject(str)) != null) {
+                nx2Var.f = optJSONObject.optString("bosobject");
+                nx2Var.e = optJSONObject.optString("bosurl");
+            }
+            return nx2Var;
         }
-        qp4.d(cursor);
-    }
-
-    public final void c(ArrayList<mx2> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            Iterator<mx2> it = arrayList.iterator();
-            while (it.hasNext()) {
-                mx2 next = it.next();
-                next.i(new File(next.b()).lastModified());
-            }
-            Collections.sort(arrayList);
-        }
-    }
-
-    public final void d(File file, MediaModel mediaModel) {
-        String name;
-        String path;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, file, mediaModel) == null) {
-            if (file.getParentFile() != null) {
-                name = file.getParentFile().getName();
-                path = file.getParent();
-            } else {
-                name = file.getName();
-                path = file.getPath();
-            }
-            mx2 mx2Var = new mx2();
-            mx2Var.h(name);
-            mx2Var.g(path);
-            int indexOf = this.a.indexOf(mx2Var);
-            if (indexOf >= 0) {
-                this.a.get(indexOf).a(mediaModel);
-            } else {
-                mx2Var.a(mediaModel);
-                this.a.add(mx2Var);
-            }
-            this.b.add(mediaModel);
-        }
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            a();
-            b();
-            c(this.a);
-            mx2 mx2Var = new mx2();
-            mx2Var.h(cx2.b(AppRuntime.getAppContext(), this.c));
-            mx2Var.d = this.b;
-            this.a.add(0, mx2Var);
-            Iterator<mx2> it = this.a.iterator();
-            while (it.hasNext()) {
-                Collections.sort(it.next().f());
-            }
-            Handler handler = this.d;
-            if (handler != null) {
-                Message obtainMessage = handler.obtainMessage(0);
-                obtainMessage.obj = this.a;
-                this.d.sendMessage(obtainMessage);
-            }
-        }
+        return (nx2) invokeLL.objValue;
     }
 }

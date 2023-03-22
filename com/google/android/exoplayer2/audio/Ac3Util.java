@@ -6,6 +6,7 @@ import com.baidu.pass.face.platform.utils.FileUtils;
 import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.drm.DrmInitData;
 import com.google.android.exoplayer2.extractor.mkv.MatroskaExtractor;
+import com.google.android.exoplayer2.extractor.ogg.OpusReader;
 import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 import com.google.android.exoplayer2.util.MimeTypes;
 import com.google.android.exoplayer2.util.ParsableBitArray;
@@ -16,7 +17,7 @@ public final class Ac3Util {
     public static final int AC3_SYNCFRAME_AUDIO_SAMPLE_COUNT = 1536;
     public static final int AUDIO_SAMPLES_PER_AUDIO_BLOCK = 256;
     public static final int[] BLOCKS_PER_SYNCFRAME_BY_NUMBLKSCOD = {1, 2, 3, 6};
-    public static final int[] SAMPLE_RATE_BY_FSCOD = {48000, 44100, 32000};
+    public static final int[] SAMPLE_RATE_BY_FSCOD = {OpusReader.SAMPLE_RATE, 44100, 32000};
     public static final int[] SAMPLE_RATE_BY_FSCOD2 = {24000, 22050, 16000};
     public static final int[] CHANNEL_COUNT_BY_ACMOD = {2, 1, 2, 3, 3, 4, 4, 5};
     public static final int[] BITRATE_BY_HALF_FRMSIZECOD = {32, 40, 48, 56, 64, 80, 96, 112, 128, 160, 192, 224, 256, MediaSessionCompat.MAX_BITMAP_SIZE_IN_DP, 384, FileUtils.S_IRWXU, 512, 576, 640};

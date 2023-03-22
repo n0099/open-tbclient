@@ -10,14 +10,14 @@ import com.baidu.android.imsdk.retrieve.util.FileMetaUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentAction;
-import com.baidu.tieba.ay8;
-import com.baidu.tieba.cq5;
-import com.baidu.tieba.cr5;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.do7;
+import com.baidu.tieba.aq5;
+import com.baidu.tieba.g39;
+import com.baidu.tieba.gg;
 import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
-import com.baidu.tieba.yq5;
+import com.baidu.tieba.kp7;
+import com.baidu.tieba.wp5;
+import com.baidu.tieba.zo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,12 +29,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class SelectPrivateMsgPageDispatcher implements ay8 {
+public class SelectPrivateMsgPageDispatcher implements g39 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public class a extends yq5<ImMessageCenterPojo> {
+    public class a extends wp5<ImMessageCenterPojo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -58,20 +58,20 @@ public class SelectPrivateMsgPageDispatcher implements ay8 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.yq5
+        @Override // com.baidu.tieba.wp5
         /* renamed from: a */
         public ImMessageCenterPojo doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return do7.f().i(this.a);
+                return kp7.f().i(this.a);
             }
             return (ImMessageCenterPojo) invokeV.objValue;
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b implements cq5<ImMessageCenterPojo> {
+    public class b implements zo5<ImMessageCenterPojo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -97,27 +97,28 @@ public class SelectPrivateMsgPageDispatcher implements ay8 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cq5
+        @Override // com.baidu.tieba.zo5
         /* renamed from: a */
         public void onReturnDataInUI(ImMessageCenterPojo imMessageCenterPojo) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, imMessageCenterPojo) == null) {
-                if (imMessageCenterPojo != null) {
-                    PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(TbadkCoreApplication.getInst().getCurrentActivity(), dh.g(imMessageCenterPojo.getGid(), 0L), imMessageCenterPojo.getGroup_name(), imMessageCenterPojo.getNameShow(), this.a, 0);
-                    personalChatActivityConfig.setRequestCode(12019);
-                    personalChatActivityConfig.setIntentAction(IntentAction.ActivityForResult);
-                    personalChatActivityConfig.setIsReportSelect(true);
-                    personalChatActivityConfig.setSelectList(this.b);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, personalChatActivityConfig));
-                    return;
-                }
-                PersonalChatActivityConfig personalChatActivityConfig2 = new PersonalChatActivityConfig(TbadkCoreApplication.getInst().getCurrentActivity(), 0L, "", "", this.a, 0);
-                personalChatActivityConfig2.setRequestCode(12019);
-                personalChatActivityConfig2.setIntentAction(IntentAction.ActivityForResult);
-                personalChatActivityConfig2.setIsReportSelect(true);
-                personalChatActivityConfig2.setSelectList(this.b);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, personalChatActivityConfig2));
+            if ((interceptable != null && interceptable.invokeL(1048576, this, imMessageCenterPojo) != null) || TbadkCoreApplication.getInst().getCurrentActivity() == null) {
+                return;
             }
+            if (imMessageCenterPojo != null) {
+                PersonalChatActivityConfig personalChatActivityConfig = new PersonalChatActivityConfig(TbadkCoreApplication.getInst().getCurrentActivity(), gg.g(imMessageCenterPojo.getGid(), 0L), imMessageCenterPojo.getGroup_name(), imMessageCenterPojo.getNameShow(), this.a, 0);
+                personalChatActivityConfig.setRequestCode(12019);
+                personalChatActivityConfig.setIntentAction(IntentAction.ActivityForResult);
+                personalChatActivityConfig.setIsReportSelect(true);
+                personalChatActivityConfig.setSelectList(this.b);
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, personalChatActivityConfig));
+                return;
+            }
+            PersonalChatActivityConfig personalChatActivityConfig2 = new PersonalChatActivityConfig(TbadkCoreApplication.getInst().getCurrentActivity(), 0L, "", "", this.a, 0);
+            personalChatActivityConfig2.setRequestCode(12019);
+            personalChatActivityConfig2.setIntentAction(IntentAction.ActivityForResult);
+            personalChatActivityConfig2.setIsReportSelect(true);
+            personalChatActivityConfig2.setSelectList(this.b);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, personalChatActivityConfig2));
         }
     }
 
@@ -135,7 +136,7 @@ public class SelectPrivateMsgPageDispatcher implements ay8 {
         }
     }
 
-    @Override // com.baidu.tieba.ay8
+    @Override // com.baidu.tieba.g39
     @RequiresApi(api = 19)
     public void dispatch(JSONObject jSONObject, Context context) {
         Interceptable interceptable = $ic;
@@ -158,7 +159,7 @@ public class SelectPrivateMsgPageDispatcher implements ay8 {
                     }
                 }
             }
-            cr5.c(new a(this, optString), new b(this, optString, arrayList));
+            aq5.c(new a(this, optString), new b(this, optString, arrayList));
         }
     }
 }

@@ -1,19 +1,20 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
-public class r21 {
+public class r21 implements u21 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile r21 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ConcurrentHashMap<String, o21> a;
+    public ScheduledExecutorService a;
+    public ScheduledExecutorService b;
 
     public r21() {
         Interceptable interceptable = $ic;
@@ -28,49 +29,23 @@ public class r21 {
                 return;
             }
         }
-        this.a = new ConcurrentHashMap<>();
+        this.a = new ScheduledThreadPoolExecutor(15);
+        this.b = new ScheduledThreadPoolExecutor(1);
     }
 
-    public static r21 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.u21
+    public void a(@NonNull Runnable runnable, @NonNull String str, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (r21.class) {
-                    if (b == null) {
-                        b = new r21();
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{runnable, str, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            this.a.schedule(runnable, j, TimeUnit.MILLISECONDS);
         }
-        return (r21) invokeV.objValue;
     }
 
-    @NonNull
-    public o21 b(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.u21
+    public void b(@NonNull Runnable runnable, @NonNull String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str == null) {
-                str = "";
-            }
-            o21 o21Var = (o21) g21.b(this.a, str);
-            if (o21Var == null) {
-                synchronized (r21.class) {
-                    o21Var = (o21) g21.b(this.a, str);
-                    if (o21Var == null) {
-                        if (TextUtils.isEmpty(str)) {
-                            o21Var = q21.a().a();
-                        } else {
-                            o21Var = q21.a().b(str);
-                        }
-                        g21.e(this.a, str, o21Var);
-                    }
-                }
-            }
-            return o21Var;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{runnable, str, Long.valueOf(j)}) == null) {
+            this.b.schedule(runnable, j, TimeUnit.MILLISECONDS);
         }
-        return (o21) invokeL.objValue;
     }
 }

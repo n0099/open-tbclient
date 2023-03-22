@@ -1,10 +1,6 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.lib.guide.MaskView;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,38 +9,30 @@ public class tf {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static View a(LayoutInflater layoutInflater, uf ufVar) {
-        InterceptResult invokeLL;
+    public static int a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, layoutInflater, ufVar)) == null) {
-            View c = ufVar.c(layoutInflater);
-            MaskView.LayoutParams layoutParams = new MaskView.LayoutParams(-2, -2);
-            layoutParams.c = ufVar.getXOffset();
-            layoutParams.d = ufVar.getYOffset();
-            layoutParams.a = ufVar.a();
-            layoutParams.b = ufVar.b();
-            ViewGroup.LayoutParams layoutParams2 = c.getLayoutParams();
-            if (layoutParams2 != null) {
-                ((ViewGroup.LayoutParams) layoutParams).width = layoutParams2.width;
-                ((ViewGroup.LayoutParams) layoutParams).height = layoutParams2.height;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return -1000;
             }
-            c.setLayoutParams(layoutParams);
-            return c;
+            if (str.contains("/excellent/personalized")) {
+                return 1002;
+            }
+            if (!str.contains("/frs/generalTabList") && !str.contains("/frs/page") && !str.contains("/frs/threadlist")) {
+                if (str.contains("/pb/page")) {
+                    return 1004;
+                }
+                if (str.contains("/thread/add")) {
+                    return 1005;
+                }
+                if (str.contains("/post/add")) {
+                    return 1008;
+                }
+                return 1000;
+            }
+            return 1003;
         }
-        return (View) invokeLL.objValue;
-    }
-
-    public static Rect b(View view2, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, view2, i, i2)) == null) {
-            int[] iArr = new int[2];
-            view2.getLocationInWindow(iArr);
-            Rect rect = new Rect();
-            rect.set(iArr[0], iArr[1], iArr[0] + view2.getMeasuredWidth(), iArr[1] + view2.getMeasuredHeight());
-            rect.offset(-i, -i2);
-            return rect;
-        }
-        return (Rect) invokeLII.objValue;
+        return invokeL.intValue;
     }
 }

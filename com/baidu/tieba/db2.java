@@ -1,70 +1,84 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import android.webkit.JavascriptInterface;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ch4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class db2 {
+public abstract class db2 extends b83 implements hb2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947698709, "Lcom/baidu/tieba/db2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947698709, "Lcom/baidu/tieba/db2;");
-                return;
-            }
-        }
-        a = wp1.a;
-    }
-
-    public db2(k82 k82Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public db2(s73 s73Var) {
+        super(s73Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {k82Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {s73Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((w73) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    @JavascriptInterface
-    public String setData(String str, String str2) {
-        InterceptResult invokeLL;
+    public static final Map<String, String> I(Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (a) {
-                Log.d("DaemonJsBridge", "slave id: " + str + " data: " + str2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bundle)) == null) {
+            HashMap hashMap = new HashMap();
+            if (bundle != null && !bundle.isEmpty()) {
+                for (String str : bundle.keySet()) {
+                    hashMap.put(str, bundle.getString(str));
+                }
             }
-            int i = 0;
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                zu2.U().y(new pj2(str, str2), false);
-            } else {
-                i = 202;
-            }
-            return UnitedSchemeUtility.wrapCallbackParams(i).toString();
+            return hashMap;
         }
-        return (String) invokeLL.objValue;
+        return (Map) invokeL.objValue;
+    }
+
+    public static final Bundle J(Map<String, String> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, map)) == null) {
+            Bundle bundle = new Bundle();
+            if (map != null && !map.isEmpty()) {
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    bundle.putString(entry.getKey(), entry.getValue());
+                }
+            }
+            return bundle;
+        }
+        return (Bundle) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ch4
+    public void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, ch4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
+            ar2.r0().b(str, map, map2, jSONObject, aVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.ch4
+    public void z(String str, Map<String, String> map, Map<String, String> map2, ch4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map, map2, aVar) == null) {
+            ar2.r0().z(str, map, map2, aVar);
+        }
     }
 }

@@ -1,92 +1,62 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.pm.PackageManager;
-import android.util.DisplayMetrics;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class p80 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948015777, "Lcom/baidu/tieba/p80;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948015777, "Lcom/baidu/tieba/p80;");
+        }
+    }
 
     public static int a(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            DisplayMetrics c = c(context);
-            if (c != null) {
-                return c.densityDpi;
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            DisplayMetrics c = c(context);
-            if (c != null) {
-                return c.heightPixels;
-            }
-            return 0;
+            return r80.g(context);
         }
         return invokeL.intValue;
     }
 
-    public static DisplayMetrics c(Context context) {
+    public static boolean b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (context == null) {
-                return null;
-            }
-            return context.getResources().getDisplayMetrics();
+            return r80.l(context);
         }
-        return (DisplayMetrics) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static int d(Context context) {
-        InterceptResult invokeL;
+    public static void c(Context context, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            DisplayMetrics c = c(context);
-            if (c != null) {
-                return c.widthPixels;
-            }
-            return 0;
+        if (interceptable == null || interceptable.invokeLZ(65539, null, context, z) == null) {
+            r80.u(context, z);
         }
-        return invokeL.intValue;
     }
 
-    public static String f(Context context) {
-        InterceptResult invokeL;
+    public static void d(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            try {
-                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                return "unknown";
-            }
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i) == null) {
+            r80.t(context, i);
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            int d = d(context);
-            int b = b(context);
-            int a = a(context);
-            String f = f(context);
-            return d + "_" + b + "_android_" + f + "_" + a;
-        }
-        return (String) invokeL.objValue;
     }
 }

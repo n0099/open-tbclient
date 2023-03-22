@@ -1,99 +1,202 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.SocketMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.framework.task.SocketMessageTask;
+import android.content.ContentValues;
+import android.content.Intent;
+import android.database.Cursor;
+import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.BundleDataSource;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.CursorDataSource;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.IntentDataSource;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.JsonDataSource;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.MapDataSource;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.ProtobufDataSource;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.source.XmlDataSource;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
+import com.squareup.wire.Message;
+import java.util.Map;
+import org.json.JSONObject;
+import org.w3c.dom.Element;
 /* loaded from: classes3.dex */
-public class cc extends bc<SocketMessage, SocketMessageTask, vb, SocketResponsedMessage> {
+public class cc implements dc {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public za i;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cc(MessageManager messageManager) {
-        super(messageManager);
+    public void onFinishSourceToObject(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
+        }
+    }
+
+    public void onPreObjectToSource() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+        }
+    }
+
+    public cc() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {messageManager};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((MessageManager) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.i = null;
-        this.i = new za(messageManager);
-        this.e = gc.c();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.oa
-    /* renamed from: A */
-    public void f(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
+    private boolean fillByDataSource(wc wcVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, socketMessage, socketMessageTask) == null) {
-            this.i.f(socketMessage, socketMessageTask);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, this, wcVar)) == null) {
+            boolean a = wd.a(wcVar, this);
+            onFinishSourceToObject(a);
+            return a;
         }
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.oa
-    public LinkedList<SocketMessage> e(int i, BdUniqueId bdUniqueId) {
-        InterceptResult invokeIL;
+    private boolean fillInDataSource(wc wcVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bdUniqueId)) == null) {
-            return this.i.e(i, bdUniqueId);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, wcVar)) == null) {
+            onPreObjectToSource();
+            return vd.a(this, wcVar);
         }
-        return (LinkedList) invokeIL.objValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.oa
-    public void h(int i, BdUniqueId bdUniqueId) {
+    public boolean fillByBundle(Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, bdUniqueId) == null) {
-            this.i.h(i, bdUniqueId);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            return fillByDataSource(new BundleDataSource(bundle));
         }
+        return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.bc
-    /* renamed from: y */
-    public SocketMessage m(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
-        InterceptResult invokeLL;
+    public boolean fillByCursorObject(Cursor cursor) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, socketMessage, socketMessageTask)) == null) {
-            return this.a.getController().k(socketMessage, socketMessageTask);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cursor)) == null) {
+            return fillByDataSource(new CursorDataSource(cursor));
         }
-        return (SocketMessage) invokeLL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public za x() {
-        InterceptResult invokeV;
+    public boolean fillByIntent(Intent intent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent)) == null) {
+            return fillByDataSource(new IntentDataSource(intent));
         }
-        return (za) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public void z(BdUniqueId bdUniqueId) {
+    public boolean fillByJsonObject(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bdUniqueId) == null) {
-            this.i.B(bdUniqueId);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONObject)) == null) {
+            return fillByDataSource(new JsonDataSource(jSONObject));
         }
+        return invokeL.booleanValue;
+    }
+
+    public boolean fillByMap(Map<String, Object> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, map)) == null) {
+            return fillByDataSource(new MapDataSource(map));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean fillByProtobufObject(Message message) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, message)) == null) {
+            return fillByDataSource(new ProtobufDataSource(message));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean fillByXmlObject(Element element) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, element)) == null) {
+            return fillByDataSource(new XmlDataSource(element));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean fillInBundle(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bundle)) == null) {
+            return fillInDataSource(new BundleDataSource(bundle));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean fillInCursorObject(ContentValues contentValues) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, contentValues)) == null) {
+            return fillInDataSource(new CursorDataSource(contentValues));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean fillInIntent(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, intent)) == null) {
+            return fillInDataSource(new IntentDataSource(intent));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean fillInJsonObject(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, jSONObject)) == null) {
+            return fillInDataSource(new JsonDataSource(jSONObject));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean fillInMap(Map<String, Object> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, map)) == null) {
+            return fillInDataSource(new MapDataSource(map));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean fillInProtobufObject(Message message) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, message)) == null) {
+            return fillInDataSource(new ProtobufDataSource(message));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean fillInXmlObject(Element element) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, element)) == null) {
+            return fillInDataSource(new XmlDataSource(element));
+        }
+        return invokeL.booleanValue;
     }
 }

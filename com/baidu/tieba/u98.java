@@ -1,130 +1,58 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import com.baidu.tbadk.core.util.BitmapHelper;
-import com.baidu.tbadk.img.ImageFileInfo;
-import com.baidu.tieba.jc;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.GetVipInfo.VipBannerItem;
 /* loaded from: classes6.dex */
-public class u98 {
+public class u98 implements r15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
 
-    public static Bitmap a(String str) {
-        InterceptResult invokeL;
+    public u98(VipBannerItem vipBannerItem) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            Bitmap bitmap = null;
-            try {
-                File file = new File(str);
-                if (file.exists()) {
-                    if (c(file)) {
-                        on onVar = jc.a.b().get(str);
-                        if (onVar != null) {
-                            bitmap = onVar.p();
-                        }
-                    } else {
-                        BitmapFactory.Options options = new BitmapFactory.Options();
-                        options.inJustDecodeBounds = true;
-                        BitmapFactory.decodeFile(str, options);
-                        bitmap = BitmapHelper.loadResizedBitmap(str, options.outWidth, options.outHeight);
-                    }
-                }
-            } catch (OutOfMemoryError unused) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vipBannerItem};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return bitmap;
         }
-        return (Bitmap) invokeL.objValue;
+        if (vipBannerItem == null) {
+            return;
+        }
+        this.a = vipBannerItem.img_url;
+        this.b = vipBannerItem.link;
     }
 
-    public static boolean c(File file) {
-        InterceptResult invokeL;
-        FileInputStream fileInputStream;
+    @Override // com.baidu.tieba.r15
+    public String getPicLinkUrl() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
-            FileInputStream fileInputStream2 = null;
-            boolean z = false;
-            try {
-                try {
-                    try {
-                        fileInputStream = new FileInputStream(file);
-                    } catch (Throwable th) {
-                        th = th;
-                    }
-                } catch (FileNotFoundException e) {
-                    e = e;
-                } catch (IOException e2) {
-                    e = e2;
-                }
-            } catch (Exception e3) {
-                e3.printStackTrace();
-            }
-            try {
-                byte[] bArr = new byte[7];
-                if (fileInputStream.read(bArr, 0, 6) == 6) {
-                    z = ej.D(bArr);
-                }
-                fileInputStream.close();
-            } catch (FileNotFoundException e4) {
-                e = e4;
-                fileInputStream2 = fileInputStream;
-                e.printStackTrace();
-                if (fileInputStream2 != null) {
-                    fileInputStream2.close();
-                }
-                return z;
-            } catch (IOException e5) {
-                e = e5;
-                fileInputStream2 = fileInputStream;
-                e.printStackTrace();
-                if (fileInputStream2 != null) {
-                    fileInputStream2.close();
-                }
-                return z;
-            } catch (Throwable th2) {
-                th = th2;
-                fileInputStream2 = fileInputStream;
-                if (fileInputStream2 != null) {
-                    try {
-                        fileInputStream2.close();
-                    } catch (Exception e6) {
-                        e6.printStackTrace();
-                    }
-                }
-                throw th;
-            }
-            if (0 != 0) {
-                fileInputStream2.close();
-            }
-            return z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return invokeL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public static Bitmap b(ImageFileInfo imageFileInfo) {
-        InterceptResult invokeL;
-        Bitmap f;
+    @Override // com.baidu.tieba.r15
+    public String getPicUrl() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, imageFileInfo)) == null) {
-            cg5 cg5Var = new cg5();
-            on c = cg5Var.c(imageFileInfo, true);
-            if (c != null) {
-                f = c.p();
-            } else {
-                f = cg5Var.f(imageFileInfo, true);
-            }
-            if (f == null) {
-                return a(imageFileInfo.getFilePath());
-            }
-            return f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (Bitmap) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

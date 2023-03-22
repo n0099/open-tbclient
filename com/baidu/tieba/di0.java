@@ -1,96 +1,181 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Bundle;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ResolveInfo;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import java.util.List;
 /* loaded from: classes4.dex */
-public final class di0 implements ho0 {
+public class di0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.ho0
-    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
-        }
-    }
+    /* loaded from: classes4.dex */
+    public static class a implements bi0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ WeakReference a;
+        public final /* synthetic */ Intent b;
+        public final /* synthetic */ bi0 c;
 
-    @Override // com.baidu.tieba.ho0
-    public void onActivityDestroyed(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+        public a(WeakReference weakReference, Intent intent, bi0 bi0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {weakReference, intent, bi0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = weakReference;
+            this.b = intent;
+            this.c = bi0Var;
         }
-    }
 
-    @Override // com.baidu.tieba.ho0
-    public void onActivityPaused(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ho0
-    public void onActivityResumed(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ho0
-    public void onActivitySaveInstanceState(@NonNull Activity activity, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ho0
-    public void onActivityStarted(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ho0
-    public void onActivityStopped(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
-        }
-    }
-
-    public di0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        @Override // com.baidu.tieba.bi0
+        public void onResult(boolean z) {
+            Context context;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                if (z && (context = (Context) this.a.get()) != null) {
+                    r31.d(context, this.b);
+                }
+                bi0 bi0Var = this.c;
+                if (bi0Var != null) {
+                    bi0Var.onResult(z);
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.ho0
-    public void onBackgroundToForeground(@NonNull Activity activity) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947705374, "Lcom/baidu/tieba/di0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947705374, "Lcom/baidu/tieba/di0;");
+                return;
+            }
+        }
+        a = Boolean.FALSE;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0054  */
+    /* JADX WARN: Removed duplicated region for block: B:28:0x006c  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void a(Context context, String str, String str2, bi0 bi0Var, boolean z) {
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, activity) == null) {
-            wm0.a().a(new dn0(true));
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, str, str2, bi0Var, Boolean.valueOf(z)}) == null) {
+            WeakReference weakReference = new WeakReference(context);
+            try {
+                Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
+                intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+                if (z && !ci0.a(context, str)) {
+                    z2 = false;
+                    if (!z2) {
+                        if (z) {
+                            wh0.a().b(str, str2, new a(weakReference, intent, bi0Var));
+                            return;
+                        }
+                        r31.d(context, intent);
+                        if (bi0Var != null) {
+                            bi0Var.onResult(true);
+                            return;
+                        }
+                        return;
+                    } else if (bi0Var != null) {
+                        bi0Var.onResult(false);
+                        return;
+                    } else {
+                        return;
+                    }
+                }
+                List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
+                int i = 0;
+                z2 = false;
+                while (true) {
+                    if (i >= queryIntentActivities.size()) {
+                        break;
+                    }
+                    ResolveInfo resolveInfo = (ResolveInfo) u01.d(queryIntentActivities, i);
+                    if (resolveInfo != null) {
+                        String str3 = resolveInfo.activityInfo.packageName;
+                        if (TextUtils.equals(str3, str2)) {
+                            intent.setPackage(str3);
+                            z2 = true;
+                            break;
+                        }
+                        z2 = true;
+                    }
+                    i++;
+                }
+                if (!z2) {
+                }
+            } catch (Exception unused) {
+                if (bi0Var != null) {
+                    bi0Var.onResult(false);
+                }
+            }
         }
     }
 
-    @Override // com.baidu.tieba.ho0
-    public void onForegroundToBackground(@NonNull Activity activity) {
+    public static boolean b(@NonNull Context context, @NonNull String str) {
+        InterceptResult invokeLL;
+        ResolveInfo next;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity) == null) {
-            wm0.a().a(new dn0(false));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
+            boolean z = false;
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            Intent intent = new Intent("android.intent.action.MAIN");
+            intent.addCategory("android.intent.category.LAUNCHER");
+            intent.setPackage(str);
+            List<ResolveInfo> queryIntentActivities = context.getPackageManager().queryIntentActivities(intent, 0);
+            if (queryIntentActivities.size() > 0 && (next = queryIntentActivities.iterator().next()) != null) {
+                String str2 = next.activityInfo.name;
+                Intent intent2 = new Intent("android.intent.action.MAIN");
+                intent2.addCategory("android.intent.category.LAUNCHER");
+                intent2.setComponent(new ComponentName(str, str2));
+                intent2.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+                try {
+                    context.startActivity(intent2);
+                    z = true;
+                } catch (Exception unused) {
+                }
+            }
+            if (a.booleanValue() && !z) {
+                Log.e("OpenAppUtils", "openAppByPkgName: " + str + "  failed");
+            }
+            return z;
         }
+        return invokeLL.booleanValue;
     }
 }

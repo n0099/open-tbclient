@@ -35,7 +35,7 @@ public class BdExpandImageView extends AppCompatImageView {
     public boolean getEditable() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -73,10 +73,10 @@ public class BdExpandImageView extends AppCompatImageView {
         this.h = new Paint();
     }
 
-    public final void f() {
+    public final void n() {
         Drawable drawable;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (drawable = getDrawable()) != null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (drawable = getDrawable()) != null) {
             int measuredHeight = getMeasuredHeight();
             float intrinsicHeight = drawable.getIntrinsicHeight();
             float f = intrinsicHeight / 10.0f;
@@ -111,7 +111,7 @@ public class BdExpandImageView extends AppCompatImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048579, this, i, i2, i3, i4) == null) {
             super.onSizeChanged(i, i2, i3, i4);
-            f();
+            n();
         }
     }
 
@@ -132,7 +132,7 @@ public class BdExpandImageView extends AppCompatImageView {
         if (interceptable == null || interceptable.invokeL(1048581, this, bitmap) == null) {
             super.setImageBitmap(bitmap);
             if (this.g) {
-                f();
+                n();
             }
         }
     }
@@ -143,7 +143,7 @@ public class BdExpandImageView extends AppCompatImageView {
         if (interceptable == null || interceptable.invokeL(1048582, this, drawable) == null) {
             super.setImageDrawable(drawable);
             if (this.g) {
-                f();
+                n();
             }
         }
     }

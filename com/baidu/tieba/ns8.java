@@ -1,32 +1,69 @@
 package com.baidu.tieba;
 
-import android.widget.MediaController;
-import com.baidu.tieba.play.TbVideoViewContainer;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.BannerImage;
 /* loaded from: classes5.dex */
-public interface ns8 extends MediaController.MediaPlayerControl {
-    void a(long j, long j2, long j3);
+public class ns8 implements r15 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
 
-    int getCurrentPositionSync();
+    public ns8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    os8 getMediaProgressObserver();
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
 
-    int getPcdnState();
+    @Override // com.baidu.tieba.r15
+    public String getPicLinkUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
 
-    void setLooping(boolean z);
+    @Override // com.baidu.tieba.r15
+    public String getPicUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
 
-    void setOnSurfaceDestroyedListener(TbVideoViewContainer.a aVar);
-
-    void setOperableVideoContainer(gt8 gt8Var);
-
-    void setPlayMode(String str);
-
-    void setStageType(String str);
-
-    void setVideoPath(String str, String str2);
-
-    void setVideoStatData(bt8 bt8Var);
-
-    void setVolume(float f, float f2);
-
-    void stopPlayback();
+    public void b(BannerImage bannerImage) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bannerImage) != null) || bannerImage == null) {
+            return;
+        }
+        this.a = bannerImage.img_url;
+        this.b = bannerImage.ahead_url;
+        String str = bannerImage.title;
+    }
 }

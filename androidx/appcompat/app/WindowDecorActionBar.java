@@ -814,14 +814,14 @@ public class WindowDecorActionBar extends ActionBar implements ActionBarOverlayL
     private void init(View view2) {
         boolean z;
         boolean z2;
-        ActionBarOverlayLayout actionBarOverlayLayout = (ActionBarOverlayLayout) view2.findViewById(R.id.obfuscated_res_0x7f090808);
+        ActionBarOverlayLayout actionBarOverlayLayout = (ActionBarOverlayLayout) view2.findViewById(R.id.obfuscated_res_0x7f090822);
         this.mOverlayLayout = actionBarOverlayLayout;
         if (actionBarOverlayLayout != null) {
             actionBarOverlayLayout.setActionBarVisibilityCallback(this);
         }
-        this.mDecorToolbar = getDecorToolbar(view2.findViewById(R.id.obfuscated_res_0x7f09005b));
-        this.mContextView = (ActionBarContextView) view2.findViewById(R.id.obfuscated_res_0x7f090064);
-        ActionBarContainer actionBarContainer = (ActionBarContainer) view2.findViewById(R.id.obfuscated_res_0x7f09005d);
+        this.mDecorToolbar = getDecorToolbar(view2.findViewById(R.id.obfuscated_res_0x7f09005f));
+        this.mContextView = (ActionBarContextView) view2.findViewById(R.id.obfuscated_res_0x7f090068);
+        ActionBarContainer actionBarContainer = (ActionBarContainer) view2.findViewById(R.id.obfuscated_res_0x7f090061);
         this.mContainerView = actionBarContainer;
         DecorToolbar decorToolbar = this.mDecorToolbar;
         if (decorToolbar != null && this.mContextView != null && actionBarContainer != null) {

@@ -20,11 +20,11 @@ import com.baidu.tbadk.core.message.RequestUpdateMaskInfoMessage;
 import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.w49;
-import com.baidu.tieba.wb;
-import com.baidu.tieba.x9;
-import com.baidu.tieba.yb;
+import com.baidu.tieba.a9;
+import com.baidu.tieba.bb;
+import com.baidu.tieba.bb9;
+import com.baidu.tieba.gg;
+import com.baidu.tieba.za;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,17 +39,17 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
 
     /* loaded from: classes4.dex */
     public interface f {
-        void L0(BarEmotionResponseMessage barEmotionResponseMessage);
+        void N0(BarEmotionResponseMessage barEmotionResponseMessage);
 
-        void N0(boolean z);
+        void P0(boolean z);
 
-        void P0(ForumDetailSocketResponse forumDetailSocketResponse);
+        void R0(ForumDetailSocketResponse forumDetailSocketResponse);
 
         void e(String str);
 
-        void m1(ForumDetailHttpResponse forumDetailHttpResponse);
+        void o1(ForumDetailHttpResponse forumDetailHttpResponse);
 
-        void q1(boolean z);
+        void s1(boolean z);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -93,18 +93,18 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof w49)) {
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof bb9)) {
                 boolean z = true;
-                if (((w49) customResponsedMessage.getData()).n() != 1) {
+                if (((bb9) customResponsedMessage.getData()).n() != 1) {
                     z = false;
                 }
-                this.a.a.J1(z);
+                this.a.a.M1(z);
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b extends wb {
+    public class b extends za {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumDetailModel a;
@@ -131,7 +131,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
             this.a = forumDetailModel;
         }
 
-        @Override // com.baidu.tieba.wb
+        @Override // com.baidu.tieba.za
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
@@ -145,10 +145,10 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
                     }
                 } else {
                     if (responsedMessage instanceof ForumDetailHttpResponse) {
-                        this.a.b.m1((ForumDetailHttpResponse) responsedMessage);
+                        this.a.b.o1((ForumDetailHttpResponse) responsedMessage);
                     }
                     if (responsedMessage instanceof ForumDetailSocketResponse) {
-                        this.a.b.P0((ForumDetailSocketResponse) responsedMessage);
+                        this.a.b.R0((ForumDetailSocketResponse) responsedMessage);
                     }
                 }
             }
@@ -156,7 +156,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
     }
 
     /* loaded from: classes4.dex */
-    public class c extends yb {
+    public class c extends bb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ForumDetailModel a;
@@ -202,20 +202,20 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
             }
             if (responseUpdateMaskInfoMessage.getError() != 0) {
                 if (StringUtils.isNull(responseUpdateMaskInfoMessage.getErrorString())) {
-                    errorString = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d11);
+                    errorString = this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d1f);
                 } else {
                     errorString = responseUpdateMaskInfoMessage.getErrorString();
                 }
                 this.a.a.showToast(errorString);
                 if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                    this.a.b.N0(false);
+                    this.a.b.P0(false);
                 } else {
-                    this.a.b.q1(false);
+                    this.a.b.s1(false);
                 }
             } else if (requestUpdateMaskInfoMessage.getIsMask() == 0) {
-                this.a.b.N0(true);
+                this.a.b.P0(true);
             } else {
-                this.a.b.q1(true);
+                this.a.b.s1(true);
             }
         }
     }
@@ -295,7 +295,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
                         this.a.b.e(httpResponsedMessage.getErrorString());
                     }
                 } else if (z && httpResponsedMessage.getCmd() == 1002510) {
-                    this.a.b.L0((BarEmotionResponseMessage) httpResponsedMessage);
+                    this.a.b.N0((BarEmotionResponseMessage) httpResponsedMessage);
                 }
             }
         }
@@ -313,7 +313,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((x9) newInitContext.callArgs[0]);
+                super((a9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -321,15 +321,15 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         }
         this.a = forumDetailActivity;
         this.b = forumDetailActivity;
-        S();
+        W();
+        X();
         T();
-        P();
+        Y();
         U();
-        Q();
-        R();
+        V();
     }
 
-    public void V(String str) {
+    public void Z(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048582, this, str) == null) && !TextUtils.isEmpty(str)) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.MSG_FORUM_EMOTION_CMD);
@@ -338,44 +338,44 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         }
     }
 
-    public void W(String str) {
+    public void a0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
             ForumDetailRequestMessage forumDetailRequestMessage = new ForumDetailRequestMessage();
-            forumDetailRequestMessage.setForumId(dh.g(str, 0L));
+            forumDetailRequestMessage.setForumId(gg.g(str, 0L));
             sendMessage(forumDetailRequestMessage);
         }
     }
 
-    public final void P() {
+    public final void T() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             registerListener(new d(this, 2001151));
         }
     }
 
-    public final void Q() {
+    public final void U() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             registerListener(new e(this, CmdConfigHttp.MSG_FORUM_EMOTION_CMD));
         }
     }
 
-    public final void S() {
+    public final void W() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             registerListener(new b(this, CmdConfigHttp.MSG_FORUM_DETAIL_CMD, 303021));
         }
     }
 
-    public final void T() {
+    public final void X() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             registerListener(new c(this, 104102));
         }
     }
 
-    public final void U() {
+    public final void Y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             registerListener(new a(this, 2001266));
@@ -393,7 +393,7 @@ public class ForumDetailModel extends BdBaseModel<ForumDetailActivity> {
         return invokeV.booleanValue;
     }
 
-    public final void R() {
+    public final void V() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.MSG_FORUM_EMOTION_CMD, TbConfig.SERVER_ADDRESS + "c/e/meme/checkForumPkg");

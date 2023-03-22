@@ -23,13 +23,13 @@ import com.baidu.tbadk.core.elementsMaven.Direction;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b35;
-import com.baidu.tieba.on;
-import com.baidu.tieba.q39;
+import com.baidu.tieba.bg;
+import com.baidu.tieba.cg;
+import com.baidu.tieba.hz4;
+import com.baidu.tieba.n15;
+import com.baidu.tieba.rm;
 import com.baidu.tieba.stamp.view.SignStampIconsView;
-import com.baidu.tieba.y05;
-import com.baidu.tieba.yg;
-import com.baidu.tieba.zg;
+import com.baidu.tieba.v99;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,11 +55,11 @@ public class SignStampIconsView extends LinearLayout {
     public static final int m;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public q39 b;
+    public v99 b;
     public List<ImageView> c;
 
     /* loaded from: classes6.dex */
-    public class a extends yg<on> {
+    public class a extends bg<rm> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ TbImageView a;
@@ -85,12 +85,12 @@ public class SignStampIconsView extends LinearLayout {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.yg
-        public void onLoaded(on onVar, String str, int i) {
+        @Override // com.baidu.tieba.bg
+        public void onLoaded(rm rmVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, onVar, str, i) == null) {
-                super.onLoaded((a) onVar, str, i);
-                this.b.f(onVar, this.a);
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, rmVar, str, i) == null) {
+                super.onLoaded((a) rmVar, str, i);
+                this.b.f(rmVar, this.a);
             }
         }
     }
@@ -158,12 +158,12 @@ public class SignStampIconsView extends LinearLayout {
         return (Bitmap) invokeL.objValue;
     }
 
-    public void setStampIconsList(List<y05.a> list) {
+    public void setStampIconsList(List<hz4.a> list) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048587, this, list) != null) || list == null) {
             return;
         }
-        Iterator<y05.a> it = list.iterator();
+        Iterator<hz4.a> it = list.iterator();
         while (it.hasNext()) {
             View c = c(it.next());
             if (c != null) {
@@ -232,9 +232,9 @@ public class SignStampIconsView extends LinearLayout {
             marginLayoutParams.rightMargin = i2 - i3;
             view2.setLayoutParams(marginLayoutParams);
             view2.setTag("crossLine");
-            b35 d2 = b35.d(view2);
-            d2.n(g);
-            d2.p(new int[]{R.color.CAM_X0612, R.color.CAM_X0618}, Direction.LEFT);
+            n15 d2 = n15.d(view2);
+            d2.o(g);
+            d2.q(new int[]{R.color.CAM_X0612, R.color.CAM_X0618}, Direction.LEFT);
             return view2;
         }
         return (View) invokeV.objValue;
@@ -252,7 +252,7 @@ public class SignStampIconsView extends LinearLayout {
         return (ObjectAnimator) invokeCommon.objValue;
     }
 
-    public final View c(final y05.a aVar) {
+    public final View c(final hz4.a aVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
@@ -275,17 +275,17 @@ public class SignStampIconsView extends LinearLayout {
             textView.setLayoutParams(marginLayoutParams2);
             textView.setText(String.format(getResources().getString(R.string.stamp_level), Integer.valueOf(aVar.a())));
             if (aVar.e() == 1) {
-                b35.d(textView).v(j);
+                n15.d(textView).w(j);
             } else {
-                b35.d(textView).v(k);
+                n15.d(textView).w(k);
             }
-            b35.d(textView).z(l);
+            n15.d(textView).A(l);
             LinearLayout linearLayout = new LinearLayout(this.a);
             linearLayout.setOrientation(1);
             linearLayout.setGravity(1);
             linearLayout.addView(tbImageView);
             linearLayout.addView(textView);
-            linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.v39
+            linearLayout.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.aa9
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -310,7 +310,7 @@ public class SignStampIconsView extends LinearLayout {
         }
     }
 
-    public /* synthetic */ void e(y05.a aVar, View view2) {
+    public /* synthetic */ void e(hz4.a aVar, View view2) {
         if (aVar.f()) {
             return;
         }
@@ -321,36 +321,36 @@ public class SignStampIconsView extends LinearLayout {
                 h(linearLayout.getChildAt(0), 1.44f, 1.44f, 70L);
             }
         }
-        q39 q39Var = this.b;
-        if (q39Var != null) {
-            q39Var.a(aVar);
+        v99 v99Var = this.b;
+        if (v99Var != null) {
+            v99Var.a(aVar);
         }
     }
 
-    public final void f(on onVar, TbImageView tbImageView) {
+    public final void f(rm rmVar, TbImageView tbImageView) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, onVar, tbImageView) == null) && onVar != null && onVar.w() && tbImageView != null) {
-            tbImageView.setImageBitmap(i(onVar.p()));
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, rmVar, tbImageView) == null) && rmVar != null && rmVar.w() && tbImageView != null) {
+            tbImageView.setImageBitmap(i(rmVar.p()));
         }
     }
 
-    public final void g(y05.a aVar, TbImageView tbImageView) {
+    public final void g(hz4.a aVar, TbImageView tbImageView) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(1048581, this, aVar, tbImageView) != null) || aVar == null) {
             return;
         }
         if (aVar.e() != 1) {
             a aVar2 = new a(this, tbImageView);
-            on onVar = (on) zg.h().n(aVar.d(), 10, new Object[0]);
-            if (onVar != null && onVar.w()) {
-                f(onVar, tbImageView);
+            rm rmVar = (rm) cg.h().n(aVar.d(), 10, new Object[0]);
+            if (rmVar != null && rmVar.w()) {
+                f(rmVar, tbImageView);
                 return;
             } else {
-                zg.h().m(aVar.d(), 10, aVar2, null);
+                cg.h().m(aVar.d(), 10, aVar2, null);
                 return;
             }
         }
-        tbImageView.K(aVar.d(), 10, false);
+        tbImageView.M(aVar.d(), 10, false);
         if (aVar.f()) {
             h(tbImageView, 1.44f, 1.44f, 70L);
         }
@@ -401,10 +401,10 @@ public class SignStampIconsView extends LinearLayout {
         }
     }
 
-    public void setSignStampIconClickListener(q39 q39Var) {
+    public void setSignStampIconClickListener(v99 v99Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, q39Var) == null) {
-            this.b = q39Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, v99Var) == null) {
+            this.b = v99Var;
         }
     }
 }

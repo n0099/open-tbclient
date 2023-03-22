@@ -1,18 +1,7 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Application;
-import android.content.Context;
-import android.os.Build;
-import android.telephony.TelephonyManager;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.content.ContextCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
-import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,21 +9,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
+import org.json.JSONException;
+import org.json.JSONObject;
 @Service
-@SuppressLint({"MissingPermission", "HardwareIds"})
 /* loaded from: classes5.dex */
-public class nu3 implements pu3 {
+public class nu3 extends sp1 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.pu3
-    public String b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) ? "" : (String) invokeL.objValue;
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -49,7 +31,7 @@ public class nu3 implements pu3 {
                 return;
             }
         }
-        a = wp1.a;
+        a = do1.a;
     }
 
     public nu3() {
@@ -66,102 +48,37 @@ public class nu3 implements pu3 {
         }
     }
 
-    @Override // com.baidu.tieba.pu3
-    public String a(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.pr1
+    public boolean x() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            return ApiReplaceUtil.Overload.getString(context.getContentResolver(), HttpRequest.ANDROID_ID);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.pu3
-    public String c(Context context) {
-        InterceptResult invokeL;
-        String meid;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 26) {
-                try {
-                    TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                    if (telephonyManager == null) {
-                        meid = "";
-                    } else {
-                        meid = telephonyManager.getMeid();
-                    }
-                    if (TextUtils.isEmpty(meid)) {
-                        return "";
-                    }
-                    return meid;
-                } catch (Exception e) {
-                    m62.o("DeviceInfoImpl", "getMeid: catch " + e + "\n" + Log.getStackTraceString(e));
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (a && s33.G().booleanValue()) {
+                return false;
             }
-            return "";
+            return true;
         }
-        return (String) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pu3
-    public String d(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.pr1
+    public JSONObject getRawSwitch() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
             try {
-                TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService("phone");
-                if (telephonyManager != null) {
-                    String deviceId = ApiReplaceUtil.getDeviceId(telephonyManager);
-                    if (!TextUtils.isEmpty(deviceId)) {
-                        return deviceId;
-                    }
-                    if (Build.VERSION.SDK_INT >= 26) {
-                        deviceId = ApiReplaceUtil.getImei(telephonyManager);
-                    }
-                    if (TextUtils.isEmpty(deviceId)) {
-                        return "";
-                    }
-                    return deviceId;
+                if (up4.a()) {
+                    jSONObject.put("swanswitch_android_setdata", 1);
                 }
-            } catch (Exception e) {
-                m62.o("DeviceInfoImpl", "getImei: catch " + e + "\n" + Log.getStackTraceString(e));
+                jSONObject.put("swanswitch_ab_inline_video", 1);
+                jSONObject.put("swanswitch_ab_inline_input", 1);
+                jSONObject.put("swanswitch_ab_inline_textarea", 1);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            return "";
+            return jSONObject;
         }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.pu3
-    public String getDeviceId(Context context) {
-        InterceptResult invokeL;
-        String deviceId;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 29) {
-                if (a) {
-                    Log.d("DeviceInfoImpl", "android 29 can not get imei");
-                }
-                return "";
-            }
-            Application c = ts2.c();
-            if (ContextCompat.checkSelfPermission(c, com.kuaishou.weapon.p0.h.c) != 0) {
-                return "";
-            }
-            try {
-                TelephonyManager telephonyManager = (TelephonyManager) c.getSystemService("phone");
-                if (telephonyManager == null) {
-                    deviceId = "";
-                } else {
-                    deviceId = ApiReplaceUtil.getDeviceId(telephonyManager);
-                }
-                if (TextUtils.isEmpty(deviceId)) {
-                    return "";
-                }
-                return deviceId;
-            } catch (Exception unused) {
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

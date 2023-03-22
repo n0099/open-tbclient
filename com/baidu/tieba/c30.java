@@ -1,27 +1,17 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.content.Context;
 /* loaded from: classes3.dex */
-public class c30 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface c30 {
+    String a();
 
-    public static int a(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return -1;
-            }
-            int hashCode = str.hashCode();
-            if (hashCode < 0) {
-                hashCode = -hashCode;
-            }
-            return hashCode % i;
-        }
-        return invokeLI.intValue;
-    }
+    String a(Context context);
+
+    long b();
+
+    String b(Context context);
+
+    String c(Context context);
+
+    String d(Context context);
 }

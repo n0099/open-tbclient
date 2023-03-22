@@ -1,5 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
 public interface pz {
-    void a(zx4 zx4Var);
+    int a(int i);
+
+    void a(byte[] bArr, int i, int i2);
+
+    int b(byte[] bArr, int i, int i2);
 }

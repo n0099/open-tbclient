@@ -17,6 +17,10 @@ import org.json.JSONObject;
 public class GroupChatEntranceStatisticUtils {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int FEED_GROUP_CHAT_CARD_CLICK = 6;
+    public static final int FEED_GROUP_CHAT_ENTRANCE_CLICK = 14;
+    public static final int FEED_GROUP_CHAT_ENTRANCE_EXPOSE_COLLAPSE_MULTIPLE = 2;
+    public static final int FEED_GROUP_CHAT_ENTRANCE_EXPOSE_COLLAPSE_SINGLE = 3;
+    public static final int FEED_GROUP_CHAT_ENTRANCE_EXPOSE_EXPAND = 1;
     public static final int FEED_GROUP_CHAT_LINK_CLICK = 13;
     public static final String FORUM_ID = "forumId";
     public static final int FRS_DIALOG_GROUP_CHAT_CLICK = 2;

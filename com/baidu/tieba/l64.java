@@ -1,19 +1,26 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.webkit.JavascriptInterface;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class l64 implements c74 {
+public class l64 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @V8JavascriptField
+    public String data;
+    @V8JavascriptField
+    public Object header;
+    @V8JavascriptField
+    public int statusCode;
 
-    @Override // com.baidu.tieba.c74
-    public void a(nz2 nz2Var, Context context) {
+    @JavascriptInterface
+    public void onFieldChangedCallback(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, nz2Var, context) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
         }
     }
 

@@ -1,110 +1,115 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.Pair;
-import androidx.appcompat.widget.ActivityChooserModel;
-import androidx.collection.ArraySet;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.storage.swankv.SwanKV;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.yc3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class pi2 implements li2 {
+public class pi2 extends q93 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String[] a;
-    public final Pair<String, String>[] b;
 
-    public pi2() {
+    /* loaded from: classes5.dex */
+    public class a implements mm3<wc3<yc3.e>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+
+        public a(pi2 pi2Var, CallbackHandler callbackHandler, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pi2Var, callbackHandler, str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = callbackHandler;
+            this.b = str;
+            this.c = str2;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.mm3
+        /* renamed from: b */
+        public void a(wc3<yc3.e> wc3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wc3Var) == null) {
+                if (!rc3.h(wc3Var)) {
+                    rc3.q(wc3Var, this.a, this.b);
+                } else {
+                    ii2.e(this.c, this.a, this.b);
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pi2(q83 q83Var) {
+        super(q83Var, "/swanAPI/debug/replaceDependency");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {q83Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new String[]{"searchbox_webapps_sp", "swan_app_pms_sp", "key_pms_sp_name", "swan_config_sp_name", "swan_clean_stratey", "swan_preload_package", "updatecore_node_ceres", "updatecore_node_host", "swan_host_info_config_sp_name", "updatecore_node_tipmsgs", "swan_launch_tips_config_sp_name", "aiapps_favorite", "searchbox_sconsole_sp", "swan_about_page_sp", "aiapps_guide_dialog_sp", "swan.publisher", "sp_launch_behavior", "swan_app_debug", "swan_debug_feature", "light_info_debug", "swan_method_trace"};
-        this.b = new Pair[]{new Pair<>("aiapp_", ""), new Pair<>("aiapp_setting_", ""), new Pair<>("", "_domain_config")};
     }
 
-    @Override // com.baidu.tieba.li2
-    public ArraySet<String> a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.q93
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, t73 t73Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArraySet<String> arraySet = new ArraySet<>();
-            arraySet.addAll((ArraySet<? extends String>) d());
-            arraySet.addAll((ArraySet<? extends String>) c());
-            arraySet.addAll((ArraySet<? extends String>) b());
-            return arraySet;
-        }
-        return (ArraySet) invokeV.objValue;
-    }
-
-    public final ArraySet<String> b() {
-        InterceptResult invokeV;
-        Pair<String, String>[] pairArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            File file = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/");
-            File file2 = new File(wp4.d());
-            ArraySet<String> arraySet = new ArraySet<>();
-            for (Pair<String, String> pair : this.b) {
-                arraySet.addAll((ArraySet<? extends String>) xh2.e(file, (String) pair.first, ((String) pair.second) + "shared_prefs/", null, true));
-                arraySet.addAll((ArraySet<? extends String>) xh2.e(file2, (String) pair.first, ((String) pair.second) + SwanKV.PREFS_SUFFIX, null, true));
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, t73Var)) == null) {
+            JSONObject a2 = q93.a(unitedSchemeEntity, "params");
+            if (a2 == null) {
+                l73.f(context, R.string.obfuscated_res_0x7f0f014b).G();
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "params is null");
+                return false;
             }
-            m62.k("SwanSpCollector", "recovery renameAppsSp:" + arraySet.toString());
-            return arraySet;
-        }
-        return (ArraySet) invokeV.objValue;
-    }
-
-    public final ArraySet<String> c() {
-        InterceptResult invokeV;
-        String[] strArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            File file = new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/");
-            String d = wp4.d();
-            ArraySet<String> arraySet = new ArraySet<>();
-            for (String str : this.a) {
-                String J = qp4.J(new File(d, str + SwanKV.PREFS_SUFFIX));
-                if (!TextUtils.isEmpty(J)) {
-                    arraySet.add(J);
-                }
-                String J2 = qp4.J(new File(file, str + ActivityChooserModel.HISTORY_FILE_EXTENSION));
-                if (!TextUtils.isEmpty(J2)) {
-                    arraySet.add(J2);
-                }
+            String optString = a2.optString("url");
+            if (TextUtils.isEmpty(optString)) {
+                l73.f(context, R.string.obfuscated_res_0x7f0f014c).G();
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "dynamic lib url is empty");
+                return false;
             }
-            m62.k("SwanSpCollector", "recovery renameFrameSp:" + arraySet.toString());
-            return arraySet;
-        }
-        return (ArraySet) invokeV.objValue;
-    }
-
-    public final ArraySet<String> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            ArraySet<String> arraySet = new ArraySet<>();
-            String J = qp4.J(new File(di3.e()));
-            if (!TextUtils.isEmpty(J)) {
-                arraySet.add(J);
+            String optString2 = a2.optString("cb");
+            if (TextUtils.isEmpty(optString2)) {
+                l73.f(context, R.string.obfuscated_res_0x7f0f014a).G();
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "dynamic lib 'cb' is empty");
+                return false;
             }
-            m62.k("SwanSpCollector", "recovery renameSwanKVRoot:" + arraySet.toString());
-            return arraySet;
+            t73Var.e0().g(context, "mapp_cts_debug", new a(this, callbackHandler, optString2, optString));
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+            return true;
         }
-        return (ArraySet) invokeV.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

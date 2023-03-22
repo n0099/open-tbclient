@@ -1,15 +1,12 @@
 package com.baidu.tieba;
 
-import android.location.Address;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.fluency.tracer.FpsTracer;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,180 +14,35 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.SoftReference;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Set;
 /* loaded from: classes7.dex */
 public class zf {
     public static /* synthetic */ Interceptable $ic;
-    public static zf n;
+    public static b a;
+    public static final Object b;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
-    public int g;
-    public Address h;
-    public ArrayList<SoftReference<c>> i;
-    public ArrayList<ag> j;
-    public Handler k;
-    @NonNull
-    public e l;
-    public d m;
 
     /* loaded from: classes7.dex */
-    public interface c {
-        void a(int i, String str, Address address);
-    }
-
-    /* loaded from: classes7.dex */
-    public interface d {
-        void a(int i, String str, Address address, long j, boolean z);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448323585, "Lcom/baidu/tieba/zf;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448323585, "Lcom/baidu/tieba/zf;");
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class a implements d {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zf a;
+    }
 
-        public a(zf zfVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zfVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zfVar;
-        }
-
-        @Override // com.baidu.tieba.zf.d
-        public void a(int i, String str, Address address, long j, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, address, Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-                zf zfVar = this.a;
-                zfVar.b = j;
-                zfVar.h = address;
-                this.a.d = z;
-                this.a.g = i;
-                this.a.u();
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            if (i == 4 && StringUtils.isNull(str)) {
-                                str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b11);
-                            }
-                        } else if (StringUtils.isNull(str)) {
-                            str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b0a);
-                        }
-                    } else if (StringUtils.isNull(str)) {
-                        str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b10);
-                    }
-                } else if (StringUtils.isNull(str)) {
-                    str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b0e);
-                }
-                this.a.i(i, str, address);
-            }
-        }
+    public static String b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? 1 == i ? "2G" : 2 == i ? "3G" : 3 == i ? "4G" : 4 == i ? "5G" : 5 == i ? "WIFI" : "N" : (String) invokeI.objValue;
     }
 
     /* loaded from: classes7.dex */
-    public class b implements Handler.Callback {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zf a;
+        public eg a;
+        public eg b;
+        public eg c;
+        public eg d;
 
-        public b(zf zfVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zfVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zfVar;
-        }
-
-        @Override // android.os.Handler.Callback
-        public boolean handleMessage(Message message) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-                if (message.what != 0) {
-                    return false;
-                }
-                this.a.u();
-                int i = this.a.g;
-                String str = "";
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            if (i != 4) {
-                                if (i == 6) {
-                                    str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b11);
-                                }
-                            } else {
-                                str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b11);
-                            }
-                        } else {
-                            str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b0a);
-                        }
-                    } else {
-                        str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b10);
-                    }
-                } else {
-                    str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b0e);
-                }
-                zf zfVar = this.a;
-                zfVar.i(zfVar.g, str, null);
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        @NonNull
-        public final Set<String> a;
-
-        public e() {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -203,349 +55,329 @@ public class zf {
                     return;
                 }
             }
-            this.a = new HashSet();
+            this.a = new eg();
+            this.b = new eg();
+            this.c = new eg();
+            this.d = new eg();
         }
 
-        public /* synthetic */ e(a aVar) {
+        public /* synthetic */ b(a aVar) {
             this();
         }
 
-        public void a(@NonNull String str) {
+        public int a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.a.add(str);
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a.g + this.b.g + this.c.g + this.d.g;
             }
+            return invokeV.intValue;
         }
 
         public boolean b() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                StackTraceElement[] stackTrace = new Throwable().getStackTrace();
-                int min = Math.min(stackTrace.length, 20);
-                for (int i = 0; i < min; i++) {
-                    if (this.a.contains(stackTrace[i].getClassName())) {
-                        return true;
-                    }
+                if (this.c.g > 0) {
+                    return true;
                 }
                 return false;
             }
             return invokeV.booleanValue;
         }
+
+        public boolean c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                if (this.b.g > 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public boolean d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (this.a.g > 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public boolean e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                if (this.d.g > 0) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public void f() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                this.a.a();
+                this.b.a();
+                this.c.a();
+                this.d.a();
+            }
+        }
     }
 
-    public zf() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448323585, "Lcom/baidu/tieba/zf;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448323585, "Lcom/baidu/tieba/zf;");
                 return;
             }
         }
-        this.a = 10000L;
-        this.b = 0L;
-        this.c = 300000L;
-        this.d = false;
-        this.e = false;
-        this.f = false;
-        this.g = 4;
-        this.h = null;
-        this.i = new ArrayList<>();
-        this.j = new ArrayList<>();
-        this.k = null;
-        this.l = new e(null);
-        this.m = new a(this);
+        a = new b(null);
+        b = new Object();
     }
 
-    public Address k(boolean z, c cVar) {
-        InterceptResult invokeZL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(1048580, this, z, cVar)) == null) {
-            return m(z, false, cVar);
-        }
-        return (Address) invokeZL.objValue;
-    }
-
-    public void g(@NonNull Class<?> cls) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cls) == null) {
-            this.l.a(cls.getName());
-        }
-    }
-
-    public Address j(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            return l(z, false);
-        }
-        return (Address) invokeZ.objValue;
-    }
-
-    public void r(ag agVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, agVar) == null) && agVar != null) {
-            synchronized (this.j) {
-                if (!this.j.contains(agVar)) {
-                    agVar.b(this.m);
-                    this.j.add(agVar);
-                }
-            }
-        }
-    }
-
-    public void v(ag agVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048590, this, agVar) == null) && agVar != null) {
-            synchronized (this.j) {
-                agVar.destroy();
-                this.j.remove(agVar);
-            }
-        }
-    }
-
-    public static zf n() {
+    public static eg a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (n == null) {
-                synchronized (zf.class) {
-                    if (n == null) {
-                        n = new zf();
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (BdNetTypeUtil.isWifiNet()) {
+                return a.d;
             }
-            return n;
-        }
-        return (zf) invokeV.objValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.l.b();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public long o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a;
-        }
-        return invokeV.longValue;
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.k = new Handler(Looper.getMainLooper(), new b(this));
-        }
-    }
-
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            p();
-        }
-    }
-
-    public final void i(int i, String str, Address address) {
-        c cVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, address) == null) {
-            Handler handler = this.k;
-            if (handler != null && handler.hasMessages(0)) {
-                this.k.removeMessages(0);
+            if (BdNetTypeUtil.is4GNet()) {
+                return a.c;
             }
-            ArrayList<SoftReference<c>> arrayList = this.i;
-            if (arrayList != null) {
-                synchronized (arrayList) {
-                    for (int i2 = 0; i2 < this.i.size(); i2++) {
-                        SoftReference<c> softReference = this.i.get(i2);
-                        if (softReference != null && (cVar = softReference.get()) != null) {
-                            cVar.a(i, str, address);
-                        }
-                    }
-                    this.i.clear();
+            if (BdNetTypeUtil.is3GNet()) {
+                return a.b;
+            }
+            return a.a;
+        }
+        return (eg) invokeV.objValue;
+    }
+
+    public static void c(boolean z, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+            synchronized (b) {
+                eg a2 = a();
+                if (z) {
+                    a2.l++;
+                    a2.m += j;
                 }
             }
         }
     }
 
-    public Address l(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
+    public static void e(boolean z, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            if (System.currentTimeMillis() - this.b > this.c) {
-                this.h = null;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+            eg a2 = a();
+            if (z) {
+                a2.r++;
+                a2.s += j;
             }
-            if (this.h != null && !z && ((z2 && this.d) || !z2)) {
-                return this.h;
-            }
-            this.h = null;
-            boolean z3 = this.f;
-            if (!z3) {
-                t(z2);
-                return null;
-            }
-            if (z3 && z2 && !this.e) {
-                u();
-                t(z2);
-            }
-            return null;
         }
-        return (Address) invokeCommon.objValue;
     }
 
-    public Address m(boolean z, boolean z2, c cVar) {
-        InterceptResult invokeCommon;
-        boolean z3;
-        c cVar2;
+    public static void f(boolean z, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), cVar})) == null) {
-            if (System.currentTimeMillis() - this.b > this.c) {
-                this.h = null;
-            }
-            if (this.h != null && !z && ((z2 && this.d) || !z2)) {
-                if (cVar != null) {
-                    cVar.a(0, "", this.h);
-                }
-                return this.h;
-            }
-            if (cVar != null) {
-                synchronized (this.i) {
-                    int i = 0;
-                    while (true) {
-                        if (i < this.i.size()) {
-                            SoftReference<c> softReference = this.i.get(i);
-                            if (softReference != null && (cVar2 = softReference.get()) != null && cVar2.equals(cVar)) {
-                                z3 = true;
-                                break;
-                            }
-                            i++;
-                        } else {
-                            z3 = false;
-                            break;
-                        }
-                    }
-                    if (!z3) {
-                        if (this.i.size() >= 100) {
-                            this.i.remove(0);
-                        }
-                        this.i.add(new SoftReference<>(cVar));
-                    }
-                }
-                boolean z4 = this.f;
-                if (!z4) {
-                    t(z2);
-                    return null;
-                } else if (z4 && z2 && !this.e) {
-                    u();
-                    t(z2);
-                    return null;
-                }
-            }
-            return null;
-        }
-        return (Address) invokeCommon.objValue;
-    }
-
-    public void s(c cVar) {
-        c cVar2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, cVar) == null) {
-            synchronized (this.i) {
-                int i = 0;
-                while (true) {
-                    if (i < this.i.size()) {
-                        SoftReference<c> softReference = this.i.get(i);
-                        if (softReference != null && (cVar2 = softReference.get()) != null && cVar2.equals(cVar)) {
-                            this.i.remove(softReference);
-                            break;
-                        }
-                        i++;
-                    } else {
-                        break;
-                    }
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+            synchronized (b) {
+                eg a2 = a();
+                a2.d++;
+                if (z) {
+                    a2.e++;
+                    a2.f += j;
                 }
             }
         }
     }
 
-    public final void t(boolean z) {
+    public static void i(boolean z, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            Handler handler = this.k;
-            if (handler != null && handler.hasMessages(0)) {
-                this.k.removeMessages(0);
-            }
-            this.g = 4;
-            this.e = z;
-            this.f = true;
-            ArrayList<ag> arrayList = this.j;
-            if (arrayList != null && !arrayList.isEmpty()) {
-                if (!this.l.b()) {
-                    this.g = 7;
-                    Handler handler2 = this.k;
-                    if (handler2 != null) {
-                        handler2.sendMessage(handler2.obtainMessage(0));
-                        return;
-                    }
-                    return;
-                }
-                Iterator<ag> it = this.j.iterator();
-                while (it.hasNext()) {
-                    ag next = it.next();
-                    if (next != null) {
-                        try {
-                            next.a(z);
-                        } catch (Exception e2) {
-                            BdLog.e(e2.getMessage());
-                        }
-                    }
-                }
-                Handler handler3 = this.k;
-                if (handler3 != null) {
-                    handler3.sendMessageDelayed(handler3.obtainMessage(0), this.a);
-                    return;
-                }
-                return;
-            }
-            this.g = 6;
-            Handler handler4 = this.k;
-            if (handler4 != null) {
-                handler4.sendMessage(handler4.obtainMessage(0));
+        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+            eg a2 = a();
+            a2.a++;
+            if (z) {
+                a2.b++;
+                a2.c += j;
             }
         }
     }
 
-    public final void u() {
+    public static void k(boolean z, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            Handler handler = this.k;
-            if (handler != null && handler.hasMessages(0)) {
-                this.k.removeMessages(0);
-            }
-            this.f = false;
-            Iterator<ag> it = this.j.iterator();
-            while (it.hasNext()) {
-                ag next = it.next();
-                if (next != null) {
-                    try {
-                        next.c();
-                    } catch (Exception e2) {
-                        BdLog.e(e2.getMessage());
-                    }
+        if (interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+            synchronized (b) {
+                eg a2 = a();
+                if (z) {
+                    a2.p++;
+                    a2.q += j;
                 }
             }
         }
+    }
+
+    public static void l(boolean z, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65548, null, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+            eg a2 = a();
+            if (z) {
+                a2.n++;
+                a2.o += j;
+            }
+        }
+    }
+
+    public static void m(boolean z, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65549, null, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) {
+            synchronized (b) {
+                eg a2 = a();
+                if (z) {
+                    a2.j++;
+                    a2.k += j;
+                }
+            }
+        }
+    }
+
+    public static void d(boolean z, boolean z2, boolean z3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
+            eg a2 = a();
+            if (z) {
+                a2.t++;
+            }
+            if (z2) {
+                a2.u++;
+            }
+            if (z3) {
+                a2.v++;
+            }
+        }
+    }
+
+    public static void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65543, null) == null) && a.a() > 10) {
+            if (a.e()) {
+                h(a.d, 5);
+            }
+            if (a.b()) {
+                h(a.c, 3);
+            }
+            if (a.c()) {
+                h(a.b, 2);
+            }
+            if (a.d()) {
+                h(a.a, 1);
+            }
+            a.f();
+        }
+    }
+
+    public static void h(eg egVar, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLI(65544, null, egVar, i) != null) || egVar == null || !BdBaseApplication.getInst().isSmallFlow()) {
+            return;
+        }
+        og statsItem = BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
+        statsItem.b("action", "imgStat");
+        statsItem.b("memoryCount", String.valueOf(egVar.a));
+        statsItem.b("memorySucCount", String.valueOf(egVar.b));
+        statsItem.b("memoryTime", String.valueOf(egVar.c));
+        statsItem.b("localCount", String.valueOf(egVar.d));
+        statsItem.b("localSucCount", String.valueOf(egVar.e));
+        statsItem.b("localTime", String.valueOf(egVar.f));
+        statsItem.b("netCount", String.valueOf(egVar.g));
+        statsItem.b("netSucCount", String.valueOf(egVar.h));
+        statsItem.b("netTime", String.valueOf(egVar.i));
+        statsItem.b("taskCount", String.valueOf(egVar.j));
+        statsItem.b("taskTime", String.valueOf(egVar.k));
+        statsItem.b("decodeCount", String.valueOf(egVar.l));
+        statsItem.b("decodeTime", String.valueOf(egVar.m));
+        statsItem.b("saveMemoryCount", String.valueOf(egVar.n));
+        statsItem.b("saveMemoryTime", String.valueOf(egVar.o));
+        statsItem.b("saveLocalCount", String.valueOf(egVar.p));
+        statsItem.b("saveLocalTime", String.valueOf(egVar.q));
+        statsItem.b("memoryHitCount", String.valueOf(egVar.t));
+        statsItem.b("localHitCount", String.valueOf(egVar.u));
+        statsItem.b("netHitCount", String.valueOf(egVar.v));
+        statsItem.b("totalHitCount", String.valueOf(egVar.t + egVar.u + egVar.v));
+        statsItem.b("totalCount", String.valueOf(egVar.r));
+        statsItem.b("totalTime", String.valueOf(egVar.s));
+        statsItem.b("cdnCount", String.valueOf(egVar.w));
+        statsItem.b("ipCount", String.valueOf(egVar.x));
+        statsItem.b("cdnAndIpCount", String.valueOf(egVar.y));
+        statsItem.b("imgSize", String.valueOf(egVar.z));
+        statsItem.b(FpsTracer.UBC_KEY_NET_TYPE, b(i));
+        BdStatisticsManager.getInstance().performance("image", statsItem);
+    }
+
+    public static void j(boolean z, String str, jf jfVar, long j, long j2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65546, null, new Object[]{Boolean.valueOf(z), str, jfVar, Long.valueOf(j), Long.valueOf(j2)}) != null) || !hi.F()) {
+            return;
+        }
+        synchronized (b) {
+            boolean n = n(str);
+            boolean z2 = false;
+            if (jfVar != null && !StringUtils.isNull(jfVar.k)) {
+                z2 = true;
+            }
+            eg a2 = a();
+            if (n) {
+                a2.w++;
+            }
+            if (z2) {
+                a2.x++;
+            }
+            if (n && z2) {
+                a2.y++;
+            }
+            a2.g++;
+            if (z) {
+                a2.h++;
+                a2.i += j;
+                a2.z += j2;
+            }
+            if (a.a() > 100) {
+                g();
+            }
+        }
+    }
+
+    public static boolean n(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, str)) == null) {
+            if (str == null) {
+                return false;
+            }
+            int indexOf = str.indexOf("hiphotos");
+            if (indexOf > 0 && indexOf < 20) {
+                return true;
+            }
+            int indexOf2 = str.indexOf("tiebapic");
+            if (indexOf2 <= 0 || indexOf2 >= 20) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

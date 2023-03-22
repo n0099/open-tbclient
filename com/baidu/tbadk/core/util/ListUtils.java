@@ -57,7 +57,7 @@ public class ListUtils {
     public static <T> void removeSubList(List<T> list, int i, int i2) {
         int count;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(65548, null, list, i, i2) == null) && (count = getCount(list)) > 0 && i >= 0 && i2 <= count) {
+        if ((interceptable == null || interceptable.invokeLII(65549, null, list, i, i2) == null) && (count = getCount(list)) > 0 && i >= 0 && i2 <= count) {
             clear(list.subList(i, i2));
         }
     }
@@ -65,7 +65,7 @@ public class ListUtils {
     public static <T> List<T> subList(List<T> list, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65549, null, list, i, i2)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65550, null, list, i, i2)) == null) {
             int count = getCount(list);
             if (count <= 0 || i < 0 || i2 > count) {
                 return null;
@@ -147,7 +147,7 @@ public class ListUtils {
     public static <T> T remove(List<T> list, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, list, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, list, i)) == null) {
             if (list == null || list.isEmpty() || i < 0 || i >= list.size()) {
                 return null;
             }
@@ -159,7 +159,7 @@ public class ListUtils {
     public static <T> List<T> trimToSize(List<T> list, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65550, null, list, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65551, null, list, i)) == null) {
             int count = getCount(list);
             int min = Math.min(count, i);
             if (min > 0 && min < count) {
@@ -198,6 +198,15 @@ public class ListUtils {
                 return true;
             }
             return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static <T> boolean isNotEmpty(List<T> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, list)) == null) {
+            return !isEmpty(list);
         }
         return invokeL.booleanValue;
     }

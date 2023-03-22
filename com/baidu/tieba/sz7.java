@@ -1,103 +1,89 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
-import com.baidu.tbadk.widget.TbImageView;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.KeyEvent;
+import androidx.annotation.CallSuper;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class sz7 extends e75<g75, a> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public Context d;
+public interface sz7 {
 
     /* loaded from: classes6.dex */
-    public class a extends BdBaseViewPagerAdapter.a {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public TbImageView d;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(sz7 sz7Var, View view2) {
-            super(view2);
+        @CallSuper
+        public static void a(sz7 sz7Var) {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sz7Var, view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((View) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            if (view2 instanceof TbImageView) {
-                TbImageView tbImageView = (TbImageView) view2;
-                this.d = tbImageView;
-                tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            if (interceptable == null || interceptable.invokeL(65536, null, sz7Var) == null) {
             }
         }
-    }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sz7(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        @CallSuper
+        public static void b(sz7 sz7Var, int i, int i2, Intent intent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{sz7Var, Integer.valueOf(i), Integer.valueOf(i2), intent}) == null) {
             }
         }
-        this.d = context;
-    }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.e75
-    /* renamed from: f */
-    public a b(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            TbImageView tbImageView = new TbImageView(this.d);
-            tbImageView.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            return new a(this, tbImageView);
+        @CallSuper
+        public static void c(sz7 sz7Var, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(65538, null, sz7Var, z) == null) {
+            }
         }
-        return (a) invokeL.objValue;
-    }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.e75
-    /* renamed from: g */
-    public View d(ViewGroup viewGroup, a aVar, g75 g75Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, viewGroup, aVar, g75Var)) == null) {
-            aVar.d.K(g75Var.a(), 17, false);
-            return null;
+        @CallSuper
+        public static void d(sz7 sz7Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(65539, null, sz7Var, i) == null) {
+            }
         }
-        return (View) invokeLLL.objValue;
+
+        @CallSuper
+        public static boolean e(sz7 sz7Var, int i, KeyEvent event) {
+            InterceptResult invokeLIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, sz7Var, i, event)) == null) {
+                Intrinsics.checkNotNullParameter(event, "event");
+                return false;
+            }
+            return invokeLIL.booleanValue;
+        }
+
+        @CallSuper
+        public static void f(sz7 sz7Var, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(65541, null, sz7Var, z) == null) {
+            }
+        }
+
+        @CallSuper
+        public static void g(sz7 sz7Var, int i, String[] permissions, int[] grantResults) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLILL(65542, null, sz7Var, i, permissions, grantResults) == null) {
+                Intrinsics.checkNotNullParameter(permissions, "permissions");
+                Intrinsics.checkNotNullParameter(grantResults, "grantResults");
+            }
+        }
+
+        public static void h(sz7 sz7Var, Bundle outState) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(65543, null, sz7Var, outState) == null) {
+                Intrinsics.checkNotNullParameter(outState, "outState");
+            }
+        }
+
+        @CallSuper
+        public static void i(sz7 sz7Var, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(65544, null, sz7Var, z) == null) {
+            }
+        }
     }
 }

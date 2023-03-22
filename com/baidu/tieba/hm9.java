@@ -1,38 +1,25 @@
 package com.baidu.tieba;
 
-import android.location.Address;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.ecommerce.bean.SuggestAddrField;
-import com.baidu.tbadk.TbConfig;
+import android.app.Activity;
+import android.content.pm.FeatureInfo;
+import android.content.pm.PackageManager;
+import android.hardware.Camera;
+import android.os.Build;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.ErrorData;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.util.TbMd5;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.img.ImageUploadResult;
-import com.baidu.tbadk.img.ImageUploader;
-import com.baidu.tieba.tbadkCore.location.LocationData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes4.dex */
 public class hm9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public BdUniqueId b;
-    public gm9 c;
 
     /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
@@ -40,206 +27,237 @@ public class hm9 {
         public transient /* synthetic */ FieldHolder $fh;
     }
 
+    public static int a(int i, int i2, int i3) {
+        InterceptResult invokeIII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIII = interceptable.invokeIII(65536, null, i, i2, i3)) == null) ? i > i3 ? i3 : i < i2 ? i2 : i : invokeIII.intValue;
+    }
+
     /* loaded from: classes4.dex */
-    public class b extends BdAsyncTask<em9, Integer, fm9> {
+    public static class b implements Comparator<Camera.Size> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hm9 a;
 
-        public b(hm9 hm9Var) {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hm9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = hm9Var;
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: d */
-        public void onPostExecute(fm9 fm9Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fm9Var) == null) && this.a.c != null) {
-                this.a.c.a(fm9Var);
-            }
-        }
-
-        public /* synthetic */ b(hm9 hm9Var, a aVar) {
-            this(hm9Var);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public fm9 doInBackground(em9... em9VarArr) {
-            InterceptResult invokeL;
-            em9 em9Var;
-            int netErrorCode;
-            ImageUploadResult.picInfo picinfo;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, em9VarArr)) == null) {
-                String str = null;
-                if (em9VarArr.length == 0 || (em9Var = em9VarArr[0]) == null) {
-                    return null;
-                }
-                vc vcVar = new vc("images", TbMd5.getNameMd5FromUrl(em9Var.i + 42), DiskFileOperate.Action.READ);
-                vcVar.setSubFolder(true);
-                vcVar.setIsFormatData(false);
-                ImageUploadResult uploadInBackground = new ImageUploader(null).uploadInBackground(c(vcVar.buildPath(), vcVar.getName()), true, false);
-                if (uploadInBackground != null && (picinfo = uploadInBackground.picInfo) != null) {
-                    ImageUploadResult.PicDetailedInfo picDetailedInfo = picinfo.originPic;
-                    if (picDetailedInfo != null && !StringUtils.isNull(picDetailedInfo.picUrl)) {
-                        str = uploadInBackground.picInfo.originPic.picUrl;
-                    } else {
-                        ImageUploadResult.PicDetailedInfo picDetailedInfo2 = uploadInBackground.picInfo.bigPic;
-                        if (picDetailedInfo2 != null && !StringUtils.isNull(picDetailedInfo2.picUrl)) {
-                            str = uploadInBackground.picInfo.bigPic.picUrl;
-                        } else {
-                            ImageUploadResult.PicDetailedInfo picDetailedInfo3 = uploadInBackground.picInfo.smallPic;
-                            if (picDetailedInfo3 != null && !StringUtils.isNull(picDetailedInfo3.picUrl)) {
-                                str = uploadInBackground.picInfo.smallPic.picUrl;
-                            }
-                        }
-                    }
-                }
-                if (StringUtils.isNull(str)) {
-                    str = em9Var.j;
-                }
-                NetWork netWork = new NetWork();
-                netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.POST_THREAD_ADDRESS);
-                netWork.getNetContext().getRequest().mIsNeedTbs = true;
-                netWork.addPostData("anonymous", "1");
-                netWork.addPostData("can_no_forum", "0");
-                netWork.addPostData("is_feedback", "0");
-                if (TbadkCoreApplication.getInst().getNewVcodeWebviewCrashCount() < 3) {
-                    netWork.addPostData("vcode_tag", "12");
-                }
-                netWork.addPostData("new_vcode", "1");
-                netWork.addPostData("content", em9Var.m);
-                netWork.addPostData("fid", em9Var.e);
-                netWork.addPostData(TiebaStatic.Params.H5_FORUM_NAME, em9Var.f);
-                netWork.addPostData("is_hide", "0");
-                netWork.addPostData(IntentConfig.CALL_FROM, "2");
-                netWork.addPostData("title", em9Var.m);
-                netWork.addPostData("is_ntitle", "1");
-                netWork.addPostData("st_type", "notitle");
-                netWork.addPostData("is_location", "2");
-                Address j = zf.n().j(false);
-                if (j != null && TbadkCoreApplication.getInst().getIsLocationOn()) {
-                    netWork.addPostData("lbs", String.valueOf(j.getLatitude()) + "," + String.valueOf(j.getLongitude()));
-                    netWork.addPostData(SuggestAddrField.KEY_LAT, String.valueOf(j.getLatitude()));
-                    netWork.addPostData(SuggestAddrField.KEY_LNG, String.valueOf(j.getLongitude()));
-                }
-                LocationData b = t69.a().b();
-                if (b != null) {
-                    netWork.addPostData("name", b.getFormatted_address());
-                    netWork.addPostData("sn", b.getSn());
-                }
-                netWork.addPostData("is_link_thread", "0");
-                if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
-                    netWork.addPostData("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
-                }
-                netWork.addPostData("tbopen_app_key", em9Var.a);
-                netWork.addPostData("tbopen_app_icon", em9Var.d);
-                netWork.addPostData("tbopen_app_name", em9Var.c);
-                netWork.addPostData("share_abstract", em9Var.h);
-                netWork.addPostData("share_image", str);
-                netWork.addPostData("share_h5_url", em9Var.k);
-                netWork.addPostData("share_naws_app_key", em9Var.b);
-                netWork.addPostData("share_naws_path", em9Var.l);
-                String postNetData = netWork.postNetData();
-                fm9 fm9Var = new fm9();
-                try {
-                    JSONObject jSONObject = new JSONObject(postNetData);
-                    jSONObject.optString("msg");
-                    jSONObject.optString("pre_msg");
-                    fm9Var.b = em9Var.e;
-                    fm9Var.c = jSONObject.optString("tid");
-                    jSONObject.optString("pid");
-                    jSONObject.optString("video_id");
-                } catch (Exception unused) {
-                }
-                ErrorData errorData = new ErrorData();
-                if (netWork.getNetContext().getResponse().isRequestSuccess()) {
-                    errorData.parserJson(postNetData);
-                } else {
-                    if (netWork.isNetSuccess()) {
-                        netErrorCode = netWork.getServerErrorCode();
-                    } else {
-                        netErrorCode = netWork.getNetErrorCode();
-                    }
-                    errorData.setError_code(netErrorCode);
-                    errorData.setError_msg(netWork.getErrorString());
-                }
-                if (errorData.error_code != 0 && !BdNetTypeUtil.isNetWorkAvailable()) {
-                    errorData.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0d11));
-                }
-                fm9Var.a = errorData;
-                try {
-                    new AntiData().parserJson(new JSONObject(postNetData).optJSONObject("anti_stat"));
-                } catch (Exception unused2) {
-                }
-                return fm9Var;
-            }
-            return (fm9) invokeL.objValue;
-        }
-
-        public String c(String str, String str2) {
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(Camera.Size size, Camera.Size size2) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-                String str3 = this.a.a + str2;
-                if (str != null) {
-                    return this.a.a + str + "/" + str2;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, size, size2)) == null) {
+                int i = size.width;
+                int i2 = size2.width;
+                if (i != i2) {
+                    return i - i2;
                 }
-                return str3;
+                return size.height - size2.height;
             }
-            return (String) invokeLL.objValue;
+            return invokeLL.intValue;
         }
     }
 
-    public hm9(BdUniqueId bdUniqueId) {
+    public static int b(Activity activity, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, activity, i)) == null) {
+            if (Build.VERSION.SDK_INT > 8) {
+                Camera.CameraInfo cameraInfo = new Camera.CameraInfo();
+                Camera.getCameraInfo(i, cameraInfo);
+                int e = e(activity);
+                if (cameraInfo.facing == 1) {
+                    return (360 - ((cameraInfo.orientation + e) % 360)) % 360;
+                }
+                return ((cameraInfo.orientation - e) + 360) % 360;
             }
+            return 0;
         }
-        this.a = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
-        this.b = bdUniqueId;
+        return invokeLI.intValue;
     }
 
-    public void c(gm9 gm9Var) {
+    public static int c(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, gm9Var) == null) {
-            this.c = gm9Var;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
+            int numberOfCameras = Camera.getNumberOfCameras();
+            Camera.CameraInfo[] cameraInfoArr = new Camera.CameraInfo[numberOfCameras];
+            for (int i = 0; i < numberOfCameras; i++) {
+                cameraInfoArr[i] = new Camera.CameraInfo();
+                Camera.getCameraInfo(i, cameraInfoArr[i]);
+            }
+            int i2 = -1;
+            int i3 = -1;
+            for (int i4 = 0; i4 < numberOfCameras; i4++) {
+                if (i3 == -1 && cameraInfoArr[i4].facing == 0) {
+                    i3 = i4;
+                } else if (i2 == -1 && cameraInfoArr[i4].facing == 1) {
+                    i2 = i4;
+                }
+            }
+            if (i2 != -1 && z) {
+                return i2;
+            }
+            if (i3 != -1 && !z) {
+                return i3;
+            }
+            if (z && i2 == -1) {
+                return i3;
+            }
+            if (i2 != -1) {
+                return i2;
+            }
+            if (i3 == -1) {
+                return -1;
+            }
+            return i3;
         }
+        return invokeZ.intValue;
     }
 
-    public void d(em9 em9Var) {
+    public static boolean f(boolean z) {
+        InterceptResult invokeZ;
+        int i;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, em9Var) == null) {
-            b bVar = new b(this, null);
-            bVar.setTag(this.b);
-            bVar.execute(em9Var);
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65541, null, z)) == null) {
+            try {
+                int numberOfCameras = Camera.getNumberOfCameras();
+                Camera.CameraInfo[] cameraInfoArr = new Camera.CameraInfo[numberOfCameras];
+                for (int i3 = 0; i3 < numberOfCameras; i3++) {
+                    cameraInfoArr[i3] = new Camera.CameraInfo();
+                    Camera.getCameraInfo(i3, cameraInfoArr[i3]);
+                }
+                i = -1;
+                i2 = -1;
+                for (int i4 = 0; i4 < numberOfCameras; i4++) {
+                    if (i == -1) {
+                        try {
+                            if (cameraInfoArr[i4].facing == 0) {
+                                i = i4;
+                            }
+                        } catch (Exception e) {
+                            e = e;
+                            if (TbadkCoreApplication.getInst().isDebugMode()) {
+                                throw e;
+                            }
+                            if (i2 == -1) {
+                            }
+                            if (i != -1) {
+                            }
+                            return false;
+                        }
+                    }
+                    if (i2 == -1 && cameraInfoArr[i4].facing == 1) {
+                        i2 = i4;
+                    }
+                }
+            } catch (Exception e2) {
+                e = e2;
+                i = -1;
+                i2 = -1;
+            }
+            if (i2 == -1 && z) {
+                return true;
+            }
+            if (i != -1 || z) {
+                return false;
+            }
+            return true;
         }
+        return invokeZ.booleanValue;
+    }
+
+    public static Camera.Size d(Camera camera, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, camera, i, i2)) == null) {
+            List<Camera.Size> supportedPreviewSizes = camera.getParameters().getSupportedPreviewSizes();
+            Camera.Size size = null;
+            Collections.sort(supportedPreviewSizes, new b(null));
+            if (supportedPreviewSizes != null && supportedPreviewSizes.size() > 0) {
+                boolean z = false;
+                Iterator<Camera.Size> it = supportedPreviewSizes.iterator();
+                int i3 = -1;
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    Camera.Size next = it.next();
+                    i3++;
+                    if (next != null && next.width >= i2 && next.height >= i) {
+                        size = next;
+                        z = true;
+                        break;
+                    }
+                }
+                if (!z) {
+                    i3 = supportedPreviewSizes.size() - 1;
+                    size = supportedPreviewSizes.get(i3);
+                }
+                int i4 = ((int) (1080 * ((i2 * 1.0f) / i))) * 1080;
+                while (size.width * size.height > i4 && i3 > 0) {
+                    i3--;
+                    size = supportedPreviewSizes.get(i3);
+                }
+            }
+            return size;
+        }
+        return (Camera.Size) invokeLII.objValue;
+    }
+
+    public static int e(Activity activity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) {
+            int rotation = activity.getWindowManager().getDefaultDisplay().getRotation();
+            if (rotation == 0) {
+                return 0;
+            }
+            if (rotation != 1) {
+                if (rotation != 2) {
+                    if (rotation != 3) {
+                        return 0;
+                    }
+                    return 270;
+                }
+                return 180;
+            }
+            return 90;
+        }
+        return invokeL.intValue;
+    }
+
+    public static boolean g(PackageManager packageManager) {
+        InterceptResult invokeL;
+        FeatureInfo[] systemAvailableFeatures;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, packageManager)) == null) {
+            if (packageManager != null && (systemAvailableFeatures = packageManager.getSystemAvailableFeatures()) != null) {
+                for (FeatureInfo featureInfo : systemAvailableFeatures) {
+                    if (featureInfo != null && "android.hardware.camera.flash".equals(featureInfo.name)) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

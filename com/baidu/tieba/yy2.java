@@ -1,109 +1,88 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import okhttp3.FormBody;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
+import okio.BufferedSink;
 /* loaded from: classes7.dex */
-public class yy2 extends jb3 {
+public final class yy2 extends RequestBody {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xy2 c;
-    public bz2 d;
-    public az2 e;
+    public MediaType a;
+    public final FormBody b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yy2(ja3 ja3Var) {
-        super(ja3Var, "/swanAPI/vrvideo");
+    public yy2(FormBody formBody) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ja3Var};
+            Object[] objArr = {formBody};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = formBody;
     }
 
-    @Override // com.baidu.tieba.jb3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m93 m93Var) {
-        InterceptResult invokeLLLL;
+    public void b(MediaType mediaType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, m93Var)) == null) {
-            m62.b("VrVideoPlayerAction", "handle entity: ", unitedSchemeEntity);
-            return false;
+        if (interceptable == null || interceptable.invokeL(1048576, this, mediaType) == null) {
+            this.a = mediaType;
         }
-        return invokeLLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.jb3
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, m93 m93Var) {
-        InterceptResult invokeLLLLL;
-        char c;
-        boolean c2;
+    @Override // okhttp3.RequestBody
+    public void writeTo(BufferedSink bufferedSink) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, m93Var)) == null) {
-            m62.b("VrVideoPlayerAction", "handleSubAction subAction : " + str + "params : ", jb3.a(unitedSchemeEntity, "params"));
-            int hashCode = str.hashCode();
-            if (hashCode != 533456719) {
-                if (hashCode != 1626770505) {
-                    if (hashCode == 1722535054 && str.equals("/swanAPI/vrvideo/update")) {
-                        c = 1;
-                    }
-                    c = 65535;
-                } else {
-                    if (str.equals("/swanAPI/vrvideo/remove")) {
-                        c = 2;
-                    }
-                    c = 65535;
-                }
-            } else {
-                if (str.equals("/swanAPI/vrvideo/open")) {
-                    c = 0;
-                }
-                c = 65535;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        c2 = false;
-                    } else {
-                        if (this.e == null) {
-                            this.e = new az2("/swanAPI/vrvideo/remove");
-                        }
-                        c2 = this.e.c(context, unitedSchemeEntity, callbackHandler, m93Var);
-                    }
-                } else {
-                    if (this.d == null) {
-                        this.d = new bz2("/swanAPI/vrvideo/update");
-                    }
-                    c2 = this.d.c(context, unitedSchemeEntity, callbackHandler, m93Var);
-                }
-            } else {
-                if (this.c == null) {
-                    this.c = new xy2("/swanAPI/vrvideo/open");
-                }
-                c2 = this.c.c(context, unitedSchemeEntity, callbackHandler, m93Var);
-            }
-            if (!c2 && !super.i(context, unitedSchemeEntity, callbackHandler, str, m93Var)) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bufferedSink) == null) {
+            this.b.writeTo(bufferedSink);
         }
-        return invokeLLLLL.booleanValue;
+    }
+
+    public static yy2 a(FormBody formBody, MediaType mediaType) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, formBody, mediaType)) == null) {
+            yy2 yy2Var = new yy2(formBody);
+            yy2Var.b(mediaType);
+            return yy2Var;
+        }
+        return (yy2) invokeLL.objValue;
+    }
+
+    @Override // okhttp3.RequestBody
+    public long contentLength() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b.contentLength();
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // okhttp3.RequestBody
+    public MediaType contentType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            MediaType mediaType = this.a;
+            if (mediaType == null) {
+                return this.b.contentType();
+            }
+            return mediaType;
+        }
+        return (MediaType) invokeV.objValue;
     }
 }

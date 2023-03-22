@@ -3,7 +3,7 @@ package com.baidu.searchbox.track.ui;
 import android.app.Activity;
 import androidx.annotation.Nullable;
 import com.baidu.android.util.devices.DeviceUtil;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class TraceFragmentCallbackWrapper implements ITraceFragmentCallback {
     public TraceFragmentNativeCallback mTraceFragmentNativeCallback;
     public TraceFragmentXCallback mTraceFragmentXCallback;

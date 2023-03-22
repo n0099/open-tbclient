@@ -1,104 +1,82 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.util.LruCache;
+import android.view.View;
+import android.widget.ImageView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.jf;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
+import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
+import com.baidu.tieba.frs.shrinkhead.LogicField;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import java.util.Collections;
 /* loaded from: classes5.dex */
-public class m67 {
+public class m67 extends j67 {
     public static /* synthetic */ Interceptable $ic;
-    public static m67 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public LruCache<String, String> a;
-    public jf<String> b;
+    public TBSpecificationBtn d;
+    public TBSpecificationBtn e;
+    public ImageView f;
 
     /* loaded from: classes5.dex */
-    public class a extends qw4 {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m67 a;
 
-        public a(m67 m67Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m67Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-650124354, "Lcom/baidu/tieba/m67$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-650124354, "Lcom/baidu/tieba/m67$a;");
                     return;
                 }
             }
-            this.a = m67Var;
-        }
-
-        @Override // com.baidu.tieba.qw4, android.app.Application.ActivityLifecycleCallbacks
-        public void onActivityDestroyed(Activity activity) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && activity != null && activity.getClass().getName().equals("FrsActivity")) {
-                StringBuilder sb = new StringBuilder();
-                for (Map.Entry entry : this.a.a.snapshot().entrySet()) {
-                    sb.append((String) entry.getKey());
-                    sb.append("=");
-                    sb.append((String) entry.getValue());
-                    sb.append(",");
-                }
-                if (sb.length() <= 1) {
-                    return;
-                }
-                sb.deleteCharAt(sb.length() - 1);
-                this.a.b.a("transition_cache_key", sb.toString());
+            int[] iArr = new int[LogicField.values().length];
+            a = iArr;
+            try {
+                iArr[LogicField.LIKE_BTN.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
             }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements jf.a<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m67 a;
-
-        public b(m67 m67Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m67Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+            try {
+                a[LogicField.SIGN_BTN.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
             }
-            this.a = m67Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.jf.a
-        /* renamed from: b */
-        public void a(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && str2 != null && !str2.isEmpty()) {
-                for (String str3 : str2.split(",")) {
-                    String[] split = str3.split("=");
-                    if (split != null && split.length == 2) {
-                        this.a.a.put(split[0], split[1]);
-                    }
-                }
+            try {
+                a[LogicField.SPEED_ICON.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[LogicField.SERVICE_AREA.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                a[LogicField.TOP_AREA.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                a[LogicField.ROUND_CORNER_STYLE.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
+            }
+            try {
+                a[LogicField.TOP_DIVIDER.ordinal()] = 7;
+            } catch (NoSuchFieldError unused7) {
+            }
+            try {
+                a[LogicField.BANNER_AND_BOTTOM_VIEW.ordinal()] = 8;
+            } catch (NoSuchFieldError unused8) {
             }
         }
     }
@@ -113,48 +91,111 @@ public class m67 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new LruCache<>(10);
-        p15.d();
-        this.b = p15.e("tb.recently_vistited_forum_animation");
-        TbadkCoreApplication.getInst().registerActivityLifecycleCallbacks(new a(this));
-        this.b.f("transition_cache_key", new b(this));
     }
 
-    public n67 c(String str) {
+    @Override // com.baidu.tieba.j67
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            n();
+            o();
+            this.f = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0920fe);
+        }
+    }
+
+    public final void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.c.findViewById(R.id.obfuscated_res_0x7f090c62).setVisibility(8);
+            this.c.findViewById(R.id.obfuscated_res_0x7f092896).setVisibility(8);
+        }
+    }
+
+    @Override // com.baidu.tieba.j67, com.baidu.tieba.l67
+    @Nullable
+    public <T> T a(@NonNull LogicField logicField) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (str == null) {
-                return new n67(null);
-            }
-            return new n67(this.a.get(str));
-        }
-        return (n67) invokeL.objValue;
-    }
-
-    public static m67 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (c == null) {
-                synchronized (m67.class) {
-                    if (c == null) {
-                        c = new m67();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, logicField)) == null) {
+            int i = a.a[logicField.ordinal()];
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        return (T) super.a(logicField);
                     }
+                    return (T) this.f;
                 }
+                return (T) Collections.singletonList(this.e);
             }
-            return c;
+            return (T) Collections.singletonList(this.d);
         }
-        return (m67) invokeV.objValue;
+        return (T) invokeL.objValue;
     }
 
-    public void e(String str, n67 n67Var) {
+    @Override // com.baidu.tieba.j67, com.baidu.tieba.l67
+    public int l(@NonNull LogicField logicField) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, n67Var) == null) {
-            this.a.put(str, n67Var.toString());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, logicField)) == null) {
+            switch (a.a[logicField.ordinal()]) {
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                    return 0;
+                case 8:
+                    return 8;
+                default:
+                    return super.l(logicField);
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // com.baidu.tieba.r67
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            if (z) {
+                this.d.setVisibility(8);
+                this.e.setVisibility(0);
+                return;
+            }
+            this.d.setVisibility(0);
+            this.e.setVisibility(8);
+        }
+    }
+
+    @Override // com.baidu.tieba.r67
+    public void h(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
+            this.d.setOnClickListener(onClickListener);
+            this.e.setOnClickListener(onClickListener);
+        }
+    }
+
+    public final void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f0925b5);
+            this.d = tBSpecificationBtn;
+            tBSpecificationBtn.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f02ba));
+            this.d.setTextSize(R.dimen.T_X08);
+            k45 k45Var = new k45();
+            k45Var.r(R.color.CAM_X0901, R.color.CAM_X0105);
+            this.d.setConfig(k45Var);
+            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f0925ff);
+            this.e = tBSpecificationBtn2;
+            tBSpecificationBtn2.setTextSize(R.dimen.T_X08);
+            k45 k45Var2 = new k45();
+            k45Var2.w(R.color.CAM_X0105);
+            k45Var2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds39));
+            k45Var2.i(R.drawable.obfuscated_res_0x7f0809c1, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            this.e.setConfig(k45Var2);
+            this.e.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f1269));
         }
     }
 }

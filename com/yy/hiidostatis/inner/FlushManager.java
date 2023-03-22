@@ -9,7 +9,7 @@ import android.os.Handler;
 import android.os.Looper;
 import com.yy.hiidostatis.inner.util.Counter;
 import com.yy.hiidostatis.inner.util.log.L;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class FlushManager {
     public static final Object OBJ_KEY = new Object();
     public static Handler mHandler = new Handler(Looper.getMainLooper());
@@ -17,12 +17,12 @@ public class FlushManager {
     public ConnectionChangeReceiver mReceiver;
     public ReportTimer mReportTimer = new ReportTimer();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface FlushListener {
         void fluch(Context context);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class ConnectionChangeReceiver extends BroadcastReceiver {
         public ConnectionChangeReceiver() {
         }
@@ -54,7 +54,7 @@ public class FlushManager {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class ReportTimer {
         public static final long DEFAULT_INTERVAL = 1800000;
         public static final long MAX_INTERVAL = 3600000;

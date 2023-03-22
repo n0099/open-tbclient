@@ -1,36 +1,64 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.searchbox.config.QuickPersistConfigConst;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class lj2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947944725, "Lcom/baidu/tieba/lj2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static String a() {
+        InterceptResult invokeV;
+        String optString;
+        int indexOf;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            t73 b0 = t73.b0();
+            JSONObject jSONObject = new JSONObject();
+            if (b0 != null) {
+                jSONObject = b0.W().M();
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947944725, "Lcom/baidu/tieba/lj2;");
-                return;
+            if (jSONObject != null && (optString = jSONObject.optString("keyfeed")) != null && (indexOf = optString.indexOf("_")) >= 0 && TextUtils.equals("miniapp", optString.substring(0, indexOf))) {
+                return optString.substring(indexOf + 1);
             }
+            return "";
         }
-        a = wp1.a;
-        ts2.g0().getSwitch("swan_js_event_dispatch_opt", 0);
-        b = false;
-        if (a) {
-            Log.d("MessageDispatchOptSwitch", "swan_js_event_dispatch_opt - " + b);
+        return (String) invokeV.objValue;
+    }
+
+    public static Map<String, Object> b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put(GameGuideConfigInfo.KEY_APP_KEY, str);
+            hashMap.put("op_type", str2);
+            String a = a();
+            if (!TextUtils.isEmpty(a)) {
+                hashMap.put("nid", a);
+            }
+            return hashMap;
         }
+        return (Map) invokeLL.objValue;
+    }
+
+    public static Map<String, Object> c(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put(GameGuideConfigInfo.KEY_APP_KEY, str);
+            hashMap.put(QuickPersistConfigConst.KEY_SPLASH_SORT, Integer.valueOf(i));
+            hashMap.put("op_type", "add");
+            return hashMap;
+        }
+        return (Map) invokeLI.objValue;
     }
 }

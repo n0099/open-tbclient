@@ -1,142 +1,197 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import android.util.Base64;
+import com.baidu.android.common.security.RSAUtil;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.huawei.hms.framework.common.ExceptionCode;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidKeyException;
+import java.security.Key;
+import java.security.KeyFactory;
+import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.X509EncodedKeySpec;
+import javax.crypto.BadPaddingException;
+import javax.crypto.Cipher;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 /* loaded from: classes4.dex */
-public class eu3 implements xt3 {
+public class eu3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fu3 a;
-    public int b;
-    public boolean c;
 
-    public eu3(@NonNull Context context) {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:35:0x004e */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x005f A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r0v2 */
+    /* JADX WARN: Type inference failed for: r0v3 */
+    /* JADX WARN: Type inference failed for: r0v4, types: [java.io.ByteArrayOutputStream] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static byte[] a(byte[] bArr, Key key, int i) {
+        InterceptResult invokeLLI;
+        ByteArrayOutputStream byteArrayOutputStream;
+        byte[] doFinal;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = -1;
-        c(context);
-    }
-
-    public final void e(int i) {
-        int a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            du3 f = ku3.f();
-            int i2 = f.a;
-            if (i2 < 1) {
-                i2 = 10;
-            }
-            if (f.a() <= 0) {
-                a = ExceptionCode.CRASH_EXCEPTION;
-            } else {
-                a = f.a();
-            }
-            int f2 = this.a.f(i2, a, i2, a);
-            this.b = f2;
-            if (f2 != -1) {
-                this.a.e(f2, i);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.xt3
-    public void a() {
-        fu3 fu3Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c && (fu3Var = this.a) != null && fu3Var.c()) {
-            this.c = false;
-            if (this.a.b()) {
-                g();
-            } else {
-                f();
-            }
-        }
-    }
-
-    public final void f() {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (i = this.b) != -1) {
-            this.a.d(i);
-            this.a.j(this.b);
-        }
-    }
-
-    public final void g() {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (i = this.b) != -1) {
-            this.a.d(i);
-            this.a.i(this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.xt3
-    public void b(int i) {
-        fu3 fu3Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && !this.c && (fu3Var = this.a) != null && fu3Var.c()) {
-            this.c = true;
-            if (this.a.b()) {
-                e(i);
-            } else {
-                d(i);
-            }
-        }
-    }
-
-    public final void c(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.a == null) {
-            this.a = fu3.a(context);
-        }
-    }
-
-    public final void d(int i) {
-        int a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            int g = this.a.g();
-            this.b = g;
-            if (g != -1) {
-                du3 f = ku3.f();
-                int i2 = f.a;
-                if (i2 < 1) {
-                    i2 = 10;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, bArr, key, i)) == null) {
+            ?? r0 = 0;
+            if (bArr != null && bArr.length != 0 && key != null) {
+                try {
+                    if (i > 0) {
+                        try {
+                            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+                            cipher.init(1, key);
+                            byteArrayOutputStream = new ByteArrayOutputStream();
+                            try {
+                                int length = bArr.length;
+                                int i2 = 0;
+                                while (true) {
+                                    int i3 = length - i2;
+                                    if (i3 <= 0) {
+                                        break;
+                                    }
+                                    if (i3 > i) {
+                                        doFinal = cipher.doFinal(bArr, i2, i);
+                                    } else {
+                                        doFinal = cipher.doFinal(bArr, i2, i3);
+                                    }
+                                    byteArrayOutputStream.write(doFinal, 0, doFinal.length);
+                                    i2 += i;
+                                }
+                                byte[] byteArray = byteArrayOutputStream.toByteArray();
+                                try {
+                                    byteArrayOutputStream.close();
+                                } catch (IOException e) {
+                                    e.printStackTrace();
+                                }
+                                return byteArray;
+                            } catch (InvalidKeyException e2) {
+                                e = e2;
+                                e.printStackTrace();
+                                if (byteArrayOutputStream != null) {
+                                    try {
+                                        byteArrayOutputStream.close();
+                                    } catch (IOException e3) {
+                                        e3.printStackTrace();
+                                    }
+                                }
+                                return null;
+                            } catch (NoSuchAlgorithmException e4) {
+                                e = e4;
+                                e.printStackTrace();
+                                if (byteArrayOutputStream != null) {
+                                }
+                                return null;
+                            } catch (BadPaddingException e5) {
+                                e = e5;
+                                e.printStackTrace();
+                                if (byteArrayOutputStream != null) {
+                                }
+                                return null;
+                            } catch (IllegalBlockSizeException e6) {
+                                e = e6;
+                                e.printStackTrace();
+                                if (byteArrayOutputStream != null) {
+                                }
+                                return null;
+                            } catch (NoSuchPaddingException e7) {
+                                e = e7;
+                                e.printStackTrace();
+                                if (byteArrayOutputStream != null) {
+                                }
+                                return null;
+                            }
+                        } catch (InvalidKeyException e8) {
+                            e = e8;
+                            byteArrayOutputStream = null;
+                            e.printStackTrace();
+                            if (byteArrayOutputStream != null) {
+                            }
+                            return null;
+                        } catch (NoSuchAlgorithmException e9) {
+                            e = e9;
+                            byteArrayOutputStream = null;
+                            e.printStackTrace();
+                            if (byteArrayOutputStream != null) {
+                            }
+                            return null;
+                        } catch (BadPaddingException e10) {
+                            e = e10;
+                            byteArrayOutputStream = null;
+                            e.printStackTrace();
+                            if (byteArrayOutputStream != null) {
+                            }
+                            return null;
+                        } catch (IllegalBlockSizeException e11) {
+                            e = e11;
+                            byteArrayOutputStream = null;
+                            e.printStackTrace();
+                            if (byteArrayOutputStream != null) {
+                            }
+                            return null;
+                        } catch (NoSuchPaddingException e12) {
+                            e = e12;
+                            byteArrayOutputStream = null;
+                            e.printStackTrace();
+                            if (byteArrayOutputStream != null) {
+                            }
+                            return null;
+                        } catch (Throwable th) {
+                            th = th;
+                            if (r0 != 0) {
+                                try {
+                                    r0.close();
+                                } catch (IOException e13) {
+                                    e13.printStackTrace();
+                                }
+                            }
+                            throw th;
+                        }
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    r0 = key;
                 }
-                if (f.a() <= 0) {
-                    a = ExceptionCode.CRASH_EXCEPTION;
-                } else {
-                    a = f.a();
-                }
-                int i3 = i2;
-                this.a.h(this.b, 0, i3, -1, -1, -1);
-                this.a.h(this.b, 2, i3, i2, -1, -1);
-                int i4 = a;
-                this.a.h(this.b, 4, i4, -1, -1, -1);
-                this.a.h(this.b, 6, i4, a, -1, -1);
-                this.a.h(this.b, 15, i2, i2, i2, i2);
-                this.a.h(this.b, 17, a, a, a, a);
-                this.a.e(this.b, i);
+            }
+            return null;
+        }
+        return (byte[]) invokeLLI.objValue;
+    }
+
+    public static byte[] b(byte[] bArr, String str, int i) {
+        InterceptResult invokeLLI;
+        PublicKey c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, bArr, str, i)) == null) {
+            if (bArr == null || bArr.length == 0 || TextUtils.isEmpty(str) || i <= 0 || (c = c(str)) == null) {
+                return null;
+            }
+            return a(bArr, c, i);
+        }
+        return (byte[]) invokeLLI.objValue;
+    }
+
+    public static PublicKey c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes(IMAudioTransRequest.CHARSET), 0)));
+            } catch (UnsupportedEncodingException | NoSuchAlgorithmException | InvalidKeySpecException e) {
+                e.printStackTrace();
+                return null;
             }
         }
+        return (PublicKey) invokeL.objValue;
     }
 }

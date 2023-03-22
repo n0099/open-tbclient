@@ -1,253 +1,686 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.media.MediaCodec;
-import android.media.MediaCrypto;
-import android.media.MediaExtractor;
-import android.media.MediaFormat;
 import android.text.TextUtils;
-import android.view.Surface;
-import com.baidu.tieba.pz9;
-import com.baidu.tieba.sz9;
+import android.util.Pair;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.FileOutputStream;
+import com.baidu.turbonet.net.TurbonetEngine;
+import com.baidu.turbonet.net.UrlRequest;
+import com.baidu.turbonet.net.UrlRequestException;
+import com.baidu.turbonet.net.UrlResponseInfo;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
 import java.nio.ByteBuffer;
+import java.util.AbstractMap;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 /* loaded from: classes5.dex */
-public class oz9 extends pz9 {
+public class oz9 extends HttpURLConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final TurbonetEngine a;
+    public final rz9 b;
+    public UrlRequest c;
+    public final List<Pair<String, String>> d;
+    public pz9 e;
+    public qz9 f;
+    public UrlResponseInfo g;
+    public UrlRequestException h;
+    public boolean i;
+    public boolean j;
+    public List<Map.Entry<String, String>> k;
+    public Map<String, List<String>> l;
+    public boolean m;
+    public boolean n;
+    public boolean o;
+    public String p;
+    public String q;
+    public int r;
+    public boolean s;
+    public boolean t;
+
+    @Override // java.net.HttpURLConnection
+    public boolean usingProxy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends UrlRequest.Callback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ oz9 a;
+
+        public a(oz9 oz9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {oz9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = oz9Var;
+        }
+
+        @Override // com.baidu.turbonet.net.UrlRequest.Callback
+        public void a(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, urlRequest, urlResponseInfo) == null) {
+                this.a.g = urlResponseInfo;
+                g(new IOException("stream closed"));
+            }
+        }
+
+        @Override // com.baidu.turbonet.net.UrlRequest.Callback
+        public void e(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048580, this, urlRequest, urlResponseInfo) == null) {
+                this.a.g = urlResponseInfo;
+                this.a.b.quit();
+            }
+        }
+
+        @Override // com.baidu.turbonet.net.UrlRequest.Callback
+        public void b(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo, UrlRequestException urlRequestException) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, urlRequest, urlResponseInfo, urlRequestException) == null) {
+                if (urlRequestException != null) {
+                    dz9.c("cr_CronetHttpURLConn", "****** onFailed, url is: %s, error is: %s", this.a.getURL().toString(), urlRequestException);
+                    this.a.g = urlResponseInfo;
+                    this.a.h = urlRequestException;
+                    g(this.a.h);
+                    return;
+                }
+                throw new IllegalStateException("Exception cannot be null in onFailed.");
+            }
+        }
+
+        @Override // com.baidu.turbonet.net.UrlRequest.Callback
+        public void c(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo, ByteBuffer byteBuffer) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, urlRequest, urlResponseInfo, byteBuffer) == null) {
+                this.a.g = urlResponseInfo;
+                this.a.b.quit();
+            }
+        }
+
+        @Override // com.baidu.turbonet.net.UrlRequest.Callback
+        public void d(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048579, this, urlRequest, urlResponseInfo, str) == null) {
+                this.a.i = true;
+                try {
+                    URL url = new URL(str);
+                    boolean equals = url.getProtocol().equals(((HttpURLConnection) this.a).url.getProtocol());
+                    if (((HttpURLConnection) this.a).instanceFollowRedirects) {
+                        ((HttpURLConnection) this.a).url = url;
+                    }
+                    if (((HttpURLConnection) this.a).instanceFollowRedirects && (equals || this.a.o)) {
+                        this.a.c.d();
+                        return;
+                    }
+                } catch (MalformedURLException unused) {
+                }
+                this.a.g = urlResponseInfo;
+                this.a.c.cancel();
+                g(null);
+            }
+        }
+
+        @Override // com.baidu.turbonet.net.UrlRequest.Callback
+        public void f(UrlRequest urlRequest, UrlResponseInfo urlResponseInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048581, this, urlRequest, urlResponseInfo) == null) {
+                dz9.h("cr_CronetHttpURLConn", "****** Request Completed, url is %s, status code is %d, total received bytes is %d", urlResponseInfo.h(), Integer.valueOf(urlResponseInfo.c()), Long.valueOf(urlResponseInfo.g()));
+                this.a.g = urlResponseInfo;
+                g(null);
+            }
+        }
+
+        public final void g(IOException iOException) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, iOException) == null) {
+                if (this.a.e != null) {
+                    this.a.e.d(iOException);
+                }
+                if (this.a.f != null) {
+                    this.a.f.h(iOException);
+                }
+                this.a.j = true;
+                this.a.b.quit();
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public oz9(String str) {
-        super(str);
+    public oz9(URL url, TurbonetEngine turbonetEngine) {
+        super(url);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {url, turbonetEngine};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
+                super((URL) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.i = false;
+        this.j = false;
+        this.o = false;
+        this.r = 0;
+        this.s = false;
+        this.t = false;
+        this.a = turbonetEngine;
+        this.b = new rz9(getURL().toString());
+        this.e = new pz9(this);
+        this.d = new ArrayList();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:49:0x015c A[Catch: all -> 0x0282, TryCatch #0 {all -> 0x0282, blocks: (B:27:0x00e3, B:29:0x00e9, B:31:0x00f2, B:47:0x0156, B:49:0x015c, B:51:0x0162, B:52:0x016f, B:55:0x0175, B:57:0x0178, B:59:0x0192, B:61:0x0198, B:63:0x01a6, B:65:0x01ac, B:69:0x01b9, B:76:0x01c9, B:78:0x01d0, B:79:0x01d9, B:81:0x01f7, B:83:0x0201, B:86:0x020f, B:89:0x021c, B:33:0x010d, B:35:0x0115, B:39:0x0126, B:44:0x0143, B:42:0x0131, B:93:0x0240, B:95:0x0246, B:96:0x024e), top: B:108:0x00e3 }] */
-    /* JADX WARN: Removed duplicated region for block: B:84:0x0209  */
-    @TargetApi(16)
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public pz9.b a(String str, boolean z, sz9.f fVar, sz9.f fVar2, long j, long j2, long j3) throws Exception {
-        InterceptResult invokeCommon;
-        MediaFormat mediaFormat;
-        ByteBuffer[] byteBufferArr;
-        long j4;
-        int dequeueOutputBuffer;
-        ByteBuffer[] byteBufferArr2;
-        byte[] bArr;
-        byte[] bArr2;
-        byte[] bArr3;
+    @Override // java.net.URLConnection
+    public final void addRequestProperty(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Boolean.valueOf(z), fVar, fVar2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            sz9.f fVar3 = fVar2;
-            long j5 = j2;
-            if (!TextUtils.isEmpty(str) && fVar != null && fVar3 != null) {
-                long currentTimeMillis = System.currentTimeMillis();
-                String str2 = this.a;
-                MediaExtractor mediaExtractor = new MediaExtractor();
-                mediaExtractor.setDataSource(str2);
-                int i = 0;
-                while (true) {
-                    if (i < mediaExtractor.getTrackCount()) {
-                        mediaFormat = mediaExtractor.getTrackFormat(i);
-                        if (mediaFormat.getString("mime").startsWith("audio/")) {
-                            mediaExtractor.selectTrack(i);
-                            break;
-                        }
-                        i++;
-                    } else {
-                        mediaFormat = null;
-                        break;
-                    }
-                }
-                d1a.c("AndroidAudioDecoder", "startTime:" + j + ",endTime:" + j5);
-                if (j > 0) {
-                    mediaExtractor.seekTo(j * 1000, 0);
-                }
-                if (mediaFormat == null) {
-                    d1a.b("not a valid file with audio track..");
-                    mediaExtractor.release();
-                    return null;
-                }
-                d1a.b("mediaFormat " + mediaFormat);
-                pz9.b bVar = new pz9.b();
-                int i2 = fVar3.b;
-                int i3 = fVar3.a;
-                int i4 = fVar3.c;
-                bVar.a = str;
-                FileOutputStream fileOutputStream = new FileOutputStream(bVar.a);
-                MediaCodec createDecoderByType = MediaCodec.createDecoderByType(mediaFormat.getString("mime"));
-                createDecoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 0);
-                createDecoderByType.start();
-                ByteBuffer[] inputBuffers = createDecoderByType.getInputBuffers();
-                ByteBuffer[] outputBuffers = createDecoderByType.getOutputBuffers();
-                double d = mediaFormat.getLong("durationUs");
-                MediaCodec.BufferInfo bufferInfo = new MediaCodec.BufferInfo();
-                boolean z2 = false;
-                boolean z3 = false;
-                ByteBuffer[] byteBufferArr3 = outputBuffers;
-                while (!z2) {
-                    long j6 = currentTimeMillis;
-                    if (!z3) {
-                        try {
-                            int dequeueInputBuffer = createDecoderByType.dequeueInputBuffer(5000L);
-                            if (dequeueInputBuffer >= 0) {
-                                int readSampleData = mediaExtractor.readSampleData(inputBuffers[dequeueInputBuffer], 0);
-                                if (readSampleData < 0) {
-                                    d1a.b("saw input EOS.");
-                                    createDecoderByType.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
-                                    byteBufferArr = inputBuffers;
-                                    j4 = 5000;
-                                } else {
-                                    long sampleTime = mediaExtractor.getSampleTime();
-                                    if (j3 != 0) {
-                                        byteBufferArr = inputBuffers;
-                                        mediaExtractor.seekTo(sampleTime + j3, 0);
-                                    } else {
-                                        byteBufferArr = inputBuffers;
-                                    }
-                                    if (j5 != -1 && sampleTime + j3 >= j5 * 1000) {
-                                        createDecoderByType.queueInputBuffer(dequeueInputBuffer, 0, 0, 0L, 4);
-                                        j4 = 5000;
-                                    }
-                                    createDecoderByType.queueInputBuffer(dequeueInputBuffer, 0, readSampleData, sampleTime, 0);
-                                    mediaExtractor.advance();
-                                    j4 = 5000;
-                                    dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, j4);
-                                    if (dequeueOutputBuffer >= 0) {
-                                        if ((bufferInfo.flags & 2) != 0) {
-                                            d1a.b("audio encoder: codec config buffer");
-                                            createDecoderByType.releaseOutputBuffer(dequeueOutputBuffer, false);
-                                            inputBuffers = byteBufferArr;
-                                            currentTimeMillis = j6;
-                                        } else {
-                                            if (bufferInfo.size != 0 && dequeueOutputBuffer >= 0 && byteBufferArr3.length > dequeueOutputBuffer) {
-                                                ByteBuffer byteBuffer = byteBufferArr3[dequeueOutputBuffer];
-                                                byteBuffer.position(bufferInfo.offset);
-                                                byteBufferArr2 = byteBufferArr3;
-                                                byteBuffer.limit(bufferInfo.offset + bufferInfo.size);
-                                                byte[] bArr4 = new byte[bufferInfo.size];
-                                                byteBuffer.get(bArr4);
-                                                if (!z) {
-                                                    if (fVar2.a()) {
-                                                        bArr2 = sz9.c(fVar3.c / 8, fVar.c / 8, bArr4);
-                                                    } else {
-                                                        bArr2 = null;
-                                                    }
-                                                    if (fVar2.b()) {
-                                                        int i5 = fVar3.b;
-                                                        int i6 = fVar.b;
-                                                        int i7 = fVar.c / 8;
-                                                        if (bArr2 == null) {
-                                                            bArr3 = bArr4;
-                                                        } else {
-                                                            bArr3 = bArr2;
-                                                        }
-                                                        bArr = sz9.d(i5, i6, i7, bArr3);
-                                                    } else {
-                                                        bArr = null;
-                                                    }
-                                                } else {
-                                                    bArr = null;
-                                                    bArr2 = null;
-                                                }
-                                                if (bArr == null) {
-                                                    if (bArr2 == null) {
-                                                        bArr = bArr4;
-                                                    } else {
-                                                        bArr = bArr2;
-                                                    }
-                                                }
-                                                fileOutputStream.write(bArr);
-                                                if (this.b != null) {
-                                                    this.b.a(bArr4, bufferInfo.presentationTimeUs / d);
-                                                }
-                                                d1a.b(this.a + " presentationTimeUs : " + bufferInfo.presentationTimeUs);
-                                            } else {
-                                                byteBufferArr2 = byteBufferArr3;
-                                            }
-                                            createDecoderByType.releaseOutputBuffer(dequeueOutputBuffer, false);
-                                            if ((bufferInfo.flags & 4) != 0) {
-                                                d1a.b("saw output EOS.");
-                                                z2 = true;
-                                            }
-                                        }
-                                    } else {
-                                        byteBufferArr2 = byteBufferArr3;
-                                        if (dequeueOutputBuffer == -3) {
-                                            byteBufferArr3 = createDecoderByType.getOutputBuffers();
-                                            d1a.b("output buffers have changed.");
-                                            fVar3 = fVar2;
-                                            inputBuffers = byteBufferArr;
-                                            j5 = j2;
-                                            currentTimeMillis = j6;
-                                        } else if (dequeueOutputBuffer == -2) {
-                                            d1a.b("output format has changed to " + createDecoderByType.getOutputFormat());
-                                        }
-                                    }
-                                    byteBufferArr3 = byteBufferArr2;
-                                    fVar3 = fVar2;
-                                    inputBuffers = byteBufferArr;
-                                    j5 = j2;
-                                    currentTimeMillis = j6;
-                                }
-                                z3 = true;
-                                dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, j4);
-                                if (dequeueOutputBuffer >= 0) {
-                                }
-                                byteBufferArr3 = byteBufferArr2;
-                                fVar3 = fVar2;
-                                inputBuffers = byteBufferArr;
-                                j5 = j2;
-                                currentTimeMillis = j6;
-                            }
-                        } finally {
-                            fileOutputStream.close();
-                            createDecoderByType.stop();
-                            createDecoderByType.release();
-                            mediaExtractor.release();
-                        }
-                    }
-                    byteBufferArr = inputBuffers;
-                    j4 = 5000;
-                    dequeueOutputBuffer = createDecoderByType.dequeueOutputBuffer(bufferInfo, j4);
-                    if (dequeueOutputBuffer >= 0) {
-                    }
-                    byteBufferArr3 = byteBufferArr2;
-                    fVar3 = fVar2;
-                    inputBuffers = byteBufferArr;
-                    j5 = j2;
-                    currentTimeMillis = j6;
-                }
-                long j7 = currentTimeMillis;
-                if (this.b != null) {
-                    this.b.a(null, 1.0d);
-                }
-                d1a.b("decode " + str + " cost " + (System.currentTimeMillis() - j7) + " milliseconds !");
-                return bVar;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+            A(str, str2, false);
+        }
+    }
+
+    @Override // java.net.URLConnection
+    public final void setRequestProperty(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048597, this, str, str2) == null) {
+            A(str, str2, true);
+        }
+    }
+
+    @Override // java.net.HttpURLConnection, java.net.URLConnection
+    public final String getHeaderField(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            Map.Entry<String, String> t = t(i);
+            if (t == null) {
+                return null;
+            }
+            return t.getValue();
+        }
+        return (String) invokeI.objValue;
+    }
+
+    @Override // java.net.HttpURLConnection, java.net.URLConnection
+    public final String getHeaderFieldKey(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+            Map.Entry<String, String> t = t(i);
+            if (t == null) {
+                return null;
+            }
+            return t.getKey();
+        }
+        return (String) invokeI.objValue;
+    }
+
+    @Override // java.net.URLConnection
+    public String getRequestProperty(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            int q = q(str);
+            if (q >= 0) {
+                return (String) this.d.get(q).second;
             }
             return null;
         }
-        return (pz9.b) invokeCommon.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public final int q(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
+            for (int i = 0; i < this.d.size(); i++) {
+                if (((String) this.d.get(i).first).equalsIgnoreCase(str)) {
+                    return i;
+                }
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public final Map.Entry<String, String> t(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
+            try {
+                w();
+                List<Map.Entry<String, String>> s = s();
+                if (i >= s.size()) {
+                    return null;
+                }
+                return s.get(i);
+            } catch (IOException unused) {
+                return null;
+            }
+        }
+        return (Map.Entry) invokeI.objValue;
+    }
+
+    public void u(ByteBuffer byteBuffer) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, byteBuffer) == null) {
+            this.c.read(byteBuffer);
+            this.b.b(getReadTimeout());
+        }
+    }
+
+    public final void A(String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048576, this, str, str2, z) == null) {
+            if (!((HttpURLConnection) this).connected) {
+                int q = q(str);
+                if (q >= 0) {
+                    if (z) {
+                        this.d.remove(q);
+                    } else {
+                        throw new UnsupportedOperationException("Cannot add multiple headers of the same key, " + str + ". crbug.com/432719.");
+                    }
+                }
+                this.d.add(Pair.create(str, str2));
+                return;
+            }
+            throw new IllegalStateException("Cannot modify request property after connection is made.");
+        }
+    }
+
+    public final void B() throws IOException {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || ((HttpURLConnection) this).connected) {
+            return;
+        }
+        UrlRequest.Builder builder = new UrlRequest.Builder(getURL().toString(), new a(this), this.b, this.a);
+        if (((HttpURLConnection) this).doOutput) {
+            if (((HttpURLConnection) this).method.equals("GET")) {
+                ((HttpURLConnection) this).method = "POST";
+            }
+            qz9 qz9Var = this.f;
+            if (qz9Var != null) {
+                builder.k(qz9Var.f(), this.b);
+                if (getRequestProperty("Content-Length") == null && !z()) {
+                    addRequestProperty("Content-Length", Long.toString(this.f.f().a()));
+                }
+                this.f.g();
+            } else if (getRequestProperty("Content-Length") == null) {
+                addRequestProperty("Content-Length", "0");
+            }
+            if (getRequestProperty("Content-Type") == null) {
+                addRequestProperty("Content-Type", "application/x-www-form-urlencoded");
+            }
+        }
+        for (Pair<String, String> pair : this.d) {
+            builder.a((String) pair.first, (String) pair.second);
+        }
+        if (!getUseCaches()) {
+            builder.c();
+        }
+        builder.f(((HttpURLConnection) this).method);
+        if (this.m) {
+            builder.d();
+        }
+        if (this.n) {
+            builder.l();
+        }
+        if (!TextUtils.isEmpty(this.p)) {
+            builder.e(this.p);
+        }
+        if (!TextUtils.isEmpty(this.q)) {
+            builder.g(this.q);
+        }
+        builder.i(getConnectTimeout());
+        builder.h(getReadTimeout());
+        builder.j(v());
+        ((HttpURLConnection) this).connected = true;
+        UrlRequest b = builder.b();
+        this.c = b;
+        b.start();
+    }
+
+    @Override // java.net.URLConnection
+    public void connect() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            getOutputStream();
+            B();
+        }
+    }
+
+    @Override // java.net.HttpURLConnection
+    public void disconnect() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && ((HttpURLConnection) this).connected) {
+            this.c.cancel();
+        }
+    }
+
+    @Override // java.net.HttpURLConnection
+    public InputStream getErrorStream() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            try {
+                w();
+                if (this.g.c() < 400) {
+                    return null;
+                }
+                return this.e;
+            } catch (IOException unused) {
+                return null;
+            }
+        }
+        return (InputStream) invokeV.objValue;
+    }
+
+    @Override // java.net.URLConnection
+    public Map<String, List<String>> getHeaderFields() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            try {
+                w();
+                return r();
+            } catch (IOException unused) {
+                return Collections.emptyMap();
+            }
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    @Override // java.net.HttpURLConnection
+    public int getResponseCode() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            w();
+            return this.g.c();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // java.net.HttpURLConnection
+    public String getResponseMessage() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            w();
+            return this.g.d();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void o() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            if (this.j) {
+                UrlRequestException urlRequestException = this.h;
+                if (urlRequestException == null) {
+                    if (this.g != null) {
+                        return;
+                    }
+                    throw new NullPointerException("Response info is null when there is no exception.");
+                }
+                throw urlRequestException;
+            }
+            throw new IllegalStateException("No response.");
+        }
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            this.o = true;
+        }
+    }
+
+    public int v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return this.r;
+        }
+        return invokeV.intValue;
+    }
+
+    public final long x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            long j = ((HttpURLConnection) this).fixedContentLength;
+            try {
+                long j2 = getClass().getField("fixedContentLengthLong").getLong(this);
+                if (j2 != -1) {
+                    return j2;
+                }
+                return j;
+            } catch (Exception unused) {
+                return j;
+            }
+        }
+        return invokeV.longValue;
+    }
+
+    public UrlResponseInfo y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            return this.g;
+        }
+        return (UrlResponseInfo) invokeV.objValue;
+    }
+
+    public final boolean z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            if (((HttpURLConnection) this).chunkLength > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // java.net.URLConnection
+    public final String getHeaderField(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            try {
+                w();
+                Map<String, List<String>> r = r();
+                if (!r.containsKey(str)) {
+                    return null;
+                }
+                List<String> list = r.get(str);
+                return list.get(list.size() - 1);
+            } catch (IOException unused) {
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // java.net.URLConnection
+    public InputStream getInputStream() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            w();
+            if (!((HttpURLConnection) this).instanceFollowRedirects && this.i) {
+                throw new IOException("Cannot read response body of a redirect.");
+            }
+            if (this.g.c() < 400) {
+                return this.e;
+            }
+            throw new FileNotFoundException(((HttpURLConnection) this).url.toString());
+        }
+        return (InputStream) invokeV.objValue;
+    }
+
+    public final void w() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
+            qz9 qz9Var = this.f;
+            if (qz9Var != null) {
+                qz9Var.e();
+                if (z()) {
+                    this.f.close();
+                }
+            }
+            if (!this.j) {
+                B();
+                this.b.b(getReadTimeout());
+                this.j = true;
+            }
+            o();
+        }
+    }
+
+    @Override // java.net.URLConnection
+    public OutputStream getOutputStream() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (this.f == null && ((HttpURLConnection) this).doOutput) {
+                if (!((HttpURLConnection) this).connected) {
+                    if (z()) {
+                        this.f = new mz9(this, ((HttpURLConnection) this).chunkLength, this.b, this.s, this.t);
+                        B();
+                    } else {
+                        long x = x();
+                        if (x != -1) {
+                            this.f = new nz9(this, x, this.b);
+                            B();
+                        } else {
+                            dz9.a("cr_CronetHttpURLConn", "Outputstream is being buffered in memory.");
+                            String requestProperty = getRequestProperty("Content-Length");
+                            if (requestProperty == null) {
+                                this.f = new lz9(this);
+                            } else {
+                                try {
+                                    this.f = new lz9(this, Long.parseLong(requestProperty));
+                                } catch (NumberFormatException unused) {
+                                    dz9.c("cr_CronetHttpURLConn", "CONTENT_LENGTH has wrong format.", new Object[0]);
+                                    this.f = new lz9(this);
+                                }
+                            }
+                        }
+                    }
+                } else {
+                    throw new ProtocolException("Cannot write to OutputStream after receiving response.");
+                }
+            }
+            return this.f;
+        }
+        return (OutputStream) invokeV.objValue;
+    }
+
+    public final Map<String, List<String>> r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+            Map<String, List<String>> map = this.l;
+            if (map != null) {
+                return map;
+            }
+            TreeMap treeMap = new TreeMap(String.CASE_INSENSITIVE_ORDER);
+            for (Map.Entry<String, String> entry : s()) {
+                ArrayList arrayList = new ArrayList();
+                if (treeMap.containsKey(entry.getKey())) {
+                    arrayList.addAll((Collection) treeMap.get(entry.getKey()));
+                }
+                arrayList.add(entry.getValue());
+                treeMap.put(entry.getKey(), Collections.unmodifiableList(arrayList));
+            }
+            Map<String, List<String>> unmodifiableMap = Collections.unmodifiableMap(treeMap);
+            this.l = unmodifiableMap;
+            return unmodifiableMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    @Override // java.net.URLConnection
+    public Map<String, List<String>> getRequestProperties() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (!((HttpURLConnection) this).connected) {
+                TreeMap treeMap = new TreeMap(String.CASE_INSENSITIVE_ORDER);
+                for (Pair<String, String> pair : this.d) {
+                    if (!treeMap.containsKey(pair.first)) {
+                        ArrayList arrayList = new ArrayList();
+                        arrayList.add(pair.second);
+                        treeMap.put(pair.first, Collections.unmodifiableList(arrayList));
+                    } else {
+                        throw new IllegalStateException("Should not have multiple values.");
+                    }
+                }
+                return Collections.unmodifiableMap(treeMap);
+            }
+            throw new IllegalStateException("Cannot access request headers after connection is set.");
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public final List<Map.Entry<String, String>> s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            List<Map.Entry<String, String>> list = this.k;
+            if (list != null) {
+                return list;
+            }
+            this.k = new ArrayList();
+            for (Map.Entry<String, String> entry : this.g.b()) {
+                if (!entry.getKey().equalsIgnoreCase("Content-Encoding")) {
+                    this.k.add(new AbstractMap.SimpleImmutableEntry(entry));
+                }
+            }
+            List<Map.Entry<String, String>> unmodifiableList = Collections.unmodifiableList(this.k);
+            this.k = unmodifiableList;
+            return unmodifiableList;
+        }
+        return (List) invokeV.objValue;
     }
 }

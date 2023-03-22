@@ -2,7 +2,7 @@ package com.badlogic.gdx.utils;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.q8;
+import com.baidu.tieba.t7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class SerializationException extends RuntimeException {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public q8 trace;
+    public t7 trace;
 
     public SerializationException() {
         Interceptable interceptable = $ic;
@@ -111,7 +111,7 @@ public class SerializationException extends RuntimeException {
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             if (str != null) {
                 if (this.trace == null) {
-                    this.trace = new q8(512);
+                    this.trace = new t7(512);
                 }
                 this.trace.a('\n');
                 this.trace.n(str);
@@ -138,14 +138,14 @@ public class SerializationException extends RuntimeException {
             if (this.trace == null) {
                 return super.getMessage();
             }
-            q8 q8Var = new q8(512);
-            q8Var.n(super.getMessage());
-            if (q8Var.length() > 0) {
-                q8Var.a('\n');
+            t7 t7Var = new t7(512);
+            t7Var.n(super.getMessage());
+            if (t7Var.length() > 0) {
+                t7Var.a('\n');
             }
-            q8Var.n("Serialization trace:");
-            q8Var.j(this.trace);
-            return q8Var.toString();
+            t7Var.n("Serialization trace:");
+            t7Var.j(this.trace);
+            return t7Var.toString();
         }
         return (String) invokeV.objValue;
     }

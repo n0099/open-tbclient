@@ -1,219 +1,252 @@
 package com.baidu.tieba;
 
-import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.guide.BuildException;
-import com.baidu.adp.lib.guide.Configuration;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedHashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class wf {
+public class wf<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Configuration a;
-    public boolean b;
-    public List<uf> c;
-    public a d;
+    public final LinkedHashMap<K, V> a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void onDismiss();
-
-        void onShown();
+    public void b(boolean z, K k, V v, V v2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), k, v, v2}) == null) {
+        }
     }
 
-    public wf() {
+    public int m(K k, V v) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, k, v)) == null) {
+            return 1;
+        }
+        return invokeLL.intValue;
+    }
+
+    public wf(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new ArrayList();
-        this.a = new Configuration();
+        this.c = i;
+        this.a = new LinkedHashMap<>(0, 0.75f, true);
     }
 
-    public wf a(uf ufVar) {
-        InterceptResult invokeL;
+    public final synchronized void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ufVar)) == null) {
-            if (!this.b) {
-                this.c.add(ufVar);
-                return this;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                c();
+                this.d = 0;
+                this.e = 0;
+                this.f = 0;
+                this.g = 0;
             }
-            throw new BuildException("Already created, rebuild a new one.");
         }
-        return (wf) invokeL.objValue;
     }
 
-    public wf c(int i) {
-        InterceptResult invokeI;
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            if (!this.b) {
-                if (i >= 0 && i <= 255) {
-                    this.a.mAlpha = i;
-                    return this;
-                }
-                throw new BuildException("Illegal alpha value, should between [0-255]");
-            }
-            throw new BuildException("Already created. rebuild a new one.");
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            n(-1);
         }
-        return (wf) invokeI.objValue;
     }
 
-    public wf d(boolean z) {
-        InterceptResult invokeZ;
+    public final synchronized int d() {
+        InterceptResult invokeV;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            if (!this.b) {
-                this.a.mAutoDismiss = z;
-                return this;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this) {
+                i = this.e;
             }
-            throw new BuildException("Already created, rebuild a new one.");
+            return i;
         }
-        return (wf) invokeZ.objValue;
+        return invokeV.intValue;
     }
 
-    public wf e(int i) {
+    public final synchronized int g() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            synchronized (this) {
+                i = this.c;
+            }
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    public final synchronized int l() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            synchronized (this) {
+                i = this.b;
+            }
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    public synchronized boolean e(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            if (!this.b) {
-                if (i > 0) {
-                    this.a.mEnterAnimationId = i;
-                    return this;
+            synchronized (this) {
+                if (this.b + i > this.c * 0.8d) {
+                    n(this.b - i);
                 }
-                throw new BuildException("Illegal animation resource id.");
             }
-            throw new BuildException("Already created. rebuild a new one.");
+            return true;
         }
-        return (wf) invokeI.objValue;
+        return invokeI.booleanValue;
     }
 
-    public wf f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            if (!this.b) {
-                if (i > 0) {
-                    this.a.mExitAnimationId = i;
-                    return this;
-                }
-                throw new BuildException("Illegal animation resource id.");
-            }
-            throw new BuildException("Already created. rebuild a new one.");
-        }
-        return (wf) invokeI.objValue;
-    }
-
-    public wf g(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048582, this, z)) == null) {
-            if (!this.b) {
-                this.a.mKeyBackEventDismiss = z;
-                return this;
-            }
-            throw new BuildException("Already created, rebuild a new one.");
-        }
-        return (wf) invokeZ.objValue;
-    }
-
-    public wf h(a aVar) {
+    public final V f(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, aVar)) == null) {
-            if (!this.b) {
-                this.d = aVar;
-                return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, k)) == null) {
+            if (k == null) {
+                return null;
             }
-            throw new BuildException("Already created, rebuild a new one.");
-        }
-        return (wf) invokeL.objValue;
-    }
-
-    public wf i(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
-            this.a.mOutsideTouchable = z;
-            return this;
-        }
-        return (wf) invokeZ.objValue;
-    }
-
-    public wf j(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
-            if (!this.b) {
-                this.a.mOverlayTarget = z;
-                return this;
+            synchronized (this) {
+                V v = this.a.get(k);
+                if (v != null) {
+                    this.f++;
+                    return v;
+                }
+                this.g++;
+                return null;
             }
-            throw new BuildException("Already created, rebuild a new one.");
         }
-        return (wf) invokeZ.objValue;
+        return (V) invokeL.objValue;
     }
 
-    public wf k(View view2) {
+    public final V i(K k) {
         InterceptResult invokeL;
+        V remove;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, view2)) == null) {
-            if (!this.b) {
-                if (view2 != null) {
-                    this.a.mTargetView = view2;
-                    return this;
-                }
-                throw new BuildException("Illegal view.");
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, k)) == null) {
+            if (k == null) {
+                return null;
             }
-            throw new BuildException("Already created. rebuild a new one.");
+            synchronized (this) {
+                remove = this.a.remove(k);
+                if (remove != null) {
+                    this.b -= j(k, remove);
+                }
+            }
+            if (remove != null) {
+                b(false, k, remove, null);
+            }
+            return remove;
         }
-        return (wf) invokeL.objValue;
+        return (V) invokeL.objValue;
     }
 
-    public wf l(int i) {
-        InterceptResult invokeI;
+    public final void k(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
-            if (!this.b) {
-                if (i > 0) {
-                    this.a.mTargetViewId = i;
-                    return this;
-                }
-                throw new BuildException("Illegal view id.");
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            synchronized (this) {
+                this.c = i;
+                n(i);
             }
-            throw new BuildException("Already created. rebuild a new one.");
         }
-        return (wf) invokeI.objValue;
     }
 
-    public vf b() {
-        InterceptResult invokeV;
+    public final V h(K k, V v) {
+        InterceptResult invokeLL;
+        V put;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            vf vfVar = new vf();
-            vfVar.i((uf[]) this.c.toArray(new uf[this.c.size()]));
-            vfVar.j(this.a);
-            vfVar.h(this.d);
-            this.c = null;
-            this.a = null;
-            this.d = null;
-            this.b = true;
-            return vfVar;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, k, v)) == null) {
+            if (k != null && v != null) {
+                synchronized (this) {
+                    this.d++;
+                    this.b += j(k, v);
+                    put = this.a.put(k, v);
+                    if (put != null) {
+                        this.b -= j(k, put);
+                    }
+                }
+                if (put != null) {
+                    b(false, k, put, v);
+                }
+                n(this.c);
+                return put;
+            }
+            return null;
         }
-        return (vf) invokeV.objValue;
+        return (V) invokeLL.objValue;
+    }
+
+    public final int j(K k, V v) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, k, v)) == null) {
+            int m = m(k, v);
+            if (m >= 0) {
+                return m;
+            }
+            throw new IllegalStateException("Negative size: " + k + "=" + v);
+        }
+        return invokeLL.intValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0074, code lost:
+        throw new java.lang.IllegalStateException(getClass().getName() + ".sizeOf() is reporting inconsistent results!");
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void n(int i) {
+        K key;
+        V value;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            while (true) {
+                synchronized (this) {
+                    if (this.b >= 0 && (!this.a.isEmpty() || this.b == 0)) {
+                        if (this.b <= i || this.a.isEmpty()) {
+                            break;
+                        }
+                        Map.Entry<K, V> next = this.a.entrySet().iterator().next();
+                        key = next.getKey();
+                        value = next.getValue();
+                        this.a.remove(key);
+                        this.b -= j(key, value);
+                        this.e++;
+                    } else {
+                        break;
+                    }
+                }
+                b(true, key, value, null);
+            }
+        }
     }
 }

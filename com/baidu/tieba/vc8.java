@@ -1,70 +1,79 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.pb.chosen.PbChosenActivity;
-import com.baidu.tieba.pb.chosen.net.zan.ChosenPbZanHttpResponse;
-import com.baidu.tieba.pb.chosen.net.zan.ChosenPbZanSocketResponse;
-import com.baidu.tieba.pb.chosen.net.zan.ChosenZanNetMessage;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.Transformation;
+import android.widget.FrameLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class vc8 {
+public class vc8 extends Animation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+    public int b;
+    public int c;
+    public FrameLayout.LayoutParams d;
 
-    public vc8() {
+    public vc8(View view2, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a();
-        b();
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            MessageManager messageManager = MessageManager.getInstance();
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHOSEN_PB_PRAISE, e59.a(TbConfig.FINE_PB_PRAISE, 309095));
-            tbHttpMessageTask.setResponsedClass(ChosenPbZanHttpResponse.class);
-            messageManager.registerTask(tbHttpMessageTask);
+        if (view2 == null) {
+            return;
+        }
+        this.a = view2;
+        if (view2.getVisibility() == 8 && i2 > 0) {
+            this.b = i2;
+        } else {
+            this.b = this.a.getMeasuredHeight();
+        }
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view2.getLayoutParams();
+        this.d = layoutParams;
+        this.c = i;
+        if (i == 0) {
+            layoutParams.bottomMargin = -this.b;
+        } else {
+            layoutParams.bottomMargin = 0;
         }
     }
 
-    public final void b() {
+    @Override // android.view.animation.Animation
+    public void applyTransformation(float f, Transformation transformation) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            cn5 cn5Var = new cn5(309095);
-            cn5Var.setResponsedClass(ChosenPbZanSocketResponse.class);
-            cn5Var.g(true);
-            cn5Var.h(false);
-            MessageManager.getInstance().registerTask(cn5Var);
-        }
-    }
-
-    public void c(PbChosenActivity pbChosenActivity, long j, long j2, long j3, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{pbChosenActivity, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Integer.valueOf(i)}) == null) {
-            ChosenZanNetMessage chosenZanNetMessage = new ChosenZanNetMessage();
-            chosenZanNetMessage.setExcId(j);
-            chosenZanNetMessage.setAction(i);
-            chosenZanNetMessage.setThreadId(j2);
-            chosenZanNetMessage.setPostId(j3);
-            pbChosenActivity.sendMessage(chosenZanNetMessage);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), transformation}) == null) {
+            super.applyTransformation(f, transformation);
+            if (f < 1.0f) {
+                if (this.c == 0) {
+                    FrameLayout.LayoutParams layoutParams = this.d;
+                    int i = this.b;
+                    layoutParams.bottomMargin = (-i) + ((int) (i * f));
+                } else {
+                    this.d.bottomMargin = -((int) (this.b * f));
+                }
+                this.a.requestLayout();
+            } else if (this.c == 0) {
+                this.d.bottomMargin = 0;
+                this.a.requestLayout();
+                this.b = this.a.getMeasuredHeight();
+            } else {
+                this.d.bottomMargin = -this.b;
+                this.a.setVisibility(8);
+                this.a.requestLayout();
+            }
         }
     }
 }

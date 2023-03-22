@@ -12,9 +12,9 @@ import android.widget.TextView;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.spswitch.emotion.view.CircleIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fd0;
-import com.baidu.tieba.jd0;
-import com.baidu.tieba.sa0;
+import com.baidu.tieba.i90;
+import com.baidu.tieba.vb0;
+import com.baidu.tieba.zb0;
 import com.facebook.drawee.view.SimpleDraweeView;
 /* loaded from: classes2.dex */
 public class LiveFeedPageToolItemView extends FrameLayout {
@@ -48,16 +48,16 @@ public class LiveFeedPageToolItemView extends FrameLayout {
     }
 
     public final void a() {
-        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0587, (ViewGroup) this, true);
-        this.a = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f090f37);
+        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0595, (ViewGroup) this, true);
+        this.a = (SimpleDraweeView) findViewById(R.id.obfuscated_res_0x7f090f67);
         this.b = (TextView) findViewById(R.id.tv_name);
-        this.c = findViewById(R.id.obfuscated_res_0x7f09088b);
+        this.c = findViewById(R.id.obfuscated_res_0x7f0908ae);
         c();
     }
 
     public void c() {
-        fd0.f(this.a, sa0.c(getContext().getResources(), 19.0f), sa0.c(getContext().getResources(), 19.0f));
-        fd0.h(this.b, 1, 9.0f);
+        vb0.f(this.a, i90.c(getContext().getResources(), 19.0f), i90.c(getContext().getResources(), 19.0f));
+        vb0.h(this.b, 1, 9.0f);
     }
 
     public void d() {
@@ -150,7 +150,7 @@ public class LiveFeedPageToolItemView extends FrameLayout {
             this.a.setImageResource(i);
         }
         setData(str);
-        b(jd0.f().r(), z);
+        b(zb0.f().r(), z);
     }
 
     public void setData(boolean z, String str, String str2) {
@@ -159,6 +159,6 @@ public class LiveFeedPageToolItemView extends FrameLayout {
             simpleDraweeView.setImageURI(str);
         }
         setData(str2);
-        b(jd0.f().r(), z);
+        b(zb0.f().r(), z);
     }
 }

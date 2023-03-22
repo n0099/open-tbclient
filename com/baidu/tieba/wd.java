@@ -1,42 +1,51 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
+import java.util.List;
+import java.util.Locale;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public class wd implements be {
+public class wd {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bundle a;
 
-    @Override // com.baidu.tieba.be
-    public Object a(re reVar) {
-        InterceptResult invokeL;
+    public static final boolean a(wc wcVar, dc dcVar) {
+        InterceptResult invokeLL;
+        Object objectByType;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, reVar)) == null) {
-            return null;
-        }
-        return invokeL.objValue;
-    }
-
-    public wd(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bundle};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, wcVar, dcVar)) == null) {
+            if (dcVar != null && wcVar != null) {
+                List<Field> b = bc.b(dcVar.getClass());
+                Set<String> keys = wcVar.getKeys();
+                for (Field field : b) {
+                    if (field != null && !Modifier.isTransient(field.getModifiers()) && !Modifier.isStatic(field.getModifiers())) {
+                        String name = field.getName();
+                        if (!TextUtils.isEmpty(name)) {
+                            if (keys.contains(name)) {
+                                Object objectByType2 = wcVar.getObjectByType(name, field.getGenericType());
+                                if (objectByType2 != null) {
+                                    bc.i(dcVar, name, objectByType2);
+                                }
+                            } else if (keys.contains(name.toLowerCase(Locale.getDefault()))) {
+                                Object objectByType3 = wcVar.getObjectByType(name.toLowerCase(Locale.getDefault()), field.getGenericType());
+                                if (objectByType3 != null) {
+                                    bc.i(dcVar, name, objectByType3);
+                                }
+                            } else if (keys.contains(name.toUpperCase(Locale.getDefault())) && (objectByType = wcVar.getObjectByType(name.toUpperCase(Locale.getDefault()), field.getGenericType())) != null) {
+                                bc.i(dcVar, name, objectByType);
+                            }
+                        }
+                    }
+                }
+                return true;
             }
+            return false;
         }
-        this.a = bundle;
+        return invokeLL.booleanValue;
     }
 }

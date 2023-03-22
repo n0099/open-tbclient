@@ -3,7 +3,7 @@ package com.yy.mobile.framework.revenuesdk.baseapi.data;
 import android.content.Context;
 import com.yy.mobile.framework.revenuesdk.baseapi.ProtocolType;
 import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayNetStateStatistics;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class DataSenderConfig {
     public Context appContext;
     public int authType;

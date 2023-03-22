@@ -3,7 +3,7 @@ package com.yy.mobile.framework.revenuesdk;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class RevenueConfigCenter {
     public static final String TAG = "RevenueConfigCenter";
     public static Map<String, RevenueConfig> configMap = new HashMap();

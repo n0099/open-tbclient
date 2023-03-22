@@ -146,7 +146,7 @@ public class HttpExecutor {
         if ((interceptable != null && interceptable.invokeLILL(65539, this, responseHandler, i, bArr, jSONArray) != null) || !(responseHandler instanceof HttpHelper.LogoutResponseHandler)) {
             return;
         }
-        Utility.addEventListMs(jSONArray, "CNetResponse");
+        Utility.addEventListMs(jSONArray, "CNetResEnd");
         ((HttpHelper.LogoutResponseHandler) responseHandler).onResult(i, bArr, jSONArray);
     }
 
@@ -168,7 +168,7 @@ public class HttpExecutor {
                     build = new Request.Builder().url(str).headers(getHeaders(map)).build();
                 }
                 if (str.contains("logout")) {
-                    Utility.addEventListMs(jSONArray, "CNetRequest");
+                    Utility.addEventListMs(jSONArray, "CNetReqBegin");
                 }
                 try {
                     Response execute = this.okHttpClient.newCall(build).execute();

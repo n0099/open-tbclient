@@ -1,69 +1,57 @@
 package com.baidu.tieba;
 
+import android.location.Address;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener;
-import com.baidu.searchbox.retrieve.inter.upload.IUploadTask;
+import com.baidu.pass.ecommerce.bean.SuggestAddrField;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.log.TbLogManager;
-import com.baidu.tieba.ms9;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.ErrorData;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.TbMd5;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.img.ImageUploadResult;
+import com.baidu.tbadk.img.ImageUploader;
+import com.baidu.tieba.tbadkCore.location.LocationData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.yalog.Logger;
-import com.baidu.yalog.LoggerManager;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes5.dex */
-public final class qs9 implements TbLogManager.a {
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class qs9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public BdUniqueId b;
+    public ps9 c;
 
-    /* loaded from: classes5.dex */
-    public /* synthetic */ class a {
-        public static final /* synthetic */ int[] $EnumSwitchMapping$0;
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-479213387, "Lcom/baidu/tieba/qs9$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-479213387, "Lcom/baidu/tieba/qs9$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[TbLogManager.Level.values().length];
-            iArr[TbLogManager.Level.VERBOSE.ordinal()] = 1;
-            iArr[TbLogManager.Level.DEBUG.ordinal()] = 2;
-            iArr[TbLogManager.Level.INFO.ordinal()] = 3;
-            iArr[TbLogManager.Level.WARN.ordinal()] = 4;
-            iArr[TbLogManager.Level.ERROR.ordinal()] = 5;
-            $EnumSwitchMapping$0 = iArr;
-        }
     }
 
-    /* loaded from: classes5.dex */
-    public static final class b implements IActiveUploadListener {
+    /* loaded from: classes6.dex */
+    public class b extends BdAsyncTask<ns9, Integer, os9> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbLogManager.b a;
+        public final /* synthetic */ qs9 a;
 
-        public b(TbLogManager.b bVar) {
+        public b(qs9 qs9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bVar};
+                Object[] objArr = {qs9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -73,196 +61,185 @@ public final class qs9 implements TbLogManager.a {
                     return;
                 }
             }
-            this.a = bVar;
+            this.a = qs9Var;
         }
 
-        @Override // com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener
-        public void onFailure(String errMsg) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: d */
+        public void onPostExecute(os9 os9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, errMsg) == null) {
-                Intrinsics.checkNotNullParameter(errMsg, "errMsg");
-                TbLogManager.b bVar = this.a;
-                if (bVar != null) {
-                    bVar.onFailure(errMsg);
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, os9Var) == null) && this.a.c != null) {
+                this.a.c.a(os9Var);
+            }
+        }
+
+        public /* synthetic */ b(qs9 qs9Var, a aVar) {
+            this(qs9Var);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public os9 doInBackground(ns9... ns9VarArr) {
+            InterceptResult invokeL;
+            ns9 ns9Var;
+            int netErrorCode;
+            ImageUploadResult.picInfo picinfo;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ns9VarArr)) == null) {
+                String str = null;
+                if (ns9VarArr.length == 0 || (ns9Var = ns9VarArr[0]) == null) {
+                    return null;
                 }
+                yb ybVar = new yb("images", TbMd5.getNameMd5FromUrl(ns9Var.i + 42), DiskFileOperate.Action.READ);
+                ybVar.setSubFolder(true);
+                ybVar.setIsFormatData(false);
+                ImageUploadResult uploadInBackground = new ImageUploader(null).uploadInBackground(c(ybVar.buildPath(), ybVar.getName()), true, false);
+                if (uploadInBackground != null && (picinfo = uploadInBackground.picInfo) != null) {
+                    ImageUploadResult.PicDetailedInfo picDetailedInfo = picinfo.originPic;
+                    if (picDetailedInfo != null && !StringUtils.isNull(picDetailedInfo.picUrl)) {
+                        str = uploadInBackground.picInfo.originPic.picUrl;
+                    } else {
+                        ImageUploadResult.PicDetailedInfo picDetailedInfo2 = uploadInBackground.picInfo.bigPic;
+                        if (picDetailedInfo2 != null && !StringUtils.isNull(picDetailedInfo2.picUrl)) {
+                            str = uploadInBackground.picInfo.bigPic.picUrl;
+                        } else {
+                            ImageUploadResult.PicDetailedInfo picDetailedInfo3 = uploadInBackground.picInfo.smallPic;
+                            if (picDetailedInfo3 != null && !StringUtils.isNull(picDetailedInfo3.picUrl)) {
+                                str = uploadInBackground.picInfo.smallPic.picUrl;
+                            }
+                        }
+                    }
+                }
+                if (StringUtils.isNull(str)) {
+                    str = ns9Var.j;
+                }
+                NetWork netWork = new NetWork();
+                netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.POST_THREAD_ADDRESS);
+                netWork.getNetContext().getRequest().mIsNeedTbs = true;
+                netWork.addPostData("anonymous", "1");
+                netWork.addPostData("can_no_forum", "0");
+                netWork.addPostData("is_feedback", "0");
+                if (TbadkCoreApplication.getInst().getNewVcodeWebviewCrashCount() < 3) {
+                    netWork.addPostData("vcode_tag", "12");
+                }
+                netWork.addPostData("new_vcode", "1");
+                netWork.addPostData("content", ns9Var.m);
+                netWork.addPostData("fid", ns9Var.e);
+                netWork.addPostData(TiebaStatic.Params.H5_FORUM_NAME, ns9Var.f);
+                netWork.addPostData("is_hide", "0");
+                netWork.addPostData(IntentConfig.CALL_FROM, "2");
+                netWork.addPostData("title", ns9Var.m);
+                netWork.addPostData("is_ntitle", "1");
+                netWork.addPostData("st_type", "notitle");
+                netWork.addPostData("is_location", "2");
+                Address j = cf.n().j(false);
+                if (j != null && TbadkCoreApplication.getInst().getIsLocationOn()) {
+                    netWork.addPostData("lbs", String.valueOf(j.getLatitude()) + "," + String.valueOf(j.getLongitude()));
+                    netWork.addPostData(SuggestAddrField.KEY_LAT, String.valueOf(j.getLatitude()));
+                    netWork.addPostData(SuggestAddrField.KEY_LNG, String.valueOf(j.getLongitude()));
+                }
+                LocationData b = zc9.a().b();
+                if (b != null) {
+                    netWork.addPostData("name", b.getFormatted_address());
+                    netWork.addPostData("sn", b.getSn());
+                }
+                netWork.addPostData("is_link_thread", "0");
+                if (TbadkCoreApplication.getCurrentAccountInfo() != null) {
+                    netWork.addPostData("name_show", TbadkCoreApplication.getCurrentAccountNameShow());
+                }
+                netWork.addPostData("tbopen_app_key", ns9Var.a);
+                netWork.addPostData("tbopen_app_icon", ns9Var.d);
+                netWork.addPostData("tbopen_app_name", ns9Var.c);
+                netWork.addPostData("share_abstract", ns9Var.h);
+                netWork.addPostData("share_image", str);
+                netWork.addPostData("share_h5_url", ns9Var.k);
+                netWork.addPostData("share_naws_app_key", ns9Var.b);
+                netWork.addPostData("share_naws_path", ns9Var.l);
+                String postNetData = netWork.postNetData();
+                os9 os9Var = new os9();
+                try {
+                    JSONObject jSONObject = new JSONObject(postNetData);
+                    jSONObject.optString("msg");
+                    jSONObject.optString("pre_msg");
+                    os9Var.b = ns9Var.e;
+                    os9Var.c = jSONObject.optString("tid");
+                    jSONObject.optString("pid");
+                    jSONObject.optString("video_id");
+                } catch (Exception unused) {
+                }
+                ErrorData errorData = new ErrorData();
+                if (netWork.getNetContext().getResponse().isRequestSuccess()) {
+                    errorData.parserJson(postNetData);
+                } else {
+                    if (netWork.isNetSuccess()) {
+                        netErrorCode = netWork.getServerErrorCode();
+                    } else {
+                        netErrorCode = netWork.getNetErrorCode();
+                    }
+                    errorData.setError_code(netErrorCode);
+                    errorData.setError_msg(netWork.getErrorString());
+                }
+                if (errorData.error_code != 0 && !BdNetTypeUtil.isNetWorkAvailable()) {
+                    errorData.setError_msg(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0d1f));
+                }
+                os9Var.a = errorData;
+                try {
+                    new AntiData().parserJson(new JSONObject(postNetData).optJSONObject("anti_stat"));
+                } catch (Exception unused2) {
+                }
+                return os9Var;
             }
+            return (os9) invokeL.objValue;
         }
 
-        @Override // com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener
-        public void onSuccess() {
-            TbLogManager.b bVar;
+        public String c(String str, String str2) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bVar = this.a) != null) {
-                bVar.onSuccess();
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+                String str3 = this.a.a + str2;
+                if (str != null) {
+                    return this.a.a + str + "/" + str2;
+                }
+                return str3;
             }
+            return (String) invokeLL.objValue;
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static final class c implements IActiveUploadListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbLogManager.b a;
-
-        public c(TbLogManager.b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bVar;
-        }
-
-        @Override // com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener
-        public void onFailure(String errMsg) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, errMsg) == null) {
-                Intrinsics.checkNotNullParameter(errMsg, "errMsg");
-                TbLogManager.b bVar = this.a;
-                if (bVar != null) {
-                    bVar.onFailure(errMsg);
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener
-        public void onSuccess() {
-            TbLogManager.b bVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bVar = this.a) != null) {
-                bVar.onSuccess();
-            }
-        }
-    }
-
-    public qs9() {
+    public qs9(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            LoggerManager.reinitialize();
-        }
-    }
-
-    @Override // com.baidu.tieba.log.TbLogManager.a
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LoggerManager.requestCleanOverQuotaLog();
-        }
-    }
-
-    @Override // com.baidu.tieba.log.TbLogManager.a
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ms9.c(new ms9.d() { // from class: com.baidu.tieba.ks9
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // com.baidu.tieba.ms9.d
-                public final void onSuccess() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        qs9.g();
-                    }
-                }
-            });
-        }
-    }
-
-    @Override // com.baidu.tieba.log.TbLogManager.a
-    public void b(String space, TbLogManager.Level level, String logId, String tag, String msg) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, space, level, logId, tag, msg) == null) {
-            Intrinsics.checkNotNullParameter(space, "space");
-            Intrinsics.checkNotNullParameter(level, "level");
-            Intrinsics.checkNotNullParameter(logId, "logId");
-            Intrinsics.checkNotNullParameter(tag, "tag");
-            Intrinsics.checkNotNullParameter(msg, "msg");
-            Logger logger = LoggerManager.getLogger(space);
-            if (logger == null) {
                 return;
             }
-            int i = a.$EnumSwitchMapping$0[level.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            if (i == 5) {
-                                logger.e(logId, tag, msg);
-                            }
-                        } else {
-                            logger.w(logId, tag, msg);
-                        }
-                    } else {
-                        logger.i(logId, tag, msg);
-                    }
-                } else {
-                    logger.d(logId, tag, msg);
-                }
-            } else {
-                logger.v(logId, tag, msg);
-            }
-            if (TbadkCoreApplication.getInst().isDebugMode() || zw4.h()) {
-                System.out.println((Object) ("TbUbcLog space:" + space + " tag:" + tag + " msg:" + msg));
-            }
+        }
+        this.a = BdBaseApplication.getInst().getContext().getCacheDir().getAbsolutePath() + "/";
+        this.b = bdUniqueId;
+    }
+
+    public void c(ps9 ps9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ps9Var) == null) {
+            this.c = ps9Var;
         }
     }
 
-    @Override // com.baidu.tieba.log.TbLogManager.a
-    public void c(String type, String dataId, List<String> spaces, long j, long j2, long j3, TbLogManager.b bVar) {
+    public void d(ns9 ns9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{type, dataId, spaces, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), bVar}) == null) {
-            Intrinsics.checkNotNullParameter(type, "type");
-            Intrinsics.checkNotNullParameter(dataId, "dataId");
-            Intrinsics.checkNotNullParameter(spaces, "spaces");
-            ((IUploadTask) ServiceManager.getService(IUploadTask.SERVICE_REFERENCE)).activeUpload(type, dataId, spaces, j, j2, j3, new c(bVar));
-        }
-    }
-
-    @Override // com.baidu.tieba.log.TbLogManager.a
-    public void d(String space, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048579, this, space, z) == null) {
-            Intrinsics.checkNotNullParameter(space, "space");
-            Logger logger = LoggerManager.getLogger(space);
-            if (logger == null) {
-                return;
-            }
-            logger.flush(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.log.TbLogManager.a
-    public void e(String type, String dataId, List<String> spaces, TbLogManager.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, type, dataId, spaces, bVar) == null) {
-            Intrinsics.checkNotNullParameter(type, "type");
-            Intrinsics.checkNotNullParameter(dataId, "dataId");
-            Intrinsics.checkNotNullParameter(spaces, "spaces");
-            ((IUploadTask) ServiceManager.getService(IUploadTask.SERVICE_REFERENCE)).activeUpload(type, dataId, spaces, new b(bVar));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ns9Var) == null) {
+            b bVar = new b(this, null);
+            bVar.setTag(this.b);
+            bVar.execute(ns9Var);
         }
     }
 }

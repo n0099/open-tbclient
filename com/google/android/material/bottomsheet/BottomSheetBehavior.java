@@ -43,7 +43,7 @@ import java.util.Map;
 /* loaded from: classes7.dex */
 public class BottomSheetBehavior<V extends View> extends CoordinatorLayout.Behavior<V> {
     public static final int CORNER_ANIMATION_DURATION = 500;
-    public static final int DEF_STYLE_RES = 2131755829;
+    public static final int DEF_STYLE_RES = 2131755833;
     public static final float HIDE_FRICTION = 0.1f;
     public static final float HIDE_THRESHOLD = 0.5f;
     public static final int PEEK_HEIGHT_AUTO = -1;

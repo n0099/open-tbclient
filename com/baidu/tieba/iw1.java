@@ -1,59 +1,244 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.swan.apps.view.SwanAppSimpleH5Widget;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import android.util.Pair;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.dns.transmit.transmitter.exception.ExceptionMessage;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public class iw1 extends SwanAppSimpleH5Widget {
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class iw1 extends wv1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.uv1
-    public String b0() {
+    @Override // com.baidu.tieba.wv1
+    public String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ai_apps_ad_landing" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "HostDownloadManager" : (String) invokeV.objValue;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947867814, "Lcom/baidu/tieba/iw1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    @Override // com.baidu.tieba.wv1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "HostDownloadManagerApi" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements jw1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(iw1 iw1Var, String str) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947867814, "Lcom/baidu/tieba/iw1;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iw1Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        boolean z = wp1.a;
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements jw1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(iw1 iw1Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iw1Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements jw1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c(iw1 iw1Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iw1Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public iw1(Context context) {
-        super(context);
+    public iw1(@NonNull uv1 uv1Var) {
+        super(uv1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {uv1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
+                super((uv1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+    }
+
+    public tz1 query(String str) {
+        InterceptResult invokeL;
+        Object obj;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#query", false);
+            if (t73.b0() == null) {
+                return new tz1(1001);
+            }
+            Pair<tz1, JSONObject> s = s(str);
+            tz1 tz1Var = (tz1) s.first;
+            if (tz1Var.isSuccess() && (obj = s.second) != null) {
+                JSONObject jSONObject = (JSONObject) obj;
+                String optString = jSONObject.optString("taskID");
+                if (TextUtils.isEmpty(optString)) {
+                    return new tz1(202, "taskId is empty");
+                }
+                String optString2 = jSONObject.optString("cb");
+                if (TextUtils.isEmpty(optString2)) {
+                    return new tz1(202, "cb is empty");
+                }
+                ls1 z = ar2.z();
+                if (z != null) {
+                    z.b(optString, new b(this, optString2));
+                }
+                return tz1.f();
+            }
+            t42.c("HostDownloadManagerApi", "parse fail");
+            return tz1Var;
+        }
+        return (tz1) invokeL.objValue;
+    }
+
+    public tz1 x(String str) {
+        InterceptResult invokeL;
+        Object obj;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            t73 b0 = t73.b0();
+            if (b0 == null) {
+                return new tz1(1001);
+            }
+            if (b0.w() == null) {
+                return new tz1(1001);
+            }
+            Pair<tz1, JSONObject> s = s(str);
+            tz1 tz1Var = (tz1) s.first;
+            if (tz1Var.isSuccess() && (obj = s.second) != null) {
+                JSONObject jSONObject = (JSONObject) obj;
+                String optString = jSONObject.optString("url");
+                if (TextUtils.isEmpty(optString)) {
+                    return new tz1(202, ExceptionMessage.URL_EMPTY);
+                }
+                String optString2 = jSONObject.optString("cb");
+                if (TextUtils.isEmpty(optString2)) {
+                    return new tz1(202, "cb is empty");
+                }
+                String optString3 = jSONObject.optString("name");
+                JSONObject optJSONObject = jSONObject.optJSONObject("header");
+                ls1 z = ar2.z();
+                if (z != null) {
+                    z.d(optString, optString3, optJSONObject, new a(this, optString2));
+                }
+                return tz1.f();
+            }
+            t42.c("HostDownloadManagerApi", "parse fail");
+            return tz1Var;
+        }
+        return (tz1) invokeL.objValue;
+    }
+
+    public tz1 z(String str) {
+        InterceptResult invokeL;
+        Object obj;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            q("#openFile", false);
+            if (t73.b0() == null) {
+                return new tz1(1001);
+            }
+            Pair<tz1, JSONObject> s = s(str);
+            tz1 tz1Var = (tz1) s.first;
+            if (tz1Var.isSuccess() && (obj = s.second) != null) {
+                JSONObject jSONObject = (JSONObject) obj;
+                String optString = jSONObject.optString("taskID");
+                if (TextUtils.isEmpty(optString)) {
+                    return new tz1(202, "taskId is empty");
+                }
+                String optString2 = jSONObject.optString("cb");
+                if (TextUtils.isEmpty(optString2)) {
+                    return new tz1(202, "cb is empty");
+                }
+                SwanAppActivity activity = gt2.U().getActivity();
+                if (activity == null) {
+                    return new tz1(1001);
+                }
+                ls1 z = ar2.z();
+                if (z != null) {
+                    z.c(activity, optString, new c(this, optString2));
+                }
+                return tz1.f();
+            }
+            t42.c("HostDownloadManagerApi", "parse fail");
+            return tz1Var;
+        }
+        return (tz1) invokeL.objValue;
+    }
+
+    public tz1 y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            q("#openDownloadCenter", false);
+            if (t73.b0() == null) {
+                return new tz1(1001);
+            }
+            ls1 z = ar2.z();
+            if (z != null) {
+                z.a();
+            }
+            return tz1.f();
+        }
+        return (tz1) invokeV.objValue;
     }
 }

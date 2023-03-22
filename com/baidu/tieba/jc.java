@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.gif.NSGif;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,87 +7,86 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface jc {
-    on a(byte[] bArr, int i, int i2);
+public class jc implements lc {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public double a;
 
-    on get(String str);
-
-    /* loaded from: classes5.dex */
-    public static class a implements jc {
-        public static /* synthetic */ Interceptable $ic;
-        public static jc c;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public final mc b;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = 0;
-            this.b = new mc();
-            if (NSGif.f) {
-                this.a = 0;
-            } else {
-                this.a = 1;
+    public jc(double d) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Double.valueOf(d)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = d;
+    }
 
-        public static synchronized jc b() {
-            InterceptResult invokeV;
-            jc jcVar;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-                synchronized (a.class) {
-                    if (c == null) {
-                        c = new a();
-                    }
-                    jcVar = c;
-                }
-                return jcVar;
-            }
-            return (jc) invokeV.objValue;
+    @Override // com.baidu.tieba.lc
+    public Object a(ud udVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, udVar)) == null) {
+            return Double.valueOf(this.a);
         }
+        return invokeL.objValue;
+    }
 
-        @Override // com.baidu.tieba.jc
-        public on a(byte[] bArr, int i, int i2) {
-            InterceptResult invokeLII;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
-                if (this.a == 0) {
-                    try {
-                        return this.b.a(bArr, i, i2);
-                    } catch (Exception unused) {
-                    }
-                }
-                return null;
-            }
-            return (on) invokeLII.objValue;
+    @Override // com.baidu.tieba.lc
+    public Object b(ud udVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, udVar)) == null) {
+            return Double.valueOf(this.a);
         }
+        return invokeL.objValue;
+    }
 
-        @Override // com.baidu.tieba.jc
-        public on get(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                if (this.a == 0) {
-                    try {
-                        return this.b.get(str);
-                    } catch (Exception unused) {
-                    }
-                }
-                return null;
-            }
-            return (on) invokeL.objValue;
+    @Override // com.baidu.tieba.lc
+    public Object c(ud udVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, udVar)) == null) {
+            return Double.valueOf(this.a);
         }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.lc
+    public Object d(ud udVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, udVar)) == null) {
+            return Double.valueOf(this.a);
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.lc
+    public Object e(ud udVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, udVar)) == null) {
+            return d(udVar);
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.lc
+    public Object f(ud udVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, udVar)) == null) {
+            return Double.valueOf(this.a);
+        }
+        return invokeL.objValue;
     }
 }

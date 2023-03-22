@@ -1,210 +1,346 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.database.Cursor;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.tbadk.TiebaDatabase;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import tbclient.FrsPage.CoverImageColor;
+import tbclient.FrsPage.HeadImgs;
+import tbclient.FrsPage.VideoImageColor;
 /* loaded from: classes5.dex */
-public class kx4 {
+public class kx4 implements r15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public CoverImageColor c;
+    public List<VideoImageColor> d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public String j;
+    public String k;
+    public boolean l;
+    public String m;
+    public float n;
+    public List<String> o;
+    public cb9 p;
 
-    public static boolean a(AccountData accountData, fa faVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, accountData, faVar)) == null) {
-            return faVar.e("Insert into account_data(id,account,password,bduss,isactive,tbs,time,portrait,gender,member_iconurl,stoken,name_show) values(?,?,?,?,?,?,?,?,?,?,?,?)", new Object[]{accountData.getID(), accountData.getAccount(), accountData.getPassword(), accountData.getBDUSS(), Integer.valueOf(accountData.getIsActive()), accountData.getTbs(), Long.valueOf(new Date().getTime()), accountData.getPortrait(), Integer.valueOf(accountData.getSex()), accountData.getMemberIconUrl(), accountData.getStoken(), accountData.getAccountNameShow()});
+    /* loaded from: classes5.dex */
+    public class a implements Comparator<VideoImageColor> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(kx4 kx4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kx4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        return invokeLL.booleanValue;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(VideoImageColor videoImageColor, VideoImageColor videoImageColor2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, videoImageColor, videoImageColor2)) == null) {
+                return videoImageColor.time.intValue() - videoImageColor2.time.intValue();
+            }
+            return invokeLL.intValue;
+        }
     }
 
-    public static void b() {
+    public kx4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            TiebaDatabase.getInstance().getMainDBDatabaseManager().d("update account_data set isactive=0 where isactive=1");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return TiebaDatabase.getInstance().getMainDBDatabaseManager().e("delete from account_data where id=?", new String[]{str});
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static int d() {
+    public CoverImageColor b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            fa mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            int i = 0;
-            Cursor cursor = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (CoverImageColor) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public cb9 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.p;
+        }
+        return (cb9) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.r15
+    public String getPicLinkUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.r15
+    public String getPicUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.m;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public float k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.n;
+        }
+        return invokeV.floatValue;
+    }
+
+    public List<String> l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.o;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public List<VideoImageColor> m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.d;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.l;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public kx4(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.e = str;
+        this.f = str2;
+        this.i = str3;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: a */
+    public kx4 clone() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            kx4 kx4Var = new kx4();
+            kx4Var.a = this.a;
+            kx4Var.b = this.b;
+            kx4Var.c = this.c;
+            kx4Var.d = this.d;
+            kx4Var.e = this.e;
+            kx4Var.f = this.f;
+            kx4Var.g = this.g;
+            kx4Var.i = this.i;
+            kx4Var.j = this.j;
+            kx4Var.k = this.k;
+            kx4Var.m = this.m;
+            kx4Var.n = this.n;
+            kx4Var.o = this.o;
+            kx4Var.h = this.h;
+            return kx4Var;
+        }
+        return (kx4) invokeV.objValue;
+    }
+
+    public void o(HeadImgs headImgs) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048593, this, headImgs) != null) || headImgs == null) {
+            return;
+        }
+        this.a = headImgs.cover_url;
+        this.b = headImgs.play_url;
+        this.c = headImgs.cover_image_color;
+        s(headImgs.video_image_color);
+        this.e = headImgs.img_url;
+        this.f = headImgs.pc_url;
+        this.g = headImgs.schema;
+        this.m = headImgs.tag_name_url;
+        this.h = headImgs.package_name;
+        String str = headImgs.tag_name_wh;
+        if (str != null) {
             try {
-                if (mainDBDatabaseManager != null) {
-                    try {
-                        cursor = mainDBDatabaseManager.j("select count(*) from account_data", null);
-                        if (cursor != null && cursor.moveToFirst()) {
-                            i = cursor.getInt(0);
-                        }
-                    } catch (Exception e) {
-                        mainDBDatabaseManager.i(e, "getAccountNum");
-                    }
+                String[] split = str.split(",");
+                int e = gg.e(split[0], 1);
+                int e2 = gg.e(split[1], 1);
+                if (e2 != 0) {
+                    this.n = e / e2;
                 }
-                return i;
-            } finally {
-                ch.a(cursor);
+            } catch (Exception e3) {
+                BdLog.e(e3.getMessage());
             }
         }
-        return invokeV.intValue;
+        String str2 = headImgs.title;
+        if (str2 != null) {
+            this.i = str2.trim();
+        }
+        String str3 = headImgs.subtitle;
+        if (str3 != null) {
+            this.j = str3.trim();
+        }
+        String str4 = headImgs.btn_text;
+        if (str4 != null) {
+            this.k = str4.trim();
+        }
+        this.o = headImgs.third_statistics_url;
+        cb9 cb9Var = new cb9();
+        this.p = cb9Var;
+        cb9Var.d(headImgs);
     }
 
-    public static AccountData e() {
-        InterceptResult invokeV;
-        AccountData accountData;
-        Exception e;
-        Cursor cursor;
+    public void p(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            fa mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            Cursor cursor2 = null;
-            if (mainDBDatabaseManager != null) {
-                try {
-                    cursor = mainDBDatabaseManager.j("select * from account_data where isactive=?", new String[]{String.valueOf(1)});
-                    if (cursor != null) {
-                        try {
-                            try {
-                                if (cursor.moveToFirst()) {
-                                    accountData = new AccountData();
-                                    try {
-                                        accountData.setID(cursor.getString(0));
-                                        accountData.setAccount(cursor.getString(1));
-                                        accountData.setPassword(cursor.getString(2));
-                                        accountData.setBDUSS(cursor.getString(3));
-                                        accountData.setIsActive(cursor.getInt(4));
-                                        accountData.setTbs(cursor.getString(5));
-                                        accountData.setTime(cursor.getLong(6));
-                                        accountData.setPortrait(cursor.getString(7));
-                                        accountData.setSex(cursor.getInt(9));
-                                        accountData.setMemberIconUrl(cursor.getString(10));
-                                        accountData.setStoken(cursor.getString(cursor.getColumnIndex("stoken")));
-                                        accountData.setNameShow(cursor.getString(cursor.getColumnIndex("name_show")));
-                                        cursor2 = cursor;
-                                    } catch (Exception e2) {
-                                        e = e2;
-                                        mainDBDatabaseManager.i(e, "getActiveAccountData");
-                                        ch.a(cursor);
-                                        return accountData;
-                                    }
-                                }
-                            } catch (Exception e3) {
-                                accountData = null;
-                                e = e3;
-                            }
-                        } catch (Throwable th) {
-                            th = th;
-                            cursor2 = cursor;
-                            ch.a(cursor2);
-                            throw th;
-                        }
-                    }
-                    accountData = null;
-                    cursor2 = cursor;
-                } catch (Exception e4) {
-                    accountData = null;
-                    e = e4;
-                    cursor = null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    ch.a(cursor2);
-                    throw th;
-                }
-            } else {
-                accountData = null;
-            }
-            ch.a(cursor2);
-            return accountData;
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            this.e = str;
         }
-        return (AccountData) invokeV.objValue;
     }
 
-    public static ArrayList<AccountData> f() {
-        InterceptResult invokeV;
+    public void q(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            fa mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            ArrayList<AccountData> arrayList = new ArrayList<>();
-            Cursor cursor = null;
-            try {
-                if (mainDBDatabaseManager != null) {
-                    try {
-                        cursor = mainDBDatabaseManager.j("select * from account_data order by time desc", null);
-                        while (cursor.moveToNext()) {
-                            AccountData accountData = new AccountData();
-                            accountData.setID(cursor.getString(0));
-                            accountData.setAccount(cursor.getString(1));
-                            accountData.setPassword(cursor.getString(2));
-                            accountData.setBDUSS(cursor.getString(3));
-                            accountData.setIsActive(cursor.getInt(4));
-                            accountData.setTbs(cursor.getString(5));
-                            accountData.setTime(cursor.getLong(6));
-                            accountData.setPortrait(cursor.getString(7));
-                            accountData.setSex(cursor.getInt(9));
-                            accountData.setMemberIconUrl(cursor.getString(10));
-                            accountData.setStoken(cursor.getString(cursor.getColumnIndex("stoken")));
-                            accountData.setNameShow(cursor.getString(cursor.getColumnIndex("name_show")));
-                            arrayList.add(accountData);
-                        }
-                    } catch (Exception e) {
-                        mainDBDatabaseManager.i(e, "getAllAccountData");
-                    }
-                }
-                return arrayList;
-            } finally {
-                ch.a(cursor);
-            }
+        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
+            this.f = str;
         }
-        return (ArrayList) invokeV.objValue;
     }
 
-    public static void g(AccountData accountData) {
+    public void r(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, accountData) == null) && accountData != null && accountData.getID() != null) {
-            Intent intent = new Intent();
-            intent.setAction("com.baidu.tieba.action.accountChange");
-            intent.putExtra("intent_data_accountData", TbadkCoreApplication.getCurrentAccountObj());
-            intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
-            TbadkCoreApplication.getInst().sendBroadcast(intent);
-            String str = "set_basedata_account:";
-            if (!StringUtils.isNull(accountData.getID()) && !StringUtils.isNull(accountData.getBDUSS())) {
-                str = "set_basedata_account:valid_logined";
-            } else if (!StringUtils.isNull(accountData.getBDUSS())) {
-                str = "set_basedata_account:valid";
-            } else if (!StringUtils.isNull(accountData.getID())) {
-                str = "set_basedata_account:logined";
-            }
-            q45.a(DI.ACCOUNT, -1L, 0, str, 0, "", new Object[0]);
-            if (accountData.getIsActive() == 1) {
-                b();
-            }
-            fa mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
-            if (!c(accountData.getID()) || !a(accountData, mainDBDatabaseManager)) {
-                if (!mainDBDatabaseManager.d("DROP TABLE IF EXISTS account_data")) {
-                    mainDBDatabaseManager.b();
-                }
-                mainDBDatabaseManager.d("CREATE TABLE if not exists account_data(id,account,password,bduss,isactive int,tbs,time,portrait varchar(255), personal_gid int, gender int, member_iconurl varchar(255),stoken varchar(255),name_show varchar(255))");
-                a(accountData, mainDBDatabaseManager);
-            }
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+            this.l = z;
         }
+    }
+
+    public void s(List<VideoImageColor> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048597, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        ArrayList arrayList = new ArrayList(list);
+        Collections.sort(arrayList, new a(this));
+        this.d = arrayList;
     }
 }

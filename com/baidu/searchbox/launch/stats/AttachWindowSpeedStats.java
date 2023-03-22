@@ -191,29 +191,26 @@ public final class AttachWindowSpeedStats extends AbstractSpeedStats {
                                     case SpeedStatsStampTable.HOME_FRAGMENT_FIRST_LOAD_END_STAMP_KEY /* 4022 */:
                                         this.mHomeFragmentStartFirstLoadPaperEndStamp = j;
                                         return;
-                                    case SpeedStatsStampTable.HOME_FRAGMENT_CHECK_CONCERN_RED_TIP_START_STAMP_KEY /* 4023 */:
-                                        this.mHomeFragmentCheckConcernRedTipStartStamp = j;
-                                        return;
-                                    case SpeedStatsStampTable.HOME_FRAGMENT_CHECK_CONCERN_RED_TIP_END_STAMP_KEY /* 4024 */:
-                                        this.mHomeFragmentCheckConcernRedTipEndStamp = j;
-                                        return;
-                                    case SpeedStatsStampTable.HOME_FRAGMENT_SHOW_CONCERN_TAB_TIPS_START_STAMP_KEY /* 4025 */:
-                                        this.mHomeFragmentShowConcernTabTipsStartStamp = j;
-                                        return;
-                                    case SpeedStatsStampTable.HOME_FRAGMENT_SHOW_CONCERN_TAB_TIPS_END_STAMP_KEY /* 4026 */:
-                                        this.mHomeFragmentShowConcernTabTipsEndStamp = j;
-                                        return;
-                                    case SpeedStatsStampTable.HOME_FRAGMENT_ON_ACTIVITY_CREATED_END_STAMP_KEY /* 4027 */:
-                                        this.mHomeFragmentOnActivityCreatedEndStamp = j;
-                                        return;
-                                    case SpeedStatsStampTable.HOME_FRAGMENT_ONRESUME_START_STAMP_KEY /* 4028 */:
-                                        this.mHomeFragmentOnResumeStartStamp = j;
-                                        return;
-                                    case SpeedStatsStampTable.HOME_FRAGMENT_ONRESUME_END_STAMP_KEY /* 4029 */:
-                                        this.mHomeFragmentOnResumeEndStamp = j;
-                                        return;
                                     default:
-                                        return;
+                                        switch (i) {
+                                            case SpeedStatsStampTable.HOME_FRAGMENT_SHOW_CONCERN_TAB_TIPS_START_STAMP_KEY /* 4025 */:
+                                                this.mHomeFragmentShowConcernTabTipsStartStamp = j;
+                                                return;
+                                            case SpeedStatsStampTable.HOME_FRAGMENT_SHOW_CONCERN_TAB_TIPS_END_STAMP_KEY /* 4026 */:
+                                                this.mHomeFragmentShowConcernTabTipsEndStamp = j;
+                                                return;
+                                            case SpeedStatsStampTable.HOME_FRAGMENT_ON_ACTIVITY_CREATED_END_STAMP_KEY /* 4027 */:
+                                                this.mHomeFragmentOnActivityCreatedEndStamp = j;
+                                                return;
+                                            case SpeedStatsStampTable.HOME_FRAGMENT_ONRESUME_START_STAMP_KEY /* 4028 */:
+                                                this.mHomeFragmentOnResumeStartStamp = j;
+                                                return;
+                                            case SpeedStatsStampTable.HOME_FRAGMENT_ONRESUME_END_STAMP_KEY /* 4029 */:
+                                                this.mHomeFragmentOnResumeEndStamp = j;
+                                                return;
+                                            default:
+                                                return;
+                                        }
                                 }
                             }
                             this.mPersonalizeTabFragmentEndTimeStamp = j;

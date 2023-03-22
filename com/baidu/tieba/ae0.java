@@ -1,138 +1,179 @@
 package com.baidu.tieba;
 
+import android.os.Environment;
+import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mario.gldraw2d.params.MirrorType;
-import com.baidu.mario.gldraw2d.params.ScaleType;
+import com.baidu.minivideo.arface.bean.Sticker;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes3.dex */
-public class ae0 implements Cloneable {
-    public static /* synthetic */ Interceptable $ic;
+public class ae0 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = true;
+    public static String b;
+    public static String c;
+    public static String d;
+    public static String e;
+    public static Sticker f;
+    public static String g;
+    public static String h;
+    public static String i;
+    public static String j;
+    public static String k;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public float b;
-    public MirrorType c;
-    public int d;
-    public ScaleType e;
-    public float f;
-    public int g;
 
-    public ae0() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947612157, "Lcom/baidu/tieba/ae0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947612157, "Lcom/baidu/tieba/ae0;");
+        }
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? "/filter_config.json" : (String) invokeV.objValue;
+    }
+
+    public ae0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = 0.0f;
-        this.b = 0.0f;
-        this.c = MirrorType.NO_MIRROR;
-        this.d = 0;
-        this.e = ScaleType.FIT_XY;
-        this.f = 1.0f;
-        this.g = -90;
+        h(str);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: a */
-    public ae0 clone() {
-        InterceptResult invokeV;
+    public static String d(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            try {
-                return (ae0) super.clone();
-            } catch (CloneNotSupportedException e) {
-                e.printStackTrace();
-                return null;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65541, null, z)) == null) {
+            if (z) {
+                return j;
             }
+            return k;
         }
-        return (ae0) invokeV.objValue;
+        return (String) invokeZ.objValue;
     }
 
-    public int b() {
+    public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public float c() {
+    public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return g;
         }
-        return invokeV.floatValue;
+        return (String) invokeV.objValue;
     }
 
-    public MirrorType d() {
+    public static String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return h;
         }
-        return (MirrorType) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public ScaleType e() {
+    public static Sticker f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return f;
         }
-        return (ScaleType) invokeV.objValue;
+        return (Sticker) invokeV.objValue;
     }
 
-    public int f() {
+    public static String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return d;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public float g() {
-        InterceptResult invokeV;
+    public static void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a;
-        }
-        return invokeV.floatValue;
-    }
-
-    public float h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.b;
-        }
-        return invokeV.floatValue;
-    }
-
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void j(MirrorType mirrorType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, mirrorType) == null) {
-            this.c = mirrorType;
+        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
+            if (zd0.m()) {
+                Log.d("DuAr_DuArResConfig", "setPath: " + str);
+            }
+            String str2 = str + "/";
+            b = str2;
+            c = str2;
+            r0 = b + "ext/";
+            d = c + "faceModels/";
+            if (TextUtils.isEmpty(str)) {
+                g = "file:///android_asset/arsource/filters/yuantu/yuantu.png";
+                d = "file:///android_asset/arsource/faceModels/";
+                String str3 = Environment.getExternalStorageDirectory() + "/baidu/quanminvideo/arsource";
+                h = str3 + "/makeup";
+                i = str3 + "/beauty";
+                j = str3 + "/arFilterInit";
+                k = str3 + "/arFilterEditInit";
+                String str4 = i + "/liveVideoFace/live_face_knead.json";
+                String str5 = i + "/liveVideoFace/goddess_face_knead.json";
+                String str6 = i + "/liveVideoFace/baby_face_knead.json";
+            } else {
+                g = c + "filters/yuantu/yuantu.png";
+                String str7 = c + "filter/beauty_skin_stream.png";
+                String str8 = c + "filter/beauty_skin_small_video.png";
+                h = b + "makeup/";
+                i = b + "beauty/";
+                j = b + "arFilterInit/";
+                k = b + "arFilterEditInit/";
+                r0 = i + "liveVideoFace/live_face_knead.json";
+                String str9 = i + "liveVideoFace/goddess_face_knead.json";
+                String str10 = i + "liveVideoFace/baby_face_knead.json";
+                if (f == null) {
+                    Sticker sticker = new Sticker();
+                    sticker.setArTyp(10);
+                    sticker.setFile(new File(b + "sticker/none_effect"));
+                    sticker.setId("-1");
+                    sticker.setMiniVersion(480);
+                    sticker.setMaxVersion(Integer.MAX_VALUE);
+                    f = sticker;
+                }
+            }
+            r0 = c + "global";
+            String str11 = c + "vip_list.json";
+            e = c + "filters";
+            r0 = c + "dlModels/";
+            String str12 = e + "/all";
+            r0 = c + "global/res/filter";
         }
     }
 }

@@ -30,7 +30,7 @@ public class ContentLoadingProgressBar extends ProgressBar {
         this.mPostedHide = false;
         this.mPostedShow = false;
         this.mDismissed = false;
-        this.mDelayedHide = new Runnable() { // from class: com.baidu.tieba.d0
+        this.mDelayedHide = new Runnable() { // from class: com.baidu.tieba.g
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -42,7 +42,7 @@ public class ContentLoadingProgressBar extends ProgressBar {
                 }
             }
         };
-        this.mDelayedShow = new Runnable() { // from class: com.baidu.tieba.f0
+        this.mDelayedShow = new Runnable() { // from class: com.baidu.tieba.i
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -109,7 +109,7 @@ public class ContentLoadingProgressBar extends ProgressBar {
     }
 
     public void hide() {
-        post(new Runnable() { // from class: com.baidu.tieba.g0
+        post(new Runnable() { // from class: com.baidu.tieba.j
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -136,7 +136,7 @@ public class ContentLoadingProgressBar extends ProgressBar {
     }
 
     public void show() {
-        post(new Runnable() { // from class: com.baidu.tieba.e0
+        post(new Runnable() { // from class: com.baidu.tieba.h
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

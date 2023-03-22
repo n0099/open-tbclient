@@ -48,6 +48,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.ubc.CaseUbc;
+import com.baidu.android.imsdk.ubc.ScreenUbc;
 import com.baidu.android.imsdk.utils.DataUtil;
 import com.baidu.android.imsdk.utils.HttpHelper;
 import com.baidu.android.imsdk.utils.LogUtils;
@@ -63,6 +64,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
@@ -210,9 +212,154 @@ public class GroupManagerImpl {
         }
     }
 
+    private void queryGroupRequest(BIMValueCallBack<ArrayList<GroupInfo>> bIMValueCallBack, ArrayList<String> arrayList, ScreenUbc.MethodInfo methodInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65543, this, bIMValueCallBack, arrayList, methodInfo) == null) {
+            IMQueryGroupRequest iMQueryGroupRequest = new IMQueryGroupRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), AccountManager.getAppid(mContext), arrayList, false, null);
+            iMQueryGroupRequest.setScreenInfo(methodInfo);
+            HttpHelper.executor(mContext, iMQueryGroupRequest, iMQueryGroupRequest);
+        }
+    }
+
+    public void getFansGroupUserInfo(String str, ArrayList<String> arrayList, BIMValueCallBack<ArrayList<GroupMember>> bIMValueCallBack) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048594, this, str, arrayList, bIMValueCallBack) == null) {
+            if (str == null) {
+                bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, null);
+            } else {
+                TaskManager.getInstance(mContext).submitForNetWork(new Runnable(this, str, arrayList, bIMValueCallBack) { // from class: com.baidu.android.imsdk.group.GroupManagerImpl.3
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ GroupManagerImpl this$0;
+                    public final /* synthetic */ ArrayList val$buids;
+                    public final /* synthetic */ String val$groupId;
+                    public final /* synthetic */ BIMValueCallBack val$listener;
+
+                    {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {this, str, arrayList, bIMValueCallBack};
+                            interceptable2.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable2.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.this$0 = this;
+                        this.val$groupId = str;
+                        this.val$buids = arrayList;
+                        this.val$listener = bIMValueCallBack;
+                    }
+
+                    @Override // java.lang.Runnable
+                    public void run() {
+                        Interceptable interceptable2 = $ic;
+                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                            ArrayList<GroupMember> groupMember = GroupInfoDAOImpl.getGroupMember(GroupManagerImpl.mContext, this.val$groupId, this.val$buids, 0);
+                            ArrayList arrayList2 = this.val$buids;
+                            if (arrayList2 != null && arrayList2.size() != 0 && (groupMember == null || groupMember.size() != this.val$buids.size())) {
+                                ArrayList arrayList3 = new ArrayList();
+                                if (groupMember != null && groupMember.size() > 0) {
+                                    Iterator<GroupMember> it = groupMember.iterator();
+                                    while (it.hasNext()) {
+                                        arrayList3.add(Long.valueOf(it.next().getBduid()));
+                                    }
+                                }
+                                ArrayList arrayList4 = new ArrayList();
+                                Iterator it2 = this.val$buids.iterator();
+                                while (it2.hasNext()) {
+                                    long longByString = Utility.getLongByString((String) it2.next(), 0L);
+                                    if (longByString != 0) {
+                                        arrayList4.add(Long.valueOf(longByString));
+                                    }
+                                }
+                                arrayList4.removeAll(arrayList3);
+                                ArrayList arrayList5 = new ArrayList();
+                                if (groupMember != null) {
+                                    arrayList5.addAll(groupMember);
+                                }
+                                if (arrayList4.size() > 0) {
+                                    ChatUserManager.getUsersProfileBatch(GroupManagerImpl.mContext, arrayList4, new IGetUsersProfileBatchListener(this, arrayList5) { // from class: com.baidu.android.imsdk.group.GroupManagerImpl.3.1
+                                        public static /* synthetic */ Interceptable $ic;
+                                        public transient /* synthetic */ FieldHolder $fh;
+                                        public final /* synthetic */ AnonymousClass3 this$1;
+                                        public final /* synthetic */ ArrayList val$result;
+
+                                        {
+                                            Interceptable interceptable3 = $ic;
+                                            if (interceptable3 != null) {
+                                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                                newInitContext.initArgs = r2;
+                                                Object[] objArr = {this, arrayList5};
+                                                interceptable3.invokeUnInit(65536, newInitContext);
+                                                int i = newInitContext.flag;
+                                                if ((i & 1) != 0) {
+                                                    int i2 = i & 2;
+                                                    newInitContext.thisArg = this;
+                                                    interceptable3.invokeInitBody(65536, newInitContext);
+                                                    return;
+                                                }
+                                            }
+                                            this.this$1 = this;
+                                            this.val$result = arrayList5;
+                                        }
+
+                                        @Override // com.baidu.android.imsdk.chatuser.IGetUsersProfileBatchListener
+                                        public void onGetUsersProfileBatchResult(int i, String str2, ArrayList<Long> arrayList6, ArrayList<ChatUser> arrayList7) {
+                                            Interceptable interceptable3 = $ic;
+                                            if (interceptable3 == null || interceptable3.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str2, arrayList6, arrayList7}) == null) {
+                                                if (i == 0 && arrayList7 != null && arrayList7.size() > 0) {
+                                                    Iterator<ChatUser> it3 = arrayList7.iterator();
+                                                    while (it3.hasNext()) {
+                                                        ChatUser next = it3.next();
+                                                        GroupMember groupMember2 = new GroupMember(this.this$1.val$groupId, next.getUk(), next.getUserName(), next.getBuid(), 0, 0L);
+                                                        groupMember2.setPortrait(next.getIconUrl());
+                                                        this.val$result.add(groupMember2);
+                                                    }
+                                                }
+                                                this.this$1.val$listener.onResult(0, "", this.val$result);
+                                            }
+                                        }
+                                    });
+                                    return;
+                                } else {
+                                    this.val$listener.onResult(0, "", arrayList5);
+                                    return;
+                                }
+                            }
+                            this.val$listener.onResult(0, "", groupMember);
+                        }
+                    }
+                });
+            }
+        }
+    }
+
+    public void setGroupDisturb(String str, int i, BIMValueCallBack<String> bIMValueCallBack) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048614, this, str, i, bIMValueCallBack) == null) {
+            IMGroupSetRequest iMGroupSetRequest = new IMGroupSetRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), str, AccountManager.getAppid(mContext), i);
+            HttpHelper.executor(mContext, iMGroupSetRequest, iMGroupSetRequest);
+        }
+    }
+
+    public boolean updateGroupMemberRole(String str, String str2, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048617, this, str, str2, i)) == null) {
+            return GroupMessageManagerImpl.getInstance(mContext).updateGroupMemberRole(str, str2, i);
+        }
+        return invokeLLI.booleanValue;
+    }
+
     private void uploadGroupRequestFailInfo(int i, String str, String str2, String str3, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{Integer.valueOf(i), str, str2, str3, str4}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(65544, this, new Object[]{Integer.valueOf(i), str, str2, str3, str4}) == null) {
             CaseUbc.DebugInfo debugInfo = new CaseUbc.DebugInfo();
             debugInfo.curClassName = TAG;
             debugInfo.extInfo = str;
@@ -369,25 +516,33 @@ public class GroupManagerImpl {
     public void getGroupsInfo(int i, ArrayList<String> arrayList, BIMValueCallBack<ArrayList<GroupInfo>> bIMValueCallBack) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeILL(1048600, this, i, arrayList, bIMValueCallBack) == null) {
+            ScreenUbc.MethodInfo methodInfo = new ScreenUbc.MethodInfo();
+            methodInfo.startTime = System.currentTimeMillis();
+            methodInfo.method = "getGroupsInfo";
+            methodInfo.eventList = new JSONArray();
             if (arrayList != null && arrayList.size() != 0) {
                 if (AccountManager.isLogin(mContext)) {
                     if (i == 1) {
-                        IMQueryGroupRequest iMQueryGroupRequest = new IMQueryGroupRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), AccountManager.getAppid(mContext), arrayList, false, null);
-                        HttpHelper.executor(mContext, iMQueryGroupRequest, iMQueryGroupRequest);
+                        Utility.addEventList(methodInfo.eventList, "IMQueryGroupRequest_no_save_begin");
+                        queryGroupRequest(bIMValueCallBack, arrayList, methodInfo);
                         return;
                     }
+                    Utility.addEventList(methodInfo.eventList, "getGroupInfo_db_begin");
                     ArrayList<GroupInfo> groupInfo = GroupInfoDAOImpl.getGroupInfo(mContext, arrayList);
                     if (groupInfo != null && groupInfo.size() > 0) {
                         LogUtils.d(TAG, "getGroupsInfo 0");
                         if (bIMValueCallBack != null) {
                             bIMValueCallBack.onResult(0, Constants.ERROR_MSG_SUCCESS, groupInfo);
+                            methodInfo.errCode = 0;
+                            methodInfo.errMsg = "getGroupInfo_db_Sucess!";
+                            methodInfo.endTime = System.currentTimeMillis();
+                            ScreenUbc.onEvent(mContext, "getGroupInfo", methodInfo);
                             return;
                         }
                         return;
                     }
-                    LogUtils.d(TAG, "getGroupsInfo 1");
-                    IMQueryGroupRequest iMQueryGroupRequest2 = new IMQueryGroupRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), AccountManager.getAppid(mContext), arrayList, false, null);
-                    HttpHelper.executor(mContext, iMQueryGroupRequest2, iMQueryGroupRequest2);
+                    Utility.addEventList(methodInfo.eventList, "IMQueryGroupRequest_begin");
+                    queryGroupRequest(bIMValueCallBack, arrayList, methodInfo);
                 } else if (bIMValueCallBack != null) {
                     bIMValueCallBack.onResult(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, null);
                 }
@@ -573,6 +728,98 @@ public class GroupManagerImpl {
                     bIMValueCallBack.onResult(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, null);
                 }
             }
+        }
+    }
+
+    public void getFansGroupInfo(ArrayList<String> arrayList, boolean z, BIMValueCallBack<ArrayList<GroupInfo>> bIMValueCallBack) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{arrayList, Boolean.valueOf(z), bIMValueCallBack}) == null) {
+            if (arrayList != null && arrayList.size() != 0) {
+                if (AccountManager.isLogin(mContext) && !AccountManager.isCuidLogin(mContext)) {
+                    ScreenUbc.MethodInfo methodInfo = new ScreenUbc.MethodInfo();
+                    methodInfo.startTime = System.currentTimeMillis();
+                    methodInfo.method = "getFansGroupInfo";
+                    methodInfo.eventList = new JSONArray();
+                    TaskManager.getInstance(mContext).submitForNetWork(new Runnable(this, z, methodInfo, arrayList, bIMValueCallBack) { // from class: com.baidu.android.imsdk.group.GroupManagerImpl.5
+                        public static /* synthetic */ Interceptable $ic;
+                        public transient /* synthetic */ FieldHolder $fh;
+                        public final /* synthetic */ GroupManagerImpl this$0;
+                        public final /* synthetic */ ArrayList val$groupIds;
+                        public final /* synthetic */ ScreenUbc.MethodInfo val$info;
+                        public final /* synthetic */ BIMValueCallBack val$listener;
+                        public final /* synthetic */ boolean val$network;
+
+                        {
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 != null) {
+                                InitContext newInitContext = TitanRuntime.newInitContext();
+                                newInitContext.initArgs = r2;
+                                Object[] objArr = {this, Boolean.valueOf(z), methodInfo, arrayList, bIMValueCallBack};
+                                interceptable2.invokeUnInit(65536, newInitContext);
+                                int i = newInitContext.flag;
+                                if ((i & 1) != 0) {
+                                    int i2 = i & 2;
+                                    newInitContext.thisArg = this;
+                                    interceptable2.invokeInitBody(65536, newInitContext);
+                                    return;
+                                }
+                            }
+                            this.this$0 = this;
+                            this.val$network = z;
+                            this.val$info = methodInfo;
+                            this.val$groupIds = arrayList;
+                            this.val$listener = bIMValueCallBack;
+                        }
+
+                        @Override // java.lang.Runnable
+                        public void run() {
+                            boolean z2;
+                            Interceptable interceptable2 = $ic;
+                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                                if (!this.val$network) {
+                                    Utility.addEventList(this.val$info.eventList, "getFansGroup_subTask");
+                                    ArrayList<GroupInfo> groupInfo = GroupInfoDAOImpl.getGroupInfo(GroupManagerImpl.mContext, this.val$groupIds);
+                                    Utility.addEventList(this.val$info.eventList, "getFansGroupInfo_db_end");
+                                    if (groupInfo != null && groupInfo.size() == this.val$groupIds.size()) {
+                                        z2 = true;
+                                        Iterator<GroupInfo> it = groupInfo.iterator();
+                                        while (it.hasNext()) {
+                                            if (it.next().getType() != 3) {
+                                                z2 = false;
+                                                break;
+                                            }
+                                        }
+                                    } else {
+                                        z2 = false;
+                                        break;
+                                    }
+                                    if (z2) {
+                                        this.val$listener.onResult(0, null, groupInfo);
+                                        ScreenUbc.MethodInfo methodInfo2 = this.val$info;
+                                        methodInfo2.errCode = 0;
+                                        methodInfo2.errMsg = "getFansGroupInfo_db_Sucess!";
+                                        methodInfo2.endTime = System.currentTimeMillis();
+                                        ScreenUbc.onEvent(GroupManagerImpl.mContext, "getFansGroupInfo", this.val$info);
+                                        return;
+                                    }
+                                }
+                                Utility.addEventList(this.val$info.eventList, "IMQueryFansGroupRequest_begin");
+                                IMQueryFansGroupRequest iMQueryFansGroupRequest = new IMQueryFansGroupRequest(GroupManagerImpl.mContext, ListenerManager.getInstance().addListener(this.val$listener), this.val$groupIds);
+                                iMQueryFansGroupRequest.setScreenInfo(this.val$info);
+                                HttpHelper.executor(GroupManagerImpl.mContext, iMQueryFansGroupRequest, iMQueryFansGroupRequest);
+                            }
+                        }
+                    });
+                    return;
+                }
+                LogUtils.d(TAG, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN);
+                if (bIMValueCallBack != null) {
+                    bIMValueCallBack.onResult(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, null);
+                    return;
+                }
+                return;
+            }
+            bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, null);
         }
     }
 
@@ -821,80 +1068,196 @@ public class GroupManagerImpl {
         }
     }
 
-    public void getFansGroupInfo(ArrayList<String> arrayList, boolean z, BIMValueCallBack<ArrayList<GroupInfo>> bIMValueCallBack) {
+    public void getGroupList(BIMValueCallBack<ArrayList<String>> bIMValueCallBack, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{arrayList, Boolean.valueOf(z), bIMValueCallBack}) == null) {
-            if (arrayList != null && arrayList.size() != 0) {
-                if (AccountManager.isLogin(mContext) && !AccountManager.isCuidLogin(mContext)) {
-                    TaskManager.getInstance(mContext).submitForNetWork(new Runnable(this, z, arrayList, bIMValueCallBack) { // from class: com.baidu.android.imsdk.group.GroupManagerImpl.5
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ GroupManagerImpl this$0;
-                        public final /* synthetic */ ArrayList val$groupIds;
-                        public final /* synthetic */ BIMValueCallBack val$listener;
-                        public final /* synthetic */ boolean val$network;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {this, Boolean.valueOf(z), arrayList, bIMValueCallBack};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i = newInitContext.flag;
-                                if ((i & 1) != 0) {
-                                    int i2 = i & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.this$0 = this;
-                            this.val$network = z;
-                            this.val$groupIds = arrayList;
-                            this.val$listener = bIMValueCallBack;
-                        }
-
-                        @Override // java.lang.Runnable
-                        public void run() {
-                            boolean z2;
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                if (!this.val$network) {
-                                    ArrayList<GroupInfo> groupInfo = GroupInfoDAOImpl.getGroupInfo(GroupManagerImpl.mContext, this.val$groupIds);
-                                    if (groupInfo != null && groupInfo.size() == this.val$groupIds.size()) {
-                                        z2 = true;
-                                        Iterator<GroupInfo> it = groupInfo.iterator();
-                                        while (it.hasNext()) {
-                                            if (it.next().getType() != 3) {
-                                                z2 = false;
-                                                break;
-                                            }
-                                        }
-                                    } else {
-                                        z2 = false;
-                                        break;
-                                    }
-                                    if (z2) {
-                                        this.val$listener.onResult(0, null, groupInfo);
-                                        return;
-                                    }
-                                }
-                                IMQueryFansGroupRequest iMQueryFansGroupRequest = new IMQueryFansGroupRequest(GroupManagerImpl.mContext, ListenerManager.getInstance().addListener(this.val$listener), this.val$groupIds);
-                                HttpHelper.executor(GroupManagerImpl.mContext, iMQueryFansGroupRequest, iMQueryFansGroupRequest);
-                            }
-                        }
-                    });
-                    return;
-                }
-                LogUtils.d(TAG, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN);
+        if (interceptable == null || interceptable.invokeLII(1048598, this, bIMValueCallBack, i, i2) == null) {
+            if (AccountManager.isLogin(mContext)) {
+                ArrayList<String> groupList = GroupInfoDAOImpl.getGroupList(mContext, true, i, i2);
                 if (bIMValueCallBack != null) {
-                    bIMValueCallBack.onResult(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, null);
+                    bIMValueCallBack.onResult(0, Constants.ERROR_MSG_SUCCESS, groupList);
                     return;
                 }
                 return;
             }
-            bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, null);
+            LogUtils.d(TAG, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN);
+            if (bIMValueCallBack != null) {
+                bIMValueCallBack.onResult(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, null);
+            }
+        }
+    }
+
+    public void getStarOnline(String str, BIMValueCallBack<Integer> bIMValueCallBack) {
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048605, this, str, bIMValueCallBack) == null) {
+            try {
+                j = Long.valueOf(str).longValue();
+            } catch (NumberFormatException e) {
+                String str2 = TAG;
+                LogUtils.e(str2, "groupId : " + str, e);
+                j = -1;
+            }
+            if (0 > j) {
+                if (bIMValueCallBack != null) {
+                    bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, null);
+                }
+            } else if (AccountManager.isLogin(mContext)) {
+                IMGetStarOnlineRequest iMGetStarOnlineRequest = new IMGetStarOnlineRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), AccountManager.getAppid(mContext), str);
+                HttpHelper.executor(mContext, iMGetStarOnlineRequest, iMGetStarOnlineRequest);
+            } else {
+                LogUtils.d(TAG, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN);
+                if (bIMValueCallBack != null) {
+                    bIMValueCallBack.onResult(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, null);
+                }
+            }
+        }
+    }
+
+    public void joinStarGroup(String str, BIMValueCallBack<String> bIMValueCallBack) {
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048607, this, str, bIMValueCallBack) == null) {
+            try {
+                j = Long.valueOf(str).longValue();
+            } catch (Exception e) {
+                LogUtils.e(TAG, e.getMessage());
+                j = -1;
+            }
+            if (j < 0 && bIMValueCallBack != null) {
+                bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, str);
+            }
+            if (AccountManager.isLogin(mContext)) {
+                IMJoinStarGroupRequest iMJoinStarGroupRequest = new IMJoinStarGroupRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), AccountManager.getAppid(mContext), str);
+                HttpHelper.executor(mContext, iMJoinStarGroupRequest, iMJoinStarGroupRequest);
+                return;
+            }
+            LogUtils.d(TAG, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN);
+            if (bIMValueCallBack != null) {
+                bIMValueCallBack.onResult(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, str);
+            }
+        }
+    }
+
+    public void quitFansGroup(String str, BIMValueCallBack<String> bIMValueCallBack) {
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048608, this, str, bIMValueCallBack) == null) {
+            try {
+                j = Long.valueOf(str).longValue();
+            } catch (NumberFormatException e) {
+                String str2 = TAG;
+                LogUtils.e(str2, "groupId : " + str, e);
+                j = -1;
+            }
+            if (0 > j) {
+                if (bIMValueCallBack != null) {
+                    bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, str);
+                }
+            } else if (AccountManager.isLogin(mContext) && !AccountManager.isCuidLogin(mContext)) {
+                IMQuitGroupRequest iMQuitGroupRequest = new IMQuitGroupRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), str, true);
+                HttpHelper.executor(mContext, iMQuitGroupRequest, iMQuitGroupRequest);
+            } else {
+                LogUtils.d(TAG, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN);
+                if (bIMValueCallBack != null) {
+                    bIMValueCallBack.onResult(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, str);
+                }
+            }
+        }
+    }
+
+    public void quitGroup(String str, BIMValueCallBack<String> bIMValueCallBack) {
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048609, this, str, bIMValueCallBack) == null) {
+            try {
+                j = Long.valueOf(str).longValue();
+            } catch (NumberFormatException e) {
+                String str2 = TAG;
+                LogUtils.e(str2, "groupId : " + str, e);
+                j = -1;
+            }
+            if (0 > j) {
+                if (bIMValueCallBack != null) {
+                    bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, str);
+                }
+            } else if (AccountManager.isLogin(mContext)) {
+                IMQuitGroupRequest iMQuitGroupRequest = new IMQuitGroupRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), str, false);
+                HttpHelper.executor(mContext, iMQuitGroupRequest, iMQuitGroupRequest);
+            } else {
+                LogUtils.d(TAG, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN);
+                if (bIMValueCallBack != null) {
+                    bIMValueCallBack.onResult(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, str);
+                }
+            }
+        }
+    }
+
+    public void quitStarGroup(String str, BIMValueCallBack<String> bIMValueCallBack) {
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048610, this, str, bIMValueCallBack) == null) {
+            try {
+                j = Long.valueOf(str).longValue();
+            } catch (NumberFormatException e) {
+                String str2 = TAG;
+                LogUtils.e(str2, "groupId : " + str, e);
+                j = -1;
+            }
+            if (0 > j) {
+                if (bIMValueCallBack != null) {
+                    bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, str);
+                }
+            } else if (AccountManager.isLogin(mContext)) {
+                IMQuitStarGroupRequest iMQuitStarGroupRequest = new IMQuitStarGroupRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), AccountManager.getAppid(mContext), str, AccountManager.getUid(mContext));
+                HttpHelper.executor(mContext, iMQuitStarGroupRequest, iMQuitStarGroupRequest);
+            } else {
+                LogUtils.d(TAG, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN);
+                if (bIMValueCallBack != null) {
+                    bIMValueCallBack.onResult(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, str);
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:15:0x002e  */
+    /* JADX WARN: Removed duplicated region for block: B:18:0x0038  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void joinGroup(String str, String str2, int i, String str3, boolean z, BIMValueCallBack<String> bIMValueCallBack) {
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{str, str2, Integer.valueOf(i), str3, Boolean.valueOf(z), bIMValueCallBack}) == null) {
+            long j2 = -1;
+            try {
+                j = Long.valueOf(str).longValue();
+            } catch (Exception e) {
+                e = e;
+                j = -1;
+            }
+            try {
+                j2 = Long.valueOf(str2).longValue();
+            } catch (Exception e2) {
+                e = e2;
+                LogUtils.e(TAG, e.getMessage());
+                long j3 = j2;
+                if (j >= 0) {
+                }
+            }
+            long j32 = j2;
+            if (j >= 0) {
+                if (bIMValueCallBack != null) {
+                    bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, str);
+                }
+            } else if (AccountManager.isLogin(mContext)) {
+                IMJoinGroupRequest iMJoinGroupRequest = new IMJoinGroupRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), z, str, j32, i, str3);
+                HttpHelper.executor(mContext, iMJoinGroupRequest, iMJoinGroupRequest);
+            } else {
+                LogUtils.d(TAG, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN);
+                if (bIMValueCallBack != null) {
+                    bIMValueCallBack.onResult(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, str);
+                }
+            }
         }
     }
 
@@ -1085,335 +1448,6 @@ public class GroupManagerImpl {
                 }
             } else if (bIMValueCallBack != null) {
                 bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, str);
-            }
-        }
-    }
-
-    public void getFansGroupUserInfo(String str, ArrayList<String> arrayList, BIMValueCallBack<ArrayList<GroupMember>> bIMValueCallBack) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048594, this, str, arrayList, bIMValueCallBack) == null) {
-            if (str == null) {
-                bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, null);
-            } else {
-                TaskManager.getInstance(mContext).submitForNetWork(new Runnable(this, str, arrayList, bIMValueCallBack) { // from class: com.baidu.android.imsdk.group.GroupManagerImpl.3
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ GroupManagerImpl this$0;
-                    public final /* synthetic */ ArrayList val$buids;
-                    public final /* synthetic */ String val$groupId;
-                    public final /* synthetic */ BIMValueCallBack val$listener;
-
-                    {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {this, str, arrayList, bIMValueCallBack};
-                            interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable2.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.this$0 = this;
-                        this.val$groupId = str;
-                        this.val$buids = arrayList;
-                        this.val$listener = bIMValueCallBack;
-                    }
-
-                    @Override // java.lang.Runnable
-                    public void run() {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                            ArrayList<GroupMember> groupMember = GroupInfoDAOImpl.getGroupMember(GroupManagerImpl.mContext, this.val$groupId, this.val$buids, 0);
-                            ArrayList arrayList2 = this.val$buids;
-                            if (arrayList2 != null && arrayList2.size() != 0 && (groupMember == null || groupMember.size() != this.val$buids.size())) {
-                                ArrayList arrayList3 = new ArrayList();
-                                if (groupMember != null && groupMember.size() > 0) {
-                                    Iterator<GroupMember> it = groupMember.iterator();
-                                    while (it.hasNext()) {
-                                        arrayList3.add(Long.valueOf(it.next().getBduid()));
-                                    }
-                                }
-                                ArrayList arrayList4 = new ArrayList();
-                                Iterator it2 = this.val$buids.iterator();
-                                while (it2.hasNext()) {
-                                    long longByString = Utility.getLongByString((String) it2.next(), 0L);
-                                    if (longByString != 0) {
-                                        arrayList4.add(Long.valueOf(longByString));
-                                    }
-                                }
-                                arrayList4.removeAll(arrayList3);
-                                ArrayList arrayList5 = new ArrayList();
-                                if (groupMember != null) {
-                                    arrayList5.addAll(groupMember);
-                                }
-                                if (arrayList4.size() > 0) {
-                                    ChatUserManager.getUsersProfileBatch(GroupManagerImpl.mContext, arrayList4, new IGetUsersProfileBatchListener(this, arrayList5) { // from class: com.baidu.android.imsdk.group.GroupManagerImpl.3.1
-                                        public static /* synthetic */ Interceptable $ic;
-                                        public transient /* synthetic */ FieldHolder $fh;
-                                        public final /* synthetic */ AnonymousClass3 this$1;
-                                        public final /* synthetic */ ArrayList val$result;
-
-                                        {
-                                            Interceptable interceptable3 = $ic;
-                                            if (interceptable3 != null) {
-                                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                                newInitContext.initArgs = r2;
-                                                Object[] objArr = {this, arrayList5};
-                                                interceptable3.invokeUnInit(65536, newInitContext);
-                                                int i = newInitContext.flag;
-                                                if ((i & 1) != 0) {
-                                                    int i2 = i & 2;
-                                                    newInitContext.thisArg = this;
-                                                    interceptable3.invokeInitBody(65536, newInitContext);
-                                                    return;
-                                                }
-                                            }
-                                            this.this$1 = this;
-                                            this.val$result = arrayList5;
-                                        }
-
-                                        @Override // com.baidu.android.imsdk.chatuser.IGetUsersProfileBatchListener
-                                        public void onGetUsersProfileBatchResult(int i, String str2, ArrayList<Long> arrayList6, ArrayList<ChatUser> arrayList7) {
-                                            Interceptable interceptable3 = $ic;
-                                            if (interceptable3 == null || interceptable3.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str2, arrayList6, arrayList7}) == null) {
-                                                if (i == 0 && arrayList7 != null && arrayList7.size() > 0) {
-                                                    Iterator<ChatUser> it3 = arrayList7.iterator();
-                                                    while (it3.hasNext()) {
-                                                        ChatUser next = it3.next();
-                                                        GroupMember groupMember2 = new GroupMember(this.this$1.val$groupId, next.getUk(), next.getUserName(), next.getBuid(), 0, 0L);
-                                                        groupMember2.setPortrait(next.getIconUrl());
-                                                        this.val$result.add(groupMember2);
-                                                    }
-                                                }
-                                                this.this$1.val$listener.onResult(0, "", this.val$result);
-                                            }
-                                        }
-                                    });
-                                    return;
-                                } else {
-                                    this.val$listener.onResult(0, "", arrayList5);
-                                    return;
-                                }
-                            }
-                            this.val$listener.onResult(0, "", groupMember);
-                        }
-                    }
-                });
-            }
-        }
-    }
-
-    public void setGroupDisturb(String str, int i, BIMValueCallBack<String> bIMValueCallBack) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048614, this, str, i, bIMValueCallBack) == null) {
-            IMGroupSetRequest iMGroupSetRequest = new IMGroupSetRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), str, AccountManager.getAppid(mContext), i);
-            HttpHelper.executor(mContext, iMGroupSetRequest, iMGroupSetRequest);
-        }
-    }
-
-    public boolean updateGroupMemberRole(String str, String str2, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048617, this, str, str2, i)) == null) {
-            return GroupMessageManagerImpl.getInstance(mContext).updateGroupMemberRole(str, str2, i);
-        }
-        return invokeLLI.booleanValue;
-    }
-
-    public void getGroupList(BIMValueCallBack<ArrayList<String>> bIMValueCallBack, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048598, this, bIMValueCallBack, i, i2) == null) {
-            if (AccountManager.isLogin(mContext)) {
-                ArrayList<String> groupList = GroupInfoDAOImpl.getGroupList(mContext, true, i, i2);
-                if (bIMValueCallBack != null) {
-                    bIMValueCallBack.onResult(0, Constants.ERROR_MSG_SUCCESS, groupList);
-                    return;
-                }
-                return;
-            }
-            LogUtils.d(TAG, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN);
-            if (bIMValueCallBack != null) {
-                bIMValueCallBack.onResult(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, null);
-            }
-        }
-    }
-
-    public void getStarOnline(String str, BIMValueCallBack<Integer> bIMValueCallBack) {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048605, this, str, bIMValueCallBack) == null) {
-            try {
-                j = Long.valueOf(str).longValue();
-            } catch (NumberFormatException e) {
-                String str2 = TAG;
-                LogUtils.e(str2, "groupId : " + str, e);
-                j = -1;
-            }
-            if (0 > j) {
-                if (bIMValueCallBack != null) {
-                    bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, null);
-                }
-            } else if (AccountManager.isLogin(mContext)) {
-                IMGetStarOnlineRequest iMGetStarOnlineRequest = new IMGetStarOnlineRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), AccountManager.getAppid(mContext), str);
-                HttpHelper.executor(mContext, iMGetStarOnlineRequest, iMGetStarOnlineRequest);
-            } else {
-                LogUtils.d(TAG, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN);
-                if (bIMValueCallBack != null) {
-                    bIMValueCallBack.onResult(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, null);
-                }
-            }
-        }
-    }
-
-    public void joinStarGroup(String str, BIMValueCallBack<String> bIMValueCallBack) {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048607, this, str, bIMValueCallBack) == null) {
-            try {
-                j = Long.valueOf(str).longValue();
-            } catch (Exception e) {
-                LogUtils.e(TAG, e.getMessage());
-                j = -1;
-            }
-            if (j < 0 && bIMValueCallBack != null) {
-                bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, str);
-            }
-            if (AccountManager.isLogin(mContext)) {
-                IMJoinStarGroupRequest iMJoinStarGroupRequest = new IMJoinStarGroupRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), AccountManager.getAppid(mContext), str);
-                HttpHelper.executor(mContext, iMJoinStarGroupRequest, iMJoinStarGroupRequest);
-                return;
-            }
-            LogUtils.d(TAG, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN);
-            if (bIMValueCallBack != null) {
-                bIMValueCallBack.onResult(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, str);
-            }
-        }
-    }
-
-    public void quitFansGroup(String str, BIMValueCallBack<String> bIMValueCallBack) {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048608, this, str, bIMValueCallBack) == null) {
-            try {
-                j = Long.valueOf(str).longValue();
-            } catch (NumberFormatException e) {
-                String str2 = TAG;
-                LogUtils.e(str2, "groupId : " + str, e);
-                j = -1;
-            }
-            if (0 > j) {
-                if (bIMValueCallBack != null) {
-                    bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, str);
-                }
-            } else if (AccountManager.isLogin(mContext) && !AccountManager.isCuidLogin(mContext)) {
-                IMQuitGroupRequest iMQuitGroupRequest = new IMQuitGroupRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), str, true);
-                HttpHelper.executor(mContext, iMQuitGroupRequest, iMQuitGroupRequest);
-            } else {
-                LogUtils.d(TAG, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN);
-                if (bIMValueCallBack != null) {
-                    bIMValueCallBack.onResult(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, str);
-                }
-            }
-        }
-    }
-
-    public void quitGroup(String str, BIMValueCallBack<String> bIMValueCallBack) {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048609, this, str, bIMValueCallBack) == null) {
-            try {
-                j = Long.valueOf(str).longValue();
-            } catch (NumberFormatException e) {
-                String str2 = TAG;
-                LogUtils.e(str2, "groupId : " + str, e);
-                j = -1;
-            }
-            if (0 > j) {
-                if (bIMValueCallBack != null) {
-                    bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, str);
-                }
-            } else if (AccountManager.isLogin(mContext)) {
-                IMQuitGroupRequest iMQuitGroupRequest = new IMQuitGroupRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), str, false);
-                HttpHelper.executor(mContext, iMQuitGroupRequest, iMQuitGroupRequest);
-            } else {
-                LogUtils.d(TAG, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN);
-                if (bIMValueCallBack != null) {
-                    bIMValueCallBack.onResult(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, str);
-                }
-            }
-        }
-    }
-
-    public void quitStarGroup(String str, BIMValueCallBack<String> bIMValueCallBack) {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048610, this, str, bIMValueCallBack) == null) {
-            try {
-                j = Long.valueOf(str).longValue();
-            } catch (NumberFormatException e) {
-                String str2 = TAG;
-                LogUtils.e(str2, "groupId : " + str, e);
-                j = -1;
-            }
-            if (0 > j) {
-                if (bIMValueCallBack != null) {
-                    bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, str);
-                }
-            } else if (AccountManager.isLogin(mContext)) {
-                IMQuitStarGroupRequest iMQuitStarGroupRequest = new IMQuitStarGroupRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), AccountManager.getAppid(mContext), str, AccountManager.getUid(mContext));
-                HttpHelper.executor(mContext, iMQuitStarGroupRequest, iMQuitStarGroupRequest);
-            } else {
-                LogUtils.d(TAG, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN);
-                if (bIMValueCallBack != null) {
-                    bIMValueCallBack.onResult(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, str);
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:15:0x002e  */
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0038  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void joinGroup(String str, String str2, int i, String str3, boolean z, BIMValueCallBack<String> bIMValueCallBack) {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{str, str2, Integer.valueOf(i), str3, Boolean.valueOf(z), bIMValueCallBack}) == null) {
-            long j2 = -1;
-            try {
-                j = Long.valueOf(str).longValue();
-            } catch (Exception e) {
-                e = e;
-                j = -1;
-            }
-            try {
-                j2 = Long.valueOf(str2).longValue();
-            } catch (Exception e2) {
-                e = e2;
-                LogUtils.e(TAG, e.getMessage());
-                long j3 = j2;
-                if (j >= 0) {
-                }
-            }
-            long j32 = j2;
-            if (j >= 0) {
-                if (bIMValueCallBack != null) {
-                    bIMValueCallBack.onResult(1005, Constants.ERROR_MSG_PARAMETER_ERROR, str);
-                }
-            } else if (AccountManager.isLogin(mContext)) {
-                IMJoinGroupRequest iMJoinGroupRequest = new IMJoinGroupRequest(mContext, ListenerManager.getInstance().addListener(bIMValueCallBack), z, str, j32, i, str3);
-                HttpHelper.executor(mContext, iMJoinGroupRequest, iMJoinGroupRequest);
-            } else {
-                LogUtils.d(TAG, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN);
-                if (bIMValueCallBack != null) {
-                    bIMValueCallBack.onResult(1000, Constants.ERROR_MSG_ACCOUNT_NOT_LOGIN, str);
-                }
             }
         }
     }

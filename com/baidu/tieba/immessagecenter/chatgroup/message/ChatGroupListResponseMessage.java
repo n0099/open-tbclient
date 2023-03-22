@@ -4,11 +4,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.dh;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
+import com.baidu.tieba.fu7;
+import com.baidu.tieba.gg;
+import com.baidu.tieba.gu7;
 import com.baidu.tieba.immessagecenter.chatgroup.data.ChatGroupInfo;
-import com.baidu.tieba.ys7;
-import com.baidu.tieba.zs7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,15 +51,15 @@ public class ChatGroupListResponseMessage extends JsonHttpResponsedMessage {
             if (jSONObject == null) {
                 return;
             }
-            int e = dh.e(jSONObject.optString("error_code"), -1);
+            int e = gg.e(jSONObject.optString("error_code"), -1);
             if (e == 0) {
                 JSONObject optJSONObject = jSONObject.optJSONObject("data");
                 if (optJSONObject != null) {
                     JSONObject optJSONObject2 = optJSONObject.optJSONObject(SpeedStatsUtils.UBC_VALUE_BANNER);
                     if (optJSONObject2 != null) {
-                        zs7 zs7Var = new zs7();
-                        zs7Var.f(optJSONObject2);
-                        this.mList.add(zs7Var);
+                        gu7 gu7Var = new gu7();
+                        gu7Var.f(optJSONObject2);
+                        this.mList.add(gu7Var);
                     }
                     JSONArray optJSONArray = optJSONObject.optJSONArray("list");
                     if (optJSONArray != null) {
@@ -75,9 +75,9 @@ public class ChatGroupListResponseMessage extends JsonHttpResponsedMessage {
                     }
                     JSONObject optJSONObject4 = optJSONObject.optJSONObject("footer");
                     if (optJSONObject4 != null) {
-                        ys7 ys7Var = new ys7();
-                        ys7Var.c(optJSONObject4);
-                        this.mList.add(ys7Var);
+                        fu7 fu7Var = new fu7();
+                        fu7Var.c(optJSONObject4);
+                        this.mList.add(fu7Var);
                         return;
                     }
                     return;

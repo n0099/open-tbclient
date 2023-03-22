@@ -1,83 +1,178 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.util.Log;
-import android.webkit.JavascriptInterface;
-import androidx.annotation.NonNull;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import com.baidu.down.retry.HttpRetryStatistic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class o24 {
+public class o24 extends q62 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean A;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    @V8JavascriptField
-    public int height;
-    @V8JavascriptField
-    public int left;
-    @V8JavascriptField
-    public int realHeight;
-    @V8JavascriptField
-    public int realWidth;
-    @V8JavascriptField
-    public int top;
-    @V8JavascriptField
-    public int width;
+    public View z;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void i(String str);
+    @Override // com.baidu.tieba.q62, com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.bu1
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "console" : (String) invokeV.objValue;
     }
 
-    public o24(@NonNull t12 t12Var) {
+    /* loaded from: classes5.dex */
+    public class a extends h62 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(o24 o24Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o24Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.h62
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                super.a(str);
+                if (o24.A) {
+                    Log.e("SwanGameConsoleManager", "onPageFinished");
+                }
+                p24.a();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947980344, "Lcom/baidu/tieba/o24;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947980344, "Lcom/baidu/tieba/o24;");
+                return;
+            }
+        }
+        A = do1.a;
+    }
+
+    @Override // com.baidu.tieba.q62, com.baidu.tieba.yt1
+    public void E() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            p24.h(false);
+            this.z = null;
+            super.E();
+        }
+    }
+
+    public final void i1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            b(new a(this));
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o24(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {t12Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        a(t12Var);
     }
 
-    public void b(a aVar) {
+    @Override // com.baidu.tieba.q62, com.baidu.tieba.yt1
+    public void G(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.a = aVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+            this.z = view2;
         }
     }
 
-    @JavascriptInterface
-    public void onFieldChangedCallback(String str) {
+    @Override // com.baidu.tieba.q62, com.baidu.tieba.yt1
+    public void P(boolean z) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (wp1.a) {
-                Log.d("BannerAdStyle", "onFieldChangedCallback fieldName=" + str);
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            int visibility = r().getVisibility();
+            int i2 = 0;
+            if (z) {
+                i = 0;
+            } else {
+                i = 8;
             }
-            a aVar = this.a;
-            if (aVar != null) {
-                aVar.i(str);
+            if (visibility == i) {
+                return;
             }
+            if (A) {
+                Log.i("SwanGameConsoleManager", "setConsoleVisible:" + z);
+            }
+            if (z) {
+                gt2.U().m("console", j24.u(true));
+            }
+            if (this.z != null) {
+                if (z) {
+                    i2 = 4;
+                }
+                this.z.setVisibility(i2);
+            }
+            super.P(z);
         }
     }
 
-    public final void a(@NonNull t12 t12Var) {
+    @Override // com.baidu.tieba.q62, com.baidu.tieba.yt1
+    public void g0(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, t12Var) == null) {
-            this.left = t12Var.r("left", this.left);
-            this.top = t12Var.r("top", this.top);
-            this.width = t12Var.r("width", this.width);
-            this.height = t12Var.r("height", this.height);
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
+            p24.g(str, str2);
+        }
+    }
+
+    @Override // com.baidu.tieba.q62
+    public void g1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            r().setVisibility(8);
+            r().setBackgroundColor(0);
+            p24.c();
+            i1();
+            String i = k24.m().i();
+            if (A) {
+                Log.d("SwanGameConsoleManager", HttpRetryStatistic.RETRY_URL + i);
+            }
+            loadUrl(i);
         }
     }
 }

@@ -6,34 +6,27 @@ import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.ala.alasquare.subtablist.view.AlaSubListGameDoubleViewHolder;
+import com.baidu.tieba.ala.frsgamelive.view.AlaGameFrsLiveGameCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class v56 extends qn<x56, AlaSubListGameDoubleViewHolder> {
+public class v56 extends tm<b66, AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public g66 b;
-    public boolean c;
-    public b66 d;
-    public int e;
-    public int f;
+    public TbPageContext a;
+    public k26 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v56(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), x56.c);
+    public v56(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -45,90 +38,38 @@ public class v56 extends qn<x56, AlaSubListGameDoubleViewHolder> {
                 return;
             }
         }
-        this.c = false;
         this.a = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: t */
-    public AlaSubListGameDoubleViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.tm
+    /* renamed from: s */
+    public AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            this.d = new b66(this.a, this.c);
-            return new AlaSubListGameDoubleViewHolder(this.d);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder(new AlaGameFrsLiveGameCardView(this.a));
         }
-        return (AlaSubListGameDoubleViewHolder) invokeL.objValue;
+        return (AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder) invokeL.objValue;
     }
 
-    public void v(int i) {
+    public void u(k26 k26Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public void w(g66 g66Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, g66Var) == null) {
-            this.b = g66Var;
-        }
-    }
-
-    public void x(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public final void s(x56 x56Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, x56Var) != null) || x56Var == null) {
-            return;
-        }
-        int i = this.f;
-        if (i == 1) {
-            if (x56Var.a != null) {
-                g56 b = g56.b();
-                g56 b2 = g56.b();
-                int i2 = this.e;
-                h36 h36Var = x56Var.a;
-                b.a(b2.d(i2, "c12117", h36Var.a, h36Var.b, h36Var.getThreadData()));
-            }
-            if (x56Var.b != null) {
-                g56 b3 = g56.b();
-                g56 b4 = g56.b();
-                int i3 = this.e;
-                h36 h36Var2 = x56Var.b;
-                b3.a(b4.d(i3, "c12117", h36Var2.a, h36Var2.b, h36Var2.getThreadData()));
-            }
-        } else if (i == 2) {
-            h36 h36Var3 = x56Var.a;
-            if (h36Var3 != null && h36Var3.getThreadData() != null && x56Var.a.getThreadData().getThreadAlaInfo() != null) {
-                ThreadData threadData = x56Var.a.getThreadData();
-                TiebaStatic.log(new StatisticItem("c12115").param("obj_id", threadData.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, threadData.getThreadAlaInfo().appId).param("locate_type", x56Var.a.b));
-            }
-            h36 h36Var4 = x56Var.b;
-            if (h36Var4 != null && h36Var4.getThreadData() != null && x56Var.b.getThreadData().getThreadAlaInfo() != null) {
-                ThreadData threadData2 = x56Var.b.getThreadData();
-                TiebaStatic.log(new StatisticItem("c12115").param("obj_id", threadData2.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, threadData2.getThreadAlaInfo().appId).param("locate_type", x56Var.b.b));
-            }
+        if (interceptable == null || interceptable.invokeL(1048580, this, k26Var) == null) {
+            this.b = k26Var;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, x56 x56Var, AlaSubListGameDoubleViewHolder alaSubListGameDoubleViewHolder) {
+    @Override // com.baidu.tieba.tm
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, b66 b66Var, AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder alaGameFrsGameViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, x56Var, alaSubListGameDoubleViewHolder})) == null) {
-            s(x56Var);
-            alaSubListGameDoubleViewHolder.a.i(x56Var);
-            alaSubListGameDoubleViewHolder.a.s(this.b);
-            return alaSubListGameDoubleViewHolder.getView();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, b66Var, alaGameFrsGameViewHolder})) == null) {
+            alaGameFrsGameViewHolder.a.l(b66Var);
+            alaGameFrsGameViewHolder.a.t(this.b);
+            return alaGameFrsGameViewHolder.getView();
         }
         return (View) invokeCommon.objValue;
     }

@@ -20,7 +20,7 @@ import com.baidu.android.imsdk.ubc.MessageUbc;
 import com.baidu.android.imsdk.ubc.UBCConstants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tieba.e80;
+import com.baidu.tieba.u60;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -470,10 +470,11 @@ public class IMSendMsg extends Message {
         return (ChatMsg) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:34:0x00b1 A[ADDED_TO_REGION] */
-    /* JADX WARN: Removed duplicated region for block: B:39:0x00fd  */
-    /* JADX WARN: Removed duplicated region for block: B:42:0x0108  */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x0123  */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x00ca A[ADDED_TO_REGION] */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x0119  */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x012b  */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x0184  */
+    /* JADX WARN: Removed duplicated region for block: B:55:0x019f  */
     @Override // com.baidu.android.imsdk.request.Message
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -483,12 +484,19 @@ public class IMSendMsg extends Message {
         int i2;
         long j;
         int i3;
+        long j2;
         int i4;
-        int i5;
-        String str2;
+        Context context2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_SEND_USER_MSG, this, context, jSONObject, i, str) == null) {
-            LogUtils.d(TAG, "handleMessageResult errorCode:" + i + ";strMsg:" + str);
+            int i5 = i;
+            StringBuilder sb = new StringBuilder();
+            sb.append("handleMessageResult errorCode:");
+            sb.append(i5);
+            sb.append(";strMsg:");
+            String str2 = str;
+            sb.append(str2);
+            LogUtils.d(TAG, sb.toString());
             String str3 = "";
             long msgId = getChatMsg().getMsgId();
             int i6 = -1;
@@ -500,26 +508,34 @@ public class IMSendMsg extends Message {
                         msgId = jSONObject.getLong("msgid");
                         getChatMsg().setMsgId(msgId);
                     } catch (Exception e) {
-                        e = e;
-                        j = -1;
                         exc = e;
+                        j = -1;
                         i2 = -1;
                         LogUtils.e(TAG, "handle IMSendMsg exception :", exc);
-                        i3 = i6;
-                        i4 = i2;
-                        if (i != 0) {
+                        i4 = i6;
+                        j2 = j;
+                        i3 = i2;
+                        if (i5 != 0) {
                         }
-                        i5 = i;
-                        str2 = str;
-                        super.handleMessageResult(context, jSONObject, i5, str2);
+                        context2 = context;
+                        super.handleMessageResult(context2, jSONObject, i5, str2);
                         LogUtils.d(TAG, "errorCode:" + i5 + "  strMsg" + str2);
                         getChatMsg().setTipsCode(i5);
                         getChatMsg().setTips(str3);
-                        getChatMsg().setRemainNum(i3);
-                        getChatMsg().setSendNum(i4);
-                        if (j != -1) {
+                        getChatMsg().setRemainNum(i4);
+                        getChatMsg().setSendNum(i3);
+                        if (j2 != -1) {
                         }
-                        if (this.mFromMedia) {
+                        if (1 == getChatMsg().getCategory()) {
+                            try {
+                                JSONObject jSONObject2 = new JSONObject(getChatMsg().getMsgContent());
+                                jSONObject2.put("tips", getChatMsg().getTips());
+                                getChatMsg().setMsgContent(jSONObject2.toString());
+                            } catch (Exception e2) {
+                                LogUtils.e(TAG, "handleMessageResult exception: " + e2);
+                            }
+                        }
+                        if (!this.mFromMedia) {
                         }
                         ChatMsg chatMsg = getChatMsg();
                         MessageUbc.DebugInfo debugInfo = new MessageUbc.DebugInfo();
@@ -528,47 +544,58 @@ public class IMSendMsg extends Message {
                         debugInfo.msgId = msgId;
                         debugInfo.clientSource = chatMsg.getSource();
                         this.ubcData.setDebugInfo(debugInfo);
-                        e80.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+                        u60.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
                     }
                 }
+                if (jSONObject.has("auto_risk_control_status")) {
+                    getChatMsg().setAutoRiskControlStatus(jSONObject.getInt("auto_risk_control_status"));
+                }
                 j = jSONObject.optLong("time", -1L);
-            } catch (Exception e2) {
-                exc = e2;
+                try {
+                    String optString = jSONObject.optString("tips_new");
+                    if (TextUtils.isEmpty(optString)) {
+                        if (jSONObject.optBoolean("display_tips")) {
+                            str3 = jSONObject.optString("tips");
+                        }
+                    } else {
+                        str3 = optString;
+                    }
+                    i4 = jSONObject.optInt("remain_msg_num", -1);
+                } catch (Exception e3) {
+                    e = e3;
+                }
+            } catch (Exception e4) {
+                exc = e4;
                 i2 = -1;
                 j = -1;
             }
             try {
-                String optString = jSONObject.optString("tips_new");
-                if (TextUtils.isEmpty(optString)) {
-                    if (jSONObject.optBoolean("display_tips")) {
-                        str3 = jSONObject.optString("tips");
-                    }
-                } else {
-                    str3 = optString;
-                }
-                i3 = jSONObject.optInt("remain_msg_num", -1);
+                i3 = jSONObject.optInt("send_msg_num", -1);
                 try {
-                    i4 = jSONObject.optInt("send_msg_num", -1);
-                } catch (Exception e3) {
-                    exc = e3;
-                    i6 = i3;
-                    i2 = -1;
+                    LogUtils.d(TAG, "handleMessageResult :" + jSONObject.toString());
+                    j2 = j;
+                } catch (Exception e5) {
+                    exc = e5;
+                    i2 = i3;
+                    i6 = i4;
                     LogUtils.e(TAG, "handle IMSendMsg exception :", exc);
-                    i3 = i6;
-                    i4 = i2;
-                    if (i != 0) {
+                    i4 = i6;
+                    j2 = j;
+                    i3 = i2;
+                    if (i5 != 0) {
                     }
-                    i5 = i;
-                    str2 = str;
-                    super.handleMessageResult(context, jSONObject, i5, str2);
+                    context2 = context;
+                    super.handleMessageResult(context2, jSONObject, i5, str2);
                     LogUtils.d(TAG, "errorCode:" + i5 + "  strMsg" + str2);
                     getChatMsg().setTipsCode(i5);
                     getChatMsg().setTips(str3);
-                    getChatMsg().setRemainNum(i3);
-                    getChatMsg().setSendNum(i4);
-                    if (j != -1) {
+                    getChatMsg().setRemainNum(i4);
+                    getChatMsg().setSendNum(i3);
+                    if (j2 != -1) {
                     }
-                    if (this.mFromMedia) {
+                    if (1 == getChatMsg().getCategory()) {
+                    }
+                    if (!this.mFromMedia) {
                     }
                     ChatMsg chatMsg2 = getChatMsg();
                     MessageUbc.DebugInfo debugInfo2 = new MessageUbc.DebugInfo();
@@ -577,102 +604,78 @@ public class IMSendMsg extends Message {
                     debugInfo2.msgId = msgId;
                     debugInfo2.clientSource = chatMsg2.getSource();
                     this.ubcData.setDebugInfo(debugInfo2);
-                    e80.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+                    u60.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
                 }
-                try {
-                    LogUtils.d(TAG, "handleMessageResult :" + jSONObject.toString());
-                } catch (Exception e4) {
-                    exc = e4;
-                    i2 = i4;
-                    i6 = i3;
-                    LogUtils.e(TAG, "handle IMSendMsg exception :", exc);
-                    i3 = i6;
-                    i4 = i2;
-                    if (i != 0) {
-                    }
-                    i5 = i;
-                    str2 = str;
-                    super.handleMessageResult(context, jSONObject, i5, str2);
-                    LogUtils.d(TAG, "errorCode:" + i5 + "  strMsg" + str2);
-                    getChatMsg().setTipsCode(i5);
-                    getChatMsg().setTips(str3);
-                    getChatMsg().setRemainNum(i3);
-                    getChatMsg().setSendNum(i4);
-                    if (j != -1) {
-                    }
-                    if (this.mFromMedia) {
-                    }
-                    ChatMsg chatMsg22 = getChatMsg();
-                    MessageUbc.DebugInfo debugInfo22 = new MessageUbc.DebugInfo();
-                    debugInfo22.methodId = getType();
-                    debugInfo22.eventList = chatMsg22.getEventList();
-                    debugInfo22.msgId = msgId;
-                    debugInfo22.clientSource = chatMsg22.getSource();
-                    this.ubcData.setDebugInfo(debugInfo22);
-                    e80.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
-                }
-            } catch (Exception e5) {
-                e = e5;
+            } catch (Exception e6) {
+                e = e6;
+                i6 = i4;
                 exc = e;
                 i2 = -1;
                 LogUtils.e(TAG, "handle IMSendMsg exception :", exc);
-                i3 = i6;
-                i4 = i2;
-                if (i != 0) {
+                i4 = i6;
+                j2 = j;
+                i3 = i2;
+                if (i5 != 0) {
                 }
-                i5 = i;
-                str2 = str;
-                super.handleMessageResult(context, jSONObject, i5, str2);
+                context2 = context;
+                super.handleMessageResult(context2, jSONObject, i5, str2);
                 LogUtils.d(TAG, "errorCode:" + i5 + "  strMsg" + str2);
                 getChatMsg().setTipsCode(i5);
                 getChatMsg().setTips(str3);
-                getChatMsg().setRemainNum(i3);
-                getChatMsg().setSendNum(i4);
-                if (j != -1) {
+                getChatMsg().setRemainNum(i4);
+                getChatMsg().setSendNum(i3);
+                if (j2 != -1) {
                 }
-                if (this.mFromMedia) {
+                if (1 == getChatMsg().getCategory()) {
                 }
-                ChatMsg chatMsg222 = getChatMsg();
-                MessageUbc.DebugInfo debugInfo222 = new MessageUbc.DebugInfo();
-                debugInfo222.methodId = getType();
-                debugInfo222.eventList = chatMsg222.getEventList();
-                debugInfo222.msgId = msgId;
-                debugInfo222.clientSource = chatMsg222.getSource();
-                this.ubcData.setDebugInfo(debugInfo222);
-                e80.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+                if (!this.mFromMedia) {
+                }
+                ChatMsg chatMsg22 = getChatMsg();
+                MessageUbc.DebugInfo debugInfo22 = new MessageUbc.DebugInfo();
+                debugInfo22.methodId = getType();
+                debugInfo22.eventList = chatMsg22.getEventList();
+                debugInfo22.msgId = msgId;
+                debugInfo22.clientSource = chatMsg22.getSource();
+                this.ubcData.setDebugInfo(debugInfo22);
+                u60.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
             }
-            if (i != 0 && !z) {
-                i5 = 1015;
+            if (i5 != 0 && !z) {
+                context2 = context;
                 str2 = Constants.ERROR_MSG_SERVER_INTERNAL_ERROR;
+                i5 = 1015;
             } else {
-                i5 = i;
-                str2 = str;
+                context2 = context;
             }
-            super.handleMessageResult(context, jSONObject, i5, str2);
+            super.handleMessageResult(context2, jSONObject, i5, str2);
             LogUtils.d(TAG, "errorCode:" + i5 + "  strMsg" + str2);
             getChatMsg().setTipsCode(i5);
             getChatMsg().setTips(str3);
-            getChatMsg().setRemainNum(i3);
-            getChatMsg().setSendNum(i4);
-            if (j != -1) {
-                getChatMsg().setMsgTime(j);
+            getChatMsg().setRemainNum(i4);
+            getChatMsg().setSendNum(i3);
+            if (j2 != -1) {
+                getChatMsg().setMsgTime(j2);
             }
-            if (this.mFromMedia) {
+            if (1 == getChatMsg().getCategory() && !TextUtils.isEmpty(getChatMsg().getTips()) && !TextUtils.isEmpty(getChatMsg().getMsgContent())) {
+                JSONObject jSONObject22 = new JSONObject(getChatMsg().getMsgContent());
+                jSONObject22.put("tips", getChatMsg().getTips());
+                getChatMsg().setMsgContent(jSONObject22.toString());
+            }
+            if (!this.mFromMedia) {
                 SendMsgResponse sendMsgResponse = new SendMsgResponse();
                 sendMsgResponse.msg = getChatMsg();
                 sendMsgResponse.listenerKey = getListenerKey();
                 MediaChatMessageManager.getInstance(this.mContext).onSendMessageResult(i5, str2, sendMsgResponse);
             } else {
-                ChatMsgManagerImpl.getInstance(this.mContext).onSendMessageResult(i5, getChatMsg(), j, getListenerKey());
+                ChatMsgManagerImpl.getInstance(this.mContext).onSendMessageResult(i5, getChatMsg(), j2, getListenerKey());
             }
-            ChatMsg chatMsg2222 = getChatMsg();
-            MessageUbc.DebugInfo debugInfo2222 = new MessageUbc.DebugInfo();
-            debugInfo2222.methodId = getType();
-            debugInfo2222.eventList = chatMsg2222.getEventList();
-            debugInfo2222.msgId = msgId;
-            debugInfo2222.clientSource = chatMsg2222.getSource();
-            this.ubcData.setDebugInfo(debugInfo2222);
-            e80.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+            ChatMsg chatMsg222 = getChatMsg();
+            MessageUbc.DebugInfo debugInfo222 = new MessageUbc.DebugInfo();
+            debugInfo222.methodId = getType();
+            debugInfo222.eventList = chatMsg222.getEventList();
+            debugInfo222.msgId = msgId;
+            debugInfo222.clientSource = chatMsg222.getSource();
+            this.ubcData.setDebugInfo(debugInfo222);
+            u60.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
         }
     }
 }

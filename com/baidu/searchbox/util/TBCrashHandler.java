@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import java.lang.Thread;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class TBCrashHandler implements Thread.UncaughtExceptionHandler {
     public Thread.UncaughtExceptionHandler mHandler;
 

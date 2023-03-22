@@ -1,52 +1,73 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.java_websocket.WebSocket;
+import org.java_websocket.drafts.Draft;
+import org.java_websocket.exceptions.InvalidDataException;
+import org.java_websocket.framing.Framedata;
 /* loaded from: classes4.dex */
-public abstract class hqa<E> extends eqa<E> {
+public abstract class hqa implements jqa {
     public static /* synthetic */ Interceptable $ic;
-    public static final long g;
     public transient /* synthetic */ FieldHolder $fh;
-    public long producerIndex;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947833745, "Lcom/baidu/tieba/hqa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947833745, "Lcom/baidu/tieba/hqa;");
-                return;
-            }
+    @Override // com.baidu.tieba.jqa
+    public void onWebsocketHandshakeReceivedAsClient(WebSocket webSocket, xqa xqaVar, era eraVar) throws InvalidDataException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, webSocket, xqaVar, eraVar) == null) {
         }
-        g = pqa.a(hqa.class, "producerIndex");
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hqa(int i) {
-        super(i);
+    @Override // com.baidu.tieba.jqa
+    public void onWebsocketHandshakeSentAsClient(WebSocket webSocket, xqa xqaVar) throws InvalidDataException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webSocket, xqaVar) == null) {
+        }
+    }
+
+    @Deprecated
+    public abstract void onWebsocketMessageFragment(WebSocket webSocket, Framedata framedata);
+
+    @Override // com.baidu.tieba.jqa
+    public void onWebsocketPong(WebSocket webSocket, Framedata framedata) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, webSocket, framedata) == null) {
+        }
+    }
+
+    public hqa() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.jqa
+    public fra onWebsocketHandshakeReceivedAsServer(WebSocket webSocket, Draft draft, xqa xqaVar) throws InvalidDataException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webSocket, draft, xqaVar)) == null) {
+            return new bra();
+        }
+        return (fra) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.jqa
+    public void onWebsocketPing(WebSocket webSocket, Framedata framedata) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, webSocket, framedata) == null) {
+            webSocket.sendFrame(new vqa((uqa) framedata));
         }
     }
 }

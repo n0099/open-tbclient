@@ -3,7 +3,10 @@ package com.baidu.tbadk.core.atomData;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -16,7 +19,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TbWebViewActivityConfig extends WebViewActivityConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static String GOD_INVITE_JUMP_URL = "https://tiebac.baidu.com/mo/q/god/inviteGod";
-    public static final String INTENT_KEY_IS_FROM_PUSH_NOTIFY = "is_from_push";
     public static final String JUMP_PARAMS_PAGE_TYPE = "?page_type=open_full_screen_opacity_web_page";
     public static final String KEY_IS_FROM_SCHEMA = "key_is_from_schema";
     public static final String KEY_USE_CUSTOM_HISTORY_STACK = "use_custom_history_stack";
@@ -62,9 +64,9 @@ public class TbWebViewActivityConfig extends WebViewActivityConfig {
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TbWebViewActivityConfig(Context context, String str, String str2, boolean z) {
-        super(context, str, str2, z);
+        this(context, str, str2, true, z, true);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -75,7 +77,7 @@ public class TbWebViewActivityConfig extends WebViewActivityConfig {
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], (String) objArr2[2], ((Boolean) objArr2[3]).booleanValue());
+                this((Context) objArr2[0], (String) objArr2[1], (String) objArr2[2], ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue(), ((Boolean) objArr2[5]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65538, newInitContext);
                 return;
@@ -85,7 +87,7 @@ public class TbWebViewActivityConfig extends WebViewActivityConfig {
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TbWebViewActivityConfig(Context context, String str, String str2, boolean z, boolean z2, boolean z3) {
-        super(context, str, str2, z, z2, z3);
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -95,13 +97,36 @@ public class TbWebViewActivityConfig extends WebViewActivityConfig {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], (String) objArr2[2], ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue(), ((Boolean) objArr2[5]).booleanValue());
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
             }
         }
+        init(str, TextUtils.isEmpty(str2) ? str2 : processUrl(Uri.parse(str2)), z2, z, z3);
+    }
+
+    private String processUrl(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, uri)) == null) {
+            if (uri == null) {
+                return "";
+            }
+            String path = uri.getPath();
+            if (!TextUtils.isEmpty(path) && path.contains("/panelIcon")) {
+                String queryParameter = uri.getQueryParameter("user_id");
+                if (TextUtils.isEmpty(queryParameter)) {
+                    return uri.toString();
+                }
+                if (!queryParameter.equals(String.valueOf(TbadkCoreApplication.getCurrentAccountId()))) {
+                    return uri.toString();
+                }
+                return uri.getScheme() + "://" + uri.getHost() + "/mo/q/icon/home?" + uri.getQuery();
+            }
+            return uri.toString();
+        }
+        return (String) invokeL.objValue;
     }
 
     public void setIsFromSchema(boolean z) {
@@ -113,10 +138,14 @@ public class TbWebViewActivityConfig extends WebViewActivityConfig {
     }
 
     public void setUri(Uri uri) {
-        Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri) == null) && (intent = getIntent()) != null) {
-            intent.putExtra(IntentConfig.KEY_URI, uri);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uri) != null) || uri == null) {
+            return;
+        }
+        String processUrl = processUrl(uri);
+        Intent intent = getIntent();
+        if (intent != null) {
+            intent.putExtra(IntentConfig.KEY_URI, Uri.parse(processUrl));
         }
     }
 

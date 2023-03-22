@@ -12,12 +12,12 @@ import com.baidu.searchbox.retrieve.inter.IFetchTask;
 import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.searchbox.retrieve.inter.statistics.IStatTask;
 import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener;
-import com.baidu.tieba.e3a;
-import com.baidu.tieba.f3a;
-import com.baidu.tieba.r3a;
-import com.baidu.tieba.s3a;
-import com.baidu.tieba.u3a;
-import com.baidu.tieba.v3a;
+import com.baidu.tieba.aaa;
+import com.baidu.tieba.baa;
+import com.baidu.tieba.daa;
+import com.baidu.tieba.eaa;
+import com.baidu.tieba.n9a;
+import com.baidu.tieba.o9a;
 import com.baidu.yalog.LoggerManager;
 import java.io.File;
 import java.text.SimpleDateFormat;
@@ -46,12 +46,12 @@ public class UploadHelper {
     public static final String UPLOAD_RESULT_VALID = "1";
     public static ExecutorService mExecutorService;
     public static volatile UploadHelper sSingleton;
-    public s3a mVoyager;
+    public baa mVoyager;
 
     public UploadHelper() {
         mExecutorService = Executors.newSingleThreadExecutor();
         if (this.mVoyager == null) {
-            this.mVoyager = (s3a) ServiceManager.getService(s3a.a);
+            this.mVoyager = (baa) ServiceManager.getService(baa.a);
         }
     }
 
@@ -133,21 +133,21 @@ public class UploadHelper {
     }
 
     public void uploadFetchZipFile(final String str, final String str2, final String str3, final File file, final JSONObject jSONObject) {
-        s3a s3aVar;
-        if (file != null && file.length() != 0 && (s3aVar = this.mVoyager) != null) {
-            s3aVar.e(file.getAbsolutePath(), "fetchlog", new r3a() { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.8
-                @Override // com.baidu.tieba.r3a
+        baa baaVar;
+        if (file != null && file.length() != 0 && (baaVar = this.mVoyager) != null) {
+            baaVar.e(file.getAbsolutePath(), "fetchlog", new aaa() { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.8
+                @Override // com.baidu.tieba.aaa
                 public void onFailure(String str4, JSONObject jSONObject2) {
                     UploadHelper uploadHelper = UploadHelper.this;
                     String str5 = str;
                     String str6 = str2;
                     String str7 = str3;
                     JSONObject jSONObject3 = jSONObject;
-                    u3a.a(jSONObject3, str4);
+                    daa.a(jSONObject3, str4);
                     uploadHelper.reportTaskDone(str5, str6, str7, "", "1", jSONObject3);
                 }
 
-                @Override // com.baidu.tieba.r3a
+                @Override // com.baidu.tieba.aaa
                 public void onSuccess(String str4, JSONObject jSONObject2) {
                     UploadHelper.this.statFetchData(StatConstants.VALUE_TYPE_UPLOAD, true, str2, str, str3, "", str4, jSONObject);
                     if (file.exists()) {
@@ -270,9 +270,9 @@ public class UploadHelper {
                                     return;
                                 }
                                 AnonymousClass1 anonymousClass19 = AnonymousClass1.this;
-                                UploadHelper.this.reportTaskDone(str, str2, str3, "", "1", u3a.c(list));
+                                UploadHelper.this.reportTaskDone(str, str2, str3, "", "1", daa.c(list));
                                 AnonymousClass1 anonymousClass110 = AnonymousClass1.this;
-                                UploadHelper.this.statFetchData("query", false, str2, str, str3, StatConstants.ERR_MSG_QUERY_FAIL, "", u3a.c(list));
+                                UploadHelper.this.statFetchData("query", false, str2, str, str3, StatConstants.ERR_MSG_QUERY_FAIL, "", daa.c(list));
                                 return;
                             }
                             AnonymousClass1 anonymousClass111 = AnonymousClass1.this;
@@ -358,8 +358,8 @@ public class UploadHelper {
         statActiveFileData(true, StatConstants.VALUE_TYPE_RECEIVE, str2, str);
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && list != null && list.size() != 0) {
             statActiveFileData(true, StatConstants.VALUE_TYPE_CHECK_PARAM, str2, str);
-            s3a s3aVar = (s3a) ServiceManager.getService(s3a.a);
-            if (s3aVar == null) {
+            baa baaVar = (baa) ServiceManager.getService(baa.a);
+            if (baaVar == null) {
                 if (DEBUG) {
                     Log.d(TAG, "loss voyager impl component");
                     return;
@@ -368,8 +368,8 @@ public class UploadHelper {
             }
             final ActiveUpObj activeUpObj = new ActiveUpObj(str, str2, list, null);
             activeUpObj.setFileType("2");
-            s3aVar.g(list, "acupload", j * 1024, new r3a() { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.10
-                @Override // com.baidu.tieba.r3a
+            baaVar.g(list, "acupload", j * 1024, new aaa() { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.10
+                @Override // com.baidu.tieba.aaa
                 public void onFailure(String str3, JSONObject jSONObject) {
                     if (UploadHelper.DEBUG) {
                         Log.d(UploadHelper.TAG, "Active upload normal file failed, errMsg: " + str3);
@@ -384,7 +384,7 @@ public class UploadHelper {
                     }
                 }
 
-                @Override // com.baidu.tieba.r3a
+                @Override // com.baidu.tieba.aaa
                 public void onSuccess(String str3, JSONObject jSONObject) {
                     activeUpObj.setFileID(str3);
                     activeUpObj.setFileMeta(jSONObject.toString());
@@ -406,8 +406,8 @@ public class UploadHelper {
         statActiveFileData(true, StatConstants.VALUE_TYPE_RECEIVE, str2, str);
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && list != null && list.size() != 0) {
             statActiveFileData(true, StatConstants.VALUE_TYPE_CHECK_PARAM, str2, str);
-            s3a s3aVar = (s3a) ServiceManager.getService(s3a.a);
-            if (s3aVar == null) {
+            baa baaVar = (baa) ServiceManager.getService(baa.a);
+            if (baaVar == null) {
                 if (DEBUG) {
                     Log.d(TAG, "loss voyager impl component");
                     return;
@@ -431,7 +431,7 @@ public class UploadHelper {
                     e.printStackTrace();
                 }
             }
-            s3aVar.b(list, "acupload", j2, jSONObject2);
+            baaVar.b(list, "acupload", j2, jSONObject2);
             return;
         }
         if (DEBUG) {
@@ -618,14 +618,14 @@ public class UploadHelper {
                     if (checkValid(next, j2, j3)) {
                         j5 += file.length();
                         if (j5 > j4) {
-                            f3a.g().e(file.getAbsolutePath(), "3", file.getAbsolutePath() + "size exceed maxFileSize ", null, null, true, jSONObject);
+                            o9a.g().e(file.getAbsolutePath(), "3", file.getAbsolutePath() + "size exceed maxFileSize ", null, null, true, jSONObject);
                             break;
                         }
                         String substring = file.getAbsolutePath().substring(str.length());
                         if (DEBUG) {
                             Log.d(TAG, "new Path:" + substring);
                         }
-                        f3a.g().e(file.getAbsolutePath(), "0", " success", file, substring, true, jSONObject);
+                        o9a.g().e(file.getAbsolutePath(), "0", " success", file, substring, true, jSONObject);
                     } else {
                         continue;
                     }
@@ -642,7 +642,7 @@ public class UploadHelper {
                 Log.d(TAG, "zipPath: " + str7);
             }
             File file3 = new File(str7);
-            if (v3a.i(new ArrayList(hashSet), str7, str)) {
+            if (eaa.i(new ArrayList(hashSet), str7, str)) {
                 if (file3.length() > 0) {
                     if (DEBUG) {
                         Log.d(TAG, "zip directory is succeed, zip length is: " + file3.length());
@@ -661,8 +661,8 @@ public class UploadHelper {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && file != null && file.length() != 0) {
             final ActiveUpObj activeUpObj = new ActiveUpObj(str, str2, list, str3);
             activeUpObj.setFileType("1");
-            s3a s3aVar = this.mVoyager;
-            if (s3aVar == null) {
+            baa baaVar = this.mVoyager;
+            if (baaVar == null) {
                 if (DEBUG) {
                     Log.d(TAG, "voyager component fail");
                 }
@@ -672,8 +672,8 @@ public class UploadHelper {
                 }
                 return;
             }
-            s3aVar.a(file.getAbsolutePath(), "acupload", e3a.m, new r3a() { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.9
-                @Override // com.baidu.tieba.r3a
+            baaVar.a(file.getAbsolutePath(), "acupload", n9a.m, new aaa() { // from class: com.baidu.searchbox.retrieve.upload.UploadHelper.9
+                @Override // com.baidu.tieba.aaa
                 public void onFailure(String str4, JSONObject jSONObject) {
                     if (UploadHelper.DEBUG) {
                         Log.d(UploadHelper.TAG, "Active upload yalog file failed");
@@ -688,7 +688,7 @@ public class UploadHelper {
                     }
                 }
 
-                @Override // com.baidu.tieba.r3a
+                @Override // com.baidu.tieba.aaa
                 public void onSuccess(String str4, JSONObject jSONObject) {
                     activeUpObj.setFileID(str4);
                     UploadHelper.this.statActiveData(true, StatConstants.VALUE_TYPE_UPLOAD, activeUpObj.getDataId(), activeUpObj.getType());

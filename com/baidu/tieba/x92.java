@@ -1,14 +1,19 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import androidx.annotation.NonNull;
-import com.baidu.tieba.w92;
+import com.baidu.swan.pms.model.PMSAppInfo;
 /* loaded from: classes6.dex */
-public interface x92<T extends w92> {
-    void a(@NonNull Handler handler);
+public interface x92<T> {
+    T a();
 
-    void b(T t);
+    void c(y92<T> y92Var);
 
-    Looper getLooper();
+    T e(PMSAppInfo pMSAppInfo);
+
+    boolean f();
+
+    boolean g();
+
+    boolean h();
+
+    void reset();
 }

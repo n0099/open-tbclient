@@ -24,8 +24,8 @@ import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.nd9;
+import com.baidu.tieba.hi;
+import com.baidu.tieba.wj9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -270,7 +270,7 @@ public class KuangFloatingViewController {
             } else if (view2.getParent() != null) {
                 return false;
             }
-            ((TextView) this.mFloatingView.findViewById(R.id.obfuscated_res_0x7f091056)).setText(this.mInfo);
+            ((TextView) this.mFloatingView.findViewById(R.id.obfuscated_res_0x7f091087)).setText(this.mInfo);
             return true;
         }
         return invokeV.booleanValue;
@@ -287,11 +287,11 @@ public class KuangFloatingViewController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-            layoutParams.type = nd9.a(2002);
+            layoutParams.type = wj9.a(2002);
             layoutParams.flags = 65800;
             layoutParams.format = -3;
             layoutParams.x = 0;
-            layoutParams.y = ej.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f07028b) + UtilHelper.getStatusBarHeight();
+            layoutParams.y = hi.g(TbadkCoreApplication.getInst(), R.dimen.obfuscated_res_0x7f07028b) + UtilHelper.getStatusBarHeight();
             layoutParams.width = -2;
             layoutParams.height = -2;
             layoutParams.gravity = 51;

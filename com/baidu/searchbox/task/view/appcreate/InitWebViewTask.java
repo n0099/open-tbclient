@@ -5,9 +5,9 @@ import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.jb6;
-import com.baidu.tieba.jna;
-/* loaded from: classes3.dex */
+import com.baidu.tieba.fsa;
+import com.baidu.tieba.va6;
+/* loaded from: classes2.dex */
 public class InitWebViewTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public String getName() {
@@ -22,11 +22,11 @@ public class InitWebViewTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
         try {
-            jb6 jb6Var = new jb6();
-            jb6Var.j(TbadkCoreApplication.getInst().isDebugMode());
-            jb6.e(new jna<String>() { // from class: com.baidu.searchbox.task.view.appcreate.InitWebViewTask.1
+            va6 va6Var = new va6();
+            va6Var.i(TbadkCoreApplication.getInst().isDebugMode());
+            va6.e(new fsa<String>() { // from class: com.baidu.searchbox.task.view.appcreate.InitWebViewTask.1
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.tieba.jna
+                @Override // com.baidu.tieba.fsa
                 public String call() {
                     StringBuffer stringBuffer = new StringBuffer();
                     stringBuffer.append(" tieba/");
@@ -36,7 +36,7 @@ public class InitWebViewTask extends LaunchTask {
                     return stringBuffer.toString();
                 }
             });
-            jb6.c(TbadkCoreApplication.getInst(), jb6Var);
+            va6.c(TbadkCoreApplication.getInst(), va6Var);
         } catch (Exception e) {
             BdLog.e(e);
         }

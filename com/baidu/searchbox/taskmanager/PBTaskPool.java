@@ -32,6 +32,7 @@ import com.baidu.searchbox.task.async.homeready.InitUnionIDTask;
 import com.baidu.searchbox.task.async.homeready.LaunchStatTask;
 import com.baidu.searchbox.task.async.homeready.MainTabLoadFinishTask;
 import com.baidu.searchbox.task.async.homeready.MaintabAsyncInitTask;
+import com.baidu.searchbox.task.async.privacy.AsyncTaskCollector;
 import com.baidu.searchbox.task.async.privacy.DeleteApkTask;
 import com.baidu.searchbox.task.async.privacy.LaunchWithPrivacyTask;
 import com.baidu.searchbox.task.async.privacy.LogoTask;
@@ -68,7 +69,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.switchs.DelayInitNightPluginSwitch;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class PBTaskPool extends BaseTaskPool {
     @Override // com.baidu.searchbox.performance.speed.task.BaseTaskPool
     public List<LaunchTask> viewOnActivity() {
@@ -155,6 +156,7 @@ public class PBTaskPool extends BaseTaskPool {
             }
             arrayList.add(new LogoTask());
             arrayList.add(new InitAdvertDbTask());
+            arrayList.addAll(new AsyncTaskCollector().asyncList());
         } else if (i == 1) {
             arrayList.add(new InitSDKWithPrivacyTask());
         } else if (i == 3) {

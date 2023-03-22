@@ -1,83 +1,58 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class kd9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<Integer> a;
+    public String b;
+    public String c;
+    public String d;
+    public int e;
 
-    public static String a(x9 x9Var, String str) {
-        InterceptResult invokeLL;
+    public kd9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, x9Var, str)) == null) {
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    sb.append(jSONArray.optJSONObject(i).optString("src"));
-                }
-                return sb.toString();
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return x9Var.getString(R.string.pic_str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static String b(x9 x9Var, ChatMessage chatMessage) {
-        InterceptResult invokeLL;
-        String content;
-        String string;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, x9Var, chatMessage)) == null) {
-            int msgType = chatMessage.getMsgType();
-            if (msgType != 1) {
-                if (msgType != 2) {
-                    if (msgType != 3) {
-                        if (msgType != 30) {
-                            if (msgType != 37) {
-                                if (msgType != 32) {
-                                    if (msgType != 33) {
-                                        content = "";
-                                    } else {
-                                        content = x9Var.getString(R.string.last_msg_forum_share);
-                                    }
-                                } else {
-                                    content = x9Var.getString(R.string.last_msg_thread_share);
-                                }
-                            } else {
-                                content = x9Var.getString(R.string.last_msg_chatroom_share);
-                            }
-                        }
-                    } else {
-                        content = x9Var.getString(R.string.voice_str);
-                    }
-                } else {
-                    content = a(x9Var, chatMessage.getContent());
-                }
-                if (chatMessage == null && chatMessage.getToUserInfo() != null) {
-                    if (TextUtils.equals(chatMessage.getToUserInfo().getUserId(), String.valueOf(TbadkCoreApplication.getCurrentAccountId()))) {
-                        string = x9Var.getString(R.string.private_message_report_person);
-                    } else {
-                        string = x9Var.getString(R.string.private_message_is_report_name);
-                    }
-                    return string + chatMessage.getToUserInfo().getUserName() + x9Var.getString(R.string.private_message_report_content) + content;
-                }
-                return x9Var.getString(R.string.private_message_is_report_name);
-            }
-            content = chatMessage.getContent();
-            if (chatMessage == null) {
-            }
-            return x9Var.getString(R.string.private_message_is_report_name);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || StringUtils.isNull(str)) {
+            return;
         }
-        return (String) invokeLL.objValue;
+        try {
+            JSONObject optJSONObject = new JSONObject(str).optJSONObject("data");
+            if (optJSONObject != null) {
+                JSONArray optJSONArray = optJSONObject.optJSONArray("chunk_nolist");
+                if (optJSONArray != null) {
+                    int length = optJSONArray.length();
+                    this.a = new ArrayList<>();
+                    for (int i = 0; i < length; i++) {
+                        this.a.add(Integer.valueOf(optJSONArray.getInt(i)));
+                    }
+                }
+                this.b = optJSONObject.optString("upload_id");
+                this.c = optJSONObject.optString("video_url");
+            }
+        } catch (JSONException unused) {
+        }
     }
 }

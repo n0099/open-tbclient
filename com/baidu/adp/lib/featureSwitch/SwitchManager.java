@@ -4,8 +4,8 @@ import android.content.SharedPreferences;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.rf;
-import com.baidu.tieba.sf;
+import com.baidu.tieba.ue;
+import com.baidu.tieba.ve;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,7 +23,7 @@ public class SwitchManager {
     public static SwitchManager sSwitchManager;
     public transient /* synthetic */ FieldHolder $fh;
     public HashMap<String, Integer> mBaseSwitchs;
-    public ConcurrentHashMap<String, sf> mSwitchs;
+    public ConcurrentHashMap<String, ve> mSwitchs;
 
     static {
         InterceptResult invokeClinit;
@@ -83,18 +83,18 @@ public class SwitchManager {
         return (HashMap) invokeV.objValue;
     }
 
-    public void addSwitchData(rf rfVar) {
+    public void addSwitchData(ue ueVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, rfVar) != null) || rfVar == null || this.mSwitchs.containsKey(rfVar.e())) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, ueVar) != null) || ueVar == null || this.mSwitchs.containsKey(ueVar.e())) {
             return;
         }
-        this.mSwitchs.put(rfVar.e(), new sf(rfVar));
+        this.mSwitchs.put(ueVar.e(), new ve(ueVar));
     }
 
     public void crash(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            Iterator<sf> it = this.mSwitchs.values().iterator();
+            Iterator<ve> it = this.mSwitchs.values().iterator();
             while (it.hasNext() && !it.next().a(str)) {
             }
         }
@@ -104,9 +104,9 @@ public class SwitchManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            sf sfVar = this.mSwitchs.get(str);
-            if (sfVar != null) {
-                return sfVar.getType();
+            ve veVar = this.mSwitchs.get(str);
+            if (veVar != null) {
+                return veVar.getType();
             }
             return -1;
         }
@@ -126,17 +126,17 @@ public class SwitchManager {
         }
     }
 
-    public rf removeSwitchData(String str) {
+    public ue removeSwitchData(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            sf remove = this.mSwitchs.remove(str);
+            ve remove = this.mSwitchs.remove(str);
             if (remove != null) {
                 return remove.b();
             }
             return null;
         }
-        return (rf) invokeL.objValue;
+        return (ue) invokeL.objValue;
     }
 
     public void clear() {
@@ -145,11 +145,11 @@ public class SwitchManager {
             return;
         }
         SharedPreferences.Editor edit = BdBaseApplication.getInst().getApp().getSharedPreferences("adp_feature_switch", 0).edit();
-        for (sf sfVar : this.mSwitchs.values()) {
-            if (sfVar != null) {
-                sfVar.h(0);
-                edit.putInt(sfVar.d() + sf.d, 0);
-                edit.putInt(sfVar.d() + sf.e, sfVar.c());
+        for (ve veVar : this.mSwitchs.values()) {
+            if (veVar != null) {
+                veVar.h(0);
+                edit.putInt(veVar.d() + ve.d, 0);
+                edit.putInt(veVar.d() + ve.e, veVar.c());
             }
         }
         edit.commit();
@@ -169,13 +169,13 @@ public class SwitchManager {
 
     public boolean turn(String str, int i) {
         InterceptResult invokeLI;
-        sf sfVar;
+        ve veVar;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i)) == null) {
-            if (i < 0 || (sfVar = this.mSwitchs.get(str)) == null) {
+            if (i < 0 || (veVar = this.mSwitchs.get(str)) == null) {
                 return false;
             }
-            return sfVar.i(i);
+            return veVar.i(i);
         }
         return invokeLI.booleanValue;
     }

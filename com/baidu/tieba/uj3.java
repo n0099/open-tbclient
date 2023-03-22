@@ -1,12 +1,10 @@
 package com.baidu.tieba;
 
-import android.hardware.Sensor;
-import android.hardware.SensorEvent;
-import android.hardware.SensorEventListener;
-import android.hardware.SensorManager;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.nd3;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,219 +13,104 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class uj3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile uj3 i;
+    public static final boolean a;
+    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
-    public SensorManager a;
-    public SensorEventListener b;
-    public Sensor c;
-    public Sensor d;
-    public b e;
-    public float[] f;
-    public float[] g;
-    public boolean h;
 
     /* loaded from: classes6.dex */
-    public interface b {
-        void a(float[] fArr);
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements SensorEventListener {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uj3 a;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ int b;
 
-        @Override // android.hardware.SensorEventListener
-        public void onAccuracyChanged(Sensor sensor, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, sensor, i) == null) {
-            }
-        }
-
-        public a(uj3 uj3Var) {
+        public a(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {uj3Var};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = uj3Var;
+            this.a = i;
+            this.b = i2;
         }
 
-        @Override // android.hardware.SensorEventListener
-        public void onSensorChanged(SensorEvent sensorEvent) {
-            Sensor sensor;
-            float[] g;
-            Sensor sensor2;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sensorEvent) == null) {
-                if (sensorEvent != null && (sensor2 = sensorEvent.sensor) != null && sensor2.getType() == 1) {
-                    float[] fArr = sensorEvent.values;
-                    if (fArr == null || fArr.length != 3) {
-                        return;
-                    }
-                    this.a.f = (float[]) fArr.clone();
-                } else if (sensorEvent != null && (sensor = sensorEvent.sensor) != null && sensor.getType() == 2) {
-                    float[] fArr2 = sensorEvent.values;
-                    if (fArr2 != null && fArr2.length == 3) {
-                        this.a.g = (float[]) fArr2.clone();
-                    }
-                    if (this.a.e != null && this.a.f != null && this.a.g != null && (g = this.a.g()) != null) {
-                        this.a.e.a(g);
-                    }
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                uj3.b(this.a, this.b);
             }
         }
     }
 
-    public uj3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948212875, "Lcom/baidu/tieba/uj3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948212875, "Lcom/baidu/tieba/uj3;");
                 return;
             }
         }
-        this.h = false;
+        a = do1.a;
+        b = 0;
     }
 
-    public static uj3 h() {
+    public static int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (i == null) {
-                synchronized (uj3.class) {
-                    if (i == null) {
-                        i = new uj3();
-                    }
-                }
-            }
-            return i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b;
         }
-        return (uj3) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public static void k() {
+    public static void d(int i, int i2) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65544, null) != null) || i == null) {
-            return;
-        }
-        i.j();
-    }
-
-    public final SensorEventListener i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            m62.i("SwanAppOrientationManager", "get System Sensor listener");
-            SensorEventListener sensorEventListener = this.b;
-            if (sensorEventListener != null) {
-                return sensorEventListener;
+        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TRACKBALL, null, i, i2) == null) {
+            if (i != 0 && ar2.g0().l()) {
+                z = true;
+            } else {
+                z = false;
             }
-            a aVar = new a(this);
-            this.b = aVar;
-            return aVar;
-        }
-        return (SensorEventListener) invokeV.objValue;
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            m62.i("SwanAppOrientationManager", "release");
-            if (this.h) {
-                m();
+            if (z) {
+                nk3.k(new a(i, i2), "onUpgradeOperation");
+            } else {
+                b(i, i2);
             }
-            this.a = null;
-            this.c = null;
-            this.d = null;
-            this.b = null;
-            this.f = null;
-            this.g = null;
-            i = null;
         }
     }
 
-    @Nullable
-    public final float[] g() {
-        InterceptResult invokeV;
+    public static void b(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            float[] fArr = new float[9];
-            float[] fArr2 = new float[9];
-            float[] fArr3 = new float[3];
-            if (!SensorManager.getRotationMatrix(fArr, null, this.f, this.g) || !SensorManager.remapCoordinateSystem(fArr, 2, 129, fArr2)) {
-                return null;
+        if (interceptable == null || interceptable.invokeII(65538, null, i, i2) == null) {
+            if (i == 0) {
+                b = 2;
+            } else if (i2 > i) {
+                b = 1;
+                gi2.d().e(i, i2);
+                gk3.h();
+                br2.m().i();
+                nd3.a.a();
+                td2.d();
             }
-            SensorManager.getOrientation(fArr2, fArr3);
-            return fArr3;
+            if (a) {
+                Log.d("SwanAppUpgradeManager", "App onUpgrade on thread: " + Thread.currentThread());
+            }
         }
-        return (float[]) invokeV.objValue;
-    }
-
-    public void m() {
-        SensorManager sensorManager;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (!this.h) {
-                m62.o("SwanAppOrientationManager", "has already stop");
-                return;
-            }
-            this.h = false;
-            SensorEventListener sensorEventListener = this.b;
-            if (sensorEventListener != null && (sensorManager = this.a) != null) {
-                sensorManager.unregisterListener(sensorEventListener);
-                this.b = null;
-            }
-            this.e = null;
-            this.a = null;
-            this.c = null;
-            this.d = null;
-        }
-    }
-
-    public boolean l(int i2, @NonNull b bVar) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048579, this, i2, bVar)) == null) {
-            if (this.h) {
-                m62.o("SwanAppOrientationManager", "has already start, change new listener");
-                this.e = bVar;
-                return true;
-            }
-            SensorManager sensorManager = (SensorManager) ts2.c().getSystemService("sensor");
-            this.a = sensorManager;
-            if (sensorManager != null) {
-                this.e = bVar;
-                this.c = sensorManager.getDefaultSensor(1);
-                Sensor defaultSensor = this.a.getDefaultSensor(2);
-                this.d = defaultSensor;
-                if (this.c != null && defaultSensor != null) {
-                    this.a.registerListener(i(), this.c, i2);
-                    this.a.registerListener(i(), this.d, i2);
-                    this.h = true;
-                    m62.i("SwanAppOrientationManager", "start listen");
-                    return true;
-                }
-                m62.c("SwanAppOrientationManager", "Accelerometer || Magnetic is null");
-                return false;
-            }
-            m62.c("SwanAppOrientationManager", "none sensorManager");
-            return false;
-        }
-        return invokeIL.booleanValue;
     }
 }

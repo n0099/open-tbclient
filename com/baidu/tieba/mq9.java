@@ -1,217 +1,174 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.message.EvaluateRelevanceItemUpdatedMessage;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.write.write.relevance.RelevanceItemSearchData;
-import com.baidu.tieba.write.write.relevance.RelevanceItemSearchResponse;
+import android.content.Context;
+import android.graphics.Bitmap;
+import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.coreExtra.data.TbMultiMediaData;
+import com.baidu.tbadk.coreExtra.data.VideoInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import com.baidu.ugc.editvideo.record.source.multimedia.VlogEditManager;
 /* loaded from: classes5.dex */
 public class mq9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public BdUniqueId b;
-    public final String c;
-    public b d;
-    public List<String> e;
-    public HttpMessageListener f;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a();
-
-        void c(RelevanceItemSearchData relevanceItemSearchData);
-
-        void d();
-
-        void onError(int i, String str);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947981460, "Lcom/baidu/tieba/mq9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947981460, "Lcom/baidu/tieba/mq9;");
+        }
     }
 
     /* loaded from: classes5.dex */
-    public class a extends HttpMessageListener {
+    public static class a implements oq9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mq9 a;
+        public final /* synthetic */ oq9 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(mq9 mq9Var, int i) {
-            super(i);
+        public a(oq9 oq9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {mq9Var, Integer.valueOf(i)};
+                Object[] objArr = {oq9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = mq9Var;
+            this.a = oq9Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            RelevanceItemSearchData relevanceItemSearchData;
+        @Override // com.baidu.tieba.oq9
+        public void a(int i, Bitmap bitmap) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && this.a.d != null) {
-                if (httpResponsedMessage.getOrginalMessage() != null && httpResponsedMessage.getOrginalMessage().getTag() != this.a.b) {
-                    return;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, bitmap) == null) {
+                oq9 oq9Var = this.a;
+                if (oq9Var != null) {
+                    oq9Var.a(i, bitmap);
                 }
-                if (httpResponsedMessage instanceof RelevanceItemSearchResponse) {
-                    relevanceItemSearchData = ((RelevanceItemSearchResponse) httpResponsedMessage).getResponseData();
-                } else {
-                    relevanceItemSearchData = null;
-                }
-                if (relevanceItemSearchData != null && relevanceItemSearchData.getData() != null) {
-                    if (!ListUtils.equalList(this.a.e, relevanceItemSearchData.getData().getTab_option())) {
-                        this.a.e = relevanceItemSearchData.getData().getTab_option();
-                        MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemUpdatedMessage(this.a.e));
-                    }
-                    if (httpResponsedMessage.getError() == 0) {
-                        if (ListUtils.isEmpty(relevanceItemSearchData.getData().getItem_list())) {
-                            if (this.a.a == 1) {
-                                this.a.d.a();
-                                return;
-                            } else {
-                                this.a.d.d();
-                                return;
-                            }
-                        } else if (relevanceItemSearchData != null) {
-                            this.a.d.c(relevanceItemSearchData);
-                            if (this.a.a == 1 && relevanceItemSearchData.getData().getItem_list().size() < 20) {
-                                this.a.d.d();
-                            }
-                            mq9.f(this.a);
-                            return;
-                        } else {
-                            return;
-                        }
-                    }
-                    this.a.d.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
-                    this.a.l();
-                    return;
-                }
-                MessageManager.getInstance().dispatchResponsedMessage(new EvaluateRelevanceItemUpdatedMessage(null));
-                this.a.d.onError(-1, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d11));
-                this.a.l();
+                m7a.d("single-frameResult: " + i);
             }
         }
     }
 
-    public mq9(BdUniqueId bdUniqueId, String str) {
+    /* loaded from: classes5.dex */
+    public static class b implements oq9 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ oq9 a;
+
+        public b(oq9 oq9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {oq9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = oq9Var;
+        }
+
+        @Override // com.baidu.tieba.oq9
+        public void a(int i, Bitmap bitmap) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, bitmap) == null) {
+                oq9 oq9Var = this.a;
+                if (oq9Var != null) {
+                    oq9Var.a(i, bitmap);
+                }
+                m7a.d("multi-frameResult: " + i);
+            }
+        }
+    }
+
+    public static TbMultiMediaData a(VideoInfo videoInfo) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, videoInfo)) == null) {
+            TbMultiMediaData tbMultiMediaData = new TbMultiMediaData();
+            tbMultiMediaData.path = videoInfo.getVideoPath();
+            tbMultiMediaData.coverPath = videoInfo.getThumbPath();
+            tbMultiMediaData.height = videoInfo.getVideoHeight();
+            tbMultiMediaData.width = videoInfo.getVideoWidth();
+            tbMultiMediaData.type = 1;
+            tbMultiMediaData.start = 0L;
+            tbMultiMediaData.end = videoInfo.getVideoDuration() * 1000;
+            tbMultiMediaData.originalDuration = videoInfo.getVideoDuration() * 1000;
+            tbMultiMediaData.scaleType = "center_inside";
+            tbMultiMediaData.videoInfoSource = videoInfo.getVideoSource();
+            return tbMultiMediaData;
+        }
+        return (TbMultiMediaData) invokeL.objValue;
+    }
+
+    public static void b(VlogEditManager vlogEditManager, Context context, int i, int i2, int i3, oq9 oq9Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{vlogEditManager, context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), oq9Var}) == null) && vlogEditManager != null && context != null && i > 0) {
+            xq9 xq9Var = new xq9();
+            xq9Var.a = vlogEditManager.getDuration();
+            xq9Var.b = i;
+            xq9Var.f = vlogEditManager.getInputMultiMediaData();
+            MediaTrack mediaTrack = (MediaTrack) r7a.c(vlogEditManager.getUpdateMediaTracks(), 0);
+            if (mediaTrack == null) {
                 return;
             }
-        }
-        this.a = 1;
-        a aVar = new a(this, CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
-        this.f = aVar;
-        this.b = bdUniqueId;
-        this.c = str;
-        aVar.setTag(bdUniqueId);
-        k();
-        MessageManager.getInstance().registerListener(this.f);
-    }
-
-    public static /* synthetic */ int f(mq9 mq9Var) {
-        int i = mq9Var.a;
-        mq9Var.a = i + 1;
-        return i;
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            l();
-            i(str);
+            xq9Var.e = mediaTrack.mediaSegments;
+            if (i2 == 0) {
+                i2 = UtilHelper.getDimenPixelSize(R.dimen.tbds24);
+            }
+            xq9Var.c = i2;
+            if (i3 == 0) {
+                i3 = UtilHelper.getDimenPixelSize(R.dimen.tbds32);
+            }
+            xq9Var.d = i3;
+            rq9.f().i(xq9Var, new b(oq9Var));
         }
     }
 
-    public void m(b bVar) {
+    public static void c(MultiMediaData multiMediaData, Context context, int i, int i2, int i3, oq9 oq9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
-            this.d = bVar;
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
-            httpMessage.addParam("tab_name", this.c);
-            httpMessage.addParam("pn", this.a);
-            httpMessage.addParam("rn", 20);
-            httpMessage.setTag(this.b);
-            MessageManager.getInstance().sendMessage(httpMessage);
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH, TbConfig.SERVER_ADDRESS + TbConfig.RELEVANCE_ITEM_SEARCH_URL);
-            tbHttpMessageTask.setIsNeedAddCommenParam(true);
-            tbHttpMessageTask.setResponsedClass(RelevanceItemSearchResponse.class);
-            tbHttpMessageTask.setPriority(4);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public final void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_RELEVANCE_ITEM_SEARCH);
-            httpMessage.addParam("tab_name", this.c);
-            httpMessage.addParam("keyword", str);
-            httpMessage.addParam("pn", this.a);
-            httpMessage.addParam("rn", 20);
-            httpMessage.setTag(this.b);
-            MessageManager.getInstance().sendMessage(httpMessage);
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().removeMessage(this.b);
-            MessageManager.getInstance().unRegisterListener(this.b);
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a = 1;
+        if ((interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{multiMediaData, context, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), oq9Var}) == null) && multiMediaData != null && context != null && i > 0) {
+            yq9 yq9Var = new yq9();
+            yq9Var.b = i;
+            yq9Var.a = multiMediaData.originalDuration;
+            yq9Var.e = multiMediaData;
+            if (i2 == 0) {
+                i2 = UtilHelper.getDimenPixelSize(R.dimen.tbds24);
+            }
+            yq9Var.c = i2;
+            if (i3 == 0) {
+                i3 = UtilHelper.getDimenPixelSize(R.dimen.tbds32);
+            }
+            yq9Var.d = i3;
+            rq9.f().j(yq9Var, new a(oq9Var));
         }
     }
 }

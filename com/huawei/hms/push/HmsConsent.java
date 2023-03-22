@@ -2,8 +2,8 @@ package com.huawei.hms.push;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ega;
-import com.baidu.tieba.fga;
+import com.baidu.tieba.nma;
+import com.baidu.tieba.oma;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,10 +59,10 @@ public class HmsConsent {
         return (HmsConsent) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Type inference failed for r6v10. Raw type applied. Possible types: com.baidu.tieba.ega<TResult>, com.baidu.tieba.ega<java.lang.Void> */
-    public final ega<Void> a(boolean z) {
+    /* JADX DEBUG: Type inference failed for r6v10. Raw type applied. Possible types: com.baidu.tieba.nma<TResult>, com.baidu.tieba.nma<java.lang.Void> */
+    public final nma<Void> a(boolean z) {
         InterceptResult invokeZ;
-        fga fgaVar;
+        oma omaVar;
         int externalCode;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
@@ -76,38 +76,38 @@ public class HmsConsent {
                 }
                 throw ErrorEnum.ERROR_OPERATION_NOT_SUPPORTED.toApiException();
             } catch (ApiException e) {
-                fga fgaVar2 = new fga();
-                fgaVar2.c(e);
+                oma omaVar2 = new oma();
+                omaVar2.c(e);
                 externalCode = e.getStatusCode();
-                fgaVar = fgaVar2;
+                omaVar = omaVar2;
                 PushBiUtil.reportExit(this.b, PushNaming.PUSH_CONSENT, reportEntry, externalCode);
-                return fgaVar.b();
+                return omaVar.b();
             } catch (Exception unused) {
-                fgaVar = new fga();
-                fgaVar.c(ErrorEnum.ERROR_INTERNAL_ERROR.toApiException());
+                omaVar = new oma();
+                omaVar.c(ErrorEnum.ERROR_INTERNAL_ERROR.toApiException());
                 externalCode = ErrorEnum.ERROR_INTERNAL_ERROR.getExternalCode();
                 PushBiUtil.reportExit(this.b, PushNaming.PUSH_CONSENT, reportEntry, externalCode);
-                return fgaVar.b();
+                return omaVar.b();
             }
         }
-        return (ega) invokeZ.objValue;
+        return (nma) invokeZ.objValue;
     }
 
-    public ega<Void> consentOff() {
+    public nma<Void> consentOff() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return a(false);
         }
-        return (ega) invokeV.objValue;
+        return (nma) invokeV.objValue;
     }
 
-    public ega<Void> consentOn() {
+    public nma<Void> consentOn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return a(true);
         }
-        return (ega) invokeV.objValue;
+        return (nma) invokeV.objValue;
     }
 }

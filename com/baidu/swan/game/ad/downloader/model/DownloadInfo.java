@@ -3,12 +3,12 @@ package com.baidu.swan.game.ad.downloader.model;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.swan.game.ad.downloader.exception.DownloadException;
-import com.baidu.tieba.px3;
+import com.baidu.tieba.wv3;
 import java.io.Serializable;
 /* loaded from: classes3.dex */
 public class DownloadInfo implements Serializable {
     public long mCreateAt;
-    public transient px3 mDownloadListener;
+    public transient wv3 mDownloadListener;
     public DownloadException mException;
     public String mId;
     public String mPackageName;
@@ -22,7 +22,7 @@ public class DownloadInfo implements Serializable {
         return this.mCreateAt;
     }
 
-    public px3 getDownloadListener() {
+    public wv3 getDownloadListener() {
         return this.mDownloadListener;
     }
 
@@ -136,8 +136,8 @@ public class DownloadInfo implements Serializable {
         this.mCreateAt = j;
     }
 
-    public void setDownloadListener(px3 px3Var) {
-        this.mDownloadListener = px3Var;
+    public void setDownloadListener(wv3 wv3Var) {
+        this.mDownloadListener = wv3Var;
     }
 
     public void setException(DownloadException downloadException) {

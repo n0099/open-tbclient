@@ -215,6 +215,7 @@ public class IMSetShieldAndTopRequest extends IMSettingBaseHttpRequest {
                 } else if (i5 == 2) {
                     ShieldAndTopManager.getInstance(this.mContext).onGroupMarkTopResult(i2, str, this.user, this.mKey);
                 } else {
+                    this.user.setMarkTop(this.mState);
                     ShieldAndTopManager.getInstance(this.mContext).onPaMarkTopResult(i2, str, this.user, this.mKey);
                 }
             } else if (i4 == 3 && this.mContacterType == 2) {

@@ -1,86 +1,98 @@
 package com.baidu.tieba;
 
-import com.badlogic.gdx.math.Matrix3;
-import com.badlogic.gdx.math.Matrix4;
-import com.badlogic.gdx.math.Quaternion;
-import com.badlogic.gdx.math.Vector3;
-import com.badlogic.gdx.utils.JsonValue;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.v7;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.SynchronousQueue;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes5.dex */
-public abstract class l5 implements o7, v7.c {
+public class l5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ThreadPoolExecutor a;
 
-    @Override // com.baidu.tieba.v7.c
-    public void a(v7 v7Var, JsonValue jsonValue) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, v7Var, jsonValue) == null) {
-        }
-    }
+    /* loaded from: classes5.dex */
+    public class a implements ThreadFactory {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public AtomicInteger a;
 
-    @Override // com.baidu.tieba.o7
-    public void dispose() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    public void f(t1 t1Var, o5 o5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, t1Var, o5Var) == null) {
-        }
-    }
-
-    public void update() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448308612, "Lcom/baidu/tieba/l5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        public a(l5 l5Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448308612, "Lcom/baidu/tieba/l5;");
-                return;
-            }
+            this.a = new AtomicInteger();
         }
-        new Vector3();
-        new Vector3();
-        new Vector3();
-        new Vector3();
-        new Vector3();
-        new Vector3();
-        new Quaternion();
-        new Quaternion();
-        new Matrix3();
-        new Matrix4();
+
+        @Override // java.util.concurrent.ThreadFactory
+        public Thread newThread(Runnable runnable) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+                Thread thread = new Thread(runnable, "NetThread" + this.a.getAndIncrement());
+                thread.setDaemon(true);
+                return thread;
+            }
+            return (Thread) invokeL.objValue;
+        }
     }
 
-    public l5() {
+    public l5(int i) {
+        boolean z;
+        int i2;
+        BlockingQueue linkedBlockingQueue;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        if (i == Integer.MAX_VALUE) {
+            z = true;
+        } else {
+            z = false;
+        }
+        if (z) {
+            i2 = 0;
+        } else {
+            i2 = i;
+        }
+        TimeUnit timeUnit = TimeUnit.SECONDS;
+        if (z) {
+            linkedBlockingQueue = new SynchronousQueue();
+        } else {
+            linkedBlockingQueue = new LinkedBlockingQueue();
+        }
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i2, i, 60L, timeUnit, linkedBlockingQueue, new a(this));
+        this.a = threadPoolExecutor;
+        threadPoolExecutor.allowCoreThreadTimeOut(!z);
+        new g7();
+        new g7();
     }
 }

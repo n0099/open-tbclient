@@ -1,174 +1,217 @@
 package com.baidu.tieba;
 
-import android.media.MediaCodec;
-import android.media.MediaCrypto;
-import android.media.MediaFormat;
-import android.view.Surface;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.net.MailTo;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.record.RecordConstants;
-import com.faceunity.encoder.AudioEncoderCore;
-import java.nio.ByteBuffer;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class p0a {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
+    public static volatile p0a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public r0a a;
-    public MediaCodec b;
-    public MediaCodec.BufferInfo c;
-    public int d;
-    public boolean e;
-    public long f;
+    public q0a a;
 
-    public p0a(r0a r0aVar) {
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public Map<String, JSONObject> b;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = 0;
+            this.b = new HashMap();
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948009608, "Lcom/baidu/tieba/p0a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948009608, "Lcom/baidu/tieba/p0a;");
+                return;
+            }
+        }
+        b = t0a.m();
+    }
+
+    public p0a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {r0aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.f = 0L;
-        this.c = new MediaCodec.BufferInfo();
-        MediaFormat createAudioFormat = MediaFormat.createAudioFormat("audio/mp4a-latm", RecordConstants.AUDIO_ENCODE_SAMPLE_RATE, 1);
-        createAudioFormat.setInteger("aac-profile", 2);
-        createAudioFormat.setInteger("channel-mask", 16);
-        createAudioFormat.setInteger("bitrate", RecordConstants.AUDIO_ENCODE_BIT_RATE);
-        createAudioFormat.setInteger("max-input-size", 163840);
-        try {
-            this.b = MediaCodec.createEncoderByType("audio/mp4a-latm");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        this.b.configure(createAudioFormat, (Surface) null, (MediaCrypto) null, 1);
-        this.b.start();
-        this.d = -1;
-        this.e = false;
-        this.a = r0aVar;
     }
 
-    public void a() {
+    public static p0a f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
-
-    public void b(ByteBuffer byteBuffer, int i, int i2, long j) throws Exception {
-        int dequeueInputBuffer;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{byteBuffer, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            ByteBuffer[] inputBuffers = this.b.getInputBuffers();
-            while (true) {
-                dequeueInputBuffer = this.b.dequeueInputBuffer(10000L);
-                if (dequeueInputBuffer >= 0) {
-                    break;
-                } else if (dequeueInputBuffer == -1) {
-                    d1a.b("wait for MediaCodec encoder");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (p0a.class) {
+                    if (c == null) {
+                        c = new p0a();
+                    }
                 }
             }
-            ByteBuffer byteBuffer2 = inputBuffers[dequeueInputBuffer];
-            byteBuffer2.clear();
-            if (byteBuffer != null) {
-                byteBuffer2.put(byteBuffer);
-            }
-            this.b.queueInputBuffer(dequeueInputBuffer, i, i2, j, i2 <= 0 ? 4 : 0);
+            return c;
         }
+        return (p0a) invokeV.objValue;
     }
 
-    public void c() throws Exception {
+    public final boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            yz9 o = yz9.o();
+            if (o != null && !o.g("2980", 32)) {
+                return false;
+            }
+            if (o != null && o.d("2980")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            yz9 o = yz9.o();
+            if (o != null && !o.g("2980", 32)) {
+                return false;
+            }
+            if (o != null && o.d("2980")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void a(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(1048576, this, str, z) != null) || TextUtils.isEmpty(str) || !TextUtils.isDigitsOnly(str) || !b()) {
             return;
         }
-        while (true) {
-            ByteBuffer[] outputBuffers = this.b.getOutputBuffers();
-            while (true) {
-                int dequeueOutputBuffer = this.b.dequeueOutputBuffer(this.c, 10000L);
-                if (dequeueOutputBuffer == -1) {
-                    return;
-                }
-                if (dequeueOutputBuffer == -3) {
-                    break;
-                } else if (dequeueOutputBuffer == -2) {
-                    if (this.e) {
-                        throw new RuntimeException("format changed twice");
-                    }
-                    MediaFormat outputFormat = this.b.getOutputFormat();
-                    d1a.c(AudioEncoderCore.TAG, "encoder output format changed: " + outputFormat);
-                    this.d = this.a.a(outputFormat);
-                    if (!this.a.c()) {
-                        synchronized (this.a) {
-                            while (!this.a.e()) {
-                                try {
-                                    this.a.wait(100L);
-                                } catch (InterruptedException e) {
-                                    e.printStackTrace();
-                                }
+        this.a.c(str, z);
+    }
+
+    public boolean d(d1a d1aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, d1aVar)) == null) {
+            if (d1aVar == null || d1aVar.w() || !c()) {
+                return false;
+            }
+            this.a.f();
+            Map<String, a> v = this.a.v(7);
+            if (v != null && v.size() != 0) {
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    boolean z = false;
+                    for (String str : v.keySet()) {
+                        a aVar = v.get(str);
+                        if (aVar != null && !TextUtils.isEmpty(str)) {
+                            JSONObject jSONObject2 = new JSONObject();
+                            JSONArray jSONArray = new JSONArray();
+                            for (JSONObject jSONObject3 : aVar.b.values()) {
+                                jSONArray.put(jSONObject3);
                             }
+                            jSONObject2.put("total", aVar.a);
+                            jSONObject2.put("data", jSONArray);
+                            jSONObject.put(str.replace("-", ""), jSONObject2);
+                            z = true;
                         }
                     }
-                    this.e = true;
-                } else if (dequeueOutputBuffer < 0) {
-                    d1a.l(AudioEncoderCore.TAG, "unexpected result from encoder.dequeueOutputBuffer: " + dequeueOutputBuffer);
-                } else {
-                    ByteBuffer byteBuffer = outputBuffers[dequeueOutputBuffer];
-                    if (byteBuffer == null) {
-                        throw new RuntimeException("encoderOutputBuffer " + dequeueOutputBuffer + " was null");
+                    if (z) {
+                        f0a f0aVar = new f0a("2980");
+                        f0aVar.y(jSONObject);
+                        f0aVar.B(System.currentTimeMillis());
+                        d1aVar.c(f0aVar, f0aVar.g());
+                        d1aVar.a(v.keySet());
+                        return true;
                     }
-                    MediaCodec.BufferInfo bufferInfo = this.c;
-                    if ((bufferInfo.flags & 2) != 0) {
-                        bufferInfo.size = 0;
-                    }
-                    MediaCodec.BufferInfo bufferInfo2 = this.c;
-                    if (bufferInfo2.size != 0) {
-                        if (!this.e) {
-                            throw new RuntimeException("muxer hasn't started");
-                        }
-                        long j = this.f;
-                        if (j != 0 && j > bufferInfo2.presentationTimeUs) {
-                            bufferInfo2.presentationTimeUs = j + 20000;
-                        }
-                        byteBuffer.position(this.c.offset);
-                        MediaCodec.BufferInfo bufferInfo3 = this.c;
-                        byteBuffer.limit(bufferInfo3.offset + bufferInfo3.size);
-                        this.a.b(this.d, byteBuffer, this.c);
-                        this.f = this.c.presentationTimeUs;
-                    }
-                    this.b.releaseOutputBuffer(dequeueOutputBuffer, false);
-                    if ((this.c.flags & 4) != 0) {
-                        return;
-                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void e(Map<String, a> map, String str, String str2, int i, int i2) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{map, str, str2, Integer.valueOf(i), Integer.valueOf(i2)}) != null) || map == null) {
+            return;
+        }
+        if (map.containsKey(str)) {
+            aVar = map.get(str);
+        } else {
+            a aVar2 = new a();
+            map.put(str, aVar2);
+            aVar = aVar2;
+        }
+        Map<String, JSONObject> map2 = aVar.b;
+        if (map2.containsKey(str2) && b) {
+            Log.e("UBCArrivalStatics", "*******duplicate ubc id record: " + str2);
+        }
+        try {
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("id", str2);
+            jSONObject.put("c", i);
+            jSONObject.put(MailTo.CC, i2);
+            aVar.a += i;
+            map2.put(str2, jSONObject);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
-    public void d() {
+    public void g(q0a q0aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            try {
-                if (this.b != null) {
-                    this.b.stop();
-                    this.b.release();
-                    this.b = null;
-                }
-                if (this.a != null) {
-                    this.a.d();
-                    this.a = null;
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        if (interceptable == null || interceptable.invokeL(1048581, this, q0aVar) == null) {
+            this.a = q0aVar;
         }
     }
 }

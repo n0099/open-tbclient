@@ -28,12 +28,12 @@ public class a {
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
     /* renamed from: com.huawei.hms.framework.network.grs.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static final class EnumC0535a {
+    public static final class EnumC0540a {
         public static /* synthetic */ Interceptable $ic;
-        public static final EnumC0535a a;
-        public static final EnumC0535a b;
-        public static final EnumC0535a c;
-        public static final /* synthetic */ EnumC0535a[] d;
+        public static final EnumC0540a a;
+        public static final EnumC0540a b;
+        public static final EnumC0540a c;
+        public static final /* synthetic */ EnumC0540a[] d;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -49,14 +49,14 @@ public class a {
                     return;
                 }
             }
-            a = new EnumC0535a("GRSPOST", 0);
-            b = new EnumC0535a("GRSGET", 1);
-            EnumC0535a enumC0535a = new EnumC0535a("GRSDEFAULT", 2);
-            c = enumC0535a;
-            d = new EnumC0535a[]{a, b, enumC0535a};
+            a = new EnumC0540a("GRSPOST", 0);
+            b = new EnumC0540a("GRSGET", 1);
+            EnumC0540a enumC0540a = new EnumC0540a("GRSDEFAULT", 2);
+            c = enumC0540a;
+            d = new EnumC0540a[]{a, b, enumC0540a};
         }
 
-        public EnumC0535a(String str, int i) {
+        public EnumC0540a(String str, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -75,16 +75,16 @@ public class a {
             }
         }
 
-        public static EnumC0535a valueOf(String str) {
+        public static EnumC0540a valueOf(String str) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EnumC0535a) Enum.valueOf(EnumC0535a.class, str) : (EnumC0535a) invokeL.objValue;
+            return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? (EnumC0540a) Enum.valueOf(EnumC0540a.class, str) : (EnumC0540a) invokeL.objValue;
         }
 
-        public static EnumC0535a[] values() {
+        public static EnumC0540a[] values() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC0535a[]) d.clone() : (EnumC0535a[]) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? (EnumC0540a[]) d.clone() : (EnumC0540a[]) invokeV.objValue;
         }
     }
 
@@ -118,17 +118,17 @@ public class a {
         return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) ? Uri.parse(str).getPath() : (String) invokeL.objValue;
     }
 
-    private EnumC0535a h() {
+    private EnumC0540a h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
             if (this.b.isEmpty()) {
-                return EnumC0535a.c;
+                return EnumC0540a.c;
             }
             String a = a(this.b);
-            return a.contains("1.0") ? EnumC0535a.b : a.contains("2.0") ? EnumC0535a.a : EnumC0535a.c;
+            return a.contains("1.0") ? EnumC0540a.b : a.contains("2.0") ? EnumC0540a.a : EnumC0540a.c;
         }
-        return (EnumC0535a) invokeV.objValue;
+        return (EnumC0540a) invokeV.objValue;
     }
 
     public Context a() {
@@ -171,10 +171,10 @@ public class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (EnumC0535a.c.equals(h())) {
+            if (EnumC0540a.c.equals(h())) {
                 return null;
             }
-            return EnumC0535a.b.equals(h()) ? new f(this.b, this.d, this.c, this.e, this.f, this.g) : new g(this.b, this.d, this.c, this.e, this.f, this.g, this.h);
+            return EnumC0540a.b.equals(h()) ? new f(this.b, this.d, this.c, this.e, this.f, this.g) : new g(this.b, this.d, this.c, this.e, this.f, this.g, this.h);
         }
         return (Callable) invokeV.objValue;
     }

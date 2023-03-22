@@ -1,85 +1,128 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.funad.adapter.FunAdNativeNewAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ActivityPage.ActivityPageReqIdl;
-import tbclient.ActivityPage.DataReq;
 /* loaded from: classes5.dex */
-public class qa7 implements fo5<ActivityPageReqIdl> {
+public class qa7 implements ja7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public final zn5 b;
 
-    @Override // com.baidu.tieba.fo5
-    public void a(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, intent) == null) {
-        }
-    }
-
-    public qa7(String str, String str2) {
+    public qa7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = new zn5(false);
-        this.a = str2;
     }
 
-    @Override // com.baidu.tieba.fo5
-    public zn5 c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ja7
+    public tm<?, ?> a(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (zn5) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.fo5
-    /* renamed from: d */
-    public ActivityPageReqIdl b(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            try {
-                DataReq.Builder builder = new DataReq.Builder();
-                builder.activity_name = this.a;
-                builder.pn = Integer.valueOf(this.b.c);
-                builder.rn = 20;
-                builder.scr_h = Integer.valueOf(ej.j(TbadkCoreApplication.getInst()));
-                builder.scr_w = Integer.valueOf(ej.l(TbadkCoreApplication.getInst()));
-                builder.scr_dip = Integer.valueOf((int) ej.i(TbadkCoreApplication.getInst()));
-                builder.q_type = Integer.valueOf(hx4.c().e());
-                if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    mq5.a(builder, true);
-                }
-                ActivityPageReqIdl.Builder builder2 = new ActivityPageReqIdl.Builder();
-                builder2.data = builder.build(false);
-                return builder2.build(false);
-            } catch (Exception unused) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, baseFragmentActivity, bdUniqueId)) == null) {
+            if (baseFragmentActivity == null) {
                 return null;
             }
+            if (bdUniqueId == AdvertAppInfo.F) {
+                FunAdNativeNewAdapter funAdNativeNewAdapter = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
+                funAdNativeNewAdapter.setSid(ma7.e().d("pb_banner"));
+                funAdNativeNewAdapter.setPageType("pb");
+                funAdNativeNewAdapter.setSceneKey("pb_banner");
+                return funAdNativeNewAdapter;
+            } else if (bdUniqueId == AdvertAppInfo.I) {
+                FunAdNativeNewAdapter funAdNativeNewAdapter2 = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
+                funAdNativeNewAdapter2.setSid(ga7.f());
+                funAdNativeNewAdapter2.setPageType("pb");
+                return funAdNativeNewAdapter2;
+            } else if (bdUniqueId != AdvertAppInfo.G) {
+                return null;
+            } else {
+                return new ra7(baseFragmentActivity, bdUniqueId);
+            }
         }
-        return (ActivityPageReqIdl) invokeZ.objValue;
+        return (tm) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ja7
+    public tm<?, ?> b(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseFragmentActivity, bdUniqueId)) == null) {
+            if (baseFragmentActivity == null) {
+                return null;
+            }
+            if (bdUniqueId == AdvertAppInfo.H) {
+                FunAdNativeNewAdapter funAdNativeNewAdapter = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
+                funAdNativeNewAdapter.setSid(ga7.g());
+                funAdNativeNewAdapter.setPageType("personalize");
+                return funAdNativeNewAdapter;
+            } else if (bdUniqueId != AdvertAppInfo.G) {
+                return null;
+            } else {
+                return new ra7(baseFragmentActivity, bdUniqueId);
+            }
+        }
+        return (tm) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ja7
+    public tm<?, ?> c(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, baseFragmentActivity, bdUniqueId)) == null) {
+            if (baseFragmentActivity == null) {
+                return null;
+            }
+            if (bdUniqueId == AdvertAppInfo.H) {
+                FunAdNativeNewAdapter funAdNativeNewAdapter = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
+                funAdNativeNewAdapter.setSid(ma7.e().d("frs_feed"));
+                funAdNativeNewAdapter.setPageType("frs");
+                funAdNativeNewAdapter.setSceneKey("frs_feed");
+                return funAdNativeNewAdapter;
+            } else if (bdUniqueId != AdvertAppInfo.G) {
+                return null;
+            } else {
+                return new ra7(baseFragmentActivity, bdUniqueId);
+            }
+        }
+        return (tm) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ja7
+    public tm<?, ?> d(BaseFragmentActivity baseFragmentActivity, BdUniqueId bdUniqueId, String str) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, baseFragmentActivity, bdUniqueId, str)) == null) {
+            if (baseFragmentActivity == null) {
+                return null;
+            }
+            if (bdUniqueId == AdvertAppInfo.H) {
+                FunAdNativeNewAdapter funAdNativeNewAdapter = new FunAdNativeNewAdapter(baseFragmentActivity, bdUniqueId);
+                funAdNativeNewAdapter.setSid(ma7.e().d("frs_feed"));
+                funAdNativeNewAdapter.setPageType("frs");
+                funAdNativeNewAdapter.setPageTab(str);
+                funAdNativeNewAdapter.setSceneKey("frs_feed");
+                return funAdNativeNewAdapter;
+            } else if (bdUniqueId != AdvertAppInfo.G) {
+                return null;
+            } else {
+                return new ra7(baseFragmentActivity, bdUniqueId);
+            }
+        }
+        return (tm) invokeLLL.objValue;
     }
 }

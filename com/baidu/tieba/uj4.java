@@ -1,114 +1,72 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.Vector;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class uj4 implements kj4 {
+public class uj4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final om4 c;
+    public static volatile uj4 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Vector<kj4> a;
-    public Object b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948212906, "Lcom/baidu/tieba/uj4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948212906, "Lcom/baidu/tieba/uj4;");
-                return;
-            }
-        }
-        c = om4.e();
-    }
-
-    public uj4(kj4 kj4Var) {
+    public uj4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {kj4Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.b = new Object();
-        this.a = new Vector<>();
-        c(kj4Var);
     }
 
-    @Override // com.baidu.tieba.kj4
-    public <T> void a(oj4<T> oj4Var) {
+    public static uj4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, oj4Var) == null) {
-            try {
-                synchronized (this.b) {
-                    Iterator<kj4> it = this.a.iterator();
-                    while (it.hasNext()) {
-                        it.next().a(oj4Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (uj4.class) {
+                    if (a == null) {
+                        a = new uj4();
                     }
                 }
-            } catch (Throwable th) {
-                c.g("RuntimeTaskObserver", "#notifyTaskRunning error", th);
             }
+            return a;
         }
+        return (uj4) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.kj4
-    public <T> void b(oj4<T> oj4Var) {
+    public void b(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oj4Var) == null) {
-            Vector vector = new Vector();
-            try {
-                synchronized (this.b) {
-                    Iterator<kj4> it = this.a.iterator();
-                    while (it.hasNext()) {
-                        vector.add(it.next());
-                    }
-                }
-                Iterator it2 = vector.iterator();
-                while (it2.hasNext()) {
-                    ((kj4) it2.next()).b(oj4Var);
-                }
-            } catch (Throwable th) {
-                c.g("RuntimeTaskObserver", "#notifyTaskEnd error", th);
-            }
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-    }
-
-    public void c(kj4 kj4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kj4Var) == null) && kj4Var != null) {
-            synchronized (this.b) {
-                this.a.add(kj4Var);
+        String optString = jSONObject.optString("version");
+        if (!TextUtils.isEmpty(optString) && (optJSONObject = jSONObject.optJSONObject("data")) != null && ef4.b() != null && ef4.b().i() != null) {
+            JSONArray optJSONArray = optJSONObject.optJSONArray(AlbumActivityConfig.FROM_WEB_VIEW);
+            JSONArray optJSONArray2 = optJSONObject.optJSONArray("js");
+            boolean z2 = true;
+            if (optJSONArray != null) {
+                z = ef4.b().o(false, optJSONArray);
+            } else {
+                z = true;
             }
-        }
-    }
-
-    public void d(kj4 kj4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, kj4Var) == null) && kj4Var != null) {
-            synchronized (this.b) {
-                if (!this.a.remove(kj4Var)) {
-                    this.a.remove(this.a.indexOf(kj4Var));
-                }
+            if (optJSONArray2 != null) {
+                z2 = ef4.b().o(true, optJSONArray2);
+            }
+            if (z && z2) {
+                ef4.b().i().putString("key_online_description_fix_version", optString);
             }
         }
     }

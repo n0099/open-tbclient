@@ -1,11 +1,11 @@
 package com.baidu.tieba;
 
+import android.media.MediaExtractor;
+import android.media.MediaFormat;
 import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.ubcprocessor.UBCCloudConfigObserver;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,80 +13,272 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-@Service
+import com.baidu.ugc.utils.FileUtils;
+import java.io.IOException;
 /* loaded from: classes3.dex */
-public class c4a implements UBCCloudConfigObserver {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+public class c4a {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int g = 2;
+    public static int h = 4;
+    public static int i = 8;
+    public static int j = 16;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public int b;
+    public int c;
+    public int d;
+    public long e;
+    public String f;
+
+    /* loaded from: classes3.dex */
+    public class a implements w4a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean[] a;
+        public final /* synthetic */ c4a b;
+
+        public a(c4a c4aVar, boolean[] zArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c4aVar, zArr};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = c4aVar;
+            this.a = zArr;
+        }
+
+        @Override // com.baidu.tieba.w4a
+        public void a(MediaFormat mediaFormat) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, mediaFormat) == null) {
+                this.a[0] = true;
+                this.b.l(mediaFormat);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947626169, "Lcom/baidu/tieba/c4a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947626169, "Lcom/baidu/tieba/c4a;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947626169, "Lcom/baidu/tieba/c4a;")) == null) {
+            return;
         }
-        a = AppConfig.isDebug();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947626169, "Lcom/baidu/tieba/c4a;");
+        }
     }
 
-    public c4a() {
+    public c4a(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = str;
+        j(str);
+    }
+
+    public static c4a b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            c4a c4aVar = new c4a("");
+            c4aVar.c = 2;
+            c4aVar.f = "audio/mp4a-latm";
+            c4aVar.b = 44100;
+            c4aVar.d = 16;
+            return c4aVar;
+        }
+        return (c4a) invokeV.objValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : invokeV.intValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.c : invokeV.intValue;
+    }
+
+    public long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.e / 1000 : invokeV.longValue;
+    }
+
+    public boolean equals(@Nullable Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) ? (obj instanceof c4a) && k((c4a) obj) == 0 : invokeL.booleanValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? this.f : (String) invokeV.objValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b : invokeV.intValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            int i2 = this.d + this.b + this.c;
+            String str = this.f;
+            return i2 + (str != null ? str.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? (TextUtils.isEmpty(this.f) || this.b == 0 || this.c == 0 || this.d == 0 || this.e == 0) ? false : true : invokeV.booleanValue;
+    }
+
+    public final void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            try {
+                if (m(str)) {
+                    boolean[] zArr = {false};
+                    v4a v4aVar = new v4a(str);
+                    v4aVar.k(new a(this, zArr));
+                    while (!zArr[0]) {
+                        if (v4aVar.c()) {
+                            zArr[0] = true;
+                        }
+                    }
+                    v4aVar.close();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
     }
 
-    @Override // com.baidu.searchbox.ubcprocessor.UBCCloudConfigObserver
-    public void onReceiveUbcCloudConfig(String str, JSONObject jSONObject) {
-        String optString;
-        boolean z;
+    public int k(c4a c4aVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
-            if (a) {
-                Log.d("YaLogConfigObserver", "receive YaLog ID config data: " + str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, c4aVar)) == null) {
+            if (c4aVar == null) {
+                return 0;
             }
-            if (TextUtils.isEmpty(str)) {
-                if (a) {
-                    Log.d("YaLogConfigObserver", "YaLog ID config data is null");
-                    return;
-                }
-                return;
+            int i2 = c4aVar.d != this.d ? 0 | g : 0;
+            if (c4aVar.b != this.b) {
+                i2 |= h;
             }
-            if (jSONObject == null) {
-                optString = "0";
-            } else {
-                try {
-                    optString = jSONObject.optString("version_asc");
-                } catch (JSONException e) {
-                    if (a) {
-                        e.printStackTrace();
-                        return;
-                    }
-                    return;
-                }
+            if (c4aVar.c != this.c) {
+                i2 |= i;
             }
-            if (!"0".equals(optString)) {
-                z = true;
-            } else {
-                z = false;
-            }
-            ((a4a) ServiceManager.getService(a4a.a)).b(new JSONObject(str), z);
+            return !TextUtils.equals(c4aVar.f, this.f) ? i2 | j : i2;
         }
+        return invokeL.intValue;
+    }
+
+    public final boolean l(MediaFormat mediaFormat) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, mediaFormat)) == null) {
+            try {
+                this.b = mediaFormat.getInteger("sample-rate");
+                this.c = mediaFormat.getInteger("channel-count");
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            boolean z = false;
+            if (FileUtils.isExists(str)) {
+                MediaExtractor mediaExtractor = new MediaExtractor();
+                try {
+                    mediaExtractor.setDataSource(str);
+                    MediaFormat mediaFormat = null;
+                    for (int i2 = 0; i2 < mediaExtractor.getTrackCount(); i2++) {
+                        MediaFormat trackFormat = mediaExtractor.getTrackFormat(i2);
+                        if (trackFormat.getString("mime").startsWith("audio/")) {
+                            mediaExtractor.selectTrack(i2);
+                            mediaFormat = trackFormat;
+                            break;
+                        }
+                    }
+                    try {
+                        if (mediaFormat == null) {
+                            return false;
+                        }
+                        this.f = mediaFormat.getString("mime");
+                        this.b = mediaFormat.getInteger("sample-rate");
+                        this.c = mediaFormat.getInteger("channel-count");
+                        this.e = mediaFormat.getLong("durationUs");
+                        if (mediaFormat.containsKey("bit-width")) {
+                            this.d = mediaFormat.getInteger("bit-width");
+                        } else {
+                            this.d = 16;
+                        }
+                        if (mediaFormat.containsKey("aac-profile")) {
+                            if (mediaFormat.getInteger("aac-profile") != 2) {
+                                z = true;
+                            }
+                        }
+                        return z;
+                    } catch (Exception e) {
+                        m7a.e("VideoMuxer", "initAudioProperty error:" + e.getMessage());
+                        return false;
+                    } finally {
+                        mediaExtractor.release();
+                    }
+                } catch (IOException e2) {
+                    e2.printStackTrace();
+                    return false;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

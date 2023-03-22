@@ -2,8 +2,8 @@ package com.baidu.tieba.lego.card.model;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.lego.card.exception.CardParseException;
-import com.baidu.tieba.py7;
-import com.baidu.tieba.sy7;
+import com.baidu.tieba.t38;
+import com.baidu.tieba.w38;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ public class OnePicInfoCard extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final String desc;
-    public final List<py7> iconList;
+    public final List<t38> iconList;
     public final String pic;
     public final int tBgColor;
     public final int tBgColorN;
@@ -46,8 +46,8 @@ public class OnePicInfoCard extends BaseCardInfo {
         this.desc = jSONObject.optString("desc", "");
         this.pic = jSONObject.optString("pic");
         this.tag = jSONObject.optString("tag", "");
-        this.tBgColor = sy7.b(jSONObject.optString("tBgColor", ""));
-        this.tBgColorN = sy7.b(jSONObject.optString("tBgColorN", ""));
+        this.tBgColor = w38.b(jSONObject.optString("tBgColor", ""));
+        this.tBgColorN = w38.b(jSONObject.optString("tBgColorN", ""));
         JSONArray optJSONArray = jSONObject.optJSONArray("icons");
         if (optJSONArray == null) {
             length = 0;
@@ -58,12 +58,12 @@ public class OnePicInfoCard extends BaseCardInfo {
         for (int i3 = 0; i3 < length; i3++) {
             JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
             if (optJSONObject != null) {
-                py7 py7Var = new py7();
-                py7Var.c = optJSONObject.optInt("type");
-                py7Var.a = optJSONObject.optString("url");
-                py7Var.b = optJSONObject.optString("urlNight");
-                py7Var.d = optJSONObject.optString("content", "");
-                this.iconList.add(py7Var);
+                t38 t38Var = new t38();
+                t38Var.c = optJSONObject.optInt("type");
+                t38Var.a = optJSONObject.optString("url");
+                t38Var.b = optJSONObject.optString("urlNight");
+                t38Var.d = optJSONObject.optString("content", "");
+                this.iconList.add(t38Var);
             }
         }
     }
@@ -77,7 +77,7 @@ public class OnePicInfoCard extends BaseCardInfo {
         return (String) invokeV.objValue;
     }
 
-    public List<py7> getIconList() {
+    public List<t38> getIconList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {

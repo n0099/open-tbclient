@@ -4,7 +4,7 @@ import androidx.annotation.Keep;
 import java.util.List;
 import java.util.Map;
 @Keep
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class CurrencyChargeMessage {
     public long amount;
     public Map<String, String> appClientExpand;

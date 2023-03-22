@@ -1,90 +1,134 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.os.Build;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class un4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int[] a;
-    public static final Object[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int c(int i) {
-        InterceptResult invokeI;
+    public static String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            for (int i2 = 4; i2 < 32; i2++) {
-                int i3 = (1 << i2) - 12;
-                if (i <= i3) {
-                    return i3;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) ? "Android" : (String) invokeV.objValue;
+    }
+
+    public static int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            DisplayMetrics c = c();
+            if (c != null) {
+                return c.densityDpi;
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public static int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            DisplayMetrics c = c();
+            if (c != null) {
+                return c.heightPixels;
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public static DisplayMetrics c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            if (appContext == null) {
+                return null;
+            }
+            return appContext.getResources().getDisplayMetrics();
+        }
+        return (DisplayMetrics) invokeV.objValue;
+    }
+
+    public static int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            DisplayMetrics c = c();
+            if (c != null) {
+                return c.widthPixels;
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public static String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            String str = Build.VERSION.RELEASE;
+            if (TextUtils.isEmpty(str)) {
+                return "0.0";
+            }
+            return str.replace("_", "-");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        NetworkInfo activeNetworkInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            ConnectivityManager connectivityManager = (ConnectivityManager) AppRuntime.getAppContext().getSystemService("connectivity");
+            if (connectivityManager == null || (activeNetworkInfo = connectivityManager.getActiveNetworkInfo()) == null || !activeNetworkInfo.isConnected()) {
+                return "no";
+            }
+            if (activeNetworkInfo.getType() == 1) {
+                return "WiFi";
+            }
+            if (activeNetworkInfo.getType() != 0) {
+                return "unknown";
+            }
+            int subtype = activeNetworkInfo.getSubtype();
+            if (subtype != 20) {
+                switch (subtype) {
+                    case 1:
+                    case 2:
+                    case 4:
+                    case 7:
+                    case 11:
+                        return "2G";
+                    case 3:
+                    case 5:
+                    case 6:
+                    case 8:
+                    case 9:
+                    case 10:
+                    case 12:
+                    case 14:
+                    case 15:
+                        return "3G";
+                    case 13:
+                        return "4G";
+                    default:
+                        return "unknown";
                 }
             }
-            return i;
+            return "5G";
         }
-        return invokeI.intValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948216750, "Lcom/baidu/tieba/un4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948216750, "Lcom/baidu/tieba/un4;");
-                return;
-            }
-        }
-        a = new int[0];
-        b = new Object[0];
-    }
-
-    public static int a(int[] iArr, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, iArr, i, i2)) == null) {
-            int i3 = i - 1;
-            int i4 = 0;
-            while (i4 <= i3) {
-                int i5 = (i4 + i3) >>> 1;
-                int i6 = iArr[i5];
-                if (i6 < i2) {
-                    i4 = i5 + 1;
-                } else if (i6 > i2) {
-                    i3 = i5 - 1;
-                } else {
-                    return i5;
-                }
-            }
-            return ~i4;
-        }
-        return invokeLII.intValue;
-    }
-
-    public static boolean b(Object obj, Object obj2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, obj, obj2)) == null) {
-            if (obj != obj2 && (obj == null || !obj.equals(obj2))) {
-                return false;
-            }
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static int d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            return c(i * 4) / 4;
-        }
-        return invokeI.intValue;
+        return (String) invokeV.objValue;
     }
 }

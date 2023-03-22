@@ -1,29 +1,115 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.network.outback.core.Call;
+import com.baidu.searchbox.network.outback.core.MediaType;
+import com.baidu.searchbox.network.outback.core.Request;
+import com.baidu.searchbox.network.outback.core.Response;
+import com.baidu.tieba.z50;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.util.List;
 /* loaded from: classes5.dex */
-public final class p60 {
+public final class p60 implements z50.a {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<z50> a;
+    public g60 b;
+    public final int c;
+    public final Request d;
+    public final Call e;
+    public int f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948013855, "Lcom/baidu/tieba/p60;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948013855, "Lcom/baidu/tieba/p60;");
+    public p60(List<z50> list, g60 g60Var, int i, Request request, Call call) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, g60Var, Integer.valueOf(i), request, call};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = Boolean.parseBoolean("true");
+        this.a = list;
+        this.b = g60Var;
+        this.c = i;
+        this.d = request;
+        this.e = call;
+    }
+
+    @Override // com.baidu.tieba.z50.a
+    public Response a(Request request) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, request)) == null) {
+            return b(request, this.b);
+        }
+        return (Response) invokeL.objValue;
+    }
+
+    public Response b(Request request, g60 g60Var) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, g60Var)) == null) {
+            if (this.c < this.a.size()) {
+                this.f++;
+                p60 p60Var = new p60(this.a, g60Var, this.c + 1, request, this.e);
+                z50 z50Var = this.a.get(this.c);
+                Response a = z50Var.a(p60Var);
+                if (a != null) {
+                    if (a.body() != null) {
+                        a.getStatRecord().responseLength = a.body().contentLength();
+                        a.getStatRecord().finishTs = System.currentTimeMillis();
+                        MediaType contentType = a.body().contentType();
+                        if (contentType != null) {
+                            a.getStatRecord().contentType = contentType.toString();
+                        }
+                        return a;
+                    }
+                    throw new IllegalStateException("interceptor " + z50Var + " returned a response with no body");
+                }
+                throw new NullPointerException("interceptor " + z50Var + " returned null");
+            }
+            throw new AssertionError();
+        }
+        return (Response) invokeLL.objValue;
+    }
+
+    public Call call() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return (Call) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.z50.a
+    public g60 connection() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (g60) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.z50.a
+    public Request request() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return (Request) invokeV.objValue;
     }
 }

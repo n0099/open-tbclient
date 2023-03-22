@@ -1,14 +1,19 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.net.Uri;
-import com.baidu.tieba.ya3;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.tieba.au1;
 /* loaded from: classes7.dex */
-public interface yt1 {
-    boolean a(Activity activity, String str, ya3.b bVar);
+public interface yt1<T extends au1> extends bu1<T> {
+    void E();
 
-    boolean b(Context context, String str);
+    void F(ViewGroup viewGroup);
 
-    boolean c(Activity activity, Uri uri, String str);
+    void G(View view2);
+
+    void P(boolean z);
+
+    void V();
+
+    void g0(String str, String str2);
 }

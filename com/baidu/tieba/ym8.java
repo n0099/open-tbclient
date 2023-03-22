@@ -13,14 +13,14 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class ym8 extends qn<un8, CardViewHolder<no8>> {
+public class ym8 extends tm<py5, CardViewHolder<ly5>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public xf6<un8> b;
+    public ly5 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ym8(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+    public ym8(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -38,39 +38,36 @@ public class ym8 extends qn<un8, CardViewHolder<no8>> {
                 return;
             }
         }
+        this.b = null;
         this.a = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
+    @Override // com.baidu.tieba.tm
     /* renamed from: s */
-    public CardViewHolder<no8> onCreateViewHolder(ViewGroup viewGroup) {
+    public CardViewHolder<ly5> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            no8 no8Var = new no8(this.a);
-            no8Var.n(this.b);
-            return new CardViewHolder<>(no8Var);
+            this.b = new ly5(this.a);
+            return new CardViewHolder<>(this.b);
         }
         return (CardViewHolder) invokeL.objValue;
     }
 
-    public void u(xf6<un8> xf6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, xf6Var) == null) {
-            this.b = xf6Var;
-        }
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.tm
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, py5 py5Var, CardViewHolder<ly5> cardViewHolder) {
+        t(i, view2, viewGroup, py5Var, cardViewHolder);
+        return view2;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, un8 un8Var, CardViewHolder<no8> cardViewHolder) {
+    public View t(int i, View view2, ViewGroup viewGroup, py5 py5Var, CardViewHolder<ly5> cardViewHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, un8Var, cardViewHolder})) == null) {
-            cardViewHolder.a().i(un8Var);
-            return cardViewHolder.getView();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, py5Var, cardViewHolder})) == null) {
+            cardViewHolder.a().l(py5Var);
+            return view2;
         }
         return (View) invokeCommon.objValue;
     }

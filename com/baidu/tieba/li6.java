@@ -1,19 +1,16 @@
 package com.baidu.tieba;
 
-import androidx.annotation.CallSuper;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.g8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Comparator;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public abstract class li6 implements s0, g8.a {
+public final class li6 implements Comparator<y> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ei6 a;
 
     public li6() {
         Interceptable interceptable = $ic;
@@ -25,35 +22,28 @@ public abstract class li6 implements s0, g8.a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = ei6.i.a();
     }
 
-    public final ei6 a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.Comparator
+    /* renamed from: a */
+    public int compare(y entity1, y entity2) {
+        InterceptResult invokeLL;
+        ci6 a;
+        oi6 b;
+        ci6 a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, entity1, entity2)) == null) {
+            Intrinsics.checkNotNullParameter(entity1, "entity1");
+            Intrinsics.checkNotNullParameter(entity2, "entity2");
+            oi6 b2 = mj6.b(entity2);
+            if (b2 == null || (a = b2.a()) == null || (b = mj6.b(entity1)) == null || (a2 = b.a()) == null) {
+                return 0;
+            }
+            return a2.compareTo(a);
         }
-        return (ei6) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.g8.a
-    @CallSuper
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a = ei6.i.a();
-        }
-    }
-
-    public final void b(ei6 ei6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ei6Var) == null) {
-            Intrinsics.checkNotNullParameter(ei6Var, "<set-?>");
-            this.a = ei6Var;
-        }
+        return invokeLL.intValue;
     }
 }

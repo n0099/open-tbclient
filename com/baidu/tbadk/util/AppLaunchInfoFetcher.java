@@ -10,8 +10,8 @@ import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.baidu.tieba.jq5;
-import com.baidu.tieba.yc;
+import com.baidu.tieba.bc;
+import com.baidu.tieba.hp5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ public class AppLaunchInfoFetcher {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void onFinish(jq5 jq5Var);
+        void onFinish(hp5 hp5Var);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -108,7 +108,7 @@ public class AppLaunchInfoFetcher {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, message)) == null) {
             if (message != null && (obj = message.obj) != null) {
-                Object d = yc.d(obj, "intent");
+                Object d = bc.d(obj, "intent");
                 if (d instanceof Intent) {
                     return (Intent) d;
                 }
@@ -119,7 +119,7 @@ public class AppLaunchInfoFetcher {
     }
 
     @TargetApi(23)
-    public static jq5 b(Context context) {
+    public static hp5 b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
@@ -127,14 +127,14 @@ public class AppLaunchInfoFetcher {
             if (appTasks != null) {
                 for (ActivityManager.AppTask appTask : appTasks) {
                     if (appTask != null && appTask.getTaskInfo() != null && appTask.getTaskInfo().baseIntent != null && appTask.getTaskInfo().baseIntent.getComponent() != null) {
-                        return new jq5(Type.ACTIVITY, appTask.getTaskInfo().baseIntent);
+                        return new hp5(Type.ACTIVITY, appTask.getTaskInfo().baseIntent);
                     }
                 }
                 return null;
             }
             return null;
         }
-        return (jq5) invokeL.objValue;
+        return (hp5) invokeL.objValue;
     }
 
     public static Type d(Message message) {
@@ -160,11 +160,11 @@ public class AppLaunchInfoFetcher {
         return (Type) invokeL.objValue;
     }
 
-    public static jq5 c() {
+    public static hp5 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            Object d = yc.d(Looper.myQueue(), "mMessages");
+            Object d = bc.d(Looper.myQueue(), "mMessages");
             if (d instanceof Message) {
                 Message message = (Message) d;
                 int i = 0;
@@ -173,12 +173,12 @@ public class AppLaunchInfoFetcher {
                     Intent a2 = a(message);
                     Type d2 = d(message);
                     if (a2 != null && a2.getComponent() != null) {
-                        return new jq5(Type.ACTIVITY, a2);
+                        return new hp5(Type.ACTIVITY, a2);
                     }
                     if (d2 != Type.UNKNOWN) {
-                        return new jq5(d2, null);
+                        return new hp5(d2, null);
                     }
-                    Object d3 = yc.d(message, UnitedSchemeConstants.UNITED_SCHEME_NEXT);
+                    Object d3 = bc.d(message, UnitedSchemeConstants.UNITED_SCHEME_NEXT);
                     if (d3 instanceof Message) {
                         message = (Message) d3;
                     } else {
@@ -188,27 +188,27 @@ public class AppLaunchInfoFetcher {
             }
             return null;
         }
-        return (jq5) invokeV.objValue;
+        return (hp5) invokeV.objValue;
     }
 
     public static void e(Context context, List<a> list) {
-        jq5 jq5Var;
+        hp5 hp5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, list) == null) {
             try {
                 if (Build.VERSION.SDK_INT >= 23) {
-                    jq5Var = b(context);
+                    hp5Var = b(context);
                 } else {
-                    jq5Var = null;
+                    hp5Var = null;
                 }
-                if (jq5Var == null) {
-                    jq5Var = c();
+                if (hp5Var == null) {
+                    hp5Var = c();
                 }
-                if (jq5Var == null) {
-                    jq5Var = new jq5(Type.UNKNOWN, null);
+                if (hp5Var == null) {
+                    hp5Var = new hp5(Type.UNKNOWN, null);
                 }
                 for (a aVar : list) {
-                    aVar.onFinish(jq5Var);
+                    aVar.onFinish(hp5Var);
                 }
             } catch (Throwable th) {
                 BdLog.e(th);

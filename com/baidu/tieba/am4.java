@@ -1,100 +1,203 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.open.SocialOperation;
-import java.util.HashSet;
+import java.util.Collection;
+import java.util.Map;
 import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class am4 {
+public class am4<K, V> extends fm4<K, V> implements Map<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final int b;
-    public final int c;
-    public final String d;
-    public final String e;
-    public final String f;
-    public final String g;
-    public final Set<String> h;
-    public final String i;
-    public final Long j;
-    public int k;
+    public em4<K, V> h;
 
-    public am4(String str, int i, int i2, String str2, String str3, String str4, String str5, Set<String> set, String str6, Long l) {
+    /* loaded from: classes3.dex */
+    public class a extends em4<K, V> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ am4 d;
+
+        public a(am4 am4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {am4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = am4Var;
+        }
+
+        @Override // com.baidu.tieba.em4
+        public int e(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
+                return this.d.e(obj);
+            }
+            return invokeL.intValue;
+        }
+
+        @Override // com.baidu.tieba.em4
+        public int f(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+                return this.d.g(obj);
+            }
+            return invokeL.intValue;
+        }
+
+        @Override // com.baidu.tieba.em4
+        public void h(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+                this.d.i(i);
+            }
+        }
+
+        @Override // com.baidu.tieba.em4
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.d.clear();
+            }
+        }
+
+        @Override // com.baidu.tieba.em4
+        public Map<K, V> c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.d;
+            }
+            return (Map) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.em4
+        public int d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.d.c;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.em4
+        public Object b(int i, int i2) {
+            InterceptResult invokeII;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2)) == null) {
+                return this.d.b[(i << 1) + i2];
+            }
+            return invokeII.objValue;
+        }
+
+        @Override // com.baidu.tieba.em4
+        public void g(K k, V v) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048582, this, k, v) == null) {
+                this.d.put(k, v);
+            }
+        }
+
+        @Override // com.baidu.tieba.em4
+        public V i(int i, V v) {
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, v)) == null) {
+                return this.d.j(i, v);
+            }
+            return (V) invokeIL.objValue;
+        }
+    }
+
+    public am4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), str2, str3, str4, str5, set, str6, l};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = str;
-        this.c = i2;
-        this.b = i;
-        this.d = str2;
-        this.e = str3;
-        this.f = str4;
-        this.g = str5;
-        this.h = set;
-        this.i = str6;
-        this.j = l;
     }
 
-    public static am4 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        JSONObject optJSONObject;
-        HashSet hashSet;
+    @Override // java.util.Map
+    public Set<Map.Entry<K, V>> entrySet() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            try {
-                String optString = jSONObject.optString("version");
-                if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
-                    return null;
-                }
-                String optString2 = optJSONObject.optString("content_type");
-                int optInt = optJSONObject.optInt("official_no");
-                int optInt2 = optJSONObject.optInt("container_no");
-                String optString3 = optJSONObject.optString("host_name");
-                String optString4 = optJSONObject.optString("share_callback_url");
-                JSONArray optJSONArray = optJSONObject.optJSONArray(SocialOperation.GAME_SIGNATURE);
-                String optString5 = optJSONObject.optString("scheme_head");
-                String optString6 = optJSONObject.optString("failure_url");
-                HashSet hashSet2 = new HashSet();
-                if (optJSONArray != null && optJSONArray.length() > 0) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        String optString7 = optJSONArray.optString(i);
-                        if (!TextUtils.isEmpty(optString7)) {
-                            hashSet2.add(optString7);
-                        }
-                    }
-                }
-                if (hashSet2.size() > 0) {
-                    hashSet = hashSet2;
-                } else {
-                    hashSet = null;
-                }
-                am4 am4Var = new am4(optString2, optInt, optInt2, optString3, optString4, optString6, optString, hashSet, optString5, null);
-                am4Var.k = optJSONObject.optInt("use_openbundleid", -1);
-                return am4Var;
-            } catch (NumberFormatException e) {
-                e.printStackTrace();
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return l().l();
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    @Override // java.util.Map
+    public Set<K> keySet() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return l().m();
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    public final em4<K, V> l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.h == null) {
+                this.h = new a(this);
+            }
+            return this.h;
+        }
+        return (em4) invokeV.objValue;
+    }
+
+    @Override // java.util.Map
+    public Collection<V> values() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return l().n();
+        }
+        return (Collection) invokeV.objValue;
+    }
+
+    public boolean m(Collection<?> collection) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, collection)) == null) {
+            return em4.p(this, collection);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // java.util.Map
+    public void putAll(Map<? extends K, ? extends V> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
+            b(this.c + map.size());
+            for (Map.Entry<? extends K, ? extends V> entry : map.entrySet()) {
+                put(entry.getKey(), entry.getValue());
             }
         }
-        return (am4) invokeL.objValue;
     }
 }

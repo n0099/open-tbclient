@@ -1,46 +1,89 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
-import android.os.CountDownTimer;
+import android.content.Context;
+import android.graphics.Rect;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tieba.pb.ejection.value.Direction;
-import com.baidu.tieba.pb.ejection.value.LifeCycleState;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.cy;
+import com.baidu.tieba.ny;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ee8 extends de8 {
+public class ee8 extends xd8<mz4, ThreadCardViewHolder<ThreadData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean A;
-    public final PorterDuffColorFilter B;
-    public Bitmap z;
+    public BdUniqueId c;
+    public TbPageContext<?> d;
+    public mn e;
+    public lf6<mz4> f;
 
     /* loaded from: classes4.dex */
-    public class a extends CountDownTimer {
+    public class a extends lf6<mz4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ee8 a;
+        public final /* synthetic */ ee8 b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ee8 ee8Var, long j, long j2) {
-            super(j, j2);
+        public a(ee8 ee8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ee8Var, Long.valueOf(j), Long.valueOf(j2)};
+                Object[] objArr = {ee8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Long) objArr2[0]).longValue(), ((Long) objArr2[1]).longValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ee8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.lf6
+        /* renamed from: d */
+        public void a(View view2, mz4 mz4Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, mz4Var) != null) || mz4Var == null) {
+                return;
+            }
+            ef6.b().d(true);
+            this.b.B(view2, mz4Var.t);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements qn {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ee8 a;
+
+        public b(ee8 ee8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ee8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -49,246 +92,159 @@ public class ee8 extends de8 {
             this.a = ee8Var;
         }
 
-        @Override // android.os.CountDownTimer
-        public void onFinish() {
+        @Override // com.baidu.tieba.qn
+        public void b(View view2, gn gnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            String str;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ee8 ee8Var = this.a;
-                ee8Var.v = LifeCycleState.DEAD;
-                ee8Var.w.cancel();
-            }
-        }
-
-        @Override // android.os.CountDownTimer
-        public void onTick(long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-                if (j <= 2000) {
-                    ee8 ee8Var = this.a;
-                    ee8Var.g = (int) (ee8Var.g - ee8Var.h);
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, gnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (gnVar instanceof mz4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
+                mz4 mz4Var = (mz4) gnVar;
+                ThreadData threadData = mz4Var.t;
+                threadData.objType = 1;
+                if (this.a.f != null) {
+                    this.a.f.a(threadCardViewHolder.getView(), mz4Var);
                 }
-                ee8 ee8Var2 = this.a;
-                int i = ee8Var2.t + 10;
-                ee8Var2.t = i;
-                if (i > 360) {
-                    ee8Var2.t = 0;
+                Rect a = sw.a((mn) viewGroup, view2, i);
+                Context context = view2.getContext();
+                String B1 = this.a.b.getOrignalPage().B1();
+                if (this.a.s()) {
+                    str = "3";
+                } else {
+                    str = "2";
                 }
+                ThreadCardUtils.jumpToPB(threadData, context, 17, false, a, B1, str);
+                threadCardViewHolder.a().p(new ny.a(1));
             }
         }
     }
 
-    public ee8(Bitmap bitmap, int i, int i2, int i3, int i4) {
+    /* loaded from: classes4.dex */
+    public class c implements ThreadCommentAndPraiseInfoLayout.l {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ViewGroup a;
+        public final /* synthetic */ View b;
+        public final /* synthetic */ int c;
+
+        public c(ee8 ee8Var, ViewGroup viewGroup, View view2, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ee8Var, viewGroup, view2, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = viewGroup;
+            this.b = view2;
+            this.c = i;
+        }
+
+        @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout.l
+        public void a(IntentConfig intentConfig) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, intentConfig) == null) && (intentConfig instanceof PbActivityConfig)) {
+                ((PbActivityConfig) intentConfig).setVideoOriginArea(sw.a((mn) this.a, this.b, this.c));
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ee8(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bitmap, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i5 = newInitContext.flag;
-            if ((i5 & 1) != 0) {
-                int i6 = i5 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.A = false;
-        this.z = bitmap;
-        this.b = i;
-        this.c = i2;
-        this.d = i;
-        this.e = i2;
-        int nextInt = this.x.nextInt(91) + 45;
-        this.a = nextInt;
-        if (nextInt < 90) {
-            this.o = Direction.RIGHT;
-        } else {
-            this.o = Direction.LEFT;
-            this.a = 180 - nextInt;
-        }
-        int sqrt = (int) (Math.sqrt(Math.pow(bitmap.getWidth(), 2.0d) + Math.pow(bitmap.getHeight(), 2.0d)) / 2.0d);
-        this.f = sqrt;
-        this.p = sqrt;
-        this.q = i3 - sqrt;
-        this.r = sqrt;
-        this.s = i4 - sqrt;
-        this.B = new PorterDuffColorFilter(SkinManager.getColor(R.color.CAM_X0501), PorterDuff.Mode.SRC_ATOP);
-        a aVar = new a(this, 3000L, 10L);
-        this.w = aVar;
-        aVar.start();
+        this.f = new a(this);
+        this.d = tbPageContext;
+        this.c = bdUniqueId2;
     }
 
-    @Override // com.baidu.tieba.de8
-    public void a() {
+    public void C(mn mnVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (!this.A) {
-                this.A = true;
-                return;
-            }
-            int i = this.l + 1;
-            this.l = i;
-            this.i = (int) ((this.k * i) + ((this.m * Math.pow(i, 2.0d)) / 2.0d));
-            double radians = Math.toRadians(this.a);
-            if (this.n == Direction.TOP) {
-                if (this.o == Direction.RIGHT) {
-                    f(radians);
-                } else {
-                    d(radians);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mnVar) == null) {
+            this.e = mnVar;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.tm
+    /* renamed from: A */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, mz4 mz4Var, ThreadCardViewHolder threadCardViewHolder) {
+        InterceptResult invokeCommon;
+        ThreadData threadData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, mz4Var, threadCardViewHolder})) == null) {
+            if (mz4Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && (threadData = mz4Var.t) != null) {
+                threadData.statFloor = getPositionByType(i) + 1;
+                threadCardViewHolder.a().r(i);
+                if (threadCardViewHolder.a().f() instanceof ey) {
+                    ((ey) threadCardViewHolder.a().f()).F(new c(this, viewGroup, view2, i));
                 }
-            } else if (this.o == Direction.RIGHT) {
-                e(radians);
-            } else {
-                c(radians);
+                threadCardViewHolder.e(mz4Var);
+                threadCardViewHolder.a().onChangeSkinType(this.d, TbadkCoreApplication.getInst().getSkinType());
+                threadCardViewHolder.a().q(this.f);
+                ud8.c(this, mz4Var);
+                return threadCardViewHolder.getView();
             }
+            return null;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    public final void B(View view2, ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
+            ud8.b(this, threadData);
         }
     }
 
-    @Override // com.baidu.tieba.de8
-    public void b(Canvas canvas) {
-        Bitmap bitmap;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.tm
+    /* renamed from: z */
+    public ThreadCardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) && (bitmap = this.z) != null && !bitmap.isRecycled()) {
-            if (this.g < 0) {
-                this.g = 0;
-            }
-            this.u.setAlpha(this.g);
-            if (this.y == 4) {
-                this.u.setColorFilter(this.B);
-            }
-            canvas.save();
-            canvas.rotate(this.t, this.d, this.e);
-            Bitmap bitmap2 = this.z;
-            canvas.drawBitmap(bitmap2, this.d - (bitmap2.getWidth() / 2.0f), this.e - (this.z.getHeight() / 2.0f), this.u);
-            canvas.restore();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
+            cy.b bVar = new cy.b(this.d.getPageActivity(), false);
+            ey eyVar = new ey(this.d.getPageActivity());
+            nw4 nw4Var = new nw4();
+            nw4Var.b = 22;
+            nw4Var.h = 19;
+            eyVar.z(nw4Var);
+            eyVar.B(18);
+            eyVar.H("personalize_page");
+            eyVar.G(18);
+            eyVar.C(17);
+            eyVar.f(32);
+            eyVar.A(false);
+            bVar.m(eyVar);
+            cy k = bVar.k(BaseCardInfo.SupportType.BOTTOM, viewGroup, this.e);
+            k.s(17);
+            ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
+            threadCardViewHolder.i(this.c);
+            setOnAdapterItemClickListener(new b(this));
+            return threadCardViewHolder;
         }
-    }
-
-    public final void c(double d) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Double.valueOf(d)}) == null) {
-            this.d = this.b - ((int) ((this.i - this.j) * Math.cos(d)));
-            this.e = this.c + ((int) ((this.i - this.j) * Math.sin(d)));
-            int i = this.d;
-            int i2 = this.p;
-            if (i <= i2) {
-                int tan = this.c + ((int) ((this.b - i2) * Math.tan(d)));
-                this.e = tan;
-                this.o = Direction.RIGHT;
-                int i3 = this.p;
-                this.b = i3;
-                this.c = tan;
-                this.d = i3;
-                this.j = this.i;
-            }
-            int i4 = this.e;
-            int i5 = this.s;
-            if (i4 >= i5) {
-                int tan2 = this.b - ((int) ((i5 - this.c) / Math.tan(d)));
-                this.d = tan2;
-                this.n = Direction.TOP;
-                int i6 = this.s;
-                this.c = i6;
-                this.b = tan2;
-                this.e = i6;
-                this.j = this.i;
-            }
-        }
-    }
-
-    public final void d(double d) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d)}) == null) {
-            this.d = this.b - ((int) ((this.i - this.j) * Math.cos(d)));
-            this.e = this.c - ((int) ((this.i - this.j) * Math.sin(d)));
-            int i = this.d;
-            int i2 = this.p;
-            if (i <= i2) {
-                int tan = this.c - ((int) ((this.b - i2) * Math.tan(d)));
-                this.e = tan;
-                this.o = Direction.RIGHT;
-                int i3 = this.p;
-                this.b = i3;
-                this.c = tan;
-                this.d = i3;
-                this.j = this.i;
-            }
-            int i4 = this.e;
-            int i5 = this.r;
-            if (i4 <= i5) {
-                int tan2 = this.b - ((int) ((this.c - i5) / Math.tan(d)));
-                this.d = tan2;
-                this.n = Direction.BOTTOM;
-                int i6 = this.r;
-                this.c = i6;
-                this.b = tan2;
-                this.e = i6;
-                this.j = this.i;
-            }
-        }
-    }
-
-    public final void e(double d) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Double.valueOf(d)}) == null) {
-            this.d = ((int) ((this.i - this.j) * Math.cos(d))) + this.b;
-            this.e = this.c + ((int) ((this.i - this.j) * Math.sin(d)));
-            int i = this.d;
-            int i2 = this.q;
-            if (i >= i2) {
-                int tan = this.c + ((int) ((i2 - this.b) * Math.tan(d)));
-                this.e = tan;
-                this.o = Direction.LEFT;
-                int i3 = this.q;
-                this.b = i3;
-                this.c = tan;
-                this.d = i3;
-                this.j = this.i;
-            }
-            int i4 = this.e;
-            int i5 = this.s;
-            if (i4 >= i5) {
-                int tan2 = this.b + ((int) ((i5 - this.c) / Math.tan(d)));
-                this.d = tan2;
-                this.n = Direction.TOP;
-                int i6 = this.s;
-                this.c = i6;
-                this.b = tan2;
-                this.e = i6;
-                this.j = this.i;
-            }
-        }
-    }
-
-    public final void f(double d) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Double.valueOf(d)}) == null) {
-            this.d = ((int) ((this.i - this.j) * Math.cos(d))) + this.b;
-            this.e = this.c - ((int) ((this.i - this.j) * Math.sin(d)));
-            int i = this.d;
-            int i2 = this.q;
-            if (i >= i2) {
-                int tan = this.c - ((int) ((i2 - this.b) * Math.tan(d)));
-                this.e = tan;
-                this.j = this.i;
-                this.o = Direction.LEFT;
-                int i3 = this.q;
-                this.b = i3;
-                this.c = tan;
-                this.d = i3;
-            }
-            int i4 = this.e;
-            int i5 = this.r;
-            if (i4 <= i5) {
-                int tan2 = this.b + ((int) ((this.c - i5) / Math.tan(d)));
-                this.d = tan2;
-                this.n = Direction.BOTTOM;
-                this.b = tan2;
-                int i6 = this.r;
-                this.c = i6;
-                this.e = i6;
-                this.j = this.i;
-            }
-        }
+        return (ThreadCardViewHolder) invokeL.objValue;
     }
 }

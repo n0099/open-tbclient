@@ -27,8 +27,8 @@ import com.baidu.tbadk.core.util.TiebaStaticHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b35;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.hi;
+import com.baidu.tieba.n15;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -63,9 +63,9 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
                 return;
             }
         }
-        ej.l(TbadkCoreApplication.getInst());
-        ej.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005);
-        ej.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
+        hi.l(TbadkCoreApplication.getInst());
+        hi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005);
+        hi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -101,7 +101,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
             this.c = inflate;
             TextView textView = (TextView) inflate.findViewById(R.id.forum_name_text);
             this.f = textView;
-            textView.setCompoundDrawablePadding(ej.g(this.b, R.dimen.M_W_X002));
+            textView.setCompoundDrawablePadding(hi.g(this.b, R.dimen.M_W_X002));
         }
     }
 
@@ -143,7 +143,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
                 setVisibility(0);
                 f();
                 TextView textView = this.f;
-                textView.setText(StringHelper.cutForumNameWithSuffix(forum_name, 14, StringHelper.STRING_MORE) + this.b.getString(R.string.obfuscated_res_0x7f0f06ba));
+                textView.setText(StringHelper.cutForumNameWithSuffix(forum_name, 14, StringHelper.STRING_MORE) + this.b.getString(R.string.obfuscated_res_0x7f0f06bd));
                 this.f.setVisibility(0);
                 if (YYLiveUtil.isLiveRoom(forum_name)) {
                     StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CARD_ENTER_FORUM_SHOW);
@@ -201,8 +201,8 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
                 }
                 setVisibility(0);
                 f();
-                float measureText = (i - (paddingLeft * 2)) - this.f.getPaint().measureText(getResources().getString(R.string.obfuscated_res_0x7f0f06ba));
-                this.f.setText(((Object) TextUtils.ellipsize(forum_name, this.f.getPaint(), measureText, TextUtils.TruncateAt.END)) + getResources().getString(R.string.obfuscated_res_0x7f0f06ba));
+                float measureText = (i - (paddingLeft * 2)) - this.f.getPaint().measureText(getResources().getString(R.string.obfuscated_res_0x7f0f06bd));
+                this.f.setText(((Object) TextUtils.ellipsize(forum_name, this.f.getPaint(), measureText, TextUtils.TruncateAt.END)) + getResources().getString(R.string.obfuscated_res_0x7f0f06bd));
                 this.f.setVisibility(0);
                 if (YYLiveUtil.isLiveRoom(threadData.getForum_name())) {
                     StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CARD_ENTER_FORUM_SHOW);
@@ -245,28 +245,28 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
         }
         this.i = skinType;
         if (this.e) {
-            b35 d = b35.d(this.f);
-            d.A(R.string.F_X01);
-            d.z(R.dimen.T_X09);
-            d.v(R.color.CAM_X0304);
+            n15 d = n15.d(this.f);
+            d.B(R.string.F_X01);
+            d.A(R.dimen.T_X09);
+            d.w(R.color.CAM_X0304);
             d.e(R.string.A_X07);
-            d.n(R.string.J_X01);
-            d.l(R.dimen.L_X01);
-            d.k(R.color.CAM_X0304);
+            d.o(R.string.J_X01);
+            d.m(R.dimen.L_X01);
+            d.l(R.color.CAM_X0304);
         } else {
-            b35 d2 = b35.d(this.f);
-            d2.A(R.string.F_X01);
-            d2.z(R.dimen.T_X09);
-            d2.v(R.color.CAM_X0304);
+            n15 d2 = n15.d(this.f);
+            d2.B(R.string.F_X01);
+            d2.A(R.dimen.T_X09);
+            d2.w(R.color.CAM_X0304);
             d2.e(R.string.A_X07);
-            d2.n(R.string.J_X01);
-            d2.l(R.dimen.L_X02);
-            d2.k(R.color.CAM_X0304);
+            d2.o(R.string.J_X01);
+            d2.m(R.dimen.L_X02);
+            d2.l(R.color.CAM_X0304);
         }
         Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.icon_pure_ba12, SkinManager.getColor(R.color.CAM_X0304), WebPManager.ResourceStateType.NORMAL_PRESS);
         this.g = pureDrawable;
         if (pureDrawable != null) {
-            int g = ej.g(this.b, R.dimen.T_X09);
+            int g = hi.g(this.b, R.dimen.T_X09);
             this.g.setBounds(0, 0, g, g);
         }
         f();

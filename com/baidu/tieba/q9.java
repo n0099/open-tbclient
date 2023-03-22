@@ -1,97 +1,48 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
+import android.util.SparseArray;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.KVStorageFactory;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
+import java.lang.reflect.Field;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class q9 {
     public static /* synthetic */ Interceptable $ic;
-    public static SharedPreferences a;
-    public static q9 b;
+    public static volatile q9 b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448313541, "Lcom/baidu/tieba/q9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448313541, "Lcom/baidu/tieba/q9;");
-        }
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 1;
-        }
-        return invokeV.intValue;
-    }
+    public SparseArray<String> a;
 
     public q9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = null;
+        this.a = new SparseArray<>();
     }
 
-    public String c() {
+    public static q9 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return a.getString("abtest_sap_data", "");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return a.getString("abtest_sap_version", "");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public Set<String> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return new HashSet(a.getStringSet("abtest_switch_keys", new HashSet()));
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    public static q9 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (q9.class) {
-                if (b == null) {
-                    b = new q9();
-                    a = KVStorageFactory.getSharedPreferences("abtestCCS0527", 0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (q9.class) {
+                    if (b == null) {
+                        b = new q9();
+                    }
                 }
             }
             return b;
@@ -99,13 +50,55 @@ public class q9 {
         return (q9) invokeV.objValue;
     }
 
-    public String e(String str) {
-        InterceptResult invokeL;
+    public String b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            SharedPreferences sharedPreferences = a;
-            return sharedPreferences.getString("abtest_" + str, "");
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            String str = this.a.get(i);
+            if (str != null) {
+                return str;
+            }
+            return null;
         }
-        return (String) invokeL.objValue;
+        return (String) invokeI.objValue;
+    }
+
+    public void c(List<String> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) && BdBaseApplication.getInst().isDebugMode() && list != null && list.size() != 0) {
+            for (String str : list) {
+                d(str);
+            }
+        }
+    }
+
+    public final void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            try {
+                Class<?> loadClass = q9.class.getClassLoader().loadClass(str);
+                Object newInstance = loadClass.newInstance();
+                Field[] fields = loadClass.getFields();
+                if (fields != null && fields.length > 0) {
+                    for (Field field : fields) {
+                        int i = field.getInt(newInstance);
+                        String name = field.getName();
+                        if (this.a.get(i) == null) {
+                            this.a.put(i, name);
+                        } else {
+                            throw new Error("cmd " + str + " " + name + " 和 " + this.a.get(i) + " 重复");
+                        }
+                    }
+                }
+            } catch (ClassNotFoundException e) {
+                e.printStackTrace();
+            } catch (IllegalAccessException e2) {
+                e2.printStackTrace();
+            } catch (IllegalArgumentException e3) {
+                e3.printStackTrace();
+            } catch (InstantiationException e4) {
+                e4.printStackTrace();
+            }
+        }
     }
 }

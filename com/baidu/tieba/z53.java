@@ -1,159 +1,267 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.IProcessBridge;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class z53 {
+public final class z53 {
     public static /* synthetic */ Interceptable $ic;
+    public static a a;
+    public static boolean b;
+    public static final z53 c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Class a;
-        public final /* synthetic */ Bundle b;
-        public final /* synthetic */ v53 c;
+    public interface a {
+        void a(String str, String str2, String str3);
 
-        public a(Class cls, Bundle bundle, v53 v53Var) {
+        void b(String str, String str2, String str3);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948310897, "Lcom/baidu/tieba/z53;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948310897, "Lcom/baidu/tieba/z53;");
+                return;
+            }
+        }
+        c = new z53();
+    }
+
+    public z53() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public final a b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return a;
+        }
+        return (a) invokeV.objValue;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class b<MsgType> implements mm3<wc3<JSONObject>> {
+        public static /* synthetic */ Interceptable $ic;
+        public static final b a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-278988045, "Lcom/baidu/tieba/z53$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-278988045, "Lcom/baidu/tieba/z53$b;");
+                    return;
+                }
+            }
+            a = new b();
+        }
+
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cls, bundle, v53Var};
-                interceptable.invokeUnInit(65536, newInitContext);
+                interceptable.invokeUnInit(65537, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.mm3
+        /* renamed from: b */
+        public final void a(wc3<JSONObject> it) {
+            JSONObject jSONObject;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, it) == null) {
+                Intrinsics.checkNotNullExpressionValue(it, "it");
+                if (it.c()) {
+                    JSONObject jSONObject2 = it.a;
+                    if (jSONObject2 != null) {
+                        jSONObject = jSONObject2.optJSONObject("data");
+                    } else {
+                        jSONObject = null;
+                    }
+                    a b = z53.c.b();
+                    if (jSONObject != null) {
+                        String openId = jSONObject.optString("openid");
+                        if (b == null || !ProcessUtils.isMainProcess()) {
+                            z53.c.d(null, openId);
+                            return;
+                        }
+                        Intrinsics.checkNotNullExpressionValue(openId, "openId");
+                        s73 K = s73.K();
+                        Intrinsics.checkNotNullExpressionValue(K, "Swan.get()");
+                        String appId = K.getAppId();
+                        ft1 n = ar2.n();
+                        Intrinsics.checkNotNullExpressionValue(n, "SwanAppRuntime.getConfig()");
+                        b.a(openId, appId, n.a());
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class c<MsgType> implements mm3<wc3<JSONObject>> {
+        public static /* synthetic */ Interceptable $ic;
+        public static final c a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-278988014, "Lcom/baidu/tieba/z53$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-278988014, "Lcom/baidu/tieba/z53$c;");
                     return;
                 }
             }
-            this.a = cls;
-            this.b = bundle;
-            this.c = v53Var;
+            a = new c();
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public c() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Bundle b = z53.b(this.a, this.b);
-                v53 v53Var = this.c;
-                if (v53Var != null) {
-                    v53Var.onResult(b);
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
                 }
             }
         }
-    }
 
-    public static void a(@NonNull Class<? extends ProviderDelegation> cls, @Nullable Bundle bundle, @Nullable v53<Bundle> v53Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, cls, bundle, v53Var) == null) {
-            gm3.k(new a(cls, bundle, v53Var), "asyncCallMainProcess");
-        }
-    }
-
-    @NonNull
-    public static Bundle b(@NonNull Class<? extends ProviderDelegation> cls, @Nullable Bundle bundle) {
-        InterceptResult invokeLL;
-        IProcessBridge S;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, bundle)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                Bundle d = d(cls, bundle);
-                if (d == null) {
-                    return new Bundle();
-                }
-                return d;
-            }
-            h63 y = l93.K().y();
-            if (y != null && (S = y.S()) != null) {
-                try {
-                    Bundle callMainProcessSync = S.callMainProcessSync(cls.getName(), bundle);
-                    if (callMainProcessSync == null) {
-                        return new Bundle();
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.mm3
+        /* renamed from: b */
+        public final void a(wc3<JSONObject> it) {
+            JSONObject jSONObject;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, it) == null) {
+                Intrinsics.checkNotNullExpressionValue(it, "it");
+                if (it.c()) {
+                    JSONObject jSONObject2 = it.a;
+                    if (jSONObject2 != null) {
+                        jSONObject = jSONObject2.optJSONObject("data");
+                    } else {
+                        jSONObject = null;
                     }
-                    return callMainProcessSync;
-                } catch (Throwable th) {
-                    m62.d("SwanProcessCallManager", "callMainProcessSync", th);
+                    a b = z53.c.b();
+                    if (jSONObject != null) {
+                        String swanId = jSONObject.optString("swanid");
+                        if (b == null || !ProcessUtils.isMainProcess()) {
+                            z53.c.d(swanId, null);
+                            return;
+                        }
+                        Intrinsics.checkNotNullExpressionValue(swanId, "swanId");
+                        s73 K = s73.K();
+                        Intrinsics.checkNotNullExpressionValue(K, "Swan.get()");
+                        String appId = K.getAppId();
+                        ft1 n = ar2.n();
+                        Intrinsics.checkNotNullExpressionValue(n, "SwanAppRuntime.getConfig()");
+                        b.b(swanId, appId, n.a());
+                    }
                 }
             }
-            return DelegateUtils.callOnMainWithContentProvider(ts2.c(), cls, bundle).mResult;
         }
-        return (Bundle) invokeLL.objValue;
     }
 
-    @NonNull
-    public static b63 c(@NonNull Class<? extends ProviderDelegation> cls, @Nullable Bundle bundle) {
-        InterceptResult invokeLL;
+    public final void d(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, bundle)) == null) {
-            return new b63(b(cls, bundle));
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+            s73 K = s73.K();
+            Intrinsics.checkNotNullExpressionValue(K, "Swan.get()");
+            o43 y = K.y();
+            if (y != null) {
+                Bundle bundle = new Bundle();
+                bundle.putString("swanId", str);
+                bundle.putString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_OPEN_ID, str2);
+                s73 K2 = s73.K();
+                Intrinsics.checkNotNullExpressionValue(K2, "Swan.get()");
+                bundle.putString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, K2.getAppId());
+                ft1 n = ar2.n();
+                Intrinsics.checkNotNullExpressionValue(n, "SwanAppRuntime.getConfig()");
+                bundle.putString("hostName", n.a());
+                y.W(bundle, y53.class);
+            }
         }
-        return (b63) invokeLL.objValue;
     }
 
-    @Nullable
-    @SuppressLint({"BDThrowableCheck"})
-    public static Bundle d(@NonNull Class<? extends ProviderDelegation> cls, @Nullable Bundle bundle) {
-        InterceptResult invokeLL;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, cls, bundle)) == null) {
-            if (!ProcessUtils.isMainProcess()) {
-                return null;
-            }
-            ProviderDelegation a2 = a63.a(cls);
-            if (a2 == null) {
-                try {
-                    a2 = cls.newInstance();
-                } catch (Exception e) {
-                    m62.d("SwanProcessCallManager", "callOnMainProcess", e);
-                }
-            }
-            if (a2 == null) {
-                return null;
-            }
-            return a2.execCall(bundle);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            s73 K = s73.K();
+            Intrinsics.checkNotNullExpressionValue(K, "Swan.get()");
+            wo1 x = K.x();
+            Intrinsics.checkNotNullExpressionValue(x, "Swan.get().adaptationProducer");
+            ad3 f = x.a().b().f(s73.K());
+            f.o(b.a);
+            f.call();
         }
-        return (Bundle) invokeLL.objValue;
     }
 
-    @Nullable
-    @SuppressLint({"BDThrowableCheck"})
-    public static Bundle e(@NonNull String str, @Nullable Bundle bundle) {
-        InterceptResult invokeLL;
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, bundle)) == null) {
-            if (!ProcessUtils.isMainProcess()) {
-                return null;
-            }
-            ProviderDelegation b = a63.b(str);
-            if (b == null) {
-                try {
-                    b = (ProviderDelegation) Class.forName(str).newInstance();
-                } catch (Exception e) {
-                    m62.d("SwanProcessCallManager", "callOnMainProcess", e);
-                }
-            }
-            if (b == null) {
-                return null;
-            }
-            return b.execCall(bundle);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            s73 K = s73.K();
+            Intrinsics.checkNotNullExpressionValue(K, "Swan.get()");
+            wo1 x = K.x();
+            Intrinsics.checkNotNullExpressionValue(x, "Swan.get().adaptationProducer");
+            bd3 e = x.a().b().e(s73.K());
+            e.o(c.a);
+            e.call();
         }
-        return (Bundle) invokeLL.objValue;
     }
 }

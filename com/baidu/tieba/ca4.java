@@ -1,64 +1,130 @@
 package com.baidu.tieba;
 
+import android.webkit.JavascriptInterface;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ca4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public na4 b;
-    public int c;
-    public long d;
+    public aa4 a;
 
-    public ca4(int i, na4 na4Var) {
-        int i2;
+    /* loaded from: classes3.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SwanAppActivity a;
+
+        public a(ca4 ca4Var, SwanAppActivity swanAppActivity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ca4Var, swanAppActivity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = swanAppActivity;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                bl3.a(this.a);
+            }
+        }
+    }
+
+    public ca4(JsObject jsObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), na4Var};
+            Object[] objArr = {jsObject};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = na4Var;
-        if (ja4.d()) {
-            i2 = 20;
-        } else {
-            i2 = 10;
-        }
-        this.c = i2;
-        this.d = System.currentTimeMillis();
+        this.a = aa4.d(a02.F(jsObject));
+        z94.a().f(this);
     }
 
-    public JSONObject a() {
+    /* JADX WARN: Code restructure failed: missing block: B:20:0x0054, code lost:
+        if (r1.equals("checkForUpdate") != false) goto L16;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void a(ba4 ba4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, ba4Var) == null) && this.a != null && JSEvent.isValid(ba4Var)) {
+            char c = 0;
+            t42.i("UpdateManagerApi", String.format("dispatchEvent : eventType = %s; hasUpdate = %s", ba4Var.type, Boolean.valueOf(ba4Var.hasUpdate)));
+            String str = ba4Var.type;
+            int hashCode = str.hashCode();
+            if (hashCode != -1330233754) {
+                if (hashCode != -1317168438) {
+                    if (hashCode == -585906598 && str.equals("updateReady")) {
+                        c = 1;
+                    }
+                    c = 65535;
+                }
+            } else {
+                if (str.equals("updateFailed")) {
+                    c = 2;
+                }
+                c = 65535;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c == 2) {
+                        this.a.b();
+                        return;
+                    }
+                    return;
+                }
+                this.a.c();
+                return;
+            }
+            this.a.a(ba4Var);
+        }
+    }
+
+    @JavascriptInterface
+    public boolean applyUpdate() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", this.a);
-                jSONObject.put("stage", this.c);
-                jSONObject.put("ts", this.d);
-                if (this.b != null) {
-                    jSONObject.put("msg", this.b.a());
-                }
-            } catch (JSONException unused) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            SwanAppActivity activity = gt2.U().getActivity();
+            if (activity == null) {
+                t42.c("UpdateManagerApi", "applyUpdate activity is null");
+                return false;
+            } else if (activity.isDestroyed() || activity.getIntent() == null) {
+                return false;
+            } else {
+                nl3.e0(new a(this, activity));
+                return true;
             }
-            return jSONObject;
         }
-        return (JSONObject) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 }

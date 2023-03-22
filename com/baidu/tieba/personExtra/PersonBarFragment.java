@@ -45,20 +45,20 @@ import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cr5;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.e59;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.aq5;
+import com.baidu.tieba.au8;
+import com.baidu.tieba.bb;
+import com.baidu.tieba.fv4;
+import com.baidu.tieba.gg;
+import com.baidu.tieba.hi;
 import com.baidu.tieba.im.message.RequestGetLivableForumList;
-import com.baidu.tieba.k55;
-import com.baidu.tieba.l55;
-import com.baidu.tieba.rn;
-import com.baidu.tieba.to8;
-import com.baidu.tieba.uo8;
-import com.baidu.tieba.xo8;
-import com.baidu.tieba.xw4;
-import com.baidu.tieba.yb;
-import com.baidu.tieba.yq5;
+import com.baidu.tieba.jb9;
+import com.baidu.tieba.um;
+import com.baidu.tieba.v35;
+import com.baidu.tieba.w35;
+import com.baidu.tieba.wp5;
+import com.baidu.tieba.wt8;
+import com.baidu.tieba.xt8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -76,7 +76,7 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
     public ArrayList<ForumData> A;
     public int B;
     public AbsListView.OnScrollListener C;
-    public final yb D;
+    public final bb D;
     public final CustomMessageListener E;
     public HttpMessageListener F;
     public HttpMessageListener G;
@@ -84,13 +84,13 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
     public NavigationBarShadowView b;
     public BdListView c;
     public m d;
-    public uo8 e;
+    public xt8 e;
     public int f;
     public String g;
     public PersonBarModel h;
     public View i;
     public NoDataView j;
-    public l55 k;
+    public w35 k;
     public TextView l;
     public int m;
     public int n;
@@ -114,7 +114,7 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
         public final /* synthetic */ PersonBarFragment a;
 
         /* loaded from: classes5.dex */
-        public class a extends yq5<Object> {
+        public class a extends wp5<Object> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ PersonBarModel a;
@@ -139,14 +139,14 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
                 this.b = str;
             }
 
-            @Override // com.baidu.tieba.yq5
+            @Override // com.baidu.tieba.wp5
             public Object doInBackground() {
                 InterceptResult invokeV;
                 Interceptable interceptable = $ic;
                 if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                     PersonBarModel personBarModel = this.a;
                     if (personBarModel != null) {
-                        personBarModel.R(this.b);
+                        personBarModel.V(this.b);
                         return null;
                     }
                     return null;
@@ -184,22 +184,22 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
             m mVar;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1002002) {
-                if (this.a.h2() != null) {
+                if (this.a.j2() != null) {
                     m mVar2 = this.a.d;
                     if (mVar2 != null && mVar2.c() != null) {
                         this.a.d.c().setVisibility(0);
                     }
-                    this.a.c.A(0L);
+                    this.a.c.z(0L);
                     this.a.u = false;
-                    if (httpResponsedMessage.getOrginalMessage().getTag() == this.a.h2().getUniqueId()) {
+                    if (httpResponsedMessage.getOrginalMessage().getTag() == this.a.j2().getUniqueId()) {
                         if (httpResponsedMessage.getStatusCode() == 200 && (httpResponsedMessage instanceof PersonBarResponseMessage)) {
                             PersonBarResponseMessage personBarResponseMessage = (PersonBarResponseMessage) httpResponsedMessage;
                             if (personBarResponseMessage.getErrCode() == 0) {
-                                to8 personBarData = personBarResponseMessage.getPersonBarData();
-                                this.a.h.S(this.a.m);
-                                cr5.b(new a(this, this.a.h, personBarResponseMessage.getResultString()), null);
+                                wt8 personBarData = personBarResponseMessage.getPersonBarData();
+                                this.a.h.W(this.a.m);
+                                aq5.b(new a(this, this.a.h, personBarResponseMessage.getResultString()), null);
                                 this.a.update(personBarData, false);
-                                if (1 == this.a.h2().A1() && (mVar = (personBarFragment = this.a).d) != null) {
+                                if (1 == this.a.j2().E1() && (mVar = (personBarFragment = this.a).d) != null) {
                                     mVar.g(personBarFragment.r);
                                     return;
                                 }
@@ -215,7 +215,7 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
                             return;
                         }
                         if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                            errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d11);
+                            errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d1f);
                         } else {
                             errorString = httpResponsedMessage.getErrorString();
                         }
@@ -279,12 +279,12 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001183 && this.a.w) {
-                to8 personBarData = ((ResponsePersonBarByUidLocalMessage) customResponsedMessage).getPersonBarData();
-                if (this.a.h2() != null) {
+                wt8 personBarData = ((ResponsePersonBarByUidLocalMessage) customResponsedMessage).getPersonBarData();
+                if (this.a.j2() != null) {
                     if (personBarData != null) {
                         this.a.x = true;
                     }
-                    if (this.a.h2().S1() != 23011) {
+                    if (this.a.j2().V1() != 23011) {
                         this.a.s.setVisibility(8);
                     } else {
                         if (!this.a.z) {
@@ -337,32 +337,32 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
             }
             this.a.q = false;
             if (httpResponsedMessage.getError() == 0) {
-                ArrayList<ForumData> i = this.a.h.N().i();
-                int k = this.a.h.N().k();
+                ArrayList<ForumData> i = this.a.h.R().i();
+                int k = this.a.h.R().k();
                 if (this.a.f < k) {
-                    this.a.h.N().t(k - 1);
+                    this.a.h.R().t(k - 1);
                 }
                 if (i != null && this.a.f >= 0 && this.a.f < i.size()) {
                     i.remove(this.a.f);
                     TbadkCoreApplication.getInst().delLikeForum(this.a.g);
                     if (this.a.e != null) {
-                        this.a.e2(true);
+                        this.a.g2(true);
                         this.a.e.g(i);
                         this.a.e.notifyDataSetChanged();
                     }
                 }
-                this.a.showToast(R.string.obfuscated_res_0x7f0f1300);
+                this.a.showToast(R.string.obfuscated_res_0x7f0f1314);
                 if (this.a.p != null && !TextUtils.isEmpty(this.a.p.getId())) {
                     PersonBarFragment personBarFragment = this.a;
                     personBarFragment.sendMessage(new CustomMessage(2003004, personBarFragment.p.getId()));
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001336, Long.valueOf(dh.g(this.a.p.getId(), 0L))));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001336, Long.valueOf(gg.g(this.a.p.getId(), 0L))));
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001611, this.a.p.getName()));
                     return;
                 }
                 return;
             }
             if (StringUtils.isNull(httpResponsedMessage.getErrorString())) {
-                errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d11);
+                errorString = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d1f);
             } else {
                 errorString = httpResponsedMessage.getErrorString();
             }
@@ -483,7 +483,7 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.e != null) {
                 if (!this.a.e.c()) {
                     this.a.e.f(true);
-                    this.a.l.setText(R.string.obfuscated_res_0x7f0f052f);
+                    this.a.l.setText(R.string.obfuscated_res_0x7f0f0532);
                     if (TbadkCoreApplication.getInst().getSkinType() == 2) {
                         this.a.B = R.color.navi_op_text_skin;
                     } else {
@@ -494,7 +494,7 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
                     return;
                 }
                 this.a.e.f(false);
-                this.a.l.setText(R.string.obfuscated_res_0x7f0f0562);
+                this.a.l.setText(R.string.obfuscated_res_0x7f0f0565);
                 if (TbadkCoreApplication.getInst().getSkinType() == 2) {
                     this.a.B = R.color.navi_op_text_skin;
                 } else {
@@ -584,8 +584,8 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (intValue = ((Integer) view2.getTag()).intValue()) >= 0 && intValue < this.a.e.getCount()) {
                 ForumData forumData = (ForumData) this.a.e.getItem(intValue);
-                if (this.a.h2() != null) {
-                    this.a.sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(this.a.h2().getPageContext().getPageActivity(), dh.g(forumData.getId(), 0L), forumData.getName(), forumData.getImage_url(), 0)));
+                if (this.a.j2() != null) {
+                    this.a.sendMessage(new CustomMessage(2002006, new OfficalBarChatActivityConfig(this.a.j2().getPageContext().getPageActivity(), gg.g(forumData.getId(), 0L), forumData.getName(), forumData.getImage_url(), 0)));
                 }
             }
         }
@@ -623,18 +623,18 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
             }
             this.a.f = i;
             ForumData forumData = (ForumData) this.a.e.getItem(i);
-            if (forumData != null && this.a.h2() != null) {
+            if (forumData != null && this.a.j2() != null) {
                 if (this.a.y) {
                     Intent intent = new Intent();
                     intent.putExtra("bar_name", forumData.getName());
                     intent.putExtra("bar_id", forumData.getId());
-                    PersonBarActivity h2 = this.a.h2();
-                    this.a.h2();
-                    h2.setResult(-1, intent);
-                    this.a.h2().finish();
+                    PersonBarActivity j2 = this.a.j2();
+                    this.a.j2();
+                    j2.setResult(-1, intent);
+                    this.a.j2().finish();
                     return;
                 }
-                FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.a.h2().getPageContext().getPageActivity()).createNormalCfg(forumData.getName(), "tb_mytieba");
+                FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.a.j2().getPageContext().getPageActivity()).createNormalCfg(forumData.getName(), "tb_mytieba");
                 if (this.a.w) {
                     createNormalCfg.setCallFrom(7);
                 } else {
@@ -646,7 +646,7 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
     }
 
     /* loaded from: classes5.dex */
-    public class j implements k55.g {
+    public class j implements v35.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonBarFragment a;
@@ -669,22 +669,22 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
             this.a = personBarFragment;
         }
 
-        @Override // com.baidu.tieba.k55.g
+        @Override // com.baidu.tieba.v35.g
         public void f(boolean z) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && this.a.h2() != null) {
+            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && this.a.j2() != null) {
                 PersonBarFragment personBarFragment = this.a;
                 personBarFragment.m = 1;
-                if (personBarFragment.h2() != null && this.a.h2().S1() == 23011) {
+                if (personBarFragment.j2() != null && this.a.j2().V1() == 23011) {
                     RequestGetLivableForumList requestGetLivableForumList = new RequestGetLivableForumList();
                     requestGetLivableForumList.setGetLikeForum(1);
                     requestGetLivableForumList.setPageNo(this.a.m);
                     requestGetLivableForumList.setPageSize(this.a.n);
-                    requestGetLivableForumList.setUserId(dh.g(TbadkCoreApplication.getCurrentAccount(), 0L));
+                    requestGetLivableForumList.setUserId(gg.g(TbadkCoreApplication.getCurrentAccount(), 0L));
                     this.a.sendMessage(requestGetLivableForumList);
                     return;
                 }
-                this.a.j2();
+                this.a.l2();
             }
         }
     }
@@ -724,17 +724,17 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
                     }
                     this.a.u = true;
                     this.a.d.f();
-                    if (this.a.h2().S1() == 23011) {
+                    if (this.a.j2().V1() == 23011) {
                         RequestGetLivableForumList requestGetLivableForumList = new RequestGetLivableForumList();
                         requestGetLivableForumList.setGetLikeForum(1);
                         requestGetLivableForumList.setPageNo(this.a.m);
                         requestGetLivableForumList.setPageSize(this.a.n);
-                        requestGetLivableForumList.setUserId(dh.g(TbadkCoreApplication.getCurrentAccount(), 0L));
+                        requestGetLivableForumList.setUserId(gg.g(TbadkCoreApplication.getCurrentAccount(), 0L));
                         this.a.sendMessage(requestGetLivableForumList);
                         return;
                     }
                     PersonBarFragment personBarFragment2 = this.a;
-                    personBarFragment2.k2(personBarFragment2.m);
+                    personBarFragment2.m2(personBarFragment2.m);
                     return;
                 }
                 personBarFragment.d.g(personBarFragment.r);
@@ -743,7 +743,7 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
     }
 
     /* loaded from: classes5.dex */
-    public class l extends yb {
+    public class l extends bb {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonBarFragment a;
@@ -775,10 +775,10 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, socketResponsedMessage) == null) {
-                this.a.c.A(0L);
+                this.a.c.z(0L);
                 if (socketResponsedMessage == null) {
                     PersonBarFragment personBarFragment = this.a;
-                    personBarFragment.showToast(personBarFragment.getPageContext().getString(R.string.obfuscated_res_0x7f0f0d11));
+                    personBarFragment.showToast(personBarFragment.getPageContext().getString(R.string.obfuscated_res_0x7f0f0d1f));
                 } else if (socketResponsedMessage.getCmd() == 107129 && (socketResponsedMessage instanceof ResponseGetLivableForumList)) {
                     ResponseGetLivableForumList responseGetLivableForumList = (ResponseGetLivableForumList) socketResponsedMessage;
                     if (responseGetLivableForumList.getError() != 0) {
@@ -787,7 +787,7 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
                         personBarFragment2.d.g(personBarFragment2.r);
                         return;
                     }
-                    if (this.a.h2() != null && this.a.h2().S1() != 23011) {
+                    if (this.a.j2() != null && this.a.j2().V1() != 23011) {
                         this.a.s.setVisibility(8);
                     } else {
                         if (!this.a.z) {
@@ -798,7 +798,7 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
                             if (miniLevel <= 0) {
                                 miniLevel = 0;
                             }
-                            this.a.t.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a8f, Integer.valueOf(miniLevel)));
+                            this.a.t.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0a9c, Integer.valueOf(miniLevel)));
                             SkinManager.setViewTextColor(this.a.t, R.color.CAM_X0108, 1);
                             SkinManager.setBackgroundColor(this.a.t, R.color.common_color_10238);
                         }
@@ -806,10 +806,10 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
                     }
                     if (this.a.e != null) {
                         this.a.A.addAll(responseGetLivableForumList.getData());
-                        this.a.l2();
+                        this.a.n2();
                         this.a.e.g(this.a.A);
                         this.a.o = responseGetLivableForumList.hasMore();
-                        this.a.e2(true);
+                        this.a.g2(true);
                         this.a.e.notifyDataSetChanged();
                         this.a.m++;
                     }
@@ -819,7 +819,7 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
     }
 
     /* loaded from: classes5.dex */
-    public static class m extends rn {
+    public static class m extends um {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public int b;
@@ -854,7 +854,7 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
             this.c = baseFragmentActivity;
         }
 
-        @Override // com.baidu.tieba.rn
+        @Override // com.baidu.tieba.um
         public View a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -867,7 +867,7 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
                 SkinManager.setBackgroundColor(this.g, this.b);
                 SkinManager.setBackgroundColor(this.h, this.b);
                 this.h.setVisibility(8);
-                this.e = (ProgressBar) this.g.findViewById(R.id.obfuscated_res_0x7f091c06);
+                this.e = (ProgressBar) this.g.findViewById(R.id.obfuscated_res_0x7f091c48);
                 i(TbadkCoreApplication.getInst().getSkinType());
                 this.h.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
                 return this.g;
@@ -875,7 +875,7 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
             return (View) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.rn
+        @Override // com.baidu.tieba.um
         public void d() {
             View.OnClickListener onClickListener;
             Interceptable interceptable = $ic;
@@ -888,7 +888,7 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 this.e.setVisibility(0);
-                this.d.setText(this.c.getPageContext().getPageActivity().getText(R.string.obfuscated_res_0x7f0f0af9));
+                this.d.setText(this.c.getPageContext().getPageActivity().getText(R.string.obfuscated_res_0x7f0f0b06));
                 this.h.setVisibility(0);
             }
         }
@@ -948,7 +948,7 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
                 return;
             }
         }
-        e59.b(2001183, xo8.class);
+        jb9.b(2001183, au8.class);
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.PIC_DEL_LIKE_BAR_CMD, TbConfig.SERVER_ADDRESS + TbConfig.UNFAVOLIKE_ADDRESS);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setResponsedClass(TbHttpResponsedMessage.class);
@@ -1000,11 +1000,11 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
         this.G = new c(this, CmdConfigHttp.PIC_LIKE_BAR_CMD);
     }
 
-    public void k2(int i2) {
+    public void m2(int i2) {
         PersonBarModel personBarModel;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048582, this, i2) == null) && (personBarModel = this.h) != null) {
-            personBarModel.Q(this.w, personBarModel.getId(), i2, this.n);
+            personBarModel.U(this.w, personBarModel.getId(), i2, this.n);
         }
     }
 
@@ -1021,18 +1021,18 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
         }
     }
 
-    public void e2(boolean z) {
-        uo8 uo8Var;
+    public void g2(boolean z) {
+        xt8 xt8Var;
         TextView textView;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048576, this, z) != null) || (uo8Var = this.e) == null) {
+        if ((interceptable != null && interceptable.invokeZ(1048576, this, z) != null) || (xt8Var = this.e) == null) {
             return;
         }
-        uo8Var.b();
+        xt8Var.b();
         if (this.e.d()) {
             if (z) {
                 this.e.f(false);
-                f2(true);
+                h2(true);
                 this.c.setVisibility(0);
                 TextView textView2 = this.l;
                 if (textView2 != null) {
@@ -1047,18 +1047,18 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
             }
             return;
         }
-        f2(false);
+        h2(false);
         this.c.setVisibility(0);
         TextView textView3 = this.l;
         if (textView3 != null) {
             textView3.setVisibility(0);
         }
-        if (h2() != null && h2().S1() == 23011 && (textView = this.l) != null) {
+        if (j2() != null && j2().V1() == 23011 && (textView = this.l) != null) {
             textView.setVisibility(8);
         }
     }
 
-    public final void f2(boolean z) {
+    public final void h2(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             if (z) {
@@ -1080,16 +1080,16 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
         }
     }
 
-    public uo8 g2() {
+    public xt8 i2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.e;
         }
-        return (uo8) invokeV.objValue;
+        return (xt8) invokeV.objValue;
     }
 
-    public final PersonBarActivity h2() {
+    public final PersonBarActivity j2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -1102,19 +1102,19 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
         return (PersonBarActivity) invokeV.objValue;
     }
 
-    public void i2() {
+    public void k2() {
         PersonBarModel personBarModel;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (personBarModel = this.h) != null) {
-            personBarModel.P();
+            personBarModel.T();
         }
     }
 
-    public final void j2() {
+    public final void l2() {
         PersonBarModel personBarModel;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (personBarModel = this.h) != null) {
-            personBarModel.Q(this.w, personBarModel.getId(), this.m, this.n);
+            personBarModel.U(this.w, personBarModel.getId(), this.m, this.n);
         }
     }
 
@@ -1151,7 +1151,7 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
         }
     }
 
-    public final void l2() {
+    public final void n2() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             HashSet hashSet = new HashSet();
@@ -1189,7 +1189,7 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
                 return;
             }
             if (this.i != null && getBaseFragmentActivity() != null) {
-                xw4 layoutMode = getBaseFragmentActivity().getPageContext().getLayoutMode();
+                fv4 layoutMode = getBaseFragmentActivity().getPageContext().getLayoutMode();
                 if (i2 == 4) {
                     z = true;
                 } else {
@@ -1202,16 +1202,16 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
                 SkinManager.setBackgroundResource(this.j, R.color.CAM_X0201);
                 this.j.f(getBaseFragmentActivity().getPageContext(), i2);
             }
-            if (h2() != null) {
-                h2().F1().onChangeSkinType(getBaseFragmentActivity().getPageContext(), i2);
+            if (j2() != null) {
+                j2().I1().onChangeSkinType(getBaseFragmentActivity().getPageContext(), i2);
             }
-            l55 l55Var = this.k;
-            if (l55Var != null) {
-                l55Var.H(i2);
+            w35 w35Var = this.k;
+            if (w35Var != null) {
+                w35Var.H(i2);
             }
-            uo8 uo8Var = this.e;
-            if (uo8Var != null) {
-                uo8Var.notifyDataSetChanged();
+            xt8 xt8Var = this.e;
+            if (xt8Var != null) {
+                xt8Var.notifyDataSetChanged();
             }
             m mVar = this.d;
             if (mVar != null) {
@@ -1229,41 +1229,41 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, layoutInflater, viewGroup, bundle)) == null) {
             this.v = getArguments().getInt("page_type", 0);
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0302, viewGroup, false);
-            View inflate2 = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0303, (ViewGroup) null);
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d030c, viewGroup, false);
+            View inflate2 = LayoutInflater.from(getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d030d, (ViewGroup) null);
             this.s = inflate2;
-            this.t = (TextView) inflate2.findViewById(R.id.obfuscated_res_0x7f090e75);
-            if (h2() == null) {
+            this.t = (TextView) inflate2.findViewById(R.id.obfuscated_res_0x7f090ea5);
+            if (j2() == null) {
                 return inflate;
             }
-            this.r = getString(R.string.obfuscated_res_0x7f0f0ef1);
-            this.h = h2().R1();
-            this.w = h2().D1();
-            this.y = h2().P1();
-            this.i = inflate.findViewById(R.id.obfuscated_res_0x7f090bac);
+            this.r = getString(R.string.obfuscated_res_0x7f0f0f01);
+            this.h = j2().U1();
+            this.w = j2().G1();
+            this.y = j2().S1();
+            this.i = inflate.findViewById(R.id.obfuscated_res_0x7f090bd5);
             if (this.w && !this.y) {
-                TextView textView = (TextView) h2().F1().addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.navigation_right_button_layout, h2()).findViewById(R.id.right_textview);
+                TextView textView = (TextView) j2().I1().addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.navigation_right_button_layout, j2()).findViewById(R.id.right_textview);
                 this.l = textView;
                 textView.postDelayed(new e(this), 100L);
-                this.l.setText(R.string.obfuscated_res_0x7f0f0562);
+                this.l.setText(R.string.obfuscated_res_0x7f0f0565);
                 this.l.setOnClickListener(new f(this));
                 this.l.setVisibility(0);
             }
-            uo8 uo8Var = new uo8(h2(), this.h.N(), this.w, this.y);
-            this.e = uo8Var;
-            uo8Var.h(h2().L1());
+            xt8 xt8Var = new xt8(j2(), this.h.R(), this.w, this.y);
+            this.e = xt8Var;
+            xt8Var.h(j2().O1());
             this.e.e(new g(this));
             this.e.i(new h(this));
-            this.a = (NavigationBarShadowView) inflate.findViewById(R.id.obfuscated_res_0x7f09178c);
-            this.b = (NavigationBarShadowView) inflate.findViewById(R.id.obfuscated_res_0x7f091793);
-            BdListView bdListView = (BdListView) inflate.findViewById(R.id.obfuscated_res_0x7f09170a);
+            this.a = (NavigationBarShadowView) inflate.findViewById(R.id.obfuscated_res_0x7f0917c7);
+            this.b = (NavigationBarShadowView) inflate.findViewById(R.id.obfuscated_res_0x7f0917ce);
+            BdListView bdListView = (BdListView) inflate.findViewById(R.id.obfuscated_res_0x7f091740);
             this.c = bdListView;
             bdListView.setAdapter((ListAdapter) this.e);
             this.c.setOnItemClickListener(new i(this));
             this.c.setOnScrollListener(this.C);
-            l55 l55Var = new l55(h2().getPageContext());
-            this.k = l55Var;
-            l55Var.f(new j(this));
+            w35 w35Var = new w35(j2().getPageContext());
+            this.k = w35Var;
+            w35Var.f(new j(this));
             m mVar = new m(getBaseFragmentActivity());
             this.d = mVar;
             this.c.setNextPage(mVar);
@@ -1271,78 +1271,78 @@ public class PersonBarFragment extends BaseFragment implements AdapterView.OnIte
             this.c.setPullRefresh(this.k);
             if (this.w) {
                 BdListViewHelper.d(getActivity(), this.c, BdListViewHelper.HeadType.DEFAULT);
-                dimension = ej.g(getActivity(), R.dimen.obfuscated_res_0x7f07027b);
-                string = getString(R.string.obfuscated_res_0x7f0f0ef2);
+                dimension = hi.g(getActivity(), R.dimen.obfuscated_res_0x7f07027b);
+                string = getString(R.string.obfuscated_res_0x7f0f0f02);
             } else {
                 BdListViewHelper.d(getActivity(), this.c, BdListViewHelper.HeadType.HASTAB);
                 dimension = (int) getResources().getDimension(R.dimen.obfuscated_res_0x7f070232);
                 if (this.v == 0) {
-                    string = getString(R.string.obfuscated_res_0x7f0f0ef2);
+                    string = getString(R.string.obfuscated_res_0x7f0f0f02);
                 } else {
                     string = getString(R.string.no_data_common_txt);
                 }
             }
             if (this.y) {
-                this.j = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, dimension), NoDataViewFactory.e.d(string, getString(R.string.obfuscated_res_0x7f0f1206)), null);
+                this.j = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, dimension), NoDataViewFactory.e.d(string, getString(R.string.obfuscated_res_0x7f0f1216)), null);
             } else {
                 this.j = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.d.b(NoDataViewFactory.ImgType.FINDBAR, dimension), NoDataViewFactory.e.d(null, string), null);
             }
-            if (this.w && h2() != null && h2().S1() != 23011) {
-                i2();
+            if (this.w && j2() != null && j2().V1() != 23011) {
+                k2();
             }
-            if (this.v == h2().A1()) {
-                this.c.F();
+            if (this.v == j2().E1()) {
+                this.c.E();
             }
             return inflate;
         }
         return (View) invokeLLL.objValue;
     }
 
-    public void update(to8 to8Var, boolean z) {
+    public void update(wt8 wt8Var, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048591, this, to8Var, z) != null) || to8Var == null) {
+        if ((interceptable != null && interceptable.invokeLZ(1048591, this, wt8Var, z) != null) || wt8Var == null) {
             return;
         }
-        this.o = to8Var.m();
+        this.o = wt8Var.m();
         if (!z) {
-            this.c.A(0L);
+            this.c.z(0L);
         }
-        int E1 = h2().E1();
+        int H1 = j2().H1();
         int i2 = 0;
         if (this.h != null && this.e != null) {
-            if (this.v == h2().A1()) {
+            if (this.v == j2().E1()) {
                 if (z) {
                     this.m = 1;
-                    this.h.N().r(to8Var.l(), to8Var.j());
-                    this.h.N().p(to8Var.h(), to8Var.f());
-                    this.h.N().t(to8Var.k());
-                    this.h.N().q(to8Var.g());
+                    this.h.R().r(wt8Var.l(), wt8Var.j());
+                    this.h.R().p(wt8Var.h(), wt8Var.f());
+                    this.h.R().t(wt8Var.k());
+                    this.h.R().q(wt8Var.g());
                 } else if (this.m == 1) {
-                    this.h.N().r(to8Var.l(), to8Var.j());
-                    this.h.N().p(to8Var.h(), to8Var.f());
-                    this.h.N().t(to8Var.k());
-                    this.h.N().q(to8Var.g());
+                    this.h.R().r(wt8Var.l(), wt8Var.j());
+                    this.h.R().p(wt8Var.h(), wt8Var.f());
+                    this.h.R().t(wt8Var.k());
+                    this.h.R().q(wt8Var.g());
                     this.m++;
                 } else {
-                    this.h.N().c(to8Var.l(), to8Var.j());
-                    this.h.N().a(to8Var.h(), to8Var.f());
-                    this.h.N().d(to8Var.k());
-                    this.h.N().b(to8Var.g());
+                    this.h.R().c(wt8Var.l(), wt8Var.j());
+                    this.h.R().a(wt8Var.h(), wt8Var.f());
+                    this.h.R().d(wt8Var.k());
+                    this.h.R().b(wt8Var.g());
                     this.m++;
                 }
             }
             if (this.v == 0) {
-                this.e.g(this.h.N().i());
+                this.e.g(this.h.R().i());
             } else {
-                this.e.g(this.h.N().e());
+                this.e.g(this.h.R().e());
             }
-            if (to8Var.e() != null) {
-                i2 = this.h.N().e().size();
+            if (wt8Var.e() != null) {
+                i2 = this.h.R().e().size();
             }
-            if (h2() != null) {
-                h2().Q1(E1, i2);
+            if (j2() != null) {
+                j2().T1(H1, i2);
             }
-            e2(true);
+            g2(true);
             this.e.notifyDataSetChanged();
         }
     }

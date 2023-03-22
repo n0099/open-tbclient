@@ -1,47 +1,66 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class rja {
+public class rja {
     public static /* synthetic */ Interceptable $ic;
+    public static final rja a;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] a;
-    public int[] b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948124928, "Lcom/baidu/tieba/rja;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948124928, "Lcom/baidu/tieba/rja;");
+                return;
+            }
+        }
+        a = new rja();
+    }
 
     public rja() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void a(rja rjaVar, int i) {
+    public static rja a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, rjaVar, i) == null) {
-            for (int i2 = 0; i2 < i; i2++) {
-                int[] iArr = rjaVar.b;
-                byte[] bArr = rjaVar.a;
-                int i3 = i2 * 4;
-                iArr[i2] = ((bArr[i3 + 3] & 255) << 24) | (bArr[i3] & 255) | ((bArr[i3 + 1] & 255) << 8) | ((bArr[i3 + 2] & 255) << 16);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
         }
+        return (rja) invokeV.objValue;
     }
 
-    public static void b(rja rjaVar, byte[] bArr, int[] iArr) {
+    public void b(Context context, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, rjaVar, bArr, iArr) == null) {
-            rjaVar.a = bArr;
-            rjaVar.b = iArr;
+        if (interceptable == null || interceptable.invokeLZ(1048576, this, context, z) == null) {
+            bka bkaVar = bka.e;
+            fka fkaVar = new fka();
+            fkaVar.a = context.getApplicationContext();
+            fkaVar.b = z;
+            bkaVar.c(fkaVar);
         }
     }
 }

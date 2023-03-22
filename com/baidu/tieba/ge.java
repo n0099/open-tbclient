@@ -1,85 +1,293 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.fe;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class ge implements be {
+public class ge {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Long a;
 
-    public ge(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes4.dex */
+    public static class a implements fe.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final int a;
+        public LinkedList<he<?>> b;
+
+        @Override // com.baidu.tieba.fe
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = i;
+        }
+
+        @Override // com.baidu.tieba.fe.a
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.b.clear();
+                this.b = null;
             }
         }
-        this.a = Long.valueOf(j);
+
+        @Override // com.baidu.tieba.fe.a
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.b = new LinkedList<>();
+            }
+        }
+
+        @Override // com.baidu.tieba.fe
+        public int getMaxSize() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.a;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.fe.a
+        public String h(he<?> heVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, heVar)) == null) {
+                if (heVar.f < System.currentTimeMillis()) {
+                    return heVar.a;
+                }
+                this.b.add(heVar);
+                String str = null;
+                if (this.b.size() > getMaxSize()) {
+                    long j = 0;
+                    int i = -1;
+                    for (int i2 = 0; i2 < this.b.size(); i2++) {
+                        he<?> heVar2 = this.b.get(i2);
+                        if (i == -1 || heVar2.e < j) {
+                            str = heVar2.a;
+                            j = heVar2.e;
+                            i = i2;
+                        }
+                    }
+                    this.b.remove(i);
+                }
+                return str;
+            }
+            return (String) invokeL.objValue;
+        }
     }
 
-    @Override // com.baidu.tieba.be
-    public Object a(re reVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, reVar)) == null) {
-            Class<?> a = reVar.a();
-            if (a != Byte.class && a != Byte.TYPE) {
-                if (a != Short.class && a != Short.TYPE) {
-                    if (a != Integer.class && a != Integer.TYPE) {
-                        if (a != Long.class && a != Long.TYPE) {
-                            if (a != Float.class && a != Float.TYPE) {
-                                if (a != Double.class && a != Double.TYPE) {
-                                    if (a != Character.class && a != Character.TYPE) {
-                                        boolean z = false;
-                                        if (a != Boolean.class && a != Boolean.TYPE) {
-                                            if (a == String.class) {
-                                                return String.valueOf(this.a);
-                                            }
-                                            if (a == char[].class) {
-                                                return String.valueOf(this.a).toCharArray();
-                                            }
-                                            if (a == byte[].class) {
-                                                try {
-                                                    return wi.e(String.valueOf(this.a), 0);
-                                                } catch (IOException e) {
-                                                    e.printStackTrace();
-                                                    return null;
-                                                }
-                                            }
-                                            return null;
-                                        }
-                                        if (this.a.byteValue() == 0) {
-                                            z = true;
-                                        }
-                                        return Boolean.valueOf(z);
-                                    }
-                                    return Character.valueOf((char) this.a.intValue());
-                                }
-                                return Double.valueOf(this.a.doubleValue());
-                            }
-                            return Float.valueOf(this.a.floatValue());
-                        }
-                        return Long.valueOf(this.a.longValue());
-                    }
-                    return Integer.valueOf(this.a.intValue());
-                }
-                return Short.valueOf(this.a.shortValue());
+    /* loaded from: classes4.dex */
+    public static class b implements fe.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final int a;
+        public HashMap<String, Long> b;
+
+        @Override // com.baidu.tieba.fe
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return true;
             }
-            return Byte.valueOf(this.a.byteValue());
+            return invokeV.booleanValue;
         }
-        return invokeL.objValue;
+
+        @Override // com.baidu.tieba.fe.b
+        public void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.fe.b
+        public void f() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            }
+        }
+
+        public b(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = new HashMap<>();
+            this.a = i;
+        }
+
+        @Override // com.baidu.tieba.fe.b
+        public String d(he<?> heVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, heVar)) == null) {
+                String i = i(heVar.a);
+                synchronized (this) {
+                    this.b.put(heVar.a, Long.valueOf(heVar.e));
+                }
+                return i;
+            }
+            return (String) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.fe.b
+        public String g(he<?> heVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, heVar)) == null) {
+                if (heVar.f < System.currentTimeMillis()) {
+                    return heVar.a;
+                }
+                return d(heVar);
+            }
+            return (String) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.fe
+        public int getMaxSize() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return this.a;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.fe.b
+        public void release() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+                synchronized (this) {
+                    this.b.clear();
+                }
+            }
+        }
+
+        public String i(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+                String str2 = null;
+                if (this.b.containsKey(str) || this.b.size() < this.a) {
+                    return null;
+                }
+                synchronized (this) {
+                    long j = -1;
+                    for (Map.Entry<String, Long> entry : this.b.entrySet()) {
+                        long longValue = entry.getValue().longValue();
+                        if (j == -1 || j > longValue) {
+                            str2 = entry.getKey();
+                            j = longValue;
+                        }
+                    }
+                    if (str2 != null) {
+                        this.b.remove(str2);
+                    }
+                }
+                return str2;
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class c implements fe {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.fe
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.fe
+        public int getMaxSize() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return 1;
+            }
+            return invokeV.intValue;
+        }
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public static fe a(int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (z) {
+                return new b(i);
+            }
+            return new a(i);
+        }
+        return (fe) invokeCommon.objValue;
+    }
+
+    public static fe b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new c();
+        }
+        return (fe) invokeV.objValue;
     }
 }

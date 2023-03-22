@@ -9,7 +9,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.GamePlayServiceData;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tieba.b55;
+import com.baidu.tieba.m35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -160,7 +160,7 @@ public class GamePlayServiceModel {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, str)) == null) {
-            b55 m = b55.m();
+            m35 m = m35.m();
             return m.s(PREFIX + str, "");
         }
         return (String) invokeL.objValue;
@@ -199,11 +199,11 @@ public class GamePlayServiceModel {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65542, this, str, gamePlayServiceData) == null) {
             if (gamePlayServiceData == null) {
-                b55 m = b55.m();
+                m35 m = m35.m();
                 m.B(PREFIX + str, "");
                 return;
             }
-            b55 m2 = b55.m();
+            m35 m2 = m35.m();
             m2.B(PREFIX + str, new Gson().toJson(gamePlayServiceData));
         }
     }

@@ -20,19 +20,23 @@ import com.baidu.tbadk.core.atomData.LabelRecommendActivityConfig;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.voice.VoiceManager;
-import com.baidu.tieba.b55;
-import com.baidu.tieba.by5;
-import com.baidu.tieba.fw6;
-import com.baidu.tieba.gf7;
-import com.baidu.tieba.gh5;
-import com.baidu.tieba.ho;
-import com.baidu.tieba.ll5;
-import com.baidu.tieba.nc;
-import com.baidu.tieba.pc7;
-import com.baidu.tieba.qc7;
-import com.baidu.tieba.rr4;
-import com.baidu.tieba.sr4;
-import com.baidu.tieba.y39;
+import com.baidu.tieba.da9;
+import com.baidu.tieba.hx5;
+import com.baidu.tieba.ik5;
+import com.baidu.tieba.kh6;
+import com.baidu.tieba.kn;
+import com.baidu.tieba.kx6;
+import com.baidu.tieba.m35;
+import com.baidu.tieba.mg7;
+import com.baidu.tieba.qb;
+import com.baidu.tieba.t79;
+import com.baidu.tieba.tf5;
+import com.baidu.tieba.u79;
+import com.baidu.tieba.w79;
+import com.baidu.tieba.wd7;
+import com.baidu.tieba.xd7;
+import com.baidu.tieba.yp4;
+import com.baidu.tieba.zp4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,34 +46,35 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.Personalized.DataRes;
 /* loaded from: classes4.dex */
-public class PersonalizeFragment extends BaseFragment implements fw6, VoiceManager.j {
+public class PersonalizeFragment extends BaseFragment implements kx6, VoiceManager.j {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public PersonalizePageView a;
     public VoiceManager b;
-    public pc7 c;
+    public wd7 c;
     public boolean d;
-    public CustomMessageListener e;
-    public final CustomMessageListener f;
+    public final Object e;
+    public CustomMessageListener f;
     public final CustomMessageListener g;
     public final CustomMessageListener h;
+    public final CustomMessageListener i;
 
-    @Override // com.baidu.tieba.fw6
+    @Override // com.baidu.tieba.kx6
     public void B() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.fw6
-    public void S() {
+    @Override // com.baidu.tieba.kx6
+    public void P() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
         }
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager.i c1(VoiceData.VoiceModel voiceModel) {
+    public VoiceManager.i e1(VoiceData.VoiceModel voiceModel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, voiceModel)) == null) {
@@ -78,22 +83,22 @@ public class PersonalizeFragment extends BaseFragment implements fw6, VoiceManag
         return (VoiceManager.i) invokeL.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.il5
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.fk5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) ? "a002" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) ? "a002" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public String taskActionId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) ? "713" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) ? "713" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes4.dex */
-    public class a implements gh5.b {
+    public class a implements tf5.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -118,7 +123,7 @@ public class PersonalizeFragment extends BaseFragment implements fw6, VoiceManag
             this.a = context;
         }
 
-        @Override // com.baidu.tieba.gh5.b
+        @Override // com.baidu.tieba.tf5.b
         public Object build() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -163,7 +168,7 @@ public class PersonalizeFragment extends BaseFragment implements fw6, VoiceManag
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || !this.a.isPrimary()) {
                 return;
             }
-            this.a.L1();
+            this.a.N1();
         }
     }
 
@@ -295,36 +300,38 @@ public class PersonalizeFragment extends BaseFragment implements fw6, VoiceManag
             }
         }
         this.d = false;
-        this.e = new b(this, 2921029);
-        this.f = new c(this, 2921313);
-        this.g = new d(this, 2001371);
-        this.h = new e(this, 2921391);
+        this.e = new Object();
+        this.f = new b(this, 2921029);
+        this.g = new c(this, 2921313);
+        this.h = new d(this, 2001371);
+        this.i = new e(this, 2921391);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             super.onDestroy();
             VoiceManager voiceManager = this.b;
             if (voiceManager != null) {
                 voiceManager.onDestory(getPageContext());
             }
-            y39.g().k(getUniqueId());
-            MessageManager.getInstance().unRegisterListener(this.e);
+            da9.g().k(getUniqueId());
             MessageManager.getInstance().unRegisterListener(this.f);
-            MessageManager.getInstance().unRegisterListener(this.h);
+            MessageManager.getInstance().unRegisterListener(this.g);
+            MessageManager.getInstance().unRegisterListener(this.i);
             this.b = null;
             this.a.s0();
             this.d = true;
-            gh5.e().b();
+            tf5.e().b();
+            kh6.b().unregister(this.e);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             super.onPause();
             PersonalizePageView personalizePageView = this.a;
             if (personalizePageView != null) {
@@ -332,13 +339,13 @@ public class PersonalizeFragment extends BaseFragment implements fw6, VoiceManag
                 this.a.t0();
                 this.a.setTabInForeBackgroundState(true);
             }
-            MessageManager.getInstance().unRegisterListener(this.g);
+            MessageManager.getInstance().unRegisterListener(this.h);
             VoiceManager voiceManager = this.b;
             if (voiceManager != null) {
                 voiceManager.onPause();
             }
-            if (sr4.w().y(rr4.b0)) {
-                sr4.w().E();
+            if (zp4.w().y(yp4.b0)) {
+                zp4.w().E();
             }
         }
     }
@@ -346,7 +353,7 @@ public class PersonalizeFragment extends BaseFragment implements fw6, VoiceManag
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PERSONALIZE_TAB_ON_RESUME_START_STAMP_KEY);
             super.onResume();
             VoiceManager voiceManager = this.b;
@@ -355,7 +362,7 @@ public class PersonalizeFragment extends BaseFragment implements fw6, VoiceManag
             }
             this.a.u0();
             this.a.setTabInForeBackgroundState(false);
-            MessageManager.getInstance().registerListener(this.g);
+            MessageManager.getInstance().registerListener(this.h);
             startBrowseTimeMission();
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PERSONALIZE_TAB_ON_RESUME_END_STAMP_KEY);
         }
@@ -378,12 +385,13 @@ public class PersonalizeFragment extends BaseFragment implements fw6, VoiceManag
             }
         }
         this.d = false;
-        this.e = new b(this, 2921029);
-        this.f = new c(this, 2921313);
-        this.g = new d(this, 2001371);
-        this.h = new e(this, 2921391);
+        this.e = new Object();
+        this.f = new b(this, 2921029);
+        this.g = new c(this, 2921313);
+        this.h = new d(this, 2001371);
+        this.i = new e(this, 2921391);
         SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PERSONALIZE_TAB_START_STAMP_KEY);
-        PersonalizePageView personalizePageView = (PersonalizePageView) gh5.e().d(1011, new a(this, context));
+        PersonalizePageView personalizePageView = (PersonalizePageView) tf5.e().d(1011, new a(this, context));
         this.a = personalizePageView;
         if (personalizePageView == null) {
             this.a = new PersonalizePageView(context);
@@ -393,49 +401,33 @@ public class PersonalizeFragment extends BaseFragment implements fw6, VoiceManag
         SpeedStatsManager.getInstance().addStatsTimeStamp(5047);
     }
 
-    public void J1(pc7 pc7Var) {
+    public void L1(wd7 wd7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, pc7Var) == null) {
-            this.c = pc7Var;
-            this.a.setCallback(pc7Var);
+        if (interceptable == null || interceptable.invokeL(1048581, this, wd7Var) == null) {
+            this.c = wd7Var;
+            this.a.setCallback(wd7Var);
         }
     }
 
-    public void K1(qc7 qc7Var) {
+    public void M1(xd7 xd7Var) {
         PersonalizePageView personalizePageView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, qc7Var) == null) && (personalizePageView = this.a) != null) {
-            personalizePageView.setScrollFragmentTabHost(qc7Var);
+        if ((interceptable == null || interceptable.invokeL(1048582, this, xd7Var) == null) && (personalizePageView = this.a) != null) {
+            personalizePageView.setScrollFragmentTabHost(xd7Var);
         }
     }
 
-    public void M1(boolean z) {
+    public void O1(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             this.a.I0(z);
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
-    public void onActivityCreated(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, bundle) == null) {
-            super.onActivityCreated(bundle);
-            VoiceManager u0 = u0();
-            this.b = u0;
-            if (u0 != null) {
-                u0.onCreate(getPageContext());
-            }
-            registerListener(this.e);
-            registerListener(this.f);
-            registerListener(this.h);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
             super.onChangeSkinType(i);
             this.a.r0(i);
         }
@@ -444,85 +436,78 @@ public class PersonalizeFragment extends BaseFragment implements fw6, VoiceManag
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, bundle) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PERSONALIZE_TAB_ON_CREATE_START_STAMP_KEY);
             super.onCreate(bundle);
-            y39.g().i(getUniqueId());
+            da9.g().i(getUniqueId());
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PERSONALIZE_TAB_ON_CREATE_END_STAMP_KEY);
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.ca
-    public void onPreLoad(ho hoVar) {
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.f9
+    public void onPreLoad(kn knVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048601, this, hoVar) == null) && !TbadkCoreApplication.getInst().checkInterrupt()) {
-            super.onPreLoad(hoVar);
+        if ((interceptable == null || interceptable.invokeL(1048600, this, knVar) == null) && !TbadkCoreApplication.getInst().checkInterrupt()) {
+            super.onPreLoad(knVar);
         }
     }
 
-    public void A() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.setViewForeground(true);
-        }
-    }
-
-    public final void F1() {
+    public final void H1() {
         PersonalizePageView personalizePageView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && gf7.a(getBaseFragmentActivity()) && (personalizePageView = this.a) != null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && mg7.a(getBaseFragmentActivity()) && (personalizePageView = this.a) != null) {
             personalizePageView.z0();
-        }
-    }
-
-    public void G1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.X();
-        }
-    }
-
-    public void H1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a.Z();
         }
     }
 
     public void I1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.X();
+        }
+    }
+
+    public void J1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.Z();
+        }
+    }
+
+    public void K1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.a.p0();
         }
     }
 
-    @Override // com.baidu.tieba.fw6
-    public void d0() {
+    @Override // com.baidu.tieba.kx6
+    public void Z() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             changeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
-    public ll5 getPageStayDurationItem() {
+    public ik5 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            ll5 pageStayDurationItem = super.getPageStayDurationItem();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            ik5 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null && TbadkCoreApplication.getInst().getAdAdSense() != null) {
                 pageStayDurationItem.q(TbadkCoreApplication.getInst().getAdAdSense().k);
             }
             return pageStayDurationItem;
         }
-        return (ll5) invokeV.objValue;
+        return (ik5) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void notifyColourHeaderData() {
         PersonalizePageView personalizePageView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048594, this) == null) && (personalizePageView = this.a) != null) {
+        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && (personalizePageView = this.a) != null) {
             personalizePageView.o0();
         }
     }
@@ -530,7 +515,7 @@ public class PersonalizeFragment extends BaseFragment implements fw6, VoiceManag
     @Override // androidx.fragment.app.Fragment
     public void onStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
             super.onStart();
             VoiceManager voiceManager = this.b;
             if (voiceManager != null) {
@@ -542,9 +527,9 @@ public class PersonalizeFragment extends BaseFragment implements fw6, VoiceManag
     @Override // androidx.fragment.app.Fragment
     public void onStop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048604, this) == null) {
             super.onStop();
-            y39.g().h(getUniqueId(), false);
+            da9.g().h(getUniqueId(), false);
             VoiceManager voiceManager = this.b;
             if (voiceManager != null) {
                 voiceManager.onStop(getPageContext());
@@ -552,18 +537,18 @@ public class PersonalizeFragment extends BaseFragment implements fw6, VoiceManag
         }
     }
 
-    public final void startBrowseTimeMission() {
+    @Override // com.baidu.tieba.kx6
+    public void q() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
-            sr4.w().N(rr4.b0);
+        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
+            this.a.y0();
         }
     }
 
-    @Override // com.baidu.tieba.fw6
-    public void t() {
+    public final void startBrowseTimeMission() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
-            this.a.y0();
+        if (interceptable == null || interceptable.invokeV(1048606, this) == null) {
+            zp4.w().N(yp4.b0);
         }
     }
 
@@ -571,7 +556,7 @@ public class PersonalizeFragment extends BaseFragment implements fw6, VoiceManag
     public ViewGroup taskAttachParentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
             PersonalizePageView personalizePageView = this.a;
             if (personalizePageView != null) {
                 return personalizePageView.getmTaskFloatingView();
@@ -582,10 +567,10 @@ public class PersonalizeFragment extends BaseFragment implements fw6, VoiceManag
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager u0() {
+    public VoiceManager w0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
             if (this.b == null) {
                 this.b = VoiceManager.instance();
             }
@@ -594,19 +579,26 @@ public class PersonalizeFragment extends BaseFragment implements fw6, VoiceManag
         return (VoiceManager) invokeV.objValue;
     }
 
-    public final void L1() {
+    public void y() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && TbadkCoreApplication.getInst().isFirstTimeMotivate() && !b55.m().i("show_recommend_label", false)) {
+        if (interceptable == null || interceptable.invokeV(1048610, this) == null) {
+            this.a.setViewForeground(true);
+        }
+    }
+
+    public final void N1() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && TbadkCoreApplication.getInst().isFirstTimeMotivate() && !m35.m().i("show_recommend_label", false)) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LabelRecommendActivityConfig(getPageContext().getPageActivity(), 1)));
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.il5
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.fk5
     public List<String> getCurrentPageSourceKeyList() {
         InterceptResult invokeV;
         ArrayList arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             if (super.getCurrentPageSourceKeyList() != null) {
                 arrayList = new ArrayList(super.getCurrentPageSourceKeyList());
             } else {
@@ -623,30 +615,30 @@ public class PersonalizeFragment extends BaseFragment implements fw6, VoiceManag
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             super.onPrimary();
             if (isPrimary()) {
                 this.a.setViewForeground();
-                F1();
-                L1();
+                H1();
+                N1();
                 this.a.D0();
-                by5.c().e("page_recommend");
+                hx5.c().e("page_recommend");
                 return;
             }
             this.a.w0();
-            by5.c().d("page_recommend");
-            nc.b().e();
+            hx5.c().d("page_recommend");
+            qb.b().e();
         }
     }
 
-    public void N1(DataRes dataRes, boolean z, boolean z2) {
+    public void P1(DataRes dataRes, boolean z, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{dataRes, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
             this.a.J0(dataRes, z, z2);
         }
     }
 
-    public void O1(String str, int i) {
+    public void Q1(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048587, this, str, i) == null) {
             this.a.K0(str, i);
@@ -654,10 +646,29 @@ public class PersonalizeFragment extends BaseFragment implements fw6, VoiceManag
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
+    public void onActivityCreated(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, bundle) == null) {
+            super.onActivityCreated(bundle);
+            VoiceManager w0 = w0();
+            this.b = w0;
+            if (w0 != null) {
+                w0.onCreate(getPageContext());
+            }
+            registerListener(this.f);
+            registerListener(this.g);
+            registerListener(this.i);
+            kh6.b().a(this.e, new w79());
+            t79.a(getPageContext());
+            kh6.b().a(this.e, new u79());
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048598, this, layoutInflater, viewGroup, bundle)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048597, this, layoutInflater, viewGroup, bundle)) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.PERSONALIZE_TAB_ON_CREATE_VIEW_START_STAMP_KEY);
             if (this.a == null) {
                 PersonalizePageView personalizePageView = new PersonalizePageView(getActivity());
@@ -668,9 +679,9 @@ public class PersonalizeFragment extends BaseFragment implements fw6, VoiceManag
             }
             if (this.a.getParent() instanceof ViewGroup) {
                 ((ViewGroup) this.a.getParent()).removeView(this.a);
-                pc7 pc7Var = this.c;
-                if (pc7Var != null) {
-                    this.a.setCallback(pc7Var);
+                wd7 wd7Var = this.c;
+                if (wd7Var != null) {
+                    this.a.setCallback(wd7Var);
                 }
             }
             this.a.setPageUniqueId(getUniqueId());

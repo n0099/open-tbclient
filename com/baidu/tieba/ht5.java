@@ -1,24 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tieba.tw5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import org.json.JSONArray;
 /* loaded from: classes4.dex */
-public class ht5 extends mt5 {
+public class ht5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConstrainImageLayout.c e;
+    public tw5 a;
+    public xs5 b;
+    public TbPageContext c;
 
     /* loaded from: classes4.dex */
-    public class a implements ConstrainImageLayout.c {
+    public class a implements tw5.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ht5 a;
 
         public a(ht5 ht5Var) {
             Interceptable interceptable = $ic;
@@ -32,63 +36,85 @@ public class ht5 extends mt5 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = ht5Var;
         }
 
-        @Override // com.baidu.tbadk.widget.layout.ConstrainImageLayout.c
-        public void a(TbImageView tbImageView, int i, int i2) {
+        @Override // com.baidu.tieba.tw5.i
+        public void a(JSONArray jSONArray) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLII(1048576, this, tbImageView, i, i2) == null) {
-                tbImageView.setRadiusById(R.string.J_X05);
-                tbImageView.s();
-                tbImageView.setDrawCorner(true);
-                tbImageView.setConrers(0);
-                if (i2 == 1) {
-                    tbImageView.setConrers(15);
-                } else if (i2 > 1) {
-                    if (i == 0) {
-                        tbImageView.setConrers(5);
-                    } else if (i == i2 - 1) {
-                        tbImageView.setConrers(10);
-                    }
+            if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
+                String JsonArrayToString = StringHelper.JsonArrayToString(jSONArray);
+                if (this.a.b != null) {
+                    this.a.b.g(JsonArrayToString);
+                    this.a.b.e();
                 }
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ht5(int i) {
-        super(i);
+    public ht5(TbPageContext tbPageContext, xs5 xs5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {tbPageContext, xs5Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new a(this);
+        this.b = xs5Var;
+        this.c = tbPageContext;
     }
 
-    @Override // com.baidu.tieba.mt5, com.baidu.tieba.jt5
-    public int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i, int i2) {
-        InterceptResult invokeLLII;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(1048576, this, constrainImageLayout, list, i, i2)) == null) {
-            if (list.size() < this.b) {
-                list.size();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            tw5 tw5Var = this.a;
+            if (tw5Var != null) {
+                tw5Var.w();
+                this.a.x();
+                this.a = null;
             }
-            constrainImageLayout.setTbImageViewConfiguration(this.e);
-            return super.a(constrainImageLayout, list, i, i2);
+            this.b = null;
+            this.c = null;
         }
-        return invokeLLII.intValue;
+    }
+
+    public void c(int i) {
+        xs5 xs5Var;
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (xs5Var = this.b) != null && xs5Var.b() != null && this.c != null) {
+            sw5 sw5Var = new sw5(this.b.b().f(), this.b.b().e(), this.b.b().d());
+            sw5Var.i(this.b.b().b(), this.b.b().c());
+            sw5Var.h(this.b.b().a());
+            sw5Var.j(this.b.b().j());
+            UserData i2 = this.b.b().i();
+            TbPageContext tbPageContext = this.c;
+            this.a = new tw5(tbPageContext, tbPageContext.getPageActivity().getWindow().getDecorView(), sw5Var, i2);
+            fy4 fy4Var = new fy4();
+            fy4Var.j(this.b.b().h());
+            this.a.H(new String[]{this.c.getString(R.string.delete_thread_reason_1), this.c.getString(R.string.delete_thread_reason_2), this.c.getString(R.string.delete_thread_reason_3), this.c.getString(R.string.delete_thread_reason_4), this.c.getString(R.string.delete_thread_reason_5)});
+            this.a.G(fy4Var);
+            this.a.I(new a(this));
+            if (i != 2 && i != 1) {
+                if (i == 3) {
+                    str = "6";
+                } else {
+                    str = "0";
+                }
+            } else {
+                str = "5";
+            }
+            this.a.J(str);
+        }
     }
 }

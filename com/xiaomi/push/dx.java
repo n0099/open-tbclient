@@ -15,7 +15,7 @@ public class dx {
     }
 
     public static String a(String str) {
-        return Base64.encodeToString(bo.m216a(str), 2);
+        return Base64.encodeToString(bo.m218a(str), 2);
     }
 
     public static String a(HashMap<String, String> hashMap) {

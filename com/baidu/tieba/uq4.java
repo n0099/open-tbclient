@@ -1,68 +1,19 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
 public class uq4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BroadcastReceiver a;
-    public Context b;
-    public int c;
-    public b d;
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(int i, int i2);
-    }
-
-    /* loaded from: classes6.dex */
-    public class a extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uq4 this$0;
-
-        public a(uq4 uq4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uq4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.this$0 = uq4Var;
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
-            int d;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeLL(1048576, this, context, intent) != null) || !TextUtils.equals(intent.getAction(), "android.net.conn.CONNECTIVITY_CHANGE") || (d = this.this$0.d()) == this.this$0.c) {
-                return;
-            }
-            if (this.this$0.d != null) {
-                this.this$0.d.a(this.this$0.c, d);
-            }
-            this.this$0.c = d;
-        }
-    }
+    public long a;
+    public long b;
 
     public uq4() {
         Interceptable interceptable = $ic;
@@ -78,44 +29,29 @@ public class uq4 {
         }
     }
 
-    public int d() {
+    public long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (SwanAppNetworkUtils.j(this.b)) {
-                return 1;
-            }
-            if (SwanAppNetworkUtils.i(this.b)) {
-                return 2;
-            }
-            return 0;
+            return this.b + UtilHelper.getTimesMorning();
         }
-        return invokeV.intValue;
+        return invokeV.longValue;
     }
 
-    public void g() {
-        Context context;
+    public long b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (context = this.b) != null) {
-            context.unregisterReceiver(this.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a + UtilHelper.getTimesMorning();
         }
+        return invokeV.longValue;
     }
 
-    public void e(Context context) {
+    public void c(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            this.b = context;
-            this.c = d();
-            a aVar = new a(this);
-            this.a = aVar;
-            this.b.registerReceiver(aVar, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
-        }
-    }
-
-    public void f(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.d = bVar;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray) == null) && jSONArray != null && jSONArray.length() == 2) {
+            this.a = jSONArray.optLong(0, 0L) * 1000;
+            this.b = jSONArray.optLong(1, 0L) * 1000;
         }
     }
 }

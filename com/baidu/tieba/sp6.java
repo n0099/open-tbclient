@@ -1,7 +1,24 @@
 package com.baidu.tieba;
+
+import com.baidu.tbadk.data.QmFilterItem;
+import com.baidu.tieba.rp6;
 /* loaded from: classes6.dex */
 public interface sp6 {
-    void a(String str, tp6 tp6Var);
+    boolean a(QmFilterItem qmFilterItem);
 
-    void onError(String str, String str2);
+    QmFilterItem b();
+
+    void c(QmFilterItem qmFilterItem);
+
+    void d(rp6.b bVar);
+
+    void e();
+
+    String f(String str);
+
+    void g();
+
+    void h();
+
+    void reset();
 }

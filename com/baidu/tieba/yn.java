@@ -1,47 +1,74 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.ValueAnimator;
-import android.util.SparseArray;
-import android.util.SparseIntArray;
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.Paint;
+import android.graphics.Path;
+import android.graphics.Rect;
+import android.graphics.RectF;
+import android.graphics.drawable.Animatable;
+import android.graphics.drawable.Drawable;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.Interpolator;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.Transformation;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.interpolator.view.animation.FastOutSlowInInterpolator;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class yn {
+public class yn extends Drawable implements Animatable {
     public static /* synthetic */ Interceptable $ic;
+    public static final Interpolator l;
+    public static final Interpolator m;
+    public static final int[] n;
     public transient /* synthetic */ FieldHolder $fh;
-    public RecyclerView a;
-    public zn b;
-    public int c;
-    public SparseIntArray d;
-    public int e;
-    public float f;
+    public final ArrayList<Animation> a;
+    public final d b;
+    public float c;
+    public Resources d;
+    public View e;
+    public Animation f;
     public float g;
-    public boolean h;
-    public SparseArray<ValueAnimator> i;
-    public SparseIntArray j;
+    public double h;
+    public double i;
+    public boolean j;
+    public final Drawable.Callback k;
+
+    @Override // android.graphics.drawable.Drawable
+    public int getOpacity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return -3;
+        }
+        return invokeV.intValue;
+    }
 
     /* loaded from: classes7.dex */
-    public class a implements ValueAnimator.AnimatorUpdateListener {
+    public class a extends Animation {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
+        public final /* synthetic */ d a;
         public final /* synthetic */ yn b;
 
-        public a(yn ynVar, View view2) {
+        public a(yn ynVar, d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ynVar, view2};
+                Object[] objArr = {ynVar, dVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -52,412 +79,797 @@ public class yn {
                 }
             }
             this.b = ynVar;
-            this.a = view2;
+            this.a = dVar;
         }
 
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+        @Override // android.view.animation.Animation
+        public void applyTransformation(float f, Transformation transformation) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.b.n(this.a, ((Float) valueAnimator.getAnimatedValue()).floatValue());
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), transformation}) == null) {
+                yn ynVar = this.b;
+                if (ynVar.j) {
+                    ynVar.a(f, this.a);
+                    return;
+                }
+                float c = ynVar.c(this.a);
+                float j = this.a.j();
+                float l = this.a.l();
+                float k = this.a.k();
+                this.b.m(f, this.a);
+                if (f <= 0.5f) {
+                    this.a.D(l + ((0.8f - c) * yn.m.getInterpolation(f / 0.5f)));
+                }
+                if (f > 0.5f) {
+                    this.a.z(j + ((0.8f - c) * yn.m.getInterpolation((f - 0.5f) / 0.5f)));
+                }
+                this.a.B(k + (0.25f * f));
+                yn ynVar2 = this.b;
+                ynVar2.h((f * 216.0f) + ((ynVar2.g / 5.0f) * 1080.0f));
             }
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b implements Animator.AnimatorListener {
+    public class b implements Animation.AnimationListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ View b;
-        public final /* synthetic */ yn c;
+        public final /* synthetic */ d a;
+        public final /* synthetic */ yn b;
 
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationRepeat(Animator animator) {
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationEnd(Animation animation) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, animation) == null) {
             }
         }
 
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-            }
-        }
-
-        public b(yn ynVar, int i, View view2) {
+        public b(yn ynVar, d dVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ynVar, Integer.valueOf(i), view2};
+                Object[] objArr = {ynVar, dVar};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = ynVar;
-            this.a = i;
-            this.b = view2;
+            this.b = ynVar;
+            this.a = dVar;
         }
 
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationCancel(Animator animator) {
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationRepeat(Animation animation) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.c.i.delete(this.a);
-                this.c.j.delete(this.a);
-                this.c.n(this.b, 0.0f);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animation) == null) {
+                this.a.F();
+                this.a.n();
+                d dVar = this.a;
+                dVar.D(dVar.e());
+                yn ynVar = this.b;
+                if (ynVar.j) {
+                    ynVar.j = false;
+                    animation.setDuration(1332L);
+                    this.a.C(false);
+                    return;
+                }
+                ynVar.g = (ynVar.g + 1.0f) % 5.0f;
             }
         }
 
-        @Override // android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
+        @Override // android.view.animation.Animation.AnimationListener
+        public void onAnimationStart(Animation animation) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                this.c.i.delete(this.a);
-                this.c.j.delete(this.a);
-                this.c.d.delete(this.a);
-                this.c.n(this.b, 0.0f);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animation) == null) {
+                this.b.g = 0.0f;
             }
         }
     }
 
-    public yn(zn znVar) {
+    /* loaded from: classes7.dex */
+    public class c implements Drawable.Callback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yn a;
+
+        public c(yn ynVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ynVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ynVar;
+        }
+
+        @Override // android.graphics.drawable.Drawable.Callback
+        public void invalidateDrawable(Drawable drawable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
+                this.a.invalidateSelf();
+            }
+        }
+
+        @Override // android.graphics.drawable.Drawable.Callback
+        public void scheduleDrawable(Drawable drawable, Runnable runnable, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{drawable, runnable, Long.valueOf(j)}) == null) {
+                this.a.scheduleSelf(runnable, j);
+            }
+        }
+
+        @Override // android.graphics.drawable.Drawable.Callback
+        public void unscheduleDrawable(Drawable drawable, Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, drawable, runnable) == null) {
+                this.a.unscheduleSelf(runnable);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final RectF a;
+        public final Paint b;
+        public final Paint c;
+        public final Drawable.Callback d;
+        public float e;
+        public float f;
+        public float g;
+        public float h;
+        public float i;
+        public int[] j;
+        public int k;
+        public float l;
+        public float m;
+        public float n;
+        public boolean o;
+        public Path p;
+        public float q;
+        public double r;
+        public int s;
+        public int t;
+        public int u;
+        public final Paint v;
+        public int w;
+        public int x;
+
+        public d(Drawable.Callback callback) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {callback};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new RectF();
+            this.b = new Paint();
+            this.c = new Paint();
+            this.e = 0.0f;
+            this.f = 0.0f;
+            this.g = 0.0f;
+            this.h = 5.0f;
+            this.i = 2.5f;
+            this.v = new Paint(1);
+            this.d = callback;
+            this.b.setStrokeCap(Paint.Cap.SQUARE);
+            this.b.setAntiAlias(true);
+            this.b.setStyle(Paint.Style.STROKE);
+            this.c.setStyle(Paint.Style.FILL);
+            this.c.setAntiAlias(true);
+        }
+
+        public void A(int i, int i2) {
+            double ceil;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+                float min = Math.min(i, i2);
+                double d = this.r;
+                if (d > 0.0d && min >= 0.0f) {
+                    ceil = (min / 2.0f) - d;
+                } else {
+                    ceil = Math.ceil(this.h / 2.0f);
+                }
+                this.i = (float) ceil;
+            }
+        }
+
+        public void B(float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
+                this.g = f;
+                o();
+            }
+        }
+
+        public void C(boolean z) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && this.o != z) {
+                this.o = z;
+                o();
+            }
+        }
+
+        public void D(float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
+                this.e = f;
+                o();
+            }
+        }
+
+        public void E(float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
+                this.h = f;
+                this.b.setStrokeWidth(f);
+                o();
+            }
+        }
+
+        public void q(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
+                this.u = i;
+            }
+        }
+
+        public void s(float f) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeF(1048600, this, f) == null) && f != this.q) {
+                this.q = f;
+                o();
+            }
+        }
+
+        public void t(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
+                this.w = i;
+            }
+        }
+
+        public void u(double d) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048602, this, new Object[]{Double.valueOf(d)}) == null) {
+                this.r = d;
+            }
+        }
+
+        public void v(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
+                this.x = i;
+            }
+        }
+
+        public void w(ColorFilter colorFilter) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048604, this, colorFilter) == null) {
+                this.b.setColorFilter(colorFilter);
+                o();
+            }
+        }
+
+        public void x(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
+                this.k = i;
+                this.x = this.j[i];
+            }
+        }
+
+        public void y(@NonNull int[] iArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048606, this, iArr) == null) {
+                this.j = iArr;
+                x(0);
+            }
+        }
+
+        public void z(float f) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeF(1048607, this, f) == null) {
+                this.f = f;
+                o();
+            }
+        }
+
+        public void F() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                this.l = this.e;
+                this.m = this.f;
+                this.n = this.g;
+            }
+        }
+
+        public int c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                return this.u;
+            }
+            return invokeV.intValue;
+        }
+
+        public double d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+                return this.r;
+            }
+            return invokeV.doubleValue;
+        }
+
+        public float e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+                return this.f;
+            }
+            return invokeV.floatValue;
+        }
+
+        public int f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+                return this.j[g()];
+            }
+            return invokeV.intValue;
+        }
+
+        public final int g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+                return (this.k + 1) % this.j.length;
+            }
+            return invokeV.intValue;
+        }
+
+        public float h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+                return this.e;
+            }
+            return invokeV.floatValue;
+        }
+
+        public int i() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+                return this.j[this.k];
+            }
+            return invokeV.intValue;
+        }
+
+        public float j() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+                return this.m;
+            }
+            return invokeV.floatValue;
+        }
+
+        public float k() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+                return this.n;
+            }
+            return invokeV.floatValue;
+        }
+
+        public float l() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+                return this.l;
+            }
+            return invokeV.floatValue;
+        }
+
+        public float m() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+                return this.h;
+            }
+            return invokeV.floatValue;
+        }
+
+        public void n() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+                x(g());
+            }
+        }
+
+        public final void o() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+                this.d.invalidateDrawable(null);
+            }
+        }
+
+        public void p() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+                this.l = 0.0f;
+                this.m = 0.0f;
+                this.n = 0.0f;
+                D(0.0f);
+                z(0.0f);
+                B(0.0f);
+            }
+        }
+
+        public void a(Canvas canvas, Rect rect) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048582, this, canvas, rect) == null) {
+                RectF rectF = this.a;
+                rectF.set(rect);
+                float f = this.i;
+                rectF.inset(f, f);
+                float f2 = this.e;
+                float f3 = this.g;
+                float f4 = (f2 + f3) * 360.0f;
+                float f5 = ((this.f + f3) * 360.0f) - f4;
+                this.b.setColor(this.x);
+                canvas.drawArc(rectF, f4, f5, false, this.b);
+                b(canvas, f4, f5, rect);
+                if (this.u < 255) {
+                    this.v.setColor(this.w);
+                    this.v.setAlpha(255 - this.u);
+                    canvas.drawCircle(rect.exactCenterX(), rect.exactCenterY(), rect.width() / 2, this.v);
+                }
+            }
+        }
+
+        public final void b(Canvas canvas, float f, float f2, Rect rect) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{canvas, Float.valueOf(f), Float.valueOf(f2), rect}) == null) && this.o) {
+                Path path = this.p;
+                if (path == null) {
+                    Path path2 = new Path();
+                    this.p = path2;
+                    path2.setFillType(Path.FillType.EVEN_ODD);
+                } else {
+                    path.reset();
+                }
+                float f3 = (((int) this.i) / 2) * this.q;
+                float sin = (float) ((this.r * Math.sin(0.0d)) + rect.exactCenterY());
+                this.p.moveTo(0.0f, 0.0f);
+                this.p.lineTo(this.s * this.q, 0.0f);
+                Path path3 = this.p;
+                float f4 = this.q;
+                path3.lineTo((this.s * f4) / 2.0f, this.t * f4);
+                this.p.offset(((float) ((this.r * Math.cos(0.0d)) + rect.exactCenterX())) - f3, sin);
+                this.p.close();
+                this.c.setColor(this.x);
+                canvas.rotate((f + f2) - 5.0f, rect.exactCenterX(), rect.exactCenterY());
+                canvas.drawPath(this.p, this.c);
+            }
+        }
+
+        public void r(float f, float f2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+                this.s = (int) f;
+                this.t = (int) f2;
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448322872, "Lcom/baidu/tieba/yn;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448322872, "Lcom/baidu/tieba/yn;");
+                return;
+            }
+        }
+        l = new LinearInterpolator();
+        m = new FastOutSlowInInterpolator();
+        n = new int[]{-16777216};
+    }
+
+    @Override // android.graphics.drawable.Animatable
+    public boolean isRunning() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            ArrayList<Animation> arrayList = this.a;
+            int size = arrayList.size();
+            for (int i = 0; i < size; i++) {
+                Animation animation = arrayList.get(i);
+                if (animation.hasStarted() && !animation.hasEnded()) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public yn(Context context, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {znVar};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {context, view2};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.h = false;
-        this.b = znVar;
-        this.d = new SparseIntArray();
-        this.i = new SparseArray<>();
-        this.j = new SparseIntArray();
+        this.a = new ArrayList<>();
+        this.k = new c(this);
+        this.e = view2;
+        this.d = context.getResources();
+        d dVar = new d(this.k);
+        this.b = dVar;
+        dVar.y(n);
+        n(1);
+        k();
     }
 
-    public final float f(View view2) {
+    public void a(float f, d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), dVar}) == null) {
+            m(f, dVar);
+            dVar.D(dVar.l() + (((dVar.j() - c(dVar)) - dVar.l()) * f));
+            dVar.z(dVar.j());
+            dVar.B(dVar.k() + ((((float) (Math.floor(dVar.k() / 0.8f) + 1.0d)) - dVar.k()) * f));
+        }
+    }
+
+    public final int b(float f, int i, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            int intValue = Integer.valueOf(i).intValue();
+            int i3 = (intValue >> 24) & 255;
+            int i4 = (intValue >> 16) & 255;
+            int i5 = (intValue >> 8) & 255;
+            int i6 = intValue & 255;
+            int intValue2 = Integer.valueOf(i2).intValue();
+            return ((i3 + ((int) ((((intValue2 >> 24) & 255) - i3) * f))) << 24) | ((i4 + ((int) ((((intValue2 >> 16) & 255) - i4) * f))) << 16) | ((i5 + ((int) ((((intValue2 >> 8) & 255) - i5) * f))) << 8) | (i6 + ((int) (f * ((intValue2 & 255) - i6))));
+        }
+        return invokeCommon.intValue;
+    }
+
+    public float c(d dVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
-            if (view2 == null) {
-                return 0.0f;
-            }
-            if (this.c == 2) {
-                return view2.getTranslationY();
-            }
-            return view2.getTranslationX();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar)) == null) {
+            return (float) Math.toRadians(dVar.m() / (dVar.d() * 6.283185307179586d));
         }
         return invokeL.floatValue;
     }
 
-    public void e(RecyclerView recyclerView, int i) {
+    public void d(float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i) == null) {
-            this.a = recyclerView;
-            this.c = i;
+        if (interceptable == null || interceptable.invokeF(1048579, this, f) == null) {
+            this.b.s(f);
         }
     }
 
-    public final void n(View view2, float f) {
+    public void e(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLF(1048585, this, view2, f) != null) || view2 == null) {
-            return;
-        }
-        if (this.c == 2) {
-            view2.setTranslationY(f);
-        } else {
-            view2.setTranslationX(f);
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.b.t(i);
         }
     }
 
-    public void g(View view2) {
-        RecyclerView recyclerView;
-        RecyclerView recyclerView2;
-        RecyclerView recyclerView3;
+    public void f(int... iArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) != null) || (recyclerView = this.a) == null || this.e == 0) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048582, this, iArr) == null) {
+            this.b.y(iArr);
+            this.b.x(0);
         }
-        int childAdapterPosition = recyclerView.getChildAdapterPosition(view2);
-        RecyclerView.LayoutManager layoutManager = this.a.getLayoutManager();
-        if (!(layoutManager instanceof LinearLayoutManager)) {
-            return;
+    }
+
+    public void g(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048583, this, f) == null) {
+            this.b.B(f);
         }
-        float f = 0.0f;
-        if (childAdapterPosition <= ((LinearLayoutManager) layoutManager).findFirstVisibleItemPosition()) {
-            float f2 = -this.d.get(childAdapterPosition, 0);
-            if (f2 != 0.0f) {
-                this.f = f2;
+    }
+
+    public void h(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048588, this, f) == null) {
+            this.c = f;
+            invalidateSelf();
+        }
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
+            this.b.C(z);
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void setAlpha(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
+            this.b.q(i);
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void setColorFilter(ColorFilter colorFilter) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, colorFilter) == null) {
+            this.b.w(colorFilter);
+        }
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void draw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) {
+            Rect bounds = getBounds();
+            int save = canvas.save();
+            canvas.rotate(this.c, bounds.exactCenterX(), bounds.exactCenterY());
+            this.b.a(canvas, bounds);
+            if (save >= 1 && save <= canvas.getSaveCount()) {
+                canvas.restoreToCount(save);
+            }
+        }
+    }
+
+    public void n(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            if (i == 0) {
+                i(56.0d, 56.0d, 12.5d, 3.0d, 12.0f, 6.0f);
             } else {
-                f2 = this.f;
-            }
-            if (this.a.getChildAt(1) != null) {
-                f = f(this.a.getChildAt(1));
-            }
-            n(view2, f2 + f);
-        } else {
-            float f3 = -this.d.get(childAdapterPosition, 0);
-            if (f3 != 0.0f) {
-                this.g = f3;
-            } else {
-                f3 = this.g;
-            }
-            if (this.a.getChildAt(recyclerView2.getChildCount() - 2) != null) {
-                f = f(this.a.getChildAt(recyclerView3.getChildCount() - 2));
-            }
-            n(view2, f3 + f);
-        }
-        j(view2, childAdapterPosition);
-    }
-
-    public void h(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, view2) != null) || this.a == null) {
-            return;
-        }
-        n(view2, 0.0f);
-        int childAdapterPosition = this.a.getChildAdapterPosition(view2);
-        this.d.delete(childAdapterPosition);
-        if (this.i.get(childAdapterPosition) != null) {
-            this.i.get(childAdapterPosition).cancel();
-        }
-        this.i.delete(childAdapterPosition);
-        this.j.delete(childAdapterPosition);
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) != null) || this.a == null) {
-            return;
-        }
-        this.e = i;
-        if (i == 0) {
-            this.d.clear();
-            k();
-        } else if (i == 2) {
-            k();
-        } else if (i == 1) {
-            this.d.clear();
-            k();
-        }
-    }
-
-    public final void i(View view2, float f, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{view2, Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) != null) || view2 == null) {
-            return;
-        }
-        if (f < 0.0f) {
-            if (i < i2) {
-                float f2 = f(view2) + (f * this.b.l());
-                if (f2 > (-this.d.get(i)) + f(this.a.getChildAt(i3 + 1))) {
-                    n(view2, f2);
-                } else {
-                    j(view2, i);
-                }
-            } else if (i > i2) {
-                float f3 = f(view2) + (f * this.b.e());
-                if (f3 > (-this.d.get(i)) + f(this.a.getChildAt(i3 - 1))) {
-                    n(view2, f3);
-                } else {
-                    j(view2, i);
-                }
-            }
-        } else if (i > i2) {
-            float f4 = f(view2) + (f * this.b.l());
-            if (f4 < (-this.d.get(i)) + f(this.a.getChildAt(i3 - 1))) {
-                n(view2, f4);
-            } else {
-                j(view2, i);
-            }
-        } else if (i < i2) {
-            float f5 = f(view2) + (f * this.b.e());
-            if (f5 < (-this.d.get(i)) + f(this.a.getChildAt(i3 + 1))) {
-                n(view2, f5);
-            } else {
-                j(view2, i);
+                i(40.0d, 40.0d, 8.75d, 2.5d, 10.0f, 5.0f);
             }
         }
     }
 
-    public final void j(View view2, int i) {
+    @Override // android.graphics.drawable.Drawable
+    public int getAlpha() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048581, this, view2, i) != null) || view2 == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.b.c();
         }
-        ValueAnimator valueAnimator = this.i.get(i);
-        if (valueAnimator == null) {
-            if (Math.abs(f(view2)) < 0.1f) {
-                n(view2, 0.0f);
-                return;
-            }
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(f(view2), 0.0f);
-            ofFloat.setInterpolator(new ao(1.0f));
-            ofFloat.setDuration(this.b.a());
-            ofFloat.addUpdateListener(new a(this, view2));
-            ofFloat.addListener(new b(this, i, view2));
-            this.i.append(i, ofFloat);
-            this.j.append(i, (int) f(view2));
-            ofFloat.start();
-            return;
+        return invokeV.intValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public int getIntrinsicHeight() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return (int) this.i;
         }
-        if (!valueAnimator.isRunning()) {
-            valueAnimator.start();
+        return invokeV.intValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public int getIntrinsicWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return (int) this.h;
         }
-        float f = f(view2);
-        if (Math.abs(f) > Math.abs(this.j.get(i)) + this.b.b()) {
-            this.j.append(i, (int) f);
-            valueAnimator.setFloatValues(f, 0.0f);
-            valueAnimator.cancel();
-            valueAnimator.start();
-        }
+        return invokeV.intValue;
     }
 
     public final void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            int childCount = this.a.getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                View childAt = this.a.getChildAt(i);
-                j(childAt, this.a.getChildAdapterPosition(childAt));
-            }
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            d dVar = this.b;
+            a aVar = new a(this, dVar);
+            aVar.setRepeatCount(-1);
+            aVar.setRepeatMode(1);
+            aVar.setInterpolator(l);
+            aVar.setAnimationListener(new b(this, dVar));
+            this.f = aVar;
         }
     }
 
-    public void l(int i, int i2, int i3) {
+    @Override // android.graphics.drawable.Animatable
+    public void stop() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIII(1048583, this, i, i2, i3) == null) && this.a != null && this.e == 1 && !this.h) {
-            if (this.c == 2) {
-                i = i2;
-            }
-            int childCount = this.a.getChildCount();
-            if (!(this.a.getLayoutManager() instanceof LinearLayoutManager)) {
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+            this.e.clearAnimation();
+            h(0.0f);
+            this.b.C(false);
+            this.b.x(0);
+            this.b.p();
+        }
+    }
+
+    public final void i(double d2, double d3, double d4, double d5, float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), Double.valueOf(d5), Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            d dVar = this.b;
+            float f3 = this.d.getDisplayMetrics().density;
+            double d6 = f3;
+            this.h = d2 * d6;
+            this.i = d3 * d6;
+            dVar.E(((float) d5) * f3);
+            dVar.u(d4 * d6);
+            dVar.x(0);
+            dVar.r(f * f3, f2 * f3);
+            dVar.A((int) this.h, (int) this.i);
+        }
+    }
+
+    public void j(float f, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048591, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
+            this.b.D(f);
+            this.b.z(f2);
+        }
+    }
+
+    public void m(float f, d dVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Float.valueOf(f), dVar}) == null) && f > 0.75f) {
+            dVar.v(b((f - 0.75f) / 0.25f, dVar.i(), dVar.f()));
+        }
+    }
+
+    @Override // android.graphics.drawable.Animatable
+    public void start() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+            this.f.reset();
+            this.b.F();
+            if (this.b.e() != this.b.h()) {
+                this.j = true;
+                this.f.setDuration(666L);
+                this.e.startAnimation(this.f);
                 return;
             }
-            int findFirstVisibleItemPosition = i3 - ((LinearLayoutManager) this.a.getLayoutManager()).findFirstVisibleItemPosition();
-            for (int i4 = findFirstVisibleItemPosition - 1; i4 >= 0; i4--) {
-                View childAt = this.a.getChildAt(i4);
-                int childAdapterPosition = this.a.getChildAdapterPosition(childAt);
-                if (childAdapterPosition != -1) {
-                    i(childAt, i, childAdapterPosition, i3, i4);
-                }
-            }
-            for (int i5 = findFirstVisibleItemPosition + 1; i5 <= childCount - 1; i5++) {
-                View childAt2 = this.a.getChildAt(i5);
-                int childAdapterPosition2 = this.a.getChildAdapterPosition(childAt2);
-                if (childAdapterPosition2 != -1) {
-                    i(childAt2, i, childAdapterPosition2, i3, i5);
-                }
-            }
-        }
-    }
-
-    public void o(float f, float f2, int i) {
-        int i2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048586, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Integer.valueOf(i)}) != null) || this.a == null) {
-            return;
-        }
-        if (this.c == 2) {
-            f = f2;
-        }
-        int i3 = 1;
-        if (Math.abs(f) < this.b.i()) {
-            this.h = true;
-            k();
-            return;
-        }
-        this.h = false;
-        if (Math.abs(f) > this.b.h()) {
-            if (f > 0.0f) {
-                i2 = this.b.h();
-            } else {
-                i2 = -this.b.h();
-            }
-            f = i2;
-        }
-        this.d.clear();
-        float f3 = this.b.f() * f;
-        if (f < 0.0f) {
-            float g = this.b.g();
-            int i4 = 1;
-            while (true) {
-                int i5 = i - i4;
-                float f4 = (i4 * g) + f3;
-                g *= 1.4f;
-                if (f4 > 0.0f) {
-                    break;
-                }
-                float c = (f4 / this.b.c()) + this.d.get(i5);
-                if (Math.abs(c) > this.b.d()) {
-                    c = -this.b.d();
-                }
-                this.d.append(i5, (int) c);
-                i4++;
-            }
-            float g2 = this.b.g();
-            while (true) {
-                int i6 = i + i3;
-                float f5 = (i3 * g2) + f3;
-                g2 *= 1.4f;
-                if (f5 <= 0.0f) {
-                    float j = (f5 / this.b.j()) + this.d.get(i6);
-                    if (Math.abs(j) > this.b.k()) {
-                        j = -this.b.k();
-                    }
-                    this.d.append(i6, (int) j);
-                    i3++;
-                } else {
-                    return;
-                }
-            }
-        } else {
-            float g3 = this.b.g();
-            int i7 = 1;
-            while (true) {
-                int i8 = i - i7;
-                float f6 = f3 - (i7 * g3);
-                g3 *= 1.4f;
-                if (f6 < 0.0f) {
-                    break;
-                }
-                float j2 = (f6 / this.b.j()) + this.d.get(i8);
-                if (Math.abs(j2) > this.b.k()) {
-                    j2 = this.b.k();
-                }
-                this.d.append(i8, (int) j2);
-                i7++;
-            }
-            float g4 = this.b.g();
-            while (true) {
-                int i9 = i + i3;
-                float f7 = f3 - (i3 * g4);
-                g4 *= 1.4f;
-                if (f7 < 0.0f) {
-                    return;
-                }
-                float c2 = (f7 / this.b.c()) + this.d.get(i9);
-                if (Math.abs(c2) > this.b.d()) {
-                    c2 = this.b.d();
-                }
-                this.d.append(i9, (int) c2);
-                i3++;
-            }
+            this.b.x(0);
+            this.b.p();
+            this.f.setDuration(1332L);
+            this.e.startAnimation(this.f);
         }
     }
 }

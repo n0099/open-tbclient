@@ -5,6 +5,7 @@ import android.text.TextUtils;
 import android.util.ArrayMap;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.log.NetLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.tbadk.TbConfig;
@@ -20,16 +21,17 @@ import com.baidu.tbadk.core.util.httpNet.NetWorkUtil;
 import com.baidu.tbadk.switchs.EncSigNewSwitch;
 import com.baidu.tieba.R;
 import com.baidu.tieba.StringU;
-import com.baidu.tieba.fa7;
+import com.baidu.tieba.b35;
+import com.baidu.tieba.by4;
+import com.baidu.tieba.c65;
+import com.baidu.tieba.d65;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
-import com.baidu.tieba.kx4;
-import com.baidu.tieba.lj;
-import com.baidu.tieba.q45;
-import com.baidu.tieba.r75;
-import com.baidu.tieba.rg;
-import com.baidu.tieba.s75;
-import com.baidu.tieba.sz4;
-import com.baidu.tieba.wi5;
+import com.baidu.tieba.lb7;
+import com.baidu.tieba.oi;
+import com.baidu.tieba.sv4;
+import com.baidu.tieba.th5;
+import com.baidu.tieba.uf;
+import com.baidu.tieba.w58;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -51,9 +53,11 @@ public class NetWork {
     public static final int NET_TYPE_POST = 2;
     public static final int NET_TYPE_POST_CHUNK = 3;
     public static final String SIGN_SUFFIX = "tiebaclient!!!";
+    public static final String TAG = "net_work";
     public transient /* synthetic */ FieldHolder $fh;
     public int mErrorNums;
     public boolean mNeedBdussForGet;
+    public boolean mNeedBdussForPost;
     public boolean mNeedShowSeverToast;
     public boolean mNeedSig;
     public INetWorkCore mNet;
@@ -78,6 +82,7 @@ public class NetWork {
         this.mNet = null;
         this.mNetLogin = null;
         this.mNeedShowSeverToast = true;
+        this.mNeedBdussForPost = false;
         this.mStatisticsData = null;
         this.mErrorNums = 0;
         initNetWork();
@@ -126,6 +131,7 @@ public class NetWork {
         this.mNet = null;
         this.mNetLogin = null;
         this.mNeedShowSeverToast = true;
+        this.mNeedBdussForPost = false;
         this.mStatisticsData = null;
         this.mErrorNums = 0;
         initNetWork();
@@ -199,6 +205,7 @@ public class NetWork {
         this.mNet = null;
         this.mNetLogin = null;
         this.mNeedShowSeverToast = true;
+        this.mNeedBdussForPost = false;
         this.mStatisticsData = null;
         this.mErrorNums = 0;
         initNetWork();
@@ -221,7 +228,7 @@ public class NetWork {
                 }
             }
             stringBuffer.append("tiebaclient!!!");
-            this.mNet.addPostData("sign", lj.c(stringBuffer.toString()));
+            this.mNet.addPostData("sign", oi.c(stringBuffer.toString()));
             if (this.netContext.getRequest().mNeedSig) {
                 this.mNet.addPostData(FunAdSdk.PLATFORM_SIG, StringU.b(stringBuffer.toString()));
             }
@@ -260,13 +267,13 @@ public class NetWork {
             if (TbadkCoreApplication.getInst().isMainProcess(false)) {
                 b = TbadkCoreApplication.getCurrentBduss();
             } else {
-                b = wi5.b();
+                b = th5.b();
             }
             BasicNameValuePair basicNameValuePair = new BasicNameValuePair(HttpRequest.BDUSS, b);
             if (TbadkCoreApplication.getInst().isMainProcess(false)) {
                 f = TbadkCoreApplication.getInst().getTbs();
             } else {
-                f = wi5.f();
+                f = th5.f();
             }
             BasicNameValuePair basicNameValuePair2 = new BasicNameValuePair(HttpRequest.TBS, f);
             if (b != null) {
@@ -291,20 +298,20 @@ public class NetWork {
             this.mNet = NetWorkCoreFacotry.getInstance().createINetWorkCore(this.netContext);
             this.mNetLogin = null;
             this.netContext.getRequest().mNetType = NetWorkUtil.getNetType();
-            rg.o(TbadkCoreApplication.getInst().getCuid());
-            rg.p(TbadkCoreApplication.getInst().getCuidGalaxy2());
-            rg.q(TbadkCoreApplication.getInst().getCuidGalaxy3());
-            rg.r(TbadkCoreApplication.getInst().getCuidGid());
+            uf.o(TbadkCoreApplication.getInst().getCuid());
+            uf.p(TbadkCoreApplication.getInst().getCuidGalaxy2());
+            uf.q(TbadkCoreApplication.getInst().getCuidGalaxy3());
+            uf.r(TbadkCoreApplication.getInst().getCuidGid());
         }
     }
 
-    private sz4 login(String str, String str2) {
+    private by4 login(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, this, str, str2)) == null) {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
                 try {
-                    q45.a(DI.ACCOUNT, -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
+                    b35.a(DI.ACCOUNT, -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
                     TbadkCoreApplication.setCurrentAccount(null, TbadkCoreApplication.getInst().getApp().getApplicationContext());
                     StringBuilder sb = new StringBuilder(32);
                     sb.append(TbConfig.LOGIN_FULL_ADDRESS);
@@ -325,32 +332,32 @@ public class NetWork {
                     this.mNetLogin.getNetContext().getRequest().mRequestGzip = true;
                     String postNetData = this.mNetLogin.postNetData();
                     if (this.mNetLogin.getNetContext().getResponse().isRequestSuccess() && postNetData != null) {
-                        sz4 sz4Var = new sz4();
-                        sz4Var.d(postNetData);
-                        String userId = sz4Var.c().getUserId();
+                        by4 by4Var = new by4();
+                        by4Var.d(postNetData);
+                        String userId = by4Var.c().getUserId();
                         if (userId != null && userId.length() > 0) {
                             AccountData accountData = new AccountData();
-                            accountData.setAccount(sz4Var.c().getUserName());
-                            if (sz4Var.c().getPassword() != null) {
-                                accountData.setPassword(sz4Var.c().getPassword());
+                            accountData.setAccount(by4Var.c().getUserName());
+                            if (by4Var.c().getPassword() != null) {
+                                accountData.setPassword(by4Var.c().getPassword());
                             } else {
                                 accountData.setPassword(str2);
                             }
-                            accountData.setID(sz4Var.c().getUserId());
-                            accountData.setBDUSS(sz4Var.c().getBDUSS());
-                            accountData.setPortrait(sz4Var.c().getPortrait());
+                            accountData.setID(by4Var.c().getUserId());
+                            accountData.setBDUSS(by4Var.c().getBDUSS());
+                            accountData.setPortrait(by4Var.c().getPortrait());
                             accountData.setIsActive(1);
-                            if (sz4Var.a() != null) {
-                                accountData.setTbs(sz4Var.a().getTbs());
+                            if (by4Var.a() != null) {
+                                accountData.setTbs(by4Var.a().getTbs());
                             }
-                            accountData.setGrowthSwitch(sz4Var.b());
-                            kx4.g(accountData);
+                            accountData.setGrowthSwitch(by4Var.b());
+                            sv4.g(accountData);
                             TbadkCoreApplication.setBdussAndTbsFromBackgroundInRelogin(accountData, accountData.getBDUSS(), accountData.getTbs());
-                            q45.a(DI.ACCOUNT, -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
+                            b35.a(DI.ACCOUNT, -1L, 0, "login_before_clear_account", 0, "", new Object[0]);
                             TbadkCoreApplication.setCurrentAccount(accountData, TbadkCoreApplication.getInst().getApp().getApplicationContext());
-                            return sz4Var;
+                            return by4Var;
                         }
-                        this.netContext.getResponse().mErrorString = TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f0d11);
+                        this.netContext.getResponse().mErrorString = TbadkCoreApplication.getInst().getApp().getApplicationContext().getString(R.string.obfuscated_res_0x7f0f0d1f);
                         return null;
                     } else if (this.mNetLogin.isNetSuccess()) {
                         int serverErrorCode = this.mNetLogin.getServerErrorCode();
@@ -365,7 +372,7 @@ public class NetWork {
             }
             return null;
         }
-        return (sz4) invokeLL.objValue;
+        return (by4) invokeLL.objValue;
     }
 
     private String process(int i, boolean z) {
@@ -399,7 +406,7 @@ public class NetWork {
                         getNetContext().getRequest().addBdussData(this.mNet);
                     }
                     if (getNetContext().getRequest().mIsNeedAddCommenParam) {
-                        this.netContext.getRequest().addCommonParam(this.mNet);
+                        this.netContext.getRequest().addCommonParam(this.mNet, this.mNeedBdussForPost);
                     }
                     addStatisticsDataParam();
                     netString = this.mNet.postNetData();
@@ -415,6 +422,8 @@ public class NetWork {
                 NetWorkState.addStatisticsData(this.mStatisticsData);
                 NetWorkState.addErrorNumsAndGet(this.mErrorNums);
                 if (z && TextUtils.isEmpty(netString)) {
+                    w58 netLog = NetLog.getInstance();
+                    netLog.c(TAG, " NetWork has error : " + this.netContext.getResponse().mErrorString);
                     return netErrorToString(this.netContext.getResponse());
                 }
                 return netString;
@@ -428,16 +437,16 @@ public class NetWork {
                 this.netContext.getResponse().mErrorString = "";
                 AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
                 if (currentAccountObj == null) {
-                    currentAccountObj = kx4.e();
+                    currentAccountObj = sv4.e();
                 }
                 if (currentAccountObj != null && (!TextUtils.isEmpty(currentAccountObj.getAccount()) || !TextUtils.isEmpty(currentAccountObj.getAccountNameShow()))) {
-                    kx4.c(currentAccountObj.getID());
+                    sv4.c(currentAccountObj.getID());
                     if (ReloginManager.g().i()) {
                         removeAccount(currentAccountObj);
                         ReloginManager.g().f(null);
                         return null;
                     }
-                    sz4 login = login(currentAccountObj.getAccount(), currentAccountObj.getPassword());
+                    by4 login = login(currentAccountObj.getAccount(), currentAccountObj.getPassword());
                     removeAccount(currentAccountObj);
                     if (login == null) {
                         if (this.mNetLogin != null) {
@@ -453,7 +462,7 @@ public class NetWork {
                     return null;
                 }
             }
-            fa7.b(this);
+            lb7.b(this);
             return netString;
         }
         return (String) invokeCommon.objValue;
@@ -475,9 +484,9 @@ public class NetWork {
     }
 
     private void removeAccount(AccountData accountData) {
-        s75 b;
+        d65 b;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65548, this, accountData) == null) && !TextUtils.isEmpty(accountData.getID()) && (b = r75.b()) != null) {
+        if ((interceptable == null || interceptable.invokeL(65548, this, accountData) == null) && !TextUtils.isEmpty(accountData.getID()) && (b = c65.b()) != null) {
             b.c(accountData);
         }
     }
@@ -505,30 +514,37 @@ public class NetWork {
         }
     }
 
-    public void setNeedShowSeverToast(boolean z) {
+    public void setNeedBdussForPost(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
+            this.mNeedBdussForPost = z;
+        }
+    }
+
+    public void setNeedShowSeverToast(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
             this.mNeedShowSeverToast = z;
         }
     }
 
     public void setNeedSig(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
             this.mNeedSig = z;
         }
     }
 
     public void setPostData(ArrayList<BasicNameValuePair> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, arrayList) == null) {
+        if (interceptable == null || interceptable.invokeL(1048601, this, arrayList) == null) {
             this.mNet.setPostData(arrayList);
         }
     }
 
     public void setUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
             this.netContext.getRequest().mUrl = str;
         }
     }
@@ -717,7 +733,7 @@ public class NetWork {
         InterceptResult invokeLL;
         byte[] bArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048602, this, str, str2)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048603, this, str, str2)) == null) {
             try {
                 InputStream GetStreamFromTmpFile = FileHelper.GetStreamFromTmpFile(str2);
                 byte[] bArr2 = new byte[5120];
@@ -746,7 +762,7 @@ public class NetWork {
         InterceptResult invokeL;
         byte[] bArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, str)) == null) {
             try {
                 InputStream GetStreamFromFile = FileHelper.GetStreamFromFile(str);
                 byte[] bArr2 = new byte[5120];

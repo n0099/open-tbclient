@@ -101,10 +101,10 @@ public class PersonHeadPendantView extends HeadPendantView {
     }
 
     @Override // com.baidu.tbadk.core.view.HeadPendantView
-    public void d() {
+    public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.d();
+            super.e();
             this.n = getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224);
             this.o = new View(getContext());
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);

@@ -105,7 +105,7 @@ public class f {
         }
         this.b = false;
         this.e = new Handler(Looper.getMainLooper());
-        this.f = new Runnable() { // from class: com.baidu.tieba.ap
+        this.f = new Runnable() { // from class: com.baidu.tieba.do
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -219,7 +219,7 @@ public class f {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, Integer.valueOf(i), eVar, Long.valueOf(j), bVar}) == null) {
             if (context != null && eVar != null && c(eVar.d)) {
-                this.e.post(new Runnable() { // from class: com.baidu.tieba.zo
+                this.e.post(new Runnable() { // from class: com.baidu.tieba.co
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
 
@@ -285,7 +285,7 @@ public class f {
             }
             b3.type = a2;
             this.c.a(eVar);
-            this.c.a().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yo
+            this.c.a().setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.bo
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

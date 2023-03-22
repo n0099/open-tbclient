@@ -3,8 +3,8 @@ package com.baidu.searchbox.task.sync.appcreate;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im5;
-/* loaded from: classes3.dex */
+import com.baidu.tieba.fl5;
+/* loaded from: classes2.dex */
 public class InitStatisticTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public String getName() {
@@ -20,6 +20,6 @@ public class InitStatisticTask extends LaunchTask {
     public void execute() {
         long currentTimeMillis = System.currentTimeMillis();
         TiebaStatic.init(TbadkCoreApplication.getInst().getContext(), TbadkCoreApplication.getInst().isMainProcess(false));
-        im5.b().G(System.currentTimeMillis() - currentTimeMillis);
+        fl5.b().G(System.currentTimeMillis() - currentTimeMillis);
     }
 }

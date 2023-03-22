@@ -19,7 +19,6 @@ public class ChatRoomEntranceData extends OrmObject implements Serializable {
     public static final long serialVersionUID = -2669260759526247252L;
     public transient /* synthetic */ FieldHolder $fh;
     public List<ChatRoomInfoData> chatRoomInfoList;
-    public ChatEntranceGuideConfig guideConfig;
     public List<Long> hotRoomList;
 
     public ChatRoomEntranceData() {
@@ -45,19 +44,10 @@ public class ChatRoomEntranceData extends OrmObject implements Serializable {
         return (List) invokeV.objValue;
     }
 
-    public ChatEntranceGuideConfig getGuideConfig() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.guideConfig;
-        }
-        return (ChatEntranceGuideConfig) invokeV.objValue;
-    }
-
     public List<Long> getHotRoomList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.hotRoomList;
         }
         return (List) invokeV.objValue;
@@ -65,7 +55,7 @@ public class ChatRoomEntranceData extends OrmObject implements Serializable {
 
     public void parserProtobuf(ChatroomFrsRes chatroomFrsRes) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, chatroomFrsRes) != null) || chatroomFrsRes == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatroomFrsRes) != null) || chatroomFrsRes == null) {
             return;
         }
         List<Long> list = chatroomFrsRes.hot_list;
@@ -83,11 +73,6 @@ public class ChatRoomEntranceData extends OrmObject implements Serializable {
                 chatRoomInfoData.parseProto(chatroomList);
                 this.chatRoomInfoList.add(chatRoomInfoData);
             }
-        }
-        if (chatroomFrsRes.guide_config != null) {
-            ChatEntranceGuideConfig chatEntranceGuideConfig = new ChatEntranceGuideConfig();
-            this.guideConfig = chatEntranceGuideConfig;
-            chatEntranceGuideConfig.parseProto(chatroomFrsRes.guide_config);
         }
     }
 }

@@ -6,16 +6,16 @@ import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.fo;
-import com.baidu.tieba.lw5;
-import com.baidu.tieba.qw5;
-import com.baidu.tieba.rw5;
-import com.baidu.tieba.sw5;
-import com.baidu.tieba.tw5;
-import com.baidu.tieba.uw5;
-import com.baidu.tieba.vw5;
-import com.baidu.tieba.yw5;
-import com.baidu.tieba.zw5;
+import com.baidu.tieba.aw5;
+import com.baidu.tieba.bw5;
+import com.baidu.tieba.ew5;
+import com.baidu.tieba.fw5;
+import com.baidu.tieba.in;
+import com.baidu.tieba.rv5;
+import com.baidu.tieba.wv5;
+import com.baidu.tieba.xv5;
+import com.baidu.tieba.yv5;
+import com.baidu.tieba.zv5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,11 +35,11 @@ public class FrsBannerAdStatic {
 
         /* renamed from: com.baidu.tieba.InjectPlugin.FrsBannerAd.FrsBannerAdStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0206a implements lw5.a {
+        public class C0205a implements rv5.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
-            public C0206a(a aVar) {
+            public C0205a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -55,27 +55,27 @@ public class FrsBannerAdStatic {
                 }
             }
 
-            @Override // com.baidu.tieba.lw5.a
-            public void a(tw5 tw5Var, View view2) {
-                sw5 a;
+            @Override // com.baidu.tieba.rv5.a
+            public void a(zv5 zv5Var, View view2) {
+                yv5 a;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeLL(1048576, this, tw5Var, view2) == null) && (a = yw5.a(tw5Var)) != null) {
-                    qw5 qw5Var = new qw5();
-                    qw5Var.a = 2;
-                    qw5Var.b(view2);
-                    a.Q(qw5Var);
+                if ((interceptable == null || interceptable.invokeLL(1048576, this, zv5Var, view2) == null) && (a = ew5.a(zv5Var)) != null) {
+                    wv5 wv5Var = new wv5();
+                    wv5Var.a = 2;
+                    wv5Var.b(view2);
+                    a.S(wv5Var);
                 }
             }
 
-            @Override // com.baidu.tieba.lw5.a
-            public void b(tw5 tw5Var, View view2) {
-                sw5 a;
+            @Override // com.baidu.tieba.rv5.a
+            public void b(zv5 zv5Var, View view2) {
+                yv5 a;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tw5Var, view2) == null) && (a = yw5.a(tw5Var)) != null) {
-                    qw5 qw5Var = new qw5();
-                    qw5Var.a = 3;
-                    qw5Var.b(view2);
-                    a.Q(qw5Var);
+                if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zv5Var, view2) == null) && (a = ew5.a(zv5Var)) != null) {
+                    wv5 wv5Var = new wv5();
+                    wv5Var.a = 3;
+                    wv5Var.b(view2);
+                    a.S(wv5Var);
                 }
             }
         }
@@ -101,44 +101,44 @@ public class FrsBannerAdStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            zw5 zw5Var;
+            fw5 fw5Var;
             TbPageContext b;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof zw5) || (b = (zw5Var = (zw5) customResponsedMessage.getData()).b()) == null || !(b.getPageActivity() instanceof sw5)) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || !(customResponsedMessage.getData() instanceof fw5) || (b = (fw5Var = (fw5) customResponsedMessage.getData()).b()) == null || !(b.getPageActivity() instanceof yv5)) {
                 return;
             }
-            sw5 sw5Var = (sw5) b.getPageActivity();
-            rw5 Y0 = sw5Var.Y0(2);
-            if (Y0 == null) {
-                uw5 a = vw5.b().a(2);
+            yv5 yv5Var = (yv5) b.getPageActivity();
+            xv5 Z0 = yv5Var.Z0(2);
+            if (Z0 == null) {
+                aw5 a = bw5.b().a(2);
                 if (a == null) {
                     return;
                 }
-                Y0 = a.a();
-                sw5Var.x0(2, Y0);
-                Y0.f(new tw5(b), null);
-                if (!(Y0 instanceof lw5)) {
+                Z0 = a.a();
+                yv5Var.z0(2, Z0);
+                Z0.f(new zv5(b), null);
+                if (!(Z0 instanceof rv5)) {
                     return;
                 }
-                ((lw5) Y0).h(new C0206a(this));
+                ((rv5) Z0).h(new C0205a(this));
             }
-            if (!(Y0 instanceof lw5)) {
+            if (!(Z0 instanceof rv5)) {
                 return;
             }
-            lw5 lw5Var = (lw5) Y0;
-            if (zw5Var.a() == 1) {
-                lw5Var.b(zw5Var.g());
-                lw5Var.c(zw5Var.d());
-                lw5Var.j();
-            } else if (zw5Var.a() == 2) {
-                lw5Var.l(zw5Var.f());
-            } else if (zw5Var.a() == 3) {
-                fo e = zw5Var.e();
-                if (e != null && lw5Var.getView() != null) {
-                    e.removeHeaderView(lw5Var.getView());
+            rv5 rv5Var = (rv5) Z0;
+            if (fw5Var.a() == 1) {
+                rv5Var.b(fw5Var.g());
+                rv5Var.c(fw5Var.d());
+                rv5Var.j();
+            } else if (fw5Var.a() == 2) {
+                rv5Var.l(fw5Var.f());
+            } else if (fw5Var.a() == 3) {
+                in e = fw5Var.e();
+                if (e != null && rv5Var.getView() != null) {
+                    e.removeHeaderView(rv5Var.getView());
                 }
-            } else if (zw5Var.a() == 4) {
-                lw5Var.a(zw5Var.h());
+            } else if (fw5Var.a() == 4) {
+                rv5Var.a(fw5Var.h());
             }
         }
     }

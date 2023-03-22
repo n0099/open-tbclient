@@ -7,6 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.extractor.ogg.DefaultOggSeeker;
 import com.huawei.hms.framework.common.ExceptionCode;
 import java.util.regex.Pattern;
 /* loaded from: classes8.dex */
@@ -70,7 +71,7 @@ public class StringUtil {
             if (split.length < 3) {
                 return 0;
             }
-            int parseInt = (Integer.parseInt(split[0]) * ExceptionCode.CRASH_EXCEPTION) + (Integer.parseInt(split[1]) * 100000) + (Integer.parseInt(split[2]) * 1000);
+            int parseInt = (Integer.parseInt(split[0]) * ExceptionCode.CRASH_EXCEPTION) + (Integer.parseInt(split[1]) * DefaultOggSeeker.MATCH_BYTE_RANGE) + (Integer.parseInt(split[2]) * 1000);
             if (split.length == 4) {
                 return parseInt + Integer.parseInt(split[3]);
             }

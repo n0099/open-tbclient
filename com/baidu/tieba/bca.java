@@ -1,283 +1,203 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.PackageInfo;
-import android.os.Build;
-import android.os.Process;
-import android.os.SystemClock;
-import android.util.Log;
+import android.text.TextUtils;
+import androidx.annotation.VisibleForTesting;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.mobstat.Config;
+import com.baidu.tieba.gca;
+import com.baidu.tieba.ica;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.heytap.mcssdk.PushService;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.Locale;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.NumberUtils;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class bca {
+public final class bca {
     public static /* synthetic */ Interceptable $ic;
-    public static String A;
-    public static int B;
-    public static final SimpleDateFormat x;
-    public static String y;
-    public static String z;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public int d;
-    public String e;
-    public String f;
-    public String g;
-    public int h;
-    public String i;
-    public String j;
-    public String k;
-    public long l;
-    public long m;
-    public String n;
-    public String o;
-    public boolean p;
-    public String q;
-    public String r;
-    public ArrayList<String> s;
-    public StringBuilder t;
-    public StringBuilder u;
-    public StringBuilder v;
-    public StringBuilder w;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947641545, "Lcom/baidu/tieba/bca;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947641545, "Lcom/baidu/tieba/bca;");
-                return;
-            }
-        }
-        x = new SimpleDateFormat("MM-dd HH:mm:ss.SSS", Locale.US);
-        A = "";
-        B = -1;
-        B = cca.b();
-        z = Build.MODEL;
-        A = Build.VERSION.SDK_INT + " " + Build.VERSION.RELEASE;
-        y = uba.getContext().provideQualifier();
-    }
+    public long a;
+    public int b;
+    public int c;
+    public eca d;
+    public final Set<Ssp> e;
+    public final Set<ica> f;
+    public final Set<gca> g;
 
     public bca() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = "";
-        this.d = -1;
-        this.g = "";
-        this.r = "-1";
-        this.s = new ArrayList<>();
-        this.t = new StringBuilder();
-        this.u = new StringBuilder();
-        this.v = new StringBuilder();
-        this.w = new StringBuilder();
+        this.e = new HashSet();
+        this.f = new HashSet();
+        this.g = new HashSet();
     }
 
-    public static bca b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            bca bcaVar = new bca();
-            Context provideContext = uba.getContext().provideContext();
-            String str = bcaVar.g;
-            if (str == null || str.length() == 0) {
-                try {
-                    PackageInfo packageInfo = provideContext.getPackageManager().getPackageInfo(provideContext.getPackageName(), 0);
-                    bcaVar.h = packageInfo.versionCode;
-                    bcaVar.g = packageInfo.versionName;
-                } catch (Throwable th) {
-                    Log.e("BlockInfo", "newInstance: ", th);
-                }
-            }
-            bcaVar.d = B;
-            bcaVar.b = z;
-            bcaVar.c = A;
-            bcaVar.a = y;
-            bcaVar.e = uba.getContext().provideUid();
-            bcaVar.f = dca.a();
-            bcaVar.i = uba.getContext().provideNetworkType();
-            bcaVar.j = String.valueOf(cca.a());
-            bcaVar.k = String.valueOf(cca.c());
-            if (Build.VERSION.SDK_INT >= 24) {
-                bcaVar.r = Long.toString(SystemClock.elapsedRealtime() - Process.getStartElapsedRealtime());
-            }
-            return bcaVar;
-        }
-        return (bca) invokeV.objValue;
-    }
-
-    public bca a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            StringBuilder sb = this.t;
-            sb.append("qua");
-            sb.append(" = ");
-            sb.append(this.a);
-            sb.append("\r\n");
-            StringBuilder sb2 = this.t;
-            sb2.append(PushService.APP_VERSION_NAME);
-            sb2.append(" = ");
-            sb2.append(this.g);
-            sb2.append("\r\n");
-            StringBuilder sb3 = this.t;
-            sb3.append(PushService.APP_VERSION_CODE);
-            sb3.append(" = ");
-            sb3.append(this.h);
-            sb3.append("\r\n");
-            StringBuilder sb4 = this.t;
-            sb4.append("uid");
-            sb4.append(" = ");
-            sb4.append(this.e);
-            sb4.append("\r\n");
-            StringBuilder sb5 = this.t;
-            sb5.append("network");
-            sb5.append(" = ");
-            sb5.append(this.i);
-            sb5.append("\r\n");
-            StringBuilder sb6 = this.t;
-            sb6.append("model");
-            sb6.append(" = ");
-            sb6.append(this.b);
-            sb6.append("\r\n");
-            StringBuilder sb7 = this.t;
-            sb7.append("api-level");
-            sb7.append(" = ");
-            sb7.append(this.c);
-            sb7.append("\r\n");
-            StringBuilder sb8 = this.t;
-            sb8.append("cpu-core");
-            sb8.append(" = ");
-            sb8.append(this.d);
-            sb8.append("\r\n");
-            StringBuilder sb9 = this.t;
-            sb9.append("process");
-            sb9.append(" = ");
-            sb9.append(this.f);
-            sb9.append("\r\n");
-            StringBuilder sb10 = this.t;
-            sb10.append("freeMemory");
-            sb10.append(" = ");
-            sb10.append(this.j);
-            sb10.append("\r\n");
-            StringBuilder sb11 = this.t;
-            sb11.append("totalMemory");
-            sb11.append(" = ");
-            sb11.append(this.k);
-            sb11.append("\r\n");
-            StringBuilder sb12 = this.v;
-            sb12.append("time");
-            sb12.append(" = ");
-            sb12.append(this.l);
-            sb12.append("\r\n");
-            StringBuilder sb13 = this.v;
-            sb13.append("thread-time");
-            sb13.append(" = ");
-            sb13.append(this.m);
-            sb13.append("\r\n");
-            StringBuilder sb14 = this.v;
-            sb14.append("time-start");
-            sb14.append(" = ");
-            sb14.append(this.n);
-            sb14.append("\r\n");
-            StringBuilder sb15 = this.v;
-            sb15.append("time-end");
-            sb15.append(" = ");
-            sb15.append(this.o);
-            sb15.append("\r\n");
-            StringBuilder sb16 = this.u;
-            sb16.append("cpu-busy");
-            sb16.append(" = ");
-            sb16.append(this.p);
-            sb16.append("\r\n");
-            StringBuilder sb17 = this.u;
-            sb17.append("cpu-rate");
-            sb17.append(" = ");
-            sb17.append(this.q);
-            sb17.append("\r\n");
-            ArrayList<String> arrayList = this.s;
-            if (arrayList != null && !arrayList.isEmpty()) {
-                StringBuilder sb18 = new StringBuilder();
-                Iterator<String> it = this.s.iterator();
-                while (it.hasNext()) {
-                    sb18.append(it.next());
-                    sb18.append("\r\n");
-                }
-                StringBuilder sb19 = this.w;
-                sb19.append("stack");
-                sb19.append(" = ");
-                sb19.append(sb18.toString());
-                sb19.append("\r\n");
-            }
-            return this;
-        }
-        return (bca) invokeV.objValue;
-    }
-
-    public bca c(long j, long j2, long j3, long j4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)})) == null) {
-            this.l = j2 - j;
-            this.m = j4 - j3;
-            this.n = Long.toString(j);
-            this.o = Long.toString(j2);
-            return this;
-        }
-        return (bca) invokeCommon.objValue;
-    }
-
-    public bca d(String str) {
+    public boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            this.q = str;
-            return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                c(str);
+                LogPrinter.v("Config cfgv:%d parsed over.", Long.valueOf(this.a));
+                if (d()) {
+                    a();
+                    LogPrinter.v("Config cfgv:%d persisted over.", Long.valueOf(this.a));
+                    return true;
+                }
+            } catch (JSONException e) {
+                LogPrinter.e(e);
+            }
+            this.e.clear();
+            this.f.clear();
+            this.g.clear();
+            return false;
         }
-        return (bca) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public bca e(ArrayList<String> arrayList) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, arrayList)) == null) {
-            this.s = arrayList;
-            return this;
-        }
-        return (bca) invokeL.objValue;
-    }
-
-    public String toString() {
+    @VisibleForTesting
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return String.valueOf(this.t) + ((Object) this.v) + ((Object) this.u) + ((Object) this.w);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            HashSet hashSet = new HashSet();
+            HashSet hashSet2 = new HashSet();
+            for (Ssp ssp : this.e) {
+                if (hashSet.contains(ssp.type)) {
+                    LogPrinter.e("Duplicate ssp:type(%s) found.", ssp.type);
+                    return false;
+                }
+                hashSet.add(ssp.type);
+                for (Ssp.Pid pid : ssp.pids) {
+                    if (hashSet2.contains(Long.valueOf(pid.id))) {
+                        LogPrinter.e("Duplicate pid(%d) found.", Long.valueOf(pid.id));
+                        return false;
+                    }
+                    hashSet2.add(Long.valueOf(pid.id));
+                }
+            }
+            HashSet hashSet3 = new HashSet();
+            for (ica icaVar : this.f) {
+                if (hashSet3.contains(icaVar.a)) {
+                    LogPrinter.e("Duplicate sid(%s) found in SlotId", icaVar.a);
+                    return false;
+                }
+                hashSet3.add(icaVar.a);
+                for (ica.c cVar : icaVar.e) {
+                    HashSet hashSet4 = new HashSet();
+                    for (ica.b bVar : cVar.b) {
+                        if (!hashSet2.contains(Long.valueOf(bVar.a))) {
+                            LogPrinter.e("Unregistered adId:(%d) in SlotId", Long.valueOf(bVar.a));
+                            return false;
+                        } else if (hashSet4.contains(Long.valueOf(bVar.a))) {
+                            LogPrinter.e("Duplicate adId:(%d) found in one sid:(%s) in SlotId", Long.valueOf(bVar.a), icaVar.a);
+                            return false;
+                        } else {
+                            hashSet4.add(Long.valueOf(bVar.a));
+                        }
+                    }
+                }
+            }
+            if (this.c == 2) {
+                for (gca gcaVar : this.g) {
+                    if (hashSet3.contains(gcaVar.a)) {
+                        LogPrinter.e("Duplicate sid(%s) found in SerialSlotId.", gcaVar.a);
+                        return false;
+                    }
+                    hashSet3.add(gcaVar.a);
+                    for (gca.b bVar2 : gcaVar.b) {
+                        for (gca.a aVar : bVar2.b) {
+                            if (!hashSet2.contains(Long.valueOf(aVar.a))) {
+                                LogPrinter.e("Unregistered adId:(%d) in SerialSlotId", Long.valueOf(aVar.a));
+                                return false;
+                            }
+                        }
+                    }
+                }
+            }
+            return true;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public final void a() {
+        int length;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            long j = this.a;
+            int i = this.b;
+            int i2 = this.c;
+            sba sbaVar = new sba(this.e, this.f, this.g);
+            eca ecaVar = this.d;
+            Object obj = pca.a;
+            String d = yba.d(sbaVar);
+            Object[] objArr = new Object[1];
+            if (d == null) {
+                length = -1;
+            } else {
+                length = d.length();
+            }
+            objArr[0] = Integer.valueOf(length);
+            LogPrinter.v("sspsUTF len:%d", objArr);
+            pca.b.edit().putLong("key_config_v", j).putInt("key_config_interval", i).putInt("key_V", i2).putString("key_adcfg", d).putString("key_rptcfg", yba.d(ecaVar)).apply();
+        }
+    }
+
+    @VisibleForTesting
+    public void c(String str) {
+        JSONArray optJSONArray;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            JSONObject jSONObject = new JSONObject(str);
+            JSONObject jSONObject2 = jSONObject.getJSONObject("config");
+            this.a = NumberUtils.adjustLong(jSONObject2.getLong("ver"), 0L);
+            this.b = NumberUtils.adjustInt(jSONObject2.getInt("interval"), 1, 1440);
+            this.c = NumberUtils.adjustInt(jSONObject2.optInt(ExifInterface.GPS_MEASUREMENT_INTERRUPTED, 1), 1);
+            JSONObject jSONObject3 = jSONObject.getJSONObject("adConfig");
+            JSONArray jSONArray = jSONObject3.getJSONArray("ssps");
+            HashMap hashMap = new HashMap();
+            for (int i = 0; i < jSONArray.length(); i++) {
+                Ssp ssp = new Ssp(jSONArray.getJSONObject(i));
+                for (Ssp.Pid pid : ssp.pids) {
+                    hashMap.put(Long.valueOf(pid.id), pid);
+                }
+                this.e.add(ssp);
+            }
+            JSONArray jSONArray2 = jSONObject3.getJSONArray(Config.SID);
+            for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
+                this.f.add(new ica(jSONArray2.getJSONObject(i2), hashMap));
+            }
+            if (this.c >= 2 && (optJSONArray = jSONObject3.optJSONArray("serialSids")) != null) {
+                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                    this.g.add(new gca(optJSONArray.getJSONObject(i3), hashMap));
+                }
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject("rptConfig");
+            if (optJSONObject != null) {
+                this.d = new eca(optJSONObject);
+            }
+        }
     }
 }

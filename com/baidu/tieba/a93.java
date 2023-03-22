@@ -1,566 +1,93 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.res.Resources;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.os.Handler;
-import android.os.Looper;
 import android.text.TextUtils;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import android.widget.Toast;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.res.widget.toast.ToastLocation;
-import com.baidu.tieba.e93;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.storage.PathType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.view.SimpleDraweeView;
-import java.lang.ref.WeakReference;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public final class a93 {
+public class a93 extends q93 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static WeakReference<c93> b;
-    public static Toast c;
-    public static Handler d;
-    public static e93.b e;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ RelativeLayout b;
-
-        public a(Context context, RelativeLayout relativeLayout) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, relativeLayout};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a93(q83 q83Var) {
+        super(q83Var, "/swanAPI/getLocalImgData");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {q83Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            this.a = context;
-            this.b = relativeLayout;
         }
+    }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Toast unused = a93.c = new Toast(this.a);
-                a93.c.setView(this.b);
-                a93.c.setGravity(17, 0, 0);
-                d93.k(a93.c, R.style.obfuscated_res_0x7f100421);
+    @Override // com.baidu.tieba.q93
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, t73 t73Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, t73Var)) == null) {
+            if (t73Var == null) {
+                t42.c("GetLocalImgDataAction", "illegal swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
+                return false;
+            }
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                t42.c("SwanAppAction", "illegal params");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            }
+            String optString = optParamsAsJo.optString("filePath");
+            if (TextUtils.isEmpty(optString)) {
+                t42.c("GetLocalImgDataAction", "GetLocalImgDataAction bdfile path null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            } else if (bf3.s(optString) != PathType.BD_FILE) {
+                t42.c("GetLocalImgDataAction", "invalid path : " + optString);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(null, 2006, n83.a(2006));
+                return false;
+            } else {
+                String M = bf3.M(optString, t73Var.b);
+                if (TextUtils.isEmpty(M)) {
+                    t42.c("GetLocalImgDataAction", "GetLocalImgDataAction realPath null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                }
+                JSONObject jSONObject = new JSONObject();
                 try {
-                    a93.c.show();
-                } catch (NullPointerException e) {
-                    if (a93.a) {
+                    jSONObject.put("filePath", M);
+                    t42.i("GetLocalImgDataAction", "getLocalImgData success");
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+                    return true;
+                } catch (JSONException e) {
+                    t42.c("GetLocalImgDataAction", "getLocalImgData failed");
+                    if (q93.b) {
                         e.printStackTrace();
                     }
-                }
-                if (a93.a) {
-                    Log.d("SingleToast", "mSystemToast.show() invoked in show");
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ LinearLayout b;
-
-        public b(Context context, LinearLayout linearLayout) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, linearLayout};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
                 }
             }
-            this.a = context;
-            this.b = linearLayout;
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Toast unused = a93.c = new Toast(this.a);
-                a93.c.setView(this.b);
-                a93.c.setGravity(17, 0, 0);
-                d93.k(a93.c, R.style.obfuscated_res_0x7f1003bc);
-                a93.c.show();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ LinearLayout b;
-
-        public c(Context context, LinearLayout linearLayout) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context, linearLayout};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-            this.b = linearLayout;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Toast unused = a93.c = new Toast(this.a);
-                a93.c.setView(this.b);
-                a93.c.setGravity(17, 0, 0);
-                d93.k(a93.c, R.style.obfuscated_res_0x7f1003bc);
-                a93.c.show();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class d implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e93.c a;
-
-        public d(e93.c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                e93.c cVar = this.a;
-                if (cVar != null) {
-                    cVar.a();
-                }
-                a93.d();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class e implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ToastLocation a;
-        public final /* synthetic */ Resources b;
-        public final /* synthetic */ Context c;
-        public final /* synthetic */ LinearLayout d;
-
-        public e(ToastLocation toastLocation, Resources resources, Context context, LinearLayout linearLayout) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {toastLocation, resources, context, linearLayout};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = toastLocation;
-            this.b = resources;
-            this.c = context;
-            this.d = linearLayout;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            int i;
-            int i2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (ToastLocation.BOTTOM == this.a) {
-                    i = 81;
-                    i2 = (int) this.b.getDimension(R.dimen.obfuscated_res_0x7f070118);
-                } else {
-                    i = 17;
-                    i2 = 0;
-                }
-                Toast unused = a93.c = new Toast(this.c);
-                a93.c.setView(this.d);
-                a93.c.setGravity(i, 0, i2);
-                d93.k(a93.c, R.style.obfuscated_res_0x7f1003bc);
-                a93.c.show();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947569966, "Lcom/baidu/tieba/a93;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947569966, "Lcom/baidu/tieba/a93;");
-                return;
-            }
-        }
-        a = wp1.a;
-        d = new Handler(Looper.getMainLooper());
-    }
-
-    public static void d() {
-        c93 c93Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            WeakReference<c93> weakReference = b;
-            if (weakReference != null && (c93Var = weakReference.get()) != null) {
-                c93Var.s();
-            }
-            Toast toast = c;
-            if (toast != null) {
-                toast.cancel();
-            }
-            e93.b bVar = e;
-            if (bVar != null) {
-                bVar.onDismiss();
-                e = null;
-            }
-        }
-    }
-
-    public static void f(e93.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, bVar) == null) {
-            e = bVar;
-        }
-    }
-
-    public static void g(c93 c93Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, c93Var) == null) {
-            WeakReference<c93> weakReference = b;
-            if (weakReference != null) {
-                weakReference.clear();
-            }
-            b = new WeakReference<>(c93Var);
-        }
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        c93 c93Var;
-        boolean z;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            WeakReference<c93> weakReference = b;
-            if (weakReference != null) {
-                c93Var = weakReference.get();
-            } else {
-                c93Var = null;
-            }
-            Toast toast = c;
-            if (c93Var != null && c93Var.u()) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (toast != null && toast.getView() != null && toast.getView().getParent() != null) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            if (z || z2) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void h(@NonNull Context context, @NonNull CharSequence charSequence, int i, boolean z, int i2, boolean z2) {
-        TextView textView;
-        boolean z3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65544, null, new Object[]{context, charSequence, Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2), Boolean.valueOf(z2)}) == null) {
-            Context applicationContext = context.getApplicationContext();
-            Resources resources = context.getResources();
-            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(applicationContext).inflate(R.layout.obfuscated_res_0x7f0d00c0, (ViewGroup) null);
-            relativeLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0801a4));
-            boolean z4 = true;
-            relativeLayout.setClickable(true);
-            if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) relativeLayout.findViewById(R.id.normal_toast_text)) != null) {
-                textView.setTextColor(-1);
-                textView.setText(charSequence);
-                if (i2 >= 2) {
-                    z3 = true;
-                } else {
-                    z3 = false;
-                }
-                textView.setSingleLine((z3 || !z) ? false : false);
-                if (z3) {
-                    textView.setMaxLines(i2);
-                    textView.setGravity(17);
-                }
-            }
-            if (d93.n(applicationContext)) {
-                d.post(new a(applicationContext, relativeLayout));
-                return;
-            }
-            c93 c93Var = new c93(applicationContext);
-            g(c93Var);
-            c93Var.z(relativeLayout);
-            c93Var.x(z2);
-            c93Var.w(17, 0, 0);
-            c93Var.v(i);
-            c93Var.A(R.style.obfuscated_res_0x7f100421);
-            c93Var.y(e);
-            e = null;
-            c93Var.B();
-        }
-    }
-
-    public static void i(Context context, CharSequence charSequence, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{context, charSequence, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            Context applicationContext = context.getApplicationContext();
-            Resources resources = context.getResources();
-            LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(applicationContext).inflate(R.layout.obfuscated_res_0x7f0d00da, (ViewGroup) null);
-            linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0801c5));
-            linearLayout.findViewById(R.id.obfuscated_res_0x7f090e95).setVisibility(8);
-            ProgressBar progressBar = (ProgressBar) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e96);
-            progressBar.setVisibility(0);
-            progressBar.setIndeterminateDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f0801c7));
-            linearLayout.setClickable(true);
-            TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e97);
-            if (!TextUtils.isEmpty(charSequence) && textView != null) {
-                textView.setText(charSequence);
-                textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060199));
-            }
-            if (d93.n(applicationContext)) {
-                d.post(new c(context, linearLayout));
-                return;
-            }
-            c93 c93Var = new c93(applicationContext);
-            g(c93Var);
-            c93Var.z(linearLayout);
-            c93Var.x(z);
-            c93Var.w(17, 0, 0);
-            c93Var.v(i);
-            c93Var.A(R.style.obfuscated_res_0x7f1003bc);
-            c93Var.B();
-        }
-    }
-
-    public static void j(@NonNull Context context, @NonNull CharSequence charSequence, @Nullable Drawable drawable, @Nullable View view2, int i, boolean z) {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65546, null, new Object[]{context, charSequence, drawable, view2, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || context == null) {
-            return;
-        }
-        Context applicationContext = context.getApplicationContext();
-        Resources resources = context.getResources();
-        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(applicationContext).inflate(R.layout.obfuscated_res_0x7f0d00da, (ViewGroup) null);
-        linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0801c5));
-        linearLayout.setClickable(true);
-        if (!TextUtils.isEmpty(charSequence) && (textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e97)) != null) {
-            textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060199));
-            textView.setText(charSequence);
-        }
-        ImageView imageView = (ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f090e95);
-        if (imageView != null) {
-            if (view2 != null) {
-                new h93(applicationContext).a(imageView, view2);
-            } else {
-                if (drawable == null) {
-                    drawable = resources.getDrawable(R.drawable.obfuscated_res_0x7f080173);
-                }
-                d93.j(drawable);
-                imageView.setImageDrawable(drawable);
-            }
-        }
-        if (d93.n(applicationContext)) {
-            d.post(new b(context, linearLayout));
-            return;
-        }
-        c93 c93Var = new c93(applicationContext);
-        g(c93Var);
-        c93Var.z(linearLayout);
-        c93Var.x(z);
-        c93Var.w(17, 0, 0);
-        c93Var.v(i);
-        c93Var.A(R.style.obfuscated_res_0x7f1003bc);
-        c93Var.B();
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:32:0x00dc  */
-    /* JADX WARN: Removed duplicated region for block: B:33:0x00df  */
-    /* JADX WARN: Removed duplicated region for block: B:36:0x0101  */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x0105  */
-    /* JADX WARN: Removed duplicated region for block: B:42:0x0146  */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x0151  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void k(@NonNull Context context, @Nullable Uri uri, @Nullable Drawable drawable, @Nullable View view2, @NonNull CharSequence charSequence, @Nullable CharSequence charSequence2, int i, @NonNull ToastLocation toastLocation, @Nullable e93.c cVar, boolean z) {
-        float f;
-        ToastLocation toastLocation2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65547, null, new Object[]{context, uri, drawable, view2, charSequence, charSequence2, Integer.valueOf(i), toastLocation, cVar, Boolean.valueOf(z)}) != null) || context == null) {
-            return;
-        }
-        Context applicationContext = context.getApplicationContext();
-        Resources resources = context.getResources();
-        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00d8, (ViewGroup) null);
-        linearLayout.setBackground(resources.getDrawable(R.drawable.obfuscated_res_0x7f0801c5));
-        SimpleDraweeView simpleDraweeView = (SimpleDraweeView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091409);
-        TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091414);
-        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f091daa);
-        TextView textView2 = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091dab);
-        View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f091dac);
-        if (!TextUtils.isEmpty(charSequence)) {
-            textView.setTextColor(b93.a);
-            if (uri == null && drawable == null && view2 == null && TextUtils.isEmpty(charSequence2)) {
-                simpleDraweeView.setVisibility(8);
-                linearLayout2.setVisibility(8);
-                textView.setMaxLines(2);
-                textView.setText(charSequence);
-                textView.setMaxWidth(g93.a(context, 200.0f));
-            } else {
-                boolean z2 = true;
-                if (view2 != null) {
-                    simpleDraweeView.setVisibility(0);
-                    new h93(applicationContext).a(simpleDraweeView, view2);
-                } else if (uri == null && drawable == null) {
-                    simpleDraweeView.setVisibility(8);
-                    textView.setSingleLine();
-                    textView.setText(charSequence);
-                    LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-                    if (!z2) {
-                        f = 14.0f;
-                    } else {
-                        f = 5.0f;
-                    }
-                    layoutParams.setMargins(g93.a(context, f), g93.a(context, 9.0f), g93.a(context, 14.0f), g93.a(context, 10.0f));
-                    textView.setLayoutParams(layoutParams);
-                    if (!TextUtils.isEmpty(charSequence2)) {
-                        linearLayout2.setVisibility(8);
-                    } else {
-                        toastLocation2 = ToastLocation.BOTTOM;
-                        linearLayout2.setVisibility(0);
-                        ((ImageView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091da1)).setImageDrawable(resources.getDrawable(R.drawable.obfuscated_res_0x7f0801c8));
-                        textView2.setText(charSequence2);
-                        textView2.setTextColor(b93.a);
-                        findViewById.setBackground(resources.getDrawable(R.color.obfuscated_res_0x7f060186));
-                        if (linearLayout2 != null) {
-                            linearLayout2.setOnClickListener(new d(cVar));
-                            d93.i(linearLayout2);
-                        }
-                        if (!d93.n(applicationContext)) {
-                            d.post(new e(toastLocation2, resources, context, linearLayout));
-                            return;
-                        }
-                        c93 c93Var = new c93(applicationContext);
-                        g(c93Var);
-                        c93Var.z(linearLayout);
-                        c93Var.x(z);
-                        c93Var.w(17, 0, 0);
-                        c93Var.v(i);
-                        c93Var.A(R.style.obfuscated_res_0x7f1003bc);
-                        c93Var.B();
-                        return;
-                    }
-                } else {
-                    simpleDraweeView.setVisibility(0);
-                    if (drawable != null) {
-                        d93.j(drawable);
-                        simpleDraweeView.setImageDrawable(drawable);
-                    } else if (uri != null) {
-                        simpleDraweeView.setController(Fresco.newDraweeControllerBuilder().setAutoPlayAnimations(true).setUri(uri).build());
-                    }
-                }
-                z2 = false;
-                textView.setSingleLine();
-                textView.setText(charSequence);
-                LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, -2);
-                if (!z2) {
-                }
-                layoutParams2.setMargins(g93.a(context, f), g93.a(context, 9.0f), g93.a(context, 14.0f), g93.a(context, 10.0f));
-                textView.setLayoutParams(layoutParams2);
-                if (!TextUtils.isEmpty(charSequence2)) {
-                }
-            }
-            toastLocation2 = toastLocation;
-            if (!d93.n(applicationContext)) {
-            }
-        } else {
-            d93.h("has no main text");
-        }
+        return invokeLLLL.booleanValue;
     }
 }

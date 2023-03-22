@@ -4,7 +4,7 @@ import com.yy.hiidostatis.api.HiidoSDK;
 import com.yy.hiidostatis.inner.util.cipher.Base64Util;
 import com.yy.hiidostatis.inner.util.cipher.RsaCipher;
 import java.io.ByteArrayInputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class StatisHttpEncryptUtil extends AbstractStatisHttpUtil {
     public static final String[] ADDRESSES_OTHER = new String[0];
     public static final String RSA_PUB_KEY = "MCwwDQYJKoZIhvcNAQEBBQADGwAwGAIRAMRSvSVZEbyQwtFwNtNiZKkCAwEAAQ==";

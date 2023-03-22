@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.atomData.AlaPersonCenterActivityConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.personcenter.privilege.AlaPersonCenterPrivilegeActivity;
 import com.baidu.tieba.ala.personcenter.privilege.entereffect.AlaGetEnterEffectResponsedMessage;
-import com.baidu.tieba.y76;
-import com.baidu.tieba.zv6;
+import com.baidu.tieba.e76;
+import com.baidu.tieba.ex6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -60,16 +60,16 @@ public class AlaPersonCenterActivityStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof zv6)) {
+            if (!(data instanceof ex6)) {
                 return;
             }
-            zv6 zv6Var = (zv6) data;
-            y76 y76Var = new y76();
-            y76Var.i(zv6Var.c());
-            y76Var.j(zv6Var.d());
-            y76Var.h(zv6Var.b());
-            y76Var.k(zv6Var.e());
-            y76Var.g(zv6Var);
+            ex6 ex6Var = (ex6) data;
+            e76 e76Var = new e76();
+            e76Var.i(ex6Var.c());
+            e76Var.j(ex6Var.d());
+            e76Var.h(ex6Var.b());
+            e76Var.k(ex6Var.e());
+            e76Var.g(ex6Var);
         }
     }
 

@@ -1,7 +1,7 @@
 package com.facebook.imagepipeline.producers;
 
-import com.baidu.tieba.o0;
-import com.baidu.tieba.p0;
+import com.baidu.tieba.r;
+import com.baidu.tieba.s;
 import com.facebook.cache.common.CacheKey;
 import com.facebook.common.internal.ImmutableMap;
 import com.facebook.common.internal.VisibleForTesting;
@@ -42,8 +42,8 @@ public class DiskCacheReadProducer implements Producer<EncodedImage> {
         return ImmutableMap.of("cached_value_found", String.valueOf(z));
     }
 
-    public static boolean isTaskCancelled(p0<?> p0Var) {
-        if (!p0Var.n() && (!p0Var.p() || !(p0Var.k() instanceof CancellationException))) {
+    public static boolean isTaskCancelled(s<?> sVar) {
+        if (!sVar.n() && (!sVar.p() || !(sVar.k() instanceof CancellationException))) {
             return false;
         }
         return true;
@@ -58,20 +58,20 @@ public class DiskCacheReadProducer implements Producer<EncodedImage> {
         this.mInputProducer.produceResults(consumer, producerContext);
     }
 
-    private o0<EncodedImage, Void> onFinishDiskReads(final Consumer<EncodedImage> consumer, final ProducerContext producerContext) {
+    private r<EncodedImage, Void> onFinishDiskReads(final Consumer<EncodedImage> consumer, final ProducerContext producerContext) {
         final ProducerListener2 producerListener = producerContext.getProducerListener();
-        return new o0<EncodedImage, Void>() { // from class: com.facebook.imagepipeline.producers.DiskCacheReadProducer.1
+        return new r<EncodedImage, Void>() { // from class: com.facebook.imagepipeline.producers.DiskCacheReadProducer.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.o0
-            public Void then(p0<EncodedImage> p0Var) throws Exception {
-                if (DiskCacheReadProducer.isTaskCancelled(p0Var)) {
+            @Override // com.baidu.tieba.r
+            public Void then(s<EncodedImage> sVar) throws Exception {
+                if (DiskCacheReadProducer.isTaskCancelled(sVar)) {
                     producerListener.onProducerFinishWithCancellation(producerContext, DiskCacheReadProducer.PRODUCER_NAME, null);
                     consumer.onCancellation();
-                } else if (p0Var.p()) {
-                    producerListener.onProducerFinishWithFailure(producerContext, DiskCacheReadProducer.PRODUCER_NAME, p0Var.k(), null);
+                } else if (sVar.p()) {
+                    producerListener.onProducerFinishWithFailure(producerContext, DiskCacheReadProducer.PRODUCER_NAME, sVar.k(), null);
                     DiskCacheReadProducer.this.mInputProducer.produceResults(consumer, producerContext);
                 } else {
-                    EncodedImage l = p0Var.l();
+                    EncodedImage l = sVar.l();
                     if (l != null) {
                         ProducerListener2 producerListener2 = producerListener;
                         ProducerContext producerContext2 = producerContext;

@@ -1,31 +1,103 @@
 package com.baidu.tieba;
 
-import android.opengl.GLES20;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.minivideo.effect.core.Rotation;
+import com.baidu.nadcore.net.request.Headers;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.faceunity.gles.GeneratedTexture;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-import java.nio.FloatBuffer;
-import java.util.List;
-/* loaded from: classes5.dex */
-public class qg0 {
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class qg0 implements sm0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int[] a;
-    public int[] b;
-    public final FloatBuffer c;
-    public final FloatBuffer d;
-    public final FloatBuffer e;
-    public int f;
-    public int g;
-    public int h;
-    public float[] i;
+
+    /* loaded from: classes6.dex */
+    public class a extends ir0<JSONObject> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qg0 a;
+
+        @Override // com.baidu.tieba.gr0
+        public void a(Exception exc, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
+            }
+        }
+
+        public a(qg0 qg0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qg0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qg0Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.hr0
+        /* renamed from: e */
+        public void b(Headers headers, JSONObject jSONObject, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeLLI(1048579, this, headers, jSONObject, i) != null) {
+                return;
+            }
+            this.a.i(jSONObject);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.hr0
+        /* renamed from: f */
+        public JSONObject d(Headers headers, String str, int i) throws Exception {
+            InterceptResult invokeLLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, str, i)) == null) {
+                if (i != 200 || TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                return new JSONObject(str);
+            }
+            return (JSONObject) invokeLLI.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final qg0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-490563727, "Lcom/baidu/tieba/qg0$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-490563727, "Lcom/baidu/tieba/qg0$b;");
+                    return;
+                }
+            }
+            a = new qg0(null);
+        }
+    }
 
     public qg0() {
         Interceptable interceptable = $ic;
@@ -37,188 +109,136 @@ public class qg0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.i = new float[]{0.0f, 0.0f, 0.0f, 0.0f};
-        FloatBuffer asFloatBuffer = ByteBuffer.allocateDirect(vg0.a.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
-        this.c = asFloatBuffer;
-        asFloatBuffer.put(vg0.a).position(0);
-        FloatBuffer asFloatBuffer2 = ByteBuffer.allocateDirect(xg0.a.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
-        this.d = asFloatBuffer2;
-        asFloatBuffer2.put(xg0.a).position(0);
-        float[] b = xg0.b(Rotation.NORMAL, false, true);
-        FloatBuffer asFloatBuffer3 = ByteBuffer.allocateDirect(b.length * 4).order(ByteOrder.nativeOrder()).asFloatBuffer();
-        this.e = asFloatBuffer3;
-        asFloatBuffer3.put(b).position(0);
     }
 
-    public final boolean a() {
+    public static qg0 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
+        }
+        return (qg0) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.sm0
+    @NonNull
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int[] iArr = this.a;
-            if (iArr != null && this.h < iArr.length) {
-                return false;
+            return f();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final long d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return h11.a().b("nad_app_quick_config").getLong("ip_dx_expire_time", 0L);
+        }
+        return invokeV.longValue;
+    }
+
+    public final long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return h11.a().b("nad_app_quick_config").getLong("request_ip_dx_time", 0L);
+        }
+        return invokeV.longValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return h11.a().b("nad_app_quick_config").getString("ip_dx_data", "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (System.currentTimeMillis() / 1000 <= d()) {
+                return true;
             }
-            return true;
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public void b() {
+    public final boolean h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            int[] iArr = this.b;
-            if (iArr != null) {
-                GLES20.glDeleteTextures(iArr.length, iArr, 0);
-                this.b = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (System.currentTimeMillis() - e() > 21600000) {
+                return true;
             }
-            int[] iArr2 = this.a;
-            if (iArr2 != null) {
-                GLES20.glDeleteFramebuffers(iArr2.length, iArr2, 0);
-                this.a = null;
-            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.sm0
+    public void request() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            m();
         }
     }
 
-    public void g() {
+    public /* synthetic */ qg0(a aVar) {
+        this();
+    }
+
+    public final void i(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.h = 0;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        k(jSONObject);
+        j(jSONObject.optLong("exptime"));
+    }
+
+    public final void j(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            h11.a().b("nad_app_quick_config").h("ip_dx_expire_time", j);
         }
     }
 
-    public void c(int i, int i2) {
+    public final void k(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) && i != 0 && i2 != 0) {
-            if (this.f != i || this.g != i2) {
-                if (this.a != null) {
-                    b();
-                }
-                this.f = i;
-                this.g = i2;
-                d(2);
-            }
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jSONObject) == null) {
+            h11.a().b("nad_app_quick_config").i("ip_dx_data", jSONObject.toString());
         }
     }
 
-    public final void d(int i) {
-        int i2;
+    public final void l(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            int[] iArr = this.a;
-            if (iArr != null) {
-                i2 = i + iArr.length;
-            } else {
-                i2 = i;
-            }
-            int[] iArr2 = new int[i2];
-            int[] iArr3 = new int[i2];
-            for (int i3 = 0; i3 < i2; i3++) {
-                int[] iArr4 = this.a;
-                if (iArr4 != null && iArr4.length > i3) {
-                    iArr2[i3] = iArr4[i3];
-                }
-                int[] iArr5 = this.b;
-                if (iArr5 != null && iArr5.length > i3) {
-                    iArr3[i3] = iArr5[i3];
-                }
-                if (iArr3[i3] == 0) {
-                    GLES20.glGenFramebuffers(1, iArr2, i3);
-                    GLES20.glGenTextures(1, iArr3, i3);
-                    GLES20.glBindTexture(3553, iArr3[i3]);
-                    GLES20.glTexImage2D(3553, 0, GeneratedTexture.FORMAT, this.f, this.g, 0, GeneratedTexture.FORMAT, 5121, null);
-                    GLES20.glTexParameterf(3553, 10240, 9729.0f);
-                    GLES20.glTexParameterf(3553, 10241, 9729.0f);
-                    GLES20.glTexParameterf(3553, 10242, 33071.0f);
-                    GLES20.glTexParameterf(3553, 10243, 33071.0f);
-                    GLES20.glBindFramebuffer(36160, iArr2[i3]);
-                    GLES20.glFramebufferTexture2D(36160, 36064, 3553, iArr3[i3], 0);
-                    GLES20.glBindTexture(3553, 0);
-                    GLES20.glBindFramebuffer(36160, 0);
-                }
-            }
-            this.a = iArr2;
-            this.b = iArr3;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            h11.a().b("nad_app_quick_config").h("request_ip_dx_time", j);
         }
     }
 
-    public int e(int i, pg0 pg0Var) {
-        InterceptResult invokeIL;
+    public void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, pg0Var)) == null) {
-            if (pg0Var == null) {
-                return i;
-            }
-            try {
-                if (a()) {
-                    d(2);
-                }
-                pg0Var.s();
-                GLES20.glBindFramebuffer(36160, this.a[this.h]);
-                GLES20.glViewport(0, 0, this.f, this.g);
-                GLES20.glClearColor(this.i[0], this.i[1], this.i[2], this.i[3]);
-                GLES20.glClear(16640);
-                pg0Var.p(i, this.c, this.e);
-                GLES20.glBindFramebuffer(36160, 0);
-                i = this.b[this.h];
-                this.h++;
-                return i;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return i;
-            }
-        }
-        return invokeIL.intValue;
-    }
-
-    public int f(int i, List<pg0> list) {
-        InterceptResult invokeIL;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, list)) == null) {
-            if (list != null) {
-                int size = list.size();
-                if (size == 0) {
-                    return i;
-                }
-                if (this.a.length - this.h <= size) {
-                    d(size);
-                }
-                int i3 = this.h;
-                while (true) {
-                    i2 = this.h;
-                    if (i3 >= i2 + size) {
-                        break;
-                    }
-                    pg0 pg0Var = list.get(i3 - i2);
-                    pg0Var.s();
-                    GLES20.glBindFramebuffer(36160, this.a[i3]);
-                    GLES20.glViewport(0, 0, this.f, this.g);
-                    float[] fArr = this.i;
-                    GLES20.glClearColor(fArr[0], fArr[1], fArr[2], fArr[3]);
-                    GLES20.glClear(16640);
-                    pg0Var.p(i, this.c, this.e);
-                    GLES20.glBindFramebuffer(36160, 0);
-                    i = this.b[i3];
-                    i3++;
-                }
-                this.h = i2 + size;
-            }
-            return i;
-        }
-        return invokeIL.intValue;
-    }
-
-    public void h(float f, float f2, float f3, float f4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            float[] fArr = this.i;
-            fArr[0] = f;
-            fArr[1] = f2;
-            fArr[2] = f3;
-            fArr[3] = f4;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && h() && !g()) {
+            l(System.currentTimeMillis());
+            oi0 a2 = hi0.c().a();
+            String g = a2.g();
+            String packageName = a2.packageName();
+            String str = "https://bz-ipdx.baidu.com/miaozhen?" + String.format("uid=%s&appname=%s", g, packageName);
+            ar0 a3 = wq0.b().a();
+            pr0 pr0Var = new pr0();
+            pr0Var.l(str);
+            pr0Var.c();
+            a3.a(pr0Var, new a(this));
         }
     }
 }

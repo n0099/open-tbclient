@@ -1,23 +1,18 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.searchbox.aperf.bosuploader.ContentUtil;
+import android.os.Bundle;
+import com.baidu.searchbox.http.NetworkQuality;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gz2 {
+public class gz2 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
 
     public gz2() {
         Interceptable interceptable = $ic;
@@ -33,31 +28,32 @@ public class gz2 {
         }
     }
 
-    public static gz2 a(JSONObject jSONObject, String str) {
-        InterceptResult invokeLL;
-        JSONObject optJSONObject;
+    public static int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, jSONObject, str)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            i43 c = g43.c(gz2.class, null);
+            if (!c.a()) {
+                return -1;
             }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("data");
-            String optString = jSONObject.optString("error");
-            if (optJSONObject2 == null || !TextUtils.equals(optString, "0")) {
-                return null;
-            }
-            gz2 gz2Var = new gz2();
-            gz2Var.a = optJSONObject2.optString("ak");
-            gz2Var.b = optJSONObject2.optString("sk");
-            gz2Var.c = optJSONObject2.optString("token");
-            gz2Var.d = optJSONObject2.optString(ContentUtil.RESULT_KEY_BUCKET);
-            JSONObject optJSONObject3 = optJSONObject2.optJSONObject("oname_list");
-            if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject(str)) != null) {
-                gz2Var.f = optJSONObject.optString("bosobject");
-                gz2Var.e = optJSONObject.optString("bosurl");
-            }
-            return gz2Var;
+            return c.a.getInt("net_quality", -1);
         }
-        return (gz2) invokeLL.objValue;
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            Bundle bundle2 = new Bundle();
+            if (SwanAppNetworkUtils.h()) {
+                bundle2.putInt("net_quality", NetworkQuality.getNetworkQuality());
+            } else {
+                bundle2.putInt("net_quality", 3);
+            }
+            return bundle2;
+        }
+        return (Bundle) invokeL.objValue;
     }
 }

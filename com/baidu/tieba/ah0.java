@@ -1,60 +1,73 @@
 package com.baidu.tieba;
 
-import com.baidu.minivideo.effect.core.vlogedit.MediaAEffect;
-import com.baidu.minivideo.effect.core.vlogedit.MediaOneAEffect;
-import com.baidu.minivideo.effect.core.vlogedit.ShaderParams;
+import com.baidu.nadcore.utils.LruCache;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class ah0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final LruCache<String, String> a;
 
-    public static MediaOneAEffect a(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65536, null, j)) == null) {
-            MediaOneAEffect mediaOneAEffect = new MediaOneAEffect();
-            mediaOneAEffect.start = 0L;
-            mediaOneAEffect.end = j;
-            ArrayList arrayList = new ArrayList();
-            mediaOneAEffect.aParams = arrayList;
-            arrayList.add(c());
-            return mediaOneAEffect;
+    /* loaded from: classes3.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final ah0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-947706653, "Lcom/baidu/tieba/ah0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-947706653, "Lcom/baidu/tieba/ah0$a;");
+                    return;
+                }
+            }
+            a = new ah0();
         }
-        return (MediaOneAEffect) invokeJ.objValue;
     }
 
-    public static MediaAEffect b(long j) {
-        InterceptResult invokeJ;
+    public ah0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
-            MediaAEffect mediaAEffect = new MediaAEffect();
-            mediaAEffect.name = "defaultScene";
-            mediaAEffect.duration = j;
-            mediaAEffect.repeatMode = MediaAEffect.AE_ANIM_ONCE;
-            mediaAEffect.effectType = "scene";
-            mediaAEffect.shaderConfigKey = bh0.b;
-            ArrayList arrayList = new ArrayList();
-            mediaAEffect.mediaOneAEffects = arrayList;
-            arrayList.add(a(j));
-            return mediaAEffect;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (MediaAEffect) invokeJ.objValue;
+        this.a = new LruCache<>(8);
     }
 
-    public static ShaderParams c() {
+    public static ah0 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            ShaderParams shaderParams = new ShaderParams();
-            shaderParams.name = "scale";
-            shaderParams.type = ShaderParams.VALUE_TYPE_ANIMATOR;
-            shaderParams.values = new float[]{1.0f, 1.2f};
-            return shaderParams;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.a;
         }
-        return (ShaderParams) invokeV.objValue;
+        return (ah0) invokeV.objValue;
+    }
+
+    public String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return this.a.get(str);
+        }
+        return (String) invokeL.objValue;
     }
 }

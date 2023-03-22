@@ -1,7 +1,10 @@
 package com.baidu.tieba;
 
+import android.graphics.PointF;
+import android.graphics.RectF;
+import androidx.core.util.Pools;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.y0;
+import com.baidu.tieba.danmu.ui.DanmakuPlayer;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,9 +17,9 @@ import kotlin.jvm.internal.Intrinsics;
 public final class jk6 {
     public static /* synthetic */ Interceptable $ic;
     public static final jk6 a;
-    public static final y0 b;
-    public static final Class<? extends li6>[] c;
-    public static final y0 d;
+    public static final Pools.SimplePool<RectF> b;
+    public static final Pools.SimplePool<PointF> c;
+    public static final Pools.SimplePool<ci6> d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,15 +36,9 @@ public final class jk6 {
             }
         }
         a = new jk6();
-        y0 b2 = y0.d(qi6.class).b();
-        Intrinsics.checkNotNullExpressionValue(b2, "all(ItemDataComponent::class.java).get()");
-        b = b2;
-        c = new Class[]{qi6.class, pi6.class};
-        y0.b d2 = y0.d(qi6.class, pi6.class);
-        d2.c(ri6.class, ti6.class);
-        y0 b3 = d2.b();
-        Intrinsics.checkNotNullExpressionValue(b3, "all(\n        ItemDataCom…t::class.java\n    ).get()");
-        d = b3;
+        b = new Pools.SimplePool<>(200);
+        c = new Pools.SimplePool<>(200);
+        d = new Pools.SimplePool<>(1000);
     }
 
     public jk6() {
@@ -58,30 +55,50 @@ public final class jk6 {
         }
     }
 
-    public final y0 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
-        }
-        return (y0) invokeV.objValue;
-    }
-
-    public final Class<? extends li6>[] b() {
+    public final PointF b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return c;
+            PointF acquire = c.acquire();
+            if (acquire == null) {
+                return new PointF();
+            }
+            return acquire;
         }
-        return (Class[]) invokeV.objValue;
+        return (PointF) invokeV.objValue;
     }
 
-    public final y0 c() {
+    public final RectF c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return d;
+            RectF acquire = b.acquire();
+            if (acquire == null) {
+                return new RectF();
+            }
+            return acquire;
         }
-        return (y0) invokeV.objValue;
+        return (RectF) invokeV.objValue;
+    }
+
+    public final ci6 a(di6 data, DanmakuPlayer player) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, data, player)) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            Intrinsics.checkNotNullParameter(player, "player");
+            ci6 acquire = d.acquire();
+            if (acquire != null) {
+                acquire.m(data);
+                acquire.q(player.m().w());
+            } else {
+                acquire = null;
+            }
+            if (acquire == null) {
+                return new ci6(data, player);
+            }
+            return acquire;
+        }
+        return (ci6) invokeLL.objValue;
     }
 }

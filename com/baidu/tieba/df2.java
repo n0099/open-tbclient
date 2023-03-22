@@ -1,9 +1,42 @@
 package com.baidu.tieba;
+
+import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
+import com.baidu.searchbox.v8engine.JSExceptionType;
+import com.baidu.searchbox.v8engine.JSRuntime;
+import com.baidu.searchbox.v8engine.JsSerializeValue;
+import com.baidu.searchbox.v8engine.event.EventTarget;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 /* loaded from: classes4.dex */
-public interface df2 {
-    xe2 a();
+public interface df2 extends JSRuntime, r62, TypedCallbackHandler {
+    JsSerializeValue B(byte[] bArr, boolean z);
 
-    boolean b();
+    byte[] K(JsSerializeValue jsSerializeValue, boolean z);
 
-    boolean c(String str, String str2, String str3);
+    void a0(String str, String str2);
+
+    qf2 d0();
+
+    boolean dispatchEvent(JSEvent jSEvent);
+
+    String getInitBasePath();
+
+    int getInvokeSourceType();
+
+    EventTarget n();
+
+    boolean post(Runnable runnable);
+
+    @Override // com.baidu.searchbox.v8engine.JSRuntime
+    void postOnJSThread(Runnable runnable);
+
+    @Override // com.baidu.searchbox.v8engine.JSRuntime
+    void runOnJSThread(Runnable runnable);
+
+    void setPreferredFramesPerSecond(short s);
+
+    void throwJSException(JSExceptionType jSExceptionType, String str);
+
+    EventTarget v();
+
+    mf2 w();
 }

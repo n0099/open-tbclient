@@ -1,28 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.searchbox.v8engine.JsObject;
 /* loaded from: classes4.dex */
-public class i74 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    @V8JavascriptField
-    public String errMsg;
+public interface i74 {
+    void a(JsObject jsObject);
 
-    public i74() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void b(JsObject jsObject);
+
+    void c(JsObject jsObject);
+
+    void d(JsObject jsObject);
+
+    void e(JsObject jsObject);
+
+    void f();
+
+    void g(JsObject jsObject);
+
+    void h(JsObject jsObject);
+
+    void i(JsObject jsObject);
+
+    void j();
+
+    void k(JsObject jsObject);
 }

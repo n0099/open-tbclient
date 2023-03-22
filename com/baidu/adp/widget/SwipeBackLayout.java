@@ -18,10 +18,12 @@ import android.widget.FrameLayout;
 import android.widget.Scroller;
 import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.MotionEventCompat;
+import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.hi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -79,9 +81,9 @@ public class SwipeBackLayout extends FrameLayout {
 
     /* loaded from: classes.dex */
     public interface c {
-        void H0();
+        void J0();
 
-        void j0();
+        void l0();
     }
 
     /* loaded from: classes.dex */
@@ -157,9 +159,42 @@ public class SwipeBackLayout extends FrameLayout {
         init(context);
     }
 
+    private void customDispatchDraw(Canvas canvas) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, canvas) == null) && (view2 = this.mContentView) != null) {
+            int i = this.mCurMotionX;
+            int bottom = view2.getBottom();
+            Rect rect = this.mColorRect;
+            rect.top = 0;
+            rect.bottom = bottom;
+            rect.left = 0;
+            rect.right = i;
+            canvas.clipRect(rect);
+            int i2 = this.mViewWidth;
+            if (i2 != 0) {
+                this.mAlphaBgColor = 100 - ((int) (((-this.mCurMotionX) / i2) * 120.0f));
+            }
+            if (this.mAlphaBgColor > 100) {
+                this.mAlphaBgColor = 100;
+            }
+            if (this.mIsFinish) {
+                this.mAlphaBgColor = 0;
+            }
+            if (this.mAlphaBgColor < 0) {
+                this.mAlphaBgColor = 0;
+            }
+            if (this.isTransparent) {
+                canvas.drawARGB(0, 0, 0, 0);
+            } else {
+                canvas.drawARGB(this.mAlphaBgColor, 0, 0, 0);
+            }
+        }
+    }
+
     private void determineDrag(MotionEvent motionEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, motionEvent) == null) {
+        if (interceptable == null || interceptable.invokeL(65541, this, motionEvent) == null) {
             int i = this.mActivePointerId;
             int pointerIndex = getPointerIndex(motionEvent, i);
             if (isInvalidEvent(motionEvent, pointerIndex, i)) {
@@ -184,14 +219,14 @@ public class SwipeBackLayout extends FrameLayout {
 
     private void init(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65545, this, context) == null) {
             this.mMarginThreshold = (int) TypedValue.applyDimension(1, 24.0f, getResources().getDisplayMetrics());
             this.mScroller = new Scroller(context, new a(1.5f));
             this.mTouchSlop = ViewConfiguration.get(context.getApplicationContext()).getScaledTouchSlop() * 2;
             this.mMaximumVelocity = ViewConfiguration.getMaximumFlingVelocity();
             this.mMinimumVelocity = ViewConfiguration.getMinimumFlingVelocity();
             this.mMoveDistance = (int) (context.getResources().getDisplayMetrics().density * 24.0f);
-            this.mFlingDistance = ej.l(context) / 4;
+            this.mFlingDistance = hi.l(context) / 4;
         }
     }
 
@@ -217,43 +252,6 @@ public class SwipeBackLayout extends FrameLayout {
         }
     }
 
-    @Override // android.view.ViewGroup, android.view.View
-    public void dispatchDraw(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
-            super.dispatchDraw(canvas);
-            View view2 = this.mContentView;
-            if (view2 != null) {
-                int i = this.mCurMotionX;
-                int bottom = view2.getBottom();
-                Rect rect = this.mColorRect;
-                rect.top = 0;
-                rect.bottom = bottom;
-                rect.left = 0;
-                rect.right = i;
-                canvas.clipRect(rect);
-                int i2 = this.mViewWidth;
-                if (i2 != 0) {
-                    this.mAlphaBgColor = 100 - ((int) (((-this.mCurMotionX) / i2) * 120.0f));
-                }
-                if (this.mAlphaBgColor > 100) {
-                    this.mAlphaBgColor = 100;
-                }
-                if (this.mIsFinish) {
-                    this.mAlphaBgColor = 0;
-                }
-                if (this.mAlphaBgColor < 0) {
-                    this.mAlphaBgColor = 0;
-                }
-                if (this.isTransparent) {
-                    canvas.drawARGB(0, 0, 0, 0);
-                } else {
-                    canvas.drawARGB(this.mAlphaBgColor, 0, 0, 0);
-                }
-            }
-        }
-    }
-
     public void forceChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
@@ -261,14 +259,14 @@ public class SwipeBackLayout extends FrameLayout {
                 this.mRealContentView.setBackgroundResource(R.color.transparent);
             } else if (this.mIsSupportNight) {
                 if (i == 1) {
-                    this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f06098e);
+                    this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060995);
                 } else if (i == 4) {
-                    this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f06098d);
+                    this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060994);
                 } else {
-                    this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f06098f);
+                    this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060996);
                 }
             } else {
-                this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f06098f);
+                this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060996);
             }
         }
     }
@@ -282,14 +280,14 @@ public class SwipeBackLayout extends FrameLayout {
             this.mRealContentView.setBackgroundResource(R.color.transparent);
         } else if (this.mIsSupportNight) {
             if (i == 1) {
-                this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f06098e);
+                this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060995);
             } else if (i == 4) {
-                this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f06098d);
+                this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060994);
             } else {
-                this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f06098f);
+                this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060996);
             }
         } else {
-            this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f06098f);
+            this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060996);
         }
     }
 
@@ -382,7 +380,7 @@ public class SwipeBackLayout extends FrameLayout {
 
     private void endDrag() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65542, this) == null) {
             this.mIsSilding = false;
             this.mActivePointerId = -1;
             releaseVelocityTracker();
@@ -392,7 +390,7 @@ public class SwipeBackLayout extends FrameLayout {
     private void releaseVelocityTracker() {
         VelocityTracker velocityTracker;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65547, this) == null) && (velocityTracker = this.mVelocityTracker) != null) {
+        if ((interceptable == null || interceptable.invokeV(65548, this) == null) && (velocityTracker = this.mVelocityTracker) != null) {
             velocityTracker.clear();
             this.mVelocityTracker.recycle();
             this.mVelocityTracker = null;
@@ -401,7 +399,7 @@ public class SwipeBackLayout extends FrameLayout {
 
     private void scrollOrigin() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65548, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65549, this) == null) {
             this.mIsScrolling = true;
             this.mScroller.startScroll(this.mContentView.getScrollX(), 0, -this.mContentView.getScrollX(), 0);
             postInvalidate();
@@ -410,7 +408,7 @@ public class SwipeBackLayout extends FrameLayout {
 
     private void scrollRight() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, this) == null) {
+        if (interceptable == null || interceptable.invokeV(65551, this) == null) {
             this.mIsScrolling = true;
             this.mScroller.startScroll(this.mContentView.getScrollX(), 0, (-(this.mViewWidth + this.mContentView.getScrollX())) + 1, 0);
             postInvalidate();
@@ -457,7 +455,7 @@ public class SwipeBackLayout extends FrameLayout {
     private int getDiffX(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, this, motionEvent)) == null) {
             int i = this.mActivePointerId;
             int pointerIndex = getPointerIndex(motionEvent, i);
             if (isInvalidEvent(motionEvent, pointerIndex, i)) {
@@ -471,7 +469,7 @@ public class SwipeBackLayout extends FrameLayout {
     private boolean processAutoEnableSwipe(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, this, motionEvent)) == null) {
             int action = motionEvent.getAction() & 255;
             if (action == 1 || action == 3) {
                 if (this.isAutoEnable) {
@@ -491,10 +489,27 @@ public class SwipeBackLayout extends FrameLayout {
 
     private void scrollOrigin(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65549, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(65550, this, i) == null) {
             this.mIsScrolling = true;
             this.mScroller.startScroll(this.mContentView.getScrollX(), 0, -this.mContentView.getScrollX(), 0, i);
             postInvalidate();
+        }
+    }
+
+    @Override // android.view.ViewGroup, android.view.View
+    public void dispatchDraw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
+            try {
+                super.dispatchDraw(canvas);
+                customDispatchDraw(canvas);
+            } catch (Exception e) {
+                DefaultLog.getInstance().c("SwipeBackLayout crash", e.getMessage());
+                if (!BdBaseApplication.getInst().isDebugMode()) {
+                    return;
+                }
+                throw e;
+            }
         }
     }
 
@@ -517,7 +532,7 @@ public class SwipeBackLayout extends FrameLayout {
                 if (this.isTransparent) {
                     this.mRealContentView.setBackgroundResource(R.color.transparent);
                 } else {
-                    this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f06098f);
+                    this.mRealContentView.setBackgroundResource(R.color.obfuscated_res_0x7f060996);
                 }
             }
             this.mIsSupportNight = z;
@@ -541,7 +556,7 @@ public class SwipeBackLayout extends FrameLayout {
     private int getPointerIndex(MotionEvent motionEvent, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, this, motionEvent, i)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, this, motionEvent, i)) == null) {
             int findPointerIndex = MotionEventCompat.findPointerIndex(motionEvent, i);
             if (findPointerIndex == -1) {
                 this.mActivePointerId = -1;
@@ -554,7 +569,7 @@ public class SwipeBackLayout extends FrameLayout {
     private boolean isInvalidEvent(MotionEvent motionEvent, int i, int i2) {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65545, this, motionEvent, i, i2)) == null) {
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65546, this, motionEvent, i, i2)) == null) {
             if (motionEvent == null || i2 == -1 || i == -1 || i >= motionEvent.getPointerCount()) {
                 return true;
             }

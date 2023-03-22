@@ -108,9 +108,8 @@ public class GamePersonalChatActivityConfig extends PersonalChatActivityConfig {
 
     public static void start(Context context, Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65539, null, context, map) != null) || map == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeLL(65539, null, context, map) == null) && context != null && map != null) {
+            new GamePersonalChatActivityConfig(context, map).start();
         }
-        new GamePersonalChatActivityConfig(context, map).start();
     }
 }

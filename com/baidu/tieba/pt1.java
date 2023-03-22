@@ -1,22 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.n82;
-import com.baidu.webkit.sdk.VideoPlayerFactory;
+import android.content.Context;
+import android.content.Intent;
 /* loaded from: classes5.dex */
 public interface pt1 {
-    int a();
+    boolean b(Context context, Intent intent, String str, String str2, String str3);
 
-    VideoPlayerFactory b();
+    boolean c();
 
-    int c();
-
-    void d(boolean z);
-
-    boolean e();
-
-    boolean f();
-
-    void g(int i);
-
-    void h(n82.c cVar);
+    boolean d();
 }

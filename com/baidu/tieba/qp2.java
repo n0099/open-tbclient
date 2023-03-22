@@ -8,17 +8,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-/* loaded from: classes5.dex */
-public class qp2 extends gn2<xp2> {
+/* loaded from: classes6.dex */
+public class qp2 extends nl2<eq2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.gn2
+    @Override // com.baidu.tieba.nl2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "unPublishLocalStream" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setMuted" : (String) invokeV.objValue;
     }
 
     public qp2() {
@@ -36,13 +36,17 @@ public class qp2 extends gn2<xp2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gn2
+    @Override // com.baidu.tieba.nl2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull xp2 xp2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull eq2 eq2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, xp2Var) == null) {
-            d(xp2Var, command.what, null, true);
-            xp2Var.f();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, eq2Var) == null) {
+            Object obj = command.obj;
+            if (obj instanceof Boolean) {
+                eq2Var.l(((Boolean) obj).booleanValue());
+                String str = command.what;
+                d(eq2Var, str, "setMuted:" + command.obj, false);
+            }
         }
     }
 }

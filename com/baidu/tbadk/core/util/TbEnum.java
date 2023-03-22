@@ -210,6 +210,7 @@ public abstract class TbEnum {
         public static final short MSG_CONTENT_TYPE_SHARE_CHATROOM = 37;
         public static final short MSG_CONTENT_TYPE_SHARE_FORUM = 33;
         public static final short MSG_CONTENT_TYPE_SHARE_THREAD = 32;
+        public static final short MSG_CONTENT_TYPE_SINGLE_TEXT_IMAGE = 102;
         public static final int MSG_CONTENT_TYPE_START_EGG_RAIN = 7016;
         public static final short MSG_CONTENT_TYPE_STRANGER_TIP = 8001;
         public static final int MSG_CONTENT_TYPE_SYSTEM_CURRENCY_TIPS = -7017;
@@ -226,6 +227,7 @@ public abstract class TbEnum {
         public static final int MSG_CONTENT_TYPE_SYSTEM_THRESHOLD_POST = 7011;
         public static final int MSG_CONTENT_TYPE_SYSTEM_THRESHOLD_VIEW = 7012;
         public static final int MSG_CONTENT_TYPE_SYSTEM_TIMESTAMP = -7013;
+        public static final int MSG_CONTENT_TYPE_SYSTEM_TIPS = 7017;
         public static final int MSG_CONTENT_TYPE_SYSTEM_UN_FROZEN = 7008;
         public static final int MSG_CONTENT_TYPE_SYSTEM_UN_MUZZLE = 7004;
         public static final int MSG_CONTENT_TYPE_SYSTEM_UN_MUZZLE_ALL = 7006;

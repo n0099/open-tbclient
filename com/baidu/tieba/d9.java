@@ -1,166 +1,42 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.Context;
-import android.os.Handler;
-import android.os.Looper;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.ColorMatrix;
+import android.graphics.ColorMatrixColorFilter;
+import android.graphics.Paint;
+import android.view.View;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.CopyOnWriteArrayList;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class d9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final d9 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile boolean a;
-    public jj1 b;
-    public long c;
-    public final Handler d;
-    public final CopyOnWriteArrayList<fm1> e;
 
-    /* loaded from: classes4.dex */
-    public interface b {
-        void onFailed();
-
-        void onSuccess();
-    }
-
-    /* loaded from: classes4.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ d9 b;
-
-        public a(d9 d9Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d9Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = d9Var;
-            this.a = i;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if ((this.a == 1 && ((float) (System.currentTimeMillis() - this.b.c)) < uj1.i() * 60000.0f) || !rj0.a().n()) {
-                    return;
-                }
-                if (this.b.b == null) {
-                    this.b.b = new jj1();
-                }
-                this.b.b.k();
-                this.b.c = System.currentTimeMillis();
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448301048, "Lcom/baidu/tieba/d9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448301048, "Lcom/baidu/tieba/d9;");
-                return;
-            }
-        }
-        f = new d9();
-    }
-
-    public static d9 f() {
-        InterceptResult invokeV;
+    public static void a(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return f;
-        }
-        return (d9) invokeV.objValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e.clear();
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !u51.b()) {
+        if ((interceptable != null && interceptable.invokeL(65536, null, view2) != null) || view2 == null) {
             return;
         }
-        Context b2 = rj0.b();
-        if (b2 instanceof Application) {
-            ((Application) b2).registerActivityLifecycleCallbacks(new nj1());
+        try {
+            view2.setLayerType(2, null);
+        } catch (Throwable th) {
+            BdLog.e(th.getMessage());
         }
     }
 
-    public boolean h() {
-        InterceptResult invokeV;
+    public static void b(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONObject d = hj1.a().d();
-            if (d == null || d.optBoolean("real_time_query_switch", true)) {
-                return true;
-            }
-            return false;
+        if ((interceptable != null && interceptable.invokeL(65537, null, view2) != null) || view2 == null) {
+            return;
         }
-        return invokeV.booleanValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public d9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = false;
-        this.d = new Handler(Looper.getMainLooper());
-        this.e = new CopyOnWriteArrayList<>();
-    }
-
-    public void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.d.postDelayed(new a(this, i), 5000L);
+        try {
+            Paint paint = new Paint();
+            ColorMatrix colorMatrix = new ColorMatrix();
+            colorMatrix.setSaturation(0.0f);
+            paint.setColorFilter(new ColorMatrixColorFilter(colorMatrix));
+            view2.setLayerType(2, paint);
+        } catch (Throwable th) {
+            BdLog.e(th.getMessage());
         }
     }
 }

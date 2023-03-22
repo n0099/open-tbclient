@@ -1,158 +1,146 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.res.ColorStateList;
-import android.graphics.drawable.Drawable;
-import android.os.Bundle;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.app.NotificationManagerCompat;
-import androidx.core.graphics.drawable.DrawableCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.MsgRemindActivityConfig;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.view.spanGroup.TbLinkSpanGroup;
+import com.baidu.tbadk.data.CardLinkInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class fx4 implements Application.ActivityLifecycleCallbacks {
+public class fx4 implements Comparable<fx4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public int a;
+    public int b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public boolean i;
+    public String j;
+    public String k;
+    public String l;
+    public String m;
+    public boolean n;
+    public int o;
+    public CardLinkInfoData p;
+    public int q;
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityPaused(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStarted(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStopped(@NonNull Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-
-        public a(fx4 fx4Var, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fx4Var, activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = activity;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (NotificationManagerCompat.from(this.a).areNotificationsEnabled()) {
-                    MsgRemindActivityConfig msgRemindActivityConfig = new MsgRemindActivityConfig(this.a);
-                    msgRemindActivityConfig.getIntent().putExtra("not_need_account", true);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, msgRemindActivityConfig));
-                    return;
-                }
-                ua5.d(this.a);
-            }
-        }
-    }
-
-    public fx4() {
+    public fx4(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = true;
+        this.a = i;
+        this.b = i2;
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityDestroyed(@NonNull Activity activity) {
+    public static fx4 b(TbLinkSpanGroup tbLinkSpanGroup, jb7 jb7Var) {
+        InterceptResult invokeLL;
+        String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) && activity != null && activity.getClass().getName().equals("com.baidu.sapi2.activity.LoginActivity")) {
-            this.a = true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, tbLinkSpanGroup, jb7Var)) == null) {
+            if (tbLinkSpanGroup == null) {
+                return null;
+            }
+            fx4 fx4Var = new fx4(tbLinkSpanGroup.e(), 2);
+            if (jb7Var == null) {
+                return fx4Var;
+            }
+            if (TextUtils.isEmpty(jb7Var.f())) {
+                str = TbadkCoreApplication.getInst().getString(R.string.web_page_link);
+            } else {
+                str = jb7Var.f() + TbadkCoreApplication.getInst().getString(R.string.commodity_link);
+            }
+            fx4Var.d = str;
+            fx4Var.c = jb7Var.c();
+            fx4Var.m = jb7Var.a();
+            if (!ListUtils.isEmpty(jb7Var.b()) && jb7Var.b().get(0) != null) {
+                fx4Var.e = jb7Var.b().get(0).a();
+            }
+            fx4Var.l = jb7Var.f();
+            fx4Var.f = jb7Var.d();
+            if (jb7Var.e() != null) {
+                fx4Var.j = jb7Var.e().a();
+                fx4Var.k = jb7Var.e().b();
+            }
+            tbLinkSpanGroup.B(fx4Var);
+            return fx4Var;
         }
+        return (fx4) invokeLL.objValue;
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityResumed(@NonNull Activity activity) {
+    public static fx4 c(TbLinkSpanGroup tbLinkSpanGroup, k55 k55Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, activity) == null) && activity != null && activity.getClass().getName().equals("com.baidu.sapi2.activity.LoginActivity") && this.a) {
-            this.a = false;
-            FrameLayout frameLayout = (FrameLayout) activity.getWindow().getDecorView().findViewById(16908290);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ej.d(activity, 20.0f), ej.d(activity, 20.0f));
-            layoutParams.addRule(11);
-            layoutParams.rightMargin = ej.g(activity, R.dimen.tbds42);
-            layoutParams.topMargin = ej.g(activity, R.dimen.tbds117) - ej.u(activity);
-            ImageView imageView = new ImageView(activity);
-            imageView.setLayoutParams(layoutParams);
-            imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
-            Drawable drawable = SvgManager.getInstance().getDrawable(R.drawable.icon_login_setting_svg, 1, false);
-            ColorStateList colorListByResourceType = SvgManager.SvgResourceStateType.NORMAL_PRESS.getColorListByResourceType(SkinManager.getColor(4, null, R.color.CAM_X0105));
-            if (colorListByResourceType != null && drawable != null) {
-                drawable = drawable.mutate();
-                DrawableCompat.setTintList(drawable, colorListByResourceType);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, tbLinkSpanGroup, k55Var)) == null) {
+            if (tbLinkSpanGroup == null) {
+                return null;
             }
-            imageView.setImageDrawable(drawable);
-            RelativeLayout relativeLayout = (RelativeLayout) frameLayout.findViewById(R.id.obfuscated_res_0x7f091f21);
-            if (relativeLayout == null) {
-                return;
+            boolean z = true;
+            fx4 fx4Var = new fx4(tbLinkSpanGroup.e(), 1);
+            if (k55Var == null) {
+                return fx4Var;
             }
-            relativeLayout.addView(imageView);
-            imageView.setOnClickListener(new a(this, activity));
+            int i = k55Var.b;
+            if (i == 4) {
+                CardLinkInfoData cardLinkInfoData = k55Var.j;
+                if (cardLinkInfoData != null) {
+                    fx4Var.p = cardLinkInfoData;
+                    fx4Var.c = cardLinkInfoData.title;
+                    fx4Var.e = cardLinkInfoData.imageUrl;
+                    fx4Var.l = cardLinkInfoData.tagText;
+                    fx4Var.g = cardLinkInfoData.url;
+                    fx4Var.i = false;
+                    fx4Var.o = i;
+                }
+            } else {
+                fx4Var.p = k55Var.j;
+                fx4Var.c = k55Var.e;
+                fx4Var.e = k55Var.d;
+                fx4Var.l = k55Var.f;
+                fx4Var.f = k55Var.g;
+                fx4Var.g = k55Var.c;
+                fx4Var.n = k55Var.h;
+                String str = k55Var.i;
+                if (i != 1 && i != 5) {
+                    z = false;
+                }
+                fx4Var.i = z;
+                fx4Var.o = k55Var.b;
+            }
+            tbLinkSpanGroup.B(fx4Var);
+            return fx4Var;
         }
+        return (fx4) invokeLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(@NonNull fx4 fx4Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, fx4Var)) == null) {
+            return this.q - fx4Var.q;
+        }
+        return invokeL.intValue;
     }
 }

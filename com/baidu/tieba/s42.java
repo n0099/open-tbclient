@@ -1,224 +1,133 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.Editable;
-import android.text.InputFilter;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
-import com.baidu.swan.apps.component.components.textarea.SwanEditText;
-import com.baidu.tieba.t42;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public abstract class s42<V extends SwanEditText, M extends t42> extends x42<V, M> {
+public class s42 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final Map<String, yt1> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s42(@Nullable Context context, @NonNull M m) {
-        super(context, m);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, m};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (y42) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948101368, "Lcom/baidu/tieba/s42;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948101368, "Lcom/baidu/tieba/s42;");
                 return;
             }
         }
+        a = do1.a;
+        b = new HashMap(2);
     }
 
-    public void f0(@NonNull V v, @NonNull M m) {
-        int i;
+    public static void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, v, m) == null) {
-            if (b52.h) {
-                Log.d("Component-EditText", "renderSelection");
-            }
-            Editable text = v.getText();
-            int i2 = 0;
-            if (text != null) {
-                i2 = text.length();
-            }
-            int i3 = m.H;
-            if (i3 <= i2 && (i = m.G) >= 0 && i <= i3) {
-                v.setSelection(i, i3);
-            }
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) && c()) {
+            b();
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.z42
-    /* renamed from: b0 */
-    public void Q(@NonNull V v, @NonNull M m) {
+    public static yt1 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, v, m) == null) {
-            if (b52.h) {
-                Log.d("Component-EditText", "renderBackground");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a) {
+                Log.d("ConsoleCache", "create new sConsole");
             }
-            v.setBackgroundColor(0);
+            t42.n(true);
+            return ne2.U().f0().b(AppRuntime.getAppContext());
         }
+        return (yt1) invokeV.objValue;
     }
 
-    public void d0(@NonNull V v, @NonNull M m) {
+    public static boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, v, m) == null) {
-            if (b52.h) {
-                Log.d("Component-EditText", "renderCursor");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            t73 b0 = t73.b0();
+            if (b0 != null && !TextUtils.isEmpty(b0.b)) {
+                return r42.b(vz1.a(b0.b));
             }
-            Editable text = v.getText();
-            int i = 0;
-            if (text != null) {
-                i = text.length();
+            if (a) {
+                Log.w("ConsoleCache", "swanApp is null or appId is empty");
+                return false;
             }
-            int i2 = m.F;
-            if (i2 <= i && i2 >= 0) {
-                v.setSelection(i2);
-            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public final void e0(@NonNull V v, @NonNull M m) {
+    /* JADX WARN: Removed duplicated region for block: B:15:0x002d A[Catch: all -> 0x006f, TryCatch #0 {, blocks: (B:6:0x0007, B:8:0x000d, B:11:0x0018, B:13:0x001f, B:15:0x002d, B:17:0x003d, B:18:0x0053, B:20:0x0057), top: B:30:0x0007 }] */
+    /* JADX WARN: Removed duplicated region for block: B:20:0x0057 A[Catch: all -> 0x006f, TRY_LEAVE, TryCatch #0 {, blocks: (B:6:0x0007, B:8:0x000d, B:11:0x0018, B:13:0x001f, B:15:0x002d, B:17:0x003d, B:18:0x0053, B:20:0x0057), top: B:30:0x0007 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static synchronized yt1 b() {
+        InterceptResult invokeV;
+        String str;
+        yt1 yt1Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048587, this, v, m) == null) {
-            if (b52.h) {
-                Log.d("Component-EditText", "renderMaxLength");
-            }
-            if (m.D >= 0) {
-                v.setFilters(new InputFilter[]{new InputFilter.LengthFilter(m.D)});
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.x42, com.baidu.tieba.z42, com.baidu.tieba.b52
-    @NonNull
-    /* renamed from: Z */
-    public e62 k(@NonNull M m, @NonNull M m2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, m, m2)) == null) {
-            e62 k = super.k(m, m2);
-            if (q() != 0 && !TextUtils.equals(((SwanEditText) q()).getText().toString(), m2.t)) {
-                k.b(6);
-            }
-            if (m.D != m2.D) {
-                k.b(10);
-            }
-            if (m.F != m2.F) {
-                k.b(11);
-            }
-            if (m.G != m2.G || m.H != m2.H) {
-                k.b(12);
-            }
-            if (!TextUtils.equals(m.I, m2.I)) {
-                k.b(13);
-            }
-            return k;
-        }
-        return (e62) invokeLL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.x42
-    /* renamed from: a0 */
-    public void T(@NonNull V v, @NonNull M m, @NonNull e62 e62Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048583, this, v, m, e62Var) == null) {
-            super.O(v, m, e62Var);
-            if (e62Var.a(11)) {
-                d0(v, m);
-            }
-            if (e62Var.a(12)) {
-                f0(v, m);
-            }
-            if (e62Var.a(10)) {
-                e0(v, m);
-            }
-            if (e62Var.a(13)) {
-                c0(v, m);
-            }
-        }
-    }
-
-    public boolean c0(@NonNull V v, @NonNull M m) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, v, m)) == null) {
-            if (b52.h) {
-                Log.d("Component-EditText", "renderConfirmType:" + m.I);
-            }
-            String str = m.I;
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -906336856:
-                    if (str.equals("search")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case SpeedStatsStampTable.AD_LOAD_BEAR_END_STAMP_KEY /* 3304 */:
-                    if (str.equals("go")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 3089282:
-                    if (str.equals("done")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case 3377907:
-                    if (str.equals(UnitedSchemeConstants.UNITED_SCHEME_NEXT)) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 3526536:
-                    if (str.equals("send")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (c != 3) {
-                            if (c != 4) {
-                                return false;
-                            }
-                            v.setImeOptions(6);
-                        } else {
-                            v.setImeOptions(2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (s42.class) {
+                t73 b0 = t73.b0();
+                if (b0 != null && !TextUtils.isEmpty(b0.getAppId())) {
+                    str = b0.getAppId();
+                    String a2 = vz1.a(str);
+                    yt1Var = b.get(a2);
+                    if (yt1Var == null) {
+                        e();
+                        yt1Var = a();
+                        b.put(a2, yt1Var);
+                        if (a) {
+                            Log.d("ConsoleCache", "can not find sconsole for appId - " + str);
                         }
-                    } else {
-                        v.setImeOptions(5);
                     }
-                } else {
-                    v.setImeOptions(3);
+                    if (a) {
+                        Log.d("ConsoleCache", "get sconsole for appId - " + str);
+                    }
                 }
-            } else {
-                v.setImeOptions(4);
+                str = "_no_id_";
+                String a22 = vz1.a(str);
+                yt1Var = b.get(a22);
+                if (yt1Var == null) {
+                }
+                if (a) {
+                }
             }
-            return true;
+            return yt1Var;
         }
-        return invokeLL.booleanValue;
+        return (yt1) invokeV.objValue;
+    }
+
+    public static synchronized void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            synchronized (s42.class) {
+                if (b.size() > 0) {
+                    for (String str : b.keySet()) {
+                        yt1 yt1Var = b.get(str);
+                        if (yt1Var != null) {
+                            yt1Var.E();
+                        }
+                    }
+                    b.clear();
+                }
+            }
+        }
     }
 }

@@ -1,454 +1,234 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
 import android.content.Context;
-import android.database.Cursor;
-import android.database.SQLException;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import android.text.TextUtils;
+import android.content.SharedPreferences;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
+import java.util.Map;
+import java.util.Set;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class m90 extends SQLiteOpenHelper {
+public class m90 implements SharedPreferences {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile m90 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ReentrantReadWriteLock a;
+    public SharedPreferences a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m90(Context context) {
-        super(context, "blcp_track.db", (SQLiteDatabase.CursorFactory) null, 1);
+    @JvmOverloads
+    public m90(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {context, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ReentrantReadWriteLock(true);
+        this.a = context.getSharedPreferences(str, 0);
     }
 
-    public static void d(Cursor cursor) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, cursor) == null) && cursor != null) {
-            try {
-                if (!cursor.isClosed()) {
-                    cursor.close();
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static m90 j(Context context) {
+    @Override // android.content.SharedPreferences
+    public boolean contains(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            if (b == null) {
-                synchronized (m90.class) {
-                    if (b == null) {
-                        b = new m90(context);
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
             }
-            return b;
+            return sharedPreferences.contains(str);
         }
-        return (m90) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+    public final void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase) == null) {
-            try {
-                sQLiteDatabase.execSQL("CREATE TABLE flow (_id INTEGER PRIMARY KEY AUTOINCREMENT,flowid TEXT,flowhandle TEXT,begintime LONG,endtime LONG,detail TEXT,state INTEGER,ext TEXT );");
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
             }
+            sharedPreferences.edit().remove(str).apply();
         }
     }
 
-    public final boolean a(int i, int i2, SQLiteDatabase sQLiteDatabase) {
-        InterceptResult invokeIIL;
+    @Override // android.content.SharedPreferences
+    public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048576, this, i, i2, sQLiteDatabase)) == null) {
-            this.a.writeLock().lock();
-            Cursor cursor = null;
-            boolean z = false;
-            try {
-                try {
-                    cursor = sQLiteDatabase.rawQuery("SELECT flowid FROM flow WHERE flowid = " + i + " AND flowhandle = " + i2, null);
-                    if (cursor != null) {
-                        if (cursor.getCount() > 0) {
-                            z = true;
-                        }
-                    }
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-                d(cursor);
-                this.a.writeLock().unlock();
-                aa0.a("TrackDBHelper", "flow checkFlowExist:" + z);
-                return z;
-            } catch (Throwable th) {
-                d(cursor);
-                this.a.writeLock().unlock();
-                throw th;
+        if (interceptable == null || interceptable.invokeL(1048589, this, onSharedPreferenceChangeListener) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
             }
+            sharedPreferences.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
         }
-        return invokeIIL.booleanValue;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, IGET, INVOKE, INVOKE, INVOKE, IGET, INVOKE, INVOKE] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x0073, code lost:
-        if (r1 == null) goto L10;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:16:0x0075, code lost:
-        r1.endTransaction();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x0078, code lost:
-        r8.a.writeLock().unlock();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:18:0x0081, code lost:
-        return;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:9:0x006a, code lost:
-        if (r1 != null) goto L13;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void c() {
+    @Override // android.content.SharedPreferences
+    public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.writeLock().lock();
-            SQLiteDatabase sQLiteDatabase = null;
-            try {
-                try {
-                    sQLiteDatabase = getWritableDatabase();
-                    sQLiteDatabase.beginTransactionNonExclusive();
-                    int delete = sQLiteDatabase.delete("flow", "begintime < ? AND ? != ?", new String[]{String.valueOf(System.currentTimeMillis() - 604800000), "state", String.valueOf(1)});
-                    aa0.a("TrackDBHelper", "clear expired flow cout:" + delete);
-                    if (delete > 0) {
-                        aa0.a("TrackDBHelper", "删除过期数据count:" + delete);
-                    }
-                    sQLiteDatabase.setTransactionSuccessful();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            } catch (Throwable th) {
-                if (sQLiteDatabase != null) {
-                    sQLiteDatabase.endTransaction();
-                }
-                this.a.writeLock().unlock();
-                throw th;
+        if (interceptable == null || interceptable.invokeL(1048590, this, onSharedPreferenceChangeListener) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
             }
+            sharedPreferences.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
         }
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, IGET, INVOKE, INVOKE, INVOKE, IGET, INVOKE, INVOKE] complete} */
-    /* JADX WARN: Code restructure failed: missing block: B:17:0x009d, code lost:
-        if (r0 != null) goto L22;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:23:0x00a6, code lost:
-        if (r0 == null) goto L19;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x00a8, code lost:
-        r0.endTransaction();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:25:0x00ab, code lost:
-        r5.a.writeLock().unlock();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:26:0x00b4, code lost:
-        return;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void e(String str, List<String> list) {
+    public final void d(String str, boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, list) == null) && !TextUtils.isEmpty(str) && list != null && list.size() > 0) {
-            this.a.writeLock().lock();
-            SQLiteDatabase sQLiteDatabase = null;
-            try {
-                try {
-                    sQLiteDatabase = getWritableDatabase();
-                    sQLiteDatabase.beginTransactionNonExclusive();
-                    int size = list.size();
-                    ArrayList arrayList = new ArrayList();
-                    for (int i = 0; i < size; i++) {
-                        arrayList.add("?");
-                    }
-                    int delete = sQLiteDatabase.delete("flow", "flowid = " + str + " AND flowhandle IN (" + TextUtils.join(",", arrayList) + SmallTailInfo.EMOTION_SUFFIX, (String[]) list.toArray(new String[list.size()]));
-                    sQLiteDatabase.setTransactionSuccessful();
-                    if (delete > 0) {
-                        aa0.a("TrackDBHelper", "flow 删除：" + list.toString() + " success");
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            } catch (Throwable th) {
-                if (sQLiteDatabase != null) {
-                    sQLiteDatabase.endTransaction();
-                }
-                this.a.writeLock().unlock();
-                throw th;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
             }
+            sharedPreferences.edit().putBoolean(str, z).apply();
         }
     }
 
-    public List<y80> g(String str, int i) {
+    public final void e(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
+            }
+            sharedPreferences.edit().putLong(str, j).apply();
+        }
+    }
+
+    public final void f(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
+            }
+            sharedPreferences.edit().putString(str, str2).apply();
+        }
+    }
+
+    @Override // android.content.SharedPreferences
+    public boolean getBoolean(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048583, this, str, z)) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
+            }
+            return sharedPreferences.getBoolean(str, z);
+        }
+        return invokeLZ.booleanValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public float getFloat(String str, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, f)) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
+            }
+            return sharedPreferences.getFloat(str, f);
+        }
+        return invokeLF.floatValue;
+    }
+
+    @Override // android.content.SharedPreferences
+    public int getInt(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, str, i)) == null) {
-            ArrayList arrayList = new ArrayList();
-            ArrayList arrayList2 = new ArrayList();
-            if (TextUtils.isEmpty(str)) {
-                return arrayList2;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, str, i)) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
             }
-            String str2 = "SELECT * FROM flow WHERE flowid=\"" + str + "\" AND state = 1  limit " + i;
-            aa0.a("TrackDBHelper", "flow getAllData querySql:" + str2);
-            this.a.readLock().lock();
-            Cursor cursor = null;
-            try {
-                try {
-                    cursor = getReadableDatabase().rawQuery(str2, null);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                if (cursor != null && cursor.getCount() > 0) {
-                    cursor.moveToFirst();
-                    int columnIndex = cursor.getColumnIndex("flowhandle");
-                    int columnIndex2 = cursor.getColumnIndex("detail");
-                    do {
-                        arrayList2.add(new y80(str, cursor.getString(columnIndex), cursor.getString(columnIndex2)));
-                        arrayList.add(cursor.getString(columnIndex2));
-                    } while (cursor.moveToNext());
-                    aa0.a("TrackDBHelper", "flow flowID:" + str + ", get data from db count:" + arrayList.size() + ",flow detail:" + arrayList.toString());
-                    d(cursor);
-                    this.a.readLock().unlock();
-                    aa0.a("TrackDBHelper", "flow uploadData SIZE:" + arrayList2.size());
-                    return arrayList2;
-                }
-                aa0.a("TrackDBHelper", "flow flowID:" + str + ", get data from db count:" + arrayList.size() + ",flow detail:" + arrayList.toString());
-                d(cursor);
-                this.a.readLock().unlock();
-                aa0.a("TrackDBHelper", "flow uploadData SIZE:" + arrayList2.size());
-                return arrayList2;
-            } catch (Throwable th) {
-                d(cursor);
-                this.a.readLock().unlock();
-                throw th;
-            }
+            return sharedPreferences.getInt(str, i);
         }
-        return (List) invokeLI.objValue;
+        return invokeLI.intValue;
     }
 
-    public void f(t80 t80Var) {
-        SQLiteDatabase writableDatabase;
+    @Override // android.content.SharedPreferences
+    public long getLong(String str, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, t80Var) == null) {
-            if (t80Var == null) {
-                aa0.a("TrackDBHelper", "flowData is null");
-                return;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048586, this, str, j)) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
             }
-            this.a.writeLock().lock();
-            aa0.a("TrackDBHelper", "flow insert to db:" + t80Var.g());
-            SQLiteDatabase sQLiteDatabase = null;
-            try {
-                try {
-                    writableDatabase = getWritableDatabase();
-                } catch (SQLException e) {
-                    e = e;
-                }
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                writableDatabase.beginTransactionNonExclusive();
-                if (a(t80Var.a, t80Var.b, writableDatabase)) {
-                    ContentValues h = h(t80Var);
-                    String str = "flowid = " + t80Var.a + " AND flowhandle = " + t80Var.b;
-                    aa0.a("TrackDBHelper", "flow update where:" + str);
-                    aa0.a("TrackDBHelper", "endFlow update count:" + writableDatabase.update("flow", h, str, null));
-                }
-                writableDatabase.setTransactionSuccessful();
-                if (writableDatabase != null) {
-                    writableDatabase.endTransaction();
-                }
-            } catch (SQLException e2) {
-                e = e2;
-                sQLiteDatabase = writableDatabase;
-                e.printStackTrace();
-                if (sQLiteDatabase != null) {
-                    sQLiteDatabase.endTransaction();
-                }
-                this.a.writeLock().unlock();
-            } catch (Throwable th2) {
-                th = th2;
-                sQLiteDatabase = writableDatabase;
-                if (sQLiteDatabase != null) {
-                    sQLiteDatabase.endTransaction();
-                }
-                this.a.writeLock().unlock();
-                throw th;
-            }
-            this.a.writeLock().unlock();
+            return sharedPreferences.getLong(str, j);
         }
+        return invokeLJ.longValue;
     }
 
-    public final ContentValues h(t80 t80Var) {
-        InterceptResult invokeL;
+    @Override // android.content.SharedPreferences
+    public String getString(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, t80Var)) == null) {
-            ContentValues contentValues = new ContentValues();
-            if (t80Var != null) {
-                contentValues.put("flowid", Integer.valueOf(t80Var.a));
-                contentValues.put("flowhandle", Integer.valueOf(t80Var.b));
-                contentValues.put("begintime", Long.valueOf(t80Var.c));
-                contentValues.put("endtime", Long.valueOf(t80Var.d));
-                contentValues.put("detail", t80Var.f());
-                if (t80Var.d == 0) {
-                    contentValues.put("state", (Integer) 0);
-                } else {
-                    contentValues.put("state", (Integer) 1);
-                }
-                contentValues.put("ext", "");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
             }
-            return contentValues;
+            return sharedPreferences.getString(str, str2);
         }
-        return (ContentValues) invokeL.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    public int i(String str) {
-        InterceptResult invokeL;
+    @Override // android.content.SharedPreferences
+    public Set<String> getStringSet(String str, Set<String> set) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            String str2 = "SELECT COUNT(*) FROM flow WHERE flowid=\"" + str + "\" AND state = 1 ";
-            this.a.readLock().lock();
-            Cursor cursor = null;
-            int i = 0;
-            try {
-                try {
-                    cursor = getReadableDatabase().rawQuery(str2, null);
-                    if (cursor != null) {
-                        cursor.moveToFirst();
-                        i = cursor.getInt(0);
-                    }
-                    aa0.a("TrackDBHelper", "flow getEndedFlowCount:" + i);
-                } catch (SQLException e) {
-                    e.printStackTrace();
-                }
-                return i;
-            } finally {
-                d(cursor);
-                this.a.readLock().unlock();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, set)) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
             }
+            return sharedPreferences.getStringSet(str, set);
         }
-        return invokeL.intValue;
+        return (Set) invokeLL.objValue;
     }
 
-    public void k(t80 t80Var) {
-        ContentValues h;
-        SQLiteDatabase writableDatabase;
+    @Override // android.content.SharedPreferences
+    public SharedPreferences.Editor edit() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, t80Var) == null) {
-            if (t80Var == null) {
-                aa0.a("TrackDBHelper", "flow must not be null");
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
             }
-            this.a.writeLock().lock();
-            SQLiteDatabase sQLiteDatabase = null;
-            SQLiteDatabase sQLiteDatabase2 = null;
-            SQLiteDatabase sQLiteDatabase3 = null;
-            try {
-                try {
-                    h = h(t80Var);
-                    writableDatabase = getWritableDatabase();
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (Exception e) {
-                e = e;
-            }
-            try {
-                writableDatabase.beginTransactionNonExclusive();
-                if (!a(t80Var.a, t80Var.b, writableDatabase)) {
-                    long insert = writableDatabase.insert("flow", null, h);
-                    aa0.a("TrackDBHelper", "flow saveFlow,rowId:" + insert);
-                    sQLiteDatabase2 = insert;
-                }
-                writableDatabase.setTransactionSuccessful();
-                sQLiteDatabase = sQLiteDatabase2;
-                if (writableDatabase != null) {
-                    writableDatabase.endTransaction();
-                    sQLiteDatabase = sQLiteDatabase2;
-                }
-            } catch (Exception e2) {
-                e = e2;
-                sQLiteDatabase3 = writableDatabase;
-                e.printStackTrace();
-                sQLiteDatabase = sQLiteDatabase3;
-                if (sQLiteDatabase3 != null) {
-                    sQLiteDatabase3.endTransaction();
-                    sQLiteDatabase = sQLiteDatabase3;
-                }
-                this.a.writeLock().unlock();
-            } catch (Throwable th2) {
-                th = th2;
-                sQLiteDatabase = writableDatabase;
-                if (sQLiteDatabase != null) {
-                    sQLiteDatabase.endTransaction();
-                }
-                this.a.writeLock().unlock();
-                throw th;
-            }
-            this.a.writeLock().unlock();
+            return sharedPreferences.edit();
         }
+        return (SharedPreferences.Editor) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE] complete} */
-    @Override // android.database.sqlite.SQLiteOpenHelper
-    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+    @Override // android.content.SharedPreferences
+    public Map<String, ?> getAll() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048585, this, sQLiteDatabase, i, i2) == null) {
-            try {
-                sQLiteDatabase.beginTransaction();
-                while (i < i2) {
-                    i++;
-                }
-                sQLiteDatabase.setTransactionSuccessful();
-                if (sQLiteDatabase == null) {
-                }
-            } catch (Throwable th) {
-                try {
-                    th.printStackTrace();
-                } finally {
-                    if (sQLiteDatabase != null) {
-                        sQLiteDatabase.endTransaction();
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            SharedPreferences sharedPreferences = this.a;
+            if (sharedPreferences == null) {
+                Intrinsics.throwNpe();
             }
+            return sharedPreferences.getAll();
         }
+        return (Map) invokeV.objValue;
     }
 }

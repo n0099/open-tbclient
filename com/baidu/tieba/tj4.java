@@ -1,84 +1,183 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.content.SharedPreferences;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class tj4 extends yi4 {
+public class tj4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Set<String> c;
+    public static volatile tj4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public oj4 a;
-    public boolean b;
+    public a a;
+    public volatile Set<String> b;
 
-    public tj4(oj4 oj4Var, boolean z) {
+    /* loaded from: classes6.dex */
+    public static class a extends do4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a() {
+            super("updatecore_node_nohistoryapps");
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948183115, "Lcom/baidu/tieba/tj4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948183115, "Lcom/baidu/tieba/tj4;");
+                return;
+            }
+        }
+        c = new HashSet();
+        d = null;
+        c.add("sc9Tq1iKawTnj5GhG6i77vzeIt4Crt5u");
+        c.add("g4X7FfGEDt7G1ksLibU22o0wB2p49W0D");
+        c.add("VlKQRMSyT32ln2AG84dmTjW6qldpGsNk");
+        c.add("pjwYb22xF6hUcKpZKsiqvnhUhsoUvLfT");
+    }
+
+    public tj4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {oj4Var, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = oj4Var;
-        this.b = z;
+        this.b = null;
+        this.a = new a();
+        d();
     }
 
-    @Override // com.baidu.tieba.yi4
-    public oj4 a() {
+    public static tj4 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (tj4.class) {
+                    if (d == null) {
+                        d = new tj4();
+                    }
+                }
+            }
+            return d;
+        }
+        return (tj4) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.getString("version", "0");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (oj4) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.yi4
-    public boolean b(oj4 oj4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, oj4Var)) == null) {
-            oj4 oj4Var2 = this.a;
-            if (oj4Var2 == oj4Var) {
-                return true;
+            Set<String> set = c;
+            if (this.b != null) {
+                set = this.b;
             }
-            return oj4Var2.d(oj4Var);
+            String[] strArr = new String[set.size()];
+            int i = 0;
+            for (String str : set) {
+                strArr[i] = str;
+                i++;
+            }
+            return strArr;
         }
-        return invokeL.booleanValue;
+        return (String[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.yi4
-    public void c(boolean z) {
+    public final void d() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) || this.b) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            String string = this.a.getString("appids", "");
+            if (TextUtils.isEmpty(string)) {
+                return;
+            }
+            try {
+                JSONArray jSONArray = new JSONArray(string);
+                HashSet hashSet = new HashSet();
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    hashSet.add(jSONArray.optString(i));
+                }
+                this.b = hashSet;
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void e(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        JSONArray optJSONArray;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        if (z) {
-            oj4 oj4Var = this.a;
-            oj4Var.a.b.b = 0L;
-            oj4Var.b(0);
+        String optString = jSONObject.optString("version");
+        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || (optJSONArray = optJSONObject.optJSONArray("appids")) == null) {
+            return;
         }
-        mj4.b().f(this.a);
+        f(optJSONArray, optString);
     }
 
-    @Override // com.baidu.tieba.yi4
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
+    public final void f(JSONArray jSONArray, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "isAttached=" + this.b + " " + super.toString();
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, jSONArray, str) == null) && jSONArray != null && !TextUtils.isEmpty(str)) {
+            HashSet hashSet = new HashSet();
+            for (int i = 0; i < jSONArray.length(); i++) {
+                hashSet.add(jSONArray.optString(i));
+            }
+            this.b = hashSet;
+            SharedPreferences.Editor edit = this.a.edit();
+            edit.clear();
+            edit.putString("version", str);
+            edit.putString("appids", jSONArray.toString());
+            edit.apply();
         }
-        return (String) invokeV.objValue;
     }
 }

@@ -1,26 +1,24 @@
 package com.baidu.tieba;
 
-import android.webkit.JavascriptInterface;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.annotation.Annotation;
-import java.lang.reflect.Method;
+import java.util.HashMap;
+import org.xml.sax.Attributes;
 /* loaded from: classes7.dex */
-public abstract class yb6 implements wb6 {
+public class yb6 extends xb6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public boolean d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.xb6
+    public void a(boolean z, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return true;
+        if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
         }
-        return invokeV.booleanValue;
     }
 
     public yb6() {
@@ -37,31 +35,25 @@ public abstract class yb6 implements wb6 {
         }
     }
 
-    public boolean c(Class<?> cls) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.xb6
+    public void b(boolean z, String str, Attributes attributes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
-            boolean z = false;
-            for (Method method : cls.getMethods()) {
-                Annotation[] annotations = method.getAnnotations();
-                int length = annotations.length;
-                int i = 0;
-                while (true) {
-                    if (i >= length) {
-                        break;
-                    } else if (annotations[i] instanceof JavascriptInterface) {
-                        z = true;
-                        break;
-                    } else {
-                        i++;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, attributes}) == null) {
+            String value = attributes.getValue("", NativeConstants.HREF);
+            if (TextUtils.equals(attributes.getValue("", "rel"), "stylesheet") && !TextUtils.isEmpty(value)) {
+                String str2 = "http";
+                if (!value.startsWith("http")) {
+                    StringBuilder sb = new StringBuilder();
+                    if (z) {
+                        str2 = "https";
                     }
+                    sb.append(str2);
+                    sb.append(":");
+                    sb.append(value);
+                    value = sb.toString();
                 }
-                if (z) {
-                    break;
-                }
+                bc6.g().b(value, value, new HashMap());
             }
-            return z;
         }
-        return invokeL.booleanValue;
     }
 }

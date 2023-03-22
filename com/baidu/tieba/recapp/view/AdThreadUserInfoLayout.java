@@ -85,10 +85,10 @@ public class AdThreadUserInfoLayout extends CardUserInfoLayout {
     }
 
     @Override // com.baidu.card.view.CardUserInfoLayout
-    public void f() {
+    public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.f();
+            super.g();
             AfterAdjustChildWidthListener afterAdjustChildWidthListener = this.U;
             if (afterAdjustChildWidthListener != null) {
                 afterAdjustChildWidthListener.afterChildWidth();

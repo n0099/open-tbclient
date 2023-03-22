@@ -48,7 +48,7 @@ public final class d extends com.kwad.components.ad.reward.presenter.a implement
         }
         k kVar = this.nM;
         bVar.a(frameLayout, kVar.mRootContainer, adTemplate, kVar.mApkDownloadHelper, kVar.mScreenOrientation);
-        this.mn.a((b.InterfaceC0550b) null);
+        this.mn.a((b.InterfaceC0555b) null);
         ViewGroup.LayoutParams layoutParams = this.sF.getLayoutParams();
         ViewGroup.MarginLayoutParams marginLayoutParams = layoutParams instanceof ViewGroup.MarginLayoutParams ? (ViewGroup.MarginLayoutParams) layoutParams : null;
         if (marginLayoutParams != null) {
@@ -98,7 +98,7 @@ public final class d extends com.kwad.components.ad.reward.presenter.a implement
         FrameLayout frameLayout = this.bS;
         k kVar2 = this.nM;
         bVar.a(frameLayout, kVar2.mRootContainer, adTemplate, kVar2.mApkDownloadHelper, kVar2.mScreenOrientation);
-        this.bb.a((b.InterfaceC0550b) null);
+        this.bb.a((b.InterfaceC0555b) null);
         com.kwad.components.ad.i.b bVar2 = this.nM.mn;
         this.mn = bVar2;
         if (bVar2 != null) {
@@ -110,9 +110,9 @@ public final class d extends com.kwad.components.ad.reward.presenter.a implement
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.bS = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091371);
-        this.sF = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091252);
-        this.mDetailVideoView = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f091361);
+        this.bS = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0913a3);
+        this.sF = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091284);
+        this.mDetailVideoView = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f091393);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

@@ -1,295 +1,189 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.ThreadCardView;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.pb.pb.main.AbsPbActivity;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class xf8 {
     public static /* synthetic */ Interceptable $ic;
-    public static xf8 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public boolean c;
-    public int d;
-    public int e;
+    public BdTypeRecyclerView a;
+    public final List<tm> b;
+    public List<gn> c;
+    public wf8 d;
+    public uf8 e;
+    public vf8 f;
+    public lg8 g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948298559, "Lcom/baidu/tieba/xf8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948298559, "Lcom/baidu/tieba/xf8;");
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a extends jl5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.jl5
-        public int b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return 3;
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.jl5
-        public boolean c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public a(xf8 xf8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xf8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public xf8() {
+    public xf8(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdTypeRecyclerView};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 0L;
-        this.b = 0L;
-        this.c = false;
-        this.d = 0;
-        this.d = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds144);
-        this.e = ej.j(TbadkCoreApplication.getInst());
+        this.b = new ArrayList();
+        d(context, bdTypeRecyclerView);
     }
 
-    public static xf8 a() {
+    public void a(int i, cg8 cg8Var, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), cg8Var, Integer.valueOf(i2)}) == null) {
+            new hg8().a(i, cg8Var, i2, this.c, this.a);
+        }
+    }
+
+    public void b(boolean z) {
+        List<gn> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && (list = this.c) != null && list.size() > 0) {
+            for (gn gnVar : this.c) {
+                if (gnVar != null && (gnVar instanceof dg8)) {
+                    dg8 dg8Var = (dg8) gnVar;
+                    dg8Var.s(z);
+                    h(dg8Var);
+                }
+            }
+            this.a.getAdapter().notifyDataSetChanged();
+        }
+    }
+
+    public void j(List<ag8> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048585, this, list) != null) || this.a == null) {
+            return;
+        }
+        List<gn> b = new hg8().b(list);
+        if (ListUtils.isEmpty(this.c)) {
+            this.c = b;
+        } else {
+            this.c.addAll(b);
+        }
+        if (!ListUtils.isEmpty(this.c)) {
+            this.a.setData(this.c);
+            this.g.a();
+        }
+    }
+
+    public List<gn> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f == null) {
-                synchronized (xf8.class) {
-                    if (f == null) {
-                        f = new xf8();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final void d(Context context, BdTypeRecyclerView bdTypeRecyclerView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, context, bdTypeRecyclerView) == null) {
+            this.d = new wf8(context, fg8.c);
+            this.e = new uf8(context, dg8.i);
+            this.f = new vf8(context, eg8.d);
+            this.b.add(this.d);
+            this.b.add(this.e);
+            this.b.add(this.f);
+            this.a = bdTypeRecyclerView;
+            bdTypeRecyclerView.addAdapters(this.b);
+        }
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            List<gn> list = this.c;
+            if (list != null && list.size() > 0) {
+                for (gn gnVar : this.c) {
+                    if (gnVar != null && (gnVar instanceof dg8) && ((dg8) gnVar).j()) {
+                        return true;
                     }
-                }
-            }
-            return f;
-        }
-        return (xf8) invokeV.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            f = null;
-            this.a = 0L;
-            this.c = false;
-            this.b = 0L;
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            h();
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.a == 0) {
-            this.a = System.currentTimeMillis();
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.b == 0) {
-            this.b = System.currentTimeMillis();
-        }
-    }
-
-    public final boolean b(View view2, ListView listView) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, listView)) == null) {
-            if (view2 != null) {
-                int[] iArr = new int[2];
-                view2.getLocationOnScreen(iArr);
-                if (iArr[1] > 0 && iArr[1] < this.e - this.d) {
-                    return true;
-                }
-            }
-            if (listView != null && listView.getChildCount() > 2) {
-                View childAt = listView.getChildAt(listView.getChildCount() - 3);
-                if ((childAt instanceof ViewGroup) && (((ViewGroup) childAt).getChildAt(0) instanceof ThreadCardView)) {
-                    return true;
                 }
             }
             return false;
         }
-        return invokeLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public final boolean c(View view2, View view3) {
-        InterceptResult invokeLL;
+    public boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, view3)) == null) {
-            if (view2 == null || view3 == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            List<gn> list = this.c;
+            if (list == null || list.size() <= 0) {
                 return false;
             }
-            int[] iArr = new int[2];
-            view2.getLocationOnScreen(iArr);
-            int i = iArr[1];
-            if (view3.getVisibility() == 0) {
-                return true;
-            }
-            if (i <= 0 || i >= this.e - this.d) {
-                return false;
+            for (gn gnVar : this.c) {
+                if (gnVar != null && (gnVar instanceof dg8) && !((dg8) gnVar).j()) {
+                    return false;
+                }
             }
             return true;
         }
-        return invokeLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public final void e(Context context, ll5 ll5Var, String str) {
+    public void g(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048579, this, context, ll5Var, str) != null) || ll5Var == null || StringUtils.isNull(ll5Var.c()) || !new a(this).a(ll5Var)) {
-            return;
-        }
-        StatisticItem statisticItem = new StatisticItem(str);
-        statisticItem.param("obj_source", kl5.a(ll5Var.h()));
-        statisticItem.param("obj_type", ll5Var.c());
-        statisticItem.param(TiebaStatic.Params.OBJ_DURATION, String.valueOf(ll5Var.i()));
-        if (ll5Var.d() > 0) {
-            statisticItem.param("fid", String.valueOf(ll5Var.d()));
-        }
-        if (ll5Var.m() > 0) {
-            statisticItem.param("tid", String.valueOf(ll5Var.m()));
-        }
-        if (!StringUtils.isNull(ll5Var.e())) {
-            statisticItem.param("nid", ll5Var.e());
-        }
-        if (ll5Var.g() > 0) {
-            statisticItem.param("pid", String.valueOf(ll5Var.g()));
-        }
-        if (!StringUtils.isNull(ll5Var.k)) {
-            statisticItem.param("obj_param1", ll5Var.k);
-        }
-        if (!StringUtils.isNull(ll5Var.l)) {
-            statisticItem.param(TiebaStatic.Params.IS_VERTICAL, ll5Var.l);
-        }
-        if (!StringUtils.isNull(ll5Var.r)) {
-            statisticItem.param("is_dynamic", ll5Var.r);
-        }
-        if (!StringUtils.isNull(ll5Var.s)) {
-            statisticItem.param("resource_id", ll5Var.s);
-        }
-        if (!dj.isEmpty(ll5Var.j())) {
-            statisticItem.param("task_id", String.valueOf(ll5Var.j()));
-        }
-        if (!dj.isEmpty(ll5Var.a())) {
-            statisticItem.param("ab_tag", ll5Var.a());
-        }
-        if (!StringUtils.isNull(ll5Var.f())) {
-            statisticItem.param("obj_location", ll5Var.f());
-        }
-        el5.b(context, statisticItem, ll5Var);
-        TiebaStatic.log(statisticItem);
-    }
-
-    public void g(boolean z, View view2, View view3, ll5 ll5Var, boolean z2, View view4, ListView listView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), view2, view3, ll5Var, Boolean.valueOf(z2), view4, listView}) == null) {
-            if (this.c) {
-                z = false;
-            } else {
-                this.c = z;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            wf8 wf8Var = this.d;
+            if (wf8Var != null) {
+                wf8Var.notifyDataSetChanged();
             }
-            if (!c(view2, view3) && (!z || z2)) {
-                if (z2) {
-                    k(ll5Var);
-                }
-            } else {
-                h();
+            uf8 uf8Var = this.e;
+            if (uf8Var != null) {
+                uf8Var.notifyDataSetChanged();
             }
-            if (b(view4, listView)) {
-                i();
-            } else {
-                l(ll5Var);
+            vf8 vf8Var = this.f;
+            if (vf8Var != null) {
+                vf8Var.notifyDataSetChanged();
             }
         }
     }
 
-    public void j(AbsPbActivity absPbActivity) {
+    public final void h(dg8 dg8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, absPbActivity) == null) && absPbActivity != null) {
-            k(absPbActivity.getPageStayDurationItem());
-            l(absPbActivity.getPageStayDurationItem());
+        if (interceptable == null || interceptable.invokeL(1048583, this, dg8Var) == null) {
+            StatisticItem statisticItem = new StatisticItem("c13682");
+            statisticItem.param("obj_type", 2);
+            statisticItem.param("obj_locate", 3);
+            statisticItem.param("fid", dg8Var.c());
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    public final void k(ll5 ll5Var) {
+    public void i(kg8 kg8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, ll5Var) == null) && this.a > 0) {
-            this.a = 0L;
-            ll5Var.y(System.currentTimeMillis() - this.a);
-            e(TbadkCoreApplication.getInst(), ll5Var, "c14085");
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, kg8Var) == null) {
+            this.f.z(kg8Var);
         }
     }
 
-    public final void l(ll5 ll5Var) {
+    public void k(lg8 lg8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, ll5Var) == null) && this.b > 0) {
-            this.b = 0L;
-            ll5Var.y(System.currentTimeMillis() - this.b);
-            e(TbadkCoreApplication.getInst(), ll5Var, "rec_stime");
+        if (interceptable == null || interceptable.invokeL(1048586, this, lg8Var) == null) {
+            this.g = lg8Var;
+            this.e.B(lg8Var);
+            this.f.A(lg8Var);
         }
     }
 }

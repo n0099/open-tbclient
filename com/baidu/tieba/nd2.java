@@ -1,78 +1,105 @@
 package com.baidu.tieba;
 
-import android.util.Pair;
-import androidx.annotation.NonNull;
+import android.app.Application;
+import android.content.Context;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.IOException;
 /* loaded from: classes5.dex */
-public class nd2 extends px1 {
+public class nd2 extends od2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
+    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.px1
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "Prefetch" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.px1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "SwanPrefetchResourcesApi" : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nd2(@NonNull nx1 nx1Var) {
-        super(nx1Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {nx1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((nx1) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947998541, "Lcom/baidu/tieba/nd2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947998541, "Lcom/baidu/tieba/nd2;");
                 return;
             }
         }
+        b = do1.a;
+        c = "swan_preset" + File.separator + "preset_list.json";
     }
 
-    public m12 x(String str) {
+    public nd2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.od2
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return ek3.b(ar2.c(), c);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.od2
+    public boolean e(pd2 pd2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            q("#prefetchResources params=" + str, false);
-            Pair<m12, JSONObject> s = s(str);
-            JSONObject jSONObject = (JSONObject) s.second;
-            if (jSONObject == null) {
-                return (m12) s.first;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pd2Var)) == null) {
+            if (pd2Var == null) {
+                return false;
             }
-            if (!SwanAppNetworkUtils.i(ts2.c())) {
-                return new m12(1001, "network disconnected");
+            Context appContext = AppRuntime.getAppContext();
+            String str = "swan_preset" + File.separator + pd2Var.g + File.separator + pd2Var.q;
+            try {
+                File j = j(pd2Var.h, pd2Var.g, pd2Var.i);
+                if (j == null) {
+                    if (b) {
+                        Log.e("AssetPresetController", "获取解压路径失败");
+                    }
+                    return false;
+                }
+                return n(new BufferedInputStream(appContext.getAssets().open(str)), j);
+            } catch (IOException e) {
+                if (b) {
+                    e.printStackTrace();
+                }
+                return false;
             }
-            JSONArray c = mm3.c(jSONObject, "video");
-            if (c != null && c.length() > 0) {
-                ts2.U().a(c);
-            }
-            JSONArray c2 = mm3.c(jSONObject, "image");
-            if (c2 != null && c2.length() > 0) {
-                ts2.U().c(c2);
-            }
-            return m12.f();
         }
-        return (m12) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.od2
+    public String f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            Application c2 = ar2.c();
+            return ek3.b(c2, "swan_preset" + File.separator + str + File.separator + "app_info.json");
+        }
+        return (String) invokeL.objValue;
     }
 }

@@ -11,14 +11,14 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tbadk.switchs.UseHttpAutoRetrySwitch;
-import com.baidu.tieba.b55;
-import com.baidu.tieba.eg;
-import com.baidu.tieba.gg;
-import com.baidu.tieba.hg;
-import com.baidu.tieba.ig;
-import com.baidu.tieba.jg;
-import com.baidu.tieba.lj;
-import com.baidu.tieba.xg;
+import com.baidu.tieba.ag;
+import com.baidu.tieba.hf;
+import com.baidu.tieba.jf;
+import com.baidu.tieba.kf;
+import com.baidu.tieba.lf;
+import com.baidu.tieba.m35;
+import com.baidu.tieba.mf;
+import com.baidu.tieba.oi;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,7 +32,7 @@ import java.util.List;
 import java.util.Map;
 @SuppressLint({"DefaultLocale"})
 /* loaded from: classes3.dex */
-public class WebClient implements xg.a {
+public class WebClient implements ag.a {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String IMAGEGIF = "image/gif";
     public static final String IMAGESECRET = "app:tiebaclient;type:0;";
@@ -50,12 +50,12 @@ public class WebClient implements xg.a {
     public boolean isCrackPic;
     public boolean isGif;
     public boolean isGzip;
-    public volatile eg mBdHttpManager2;
-    public hg mContext;
+    public volatile hf mBdHttpManager2;
+    public kf mContext;
     public boolean mIsRequestSuccess;
     public HashMap<String, String> mPostList;
-    public jg mResponse;
-    public gg mStat;
+    public mf mResponse;
+    public jf mStat;
     public boolean needCache;
     public int responseCode;
 
@@ -98,7 +98,7 @@ public class WebClient implements xg.a {
         }
         this.mBdHttpManager2 = null;
         this.mPostList = null;
-        this.mResponse = new jg();
+        this.mResponse = new mf();
         this.isGzip = false;
         this.isGif = false;
         this.exception = "";
@@ -121,27 +121,27 @@ public class WebClient implements xg.a {
                 stringBuffer.append("thread_id:");
                 stringBuffer.append(Thread.currentThread().getId());
                 for (int i = 0; i < this.mContext.d().size(); i++) {
-                    gg ggVar = this.mContext.d().get(i);
+                    jf jfVar = this.mContext.d().get(i);
                     stringBuffer.append(" index: ");
                     stringBuffer.append(i);
                     stringBuffer.append("exception:");
-                    stringBuffer.append(ggVar.h);
+                    stringBuffer.append(jfVar.h);
                     stringBuffer.append("retry:");
-                    stringBuffer.append(ggVar.e);
+                    stringBuffer.append(jfVar.e);
                     stringBuffer.append("connectTime:");
-                    stringBuffer.append(ggVar.c);
+                    stringBuffer.append(jfVar.c);
                     stringBuffer.append("downloadSize:");
-                    stringBuffer.append(ggVar.b);
+                    stringBuffer.append(jfVar.b);
                     stringBuffer.append("rspTime:");
-                    stringBuffer.append(ggVar.d);
+                    stringBuffer.append(jfVar.d);
                     stringBuffer.append("dnsTime:");
-                    stringBuffer.append(ggVar.g);
+                    stringBuffer.append(jfVar.g);
                     stringBuffer.append("responsedCode:");
-                    stringBuffer.append(ggVar.i);
+                    stringBuffer.append(jfVar.i);
                     stringBuffer.append("allCostTime:");
-                    stringBuffer.append(ggVar.f);
+                    stringBuffer.append(jfVar.f);
                     stringBuffer.append("executeStatus:");
-                    stringBuffer.append(ggVar.j);
+                    stringBuffer.append(jfVar.j);
                 }
                 if (exc != null) {
                     stringBuffer.append("webclient exception");
@@ -192,20 +192,20 @@ public class WebClient implements xg.a {
                         cancel();
                         this.mBdHttpManager2 = null;
                     }
-                    hg hgVar = new hg();
-                    this.mContext = hgVar;
-                    hgVar.b().s(str);
+                    kf kfVar = new kf();
+                    this.mContext = kfVar;
+                    kfVar.b().s(str);
                     this.mContext.b().n(UseHttpAutoRetrySwitch.isOn());
-                    ig b = this.mContext.b();
+                    lf b = this.mContext.b();
                     b.a("User-Agent", "tieba image flow version : " + TbConfig.getVersion() + " cuid : " + TbadkCoreApplication.getInst().getCuidGalaxy2());
                     if (this.mPostList != null) {
                         for (Map.Entry<String, String> entry : this.mPostList.entrySet()) {
                             this.mContext.b().b(entry.getKey(), entry.getValue());
                         }
                     }
-                    this.mBdHttpManager2 = new eg(this.mContext);
+                    this.mBdHttpManager2 = new hf(this.mContext);
                     this.mBdHttpManager2.d(RETRYCOUNT, 0, 0);
-                    jg c = this.mContext.c();
+                    mf c = this.mContext.c();
                     this.mResponse = c;
                     if (c != null && c.h != null && (list = c.h.get(Headers.CACHE_CONTROL)) != null && list.size() > 0) {
                         if (!"no-cache".equals(list.get(0))) {
@@ -230,57 +230,57 @@ public class WebClient implements xg.a {
                     if (!this.mIsRequestSuccess) {
                         buildException(str, null);
                     }
-                    gg a = this.mContext.a();
+                    jf a = this.mContext.a();
                     this.mStat = a;
                     if (a != null) {
                         StringBuilder sb = new StringBuilder();
-                        gg ggVar = this.mStat;
-                        sb.append(ggVar.h);
+                        jf jfVar = this.mStat;
+                        sb.append(jfVar.h);
                         sb.append(stringBuffer.toString());
-                        ggVar.h = sb.toString();
+                        jfVar.h = sb.toString();
                         StringBuilder sb2 = new StringBuilder();
-                        gg ggVar2 = this.mStat;
-                        sb2.append(ggVar2.h);
+                        jf jfVar2 = this.mStat;
+                        sb2.append(jfVar2.h);
                         sb2.append("_responseCode:");
                         sb2.append(this.responseCode);
-                        ggVar2.h = sb2.toString();
+                        jfVar2.h = sb2.toString();
                     }
                     return bArr;
                 } catch (Exception e) {
                     stringBuffer.append("httpmanagererr_" + e.getClass() + "_" + e.getMessage());
-                    gg a2 = this.mContext.a();
+                    jf a2 = this.mContext.a();
                     this.mStat = a2;
                     if (a2 == null) {
                         return null;
                     }
                     StringBuilder sb3 = new StringBuilder();
-                    gg ggVar3 = this.mStat;
-                    sb3.append(ggVar3.h);
+                    jf jfVar3 = this.mStat;
+                    sb3.append(jfVar3.h);
                     sb3.append(stringBuffer.toString());
-                    ggVar3.h = sb3.toString();
+                    jfVar3.h = sb3.toString();
                     StringBuilder sb4 = new StringBuilder();
-                    gg ggVar4 = this.mStat;
-                    sb4.append(ggVar4.h);
+                    jf jfVar4 = this.mStat;
+                    sb4.append(jfVar4.h);
                     sb4.append("_responseCode:");
                     sb4.append(this.responseCode);
-                    ggVar4.h = sb4.toString();
+                    jfVar4.h = sb4.toString();
                     return null;
                 }
             } catch (Throwable th) {
-                gg a3 = this.mContext.a();
+                jf a3 = this.mContext.a();
                 this.mStat = a3;
                 if (a3 != null) {
                     StringBuilder sb5 = new StringBuilder();
-                    gg ggVar5 = this.mStat;
-                    sb5.append(ggVar5.h);
+                    jf jfVar5 = this.mStat;
+                    sb5.append(jfVar5.h);
                     sb5.append(stringBuffer.toString());
-                    ggVar5.h = sb5.toString();
+                    jfVar5.h = sb5.toString();
                     StringBuilder sb6 = new StringBuilder();
-                    gg ggVar6 = this.mStat;
-                    sb6.append(ggVar6.h);
+                    jf jfVar6 = this.mStat;
+                    sb6.append(jfVar6.h);
                     sb6.append("_responseCode:");
                     sb6.append(this.responseCode);
-                    ggVar6.h = sb6.toString();
+                    jfVar6.h = sb6.toString();
                 }
                 throw th;
             }
@@ -315,7 +315,7 @@ public class WebClient implements xg.a {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.xg.a
+    @Override // com.baidu.tieba.ag.a
     public void cancel() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.mBdHttpManager2 != null) {
@@ -323,20 +323,20 @@ public class WebClient implements xg.a {
         }
     }
 
-    public jg getResponse() {
+    public mf getResponse() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.mResponse;
         }
-        return (jg) invokeV.objValue;
+        return (mf) invokeV.objValue;
     }
 
     public boolean needCache() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (b55.m().n("image_no_cache_switch", 0) != 1) {
+            if (m35.m().n("image_no_cache_switch", 0) != 1) {
                 return true;
             }
             return this.needCache;
@@ -432,7 +432,7 @@ public class WebClient implements xg.a {
                 if (this.mIsRequestSuccess && ((z || z2) && new String(downloadBytesInternal, 0, 23).equalsIgnoreCase(IMAGESECRET))) {
                     downloadBytesInternal = copyOfRange(downloadBytesInternal, 23, downloadBytesInternal.length);
                 }
-                if (downloadBytesInternal.length == 4262 && "E9FA8E3AF5271BBFA7BDDBCAD1E8BE5B".equals(lj.d(downloadBytesInternal))) {
+                if (downloadBytesInternal.length == 4262 && "E9FA8E3AF5271BBFA7BDDBCAD1E8BE5B".equals(oi.d(downloadBytesInternal))) {
                     TiebaStatic.log(new StatisticItem("image_time_err").addParam("obj_source", str).addParam("obj_param1", TbadkCoreApplication.getInst().getCurrentActivity() + "").addParam(TiebaStatic.Params.OBJ_PARAM2, System.currentTimeMillis()));
                 }
                 return downloadBytesInternal;

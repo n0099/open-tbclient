@@ -42,12 +42,12 @@ public class l {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static a m167a(e eVar) {
+    public static a m169a(e eVar) {
         return a.get(eVar);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static hm m168a(e eVar) {
+    public static hm m170a(e eVar) {
         return hm.AggregatePushSwitch;
     }
 

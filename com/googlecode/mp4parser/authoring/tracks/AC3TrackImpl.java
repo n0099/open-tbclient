@@ -7,6 +7,7 @@ import com.coremedia.iso.boxes.SampleDescriptionBox;
 import com.coremedia.iso.boxes.SoundMediaHeaderBox;
 import com.coremedia.iso.boxes.SubSampleInformationBox;
 import com.coremedia.iso.boxes.sampleentry.AudioSampleEntry;
+import com.google.android.exoplayer2.extractor.ogg.OpusReader;
 import com.googlecode.mp4parser.DataSource;
 import com.googlecode.mp4parser.authoring.AbstractTrack;
 import com.googlecode.mp4parser.authoring.Sample;
@@ -325,7 +326,7 @@ public class AC3TrackImpl extends AbstractTrack {
                     i = 44100;
                 }
             } else {
-                i = 48000;
+                i = OpusReader.SAMPLE_RATE;
             }
             int readBits2 = bitReaderBuffer.readBits(6);
             int readBits3 = bitReaderBuffer.readBits(5);

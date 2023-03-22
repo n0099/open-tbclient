@@ -7,11 +7,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.e59;
-import com.baidu.tieba.ic9;
-import com.baidu.tieba.lc9;
-import com.baidu.tieba.mc9;
-import com.baidu.tieba.wb;
+import com.baidu.tieba.jb9;
+import com.baidu.tieba.ni9;
+import com.baidu.tieba.qi9;
+import com.baidu.tieba.ri9;
+import com.baidu.tieba.za;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,16 +22,16 @@ import java.util.List;
 public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<lc9> a;
-    public mc9 b;
-    public List<ic9> c;
+    public List<qi9> a;
+    public ri9 b;
+    public List<ni9> c;
     public b d;
     public boolean e;
-    public wb f;
+    public za f;
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(int i, String str, List<ic9> list, mc9 mc9Var, List<lc9> list2);
+        void a(int i, String str, List<ni9> list, ri9 ri9Var, List<qi9> list2);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -45,7 +45,7 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     }
 
     /* loaded from: classes6.dex */
-    public class a extends wb {
+    public class a extends za {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ DressupCenterModel a;
@@ -72,7 +72,7 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
             this.a = dressupCenterModel;
         }
 
-        @Override // com.baidu.tieba.wb
+        @Override // com.baidu.tieba.za
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
@@ -127,14 +127,14 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
         registerListener(this.f);
     }
 
-    public void V(b bVar) {
+    public void Z(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             this.d = bVar;
         }
     }
 
-    public boolean U() {
+    public boolean Y() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -164,8 +164,8 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            e59.h(309001, DressupCenterSocketResponseMessage.class, false, false);
-            e59.c(309001, CmdConfigHttp.CMD_DRESSUP_CENTER, TbConfig.DRESSUP_CENTER_PAGE, DressupCenterHttpResponseMessage.class, false, false, false, false);
+            jb9.h(309001, DressupCenterSocketResponseMessage.class, false, false);
+            jb9.c(309001, CmdConfigHttp.CMD_DRESSUP_CENTER, TbConfig.DRESSUP_CENTER_PAGE, DressupCenterHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

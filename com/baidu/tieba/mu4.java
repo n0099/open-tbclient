@@ -1,213 +1,320 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.lib.util.NetWorkChangedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tbadk.util.CheckBaiduSimResponseMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.down.request.db.DownloadDataConstants;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.switchs.QuickWebViewSwitch;
+import com.baidu.tieba.d09;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class mu4 {
     public static /* synthetic */ Interceptable $ic;
-    public static mu4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public CustomMessageListener a;
-    public boolean b;
-    public HttpMessageListener c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947985149, "Lcom/baidu/tieba/mu4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947985149, "Lcom/baidu/tieba/mu4;");
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mu4 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(mu4 mu4Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mu4Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mu4Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && ej.F() && BdNetTypeUtil.isMobileNet()) {
-                this.a.c();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mu4 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(mu4 mu4Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mu4Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mu4Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            String str;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003392 || !(httpResponsedMessage instanceof CheckBaiduSimResponseMessage)) {
-                return;
-            }
-            this.a.b = false;
-            CheckBaiduSimResponseMessage checkBaiduSimResponseMessage = (CheckBaiduSimResponseMessage) httpResponsedMessage;
-            if (checkBaiduSimResponseMessage.isSuc) {
-                boolean z = checkBaiduSimResponseMessage.isBaiduSim;
-                b55 m = b55.m();
-                if (z) {
-                    str = TbadkCoreApplication.getInst().getResources().getString(R.string.baidu_sim_traffic_free);
-                } else {
-                    str = "";
-                }
-                m.B("key_baidu_sim_card_writting_tip", str);
-                MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_CHECK_BAIDU_SIM);
-            }
-        }
-    }
-
-    public mu4() {
+    public static boolean a(File file) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, file)) == null) {
+            if (file.exists() && file.isFile() && file.canRead()) {
+                return true;
             }
+            return false;
         }
-        this.a = new a(this, 2000994);
-        this.b = false;
-        this.c = new b(this, CmdConfigHttp.CMD_CHECK_BAIDU_SIM);
+        return invokeL.booleanValue;
     }
 
-    public static mu4 d() {
-        InterceptResult invokeV;
+    public static d09.g b(String str, String str2) {
+        InterceptResult invokeLL;
+        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (d == null) {
-                d = new mu4();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            File file = new File(d09.g + "bdtbNWCache");
+            FileInputStream fileInputStream2 = null;
+            if (TextUtils.isEmpty(str2) || !file.exists()) {
+                return null;
             }
-            return d;
+            d09.g gVar = new d09.g();
+            File file2 = new File(file.getAbsolutePath() + "/" + str + "/" + str2 + "/");
+            gVar.a = file.getAbsolutePath();
+            gVar.c = str2;
+            File file3 = new File(file2, "router.json");
+            try {
+                if (!file3.exists()) {
+                    return null;
+                }
+                try {
+                    fileInputStream = new FileInputStream(file3);
+                } catch (FileNotFoundException e) {
+                    e = e;
+                }
+                try {
+                    gVar.b = f(fileInputStream);
+                    ii.e(fileInputStream);
+                } catch (FileNotFoundException e2) {
+                    e = e2;
+                    fileInputStream2 = fileInputStream;
+                    e.printStackTrace();
+                    ii.e(fileInputStream2);
+                    return gVar;
+                } catch (Throwable th) {
+                    th = th;
+                    fileInputStream2 = fileInputStream;
+                    ii.e(fileInputStream2);
+                    throw th;
+                }
+                return gVar;
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } else {
+            return (d09.g) invokeLL.objValue;
         }
-        return (mu4) invokeV.objValue;
     }
 
-    public final String e() {
-        InterceptResult invokeV;
+    /* JADX WARN: Removed duplicated region for block: B:35:0x00b7  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean c(String str) {
+        InterceptResult invokeL;
+        File file;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int curOperatorType = BdNetTypeUtil.curOperatorType();
-            if (curOperatorType != 1) {
-                if (curOperatorType != 2) {
-                    if (curOperatorType != 3) {
-                        return "UNKNOWN";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (QuickWebViewSwitch.getInOn() && !d09.s(str)) {
+                try {
+                    f09 d = e09.a().d(new URL(str).getPath());
+                    if (d != null && d.e) {
+                        String p = d09.n().p(d.b);
+                        if (!TextUtils.isEmpty(d.b) && !TextUtils.isEmpty(d.c) && !TextUtils.isEmpty(p)) {
+                            String str2 = d09.n().m() + "/" + d.b + "/" + p + "/";
+                            if (!d.c.endsWith(DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION)) {
+                                file = new File(str2, d.c + DownloadDataConstants.DEFAULT_DL_HTML_EXTENSION);
+                            } else {
+                                file = new File(str2, d.c);
+                            }
+                            if (!a(file)) {
+                                return false;
+                            }
+                            ArrayList<String> arrayList = d.d;
+                            if (ListUtils.isEmpty(arrayList)) {
+                                return false;
+                            }
+                            for (String str3 : arrayList) {
+                                if (TextUtils.isEmpty(str3) || !a(new File(str2, str3))) {
+                                    return false;
+                                }
+                                while (r6.hasNext()) {
+                                }
+                            }
+                            return true;
+                        }
                     }
-                    return "TELECOM";
+                } catch (MalformedURLException | Exception unused) {
                 }
-                return "UNICOM";
             }
-            return "MOBILE";
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    public void f() {
+    public static void d(Set<String> set) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(this.a);
+        if ((interceptable == null || interceptable.invokeL(65539, null, set) == null) && !vd6.a(set)) {
+            d09.f fVar = new d09.f();
+            fVar.a = new HashMap();
+            fVar.b = new HashMap<>();
+            for (String str : set) {
+                d09.g b = b(str, d09.n().p(str));
+                if (b != null && !TextUtils.isEmpty(b.a) && !vd6.b(b.b)) {
+                    fVar.a.put(str, b);
+                    fVar.b.putAll(b.b);
+                }
+            }
+            if (!vd6.b(fVar.b)) {
+                e09.a().i(fVar.b);
+            }
         }
     }
 
-    public final void c() {
+    public static HashMap<String, f09> f(InputStream inputStream) {
+        InterceptResult invokeL;
+        InputStreamReader inputStreamReader;
+        Throwable th;
+        BufferedReader bufferedReader;
+        HashMap<String, f09> hashMap;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && !this.b) {
-            this.b = true;
-            if (System.currentTimeMillis() >= b55.m().o("key_next_check_baidu_sim_time", 0L)) {
-                b55.m().A("key_next_check_baidu_sim_time", System.currentTimeMillis() + 86400000);
-                TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHECK_BAIDU_SIM, TbConfig.SERVER_ADDRESS + "c/s/holycard");
-                tbHttpMessageTask.setResponsedClass(CheckBaiduSimResponseMessage.class);
-                MessageManager.getInstance().registerTask(tbHttpMessageTask);
-                MessageManager.getInstance().registerListener(this.c);
-                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHECK_BAIDU_SIM);
-                httpMessage.addParam("localip", UtilHelper.getGprsIpv4Address());
-                httpMessage.addParam("network", e());
-                MessageManager.getInstance().sendMessage(httpMessage);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, inputStream)) == null) {
+            InputStreamReader inputStreamReader2 = null;
+            if (inputStream == null) {
+                return null;
             }
-            this.b = false;
+            try {
+                StringBuffer stringBuffer = new StringBuffer();
+                inputStreamReader = new InputStreamReader(inputStream);
+                try {
+                    bufferedReader = new BufferedReader(inputStreamReader);
+                    try {
+                        try {
+                            for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
+                                stringBuffer.append(readLine);
+                            }
+                            bufferedReader.close();
+                            hashMap = new HashMap<>();
+                        } catch (Exception e) {
+                            e = e;
+                            hashMap = null;
+                        }
+                        try {
+                            JSONObject jSONObject = new JSONObject(stringBuffer.toString());
+                            e(jSONObject.optJSONObject("proxyConfig"), hashMap);
+                            e(jSONObject.optJSONObject("config"), hashMap);
+                            ii.g(inputStreamReader);
+                        } catch (Exception e2) {
+                            e = e2;
+                            inputStreamReader2 = inputStreamReader;
+                            try {
+                                e.printStackTrace();
+                                ii.g(inputStreamReader2);
+                                ii.g(bufferedReader);
+                                return hashMap;
+                            } catch (Throwable th2) {
+                                inputStreamReader = inputStreamReader2;
+                                th = th2;
+                                ii.g(inputStreamReader);
+                                ii.g(bufferedReader);
+                                throw th;
+                            }
+                        }
+                    } catch (Throwable th3) {
+                        th = th3;
+                        ii.g(inputStreamReader);
+                        ii.g(bufferedReader);
+                        throw th;
+                    }
+                } catch (Exception e3) {
+                    e = e3;
+                    bufferedReader = null;
+                    hashMap = null;
+                } catch (Throwable th4) {
+                    th = th4;
+                    bufferedReader = null;
+                }
+            } catch (Exception e4) {
+                e = e4;
+                bufferedReader = null;
+                hashMap = null;
+            } catch (Throwable th5) {
+                inputStreamReader = null;
+                th = th5;
+                bufferedReader = null;
+            }
+            ii.g(bufferedReader);
+            return hashMap;
+        }
+        return (HashMap) invokeL.objValue;
+    }
+
+    public static void e(JSONObject jSONObject, HashMap<String, f09> hashMap) {
+        String str;
+        String str2;
+        String str3;
+        boolean z;
+        JSONArray optJSONArray;
+        JSONArray optJSONArray2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject, hashMap) == null) {
+            JSONObject jSONObject2 = jSONObject;
+            String str4 = "source";
+            String str5 = "path";
+            if (jSONObject2 != null && hashMap != null) {
+                try {
+                    Iterator<String> keys = jSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        if (!hashMap.containsKey(next)) {
+                            JSONObject jSONObject3 = jSONObject2.getJSONObject(next);
+                            ArrayList<String> arrayList = new ArrayList<>();
+                            if (jSONObject3.has("data_urls") && (optJSONArray2 = jSONObject3.optJSONArray("data_urls")) != null) {
+                                for (int i = 0; i < optJSONArray2.length(); i++) {
+                                    arrayList.add(optJSONArray2.optString(i));
+                                }
+                            }
+                            if (!jSONObject3.has("module")) {
+                                str = "";
+                            } else {
+                                str = jSONObject3.optString("module");
+                            }
+                            if (!jSONObject3.has(str5)) {
+                                str2 = "";
+                            } else {
+                                str2 = jSONObject3.optString(str5);
+                            }
+                            ArrayList<String> arrayList2 = new ArrayList<>();
+                            if (jSONObject3.has(str4) && (optJSONArray = jSONObject3.optJSONArray(str4)) != null) {
+                                str3 = str4;
+                                for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                                    arrayList2.add(optJSONArray.optString(i2));
+                                }
+                            } else {
+                                str3 = str4;
+                            }
+                            String optString = jSONObject3.optString("staticPrePath", "");
+                            int optInt = jSONObject3.optInt("proxyMode");
+                            e09.a().j(next, next);
+                            e09.a().k(next, str2);
+                            Iterator<String> it = arrayList2.iterator();
+                            while (it.hasNext()) {
+                                String next2 = it.next();
+                                if (!TextUtils.isEmpty(next2)) {
+                                    e09 a = e09.a();
+                                    String str6 = str5;
+                                    a.j(optString + "/" + next2, next);
+                                    e09 a2 = e09.a();
+                                    a2.k(optString + "/" + next2, next2);
+                                    str5 = str6;
+                                }
+                            }
+                            String str7 = str5;
+                            f09 f09Var = new f09();
+                            f09Var.a = arrayList;
+                            f09Var.b = str;
+                            f09Var.c = str2;
+                            f09Var.d = arrayList2;
+                            if (optInt == 1) {
+                                z = true;
+                            } else {
+                                z = false;
+                            }
+                            f09Var.f = z;
+                            f09Var.e = true;
+                            hashMap.put(next, f09Var);
+                            jSONObject2 = jSONObject;
+                            str4 = str3;
+                            str5 = str7;
+                        }
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

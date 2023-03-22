@@ -33,7 +33,7 @@ public class cd extends ci.b<Long> {
 
     @Override // com.xiaomi.push.ci.a
     /* renamed from: a */
-    public Object mo248a() {
+    public Object mo250a() {
         return Long.valueOf(this.a);
     }
 

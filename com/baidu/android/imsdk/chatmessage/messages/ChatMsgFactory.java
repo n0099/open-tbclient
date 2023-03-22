@@ -104,31 +104,34 @@ public class ChatMsgFactory {
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i)) == null) {
             if (i != 0) {
                 if (i != 1) {
-                    if (i != 50) {
-                        if (i != 60) {
-                            if (i != 62) {
-                                switch (i) {
-                                    case 20:
-                                        return new PaSync();
-                                    case 21:
-                                        return new MessageSyncMsg();
-                                    case 22:
-                                        return new DialogSyncMsg();
-                                    case 23:
-                                        return new UserSettingPaCmdMsg();
-                                    case 24:
-                                        return new MessageClueUpateMsg();
-                                    default:
-                                        return null;
+                    if (i != 26) {
+                        if (i != 50) {
+                            if (i != 60) {
+                                if (i != 62) {
+                                    switch (i) {
+                                        case 20:
+                                            return new PaSync();
+                                        case 21:
+                                            return new MessageSyncMsg();
+                                        case 22:
+                                            return new DialogSyncMsg();
+                                        case 23:
+                                            return new UserSettingPaCmdMsg();
+                                        case 24:
+                                            return new MessageClueUpateMsg();
+                                        default:
+                                            return null;
+                                    }
                                 }
+                                notifyCustomerMsg = new NotifyCustomerMsg(62);
+                            } else {
+                                notifyCustomerMsg = new NotifyCustomerMsg(60);
                             }
-                            notifyCustomerMsg = new NotifyCustomerMsg(62);
-                        } else {
-                            notifyCustomerMsg = new NotifyCustomerMsg(60);
+                            return notifyCustomerMsg;
                         }
-                        return notifyCustomerMsg;
+                        return new DeviceLoginMsg();
                     }
-                    return new DeviceLoginMsg();
+                    return new NotifyReplyUpdateMsg();
                 }
                 return new ConfirmFriendMsg();
             }
@@ -171,6 +174,8 @@ public class ChatMsgFactory {
                                                                     switch (i) {
                                                                         case 18:
                                                                             return new HtmlMsg();
+                                                                        case 60:
+                                                                            return new GroupCouponMsg();
                                                                         case 80:
                                                                             return new GalleryMsg();
                                                                         case 82:
@@ -241,6 +246,8 @@ public class ChatMsgFactory {
                                                                             return new ShieldMsg();
                                                                         case 2014:
                                                                             return new UnSubscribeMsg();
+                                                                        case 5001:
+                                                                            return new GroupReplyUpdateMsg();
                                                                         default:
                                                                             switch (i) {
                                                                                 case 20:

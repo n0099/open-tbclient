@@ -1,16 +1,29 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.mutiprocess.history.HistoryEvent;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class ij5 implements si5<HistoryEvent> {
+public abstract class ij5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<gj5> eventDelegates;
+    public boolean isDispatchMvcEventing;
+    public BdUniqueId uniqueId;
+
+    public void onBeforeDispatchMvcEvent(hj5 hj5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hj5Var) == null) {
+        }
+    }
 
     public ij5() {
         Interceptable interceptable = $ic;
@@ -22,22 +35,85 @@ public class ij5 implements si5<HistoryEvent> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.isDispatchMvcEventing = false;
+    }
+
+    public void addEventDelegate(gj5 gj5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, gj5Var) == null) {
+            if (this.eventDelegates == null) {
+                this.eventDelegates = new ArrayList();
+            }
+            if (this.eventDelegates.contains(gj5Var)) {
+                return;
+            }
+            if (this.isDispatchMvcEventing && TbadkCoreApplication.getInst().isDebugMode()) {
+                throw new RuntimeException("can not add event delegate on dispatch mvcevent");
+            }
+            this.eventDelegates.add(gj5Var);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.si5
-    /* renamed from: a */
-    public boolean onEvent(HistoryEvent historyEvent) {
-        InterceptResult invokeL;
+    public void removeEventDelegate(gj5 gj5Var) {
+        List<gj5> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, historyEvent)) == null) {
-            if (historyEvent != null && !TextUtils.isEmpty(historyEvent.tid)) {
-                jf6.a(historyEvent.tid);
-                return true;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, gj5Var) != null) || (list = this.eventDelegates) == null || !list.contains(gj5Var)) {
+            return;
+        }
+        if (this.isDispatchMvcEventing && TbadkCoreApplication.getInst().isDebugMode()) {
+            throw new RuntimeException("can not add event delegate on dispatch mvcevent");
+        }
+        this.eventDelegates.remove(gj5Var);
+    }
+
+    public boolean dispatchMvcEvent(hj5 hj5Var) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hj5Var)) == null) {
+            if (hj5Var == null) {
+                return false;
             }
-            return false;
+            if (hj5Var.e() == null) {
+                hj5Var.i(this.uniqueId);
+            }
+            if (this.eventDelegates == null) {
+                return false;
+            }
+            try {
+                this.isDispatchMvcEventing = true;
+                onBeforeDispatchMvcEvent(hj5Var);
+                int size = this.eventDelegates.size();
+                z = false;
+                for (int i = 0; i < size; i++) {
+                    try {
+                        gj5 gj5Var = this.eventDelegates.get(i);
+                        if (gj5Var != null && ((!gj5Var.b1() || (gj5Var.b1() && hj5Var.e() == gj5Var.getUniqueId())) && (z = gj5Var.u0(hj5Var)) && hj5Var.f())) {
+                            return true;
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        try {
+                            BdLog.e(th);
+                            if (TbadkCoreApplication.getInst().isDebugMode()) {
+                                throw new RuntimeException(th);
+                            }
+                            this.isDispatchMvcEventing = false;
+                            return z;
+                        } finally {
+                            this.isDispatchMvcEventing = false;
+                        }
+                    }
+                }
+            } catch (Throwable th2) {
+                th = th2;
+                z = false;
+            }
+            this.isDispatchMvcEventing = false;
+            return z;
         }
         return invokeL.booleanValue;
     }

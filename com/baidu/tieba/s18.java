@@ -1,67 +1,78 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.Item;
-import tbclient.RecommendForumInfo;
-import tbclient.SearchSug.DataRes;
-import tbclient.SugLiveInfo;
-import tbclient.SugRankingInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class s18 {
+public final class s18 extends r18<i08, ImageView, f08> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static List<Cdo> a(DataRes dataRes, String str) {
-        InterceptResult invokeLL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public s18(String name) {
+        super(name);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dataRes, str)) == null) {
-            if (dataRes == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {name};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            ArrayList arrayList = new ArrayList();
-            RecommendForumInfo recommendForumInfo = dataRes.forum_card;
-            if (recommendForumInfo != null) {
-                o18 o18Var = new o18();
-                o18Var.i(recommendForumInfo);
-                arrayList.add(o18Var);
-            }
-            Item item = dataRes.item_card;
-            if (item != null) {
-                p18 p18Var = new p18();
-                p18Var.i(item);
-                arrayList.add(p18Var);
-            }
-            for (SugLiveInfo sugLiveInfo : dataRes.live_card) {
-                q18 q18Var = new q18();
-                q18Var.n(str);
-                q18Var.m(sugLiveInfo);
-                arrayList.add(q18Var);
-            }
-            SugRankingInfo sugRankingInfo = dataRes.ranking_card;
-            if (sugRankingInfo != null) {
-                r18 r18Var = new r18();
-                r18Var.h(str);
-                r18Var.g(sugRankingInfo);
-                arrayList.add(r18Var);
-            }
-            int size = arrayList.size();
-            for (String str2 : dataRes.list) {
-                n18 n18Var = new n18();
-                n18Var.c(str);
-                n18Var.f(str2);
-                if (!StringUtils.isNull(str2) && !StringUtils.isNull(str) && str2.trim().equals(str.trim())) {
-                    arrayList.add(size, n18Var);
-                } else {
-                    arrayList.add(n18Var);
-                }
-            }
-            return arrayList;
         }
-        return (List) invokeLL.objValue;
+        Intrinsics.checkNotNullParameter(name, "name");
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.r18
+    /* renamed from: i */
+    public ImageView f(ViewGroup parent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, parent)) == null) {
+            Intrinsics.checkNotNullParameter(parent, "parent");
+            Context context = parent.getContext();
+            Intrinsics.checkNotNullExpressionValue(context, "parent.context");
+            TbImage tbImage = new TbImage(context, null, 0, 6, null);
+            tbImage.setLayoutParams(new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds96), UtilHelper.getDimenPixelSize(R.dimen.tbds50)));
+            return tbImage;
+        }
+        return (ImageView) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.r18
+    /* renamed from: h */
+    public void d(ImageView imageView, f08 data) {
+        TbImage tbImage;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, imageView, data) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            if (imageView instanceof TbImage) {
+                tbImage = (TbImage) imageView;
+            } else {
+                tbImage = null;
+            }
+            i08 f = data.c().f();
+            if (f != null && tbImage != null) {
+                tbImage.i("res://drawable/" + f.a());
+            }
+        }
     }
 }

@@ -1,40 +1,91 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.net.MailTo;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.message.EvaluateRelevanceItemSelectedMessage;
+import com.baidu.tbadk.coreExtra.data.HeadItem;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.widget.richText.TbRichTextEvaluateItemInfo;
+import com.baidu.tieba.write.view.WriteEvaluationHeaderView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.google.gson.Gson;
+import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class gu9 {
+public class gu9 extends uu9<hv9> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static volatile gu9 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public hu9 a;
+    @Nullable
+    public WriteEvaluationHeaderView g;
+    public final CustomMessageListener h;
+
+    public final int D(double d) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d)})) == null) ? (int) ((d + 1.0d) / 2.0d) : invokeCommon.intValue;
+    }
 
     /* loaded from: classes4.dex */
-    public static class a {
+    public class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public Map<String, JSONObject> b;
+        public final /* synthetic */ gu9 a;
 
-        public a() {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(gu9 gu9Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gu9Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gu9Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || !(customResponsedMessage instanceof EvaluateRelevanceItemSelectedMessage)) {
+                return;
+            }
+            this.a.E((EvaluateRelevanceItemSelectedMessage) customResponsedMessage);
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements WriteEvaluationHeaderView.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gu9 a;
+
+        public b(gu9 gu9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gu9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,174 +95,184 @@ public class gu9 {
                     return;
                 }
             }
-            this.a = 0;
-            this.b = new HashMap();
+            this.a = gu9Var;
+        }
+
+        @Override // com.baidu.tieba.write.view.WriteEvaluationHeaderView.c
+        public void onClose() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null) {
+                this.a.b.i();
+            }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947806558, "Lcom/baidu/tieba/gu9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947806558, "Lcom/baidu/tieba/gu9;");
-                return;
-            }
-        }
-        b = ku9.m();
-    }
-
-    public gu9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gu9(TbPageContext<?> tbPageContext) {
+        super(tbPageContext, hv9.class);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (Class) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.h = new a(this, 2921516);
     }
 
-    public static gu9 f() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.zu9
+    public void e(@NonNull WriteData writeData) {
+        WriteEvaluationHeaderView writeEvaluationHeaderView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (gu9.class) {
-                    if (c == null) {
-                        c = new gu9();
-                    }
-                }
-            }
-            return c;
-        }
-        return (gu9) invokeV.objValue;
-    }
-
-    public final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            pt9 o = pt9.o();
-            if (o != null && !o.g("2980", 32)) {
-                return false;
-            }
-            if (o != null && o.d("2980")) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            pt9 o = pt9.o();
-            if (o != null && !o.g("2980", 32)) {
-                return false;
-            }
-            if (o != null && o.d("2980")) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void a(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048576, this, str, z) != null) || TextUtils.isEmpty(str) || !TextUtils.isDigitsOnly(str) || !b()) {
+        if ((interceptable != null && interceptable.invokeL(1048581, this, writeData) != null) || (writeEvaluationHeaderView = this.g) == null) {
             return;
         }
-        this.a.c(str, z);
+        writeData.setItemInfo(writeEvaluationHeaderView.getEvaluateItemInfo());
+        writeData.setEvaluationStar(this.g.getStarCount());
     }
 
-    public boolean d(uu9 uu9Var) {
+    @Override // com.baidu.tieba.uu9, com.baidu.tieba.zu9
+    public void j(@NonNull bv9 bv9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bv9Var) == null) {
+            super.j(bv9Var);
+            this.a.registerListener(this.h);
+        }
+    }
+
+    @Override // com.baidu.tieba.zu9
+    public void onChangeSkinType(int i) {
+        WriteEvaluationHeaderView writeEvaluationHeaderView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && (writeEvaluationHeaderView = this.g) != null) {
+            writeEvaluationHeaderView.f();
+        }
+    }
+
+    public final String C() {
+        InterceptResult invokeV;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            WriteEvaluationHeaderView writeEvaluationHeaderView = this.g;
+            if (writeEvaluationHeaderView != null) {
+                i = writeEvaluationHeaderView.getStarCount();
+            } else {
+                i = 0;
+            }
+            arrayList.add(new HeadItem("", String.valueOf(i), 2));
+            return new Gson().toJson(arrayList);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void E(EvaluateRelevanceItemSelectedMessage evaluateRelevanceItemSelectedMessage) {
+        WriteEvaluationHeaderView writeEvaluationHeaderView;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, evaluateRelevanceItemSelectedMessage) != null) || (writeEvaluationHeaderView = this.g) == null) {
+            return;
+        }
+        writeEvaluationHeaderView.setVisibility(0);
+        TbRichTextEvaluateItemInfo tbRichTextEvaluateItemInfo = new TbRichTextEvaluateItemInfo();
+        tbRichTextEvaluateItemInfo.setItemID(evaluateRelevanceItemSelectedMessage.item_id);
+        tbRichTextEvaluateItemInfo.setTags(evaluateRelevanceItemSelectedMessage.tags);
+        tbRichTextEvaluateItemInfo.setScore(evaluateRelevanceItemSelectedMessage.score);
+        tbRichTextEvaluateItemInfo.setStar(evaluateRelevanceItemSelectedMessage.star);
+        tbRichTextEvaluateItemInfo.setIconUrl(evaluateRelevanceItemSelectedMessage.icon_url);
+        tbRichTextEvaluateItemInfo.setIconSize(evaluateRelevanceItemSelectedMessage.icon_size);
+        tbRichTextEvaluateItemInfo.setTitle(evaluateRelevanceItemSelectedMessage.item_name);
+        this.g.setItemInfo(tbRichTextEvaluateItemInfo);
+    }
+
+    @Override // com.baidu.tieba.zu9
+    public void a(@NonNull WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, writeData) == null) && this.g != null && writeData.getItemInfo() != null) {
+            WriteData writeData2 = this.e;
+            if (writeData2 != null) {
+                writeData2.setItemInfo(writeData.getItemInfo());
+                this.e.setEvaluationStar(writeData.getEvaluationStar());
+            }
+            this.g.setItemInfo(writeData.getItemInfo());
+            this.g.setStarCount(writeData.getEvaluationStar());
+        }
+    }
+
+    @Override // com.baidu.tieba.zu9
+    public void c(WriteData writeData) {
+        WriteEvaluationHeaderView writeEvaluationHeaderView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, writeData) == null) && (writeEvaluationHeaderView = this.g) != null) {
+            writeData.setItemInfo(writeEvaluationHeaderView.getEvaluateItemInfo());
+            if (this.g.getEvaluateItemInfo() != null) {
+                writeData.setItem_id(this.g.getEvaluateItemInfo().getItemID());
+                writeData.setComment_head(C());
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.zu9
+    public View s(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, uu9Var)) == null) {
-            if (uu9Var == null || uu9Var.w() || !c()) {
-                return false;
-            }
-            this.a.f();
-            Map<String, a> v = this.a.v(7);
-            if (v != null && v.size() != 0) {
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    boolean z = false;
-                    for (String str : v.keySet()) {
-                        a aVar = v.get(str);
-                        if (aVar != null && !TextUtils.isEmpty(str)) {
-                            JSONObject jSONObject2 = new JSONObject();
-                            JSONArray jSONArray = new JSONArray();
-                            for (JSONObject jSONObject3 : aVar.b.values()) {
-                                jSONArray.put(jSONObject3);
-                            }
-                            jSONObject2.put("total", aVar.a);
-                            jSONObject2.put("data", jSONArray);
-                            jSONObject.put(str.replace("-", ""), jSONObject2);
-                            z = true;
-                        }
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, viewGroup)) == null) {
+            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d04d7, viewGroup, false);
+            this.c = inflate;
+            WriteEvaluationHeaderView writeEvaluationHeaderView = (WriteEvaluationHeaderView) inflate.findViewById(R.id.obfuscated_res_0x7f0928cc);
+            this.g = writeEvaluationHeaderView;
+            if (writeEvaluationHeaderView != null) {
+                writeEvaluationHeaderView.setItemCloseListener(new b(this));
+                WriteData writeData = this.e;
+                if (writeData != null) {
+                    if (writeData.isFromItemDetail()) {
+                        this.g.setShowItemInfo(false);
                     }
-                    if (z) {
-                        wt9 wt9Var = new wt9("2980");
-                        wt9Var.y(jSONObject);
-                        wt9Var.B(System.currentTimeMillis());
-                        uu9Var.c(wt9Var, wt9Var.g());
-                        uu9Var.a(v.keySet());
-                        return true;
+                    if (this.e.getIntentItemInfo() != null) {
+                        TbRichTextEvaluateItemInfo tbRichTextEvaluateItemInfo = new TbRichTextEvaluateItemInfo();
+                        tbRichTextEvaluateItemInfo.setItemID(String.valueOf(this.e.getIntentItemInfo().id));
+                        tbRichTextEvaluateItemInfo.setTags(this.e.getIntentItemInfo().tags);
+                        tbRichTextEvaluateItemInfo.setScore(this.e.getIntentItemInfo().averageScore);
+                        tbRichTextEvaluateItemInfo.setStar(D(this.e.getIntentItemInfo().averageScore));
+                        tbRichTextEvaluateItemInfo.setIconUrl(this.e.getIntentItemInfo().icon_url);
+                        tbRichTextEvaluateItemInfo.setIconSize(this.e.getIntentItemInfo().icon_size);
+                        tbRichTextEvaluateItemInfo.setTitle(this.e.getIntentItemInfo().name);
+                        this.g.setItemInfo(tbRichTextEvaluateItemInfo);
+                        this.g.setStarCount(this.e.getIntentStarCount());
+                        this.e.setItemInfo(tbRichTextEvaluateItemInfo);
+                        WriteData writeData2 = this.e;
+                        writeData2.setEvaluationStar(writeData2.getIntentStarCount());
+                    } else if (this.e.getItemInfo() != null) {
+                        this.g.setItemInfo(this.e.getItemInfo());
+                        this.g.setStarCount(this.e.getEvaluationStar());
                     }
-                } catch (JSONException e) {
-                    e.printStackTrace();
                 }
+            }
+            return this.c;
+        }
+        return (View) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.uu9, com.baidu.tieba.zu9
+    public boolean t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            WriteEvaluationHeaderView writeEvaluationHeaderView = this.g;
+            if (writeEvaluationHeaderView != null && writeEvaluationHeaderView.e()) {
+                return true;
             }
             return false;
         }
-        return invokeL.booleanValue;
-    }
-
-    public void e(Map<String, a> map, String str, String str2, int i, int i2) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{map, str, str2, Integer.valueOf(i), Integer.valueOf(i2)}) != null) || map == null) {
-            return;
-        }
-        if (map.containsKey(str)) {
-            aVar = map.get(str);
-        } else {
-            a aVar2 = new a();
-            map.put(str, aVar2);
-            aVar = aVar2;
-        }
-        Map<String, JSONObject> map2 = aVar.b;
-        if (map2.containsKey(str2) && b) {
-            Log.e("UBCArrivalStatics", "*******duplicate ubc id record: " + str2);
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("id", str2);
-            jSONObject.put("c", i);
-            jSONObject.put(MailTo.CC, i2);
-            aVar.a += i;
-            map2.put(str2, jSONObject);
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
-
-    public void g(hu9 hu9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, hu9Var) == null) {
-            this.a = hu9Var;
-        }
+        return invokeV.booleanValue;
     }
 }

@@ -1,36 +1,28 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import androidx.annotation.Nullable;
+import com.baidu.nadcore.player.constants.PlayerStatus;
 /* loaded from: classes6.dex */
-public class sv0 extends bw0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface sv0 {
+    void a(@NonNull ru0 ru0Var);
 
-    public sv0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void d(@NonNull ru0 ru0Var);
 
-    public static bw0 w(@NonNull String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return bw0.m(str, 4);
-        }
-        return (bw0) invokeL.objValue;
-    }
+    int getExpectOrder();
+
+    @Nullable
+    int[] getSubscribeEvent();
+
+    int getType();
+
+    void h(PlayerStatus playerStatus, PlayerStatus playerStatus2);
+
+    void j(@NonNull ru0 ru0Var);
+
+    void k(@NonNull ru0 ru0Var);
+
+    void n(@NonNull ru0 ru0Var);
+
+    void q(@NonNull ru0 ru0Var);
 }

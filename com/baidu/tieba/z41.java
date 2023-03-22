@@ -1,24 +1,22 @@
 package com.baidu.tieba;
 
-import android.content.pm.PackageManager;
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.model.AdOperator;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.w41;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes7.dex */
 public class z41 {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, Integer> a;
+    public static final z41 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Map<Integer, w41.b> a;
 
     static {
         InterceptResult invokeClinit;
@@ -33,194 +31,58 @@ public class z41 {
                 return;
             }
         }
-        HashMap<String, Integer> hashMap = new HashMap<>();
-        a = hashMap;
-        hashMap.put("__AD_EXTRA_PARAM_ENCODE_0__", 0);
-        a.put("__AD_EXTRA_PARAM_ENCODE_1__", 1);
-        a.put("__AD_EXTRA_PARAM_ENCODE_2__", 2);
-        a.put("__AD_EXTRA_PARAM_ENCODE_3__", 3);
+        b = new z41();
     }
 
-    public static String a(String str, int i) {
-        InterceptResult invokeLI;
+    public z41() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
-            if (i <= 0) {
-                return str;
-            }
-            for (int i2 = 0; i2 < i; i2++) {
-                str = Uri.encode(str);
-            }
-            return str;
-        }
-        return (String) invokeLI.objValue;
-    }
-
-    public static String g(@NonNull AdBaseModel adBaseModel, @NonNull String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, adBaseModel, str)) == null) {
-            if (!m(str)) {
-                return str;
-            }
-            String c = c(adBaseModel);
-            if (!TextUtils.isEmpty(c)) {
-                return l(str, c);
-            }
-            return str;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String b(@NonNull AdBaseModel adBaseModel, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, adBaseModel, str)) == null) {
-            pq0 pq0Var = adBaseModel.l;
-            if (pq0Var != null && pq0Var.e) {
-                String str2 = pq0Var.a;
-                if (TextUtils.isEmpty(str2)) {
-                    return str;
-                }
-                boolean d = d(str2);
-                String str3 = pq0Var.b;
-                if (d) {
-                    if (TextUtils.isEmpty(str3)) {
-                        return str;
-                    }
-                } else {
-                    str3 = "";
-                }
-                if (!TextUtils.isEmpty(str3)) {
-                    return str3;
-                }
-                return str;
-            }
-            return str;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String c(AdBaseModel adBaseModel) {
-        InterceptResult invokeL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, adBaseModel)) == null) {
-            if (adBaseModel != null && (str = adBaseModel.f.d) != null) {
-                return str;
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            try {
-                rj0.b().getPackageManager().getApplicationInfo(str, 0);
-                return true;
-            } catch (PackageManager.NameNotFoundException | Exception unused) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return invokeL.booleanValue;
+        this.a = new HashMap();
     }
 
-    public static void e(AdBaseModel adBaseModel) {
+    public static z41 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, adBaseModel) == null) {
-            h(adBaseModel);
-            j(adBaseModel);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
         }
+        return (z41) invokeV.objValue;
     }
 
-    public static void f(AdBaseModel adBaseModel) {
+    public void a(int i, w41.b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, adBaseModel) == null) && adBaseModel.d && !TextUtils.isEmpty(adBaseModel.h.d)) {
-            AdOperator adOperator = adBaseModel.h;
-            adOperator.d = g(adBaseModel, adOperator.d);
-        }
-    }
-
-    public static void h(AdBaseModel adBaseModel) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, adBaseModel) == null) {
-            i(adBaseModel);
-            f(adBaseModel);
-            k(adBaseModel);
-        }
-    }
-
-    public static void i(@NonNull AdBaseModel adBaseModel) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65545, null, adBaseModel) != null) || TextUtils.isEmpty(adBaseModel.f.c)) {
-            return;
-        }
-        xq0 xq0Var = adBaseModel.f;
-        xq0Var.c = g(adBaseModel, xq0Var.c);
-    }
-
-    public static void k(AdBaseModel adBaseModel) {
-        pq0 pq0Var;
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65547, null, adBaseModel) == null) && (pq0Var = adBaseModel.l) != null && (str = pq0Var.b) != null) {
-            pq0Var.b = g(adBaseModel, str);
-        }
-    }
-
-    public static void j(@NonNull AdBaseModel adBaseModel) {
-        pq0 pq0Var;
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65546, null, adBaseModel) == null) && (pq0Var = adBaseModel.l) != null && pq0Var.e) {
-            String str2 = pq0Var.b;
-            if (str2.contains("__AUTO_INVOKE__")) {
-                if (d(adBaseModel.l.a)) {
-                    str = "0";
-                } else {
-                    str = "1";
-                }
-                adBaseModel.l.b = str2.replace("__AUTO_INVOKE__", str);
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, bVar) == null) {
+            synchronized (z41.class) {
+                this.a.put(Integer.valueOf(i), bVar);
             }
         }
     }
 
-    public static boolean m(String str) {
-        InterceptResult invokeL;
+    public w41.b c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            for (Map.Entry<String, Integer> entry : a.entrySet()) {
-                if (str.contains(entry.getKey())) {
-                    return true;
-                }
-            }
-            return false;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return this.a.get(Integer.valueOf(i));
         }
-        return invokeL.booleanValue;
+        return (w41.b) invokeI.objValue;
     }
 
-    public static String l(String str, String str2) {
-        InterceptResult invokeLL;
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, str2)) == null) {
-            if (str != null && str2 != null) {
-                for (Map.Entry<String, Integer> entry : a.entrySet()) {
-                    if (str.contains(entry.getKey())) {
-                        try {
-                            str = str.replaceAll(entry.getKey(), a(str2, entry.getValue().intValue()));
-                        } catch (ArrayIndexOutOfBoundsException | IllegalArgumentException unused) {
-                        }
-                    }
-                }
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            synchronized (z41.class) {
+                this.a.remove(Integer.valueOf(i));
             }
-            return str;
         }
-        return (String) invokeLL.objValue;
     }
 }

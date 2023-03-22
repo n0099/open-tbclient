@@ -1,52 +1,117 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.fn7;
-import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.framework.task.SocketMessageTask;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.message.ResponseCheckUserMaskMessage;
+import com.baidu.tbadk.core.message.ResponseUpdateMaskInfoMessage;
+import com.baidu.tbadk.newFriends.ResponseAddFriendMessage;
+import com.baidu.tbadk.newFriends.ResponseApplyMessage;
+import com.baidu.tbadk.newFriends.ResponseDeleteFriendMessage;
+import com.baidu.tieba.im.message.ResponseGetMaskInfoMessage;
+import com.baidu.tieba.im.message.ResponsePullMessage;
+import com.baidu.tieba.im.push.PushResponseMessage;
+import com.baidu.tieba.im.pushNotify.PushNotifyMessage;
+import com.baidu.tieba.im.pushNotify.PushNotifyMessageDecoder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
 /* loaded from: classes4.dex */
 public class gn7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public static class a implements fn7.c {
+    public static class a extends xa {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.fn7.c
-        public boolean a(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                return true;
-            }
-            return invokeL.booleanValue;
-        }
-
-        public a() {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
         }
+
+        public SocketResponsedMessage c(SocketResponsedMessage socketResponsedMessage) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
+                if (socketResponsedMessage instanceof PushNotifyMessageDecoder) {
+                    PushNotifyMessageDecoder pushNotifyMessageDecoder = (PushNotifyMessageDecoder) socketResponsedMessage;
+                    if (pushNotifyMessageDecoder.getMsgList() != null) {
+                        Iterator<PushNotifyMessage> it = pushNotifyMessageDecoder.getMsgList().iterator();
+                        while (it.hasNext()) {
+                            MessageManager.getInstance().dispatchResponsedMessageToUI(it.next());
+                        }
+                    }
+                }
+                return socketResponsedMessage;
+            }
+            return (SocketResponsedMessage) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
+        /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.ResponsedMessage' to match base method */
+        @Override // com.baidu.tieba.ua
+        public /* bridge */ /* synthetic */ SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
+            SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
+            c(socketResponsedMessage2);
+            return socketResponsedMessage2;
+        }
     }
 
-    public static void a(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, fn7.b bVar) {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, groupMsgData, imMessageCenterPojo, bVar) == null) {
-            fn7.d(groupMsgData, imMessageCenterPojo, bVar, new a(), false);
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            b();
+            c();
         }
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            hn7.b(104102, ResponseUpdateMaskInfoMessage.class, false);
+            hn7.b(202003, ResponsePullMessage.class, false).f(SocketMessageTask.DupLicateMode.REMOVE_WAITING);
+            hn7.b(202009, PushResponseMessage.class, false);
+            hn7.b(202006, PushNotifyMessageDecoder.class, false);
+            hn7.b(104103, ResponseGetMaskInfoMessage.class, false);
+            hn7.b(304100, ResponseAddFriendMessage.class, false);
+            hn7.b(304102, ResponseDeleteFriendMessage.class, false);
+            hn7.b(304103, ResponseApplyMessage.class, false);
+            hn7.b(104104, ResponseCheckUserMaskMessage.class, false);
+            MessageManager.getInstance().registerStickyMode(2001120);
+        }
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            MessageManager.getInstance().addResponsedMessageRule(new a(202006));
+            MessageManager.getInstance().addResponsedMessageRule(new jq7());
+            MessageManager.getInstance().addResponsedMessageRule(new nq7());
+            MessageManager.getInstance().addMessageRule(new iq7());
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

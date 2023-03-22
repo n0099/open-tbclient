@@ -10,22 +10,22 @@ import android.widget.ListAdapter;
 import android.widget.WrapperListAdapter;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.eo;
-import com.baidu.tieba.un;
+import com.baidu.tieba.hn;
+import com.baidu.tieba.xm;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class BdSimplePreLoadListAdapter extends BaseAdapter implements eo {
+public class BdSimplePreLoadListAdapter extends BaseAdapter implements hn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ListAdapter mAdapter;
     public DataSetObserver mAdapterDataSetObserver;
     public DataSetObserver mDataSetObserver;
     public boolean mIsFilterable;
-    public un.b mListPreLoad;
+    public xm.b mListPreLoad;
 
     public BdSimplePreLoadListAdapter() {
         Interceptable interceptable = $ic;
@@ -95,7 +95,7 @@ public class BdSimplePreLoadListAdapter extends BaseAdapter implements eo {
         };
     }
 
-    @Override // android.widget.Adapter, com.baidu.tieba.eo
+    @Override // android.widget.Adapter, com.baidu.tieba.hn
     public Object getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
@@ -150,7 +150,7 @@ public class BdSimplePreLoadListAdapter extends BaseAdapter implements eo {
         }
     }
 
-    public void setListPreLoad(un.b bVar) {
+    public void setListPreLoad(xm.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) {
             this.mListPreLoad = bVar;
@@ -172,7 +172,7 @@ public class BdSimplePreLoadListAdapter extends BaseAdapter implements eo {
         }
     }
 
-    @Override // android.widget.Adapter, com.baidu.tieba.eo
+    @Override // android.widget.Adapter, com.baidu.tieba.hn
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -222,7 +222,7 @@ public class BdSimplePreLoadListAdapter extends BaseAdapter implements eo {
         return invokeV.booleanValue;
     }
 
-    @Override // android.widget.BaseAdapter, com.baidu.tieba.eo
+    @Override // android.widget.BaseAdapter, com.baidu.tieba.hn
     public void notifyDataSetChanged() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {

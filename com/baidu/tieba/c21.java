@@ -1,51 +1,25 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.nadcore.requester.NadRequester;
-import com.baidu.nadcore.requester.RequestParameters;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.nadcore.sweetsqlite.Column;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class c21 extends zk1<d21> {
+public abstract class c21 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public class a implements d21 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final d21 b;
+    public abstract Column[] c();
 
-        public a(c21 c21Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c21Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = new b21();
-        }
+    public abstract u11[] d();
 
-        @Override // com.baidu.tieba.d21
-        public void a(@NonNull RequestParameters requestParameters, @NonNull NadRequester.b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, requestParameters, bVar) == null) {
-                this.b.a(requestParameters, bVar);
-            }
-        }
-    }
+    public abstract u11[][] e();
+
+    public abstract u11[] f();
+
+    public abstract String g();
 
     public c21() {
         Interceptable interceptable = $ic;
@@ -61,15 +35,21 @@ public class c21 extends zk1<d21> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zk1
-    /* renamed from: a */
-    public d21 createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    public static u11 a(int i, String str, String str2, int i2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), str, str2, Integer.valueOf(i2)})) == null) {
+            return b(i, str, str2, i2, 0);
         }
-        return (d21) invokeV.objValue;
+        return (u11) invokeCommon.objValue;
+    }
+
+    public static u11 b(int i, String str, String str2, int i2, int i3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), str, str2, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            return new u11(i, str, str2, i2, i3);
+        }
+        return (u11) invokeCommon.objValue;
     }
 }

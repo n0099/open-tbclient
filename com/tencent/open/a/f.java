@@ -41,20 +41,20 @@ public class f extends SQLiteOpenHelper {
         sQLiteDatabase.execSQL("CREATE TABLE IF NOT EXISTS via_cgi_report( _id INTEGER PRIMARY KEY,key TEXT,type TEXT,blob BLOB);");
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:47:0x008c, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:47:0x008a, code lost:
         if (r1 == null) goto L20;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:48:0x008e, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:48:0x008c, code lost:
         r1.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:56:0x00a1, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:56:0x009f, code lost:
         if (r1 != null) goto L19;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:59:0x00a5, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:59:0x00a3, code lost:
         return r0;
      */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x0077 A[Catch: all -> 0x0081, Exception -> 0x0084, TRY_ENTER, TryCatch #14 {Exception -> 0x0084, all -> 0x0081, blocks: (B:14:0x0032, B:16:0x0038, B:17:0x003b, B:20:0x0055, B:21:0x0058, B:37:0x0077, B:38:0x007a, B:28:0x0064, B:29:0x0067, B:30:0x006a, B:33:0x006e, B:34:0x0071), top: B:92:0x0032 }] */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x0089 A[Catch: all -> 0x00b1, TRY_ENTER, TryCatch #9 {, blocks: (B:3:0x0001, B:7:0x0012, B:46:0x0089, B:48:0x008e, B:61:0x00a8, B:63:0x00ad, B:64:0x00b0, B:55:0x009e), top: B:84:0x0001 }] */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x0075 A[Catch: all -> 0x007f, Exception -> 0x0082, TRY_ENTER, TryCatch #13 {Exception -> 0x0082, all -> 0x007f, blocks: (B:14:0x0030, B:16:0x0036, B:17:0x0039, B:20:0x0053, B:21:0x0056, B:37:0x0075, B:38:0x0078, B:28:0x0062, B:29:0x0065, B:30:0x0068, B:33:0x006c, B:34:0x006f), top: B:94:0x0030 }] */
+    /* JADX WARN: Removed duplicated region for block: B:46:0x0087 A[Catch: all -> 0x00af, TRY_ENTER, TryCatch #7 {, blocks: (B:3:0x0001, B:7:0x0012, B:46:0x0087, B:48:0x008c, B:61:0x00a6, B:63:0x00ab, B:64:0x00ae, B:55:0x009c), top: B:84:0x0001 }] */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -83,53 +83,53 @@ public class f extends SQLiteOpenHelper {
                                 ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(query.getBlob(query.getColumnIndex("blob")));
                                 try {
                                     objectInputStream = new ObjectInputStream(byteArrayInputStream);
-                                } catch (Exception unused) {
-                                    objectInputStream = null;
-                                } catch (Throwable th) {
-                                    th = th;
-                                }
-                                try {
-                                    serializable = (Serializable) objectInputStream.readObject();
                                     try {
-                                        objectInputStream.close();
-                                    } catch (IOException unused2) {
-                                    }
-                                    try {
-                                        byteArrayInputStream.close();
-                                    } catch (IOException unused3) {
-                                    }
-                                } catch (Exception unused4) {
-                                    if (objectInputStream != null) {
+                                        serializable = (Serializable) objectInputStream.readObject();
                                         try {
                                             objectInputStream.close();
+                                        } catch (IOException unused) {
+                                        }
+                                        try {
+                                            byteArrayInputStream.close();
+                                        } catch (IOException unused2) {
+                                        }
+                                    } catch (Exception unused3) {
+                                        if (objectInputStream != null) {
+                                            try {
+                                                objectInputStream.close();
+                                            } catch (IOException unused4) {
+                                            }
+                                        }
+                                        try {
+                                            byteArrayInputStream.close();
                                         } catch (IOException unused5) {
                                         }
-                                    }
-                                    try {
-                                        byteArrayInputStream.close();
-                                    } catch (IOException unused6) {
-                                    }
-                                    serializable = null;
-                                    if (serializable != null) {
-                                    }
-                                    if (!query.moveToNext()) {
-                                        if (query != null) {
+                                        serializable = null;
+                                        if (serializable != null) {
                                         }
-                                    }
-                                } catch (Throwable th2) {
-                                    th = th2;
-                                    objectInputStream2 = objectInputStream;
-                                    if (objectInputStream2 != null) {
+                                        if (!query.moveToNext()) {
+                                            if (query != null) {
+                                            }
+                                        }
+                                    } catch (Throwable th) {
+                                        th = th;
+                                        objectInputStream2 = objectInputStream;
+                                        if (objectInputStream2 != null) {
+                                            try {
+                                                objectInputStream2.close();
+                                            } catch (IOException unused6) {
+                                            }
+                                        }
                                         try {
-                                            objectInputStream2.close();
+                                            byteArrayInputStream.close();
                                         } catch (IOException unused7) {
                                         }
+                                        throw th;
                                     }
-                                    try {
-                                        byteArrayInputStream.close();
-                                    } catch (IOException unused8) {
-                                    }
-                                    throw th;
+                                } catch (Exception unused8) {
+                                    objectInputStream = null;
+                                } catch (Throwable th2) {
+                                    th = th2;
                                 }
                                 if (serializable != null) {
                                     synchronizedList.add(serializable);
@@ -166,16 +166,16 @@ public class f extends SQLiteOpenHelper {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:46:0x0082, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:46:0x0080, code lost:
         if (r1 != null) goto L65;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:47:0x0084, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:47:0x0082, code lost:
         r1.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:53:0x0095, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:53:0x0092, code lost:
         if (r1 == null) goto L66;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:56:0x0099, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:56:0x0096, code lost:
         return;
      */
     /*
@@ -208,13 +208,13 @@ public class f extends SQLiteOpenHelper {
                     ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(512);
                     ObjectOutputStream objectOutputStream2 = null;
                     try {
-                        try {
-                            objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
-                        } catch (IOException unused) {
-                        }
+                        objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
                         try {
                             objectOutputStream.writeObject(serializable);
-                            objectOutputStream.close();
+                            try {
+                                objectOutputStream.close();
+                            } catch (IOException unused) {
+                            }
                         } catch (IOException unused2) {
                             if (objectOutputStream != null) {
                                 objectOutputStream.close();
@@ -257,16 +257,16 @@ public class f extends SQLiteOpenHelper {
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x0020, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x001e, code lost:
         if (r0 != null) goto L15;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:13:0x0022, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x0020, code lost:
         r0.close();
      */
-    /* JADX WARN: Code restructure failed: missing block: B:19:0x0030, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x002e, code lost:
         if (r0 == null) goto L17;
      */
-    /* JADX WARN: Code restructure failed: missing block: B:22:0x0034, code lost:
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x0032, code lost:
         return;
      */
     /*

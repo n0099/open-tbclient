@@ -21,7 +21,7 @@ import com.baidu.tieba.R;
 import com.google.android.material.internal.ManufacturerUtils;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MaterialAutoCompleteTextView extends AppCompatAutoCompleteTextView {
     public static final int MAX_ITEMS_MEASURED = 15;
     @Nullable
@@ -71,7 +71,7 @@ public class MaterialAutoCompleteTextView extends AppCompatAutoCompleteTextView 
         super(MaterialThemeOverlay.wrap(context, attributeSet, i, 0), attributeSet, i);
         this.tempRect = new Rect();
         Context context2 = getContext();
-        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, com.google.android.material.R.styleable.MaterialAutoCompleteTextView, i, R.style.obfuscated_res_0x7f1002cc, new int[0]);
+        TypedArray obtainStyledAttributes = ThemeEnforcement.obtainStyledAttributes(context2, attributeSet, com.google.android.material.R.styleable.MaterialAutoCompleteTextView, i, R.style.obfuscated_res_0x7f1002d0, new int[0]);
         if (obtainStyledAttributes.hasValue(0) && obtainStyledAttributes.getInt(0, 0) == 0) {
             setKeyListener(null);
         }

@@ -17,7 +17,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 @UpdateAction(action = SchemeDescPatchListener.DESC_PATCH_ACTION, module = "scheme")
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SchemeDescPatchListener extends JSONObjectCommandListener {
     public static final String DESC_PATCH_ACTION = "desc_patch";
     public static final String DESC_PATCH_VERSION = "desc_patch_v";

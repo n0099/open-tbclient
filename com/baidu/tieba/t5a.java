@@ -1,649 +1,179 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.content.res.AssetManager;
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.a6a;
-import com.baidu.tieba.mba;
-import com.baidu.tieba.p5a;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdConfig;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.http.GetRequest;
-import com.fun.ad.sdk.internal.api.http.RequestParams;
-import com.fun.ad.sdk.internal.api.http.Response;
-import com.fun.ad.sdk.internal.api.reporter.Reporter;
-import com.fun.ad.sdk.internal.api.utils.HostAppInfo;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.qq.e.comm.constants.Constants;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.StringWriter;
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.ugc.editvideo.record.RecordConstants;
 /* loaded from: classes6.dex */
-public final class t5a {
+public class t5a {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, Double> a;
-    public static final Handler b;
-    public static FunAdSdk.SdkInitializeCallback c;
-    public static final Handler d;
-    public static final xaa e;
-    public static final mba f;
-    public static boolean g;
-    public static volatile boolean h;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948133577, "Lcom/baidu/tieba/t5a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948133577, "Lcom/baidu/tieba/t5a;");
-                return;
-            }
-        }
-        a = new HashMap();
-        b = new a(Looper.getMainLooper());
-        HandlerThread handlerThread = new HandlerThread("fun_ad_sdk_config");
-        handlerThread.start();
-        d = new b(handlerThread.getLooper());
-        e = new xaa();
-        f = new mba();
-    }
-
     /* loaded from: classes6.dex */
-    public static class a extends Handler {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final int a;
+        public final int b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(Looper looper) {
-            super(looper);
+        public a(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {looper};
+                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.a = i;
+            this.b = i2;
         }
 
-        @Override // android.os.Handler
-        public void handleMessage(@NonNull Message message) {
+        public int a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 200) {
-                t5a.e(false);
-            }
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
+        }
+
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a : invokeV.intValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static class b extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        public final void a(s5a s5aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, s5aVar) == null) {
-                String str = FunAdSdk.getFunAdConfig().appId;
-                String str2 = null;
-                try {
-                    LogPrinter.v("Start load config from assets.", new Object[0]);
-                    AssetManager assets = FunAdSdk.getAppContext().getAssets();
-                    InputStream open = assets.open(str + ".json");
-                    StringWriter stringWriter = new StringWriter();
-                    InputStreamReader inputStreamReader = new InputStreamReader(open);
-                    char[] cArr = new char[4096];
-                    while (true) {
-                        int read = inputStreamReader.read(cArr);
-                        if (-1 == read) {
-                            break;
-                        }
-                        stringWriter.write(cArr, 0, read);
-                    }
-                    String stringWriter2 = stringWriter.toString();
-                    LogPrinter.v("Config from assets load over.", new Object[0]);
-                    open.close();
-                    if (!TextUtils.isEmpty(stringWriter2)) {
-                        str2 = d6a.a(stringWriter2, str);
-                        LogPrinter.v("Config from assets decrypted over.", new Object[0]);
-                    }
-                } catch (Exception e) {
-                    LogPrinter.e(e, "The initialized config from assets cannot be loaded.", new Object[0]);
-                }
-                if (!s5aVar.b(str2)) {
-                    LogPrinter.e("Config from assets parsed failed.", new Object[0]);
-                    if (FunAdSdk.isLogEnabled()) {
-                        throw new RuntimeException("Config from assets parsed failed");
-                    }
-                }
-            }
-        }
-
-        /* JADX WARN: Removed duplicated region for block: B:68:0x016a  */
-        @Override // android.os.Handler
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public void handleMessage(@NonNull Message message) {
-            Response perform;
-            Reporter a;
-            int i;
-            JSONObject jSONObject;
-            int i2;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message) == null) {
-                boolean z2 = true;
-                switch (message.what) {
-                    case 100:
-                        HashMap hashMap = new HashMap();
-                        try {
-                            JSONObject jSONObject2 = new JSONObject();
-                            HostAppInfo.fillReqParams(jSONObject2);
-                            Iterator<String> keys = jSONObject2.keys();
-                            while (keys.hasNext()) {
-                                String next = keys.next();
-                                hashMap.put(next, jSONObject2.get(next));
-                            }
-                        } catch (JSONException unused) {
-                        }
-                        try {
-                            perform = new GetRequest("https://cd.xdplt.com/v2/z", new RequestParams(hashMap)).perform();
-                        } catch (IOException e) {
-                            LogPrinter.e(e);
-                        }
-                        if (perform != null && perform.getResponseCode() == 200) {
-                            try {
-                                jSONObject = new JSONObject(perform.getContent());
-                                i2 = jSONObject.getInt(Constants.KEYS.RET);
-                                LogPrinter.d("Download online ad config response ret: " + i2, new Object[0]);
-                            } catch (JSONException e2) {
-                                LogPrinter.e(e2);
-                                a = yaa.a();
-                                i = -1;
-                            }
-                            if (i2 == 200) {
-                                String string = jSONObject.getJSONObject("data").getString("content");
-                                try {
-                                } catch (Exception e3) {
-                                    LogPrinter.e(e3);
-                                    a = yaa.a();
-                                    i = -2;
-                                }
-                                if (new s5a().b(d6a.a(string, FunAdSdk.getFunAdConfig().appId))) {
-                                    g6a.b.edit().putInt("key_cp_v", 5).putString("key_serv_las_d", string).apply();
-                                    t5a.a.clear();
-                                    g6a.b.edit().putLong("key_lst_config_sync_time", System.currentTimeMillis()).apply();
-                                    if (z2) {
-                                    }
-                                    t5a.c();
-                                    return;
-                                }
-                                a = yaa.a();
-                                i = -3;
-                                a.logEvent("k_ppcfg", "st", Integer.valueOf(i));
-                                z2 = false;
-                                g6a.b.edit().putLong("key_lst_config_sync_time", System.currentTimeMillis()).apply();
-                                if (z2) {
-                                }
-                                t5a.c();
-                                return;
-                            }
-                            z2 = false;
-                            g6a.b.edit().putLong("key_lst_config_sync_time", System.currentTimeMillis()).apply();
-                            if (z2) {
-                                t5a.b.sendEmptyMessage(200);
-                            }
-                            t5a.c();
-                            return;
-                        }
-                        LogPrinter.e("Pull ad config failed.", new Object[0]);
-                        z2 = false;
-                        g6a.b.edit().putLong("key_lst_config_sync_time", System.currentTimeMillis()).apply();
-                        if (z2) {
-                        }
-                        t5a.c();
-                        return;
-                    case 101:
-                        a(new s5a());
-                        break;
-                    case 102:
-                        String str = null;
-                        try {
-                            str = d6a.a(g6a.b.getString("key_serv_las_d", null), FunAdSdk.getFunAdConfig().appId);
-                        } catch (Exception e4) {
-                            LogPrinter.e(e4, "Parsing err from latest cipher occurs, abandon the err data", new Object[0]);
-                        }
-                        if (str == null) {
-                            z = true;
-                        } else {
-                            z = false;
-                        }
-                        s5a s5aVar = new s5a();
-                        if (!z && !s5aVar.b(str)) {
-                            LogPrinter.e("Config parsed failed from latest cipher data,use cipher data from assets instead", new Object[0]);
-                        } else {
-                            z2 = z;
-                        }
-                        if (z2) {
-                            a(s5aVar);
-                            g6a.b.edit().remove("key_cp_v").remove("key_serv_las_d").apply();
-                            break;
-                        } else {
-                            g6a.b.edit().putInt("key_cp_v", 5).apply();
-                            break;
-                        }
-                    default:
-                        return;
-                }
-                t5a.b.obtainMessage(200).sendToTarget();
-            }
-        }
-    }
-
-    public static int a(String str, Ssp.Pid pid) {
-        InterceptResult invokeLL;
-        int i;
+    public static int[] a(float f, int i) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, pid)) == null) {
-            a6a a6aVar = e.b;
-            synchronized (a6aVar.a) {
-                Deque<a6a.c> deque = a6aVar.a.get(str);
-                i = 0;
-                if (deque != null) {
-                    Iterator<a6a.c> descendingIterator = deque.descendingIterator();
-                    while (true) {
-                        if (!descendingIterator.hasNext()) {
-                            break;
-                        }
-                        a6a.c next = descendingIterator.next();
-                        if (next.a().contains(pid)) {
-                            i = next.b();
-                            break;
-                        }
-                    }
-                }
-            }
-            return i;
-        }
-        return invokeLL.intValue;
-    }
-
-    public static c6a b(String str) {
-        InterceptResult invokeL;
-        c6a c6aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            xaa xaaVar = e;
-            synchronized (xaaVar) {
-                if (xaaVar.a == null) {
-                    LogPrinter.d("Cannot get slotId without AdConfig updated.", new Object[0]);
-                    c6aVar = null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Float.valueOf(f), Integer.valueOf(i)})) == null) {
+            int[] iArr = new int[2];
+            if (f > 1.0f) {
+                iArr[0] = i;
+                iArr[1] = (int) (i * f);
+                int i2 = iArr[1] % 16;
+                if (i2 > 8) {
+                    iArr[1] = iArr[1] + (16 - i2);
                 } else {
-                    c6aVar = xaaVar.c.get(str);
+                    iArr[1] = iArr[1] - i2;
                 }
-            }
-            return c6aVar;
-        }
-        return (c6a) invokeL.objValue;
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, null) == null) && FunAdSdk.getFunAdConfig().isUseCloudAdConfiguration) {
-            SharedPreferences sharedPreferences = g6a.b;
-            long j = 0;
-            long j2 = sharedPreferences.getLong("key_lst_config_sync_time", 0L);
-            if (j2 > 0) {
-                long currentTimeMillis = System.currentTimeMillis() - j2;
-                if (currentTimeMillis >= 0) {
-                    long j3 = sharedPreferences.getInt("key_config_interval", 15) * 60 * 1000;
-                    if (currentTimeMillis < j3) {
-                        j = j3 - currentTimeMillis;
-                    }
-                }
-            }
-            long max = Math.max(10000L, j);
-            LogPrinter.v("Remove last pull config request, and schedule it %ds later.", Long.valueOf(max / 1000));
-            Handler handler = d;
-            handler.removeMessages(100);
-            handler.sendEmptyMessageDelayed(100, max);
-        }
-    }
-
-    public static void d(n5a n5aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, n5aVar) == null) {
-            h = true;
-            mba mbaVar = f;
-            synchronized (mbaVar.b) {
-                mbaVar.e = n5aVar;
-                mbaVar.d = 1;
-                while (!mbaVar.c.isEmpty()) {
-                    mba.a pollFirst = mbaVar.c.pollFirst();
-                    if (!mba.f && pollFirst == null) {
-                        throw new AssertionError();
-                    }
-                    mbaVar.loadAd(pollFirst.a, pollFirst.b, pollFirst.c);
-                }
-            }
-            FunAdSdk.SdkInitializeCallback sdkInitializeCallback = c;
-            if (sdkInitializeCallback != null) {
-                sdkInitializeCallback.onComplete();
-            }
-            c = null;
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:118:0x01f8  */
-    /* JADX WARN: Removed duplicated region for block: B:125:0x0209  */
-    /* JADX WARN: Removed duplicated region for block: B:127:0x020d  */
-    /* JADX WARN: Removed duplicated region for block: B:128:0x0238  */
-    /* JADX WARN: Removed duplicated region for block: B:62:0x0110 A[Catch: all -> 0x0265, TRY_LEAVE, TryCatch #0 {, blocks: (B:38:0x00a3, B:40:0x00a7, B:42:0x00ad, B:43:0x00b5, B:62:0x0110, B:46:0x00c6, B:47:0x00d3, B:49:0x00d9, B:50:0x00e3, B:52:0x00e9, B:54:0x00f9, B:56:0x0103, B:65:0x011a, B:69:0x0122, B:73:0x0134, B:72:0x0132, B:68:0x0120), top: B:143:0x00a3 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void e(boolean z) {
-        boolean z2;
-        boolean z3;
-        Set<z5a> set;
-        Set<x5a> set2;
-        boolean z4;
-        char c2;
-        String str;
-        boolean z5;
-        boolean z6;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65541, null, z) == null) {
-            char c3 = 0;
-            LogPrinter.v("tryInitialize", new Object[0]);
-            if (5 == g6a.b.getInt("key_cp_v", 5)) {
-                z2 = true;
             } else {
-                z2 = false;
-            }
-            if (!z2) {
-                d.obtainMessage(102).sendToTarget();
-                return;
-            }
-            c();
-            FunAdConfig funAdConfig = FunAdSdk.getFunAdConfig();
-            j5a b2 = g6a.b();
-            p5a.a = g6a.l();
-            Object[] objArr = new Object[2];
-            if (b2 != null) {
-                z3 = true;
-            } else {
-                z3 = false;
-            }
-            objArr[0] = Boolean.valueOf(z3);
-            objArr[1] = Boolean.valueOf(z);
-            LogPrinter.v("adConfig load immediately over, valid:%b parseAssets:%b", objArr);
-            if (b2 == null) {
-                if (z) {
-                    d.obtainMessage(101).sendToTarget();
-                    return;
-                }
-                LogPrinter.d("tryInitialize failed without valid adConfig.", new Object[0]);
-                mba mbaVar = f;
-                synchronized (mbaVar.b) {
-                    mbaVar.d = -1;
-                    while (!mbaVar.c.isEmpty()) {
-                        mba.a pollFirst = mbaVar.c.pollFirst();
-                        if (!mba.f && pollFirst == null) {
-                            throw new AssertionError();
-                        }
-                        pollFirst.c.onError(pollFirst.b.getSid());
-                    }
-                }
-                return;
-            }
-            xaa xaaVar = e;
-            synchronized (xaaVar) {
-                j5a j5aVar = xaaVar.a;
-                if (j5aVar != null) {
-                    if (j5aVar.equals(b2)) {
-                        LogPrinter.d("New AdConfig equals old one, give up updating it", new Object[0]);
-                    } else {
-                        j5a j5aVar2 = xaaVar.a;
-                        if (j5aVar2.a.size() == b2.a.size()) {
-                            HashSet hashSet = new HashSet(b2.a);
-                            for (Ssp ssp : j5aVar2.a) {
-                                Iterator it = hashSet.iterator();
-                                while (true) {
-                                    if (it.hasNext()) {
-                                        Ssp ssp2 = (Ssp) it.next();
-                                        if (ssp.type.equals(ssp2.type) && ssp.sspId.equals(ssp2.sspId)) {
-                                            it.remove();
-                                            z6 = true;
-                                            continue;
-                                            break;
-                                        }
-                                    } else {
-                                        z6 = false;
-                                        continue;
-                                        break;
-                                    }
-                                }
-                                if (!z6) {
-                                }
-                            }
-                            z5 = true;
-                            if (!z5) {
-                                LogPrinter.d("New AdConfig.ssps don't correspond to old ones, give up updating it", new Object[0]);
-                            }
-                        }
-                        z5 = false;
-                        if (!z5) {
-                        }
-                    }
-                    z4 = false;
-                }
-                j5a j5aVar3 = xaaVar.a;
-                if (j5aVar3 == null) {
-                    set = null;
+                iArr[1] = i;
+                iArr[0] = (int) (i * (1.0f / f));
+                int i3 = iArr[0] % 16;
+                if (i3 > 8) {
+                    iArr[0] = iArr[0] + (16 - i3);
                 } else {
-                    set = j5aVar3.b;
+                    iArr[0] = iArr[0] - i3;
                 }
-                xaaVar.a(set, b2.b, new h6a(xaaVar));
-                j5a j5aVar4 = xaaVar.a;
-                if (j5aVar4 == null) {
-                    set2 = null;
-                } else {
-                    set2 = j5aVar4.c;
-                }
-                xaaVar.a(set2, b2.c, new waa(xaaVar));
-                xaaVar.a = b2;
-                z4 = true;
             }
-            if (!z4) {
-                LogPrinter.d("Do not need to reset FunAdFactory.", new Object[0]);
-                return;
-            }
-            HostAppInfo.updateCfgv(g6a.b.getLong("key_config_v", 0L));
-            if (!g) {
-                g = true;
-                b5a b5aVar = new p5a.a() { // from class: com.baidu.tieba.b5a
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-
-                    @Override // com.baidu.tieba.p5a.a
-                    public final void a(n5a n5aVar) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, n5aVar) == null) {
-                            t5a.d(n5aVar);
-                        }
-                    }
-                };
-                if (Looper.myLooper() == Looper.getMainLooper()) {
-                    HashMap hashMap = new HashMap();
-                    ArrayList arrayList = new ArrayList();
-                    long currentTimeMillis = System.currentTimeMillis();
-                    for (Ssp ssp3 : b2.a) {
-                        if (!TextUtils.isEmpty(ssp3.sspId)) {
-                            if (funAdConfig.forbiddenPlatforms.contains(ssp3.type)) {
-                                Object[] objArr2 = new Object[1];
-                                objArr2[c3] = ssp3.type;
-                                LogPrinter.d("Ssp:%s is not initialized for type is forbidden", objArr2);
-                            } else {
-                                long currentTimeMillis2 = System.currentTimeMillis();
-                                String str2 = ssp3.type;
-                                str2.hashCode();
-                                int hashCode = str2.hashCode();
-                                if (hashCode != 3160) {
-                                    if (hashCode != 3175) {
-                                        if (hashCode != 3178) {
-                                            if (hashCode == 98810 && str2.equals(FunAdSdk.PLATFORM_CSJ)) {
-                                                c2 = 3;
-                                                if (c2 == 0) {
-                                                    if (c2 != 1) {
-                                                        if (c2 != 2) {
-                                                            if (c2 != 3) {
-                                                                str = null;
-                                                            } else {
-                                                                str = "com.fun.ad.sdk.channel.CsjModule";
-                                                            }
-                                                        } else {
-                                                            str = "com.fun.ad.sdk.channel.CMModule";
-                                                        }
-                                                    } else {
-                                                        str = "com.fun.ad.sdk.channel.CjModule";
-                                                    }
-                                                } else {
-                                                    str = "com.fun.ad.sdk.channel.BzModule";
-                                                }
-                                                if (str == null) {
-                                                    LogPrinter.d("sdk for %s init start", ssp3.type);
-                                                    p5a.f(ssp3.type, str, funAdConfig, hashMap, ssp3.sspId);
-                                                    LogPrinter.d("sdk for %s init end, used time :%s", ssp3.type, Long.valueOf(System.currentTimeMillis() - currentTimeMillis2));
-                                                } else {
-                                                    arrayList.add(ssp3);
-                                                }
-                                                c3 = 0;
-                                            }
-                                            c2 = 65535;
-                                            if (c2 == 0) {
-                                            }
-                                            if (str == null) {
-                                            }
-                                            c3 = 0;
-                                        } else {
-                                            if (str2.equals(FunAdSdk.PLATFORM_CM)) {
-                                                c2 = 2;
-                                                if (c2 == 0) {
-                                                }
-                                                if (str == null) {
-                                                }
-                                                c3 = 0;
-                                            }
-                                            c2 = 65535;
-                                            if (c2 == 0) {
-                                            }
-                                            if (str == null) {
-                                            }
-                                            c3 = 0;
-                                        }
-                                    } else {
-                                        if (str2.equals(FunAdSdk.PLATFORM_CJ)) {
-                                            c2 = 1;
-                                            if (c2 == 0) {
-                                            }
-                                            if (str == null) {
-                                            }
-                                            c3 = 0;
-                                        }
-                                        c2 = 65535;
-                                        if (c2 == 0) {
-                                        }
-                                        if (str == null) {
-                                        }
-                                        c3 = 0;
-                                    }
-                                } else {
-                                    if (str2.equals(FunAdSdk.PLATFORM_BZ)) {
-                                        c2 = 0;
-                                        if (c2 == 0) {
-                                        }
-                                        if (str == null) {
-                                        }
-                                        c3 = 0;
-                                    }
-                                    c2 = 65535;
-                                    if (c2 == 0) {
-                                    }
-                                    if (str == null) {
-                                    }
-                                    c3 = 0;
-                                }
-                            }
-                        }
-                    }
-                    if (!arrayList.isEmpty()) {
-                        new Thread(new o5a(arrayList, funAdConfig, hashMap, currentTimeMillis, b5aVar)).start();
-                        return;
-                    } else {
-                        p5a.e(currentTimeMillis, b5aVar, funAdConfig, hashMap);
-                        return;
-                    }
-                }
-                throw new RuntimeException("Wrong thread");
-            }
+            return iArr;
         }
+        return (int[]) invokeCommon.objValue;
+    }
+
+    public static int[] b(float f, int i, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            int[] iArr = new int[2];
+            if (i > i2) {
+                int i3 = (f > 1.0f ? 1 : (f == 1.0f ? 0 : -1));
+                if (i3 == 0) {
+                    iArr[0] = c(i);
+                    iArr[1] = c(i);
+                    return iArr;
+                }
+                if (i3 > 0) {
+                    iArr[1] = i;
+                    iArr[0] = (int) (i * (1.0f / f));
+                } else {
+                    iArr[1] = i2;
+                    iArr[0] = (int) (i2 * (1.0f / f));
+                }
+                iArr[0] = c(iArr[0]);
+            } else {
+                int i4 = (f > 1.0f ? 1 : (f == 1.0f ? 0 : -1));
+                if (i4 == 0) {
+                    iArr[0] = c(i2);
+                    iArr[1] = c(i2);
+                    return iArr;
+                }
+                if (i4 > 0) {
+                    iArr[0] = i;
+                    iArr[1] = (int) (i * f);
+                } else {
+                    iArr[0] = i2;
+                    iArr[1] = (int) (i2 * f);
+                }
+                iArr[1] = c(iArr[1]);
+            }
+            return iArr;
+        }
+        return (int[]) invokeCommon.objValue;
+    }
+
+    public static int c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            int i2 = i % 16;
+            return i2 > 8 ? i + (16 - i2) : i - i2;
+        }
+        return invokeI.intValue;
+    }
+
+    public static a d(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(65539, null, i, i2)) == null) {
+            if (i > 1920 || i2 > 1920) {
+                int[] a2 = a(i2 / i, RecordConstants.VIDEO_CONSTANT_WIDTH);
+                return new a(a2[0], a2[1]);
+            }
+            return new a(i, i2);
+        }
+        return (a) invokeII.objValue;
+    }
+
+    public static a e(float f, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Float.valueOf(f), Integer.valueOf(i)})) == null) {
+            if (f <= 0.0f) {
+                return new a(RecordConstants.VIDEO_CONSTANT_WIDTH, RecordConstants.VIDEO_CONSTANT_HEIGHT);
+            }
+            int[] a2 = a(f, i);
+            return new a(a2[0], a2[1]);
+        }
+        return (a) invokeCommon.objValue;
+    }
+
+    public static a f(float f, int i, int i2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
+            if (f <= 0.0f) {
+                return new a(RecordConstants.VIDEO_CONSTANT_WIDTH, RecordConstants.VIDEO_CONSTANT_HEIGHT);
+            }
+            int[] b = b(f, i, i2);
+            return new a(b[0], b[1]);
+        }
+        return (a) invokeCommon.objValue;
+    }
+
+    public static boolean g(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeII = interceptable.invokeII(65542, null, i, i2)) == null) ? i > 1920 || i2 > 1920 : invokeII.booleanValue;
     }
 }

@@ -157,9 +157,9 @@ public final class MimeTypes {
                         }
                         return AUDIO_AC3;
                     }
-                    return "video/x-vnd.on2.vp8";
+                    return VIDEO_VP8;
                 }
-                return "video/x-vnd.on2.vp9";
+                return VIDEO_VP9;
             }
             return VIDEO_H265;
         }

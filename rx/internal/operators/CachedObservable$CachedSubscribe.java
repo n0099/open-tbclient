@@ -1,30 +1,30 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.ona;
-import com.baidu.tieba.sma;
-import com.baidu.tieba.yma;
+import com.baidu.tieba.ksa;
+import com.baidu.tieba.ora;
+import com.baidu.tieba.ura;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes9.dex */
-public final class CachedObservable$CachedSubscribe<T> extends AtomicBoolean implements sma.a<T> {
+public final class CachedObservable$CachedSubscribe<T> extends AtomicBoolean implements ora.a<T> {
     public static final long serialVersionUID = -2817751667698696782L;
-    public final ona<T> state;
+    public final ksa<T> state;
 
-    public CachedObservable$CachedSubscribe(ona<T> onaVar) {
-        this.state = onaVar;
+    public CachedObservable$CachedSubscribe(ksa<T> ksaVar) {
+        this.state = ksaVar;
     }
 
-    public void call(yma<? super T> ymaVar) {
-        CachedObservable$ReplayProducer<T> cachedObservable$ReplayProducer = new CachedObservable$ReplayProducer<>(ymaVar, this.state);
+    public void call(ura<? super T> uraVar) {
+        CachedObservable$ReplayProducer<T> cachedObservable$ReplayProducer = new CachedObservable$ReplayProducer<>(uraVar, this.state);
         this.state.c(cachedObservable$ReplayProducer);
-        ymaVar.b(cachedObservable$ReplayProducer);
-        ymaVar.f(cachedObservable$ReplayProducer);
+        uraVar.b(cachedObservable$ReplayProducer);
+        uraVar.f(cachedObservable$ReplayProducer);
         if (!get() && compareAndSet(false, true)) {
             this.state.d();
         }
     }
 
-    @Override // com.baidu.tieba.sma.a, com.baidu.tieba.gna
+    @Override // com.baidu.tieba.ora.a, com.baidu.tieba.csa
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((yma) ((yma) obj));
+        call((ura) ((ura) obj));
     }
 }

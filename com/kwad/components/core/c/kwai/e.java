@@ -25,7 +25,7 @@ import com.kwad.sdk.utils.u;
 public final class e extends c implements View.OnClickListener {
     @Nullable
     public b DG;
-    public b.C0590b DH;
+    public b.C0595b DH;
     public Runnable DP;
     public KsAdWebView bF;
     public aa bI;
@@ -208,7 +208,7 @@ public final class e extends c implements View.OnClickListener {
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0911de);
+        this.bF = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f091210);
     }
 
     @Override // com.kwad.sdk.mvp.Presenter

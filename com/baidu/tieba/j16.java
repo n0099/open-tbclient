@@ -1,111 +1,59 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
+import android.content.Context;
 import android.net.Uri;
-import android.os.Build;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.PopupWindow;
-import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdLog;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.GreyUtil;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.SchemeConfig;
+import com.baidu.searchbox.unitedscheme.SchemeRouter;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.searchbox.util.BaiduIdentityManager;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Field;
-/* loaded from: classes4.dex */
-public final class j16 {
+import com.baidubce.AbstractBceClient;
+import okhttp3.MediaType;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
+public class j16 extends q93 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public static class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vr4 a;
-        public final /* synthetic */ PopupWindow b;
-
-        public a(vr4 vr4Var, PopupWindow popupWindow) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vr4Var, popupWindow};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = vr4Var;
-            this.b = popupWindow;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f090db3) {
-                    if (t9.f().b() != null && !StringUtils.isNull(this.a.f())) {
-                        Uri parse = Uri.parse(this.a.f());
-                        if (parse != null && parse.getQueryParameters("obj_type") != null && parse.getQueryParameters("obj_source") != null) {
-                            TiebaStatic.log(new StatisticItem("c13391").param("obj_type", parse.getQueryParameter("obj_type")).param("obj_source", parse.getQueryParameter("obj_source")));
-                        }
-                        if (this.a.f().startsWith(BdUniDispatchSchemeController.SCHEME)) {
-                            Uri.Builder buildUpon = Uri.parse(this.a.f()).buildUpon();
-                            buildUpon.appendQueryParameter(BdUniDispatchSchemeController.PARAM_SCHEME_FROM, BdUniDispatchSchemeController.SCHEME_FROM_TB_TOKEN);
-                            parse = buildUpon.build();
-                        }
-                        UtilHelper.dealOneScheme(t9.f().b(), parse.toString());
-                    }
-                    try {
-                        this.b.dismiss();
-                    } catch (Throwable th) {
-                        BdLog.e(th);
-                    }
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f090db2) {
-                    try {
-                        this.b.dismiss();
-                    } catch (Throwable th2) {
-                        BdLog.e(th2);
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b implements View.OnClickListener {
+    /* loaded from: classes5.dex */
+    public class a extends ResponseCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
-        public final /* synthetic */ vr4 b;
-        public final /* synthetic */ PopupWindow c;
+        public final /* synthetic */ CallbackHandler b;
+        public final /* synthetic */ t73 c;
+        public final /* synthetic */ j16 d;
 
-        public b(String str, vr4 vr4Var, PopupWindow popupWindow) {
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(Object obj, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
+            }
+        }
+
+        public a(j16 j16Var, String str, CallbackHandler callbackHandler, t73 t73Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str, vr4Var, popupWindow};
+                Object[] objArr = {j16Var, str, callbackHandler, t73Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -115,94 +63,186 @@ public final class j16 {
                     return;
                 }
             }
+            this.d = j16Var;
             this.a = str;
-            this.b = vr4Var;
-            this.c = popupWindow;
+            this.b = callbackHandler;
+            this.c = t73Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f090db3) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2921361, this.a));
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_id", this.b.j).param("obj_source", "tb_password").param("obj_name", this.b.h).param("obj_param1", this.b.k.intValue()));
-                    try {
-                        this.c.dismiss();
-                    } catch (Throwable th) {
-                        BdLog.e(th);
-                    }
-                } else if (view2.getId() == R.id.obfuscated_res_0x7f090db2) {
-                    try {
-                        this.c.dismiss();
-                    } catch (Throwable th2) {
-                        BdLog.e(th2);
-                    }
-                }
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                this.b.handleSchemeDispatchCallback(this.a, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
+            }
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public Object parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
+                this.d.n(response, this.a, this.b, this.c);
+                return response;
+            }
+            return invokeLI.objValue;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j16(q83 q83Var) {
+        super(q83Var, "/swanAPI/navigateToProgram");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {q83Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static PopupWindow a(vr4 vr4Var) {
-        InterceptResult invokeL;
-        View.OnClickListener aVar;
+    @Override // com.baidu.tieba.q93
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, t73 t73Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, vr4Var)) == null) {
-            Activity b2 = t9.f().b();
-            if (b2 == null || vr4Var == null) {
-                return null;
-            }
-            String f = vr4Var.f();
-            if (StringUtils.isNull(f)) {
-                return null;
-            }
-            View inflate = LayoutInflater.from(b2).inflate(R.layout.obfuscated_res_0x7f0d00db, (ViewGroup) null, true);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090db3);
-            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090db2);
-            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09240f);
-            TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09240e);
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f092410);
-            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f0812a9);
-            tbImageView.setAutoChangeStyle(false);
-            PopupWindow popupWindow = new PopupWindow(b2);
-            if (vr4Var.g() != 3) {
-                aVar = new b(f, vr4Var, popupWindow);
-                if (!StringUtils.isNull(vr4Var.c())) {
-                    tbImageView.K(vr4Var.c(), 10, false);
-                } else {
-                    tbImageView.setImageResource(R.drawable.obfuscated_res_0x7f0812a9);
-                }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, t73Var)) == null) {
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
+            } else if (t73Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
             } else {
-                tbImageView.setImageResource(R.drawable.obfuscated_res_0x7f0812aa);
-                aVar = new a(vr4Var, popupWindow);
+                String g0 = t73.g0();
+                if (!TextUtils.isEmpty(g0) && !TextUtils.isEmpty(g0.trim())) {
+                    String optString = optParamsAsJo.optString("cb");
+                    if (TextUtils.isEmpty(optString)) {
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                        return false;
+                    }
+                    String optString2 = optParamsAsJo.optString("path");
+                    if (!StringUtils.isNull(optString2) && optString2.contains("/pages/frshistory/frshistory?")) {
+                        q16.j(context, unitedSchemeEntity.getParam("params"));
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                        return true;
+                    }
+                    Request l = l(g0, optParamsAsJo);
+                    if (l == null) {
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                        return false;
+                    }
+                    m(l.body(), unitedSchemeEntity, optString, callbackHandler, t73Var);
+                    return true;
+                }
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return false;
             }
-            textView.setOnClickListener(aVar);
-            textView2.setOnClickListener(aVar);
-            textView.setText(vr4Var.b());
-            textView2.setText(vr4Var.a());
-            textView3.setText(vr4Var.e());
-            textView4.setText(vr4Var.d());
-            ColorDrawable colorDrawable = new ColorDrawable();
-            colorDrawable.setColor(Color.argb(178, 0, 0, 0));
-            popupWindow.setBackgroundDrawable(colorDrawable);
-            popupWindow.setWidth(ej.l(b2));
-            popupWindow.setHeight(ej.j(b2));
-            popupWindow.setContentView(inflate);
-            popupWindow.setOutsideTouchable(true);
-            GreyUtil.grey(popupWindow);
-            if (Build.VERSION.SDK_INT >= 21) {
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public final Uri k(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            Uri.Builder buildUpon = Uri.parse(str).buildUpon();
+            String schemeHead = SchemeConfig.getSchemeHead();
+            if (TextUtils.isEmpty(schemeHead)) {
+                schemeHead = BaiduIdentityManager.VALUE_OSNAME;
+            }
+            buildUpon.scheme(schemeHead);
+            if (q93.b) {
+                Log.i("NavigateToSmartProgram", buildUpon.build().toString());
+            }
+            return buildUpon.build();
+        }
+        return (Uri) invokeL.objValue;
+    }
+
+    public final Request l(String str, JSONObject jSONObject) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, jSONObject)) == null) {
+            if (jSONObject != null && !TextUtils.isEmpty(str)) {
+                String b = tx2.b(nl3.n());
+                JSONObject jSONObject2 = new JSONObject();
                 try {
-                    Field declaredField = PopupWindow.class.getDeclaredField("mLayoutInScreen");
-                    declaredField.setAccessible(true);
-                    declaredField.set(popupWindow, Boolean.TRUE);
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                } catch (NoSuchFieldException e2) {
-                    e2.printStackTrace();
+                    jSONObject2.put(GameGuideConfigInfo.KEY_APP_KEY, str);
+                    jSONObject2.put("srcAppPage", b);
+                    jSONObject2.put("params", jSONObject);
+                    Request build = new Request.Builder().url(ar2.o().I()).post(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject2.toString())).build();
+                    if (q93.b) {
+                        Log.i("NavigateToSmartProgram", "appId :" + str + "\nrequest params" + jSONObject2.toString());
+                    }
+                    return build;
+                } catch (Exception e) {
+                    if (q93.b) {
+                        e.printStackTrace();
+                    }
                 }
             }
-            return popupWindow;
+            return null;
         }
-        return (PopupWindow) invokeL.objValue;
+        return (Request) invokeLL.objValue;
+    }
+
+    public final void m(RequestBody requestBody, UnitedSchemeEntity unitedSchemeEntity, String str, CallbackHandler callbackHandler, t73 t73Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048579, this, requestBody, unitedSchemeEntity, str, callbackHandler, t73Var) == null) {
+            we4 we4Var = new we4(ar2.o().I(), requestBody, new a(this, str, callbackHandler, t73Var));
+            we4Var.f = true;
+            we4Var.g = false;
+            we4Var.h = true;
+            xe4.g().e(we4Var);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        }
+    }
+
+    public final void n(Response response, String str, CallbackHandler callbackHandler, t73 t73Var) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048580, this, response, str, callbackHandler, t73Var) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(response.body().string());
+                if (!TextUtils.equals(jSONObject.optString("errno"), "0")) {
+                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(402).toString());
+                    return;
+                }
+                JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                if (optJSONObject == null) {
+                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(402).toString());
+                    return;
+                }
+                Uri k = k(optJSONObject.optString("scheme"));
+                if (k == null) {
+                    callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(402).toString());
+                    return;
+                }
+                if (SchemeRouter.invokeScheme(t73Var.getApplicationContext(), k, UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE)) {
+                    i = 0;
+                } else {
+                    i = 1001;
+                }
+                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(i).toString());
+            } catch (Exception e) {
+                if (q93.b) {
+                    Log.d("NavigateToSmartProgram", e.getMessage());
+                }
+                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(201, e.getMessage()).toString());
+            }
+        }
     }
 }

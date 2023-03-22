@@ -40,28 +40,28 @@ public final class ULongRange extends ULongProgression implements ClosedRange<UL
     /* JADX DEBUG: Return type fixed from 'java.lang.Comparable' to match base method */
     @Override // kotlin.ranges.ClosedRange
     public /* bridge */ /* synthetic */ ULong getEndInclusive() {
-        return ULong.m932boximpl(m1981getEndInclusivesVKNKU());
+        return ULong.m934boximpl(m1983getEndInclusivesVKNKU());
     }
 
     /* renamed from: getEndInclusive-s-VKNKU  reason: not valid java name */
-    public long m1981getEndInclusivesVKNKU() {
-        return m1978getLastsVKNKU();
+    public long m1983getEndInclusivesVKNKU() {
+        return m1980getLastsVKNKU();
     }
 
     /* JADX DEBUG: Return type fixed from 'java.lang.Comparable' to match base method */
     @Override // kotlin.ranges.ClosedRange
     public /* bridge */ /* synthetic */ ULong getStart() {
-        return ULong.m932boximpl(m1982getStartsVKNKU());
+        return ULong.m934boximpl(m1984getStartsVKNKU());
     }
 
     /* renamed from: getStart-s-VKNKU  reason: not valid java name */
-    public long m1982getStartsVKNKU() {
-        return m1977getFirstsVKNKU();
+    public long m1984getStartsVKNKU() {
+        return m1979getFirstsVKNKU();
     }
 
     @Override // kotlin.ranges.ULongProgression, kotlin.ranges.ClosedRange
     public boolean isEmpty() {
-        if (UnsignedKt.ulongCompare(m1977getFirstsVKNKU(), m1978getLastsVKNKU()) > 0) {
+        if (UnsignedKt.ulongCompare(m1979getFirstsVKNKU(), m1980getLastsVKNKU()) > 0) {
             return true;
         }
         return false;
@@ -69,7 +69,7 @@ public final class ULongRange extends ULongProgression implements ClosedRange<UL
 
     @Override // kotlin.ranges.ULongProgression
     public String toString() {
-        return ((Object) ULong.m983toStringimpl(m1977getFirstsVKNKU())) + IStringUtil.TOP_PATH + ((Object) ULong.m983toStringimpl(m1978getLastsVKNKU()));
+        return ((Object) ULong.m985toStringimpl(m1979getFirstsVKNKU())) + IStringUtil.TOP_PATH + ((Object) ULong.m985toStringimpl(m1980getLastsVKNKU()));
     }
 
     public ULongRange(long j, long j2) {
@@ -79,12 +79,12 @@ public final class ULongRange extends ULongProgression implements ClosedRange<UL
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Comparable] */
     @Override // kotlin.ranges.ClosedRange
     public /* bridge */ /* synthetic */ boolean contains(ULong uLong) {
-        return m1980containsVKZWuLQ(uLong.m989unboximpl());
+        return m1982containsVKZWuLQ(uLong.m991unboximpl());
     }
 
     /* renamed from: contains-VKZWuLQ  reason: not valid java name */
-    public boolean m1980containsVKZWuLQ(long j) {
-        if (UnsignedKt.ulongCompare(m1977getFirstsVKNKU(), j) <= 0 && UnsignedKt.ulongCompare(j, m1978getLastsVKNKU()) <= 0) {
+    public boolean m1982containsVKZWuLQ(long j) {
+        if (UnsignedKt.ulongCompare(m1979getFirstsVKNKU(), j) <= 0 && UnsignedKt.ulongCompare(j, m1980getLastsVKNKU()) <= 0) {
             return true;
         }
         return false;
@@ -95,7 +95,7 @@ public final class ULongRange extends ULongProgression implements ClosedRange<UL
         if (obj instanceof ULongRange) {
             if (!isEmpty() || !((ULongRange) obj).isEmpty()) {
                 ULongRange uLongRange = (ULongRange) obj;
-                if (m1977getFirstsVKNKU() != uLongRange.m1977getFirstsVKNKU() || m1978getLastsVKNKU() != uLongRange.m1978getLastsVKNKU()) {
+                if (m1979getFirstsVKNKU() != uLongRange.m1979getFirstsVKNKU() || m1980getLastsVKNKU() != uLongRange.m1980getLastsVKNKU()) {
                 }
             }
             return true;
@@ -108,6 +108,6 @@ public final class ULongRange extends ULongProgression implements ClosedRange<UL
         if (isEmpty()) {
             return -1;
         }
-        return ((int) ULong.m938constructorimpl(m1978getLastsVKNKU() ^ ULong.m938constructorimpl(m1978getLastsVKNKU() >>> 32))) + (((int) ULong.m938constructorimpl(m1977getFirstsVKNKU() ^ ULong.m938constructorimpl(m1977getFirstsVKNKU() >>> 32))) * 31);
+        return ((int) ULong.m940constructorimpl(m1980getLastsVKNKU() ^ ULong.m940constructorimpl(m1980getLastsVKNKU() >>> 32))) + (((int) ULong.m940constructorimpl(m1979getFirstsVKNKU() ^ ULong.m940constructorimpl(m1979getFirstsVKNKU() >>> 32))) * 31);
     }
 }

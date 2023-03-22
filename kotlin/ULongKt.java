@@ -8,7 +8,7 @@ public final class ULongKt {
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     public static final long toULong(byte b) {
-        return ULong.m938constructorimpl(b);
+        return ULong.m940constructorimpl(b);
     }
 
     @SinceKotlin(version = "1.5")
@@ -29,20 +29,20 @@ public final class ULongKt {
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     public static final long toULong(int i) {
-        return ULong.m938constructorimpl(i);
+        return ULong.m940constructorimpl(i);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     public static final long toULong(long j) {
-        return ULong.m938constructorimpl(j);
+        return ULong.m940constructorimpl(j);
     }
 
     @SinceKotlin(version = "1.5")
     @WasExperimental(markerClass = {ExperimentalUnsignedTypes.class})
     @InlineOnly
     public static final long toULong(short s) {
-        return ULong.m938constructorimpl(s);
+        return ULong.m940constructorimpl(s);
     }
 }

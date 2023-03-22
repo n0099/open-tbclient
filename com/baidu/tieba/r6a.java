@@ -1,64 +1,38 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.AdSlot;
-import com.bytedance.sdk.openadsdk.TTAdNative;
-import com.bytedance.sdk.openadsdk.TTAdSdk;
-import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
-public class r6a extends d7a<j7a> {
+public class r6a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r6a(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.BANNER), pid);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
+    public ExecutorService a;
+    public q6a b;
+    public volatile boolean c;
+    public int d;
+    public int e;
+    public int f;
 
     /* loaded from: classes6.dex */
-    public class a implements TTAdNative.NativeExpressAdListener {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ FunAdSlot a;
+        public final /* synthetic */ byte[] a;
         public final /* synthetic */ r6a b;
 
-        public a(r6a r6aVar, FunAdSlot funAdSlot) {
+        public a(r6a r6aVar, byte[] bArr) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {r6aVar, funAdSlot};
+                Object[] objArr = {r6aVar, bArr};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -69,84 +43,249 @@ public class r6a extends d7a<j7a> {
                 }
             }
             this.b = r6aVar;
-            this.a = funAdSlot;
+            this.a = bArr;
         }
 
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeExpressAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
-        public void onError(int i, String str) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
-                this.b.onError(i, str);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    if (this.b.c) {
+                        this.b.b.g(r6a.l(this.a, this.b.f, this.b.e));
+                        return;
+                    }
+                    this.b.d(this.a, this.b.d);
+                    this.b.b.g(r6a.h(this.a, this.b.f, this.b.e));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
+    }
 
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeExpressAdListener
-        public void onNativeExpressAdLoad(List<TTNativeExpressAd> list) {
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ r6a a;
+
+        public b(r6a r6aVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                LogPrinter.e("CSJBannerExpressAd onNativeExpressAdLoad", new Object[0]);
-                if (list != null && !list.isEmpty()) {
-                    TTNativeExpressAd tTNativeExpressAd = list.get(0);
-                    r6a r6aVar = this.b;
-                    j7a j7aVar = new j7a(tTNativeExpressAd);
-                    this.a.getSid();
-                    r6aVar.getClass();
-                    tTNativeExpressAd.setExpressInteractionListener(new u6a(r6aVar, j7aVar));
-                    tTNativeExpressAd.render();
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r6aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                LogPrinter.e("CSJBannerExpressAd onError: adList is null or empty", new Object[0]);
-                this.b.onError(0, "NoFill");
+            }
+            this.a = r6aVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    if (this.a.a != null) {
+                        this.a.a.shutdown();
+                        this.a.a.awaitTermination(3000L, TimeUnit.MILLISECONDS);
+                    }
+                    if (this.a.b != null) {
+                        this.a.b.c();
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
-        j7a j7aVar;
+    public r6a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (j7aVar = (j7a) obj) != null) {
-            ((TTNativeExpressAd) j7aVar.a).destroy();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = new q6a();
+    }
+
+    public static byte[] h(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, bArr, i, i2)) == null) {
+            int i3 = i * i2;
+            int i4 = (i3 * 3) / 2;
+            byte[] bArr2 = new byte[i4];
+            int i5 = 0;
+            for (int i6 = 0; i6 < i; i6++) {
+                for (int i7 = i2 - 1; i7 >= 0; i7--) {
+                    bArr2[i5] = bArr[(i7 * i) + i6];
+                    i5++;
+                }
+            }
+            int i8 = i4 - 1;
+            for (int i9 = i - 1; i9 > 0; i9 -= 2) {
+                for (int i10 = 0; i10 < i2 / 2; i10++) {
+                    int i11 = (i10 * i) + i3;
+                    bArr2[i8] = bArr[i11 + i9];
+                    int i12 = i8 - 1;
+                    bArr2[i12] = bArr[i11 + (i9 - 1)];
+                    i8 = i12 - 1;
+                }
+            }
+            return bArr2;
+        }
+        return (byte[]) invokeLII.objValue;
+    }
+
+    public static byte[] l(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, bArr, i, i2)) == null) {
+            int i3 = i * i2;
+            byte[] bArr2 = new byte[(i3 * 3) / 2];
+            int i4 = i - 1;
+            int i5 = 0;
+            for (int i6 = i4; i6 >= 0; i6--) {
+                for (int i7 = 0; i7 < i2; i7++) {
+                    bArr2[i5] = bArr[(i7 * i) + i6];
+                    i5++;
+                }
+            }
+            int i8 = i3;
+            while (i4 > 0) {
+                for (int i9 = 0; i9 < i2 / 2; i9++) {
+                    int i10 = (i9 * i) + i3;
+                    bArr2[i8] = bArr[(i4 - 1) + i10];
+                    int i11 = i8 + 1;
+                    bArr2[i11] = bArr[i10 + i4];
+                    i8 = i11 + 1;
+                }
+                i4 -= 2;
+            }
+            o(bArr2, i2, i);
+            return bArr2;
+        }
+        return (byte[]) invokeLII.objValue;
+    }
+
+    public static byte[] o(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65543, null, bArr, i, i2)) == null) {
+            for (int i3 = 0; i3 < (i2 * 3) / 2; i3++) {
+                for (int i4 = 0; i4 < i / 2; i4++) {
+                    int i5 = (i3 * i) + i4;
+                    byte b2 = bArr[i5];
+                    int i6 = (((i3 + 1) * i) - 1) - i4;
+                    bArr[i5] = bArr[i6];
+                    bArr[i6] = b2;
+                }
+            }
+            return bArr;
+        }
+        return (byte[]) invokeLII.objValue;
+    }
+
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.c = z;
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+    public void c(byte[] bArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, funAdSlot) == null) {
-            if (this.e == null) {
-                this.e = TTAdSdk.getAdManager().createAdNative(context.getApplicationContext());
-            }
-            int expressWidth = funAdSlot.getExpressWidth();
-            int expressHeight = funAdSlot.getExpressHeight();
-            if (expressWidth == 0 && expressHeight == 0 && FunAdSdk.isLogEnabled()) {
-                throw new RuntimeException("Invalid expressWidth and expressHeight.");
-            }
-            AdSlot build = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setAdCount(1).setExpressViewAcceptedSize(expressWidth, expressHeight).build();
-            onLoadStart(funAdSlot);
-            this.e.loadBannerExpressAd(build, new a(this, funAdSlot));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr) == null) {
+            this.a.execute(new a(this, bArr));
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
+    public final void d(byte[] bArr, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, activity, viewGroup, str, obj)) == null) {
-            j7a j7aVar = (j7a) obj;
-            onShowStart(j7aVar);
-            ((TTNativeExpressAd) j7aVar.a).setSlideIntervalTime(this.mPid.interval);
-            View expressAdView = ((TTNativeExpressAd) j7aVar.a).getExpressAdView();
-            if (expressAdView.getParent() != null) {
-                ((ViewGroup) expressAdView.getParent()).removeView(expressAdView);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, bArr, i) == null) {
+            if (i == 17) {
+                k(bArr);
+            } else if (i == 842094169) {
+                n(bArr);
             }
-            ((TTNativeExpressAd) j7aVar.a).setDislikeCallback(activity, new w6a(this, expressAdView, j7aVar));
-            ((TTNativeExpressAd) j7aVar.a).setDownloadListener(new v6a(null));
-            viewGroup.removeAllViews();
-            viewGroup.addView(expressAdView);
+        }
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a != null : invokeV.booleanValue;
+    }
+
+    public boolean f(int i, int i2, int i3, int i4, int i5, int i6, String str) {
+        InterceptResult invokeCommon;
+        int i7;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), str})) != null) {
+            return invokeCommon.booleanValue;
+        }
+        this.d = i3;
+        this.e = i;
+        this.f = i2;
+        if (i3 != 17) {
+            i7 = i3 == 842094169 ? 19 : 19;
+            return false;
+        }
+        i7 = 21;
+        try {
+            this.b.d(i, i2, i7, i4, i5, i6, str);
+            this.a = Executors.newSingleThreadExecutor();
             return true;
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            Executors.newSingleThreadExecutor().execute(new b(this));
+        }
+    }
+
+    public final void k(byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bArr) == null) {
+            for (int length = (bArr.length * 2) / 3; length < bArr.length - 1; length += 2) {
+                byte b2 = bArr[length];
+                int i = length + 1;
+                bArr[length] = bArr[i];
+                bArr[i] = b2;
+            }
+        }
+    }
+
+    public final void n(byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bArr) == null) {
+            int length = (bArr.length * 2) / 3;
+            int i = length / 2;
+            for (int i2 = length; i2 < length + i; i2++) {
+                byte b2 = bArr[i2];
+                int i3 = i2 + i;
+                bArr[i2] = bArr[i3];
+                bArr[i3] = b2;
+            }
+        }
     }
 }

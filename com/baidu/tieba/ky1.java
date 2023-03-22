@@ -1,969 +1,392 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
 import android.text.TextUtils;
-import android.util.Pair;
-import androidx.annotation.NonNull;
+import android.util.Log;
+import android.view.KeyEvent;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.messages.gfh.GfhKeyValue;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.request.task.ProgressInfo;
-import com.baidu.sapi2.result.GetUserAttrInfoResult;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.searchbox.player.widget.BdPlayerProgressView;
-import com.baidu.swan.apps.res.ui.BdMultiPicker;
-import com.baidu.tieba.m83;
-import com.baidu.tieba.n83;
-import com.baidu.tieba.s83;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class ky1 extends fy1 {
+public class ky1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean g;
+    public static volatile ky1 h;
+    public static eq2 i;
+    public static boolean j;
     public transient /* synthetic */ FieldHolder $fh;
-    public r83 f;
+    public HashMap<String, Boolean> a;
+    public HashMap<String, eq2> b;
+    public int c;
+    public mm3<Integer> d;
+    public it2 e;
+    public qk2 f;
 
-    @Override // com.baidu.tieba.px1
-    public String j() {
+    /* loaded from: classes5.dex */
+    public class a extends qk2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ky1 a;
+
+        public a(ky1 ky1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ky1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ky1Var;
+        }
+
+        @Override // com.baidu.tieba.qk2, com.baidu.tieba.rk2
+        public boolean onKeyDown(int i, KeyEvent keyEvent) {
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, keyEvent)) == null) {
+                if (i == 4 && this.a.d != null && this.a.g()) {
+                    this.a.d.a(1);
+                    return true;
+                }
+                return false;
+            }
+            return invokeIL.booleanValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947929318, "Lcom/baidu/tieba/ky1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947929318, "Lcom/baidu/tieba/ky1;");
+                return;
+            }
+        }
+        g = do1.a;
+    }
+
+    public static ky1 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? "PickerApi" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (h == null) {
+                synchronized (ky1.class) {
+                    if (h == null) {
+                        h = new ky1();
+                    }
+                }
+            }
+            return h;
+        }
+        return (ky1) invokeV.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ Date b;
-        public final /* synthetic */ Date c;
-        public final /* synthetic */ Date d;
-        public final /* synthetic */ boolean e;
-        public final /* synthetic */ String f;
-        public final /* synthetic */ String g;
-        public final /* synthetic */ ky1 h;
-
-        /* renamed from: com.baidu.tieba.ky1$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class DialogInterface$OnCancelListenerC0317a implements DialogInterface.OnCancelListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public DialogInterface$OnCancelListenerC0317a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // android.content.DialogInterface.OnCancelListener
-            public void onCancel(DialogInterface dialogInterface) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                    a aVar = this.a;
-                    aVar.h.d(aVar.g, new m12(0));
-                    dialogInterface.dismiss();
-                }
-            }
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            t42.i("SwanInlinePlayerManager", "clearCacheVideo: ");
+            i = null;
+            j = false;
         }
+    }
 
-        /* loaded from: classes5.dex */
-        public class b implements DialogInterface.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public b(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int i2 = this.c;
+            if (i2 != 90 && i2 != -90) {
+                return false;
             }
-
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                    a aVar = this.a;
-                    aVar.h.d(aVar.g, new m12(0));
-                    dialogInterface.dismiss();
-                }
-            }
+            return true;
         }
+        return invokeV.booleanValue;
+    }
 
-        /* loaded from: classes5.dex */
-        public class c implements DialogInterface.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public c(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
+    public final boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.c == 0) {
+                return true;
             }
-
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                    dialogInterface.dismiss();
-                    s83 s83Var = (s83) dialogInterface;
-                    String format = String.format("%02d:%02d", Integer.valueOf(s83Var.f()), Integer.valueOf(s83Var.g()));
-                    JSONObject jSONObject = new JSONObject();
-                    try {
-                        jSONObject.put("value", format);
-                        this.a.h.d(this.a.g, new m12(0, jSONObject));
-                    } catch (JSONException unused) {
-                    }
-                }
-            }
+            return false;
         }
+        return invokeV.booleanValue;
+    }
 
-        public a(ky1 ky1Var, String str, Date date, Date date2, Date date3, boolean z, String str2, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ky1Var, str, date, date2, date3, Boolean.valueOf(z), str2, str3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.h = ky1Var;
-            this.a = str;
-            this.b = date;
-            this.c = date2;
-            this.d = date3;
-            this.e = z;
-            this.f = str2;
-            this.g = str3;
+    public void i() {
+        mm3<Integer> mm3Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && g() && (mm3Var = this.d) != null) {
+            mm3Var.a(0);
         }
+    }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                s83.a aVar = new s83.a(this.h.getContext());
-                if (!TextUtils.isEmpty(this.a)) {
-                    aVar.n(this.a);
-                }
-                aVar.p(this.b);
-                aVar.m(this.c);
-                aVar.o(this.d);
-                aVar.l(this.e);
-                aVar.c(true);
-                aVar.g(this.f);
-                aVar.h(R.string.obfuscated_res_0x7f0f011c, new c(this));
-                aVar.d(R.string.obfuscated_res_0x7f0f0114, new b(this));
-                aVar.f(new DialogInterface$OnCancelListenerC0317a(this));
-                aVar.k();
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            gt2.U().getActivity().v0(this.f);
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            synchronized (this) {
+                x();
+                w();
+                this.a = null;
+                this.b.clear();
+                this.d = null;
+            }
+            h = null;
+        }
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            this.d = null;
+        }
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            t42.i("SwanInlinePlayerManager", "setCacheInUsed: true");
+            j = true;
+        }
+    }
+
+    public void w() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+            SwanAppActivity activity = gt2.U().getActivity();
+            qk2 qk2Var = this.f;
+            if (qk2Var != null && activity != null) {
+                activity.H0(qk2Var);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ Date b;
-        public final /* synthetic */ Date c;
-        public final /* synthetic */ Date d;
-        public final /* synthetic */ boolean e;
-        public final /* synthetic */ String f;
-        public final /* synthetic */ String g;
-        public final /* synthetic */ ky1 h;
-
-        /* loaded from: classes5.dex */
-        public class a implements DialogInterface.OnCancelListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // android.content.DialogInterface.OnCancelListener
-            public void onCancel(DialogInterface dialogInterface) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                    b bVar = this.a;
-                    bVar.h.d(bVar.g, new m12(0));
-                    dialogInterface.dismiss();
-                }
-            }
-        }
-
-        /* renamed from: com.baidu.tieba.ky1$b$b  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class DialogInterface$OnClickListenerC0318b implements DialogInterface.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public DialogInterface$OnClickListenerC0318b(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                    b bVar = this.a;
-                    bVar.h.d(bVar.g, new m12(0));
-                    dialogInterface.dismiss();
-                }
-            }
-        }
-
-        /* loaded from: classes5.dex */
-        public class c implements DialogInterface.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public c(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                    dialogInterface.dismiss();
-                    if (dialogInterface instanceof m83) {
-                        String h = ((m83) dialogInterface).h();
-                        JSONObject jSONObject = new JSONObject();
-                        try {
-                            jSONObject.put("value", h);
-                            this.a.h.d(this.a.g, new m12(0, jSONObject));
-                        } catch (JSONException unused) {
-                            b bVar = this.a;
-                            bVar.h.d(bVar.g, new m12(202));
-                        }
-                    }
-                }
-            }
-        }
-
-        public b(ky1 ky1Var, String str, Date date, Date date2, Date date3, boolean z, String str2, String str3) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ky1Var, str, date, date2, date3, Boolean.valueOf(z), str2, str3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.h = ky1Var;
-            this.a = str;
-            this.b = date;
-            this.c = date2;
-            this.d = date3;
-            this.e = z;
-            this.f = str2;
-            this.g = str3;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                m83.a aVar = new m83.a(this.h.getContext());
-                if (!TextUtils.isEmpty(this.a)) {
-                    aVar.n(this.a);
-                }
-                aVar.p(this.b);
-                aVar.m(this.c);
-                aVar.o(this.d);
-                aVar.l(this.e);
-                aVar.c(true);
-                aVar.g(this.f);
-                aVar.h(R.string.obfuscated_res_0x7f0f011c, new c(this));
-                aVar.d(R.string.obfuscated_res_0x7f0f0114, new DialogInterface$OnClickListenerC0318b(this));
-                aVar.f(new a(this));
-                aVar.k();
-            }
+    public void x() {
+        it2 it2Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && (it2Var = this.e) != null) {
+            jt2.f(it2Var);
+            this.e = null;
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JSONArray a;
-        public final /* synthetic */ JSONArray b;
-        public final /* synthetic */ boolean c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ String e;
-        public final /* synthetic */ ky1 f;
-
-        /* loaded from: classes5.dex */
-        public class a implements DialogInterface.OnCancelListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ d a;
-
-            public a(d dVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = dVar;
-            }
-
-            @Override // android.content.DialogInterface.OnCancelListener
-            public void onCancel(DialogInterface dialogInterface) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                    d dVar = this.a;
-                    dVar.f.K(dialogInterface, dVar.c, dVar.d);
-                }
-            }
-        }
-
-        /* loaded from: classes5.dex */
-        public class b implements DialogInterface.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ d a;
-
-            public b(d dVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = dVar;
-            }
-
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                    d dVar = this.a;
-                    dVar.f.K(dialogInterface, dVar.c, dVar.d);
-                }
-            }
-        }
-
-        /* loaded from: classes5.dex */
-        public class c implements DialogInterface.OnClickListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ d a;
-
-            public c(d dVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = dVar;
-            }
-
-            @Override // android.content.DialogInterface.OnClickListener
-            public void onClick(DialogInterface dialogInterface, int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                    dialogInterface.dismiss();
-                    this.a.f.f = null;
-                    try {
-                        JSONArray f = ((n83) dialogInterface).f();
-                        JSONObject jSONObject = new JSONObject();
-                        if (f != null && f.length() > 0) {
-                            if (this.a.c) {
-                                jSONObject.put("value", f.optInt(0));
-                            } else {
-                                jSONObject.put("value", f);
-                                jSONObject.put("type", "confirm");
-                            }
-                        }
-                        this.a.f.d(this.a.d, new m12(0, jSONObject));
-                    } catch (JSONException unused) {
-                    }
-                }
-            }
-        }
-
-        /* renamed from: com.baidu.tieba.ky1$d$d  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C0319d implements BdMultiPicker.b {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ d a;
-
-            public C0319d(d dVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = dVar;
-            }
-
-            @Override // com.baidu.swan.apps.res.ui.BdMultiPicker.b
-            public void a(BdMultiPicker bdMultiPicker, JSONObject jSONObject) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLL(1048576, this, bdMultiPicker, jSONObject) == null) {
-                    try {
-                        JSONObject jSONObject2 = new JSONObject(jSONObject.toString());
-                        jSONObject2.put("type", "columnChange");
-                        this.a.f.d(this.a.d, new m12(0, jSONObject2));
-                    } catch (JSONException unused) {
-                        d dVar = this.a;
-                        dVar.f.d(dVar.d, new m12(202));
-                    }
-                }
-            }
-        }
-
-        public d(ky1 ky1Var, JSONArray jSONArray, JSONArray jSONArray2, boolean z, JSONObject jSONObject, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ky1Var, jSONArray, jSONArray2, Boolean.valueOf(z), jSONObject, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.f = ky1Var;
-            this.a = jSONArray;
-            this.b = jSONArray2;
-            this.c = z;
-            this.d = str;
-            this.e = str2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                n83.a aVar = new n83.a(this.f.getContext());
-                ky1 ky1Var = this.f;
-                aVar.l(this.a);
-                aVar.m(this.b);
-                aVar.o(this.c);
-                aVar.n(new C0319d(this));
-                aVar.c(true);
-                aVar.g(this.e);
-                aVar.h(R.string.obfuscated_res_0x7f0f011c, new c(this));
-                aVar.d(R.string.obfuscated_res_0x7f0f0114, new b(this));
-                aVar.f(new a(this));
-                ky1Var.f = aVar.k();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ JSONArray b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ ky1 d;
-
-        public c(ky1 ky1Var, int i, JSONArray jSONArray, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ky1Var, Integer.valueOf(i), jSONArray, Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = ky1Var;
-            this.a = i;
-            this.b = jSONArray;
-            this.c = i2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.d.f != null) {
-                ((n83) this.d.f).k(this.a, this.b, this.c);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ky1(@NonNull nx1 nx1Var) {
-        super(nx1Var);
+    public ky1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {nx1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((nx1) newInitContext.callArgs[0]);
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = new HashMap<>();
+        this.b = new HashMap<>();
+        this.c = -1;
+        this.d = null;
+        this.e = null;
+        this.f = new a(this);
     }
 
-    public m12 G(String str) {
-        InterceptResult invokeL;
+    public eq2 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new m12(202);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (g && i != null) {
+                Log.i("SwanInlinePlayerManager", "getCacheVideoPlayer: " + i.c());
             }
-            Pair<m12, JSONObject> s = s(str);
-            m12 m12Var = (m12) s.first;
-            if (!m12Var.isSuccess()) {
-                m62.c("PickerApi", "parse fail");
-                return m12Var;
-            }
-            return E((JSONObject) s.second, false);
+            return i;
         }
-        return (m12) invokeL.objValue;
+        return (eq2) invokeV.objValue;
     }
 
-    public final m12 D(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Date date;
+    public boolean f() {
+        InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            boolean optBoolean = jSONObject.optBoolean("disabled", false);
-            String optString = jSONObject.optString("start");
-            String optString2 = jSONObject.optString("end");
-            String optString3 = jSONObject.optString("value");
-            String optString4 = jSONObject.optString("title");
-            String optString5 = jSONObject.optString(GetUserAttrInfoResult.KEY_DATA_FIELDS);
-            String[] strArr = {"yyyy-MM-dd", "yyyy-MM", "yyyy"};
-            Date I = I(optString, strArr, "1900-01-01");
-            Date I2 = I(optString2, strArr, "2099-12-31");
-            if (I != null && I2 != null && !I2.before(I)) {
-                String optString6 = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString6)) {
-                    m62.c("PickerApi", "callback is null");
-                    return new m12(1001, "callback is null");
-                }
-                Date I3 = I(optString3, strArr, null);
-                if (I3 == null) {
-                    I3 = new Date();
-                }
-                if (I3.before(I)) {
-                    date = I;
-                } else if (I3.after(I2)) {
-                    date = I2;
-                } else {
-                    date = I3;
-                }
-                gn3.e0(new b(this, optString5, I, I2, date, optBoolean, optString4, optString6));
-                return new m12(0);
-            }
-            return new m12(202);
-        }
-        return (m12) invokeL.objValue;
-    }
-
-    public final m12 F(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
-            boolean optBoolean = jSONObject.optBoolean("disabled", false);
-            String optString = jSONObject.optString("start");
-            String optString2 = jSONObject.optString("end");
-            String optString3 = jSONObject.optString("value");
-            String optString4 = jSONObject.optString("title");
-            String optString5 = jSONObject.optString(GetUserAttrInfoResult.KEY_DATA_FIELDS);
-            if (TextUtils.isEmpty(optString)) {
-                optString = BdPlayerProgressView.DEFAULT_TIME_TEXT;
-            }
-            if (TextUtils.isEmpty(optString2)) {
-                optString2 = "23:59";
-            }
-            Date J = J(optString);
-            Date J2 = J(optString2);
-            Date J3 = J(optString3);
-            if (J3 == null) {
-                J3 = J(new SimpleDateFormat("HH:mm", Locale.getDefault()).format(new Date()));
-            }
-            Date date = J3;
-            if (J != null && J2 != null && !J2.before(J) && date != null) {
-                String optString6 = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString6)) {
-                    m62.c("PickerApi", "callback is null");
-                    return new m12(1001, "callback is null");
-                }
-                gn3.e0(new a(this, optString5, J, J2, date, optBoolean, optString4, optString6));
-                return new m12(0);
-            }
-            return new m12(202);
-        }
-        return (m12) invokeL.objValue;
-    }
-
-    public final m12 E(JSONObject jSONObject, boolean z) {
-        InterceptResult invokeLZ;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, z)) == null) {
-            if (this.f != null) {
-                return new m12(1001);
-            }
-            JSONArray jSONArray = new JSONArray();
-            JSONArray jSONArray2 = new JSONArray();
-            String str2 = null;
-            if (jSONObject != null) {
-                jSONArray = jSONObject.optJSONArray("array");
-                jSONArray2 = jSONObject.optJSONArray(ProgressInfo.JSON_KEY_CURRENT);
-                str2 = jSONObject.optString("cb");
-                str = jSONObject.optString("title");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            boolean z2 = true;
+            if (d() != null && d().e0() == null) {
+                z = true;
             } else {
-                str = "";
+                z = false;
             }
-            JSONArray jSONArray3 = jSONArray;
-            JSONArray jSONArray4 = jSONArray2;
-            String str3 = str2;
-            String str4 = str;
-            if (TextUtils.isEmpty(str3)) {
-                m62.c("PickerApi", "callback is null");
-                return new m12(1001, "callback is null");
-            }
-            gn3.e0(new d(this, jSONArray3, jSONArray4, z, jSONObject, str3, str4));
-            return new m12(0);
+            z2 = (!z || j) ? false : false;
+            t42.i("SwanInlinePlayerManager", "hasCacheVideo: " + z2);
+            return z2;
         }
-        return (m12) invokeLZ.objValue;
+        return invokeV.booleanValue;
     }
 
-    public m12 H(String str) {
-        InterceptResult invokeL;
+    public void b(eq2 eq2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new m12(202);
-            }
-            Pair<m12, JSONObject> s = s(str);
-            m12 m12Var = (m12) s.first;
-            if (!m12Var.isSuccess()) {
-                m62.c("PickerApi", "parse fail");
-                return m12Var;
-            }
-            JSONObject jSONObject = (JSONObject) s.second;
-            if (jSONObject == null) {
-                return new m12(202);
-            }
-            JSONArray optJSONArray = jSONObject.optJSONArray("array");
-            int optInt = jSONObject.optInt(ProgressInfo.JSON_KEY_CURRENT);
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                JSONArray jSONArray = new JSONArray();
-                jSONArray.put(optJSONArray);
-                JSONArray jSONArray2 = new JSONArray();
-                jSONArray2.put(optInt);
-                try {
-                    jSONObject.put("array", jSONArray);
-                    jSONObject.put(ProgressInfo.JSON_KEY_CURRENT, jSONArray2);
-                    return E(jSONObject, true);
-                } catch (JSONException unused) {
-                    return new m12(1001);
-                }
-            }
-            return new m12(202);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, eq2Var) == null) && eq2Var != null && !TextUtils.isEmpty(eq2Var.c())) {
+            this.b.put(eq2Var.c(), eq2Var);
         }
-        return (m12) invokeL.objValue;
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:21:0x0053, code lost:
-        if (r0.equals("time") == false) goto L29;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public m12 L(String str) {
-        InterceptResult invokeL;
+    public void r(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            char c2 = 0;
-            q("#showDatePickerView", false);
-            Pair<m12, JSONObject> s = s(str);
-            m12 m12Var = (m12) s.first;
-            if (!m12Var.isSuccess()) {
-                return m12Var;
+        if ((interceptable == null || interceptable.invokeL(1048591, this, str) == null) && !TextUtils.isEmpty(str)) {
+            this.b.remove(str);
+        }
+    }
+
+    public void t(eq2 eq2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, eq2Var) == null) {
+            if (g) {
+                Log.i("SwanInlinePlayerManager", "setCacheVideo: " + eq2Var.toString());
             }
-            JSONObject jSONObject = (JSONObject) s.second;
-            if (jSONObject == null) {
-                return new m12(1001);
-            }
-            String optString = jSONObject.optString("mode");
-            if (TextUtils.isEmpty(optString)) {
-                return new m12(202);
-            }
-            int hashCode = optString.hashCode();
-            if (hashCode != 3076014) {
-                if (hashCode == 3560141) {
+            i = eq2Var;
+        }
+    }
+
+    public void u(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i2) == null) {
+            this.c = i2;
+        }
+    }
+
+    public void v(mm3<Integer> mm3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, mm3Var) == null) {
+            this.d = mm3Var;
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            b72 H = gt2.U().H();
+            if (g()) {
+                if (g) {
+                    Log.i("SwanInlinePlayerManager", "onForegroundChange: full screen ");
                 }
-                c2 = 65535;
+                if (H != null) {
+                    H.U3(false);
+                }
+                p63.g();
+                p63.m(true);
+            } else if (h()) {
+                if (g) {
+                    Log.i("SwanInlinePlayerManager", "onForegroundChange: Setting portrait fullscreen immersion.");
+                }
+                if (H != null) {
+                    H.U3(true);
+                }
             } else {
-                if (optString.equals(GfhKeyValue.TYPE_DATE)) {
-                    c2 = 1;
+                if (g) {
+                    Log.i("SwanInlinePlayerManager", "onForegroundChange: vertical screen. ");
                 }
-                c2 = 65535;
-            }
-            if (c2 != 0) {
-                if (c2 != 1) {
-                    return new m12(202);
+                if (H != null) {
+                    H.U3(false);
                 }
-                return D(jSONObject);
             }
-            return F(jSONObject);
         }
-        return (m12) invokeL.objValue;
     }
 
-    public m12 M(String str) {
-        InterceptResult invokeL;
+    public void k(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             if (TextUtils.isEmpty(str)) {
-                return new m12(202);
-            }
-            if (this.f == null) {
-                return new m12(1001);
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                int optInt = jSONObject.optInt(CriusAttrConstants.COLUMN);
-                JSONArray optJSONArray = jSONObject.optJSONArray("array");
-                int optInt2 = jSONObject.optInt(ProgressInfo.JSON_KEY_CURRENT);
-                String optString = jSONObject.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    m62.c("PickerApi", "callback is null");
-                    return new m12(1001, "callback is null");
+                if (g) {
+                    Log.i("SwanInlinePlayerManager", "pauseOtherPlayers: empty player id ");
+                    return;
                 }
-                if (optJSONArray != null) {
-                    gn3.e0(new c(this, optInt, optJSONArray, optInt2));
-                    d(optString, new m12(0, jSONObject));
-                }
-                return new m12(0);
-            } catch (JSONException unused) {
-                return new m12(202);
-            }
-        }
-        return (m12) invokeL.objValue;
-    }
-
-    public final Date I(String str, String[] strArr, String str2) {
-        InterceptResult invokeLLL;
-        Date date;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, str, strArr, str2)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                date = am3.d(str, strArr);
-            } else {
-                date = null;
-            }
-            if (date == null && !TextUtils.isEmpty(str2)) {
-                return am3.d(str2, strArr);
-            }
-            return date;
-        }
-        return (Date) invokeLLL.objValue;
-    }
-
-    public final Date J(String str) {
-        InterceptResult invokeL;
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new Date();
-            }
-            if (!str.contains(":") || (split = str.split(":")) == null || split.length != 2) {
-                return null;
-            }
-            try {
-                Date date = new Date();
-                try {
-                    int parseInt = Integer.parseInt(split[0]);
-                    if (parseInt >= 0 && parseInt < 24) {
-                        date.setHours(parseInt);
-                    }
-                    int parseInt2 = Integer.parseInt(split[1]);
-                    if (parseInt2 >= 0 && parseInt2 < 60) {
-                        date.setMinutes(parseInt2);
-                    }
-                } catch (NumberFormatException unused) {
-                }
-                return date;
-            } catch (NumberFormatException unused2) {
-                return null;
-            }
-        }
-        return (Date) invokeL.objValue;
-    }
-
-    public final void K(DialogInterface dialogInterface, boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{dialogInterface, Boolean.valueOf(z), str}) == null) {
-            dialogInterface.dismiss();
-            this.f = null;
-            if (z) {
-                d(str, new m12(0));
                 return;
             }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "cancel");
-                d(str, new m12(0, jSONObject));
-            } catch (JSONException unused) {
-                d(str, new m12(202));
+            HashMap<String, eq2> hashMap = this.b;
+            if (hashMap != null && hashMap.size() > 0) {
+                int i2 = 0;
+                for (String str2 : this.b.keySet()) {
+                    if (str2.equals(str)) {
+                        if (g) {
+                            Log.i("SwanInlinePlayerManager", "pauseOtherPlayers: skip itself." + str);
+                        }
+                    } else {
+                        eq2 eq2Var = this.b.get(str2);
+                        if (eq2Var != null) {
+                            if (i2 < 3) {
+                                if (!eq2Var.i0()) {
+                                    eq2Var.pause();
+                                    eq2Var.Q().c(eq2Var.c());
+                                } else {
+                                    i2++;
+                                }
+                            } else {
+                                eq2Var.pause();
+                                eq2Var.Q().c(eq2Var.c());
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public void l(String str, boolean z) {
+        HashMap<String, Boolean> hashMap;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(1048585, this, str, z) == null) && (hashMap = this.a) != null) {
+            hashMap.put(str, Boolean.valueOf(z));
+        }
+    }
+
+    public void o(eq2 eq2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048588, this, eq2Var) != null) || eq2Var == null) {
+            return;
+        }
+        if (d() == null) {
+            j = false;
+        } else if (TextUtils.equals(d().c(), eq2Var.c())) {
+            t42.i("SwanInlinePlayerManager", "releaseCacheVideo: clear cache video " + eq2Var.c());
+            i = null;
+            j = false;
+        }
+    }
+
+    public void q(String str) {
+        HashMap<String, Boolean> hashMap;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048590, this, str) == null) && (hashMap = this.a) != null) {
+            hashMap.remove(str);
+            int size = this.a.keySet().size();
+            if (g) {
+                Log.i("SwanInlinePlayerManager", "removePlayerState: last player count " + size);
             }
         }
     }

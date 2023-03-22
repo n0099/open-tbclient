@@ -1,5 +1,10 @@
 package com.baidu.tieba;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public interface sx2<T> {
-    T make() throws IllegalAccessException, InstantiationException;
+public interface sx2 {
+    void a(JSONObject jSONObject) throws JSONException;
+
+    boolean isValid();
 }

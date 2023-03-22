@@ -1,18 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes3.dex */
-public class aw3 implements pu1 {
+public class aw3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public DownloadState a;
+    public String b;
+    public int c;
 
     public aw3() {
         Interceptable interceptable = $ic;
@@ -24,17 +24,21 @@ public class aw3 implements pu1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = DownloadState.NOT_START;
+        this.c = Integer.parseInt("0");
     }
 
-    @Override // com.baidu.tieba.pu1
-    public ap4 l() {
-        InterceptResult invokeV;
+    public static aw3 a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new zv3();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            aw3 aw3Var = new aw3();
+            aw3Var.b = str2;
+            return aw3Var;
         }
-        return (ap4) invokeV.objValue;
+        return (aw3) invokeLL.objValue;
     }
 }

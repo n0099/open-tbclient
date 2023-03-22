@@ -1,27 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.task.SocketMessageTask;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.barselect.data.CommitCardInfoHttpResMsg;
+import com.baidu.tieba.barselect.data.CommitCardInfoReqMsg;
+import com.baidu.tieba.barselect.data.CommitCardInfoSocketResMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class m96 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public List<l96> c;
+    public TbPageContext a;
 
-    public m96() {
+    public m96(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,45 +34,24 @@ public class m96 {
                 return;
             }
         }
-        this.c = new ArrayList();
+        this.a = tbPageContext;
+        SocketMessageTask socketMessageTask = new SocketMessageTask(309643);
+        socketMessageTask.setResponsedClass(CommitCardInfoSocketResMsg.class);
+        MessageManager.getInstance().registerTask(socketMessageTask);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_COMMIT_CARD_INFO, jb9.a(TbConfig.URL_COMMIT_CARD_INFO, 309643));
+        tbHttpMessageTask.setResponsedClass(CommitCardInfoHttpResMsg.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public List<l96> a() {
-        InterceptResult invokeV;
+    public void a(String str, int i, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.c == null) {
-                this.c = new ArrayList();
-            }
-            return this.c;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void c(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            this.a = jSONObject.optString("mark_type_name");
-            this.b = jSONObject.optInt("mark_type_wear");
-            JSONArray optJSONArray = jSONObject.optJSONArray("mark_list");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    l96 l96Var = new l96();
-                    l96Var.n(optJSONArray.optJSONObject(i));
-                    l96Var.o(this.a);
-                    l96Var.p(this.b);
-                    this.c.add(l96Var);
-                }
-            }
+        if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
+            CommitCardInfoReqMsg commitCardInfoReqMsg = new CommitCardInfoReqMsg();
+            commitCardInfoReqMsg.resource_id = str;
+            commitCardInfoReqMsg.card_type = i;
+            commitCardInfoReqMsg.image_info = str2;
+            commitCardInfoReqMsg.setTag(this.a.getUniqueId());
+            MessageManager.getInstance().sendMessage(commitCardInfoReqMsg);
         }
     }
 }

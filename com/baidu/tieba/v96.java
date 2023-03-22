@@ -1,56 +1,24 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.barselect.model.CandidateSearchHttpResMsg;
+import com.baidu.tieba.barselect.model.CandidateSearchReqMsg;
+import com.baidu.tieba.barselect.model.CandidateSearchSocketResMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class v96 extends ye6<n86> {
+public class v96 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View i;
-    public TextView j;
-    public TextView k;
-    public HeadImageView l;
-    public HeadImageView m;
-    public HeadImageView n;
-    public ImageView o;
+    public TbPageContext a;
 
-    @Override // com.baidu.tieba.ye6
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0107 : invokeV.intValue;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ye6
-    /* renamed from: t */
-    public void i(n86 n86Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, n86Var) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public v96(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    public v96(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -60,85 +28,28 @@ public class v96 extends ye6<n86> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        s(h());
+        this.a = tbPageContext;
+        zl5 zl5Var = new zl5(309641);
+        zl5Var.setResponsedClass(CandidateSearchSocketResMsg.class);
+        MessageManager.getInstance().registerTask(zl5Var);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CANDIDATE_SEARCH, jb9.a(TbConfig.URL_CANDIDATE_SEARCH, 309641));
+        tbHttpMessageTask.setResponsedClass(CandidateSearchHttpResMsg.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void u(String str) {
-        TextView textView;
+    public void a(int i, long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && (textView = this.k) != null) {
-            textView.setText(str);
-        }
-    }
-
-    public void v(int i) {
-        ImageView imageView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) && (imageView = this.o) != null) {
-            imageView.setVisibility(i);
-        }
-    }
-
-    public void w(int i) {
-        View view2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048585, this, i) == null) && (view2 = this.i) != null) {
-            view2.setVisibility(i);
-        }
-    }
-
-    public void x(String str) {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, str) == null) && (textView = this.j) != null) {
-            textView.setText(str);
-        }
-    }
-
-    @Override // com.baidu.tieba.ye6
-    public void j(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            if (i == 1) {
-                this.o.setAlpha(0.7f);
-            } else {
-                this.o.setAlpha(1);
-            }
-            this.i.setBackgroundColor(SkinManager.getColor(i, (int) R.color.CAM_X0204));
-            SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0106);
-            SkinManager.setViewTextColor(this.k, (int) R.color.CAM_X0109);
-        }
-    }
-
-    public TextView r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            TextView textView = this.k;
-            if (textView != null) {
-                return textView;
-            }
-            return null;
-        }
-        return (TextView) invokeV.objValue;
-    }
-
-    public final void s(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, view2) == null) {
-            this.i = view2.findViewById(R.id.obfuscated_res_0x7f090215);
-            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090216);
-            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090214);
-            this.o = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090210);
-            this.l = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090211);
-            this.m = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090212);
-            this.n = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090213);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            CandidateSearchReqMsg candidateSearchReqMsg = new CandidateSearchReqMsg();
+            candidateSearchReqMsg.applyId = i;
+            candidateSearchReqMsg.fid = j;
+            candidateSearchReqMsg.setTag(this.a.getUniqueId());
+            MessageManager.getInstance().sendMessage(candidateSearchReqMsg);
         }
     }
 }

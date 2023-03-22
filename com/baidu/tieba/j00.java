@@ -2,58 +2,60 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
-public abstract class j00 {
+/* loaded from: classes5.dex */
+public class j00 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final f00 a;
-    public final int b;
-    public byte[] c;
+    public long a;
 
-    public j00(f00 f00Var) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public j00() {
+        this(0L);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {f00Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                this(((Long) newInitContext.callArgs[0]).longValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = f00Var;
-        this.b = f00Var.a();
     }
 
-    public abstract void a(boolean z, String str, byte[] bArr, byte[] bArr2);
-
-    public abstract void b(byte[] bArr, int i, int i2, byte[] bArr2, int i3);
-
-    public abstract void c();
-
-    public abstract void d(byte[] bArr, int i, int i2, byte[] bArr2, int i3);
-
-    public abstract void e();
-
-    public void f(byte[] bArr, int i, int i2, byte[] bArr2, int i3) {
+    public j00(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2, Integer.valueOf(i3)}) == null) {
-            b(bArr, i, i2, bArr2, i3);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        this.a = j;
     }
 
-    public abstract void g();
-
-    public void h(byte[] bArr, int i, int i2, byte[] bArr2, int i3) {
+    public boolean a(long j, long j2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2, Integer.valueOf(i3)}) == null) {
-            d(bArr, i, i2, bArr2, i3);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            long j3 = this.a;
+            long j4 = (j & j2) | ((~j2) & j3);
+            this.a = j4;
+            return (j4 ^ j3) != 0;
         }
+        return invokeCommon.booleanValue;
     }
 }

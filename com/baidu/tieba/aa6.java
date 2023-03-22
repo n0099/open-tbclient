@@ -1,31 +1,43 @@
 package com.baidu.tieba;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public abstract class aa6<T> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface aa6 {
 
-    public abstract float a(T t);
-
-    public abstract void b(T t, float f);
-
-    public aa6(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    /* loaded from: classes3.dex */
+    public interface a {
+        boolean a(float f);
     }
+
+    /* loaded from: classes3.dex */
+    public interface b {
+        float getSpeed();
+    }
+
+    /* loaded from: classes3.dex */
+    public interface c {
+        boolean a();
+    }
+
+    boolean a();
+
+    boolean b();
+
+    int getMaxDuration();
+
+    float getProgress();
+
+    int getSlideNum();
+
+    boolean pause();
+
+    boolean reset();
+
+    boolean setMaxDuration(int i);
+
+    boolean setMinDuration(int i);
+
+    boolean setProgress(long j);
+
+    boolean setShowDeleteLastTip(boolean z);
+
+    boolean start();
 }

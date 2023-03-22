@@ -13,6 +13,7 @@ import org.json.JSONObject;
 public class HotEventData implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int WINDOW_TYPE_NORMAL = 2;
+    public static final int WINDOW_TYPE_SCHEMA = 3;
     public static final int WINDOW_TYPE_TIME = 1;
     public static volatile HotEventData instance;
     public transient /* synthetic */ FieldHolder $fh;
@@ -22,6 +23,7 @@ public class HotEventData implements Serializable {
     public String cancelBtnText;
     public String desc;
     public String icon;
+    public String schemaUrl;
     public int skinType;
     public String title;
     public int windowType;
@@ -110,10 +112,19 @@ public class HotEventData implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    public int getSkinType() {
+    public String getSchemaUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.schemaUrl;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int getSkinType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.skinType;
         }
         return invokeV.intValue;
@@ -122,7 +133,7 @@ public class HotEventData implements Serializable {
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.title;
         }
         return (String) invokeV.objValue;
@@ -131,7 +142,7 @@ public class HotEventData implements Serializable {
     public int getWindowType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.windowType;
         }
         return invokeV.intValue;
@@ -139,7 +150,7 @@ public class HotEventData implements Serializable {
 
     public void parsJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048586, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         this.title = jSONObject.optString("title");
@@ -150,25 +161,33 @@ public class HotEventData implements Serializable {
         this.btnSchema = jSONObject.optString("btn_schema");
         this.icon = jSONObject.optString("icon");
         this.windowType = jSONObject.optInt("window_type");
+        this.schemaUrl = jSONObject.optString("scheme");
     }
 
     public void setBtnText(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
             this.btnText = str;
         }
     }
 
     public void setDesc(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
             this.desc = str;
+        }
+    }
+
+    public void setSchemaUrl(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            this.schemaUrl = str;
         }
     }
 
     public void setSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
             this.skinType = i;
         }
     }

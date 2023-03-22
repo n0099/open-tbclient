@@ -1,9 +1,13 @@
 package com.baidu.tieba;
 
-import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes4.dex */
-public interface fk5 extends ak5 {
-    HashMap<String, Object> G();
+public interface fk5 {
+    String getCurrentPageKey();
 
-    HashMap<String, String> L();
+    List<String> getCurrentPageSourceKeyList();
+
+    List<String> getNextPageSourceKeyList();
+
+    gk5 getPageStayFilter();
 }

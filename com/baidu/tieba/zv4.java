@@ -1,52 +1,59 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.webkit.JavascriptInterface;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.browser.BaseWebViewActivity;
-import com.baidu.tieba.browser.jscore.jsinterface.AbsJsInterface;
+import android.content.DialogInterface;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class zv4 extends AbsJsInterface {
+public class zv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ShareItem a;
+    public Activity b;
+    public int c;
+    public DialogInterface.OnCancelListener d;
 
-    public zv4() {
+    public zv4(ShareItem shareItem, Activity activity, int i, DialogInterface.OnCancelListener onCancelListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {shareItem, activity, Integer.valueOf(i), onCancelListener};
             interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = shareItem;
+        this.b = activity;
+        this.c = i;
+        this.d = onCancelListener;
+    }
+
+    public zv4(ShareItem shareItem, Activity activity, DialogInterface.OnCancelListener onCancelListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {shareItem, activity, onCancelListener};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    @JavascriptInterface
-    public void getIfFullScreen(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && "yes".equals(str)) {
-            Activity activity = getActivity();
-            if (activity instanceof BaseWebViewActivity) {
-                ((BaseWebViewActivity) activity).setFullScreen();
-            }
-        }
-    }
-
-    @JavascriptInterface
-    public void getSource(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            Activity activity = getActivity();
-            if (activity instanceof BaseWebViewActivity) {
-                ((BaseWebViewActivity) activity).setSource(str);
-            }
-        }
+        this.a = shareItem;
+        this.b = activity;
+        this.d = onCancelListener;
     }
 }

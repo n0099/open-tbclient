@@ -111,7 +111,7 @@ public class BdCircleImageView extends AppCompatImageView {
         int i4 = (int) (1.75f * f);
         int i5 = (int) (0.0f * f);
         this.b = (int) (3.5f * f);
-        if (f()) {
+        if (n()) {
             shapeDrawable = new ShapeDrawable(new OvalShape());
             ViewCompat.setElevation(this, f * 4.0f);
         } else {
@@ -126,7 +126,7 @@ public class BdCircleImageView extends AppCompatImageView {
         setBackgroundDrawable(shapeDrawable);
     }
 
-    public final boolean f() {
+    public final boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -167,7 +167,7 @@ public class BdCircleImageView extends AppCompatImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
             super.onMeasure(i, i2);
-            if (!f()) {
+            if (!n()) {
                 setMeasuredDimension(getMeasuredWidth() + (this.b * 2), getMeasuredHeight() + (this.b * 2));
             }
         }

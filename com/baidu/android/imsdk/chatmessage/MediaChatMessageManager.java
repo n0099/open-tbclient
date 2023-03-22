@@ -6,6 +6,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.ChatObject;
 import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.IMListener;
+import com.baidu.android.imsdk.ResponseCode;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.account.LoginManager;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
@@ -33,6 +34,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes.dex */
 public class MediaChatMessageManager implements IChatMessageManager {
@@ -64,7 +66,7 @@ public class MediaChatMessageManager implements IChatMessageManager {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, this, fetchMsgParam)) == null) {
-            return MediaMessageDBManager.getInstance(this.mAppContext).fetchMsg(new ChatObject(this.mAppContext, fetchMsgParam.getCategory(), fetchMsgParam.getTo()), fetchMsgParam.getLastMsgId(), fetchMsgParam.getCount(), fetchMsgParam.getLastMsgRowId(), false);
+            return MediaMessageDBManager.getInstance(this.mAppContext).fetchMsg(new ChatObject(this.mAppContext, fetchMsgParam.getCategory(), fetchMsgParam.getTo()), fetchMsgParam.getEndMsgId(), fetchMsgParam.getCount(), -1L, false);
         }
         return (List) invokeL.objValue;
     }
@@ -225,7 +227,9 @@ public class MediaChatMessageManager implements IChatMessageManager {
             chatMsg.setDeviceFlag(1);
             long rowId = chatMsg.getRowId();
             if (rowId == -1) {
-                chatMsg.createMsgKey(this.mAppContext);
+                if (TextUtils.isEmpty(chatMsg.getMsgKey())) {
+                    chatMsg.createMsgKey(this.mAppContext);
+                }
                 LogUtils.d("FFF saveSingleMsg msgkey ", " " + chatMsg.getMsgKey());
                 rowId = saveMsgToDB(chatMsg);
             } else {
@@ -266,12 +270,12 @@ public class MediaChatMessageManager implements IChatMessageManager {
     public void fetchMsg(FetchMsgParam fetchMsgParam) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fetchMsgParam) == null) {
-            if (!AccountManager.isLogin(this.mAppContext)) {
+            if (!LoginManager.getInstance(this.mAppContext).isIMLogined()) {
                 LogUtils.d(TAG, "fetchMsg from db, trigger im relogin");
                 LoginManager.getInstance(this.mAppContext).triggleLogoutListener(4001, Constants.ERROR_LOGIN_STATE_ERROR);
                 FetchMsgResponse fetchMsgResponse = new FetchMsgResponse();
                 fetchMsgResponse.msgs = fetchMsgFromDb(fetchMsgParam);
-                fetchMsgParam.onRequestResult(0, "fetchMsg succeed from db", fetchMsgResponse);
+                fetchMsgParam.onRequestResult(ResponseCode.LCP_STATE_CONNECTING, "fetchMsg succeed from db", fetchMsgResponse);
                 return;
             }
             MediaChatMessageCloudManager.getInstance(this.mAppContext).fetchMsgs(fetchMsgParam);
@@ -340,8 +344,14 @@ public class MediaChatMessageManager implements IChatMessageManager {
                 }
                 return DlnaManager.DLNA_ERROR_GET_POSITION_INFO_ACTION_NOT_FOUND;
             }
-            int deleteMsgs = deleteMsgs(new ChatObject(this.mAppContext, chatMsg.getCategory(), chatMsg.getContacter()), new long[]{chatMsg.getMsgId()});
+            long[] jArr = {chatMsg.getMsgId()};
+            ChatObject chatObject = new ChatObject(this.mAppContext, chatMsg.getCategory(), chatMsg.getContacter());
+            int deleteMsgs = deleteMsgs(chatObject, jArr);
             if (deleteMsgs >= 0) {
+                ArrayList<ChatMsg> fetchMsg = MediaMessageDBManager.getInstance(context).fetchMsg(chatObject, 0L, 1L, -1L, false, null);
+                if (fetchMsg != null && fetchMsg.isEmpty()) {
+                    delMsgParam.deleteMode = 1;
+                }
                 MediaChatMessageCloudManager.getInstance(this.mAppContext).deleteMsg(delMsgParam);
             }
             return deleteMsgs;
@@ -365,45 +375,9 @@ public class MediaChatMessageManager implements IChatMessageManager {
                     return;
                 }
                 screenMethodInfo.errCode = fetchMsgResponse.errorCode;
-                screenMethodInfo.errMsg = fetchMsgResponse.strMsg;
+                screenMethodInfo.errMsg = "onFetchMsgByIdResult_" + fetchMsgResponse.strMsg;
                 screenMethodInfo.endTime = System.currentTimeMillis();
                 ScreenUbc.onEvent(this.mAppContext, str, screenMethodInfo);
-            }
-        }
-    }
-
-    public void onSendMessageResult(int i, String str, SendMsgResponse sendMsgResponse) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048581, this, i, str, sendMsgResponse) == null) {
-            try {
-                ChatMsg chatMsg = sendMsgResponse.msg;
-                String str2 = sendMsgResponse.listenerKey;
-                if (chatMsg == null) {
-                    LogUtils.d(TAG, "onSendMessageResult----chatMsg is null");
-                    IMListener removeListener = ListenerManager.getInstance().removeListener(str2);
-                    if (removeListener instanceof BIMValueCallBack) {
-                        ((BIMValueCallBack) removeListener).onResult(i, str, null);
-                    } else {
-                        LogUtils.d(TAG, "ISendMessageListener is null");
-                    }
-                } else if (chatMsg.getCategory() == 4) {
-                    ChatMsgManagerImpl.getInstance(this.mAppContext).onSendStudioMsgResult(i, chatMsg, chatMsg.getMsgTime(), str2);
-                } else if (chatMsg.getCategory() == 9) {
-                    ChatMsgManagerImpl.getInstance(this.mAppContext).onSendConsultMsgResult(i, chatMsg, chatMsg.getMsgTime(), str2);
-                } else {
-                    LogUtils.d(TAG, "onSendMessageResult----errorCode: " + i);
-                    DBManager.getInstance(this.mAppContext).deleteCmdMsg(MsgUtility.getMsgUUid(chatMsg));
-                    updateChatMsgStatus(chatMsg, i);
-                    ChatMsgManagerImpl.getInstance(this.mAppContext).setMaxNotifyMsgid(chatMsg);
-                    IMListener removeListener2 = ListenerManager.getInstance().removeListener(str2);
-                    if (removeListener2 != null && (removeListener2 instanceof BIMValueCallBack)) {
-                        SendMsgResponse sendMsgResponse2 = new SendMsgResponse();
-                        sendMsgResponse2.msg = chatMsg;
-                        ((BIMValueCallBack) removeListener2).onResult(i, str, sendMsgResponse2);
-                    }
-                }
-            } catch (Exception e) {
-                LogUtils.e(TAG, "onSendMessageResult exception " + e.getMessage());
             }
         }
     }
@@ -508,5 +482,54 @@ public class MediaChatMessageManager implements IChatMessageManager {
                 sendMsgParam.onRequestResult(1000, "account is not login", sendMsgResponse2);
             }
         }
+    }
+
+    public void onSendMessageResult(int i, String str, SendMsgResponse sendMsgResponse) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048581, this, i, str, sendMsgResponse) == null) {
+            try {
+                ChatMsg chatMsg = sendMsgResponse.msg;
+                String str2 = sendMsgResponse.listenerKey;
+                if (chatMsg == null) {
+                    LogUtils.d(TAG, "onSendMessageResult----chatMsg is null");
+                    IMListener removeListener = ListenerManager.getInstance().removeListener(str2);
+                    if (removeListener instanceof BIMValueCallBack) {
+                        ((BIMValueCallBack) removeListener).onResult(i, str, null);
+                    } else {
+                        LogUtils.d(TAG, "ISendMessageListener is null");
+                    }
+                } else if (chatMsg.getCategory() == 4) {
+                    ChatMsgManagerImpl.getInstance(this.mAppContext).onSendStudioMsgResult(i, chatMsg, chatMsg.getMsgTime(), str2);
+                } else if (chatMsg.getCategory() == 9) {
+                    ChatMsgManagerImpl.getInstance(this.mAppContext).onSendConsultMsgResult(i, chatMsg, chatMsg.getMsgTime(), str2);
+                } else {
+                    LogUtils.d(TAG, "onSendMessageResult----errorCode: " + i);
+                    DBManager.getInstance(this.mAppContext).deleteCmdMsg(MsgUtility.getMsgUUid(chatMsg));
+                    updateChatMsgStatus(chatMsg, i);
+                    ChatMsgManagerImpl.getInstance(this.mAppContext).setMaxNotifyMsgid(chatMsg);
+                    IMListener removeListener2 = ListenerManager.getInstance().removeListener(str2);
+                    if (removeListener2 != null && (removeListener2 instanceof BIMValueCallBack)) {
+                        SendMsgResponse sendMsgResponse2 = new SendMsgResponse();
+                        sendMsgResponse2.msg = chatMsg;
+                        ((BIMValueCallBack) removeListener2).onResult(i, str, sendMsgResponse2);
+                    }
+                }
+            } catch (Exception e) {
+                LogUtils.e(TAG, "onSendMessageResult exception " + e.getMessage());
+            }
+        }
+    }
+
+    public ChatMsg updateReplyChatMsgQuoteData(long j, int i, String str) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), str})) == null) {
+            if (j <= 0) {
+                LogUtils.d(TAG, "updateReplyChatMsgQuoteData failed, msgid invalid:" + j);
+                return null;
+            }
+            return MediaMessageDBManager.getInstance(this.mAppContext).updateReplyChatMsgQuoteData(j, i, str);
+        }
+        return (ChatMsg) invokeCommon.objValue;
     }
 }

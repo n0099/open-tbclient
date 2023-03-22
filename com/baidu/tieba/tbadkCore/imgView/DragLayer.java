@@ -8,8 +8,8 @@ import android.view.MotionEvent;
 import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.g69;
-import com.baidu.tieba.h69;
+import com.baidu.tieba.mc9;
+import com.baidu.tieba.nc9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,8 +19,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class DragLayer extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public g69 a;
-    public h69 b;
+    public mc9 a;
+    public nc9 b;
 
     public final void b() {
         Interceptable interceptable = $ic;
@@ -94,10 +94,10 @@ public class DragLayer extends FrameLayout {
     }
 
     public void a() {
-        h69 h69Var;
+        nc9 nc9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (h69Var = this.b) != null) {
-            Bitmap bitmap = h69Var.a;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (nc9Var = this.b) != null) {
+            Bitmap bitmap = nc9Var.a;
             if (bitmap != null) {
                 bitmap.recycle();
                 this.b.a = null;
@@ -106,22 +106,22 @@ public class DragLayer extends FrameLayout {
         }
     }
 
-    public g69 getDragController() {
+    public mc9 getDragController() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.a;
         }
-        return (g69) invokeV.objValue;
+        return (mc9) invokeV.objValue;
     }
 
-    public h69 getDragObject() {
+    public nc9 getDragObject() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.b;
         }
-        return (h69) invokeV.objValue;
+        return (nc9) invokeV.objValue;
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -138,9 +138,9 @@ public class DragLayer extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
             super.dispatchDraw(canvas);
-            h69 h69Var = this.b;
-            if (h69Var != null && this.a.a) {
-                h69Var.a(canvas);
+            nc9 nc9Var = this.b;
+            if (nc9Var != null && this.a.a) {
+                nc9Var.a(canvas);
             }
         }
     }
@@ -173,17 +173,17 @@ public class DragLayer extends FrameLayout {
         return invokeL.booleanValue;
     }
 
-    public void setDragController(g69 g69Var) {
+    public void setDragController(mc9 mc9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, g69Var) == null) {
-            this.a = g69Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, mc9Var) == null) {
+            this.a = mc9Var;
         }
     }
 
-    public void setDragObject(h69 h69Var) {
+    public void setDragObject(nc9 nc9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, h69Var) == null) {
-            this.b = h69Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, nc9Var) == null) {
+            this.b = nc9Var;
             invalidate();
         }
     }

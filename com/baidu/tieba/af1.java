@@ -1,34 +1,182 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.os.Build;
+import android.os.Bundle;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.nps.pm.BundleInfo;
-import com.baidu.nps.utils.Constant;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.poly.statistics.exception.SdkException;
+import com.baidu.poly.wallet.paychannel.IChannelAuth;
+import com.baidu.poly.wallet.paychannel.IChannelPay;
+import com.baidu.poly.widget.PolyActivity;
+import com.baidu.tieba.lh1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Array;
-import java.lang.reflect.Field;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class af1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile af1 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, cf1> a;
+    public long a;
 
-    public af1() {
+    /* loaded from: classes3.dex */
+    public interface d {
+        void onError(String str);
+
+        void onSuccess(String str);
+    }
+
+    /* loaded from: classes3.dex */
+    public class a extends cf1<JSONObject> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d a;
+
+        public a(af1 af1Var, d dVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {af1Var, dVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dVar;
+        }
+
+        @Override // com.baidu.tieba.cf1
+        public void b(Throwable th, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, th, str) == null) {
+                ig1 ig1Var = new ig1("1");
+                ig1Var.b(new SdkException("gatewaylist error --> " + str, th).getStackMessage());
+                lg1.e(ig1Var);
+                ug1.g("requestChannelList onError result=" + str);
+                d dVar = this.a;
+                if (dVar != null) {
+                    dVar.onError(str);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.cf1
+        /* renamed from: d */
+        public void c(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+                ug1.g("requestChannelList onSuccess result=" + jSONObject.toString());
+                d dVar = this.a;
+                if (dVar != null) {
+                    dVar.onSuccess(jSONObject.toString());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public Context b;
+        public boolean c;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = 1;
+            this.c = false;
+        }
+
+        public af1 d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new af1(this, null);
+            }
+            return (af1) invokeV.objValue;
+        }
+
+        public b e(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+                this.b = context;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b f(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+                this.c = z;
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public b g(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+                this.a = i;
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static abstract class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public abstract void a(int i, String str);
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public af1(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,129 +186,113 @@ public class af1 {
                 return;
             }
         }
-        this.a = new HashMap();
+        this.a = 0L;
+        if (bVar != null) {
+            if (bVar.b != null) {
+                jf1.b(bVar.a);
+                pf1.c(of1.d(bVar.b.getApplicationContext()));
+                yg1.b(bVar.b.getApplicationContext());
+                ug1.d = bVar.c;
+                return;
+            }
+            throw new IllegalArgumentException("context can not be null");
+        }
+        throw new IllegalArgumentException("builder can not be null");
     }
 
-    public static af1 d() {
-        InterceptResult invokeV;
+    public /* synthetic */ af1(b bVar, ze1 ze1Var) {
+        this(bVar);
+    }
+
+    public void a(Bundle bundle, dh1 dh1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b == null) {
-                synchronized (af1.class) {
-                    if (b == null) {
-                        b = new af1();
+        if (interceptable == null || interceptable.invokeLL(1048576, this, bundle, dh1Var) == null) {
+            eh1.a(bundle, dh1Var);
+        }
+    }
+
+    public void d(Bundle bundle, d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, bundle, dVar) == null) {
+            hg1.a("1.01", System.currentTimeMillis());
+            kf1.j().f(xg1.b(yg1.a(), bundle), true, new a(this, dVar));
+        }
+    }
+
+    public void b(Context context, Bundle bundle, IChannelPay iChannelPay, IChannelAuth iChannelAuth, ih1 ih1Var, c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, bundle, iChannelPay, iChannelAuth, ih1Var, cVar}) == null) {
+            if (context != null) {
+                if (bundle != null) {
+                    if (iChannelPay != null) {
+                        long currentTimeMillis = System.currentTimeMillis();
+                        if (currentTimeMillis - this.a < 1000) {
+                            ug1.g("cashier pay time interval less than 1s");
+                            return;
+                        }
+                        this.a = currentTimeMillis;
+                        ug1.g("cashier pay");
+                        String str = "1";
+                        hg1.a("1", currentTimeMillis);
+                        String string = bundle.getString("chosenChannel");
+                        String string2 = bundle.getString("panelType");
+                        if (TextUtils.equals(string2, HlsPlaylistParser.METHOD_NONE) && !TextUtils.isEmpty(string)) {
+                            str = "0";
+                        } else if (!TextUtils.equals(string2, "HALF") && TextUtils.equals(string2, "FULL")) {
+                            str = "2";
+                        }
+                        ig1 ig1Var = new ig1("0");
+                        ig1Var.a("panelType", str);
+                        lg1.e(ig1Var);
+                        PolyActivity.n(context, iChannelPay, iChannelAuth, ih1Var, cVar, bundle);
+                        return;
                     }
+                    throw new IllegalArgumentException("channelPay can not be null");
                 }
+                throw new IllegalArgumentException("arguments can not be null");
             }
-            return b;
-        }
-        return (af1) invokeV.objValue;
-    }
-
-    public static <T> T[] a(Class<T> cls, Object[] objArr, Object[] objArr2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, cls, objArr, objArr2)) == null) {
-            T[] tArr = (T[]) ((Object[]) Array.newInstance((Class<?>) cls, objArr.length + objArr2.length));
-            System.arraycopy(objArr, 0, tArr, 0, objArr.length);
-            System.arraycopy(objArr2, 0, tArr, objArr.length, objArr2.length);
-            return tArr;
-        }
-        return (T[]) ((Object[]) invokeLLL.objValue);
-    }
-
-    public static void e(Field field, Object obj, Object obj2) throws IllegalAccessException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, field, obj, obj2) == null) {
-            field.set(obj, c((Object[]) field.get(obj), (Object[]) field.get(obj2)));
+            throw new IllegalArgumentException("context can not be null");
         }
     }
 
-    public static Object[] c(Object[] objArr, Object[] objArr2) throws IllegalArgumentException {
-        InterceptResult invokeLL;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, objArr, objArr2)) == null) {
-            ArrayList arrayList = new ArrayList(Arrays.asList(objArr));
-            for (Object obj : objArr2) {
-                if (!arrayList.contains(obj)) {
-                    arrayList.add(obj);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            kg1.g().h();
+        }
+    }
+
+    public void e(int i, JSONObject jSONObject, fg1 fg1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(1048580, this, i, jSONObject, fg1Var) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (fg1Var != null) {
+                        fg1Var.a(1, "unknown command");
+                        return;
+                    }
+                    return;
                 }
+                nf1.f(fg1Var);
+                return;
             }
-            Object[] objArr3 = (Object[]) Array.newInstance(objArr.getClass().getComponentType(), arrayList.size());
-            for (int i = 0; i < objArr3.length; i++) {
-                objArr3[i] = arrayList.get(i);
-            }
-            return objArr3;
-        }
-        return (Object[]) invokeLL.objValue;
-    }
-
-    public static void f(Field field, Object obj, Object obj2) throws IllegalAccessException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, field, obj, obj2) == null) {
-            List list = (List) field.get(obj);
-            list.addAll((List) field.get(obj2));
-            field.set(obj, list);
-            Field b2 = pf1.b(obj.getClass(), "nativeLibraryPathElements");
-            b2.set(obj, c((Object[]) b2.get(obj), (Object[]) b2.get(obj2)));
+            jf1.c(jSONObject, fg1Var);
         }
     }
 
-    public static ClassLoader g(cf1 cf1Var, cf1 cf1Var2) {
-        InterceptResult invokeLL;
+    public void f(Activity activity, nh1 nh1Var, lh1.d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, cf1Var, cf1Var2)) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                h(cf1Var, cf1Var2);
-                return cf1Var;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, activity, nh1Var, dVar) == null) {
+            if (activity == null) {
+                ug1.d("couponEntity is null!");
+            } else if (nh1Var != null && nh1Var.b != null) {
+                lh1 lh1Var = new lh1(activity);
+                lh1Var.d(dVar);
+                lh1Var.update(nh1Var.b);
+                lh1Var.show();
+            } else {
+                ug1.d("couponEntity || couponItemList is null!");
             }
-            return null;
         }
-        return (ClassLoader) invokeLL.objValue;
-    }
-
-    public static ClassLoader h(cf1 cf1Var, cf1 cf1Var2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, cf1Var, cf1Var2)) == null) {
-            Field b2 = pf1.b(cf1.class, "pathList");
-            try {
-                Object obj = b2.get(cf1Var);
-                Field b3 = pf1.b(obj.getClass(), "dexElements");
-                Field b4 = pf1.b(obj.getClass(), "nativeLibraryDirectories");
-                Object[] objArr = (Object[]) b3.get(obj);
-                Object obj2 = b2.get(cf1Var2);
-                b3.set(obj, a(objArr.getClass().getComponentType(), objArr, (Object[]) b3.get(obj2)));
-                if (Build.VERSION.SDK_INT >= 23) {
-                    f(b4, obj, obj2);
-                } else {
-                    e(b4, obj, obj2);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return cf1Var;
-        }
-        return (ClassLoader) invokeLL.objValue;
-    }
-
-    public cf1 b(BundleInfo bundleInfo, Context context) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bundleInfo, context)) == null) {
-            boolean z = !TextUtils.isEmpty(bundleInfo.getGroupName());
-            cf1 cf1Var = new cf1(kf1.d(context, bundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath(), kf1.f(context, bundleInfo.getPackageName()).getAbsolutePath(), kf1.e(context, bundleInfo.getPackageName()).getAbsolutePath(), context);
-            if (z && Build.VERSION.SDK_INT >= 21) {
-                cf1 cf1Var2 = this.a.get(bundleInfo.getGroupName());
-                if (cf1Var2 == null) {
-                    this.a.put(bundleInfo.getGroupName(), cf1Var);
-                    return cf1Var;
-                }
-                g(cf1Var2, cf1Var);
-                return cf1Var2;
-            }
-            return cf1Var;
-        }
-        return (cf1) invokeLL.objValue;
     }
 }

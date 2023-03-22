@@ -1,22 +1,17 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Looper;
-import android.os.Message;
-import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.CountDownLatch;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class ff1 {
+public abstract class ff1<K, V> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ff1 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public Map<K, V> a;
 
     public ff1() {
         Interceptable interceptable = $ic;
@@ -31,51 +26,47 @@ public class ff1 {
                 return;
             }
         }
-        this.a = false;
+        this.a = vg1.c();
     }
 
-    public static ff1 a() {
+    public Map<K, V> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (ff1.class) {
-                    if (b == null) {
-                        b = new ff1();
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (ff1) invokeV.objValue;
+        return (Map) invokeV.objValue;
     }
 
-    public void b(Context context) {
+    public Map<K, V> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, context) != null) || this.a) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
-        if (Thread.currentThread() == Looper.getMainLooper().getThread()) {
-            c(context);
-            return;
+        return (Map) invokeV.objValue;
+    }
+
+    public V a(K k) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k)) == null) {
+            return this.a.get(k);
         }
-        CountDownLatch countDownLatch = new CountDownLatch(1);
-        new ef1(context, countDownLatch).sendMessage(Message.obtain());
-        try {
-            countDownLatch.await();
-        } catch (Exception unused) {
+        return (V) invokeL.objValue;
+    }
+
+    public void e(Map<K, V> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
+            this.a = map;
         }
     }
 
-    public final void c(Context context) {
+    public void d(K k, V v) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            qe1.a().c();
-            try {
-                new WebView(context);
-            } catch (Exception unused) {
-            }
-            this.a = true;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, k, v) == null) {
+            this.a.put(k, v);
         }
     }
 }

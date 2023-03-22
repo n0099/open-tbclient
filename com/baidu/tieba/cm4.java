@@ -1,45 +1,28 @@
 package com.baidu.tieba;
 
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class cm4 extends vk4 {
+public class cm4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public cm4() {
+    public static void a(Object obj, StringBuilder sb) {
+        int lastIndexOf;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65536, null, obj, sb) == null) {
+            if (obj == null) {
+                sb.append(StringUtil.NULL_STRING);
+                return;
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.vk4
-    public JSONObject d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("version", bm4.e().a());
-                jSONObject.put("base_info", jSONObject2);
-            } catch (JSONException unused) {
+            String simpleName = obj.getClass().getSimpleName();
+            if ((simpleName == null || simpleName.length() <= 0) && (lastIndexOf = (simpleName = obj.getClass().getName()).lastIndexOf(46)) > 0) {
+                simpleName = simpleName.substring(lastIndexOf + 1);
             }
-            return jSONObject;
+            sb.append(simpleName);
+            sb.append('{');
+            sb.append(Integer.toHexString(System.identityHashCode(obj)));
         }
-        return (JSONObject) invokeV.objValue;
     }
 }

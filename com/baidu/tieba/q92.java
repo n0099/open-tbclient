@@ -1,19 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
 /* loaded from: classes5.dex */
-public final class q92 {
+public class q92 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<p92> a;
 
     public q92() {
         Interceptable interceptable = $ic;
@@ -25,67 +21,22 @@ public final class q92 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList();
-    }
-
-    public synchronized void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                this.a.clear();
             }
         }
     }
 
-    public synchronized boolean c() {
-        InterceptResult invokeV;
-        boolean z;
+    public p92 a(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                z = false;
-                Iterator<p92> it = this.a.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    } else if (it.next().c()) {
-                        z = true;
-                        break;
-                    }
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, context, i)) == null) {
+            if (i != 0) {
+                if (i != 1) {
+                    return new r92(context);
                 }
+                return new t92(context);
             }
-            return z;
+            return new r92(context);
         }
-        return invokeV.booleanValue;
-    }
-
-    public synchronized List<p92> d() {
-        InterceptResult invokeV;
-        List<p92> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this) {
-                list = this.a;
-            }
-            return list;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public synchronized boolean a(p92 p92Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, p92Var)) == null) {
-            synchronized (this) {
-                if (p92Var != null) {
-                    return this.a.add(p92Var);
-                }
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
+        return (p92) invokeLI.objValue;
     }
 }

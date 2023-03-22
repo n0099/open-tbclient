@@ -5,6 +5,7 @@ import android.os.Parcelable;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.IMConstants;
+import com.baidu.android.imsdk.chatmessage.IReplyMsg;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.NoProGuard;
@@ -22,7 +23,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class FansGroupAtMsg extends NormalMsg {
+public class FansGroupAtMsg extends NormalMsg implements IReplyMsg {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<FansGroupAtMsg> CREATOR;
     public static final String TAG = "FansGroupAtMsg";
@@ -30,6 +31,7 @@ public class FansGroupAtMsg extends NormalMsg {
     public ArrayList<AtData> mAtDataList;
     public String mOperation;
     public String mText;
+    public MsgRepliedData replyMsgData;
 
     /* loaded from: classes.dex */
     public static class AtData implements Parcelable, NoProGuard {
@@ -285,13 +287,37 @@ public class FansGroupAtMsg extends NormalMsg {
         return (String) invokeV.objValue;
     }
 
-    public String getText() {
+    @Override // com.baidu.android.imsdk.chatmessage.IReplyMsg
+    public MsgRepliedData getReplyMsgData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.replyMsgData;
+        }
+        return (MsgRepliedData) invokeV.objValue;
+    }
+
+    public String getText() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.mText;
         }
         return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.IReplyMsg
+    public boolean isReplyMsg() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            MsgRepliedData msgRepliedData = this.replyMsgData;
+            if (msgRepliedData != null && msgRepliedData.isReplyMsg()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     public FansGroupAtMsg() {
@@ -340,13 +366,14 @@ public class FansGroupAtMsg extends NormalMsg {
             parcel.readTypedList(arrayList, AtData.CREATOR);
         }
         this.mOperation = parcel.readString();
+        this.replyMsgData = (MsgRepliedData) parcel.readParcelable(MsgRepliedData.class.getClassLoader());
     }
 
     public boolean isGroupAtUserById(String str) {
         InterceptResult invokeL;
         ArrayList<AtData> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
             if (!isMsgRead() && (arrayList = this.mAtDataList) != null && arrayList.size() != 0 && !TextUtils.isEmpty(str)) {
                 Iterator<AtData> it = this.mAtDataList.iterator();
                 while (it.hasNext()) {
@@ -371,7 +398,7 @@ public class FansGroupAtMsg extends NormalMsg {
     public boolean parseJsonString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             String jsonContent = getJsonContent();
             if (TextUtils.isEmpty(jsonContent)) {
                 return false;
@@ -397,7 +424,9 @@ public class FansGroupAtMsg extends NormalMsg {
                         LogUtils.d(TAG, "at data " + i + " type: " + optString + ", user: " + optString2 + ", text: " + optString3);
                     }
                 }
-                return true;
+                MsgRepliedData msgRepliedData = new MsgRepliedData(jSONObject);
+                this.replyMsgData = msgRepliedData;
+                return msgRepliedData.parseCorrect();
             } catch (JSONException e) {
                 LogUtils.e(TAG, "parse json err!", e);
                 return false;
@@ -408,14 +437,14 @@ public class FansGroupAtMsg extends NormalMsg {
 
     public void setDataList(ArrayList<AtData> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, arrayList) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, arrayList) == null) {
             this.mAtDataList = arrayList;
         }
     }
 
     public void setText(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
             this.mText = str;
         }
     }
@@ -423,7 +452,16 @@ public class FansGroupAtMsg extends NormalMsg {
     public boolean setJsonContent(String str, ArrayList<AtData> arrayList) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, arrayList)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, str, arrayList)) == null) {
+            return setJsonContent(str, arrayList, null);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public boolean setJsonContent(String str, ArrayList<AtData> arrayList, MsgRepliedData msgRepliedData) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, str, arrayList, msgRepliedData)) == null) {
             if (TextUtils.isEmpty(str) || arrayList == null) {
                 return false;
             }
@@ -443,20 +481,23 @@ public class FansGroupAtMsg extends NormalMsg {
                     }
                 }
                 jSONObject.put("at_data", jSONArray);
+                if (msgRepliedData != null) {
+                    msgRepliedData.appendMsgRepliedDataToMsgJson(jSONObject);
+                }
                 return setMsgContent(jSONObject.toString());
             } catch (Exception unused) {
                 LogUtils.e(TAG, "content error!");
                 return false;
             }
         }
-        return invokeLL.booleanValue;
+        return invokeLLL.booleanValue;
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048585, this, parcel, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048588, this, parcel, i) == null) {
             super.writeToParcel(parcel, i);
             parcel.writeString(this.mText);
             ArrayList<AtData> arrayList = this.mAtDataList;
@@ -470,6 +511,7 @@ public class FansGroupAtMsg extends NormalMsg {
                 parcel.writeTypedList(this.mAtDataList);
             }
             parcel.writeString(this.mOperation);
+            parcel.writeParcelable(this.replyMsgData, i);
         }
     }
 }

@@ -20,7 +20,7 @@ public final class p extends aj.a {
 
     @Override // com.xiaomi.push.aj.a
     /* renamed from: a */
-    public String mo217a() {
+    public String mo219a() {
         return "22";
     }
 

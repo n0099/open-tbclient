@@ -1,19 +1,28 @@
 package com.baidu.tieba;
 
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class va1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static bb1 a() {
-        InterceptResult invokeV;
+    public static void a(View view2, View view3, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return bb1.a;
+        if (interceptable == null || interceptable.invokeLLI(65536, null, view2, view3, i) == null) {
+            b(view2, view3, i, i, i, i);
         }
-        return (bb1) invokeV.objValue;
+    }
+
+    public static void b(View view2, View view3, int i, int i2, int i3, int i4) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{view2, view3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && view3 != null && view2 != null) {
+            if (view2.getTouchDelegate() instanceof ra1) {
+                ((ra1) view2.getTouchDelegate()).a(view3, i, i2, i3, i4);
+            } else {
+                view2.setTouchDelegate(new ra1(view3, i, i2, i3, i4));
+            }
+        }
     }
 }

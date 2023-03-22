@@ -1,132 +1,66 @@
 package com.baidu.tieba;
 
+import android.annotation.TargetApi;
+import android.opengl.GLES30;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Locale;
+import java.nio.Buffer;
+import java.nio.IntBuffer;
+@TargetApi(18)
 /* loaded from: classes7.dex */
-public class z1 extends v1<r7, a> {
+public class z1 extends y1 implements x2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public r7 b;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.u1
-    /* renamed from: f */
-    public h7<p1> a(String str, q3 q3Var, a aVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, q3Var, aVar)) == null) {
-            return null;
-        }
-        return (h7) invokeLLL.objValue;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class a extends r1<r7> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final Locale b;
-        public final String c;
-
-        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public a() {
-            this(null, null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr = newInitContext.callArgs;
-                    this((Locale) objArr[0], (String) objArr[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        public a(Locale locale, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {locale, str};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.b = locale;
-            this.c = str;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z1(y1 y1Var) {
-        super(y1Var);
+    public z1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {y1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((y1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.v1
-    /* renamed from: h */
-    public r7 d(t1 t1Var, String str, q3 q3Var, a aVar) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.tieba.x2
+    public void A(int i, IntBuffer intBuffer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, t1Var, str, q3Var, aVar)) == null) {
-            r7 r7Var = this.b;
-            this.b = null;
-            return r7Var;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, intBuffer) == null) {
+            GLES30.glDeleteVertexArrays(i, intBuffer);
         }
-        return (r7) invokeLLLL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.v1
-    /* renamed from: g */
-    public void c(t1 t1Var, String str, q3 q3Var, a aVar) {
-        Locale locale;
+    @Override // com.baidu.tieba.x2
+    public void c(int i, IntBuffer intBuffer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, t1Var, str, q3Var, aVar) == null) {
-            String str2 = null;
-            this.b = null;
-            if (aVar == null) {
-                locale = Locale.getDefault();
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, intBuffer) == null) {
+            GLES30.glDrawBuffers(i, intBuffer);
+        }
+    }
+
+    @Override // com.baidu.tieba.x2
+    public void v(int i, IntBuffer intBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, intBuffer) == null) {
+            GLES30.glGenVertexArrays(i, intBuffer);
+        }
+    }
+
+    @Override // com.baidu.tieba.x2
+    public void O(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, Buffer buffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9), buffer}) == null) {
+            if (buffer == null) {
+                GLES30.glTexImage3D(i, i2, i3, i4, i5, i6, i7, i8, i9, 0);
             } else {
-                Locale locale2 = aVar.b;
-                if (locale2 == null) {
-                    locale2 = Locale.getDefault();
-                }
-                locale = locale2;
-                str2 = aVar.c;
-            }
-            if (str2 == null) {
-                this.b = r7.b(q3Var, locale);
-            } else {
-                this.b = r7.c(q3Var, locale, str2);
+                GLES30.glTexImage3D(i, i2, i3, i4, i5, i6, i7, i8, i9, buffer);
             }
         }
     }

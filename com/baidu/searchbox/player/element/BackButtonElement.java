@@ -40,7 +40,7 @@ public class BackButtonElement extends AbsElement implements View.OnClickListene
         imageView.setLayoutParams(new ViewGroup.LayoutParams(dp2px, dp2px));
         int dp2px2 = BdPlayerUtils.dp2px(imageView, 10.0f);
         imageView.setPadding(dp2px2, dp2px2, dp2px2, dp2px2);
-        imageView.setImageResource(R.drawable.obfuscated_res_0x7f080218);
+        imageView.setImageResource(R.drawable.obfuscated_res_0x7f080219);
         imageView.setScaleType(ImageView.ScaleType.CENTER);
         imageView.setOnClickListener(this);
     }

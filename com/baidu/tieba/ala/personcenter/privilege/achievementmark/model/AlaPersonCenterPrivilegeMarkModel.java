@@ -109,7 +109,7 @@ public class AlaPersonCenterPrivilegeMarkModel extends BdBaseModel {
         registerListener(this.b);
     }
 
-    public void P() {
+    public void T() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_PRIVILEGE_MARK_LIST);

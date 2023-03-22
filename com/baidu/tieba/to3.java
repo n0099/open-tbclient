@@ -1,76 +1,26 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class to3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    public static JSONObject a(String str, String str2) {
-        InterceptResult invokeLL;
+    public to3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("slaveId", str);
-                jSONObject.put("type", str2);
-            } catch (JSONException e) {
-                if (wp1.a) {
-                    e.printStackTrace();
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return jSONObject;
-        }
-        return (JSONObject) invokeLL.objValue;
-    }
-
-    public static JSONObject b(String str, String str2, String str3, String str4, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, jSONObject)) == null) {
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.put("id", str2);
-                jSONObject3.put("action", str4);
-                jSONObject3.put("e", jSONObject);
-                JSONObject jSONObject4 = new JSONObject();
-                jSONObject4.put("type", str3);
-                jSONObject4.put("params", jSONObject3);
-                jSONObject2.put("slaveId", str);
-                jSONObject2.put("type", "abilityMessage");
-                jSONObject2.put("value", jSONObject4);
-            } catch (JSONException e) {
-                if (wp1.a) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObject2;
-        }
-        return (JSONObject) invokeLLLLL.objValue;
-    }
-
-    /* JADX WARN: Type inference failed for: r4v1, types: [org.json.JSONObject, T] */
-    public static void c(String str, String str2, String str3, String str4, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65538, null, str, str2, str3, str4, jSONObject) == null) {
-            sj2 sj2Var = new sj2();
-            sj2Var.c = b(str, str2, str3, str4, jSONObject);
-            zu2.U().u(sj2Var);
-        }
-    }
-
-    /* JADX WARN: Type inference failed for: r5v1, types: [org.json.JSONObject, T] */
-    public static void d(String str, String str2, String str3, String str4, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65539, null, str, str2, str3, str4, jSONObject) == null) {
-            sj2 sj2Var = new sj2();
-            sj2Var.c = b(str, str2, str3, str4, jSONObject);
-            zu2.U().m(str, sj2Var);
         }
     }
 }

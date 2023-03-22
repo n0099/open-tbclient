@@ -1,55 +1,63 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import android.util.JsonWriter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.text.SimpleDateFormat;
-import java.util.Formatter;
-import java.util.Locale;
+import java.io.IOException;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class x1a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948248897, "Lcom/baidu/tieba/x1a;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948248897, "Lcom/baidu/tieba/x1a;");
-                return;
-            }
-        }
-        new SimpleDateFormat("yyyy年MM月dd HH时mm分ss秒");
-    }
-
-    public static boolean a(String str) {
-        InterceptResult invokeL;
+    public static void a(JsonWriter jsonWriter, Object obj) throws IOException {
+        Object opt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str != null && str.trim().length() != 0) {
-                return false;
+        if (interceptable == null || interceptable.invokeLL(65536, null, jsonWriter, obj) == null) {
+            if (obj != null && obj != JSONObject.NULL) {
+                if (obj instanceof JSONArray) {
+                    JSONArray jSONArray = (JSONArray) obj;
+                    jsonWriter.beginArray();
+                    int length = jSONArray.length();
+                    for (int i = 0; i < length; i++) {
+                        Object opt2 = jSONArray.opt(i);
+                        if (opt2 != null) {
+                            a(jsonWriter, opt2);
+                        }
+                    }
+                    jsonWriter.endArray();
+                    return;
+                } else if (obj instanceof JSONObject) {
+                    JSONObject jSONObject = (JSONObject) obj;
+                    jsonWriter.beginObject();
+                    Iterator<String> keys = jSONObject.keys();
+                    while (keys.hasNext()) {
+                        String next = keys.next();
+                        if (!TextUtils.isEmpty(next) && (opt = jSONObject.opt(next)) != null) {
+                            jsonWriter.name(next);
+                            a(jsonWriter, opt);
+                        }
+                    }
+                    jsonWriter.endObject();
+                    return;
+                } else if (obj instanceof Number) {
+                    jsonWriter.value((Number) obj);
+                    return;
+                } else if (obj instanceof String) {
+                    jsonWriter.value((String) obj);
+                    return;
+                } else if (obj instanceof Boolean) {
+                    jsonWriter.value(((Boolean) obj).booleanValue());
+                    return;
+                } else {
+                    jsonWriter.value(obj.toString());
+                    return;
+                }
             }
-            return true;
+            jsonWriter.nullValue();
         }
-        return invokeL.booleanValue;
-    }
-
-    public static String b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (i < 1000) {
-                i = 1000;
-            }
-            return new Formatter(new StringBuilder(), Locale.getDefault()).format("%ds", Integer.valueOf(i / 1000)).toString();
-        }
-        return (String) invokeI.objValue;
     }
 }

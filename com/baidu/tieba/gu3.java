@@ -1,87 +1,76 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import org.json.JSONArray;
 /* loaded from: classes4.dex */
-public class gu3 implements xt3 {
+public class gu3 implements hn4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public hu3 a;
-    public boolean b;
-    public boolean c;
-    public boolean d;
 
-    public gu3(@NonNull Context context) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947806372, "Lcom/baidu/tieba/gu3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947806372, "Lcom/baidu/tieba/gu3;");
+                return;
+            }
+        }
+        a = do1.a;
+    }
+
+    public gu3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-        }
-        c(context);
-    }
-
-    public final void c(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.a == null) {
-            this.a = hu3.a(context);
         }
     }
 
-    @Override // com.baidu.tieba.xt3
-    public void a() {
+    @Override // com.baidu.tieba.hn4
+    public boolean a(JSONArray jSONArray) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null && this.b && d()) {
-            this.b = false;
-            if (this.a.c()) {
-                this.a.e(12, 0);
-                this.a.e(13, 0);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONArray)) == null) {
+            if (a) {
+                Log.d("OpenBehaviorUploader", "upload stat data -> " + jSONArray.toString());
             }
-            this.a.d(12, 0);
-            this.a.d(13, 0);
-        }
-    }
-
-    @Override // com.baidu.tieba.xt3
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && this.a != null && !this.b && d()) {
-            this.b = true;
-            if (this.a.c()) {
-                this.a.e(12, i);
-                this.a.e(13, i);
-                return;
+            lu3 lu3Var = new lu3();
+            HashMap hashMap = new HashMap(2);
+            hashMap.put("cuid", zm4.g().getDeviceId(AppRuntime.getApplication()));
+            hashMap.put("uuid", zm4.g().o(AppRuntime.getApplication()));
+            ku3.d().g(hashMap, jSONArray.toString().getBytes(), null, lu3Var);
+            if (a) {
+                Log.d("OpenBehaviorUploader", "errorCode : " + lu3Var.a);
+                Log.d("OpenBehaviorUploader", "errorMsg : " + lu3Var.b);
             }
-            this.a.d(12, i);
-            this.a.d(13, i);
-        }
-    }
-
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (!this.d) {
-                this.d = true;
-                this.c = this.a.g();
+            int i = lu3Var.a;
+            if (i != 1 && i != 2 && i != 4) {
+                return true;
             }
-            return this.c;
+            sn4.a();
+            return false;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 }

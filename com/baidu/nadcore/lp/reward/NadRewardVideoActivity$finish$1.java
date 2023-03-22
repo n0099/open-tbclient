@@ -1,6 +1,6 @@
 package com.baidu.nadcore.lp.reward;
 
-import com.baidu.tieba.br0;
+import com.baidu.tieba.rp0;
 import kotlin.Metadata;
 import kotlin.jvm.internal.MutablePropertyReference0Impl;
 @Metadata(bv = {1, 0, 3}, d1 = {}, d2 = {}, k = 3, mv = {1, 4, 0}, pn = "", xi = 0, xs = "")
@@ -12,11 +12,11 @@ public final /* synthetic */ class NadRewardVideoActivity$finish$1 extends Mutab
 
     @Override // kotlin.jvm.internal.MutablePropertyReference0Impl, kotlin.reflect.KProperty0
     public Object get() {
-        return NadRewardVideoActivity.X1((NadRewardVideoActivity) this.receiver);
+        return NadRewardVideoActivity.a2((NadRewardVideoActivity) this.receiver);
     }
 
     @Override // kotlin.jvm.internal.MutablePropertyReference0Impl, kotlin.reflect.KMutableProperty0
     public void set(Object obj) {
-        ((NadRewardVideoActivity) this.receiver).P = (br0) obj;
+        ((NadRewardVideoActivity) this.receiver).P = (rp0) obj;
     }
 }

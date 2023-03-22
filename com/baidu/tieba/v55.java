@@ -1,80 +1,73 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes6.dex */
-public class v55 implements w55 {
+public class v55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ImageView a;
 
-    @Override // com.baidu.tieba.w55
-    public void onDismiss() {
+    public static synchronized void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.w55
-    public void onShow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    public v55(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            synchronized (v55.class) {
+                File file = new File(FileHelper.getCacheDir() + "voice");
+                if (file.exists() && file.isDirectory()) {
+                    File[] listFiles = file.listFiles();
+                    if (listFiles == null) {
+                        return;
+                    }
+                    for (File file2 : listFiles) {
+                        file2.delete();
+                    }
+                }
             }
         }
-        this.a = new ImageView(context);
     }
 
-    @Override // com.baidu.tieba.w55
-    public void a(s55 s55Var) {
+    public static boolean b(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, s55Var) == null) {
-            ImageView imageView = this.a;
-            int i = s55Var.c;
-            int i2 = -2;
-            if (i < 0) {
-                i = -2;
-            }
-            int i3 = s55Var.c;
-            if (i3 >= 0) {
-                i2 = i3;
-            }
-            imageView.setLayoutParams(new LinearLayout.LayoutParams(i, i2));
-            SkinManager.setImageResource(this.a, s55Var.b);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            return FileHelper.renameTo(str, FileHelper.getFilePath(str2, 1, true));
         }
+        return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.w55
-    public View getView() {
-        InterceptResult invokeV;
+    public static u55 c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            u55 u55Var = new u55();
+            if (str == null) {
+                u55Var.f(6);
+                u55Var.g(u55.a(u55Var.b()));
+                return u55Var;
+            }
+            if (!FileHelper.CheckTempDir(FileHelper.getCacheDir() + "voice")) {
+                u55Var.f(7);
+                u55Var.g(u55.a(u55Var.b()));
+                return u55Var;
+            }
+            String b = oi.b(FileHelper.GetStreamFromTmpFile(str));
+            if (b == null) {
+                u55Var.f(5);
+                u55Var.g(u55.a(u55Var.b()));
+            } else {
+                String filePath = FileHelper.getFilePath(b, 1, true);
+                if (FileHelper.renameTo(str, filePath)) {
+                    u55Var.i(filePath);
+                    u55Var.h(b);
+                } else {
+                    u55Var.f(1);
+                    u55Var.g(u55.a(u55Var.b()));
+                }
+            }
+            return u55Var;
         }
-        return (View) invokeV.objValue;
+        return (u55) invokeL.objValue;
     }
 }

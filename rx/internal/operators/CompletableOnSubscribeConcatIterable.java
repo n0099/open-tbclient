@@ -1,25 +1,25 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.ora;
-import com.baidu.tieba.pra;
-import com.baidu.tieba.qma;
-import com.baidu.tieba.rma;
-import com.baidu.tieba.zma;
+import com.baidu.tieba.kwa;
+import com.baidu.tieba.lwa;
+import com.baidu.tieba.mra;
+import com.baidu.tieba.nra;
+import com.baidu.tieba.vra;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes9.dex */
-public final class CompletableOnSubscribeConcatIterable implements qma.f {
-    public final Iterable<? extends qma> a;
+public final class CompletableOnSubscribeConcatIterable implements mra.f {
+    public final Iterable<? extends mra> a;
 
     /* loaded from: classes9.dex */
-    public static final class ConcatInnerSubscriber extends AtomicInteger implements rma {
+    public static final class ConcatInnerSubscriber extends AtomicInteger implements nra {
         public static final long serialVersionUID = -7965400327305809232L;
-        public final rma actual;
-        public final ora sd = new ora();
-        public final Iterator<? extends qma> sources;
+        public final nra actual;
+        public final kwa sd = new kwa();
+        public final Iterator<? extends mra> sources;
 
-        public ConcatInnerSubscriber(rma rmaVar, Iterator<? extends qma> it) {
-            this.actual = rmaVar;
+        public ConcatInnerSubscriber(nra nraVar, Iterator<? extends mra> it) {
+            this.actual = nraVar;
             this.sources = it;
         }
 
@@ -27,7 +27,7 @@ public final class CompletableOnSubscribeConcatIterable implements qma.f {
             if (this.sd.isUnsubscribed() || getAndIncrement() != 0) {
                 return;
             }
-            Iterator<? extends qma> it = this.sources;
+            Iterator<? extends mra> it = this.sources;
             while (!this.sd.isUnsubscribed()) {
                 try {
                     if (!it.hasNext()) {
@@ -35,7 +35,7 @@ public final class CompletableOnSubscribeConcatIterable implements qma.f {
                         return;
                     }
                     try {
-                        qma next = it.next();
+                        mra next = it.next();
                         if (next == null) {
                             this.actual.onError(new NullPointerException("The completable returned is null"));
                             return;
@@ -55,42 +55,42 @@ public final class CompletableOnSubscribeConcatIterable implements qma.f {
             }
         }
 
-        @Override // com.baidu.tieba.rma
+        @Override // com.baidu.tieba.nra
         public void onCompleted() {
             next();
         }
 
-        @Override // com.baidu.tieba.rma
+        @Override // com.baidu.tieba.nra
         public void onError(Throwable th) {
             this.actual.onError(th);
         }
 
-        @Override // com.baidu.tieba.rma
-        public void onSubscribe(zma zmaVar) {
-            this.sd.a(zmaVar);
+        @Override // com.baidu.tieba.nra
+        public void onSubscribe(vra vraVar) {
+            this.sd.a(vraVar);
         }
     }
 
-    public CompletableOnSubscribeConcatIterable(Iterable<? extends qma> iterable) {
+    public CompletableOnSubscribeConcatIterable(Iterable<? extends mra> iterable) {
         this.a = iterable;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qma.f, com.baidu.tieba.gna
-    public void call(rma rmaVar) {
+    @Override // com.baidu.tieba.mra.f, com.baidu.tieba.csa
+    public void call(nra nraVar) {
         try {
-            Iterator<? extends qma> it = this.a.iterator();
+            Iterator<? extends mra> it = this.a.iterator();
             if (it == null) {
-                rmaVar.onSubscribe(pra.c());
-                rmaVar.onError(new NullPointerException("The iterator returned is null"));
+                nraVar.onSubscribe(lwa.c());
+                nraVar.onError(new NullPointerException("The iterator returned is null"));
                 return;
             }
-            ConcatInnerSubscriber concatInnerSubscriber = new ConcatInnerSubscriber(rmaVar, it);
-            rmaVar.onSubscribe(concatInnerSubscriber.sd);
+            ConcatInnerSubscriber concatInnerSubscriber = new ConcatInnerSubscriber(nraVar, it);
+            nraVar.onSubscribe(concatInnerSubscriber.sd);
             concatInnerSubscriber.next();
         } catch (Throwable th) {
-            rmaVar.onSubscribe(pra.c());
-            rmaVar.onError(th);
+            nraVar.onSubscribe(lwa.c());
+            nraVar.onError(th);
         }
     }
 }

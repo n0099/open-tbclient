@@ -1,75 +1,47 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.browser.core.webview.flyweight.FlyweightWebView;
+import android.annotation.SuppressLint;
+import android.os.Build;
+import android.webkit.ValueCallback;
+import android.webkit.WebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Method;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class nb6 extends mb6<FlyweightWebView> {
+public final class nb6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nb6(int i) {
-        super(i);
+    public static void a(WebView webView, List<String> list) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLL(65536, null, webView, list) == null) {
+            try {
+                Method declaredMethod = WebView.class.getDeclaredMethod("setSafeBrowsingWhitelist", List.class, ValueCallback.class);
+                declaredMethod.setAccessible(true);
+                declaredMethod.invoke(webView, list, null);
+            } catch (Throwable th) {
+                th.printStackTrace();
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mb6
-    /* renamed from: d */
-    public synchronized FlyweightWebView a() {
-        InterceptResult invokeV;
-        FlyweightWebView flyweightWebView;
+    @SuppressLint({"WebViewApiAvailability"})
+    public static void b(WebView webView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                flyweightWebView = (FlyweightWebView) super.a();
-                if (flyweightWebView != null) {
-                    flyweightWebView.d();
+        if (interceptable == null || interceptable.invokeL(65537, null, webView) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (i == 26) {
+                webView.setImportantForAutofill(2);
+                webView.getSettings().setSafeBrowsingEnabled(false);
+            } else if (i >= 27) {
+                List<String> a = va6.a();
+                try {
+                    WebView.setSafeBrowsingWhitelist(a, null);
+                } catch (Throwable unused) {
+                    a(webView, a);
                 }
             }
-            return flyweightWebView;
         }
-        return (FlyweightWebView) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.mb6
-    /* renamed from: e */
-    public synchronized boolean c(@NonNull FlyweightWebView flyweightWebView) {
-        InterceptResult invokeL;
-        boolean c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, flyweightWebView)) == null) {
-            synchronized (this) {
-                c = super.c(flyweightWebView);
-                if (c) {
-                    flyweightWebView.c();
-                } else {
-                    flyweightWebView.destroy();
-                }
-            }
-            return c;
-        }
-        return invokeL.booleanValue;
     }
 }

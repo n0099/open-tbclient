@@ -1,24 +1,24 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.nna;
-import com.baidu.tieba.uma;
-import com.baidu.tieba.wna;
+import com.baidu.tieba.jsa;
+import com.baidu.tieba.qra;
+import com.baidu.tieba.ssa;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes9.dex */
-public final class OperatorEagerConcatMap$EagerOuterProducer extends AtomicLong implements uma {
+public final class OperatorEagerConcatMap$EagerOuterProducer extends AtomicLong implements qra {
     public static final long serialVersionUID = -657299606803478389L;
-    public final wna<?, ?> parent;
+    public final ssa<?, ?> parent;
 
-    public OperatorEagerConcatMap$EagerOuterProducer(wna<?, ?> wnaVar) {
-        this.parent = wnaVar;
+    public OperatorEagerConcatMap$EagerOuterProducer(ssa<?, ?> ssaVar) {
+        this.parent = ssaVar;
     }
 
-    @Override // com.baidu.tieba.uma
+    @Override // com.baidu.tieba.qra
     public void request(long j) {
         int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
         if (i >= 0) {
             if (i > 0) {
-                nna.b(this, j);
+                jsa.b(this, j);
                 this.parent.g();
                 return;
             }

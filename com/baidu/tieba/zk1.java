@@ -1,73 +1,81 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
-public abstract class zk1<T> implements al1<T> {
+public class zk1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean DEBUG;
+    public static volatile zk1 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public T mCachedInstance;
-
-    public abstract T createService() throws ServiceNotFoundException;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948362729, "Lcom/baidu/tieba/zk1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948362729, "Lcom/baidu/tieba/zk1;");
-                return;
-            }
-        }
-        DEBUG = AppConfig.isDebug();
-    }
+    public ThreadPoolExecutor a;
+    public ScheduledThreadPoolExecutor b;
 
     public zk1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        b();
+    }
+
+    public static zk1 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (zk1.class) {
+                    if (c == null) {
+                        c = new zk1();
+                    }
+                }
+            }
+            return c;
+        }
+        return (zk1) invokeV.objValue;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = al1.g(5, 15);
+            this.b = al1.f(3);
+        }
+    }
+
+    public void c(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) && runnable != null) {
+            try {
+                this.a.submit(runnable);
+            } catch (Throwable unused) {
             }
         }
     }
 
-    @Override // com.baidu.tieba.al1
-    public final T getService() {
-        InterceptResult invokeV;
+    public void d(yk1 yk1Var, long j, long j2, TimeUnit timeUnit) {
+        ScheduledThreadPoolExecutor scheduledThreadPoolExecutor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                if (this.mCachedInstance == null) {
-                    try {
-                        this.mCachedInstance = createService();
-                    } catch (ServiceNotFoundException e) {
-                        if (DEBUG) {
-                            e.printStackTrace();
-                            throw e;
-                        }
-                    }
-                }
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{yk1Var, Long.valueOf(j), Long.valueOf(j2), timeUnit}) == null) && yk1Var != null && (scheduledThreadPoolExecutor = this.b) != null && !scheduledThreadPoolExecutor.isShutdown()) {
+            try {
+                yk1Var.i(System.currentTimeMillis());
+                yk1Var.h(this.b.scheduleAtFixedRate(yk1Var, j, j2, timeUnit));
+            } catch (Throwable unused) {
             }
-            return this.mCachedInstance;
         }
-        return (T) invokeV.objValue;
     }
 }

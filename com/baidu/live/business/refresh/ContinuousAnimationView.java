@@ -37,16 +37,16 @@ public class ContinuousAnimationView extends LottieAnimationView implements BdSw
     public void onFinish() {
     }
 
-    public final void q() {
+    public final void u() {
     }
 
-    public final void r() {
+    public final void x() {
     }
 
-    public final void s() {
+    public final void y() {
     }
 
-    public final void t() {
+    public final void z() {
     }
 
     /* loaded from: classes2.dex */
@@ -56,12 +56,12 @@ public class ContinuousAnimationView extends LottieAnimationView implements BdSw
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationCancel(Animator animator) {
-            ContinuousAnimationView.this.q();
+            ContinuousAnimationView.this.u();
         }
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationEnd(Animator animator) {
-            ContinuousAnimationView.this.r();
+            ContinuousAnimationView.this.x();
             if (ContinuousAnimationView.this.b) {
                 ContinuousAnimationView.this.b = false;
             }
@@ -71,7 +71,7 @@ public class ContinuousAnimationView extends LottieAnimationView implements BdSw
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationRepeat(Animator animator) {
-            ContinuousAnimationView.this.s();
+            ContinuousAnimationView.this.y();
             if (ContinuousAnimationView.this.b) {
                 ContinuousAnimationView.this.cancelAnimation();
                 ContinuousAnimationView.this.b = false;
@@ -80,7 +80,7 @@ public class ContinuousAnimationView extends LottieAnimationView implements BdSw
 
         @Override // android.animation.Animator.AnimatorListener
         public void onAnimationStart(Animator animator) {
-            ContinuousAnimationView.this.t();
+            ContinuousAnimationView.this.z();
             ContinuousAnimationView.this.a = true;
         }
     }

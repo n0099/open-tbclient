@@ -5,7 +5,7 @@ import android.content.Context;
 import android.os.Process;
 import android.text.TextUtils;
 import com.baidu.android.common.security.MD5Util;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class Util {
     public static boolean hasOtherServiceRuninMyPid(Context context, String str) {
         for (ActivityManager.RunningServiceInfo runningServiceInfo : ((ActivityManager) context.getApplicationContext().getSystemService("activity")).getRunningServices(100)) {

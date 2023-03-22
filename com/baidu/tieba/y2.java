@@ -1,223 +1,296 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.opengl.GLSurfaceView;
-import android.util.Log;
-import android.view.SurfaceHolder;
-import com.badlogic.gdx.backends.android.AndroidLiveWallpaperService;
-import com.badlogic.gdx.backends.android.surfaceview.GLSurfaceView20;
-import com.badlogic.gdx.utils.GdxRuntimeException;
+import androidx.core.view.InputDeviceCompat;
+import com.badlogic.gdx.graphics.Pixmap;
+import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.TextureData;
+import com.badlogic.gdx.utils.BufferUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import javax.microedition.khronos.opengles.GL10;
+import java.nio.FloatBuffer;
 /* loaded from: classes7.dex */
-public final class y2 extends x2 {
+public abstract class y2 implements r6 {
     public static /* synthetic */ Interceptable $ic;
+    public static float h;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public int b;
+    public Texture.TextureFilter c;
+    public Texture.TextureFilter d;
+    public Texture.TextureWrap e;
+    public Texture.TextureWrap f;
+    public float g;
 
-    /* loaded from: classes7.dex */
-    public class a extends GLSurfaceView20 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y2 e;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(y2 y2Var, Context context, p3 p3Var) {
-            super(context, p3Var);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y2Var, context, p3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Context) objArr2[0], (p3) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = y2Var;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448321012, "Lcom/baidu/tieba/y2;")) == null) {
+            return;
         }
-
-        @Override // android.view.SurfaceView
-        public SurfaceHolder getHolder() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.e.y();
-            }
-            return (SurfaceHolder) invokeV.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448321012, "Lcom/baidu/tieba/y2;");
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y2(a3 a3Var, o2 o2Var, p3 p3Var) {
-        super(a3Var, o2Var, p3Var, false);
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public y2(int i) {
+        this(i, o0.e.a());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {a3Var, o2Var, p3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((n2) objArr2[0], (o2) objArr2[1], (p3) objArr2[2], ((Boolean) objArr2[3]).booleanValue());
+                this(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.x2
-    public GLSurfaceView20 i(n2 n2Var, p3 p3Var) {
-        InterceptResult invokeLL;
+    public y2(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, n2Var, p3Var)) == null) {
-            if (g()) {
-                GLSurfaceView.EGLConfigChooser l = l();
-                a aVar = new a(this, n2Var.getContext(), p3Var);
-                if (l != null) {
-                    aVar.setEGLConfigChooser(l);
-                } else {
-                    o2 o2Var = this.s;
-                    aVar.setEGLConfigChooser(o2Var.a, o2Var.b, o2Var.c, o2Var.d, o2Var.e, o2Var.f);
-                }
-                aVar.setRenderer(this);
-                return aVar;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
-            throw new GdxRuntimeException("Libgdx requires OpenGL ES 2.0");
         }
-        return (GLSurfaceView20) invokeLL.objValue;
+        Texture.TextureFilter textureFilter = Texture.TextureFilter.Nearest;
+        this.c = textureFilter;
+        this.d = textureFilter;
+        Texture.TextureWrap textureWrap = Texture.TextureWrap.ClampToEdge;
+        this.e = textureWrap;
+        this.f = textureWrap;
+        this.g = 1.0f;
+        this.a = i;
+        this.b = i2;
     }
 
-    @Override // com.baidu.tieba.x2
-    public void o() {
+    public float n(float f, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && AndroidLiveWallpaperService.DEBUG) {
-            super.o();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048586, this, new Object[]{Float.valueOf(f), Boolean.valueOf(z)})) == null) {
+            float g = g();
+            if (g == 1.0f) {
+                return 1.0f;
+            }
+            float min = Math.min(f, g);
+            if (!z && com.badlogic.gdx.math.d.f(min, this.g, 0.1f)) {
+                return this.g;
+            }
+            o0.f.u(3553, 34046, min);
+            this.g = min;
+            return min;
+        }
+        return invokeCommon.floatValue;
+    }
+
+    public static float g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            float f = h;
+            if (f > 0.0f) {
+                return f;
+            }
+            if (o0.b.a("GL_EXT_texture_filter_anisotropic")) {
+                FloatBuffer c = BufferUtils.c(16);
+                c.position(0);
+                c.limit(c.capacity());
+                o0.f.i(34047, c);
+                float f2 = c.get(0);
+                h = f2;
+                return f2;
+            }
+            h = 1.0f;
+            return 1.0f;
+        }
+        return invokeV.floatValue;
+    }
+
+    public static void q(int i, TextureData textureData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, textureData) == null) {
+            r(i, textureData, 0);
         }
     }
 
-    public SurfaceHolder y() {
+    public void l(Texture.TextureFilter textureFilter, Texture.TextureFilter textureFilter2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, textureFilter, textureFilter2) == null) {
+            this.c = textureFilter;
+            this.d = textureFilter2;
+            a();
+            o0.e.j(this.a, 10241, textureFilter.getGLEnum());
+            o0.e.j(this.a, 10240, textureFilter2.getGLEnum());
+        }
+    }
+
+    public void m(Texture.TextureWrap textureWrap, Texture.TextureWrap textureWrap2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048585, this, textureWrap, textureWrap2) == null) {
+            this.e = textureWrap;
+            this.f = textureWrap2;
+            a();
+            o0.e.j(this.a, 10242, textureWrap.getGLEnum());
+            o0.e.j(this.a, 10243, textureWrap2.getGLEnum());
+        }
+    }
+
+    public static void r(int i, TextureData textureData, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65541, null, new Object[]{Integer.valueOf(i), textureData, Integer.valueOf(i2)}) != null) || textureData == null) {
+            return;
+        }
+        if (!textureData.isPrepared()) {
+            textureData.prepare();
+        }
+        if (textureData.getType() == TextureData.TextureDataType.Custom) {
+            textureData.b(i);
+            return;
+        }
+        Pixmap c = textureData.c();
+        boolean g = textureData.g();
+        if (textureData.d() != c.h()) {
+            Pixmap pixmap = new Pixmap(c.n(), c.l(), textureData.d());
+            pixmap.o(Pixmap.Blending.None);
+            pixmap.a(c, 0, 0, 0, 0, c.n(), c.l());
+            if (textureData.g()) {
+                c.dispose();
+            }
+            c = pixmap;
+            g = true;
+        }
+        o0.e.g(3317, 1);
+        if (textureData.f()) {
+            g5.a(i, c, c.n(), c.l());
+        } else {
+            o0.e.q(i, i2, c.j(), c.n(), c.l(), 0, c.i(), c.k(), c.m());
+        }
+        if (g) {
+            c.dispose();
+        }
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            o0.e.N(this.a, this.b);
+        }
+    }
+
+    public void delete() {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (i = this.b) != 0) {
+            o0.e.S(i);
+            this.b = 0;
+        }
+    }
+
+    @Override // com.baidu.tieba.r6
+    public void dispose() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            delete();
+        }
+    }
+
+    public Texture.TextureFilter f() {
         InterceptResult invokeV;
-        SurfaceHolder surfaceHolder;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (Texture.TextureFilter) invokeV.objValue;
+    }
+
+    public Texture.TextureFilter h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (((a3) this.d).a.sync) {
-                surfaceHolder = ((a3) this.d).a.getSurfaceHolder();
-            }
-            return surfaceHolder;
+            return this.c;
         }
-        return (SurfaceHolder) invokeV.objValue;
+        return (Texture.TextureFilter) invokeV.objValue;
     }
 
-    public void z() {
-        GLSurfaceView20 gLSurfaceView20;
+    public int i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (gLSurfaceView20 = this.a) != null) {
-            try {
-                gLSurfaceView20.onDetachedFromWindow();
-                if (AndroidLiveWallpaperService.DEBUG) {
-                    Log.d(AndroidLiveWallpaperService.TAG, " > AndroidLiveWallpaper - onDestroy() stopped GLThread managed by GLSurfaceView");
-                }
-            } catch (Throwable th) {
-                Log.e(AndroidLiveWallpaperService.TAG, "failed to destroy GLSurfaceView's thread! GLSurfaceView.onDetachedFromWindow impl changed since API lvl 16!");
-                th.printStackTrace();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.b;
         }
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.x2, android.opengl.GLSurfaceView.Renderer
-    public void onDrawFrame(GL10 gl10) {
-        boolean z;
-        boolean z2;
-        boolean z3;
-        boolean z4;
+    public Texture.TextureWrap j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gl10) == null) {
-            long nanoTime = System.nanoTime();
-            if (!this.q) {
-                this.j = ((float) (nanoTime - this.i)) / 1.0E9f;
-            } else {
-                this.j = 0.0f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.e;
+        }
+        return (Texture.TextureWrap) invokeV.objValue;
+    }
+
+    public Texture.TextureWrap k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.f;
+        }
+        return (Texture.TextureWrap) invokeV.objValue;
+    }
+
+    public void o(Texture.TextureFilter textureFilter, Texture.TextureFilter textureFilter2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048587, this, textureFilter, textureFilter2, z) == null) {
+            if (textureFilter != null && (z || this.c != textureFilter)) {
+                o0.e.j(this.a, 10241, textureFilter.getGLEnum());
+                this.c = textureFilter;
             }
-            this.i = nanoTime;
-            synchronized (this.v) {
-                z = this.o;
-                z2 = this.p;
-                z3 = this.r;
-                z4 = this.q;
-                if (this.q) {
-                    this.q = false;
-                    this.v.notifyAll();
+            if (textureFilter2 != null) {
+                if (z || this.d != textureFilter2) {
+                    o0.e.j(this.a, 10240, textureFilter2.getGLEnum());
+                    this.d = textureFilter2;
                 }
-                if (this.p) {
-                    this.p = false;
-                    this.v.notifyAll();
-                }
-                if (this.r) {
-                    this.r = false;
-                    this.v.notifyAll();
-                }
             }
-            if (z4) {
-                this.d.getApplicationListener().resume();
-                l1.a.log("AndroidGraphics", "resumed");
-            }
-            if (z) {
-                synchronized (this.d.getRunnables()) {
-                    this.d.getExecutedRunnables().clear();
-                    this.d.getExecutedRunnables().b(this.d.getRunnables());
-                    this.d.getRunnables().clear();
-                    for (int i = 0; i < this.d.getExecutedRunnables().b; i++) {
-                        this.d.getExecutedRunnables().get(i).run();
-                    }
-                }
-                this.d.mo6getInput().Z0();
-                this.l++;
-                this.d.getApplicationListener().render();
-            }
-            if (z2) {
-                this.d.getApplicationListener().pause();
-                l1.a.log("AndroidGraphics", "paused");
-            }
-            if (z3) {
-                this.d.getApplicationListener().dispose();
-                l1.a.log("AndroidGraphics", "destroyed");
-            }
-            if (nanoTime - this.k > 1000000000) {
-                this.m = 0;
-                this.k = nanoTime;
-            }
-            this.m++;
         }
     }
 
-    @Override // com.baidu.tieba.x2
-    public void t() {
+    public void p(Texture.TextureWrap textureWrap, Texture.TextureWrap textureWrap2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this.v) {
-                this.o = true;
-                this.q = true;
-                while (this.q) {
-                    try {
-                        c();
-                        this.v.wait();
-                    } catch (InterruptedException unused) {
-                        l1.a.log("AndroidGraphics", "waiting for resume synchronization failed!");
-                    }
+        if (interceptable == null || interceptable.invokeLLZ(1048588, this, textureWrap, textureWrap2, z) == null) {
+            if (textureWrap != null && (z || this.e != textureWrap)) {
+                o0.e.j(this.a, 10242, textureWrap.getGLEnum());
+                this.e = textureWrap;
+            }
+            if (textureWrap2 != null) {
+                if (z || this.f != textureWrap2) {
+                    o0.e.j(this.a, 10243, textureWrap2.getGLEnum());
+                    this.f = textureWrap2;
                 }
             }
         }

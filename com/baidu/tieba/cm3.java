@@ -1,176 +1,103 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.os.Build;
-import android.os.StatFs;
-import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.tieba.fj3;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.unitedscheme.SchemeCollecter;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.DecimalFormat;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class cm3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile String a;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ fo3 c;
-
-        public a(int i, long j, fo3 fo3Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947679520, "Lcom/baidu/tieba/cm3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), fo3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947679520, "Lcom/baidu/tieba/cm3;");
+                return;
+            }
+        }
+        a = do1.a;
+    }
+
+    public static List<JSONObject> a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            String schemesDes = SchemeCollecter.getSchemesDes(str, 0);
+            ArrayList arrayList = new ArrayList();
+            try {
+                JSONObject jSONObject = new JSONObject(schemesDes);
+                arrayList.add(jSONObject);
+                int i = jSONObject.getInt("totalSlices");
+                for (int i2 = 1; i2 < i; i2++) {
+                    arrayList.add(new JSONObject(SchemeCollecter.getSchemesDes(str, i2)));
                 }
-            }
-            this.a = i;
-            this.b = j;
-            this.c = fo3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    cm3.f(jSONObject, z03.c(), this.a, this.b);
-                } catch (Exception e) {
-                    mm3.f(jSONObject, "errorMsg", e.getMessage());
+                return arrayList;
+            } catch (JSONException e) {
+                if (a) {
+                    Log.e("SwanAppCompat", "getDescriptions", e);
+                    return null;
                 }
-                this.c.a(jSONObject);
+                return null;
             }
         }
+        return (List) invokeL.objValue;
     }
 
-    public cm3() {
+    @Nullable
+    public static List<JSONObject> b(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (TextUtils.isEmpty(a)) {
-                synchronized (cm3.class) {
-                    a = e();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            List<JSONObject> a2 = a(str);
+            if (a2 != null && !a2.isEmpty()) {
+                for (JSONObject jSONObject : a2) {
+                    JSONArray optJSONArray = jSONObject.optJSONArray("descriptions");
+                    if (optJSONArray != null) {
+                        for (int i = 0; i < optJSONArray.length(); i++) {
+                            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                            if (optJSONObject != null) {
+                                Iterator<is2> it = hs2.b().iterator();
+                                while (true) {
+                                    if (it.hasNext()) {
+                                        is2 next = it.next();
+                                        String optString = optJSONObject.optString("name");
+                                        if (next.a(str, optString)) {
+                                            try {
+                                                optJSONArray.put(i, next.c(optString, optJSONObject));
+                                                break;
+                                            } catch (JSONException e) {
+                                                e.printStackTrace();
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
                 }
+                return a2;
             }
-            return a;
+            return null;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static String b(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
-            return new DecimalFormat("#.##").format(j / 1.073741824E9d);
-        }
-        return (String) invokeJ.objValue;
-    }
-
-    public static void d(@NonNull ju2 ju2Var, @NonNull fo3<JSONObject> fo3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, ju2Var, fo3Var) == null) {
-            ExecutorUtilsExt.postOnElastic(new a(ju2Var.i("host_launch_type"), ju2Var.k("box_cold_launch"), fo3Var), "getDeviceInfoAsync", 2);
-        }
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        String replace;
-        String replace2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            String str = Build.MODEL;
-            String str2 = "NUL";
-            if (TextUtils.isEmpty(str)) {
-                replace = "NUL";
-            } else {
-                replace = str.replace("_", "-");
-            }
-            String str3 = Build.VERSION.RELEASE;
-            if (TextUtils.isEmpty(str3)) {
-                replace2 = "0.0";
-            } else {
-                replace2 = str3.replace("_", "-");
-            }
-            int i = Build.VERSION.SDK_INT;
-            String str4 = Build.MANUFACTURER;
-            if (!TextUtils.isEmpty(str4)) {
-                str2 = str4.replace("_", "-");
-            }
-            return replace + "_" + replace2 + "_" + i + "_" + str2;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void f(@NonNull JSONObject jSONObject, int i, int i2, long j) {
-        int i3;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{jSONObject, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            mm3.f(jSONObject, "model", Build.MODEL);
-            mm3.f(jSONObject, "systemVersion", Build.VERSION.RELEASE);
-            mm3.f(jSONObject, "netStatus", Integer.valueOf(i));
-            fj3.a a2 = fj3.a(ts2.c());
-            if (a2 == null) {
-                i3 = -1;
-            } else {
-                i3 = a2.a;
-            }
-            mm3.f(jSONObject, "batteryLevel", Integer.valueOf(i3));
-            mm3.f(jSONObject, "appCurVersion", gn3.D());
-            mm3.f(jSONObject, "startupType", String.valueOf(i2));
-            mm3.f(jSONObject, "coldLaunchTime", Long.valueOf(j));
-            StatFs statFs = new StatFs(is2.i());
-            mm3.f(jSONObject, "totalDiskSpace", b(statFs.getTotalBytes()));
-            mm3.f(jSONObject, "freeDiskSpace", b(statFs.getAvailableBytes()));
-            ActivityManager activityManager = (ActivityManager) l93.K().getSystemService("activity");
-            if (activityManager != null) {
-                ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-                activityManager.getMemoryInfo(memoryInfo);
-                mm3.f(jSONObject, "totalMemory", b(memoryInfo.totalMem));
-                mm3.f(jSONObject, "freeMemory", b(memoryInfo.availMem));
-                if (memoryInfo.lowMemory) {
-                    str = "1";
-                } else {
-                    str = "0";
-                }
-                mm3.f(jSONObject, "lowMemory", str);
-            }
-        }
+        return (List) invokeLL.objValue;
     }
 }

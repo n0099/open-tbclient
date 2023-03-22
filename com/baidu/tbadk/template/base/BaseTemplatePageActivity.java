@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.fn5;
+import com.baidu.tieba.cm5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,12 +13,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class BaseTemplatePageActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fn5 a;
+    public cm5 a;
     public ViewGroup b;
 
-    public abstract fn5 w1();
+    public abstract int A1();
 
-    public abstract int x1();
+    public abstract cm5 z1();
 
     public BaseTemplatePageActivity() {
         Interceptable interceptable = $ic;
@@ -37,11 +37,11 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onDestroy();
-            fn5 fn5Var = this.a;
-            if (fn5Var != null) {
-                fn5Var.i();
+            cm5 cm5Var = this.a;
+            if (cm5Var != null) {
+                cm5Var.i();
             }
         }
     }
@@ -49,11 +49,11 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onPause();
-            fn5 fn5Var = this.a;
-            if (fn5Var != null) {
-                fn5Var.j();
+            cm5 cm5Var = this.a;
+            if (cm5Var != null) {
+                cm5Var.j();
             }
         }
     }
@@ -61,11 +61,11 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onResume();
-            fn5 fn5Var = this.a;
-            if (fn5Var != null) {
-                fn5Var.k();
+            cm5 cm5Var = this.a;
+            if (cm5Var != null) {
+                cm5Var.k();
             }
         }
     }
@@ -73,11 +73,11 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            fn5 fn5Var = this.a;
-            if (fn5Var != null) {
-                fn5Var.h(i);
+            cm5 cm5Var = this.a;
+            if (cm5Var != null) {
+                cm5Var.h(i);
             }
         }
     }
@@ -85,12 +85,12 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            ViewGroup viewGroup = (ViewGroup) getLayoutInflater().inflate(x1(), (ViewGroup) null);
+            ViewGroup viewGroup = (ViewGroup) getLayoutInflater().inflate(A1(), (ViewGroup) null);
             this.b = viewGroup;
             setContentView(viewGroup);
-            this.a = w1();
+            this.a = z1();
         }
     }
 }

@@ -15,8 +15,8 @@ import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.OriginalForumInfo;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.g09;
-import com.baidu.tieba.l05;
+import com.baidu.tieba.m59;
+import com.baidu.tieba.uy4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -183,7 +183,7 @@ public class PbActivityConfig extends IntentConfig {
         }
         this.key_video_source_value = "";
         this.mContext = context;
-        g09.b("pb");
+        m59.b("pb");
     }
 
     private void addMoreIntentExtraParam() {
@@ -274,7 +274,7 @@ public class PbActivityConfig extends IntentConfig {
         Intent intent;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048602, this) == null) && (intent = getIntent()) != null) {
-            intent.putExtra(TbWebViewActivityConfig.INTENT_KEY_IS_FROM_PUSH_NOTIFY, true);
+            intent.putExtra("is_from_push", true);
             intent.putExtra("key_start_from", 7);
         }
     }
@@ -460,11 +460,11 @@ public class PbActivityConfig extends IntentConfig {
         }
     }
 
-    public void setRecomData(l05 l05Var) {
+    public void setRecomData(uy4 uy4Var) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048618, this, l05Var) == null) && (intent = getIntent()) != null && l05Var != null) {
-            l05Var.c(intent);
+        if ((interceptable == null || interceptable.invokeL(1048618, this, uy4Var) == null) && (intent = getIntent()) != null && uy4Var != null) {
+            uy4Var.c(intent);
         }
     }
 

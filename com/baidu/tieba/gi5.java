@@ -1,50 +1,45 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.tbadk.data.ChatRoomEntranceData;
+import com.baidu.tbadk.data.HotEventData;
+import com.baidu.tbadk.mutiprocess.hotevent.HotEvent;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface gi5 {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("ImMessageCenter", "ChatFloatEntranceService");
+public class gi5 implements ph5<HotEvent> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public interface a {
+    public gi5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    /* loaded from: classes4.dex */
-    public interface b {
-        void N0();
-
-        void R0();
-
-        void c();
-
-        Fragment d();
-
-        void destroy();
-
-        int getState();
-
-        boolean j0();
-
-        void k1(boolean z);
-
-        void n1();
-
-        boolean q1(String str);
-
-        void x1(long j, String str, boolean z, boolean z2);
-
-        void z(ChatRoomEntranceData chatRoomEntranceData);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ph5
+    /* renamed from: a */
+    public boolean onEvent(HotEvent hotEvent) {
+        InterceptResult invokeL;
+        HotEventData hotEventData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hotEvent)) == null) {
+            if (hotEvent != null && (hotEventData = hotEvent.hotEventData) != null) {
+                h95.i(hotEventData);
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
-
-    void a(@Nullable a aVar);
-
-    @NonNull
-    b b(String str, ji5 ji5Var);
-
-    void onChangeSkinType(int i);
 }

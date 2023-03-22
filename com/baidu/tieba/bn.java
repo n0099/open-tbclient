@@ -1,300 +1,462 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.text.TextUtils;
-import com.baidu.adp.log.DefaultLog;
-import com.baidu.adp.titan.TitanDownloadService;
+import android.animation.Animator;
+import android.animation.ValueAnimator;
+import android.util.SparseArray;
+import android.util.SparseIntArray;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.io.Closeables;
-import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
-import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayOutputStream;
-import java.io.Closeable;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.Map;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class bn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public RecyclerView a;
+    public cn b;
+    public int c;
+    public SparseIntArray d;
+    public int e;
+    public float f;
+    public float g;
+    public boolean h;
+    public SparseArray<ValueAnimator> i;
+    public SparseIntArray j;
 
     /* loaded from: classes3.dex */
-    public interface b<T> {
-        T a(int i, String str, InputStream inputStream) throws IOException;
-
-        void b(int i, String str, T t);
-    }
-
-    /* loaded from: classes3.dex */
-    public static abstract class a implements b<JSONObject> {
+    public class a implements ValueAnimator.AnimatorUpdateListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+        public final /* synthetic */ bn b;
 
-        public a() {
+        public a(bn bnVar, View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bnVar, view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.b = bnVar;
+            this.a = view2;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bn.b
-        /* renamed from: c */
-        public JSONObject a(int i, String str, InputStream inputStream) throws IOException {
-            InterceptResult invokeILL;
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, inputStream)) == null) {
-                if (i == 200) {
-                    if (inputStream != null) {
-                        try {
-                            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                            byte[] bArr = new byte[1024];
-                            while (true) {
-                                int read = inputStream.read(bArr);
-                                if (read != -1) {
-                                    byteArrayOutputStream.write(bArr, 0, read);
-                                } else {
-                                    JSONObject jSONObject = new JSONObject(byteArrayOutputStream.toString("UTF-8"));
-                                    DefaultLog.getInstance().c(TitanDownloadService.TAG, jSONObject.toString());
-                                    return jSONObject;
-                                }
-                            }
-                        } catch (Exception e) {
-                            throw new IOException(e);
-                        }
-                    } else {
-                        throw new IOException("parse response error: input stream is null");
-                    }
+            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
+                this.b.n(this.a, ((Float) valueAnimator.getAnimatedValue()).floatValue());
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements Animator.AnimatorListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ View b;
+        public final /* synthetic */ bn c;
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationRepeat(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
+            }
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationStart(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
+            }
+        }
+
+        public b(bn bnVar, int i, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bnVar, Integer.valueOf(i), view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = bnVar;
+            this.a = i;
+            this.b = view2;
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationCancel(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                this.c.i.delete(this.a);
+                this.c.j.delete(this.a);
+                this.c.n(this.b, 0.0f);
+            }
+        }
+
+        @Override // android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
+                this.c.i.delete(this.a);
+                this.c.j.delete(this.a);
+                this.c.d.delete(this.a);
+                this.c.n(this.b, 0.0f);
+            }
+        }
+    }
+
+    public bn(cn cnVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cnVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.h = false;
+        this.b = cnVar;
+        this.d = new SparseIntArray();
+        this.i = new SparseArray<>();
+        this.j = new SparseIntArray();
+    }
+
+    public final float f(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
+            if (view2 == null) {
+                return 0.0f;
+            }
+            if (this.c == 2) {
+                return view2.getTranslationY();
+            }
+            return view2.getTranslationX();
+        }
+        return invokeL.floatValue;
+    }
+
+    public void e(RecyclerView recyclerView, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i) == null) {
+            this.a = recyclerView;
+            this.c = i;
+        }
+    }
+
+    public final void n(View view2, float f) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLF(1048585, this, view2, f) != null) || view2 == null) {
+            return;
+        }
+        if (this.c == 2) {
+            view2.setTranslationY(f);
+        } else {
+            view2.setTranslationX(f);
+        }
+    }
+
+    public void g(View view2) {
+        RecyclerView recyclerView;
+        RecyclerView recyclerView2;
+        RecyclerView recyclerView3;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) != null) || (recyclerView = this.a) == null || this.e == 0) {
+            return;
+        }
+        int childAdapterPosition = recyclerView.getChildAdapterPosition(view2);
+        RecyclerView.LayoutManager layoutManager = this.a.getLayoutManager();
+        if (!(layoutManager instanceof LinearLayoutManager)) {
+            return;
+        }
+        float f = 0.0f;
+        if (childAdapterPosition <= ((LinearLayoutManager) layoutManager).findFirstVisibleItemPosition()) {
+            float f2 = -this.d.get(childAdapterPosition, 0);
+            if (f2 != 0.0f) {
+                this.f = f2;
+            } else {
+                f2 = this.f;
+            }
+            if (this.a.getChildAt(1) != null) {
+                f = f(this.a.getChildAt(1));
+            }
+            n(view2, f2 + f);
+        } else {
+            float f3 = -this.d.get(childAdapterPosition, 0);
+            if (f3 != 0.0f) {
+                this.g = f3;
+            } else {
+                f3 = this.g;
+            }
+            if (this.a.getChildAt(recyclerView2.getChildCount() - 2) != null) {
+                f = f(this.a.getChildAt(recyclerView3.getChildCount() - 2));
+            }
+            n(view2, f3 + f);
+        }
+        j(view2, childAdapterPosition);
+    }
+
+    public void h(View view2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, view2) != null) || this.a == null) {
+            return;
+        }
+        n(view2, 0.0f);
+        int childAdapterPosition = this.a.getChildAdapterPosition(view2);
+        this.d.delete(childAdapterPosition);
+        if (this.i.get(childAdapterPosition) != null) {
+            this.i.get(childAdapterPosition).cancel();
+        }
+        this.i.delete(childAdapterPosition);
+        this.j.delete(childAdapterPosition);
+    }
+
+    public void m(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) != null) || this.a == null) {
+            return;
+        }
+        this.e = i;
+        if (i == 0) {
+            this.d.clear();
+            k();
+        } else if (i == 2) {
+            k();
+        } else if (i == 1) {
+            this.d.clear();
+            k();
+        }
+    }
+
+    public final void i(View view2, float f, int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{view2, Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)}) != null) || view2 == null) {
+            return;
+        }
+        if (f < 0.0f) {
+            if (i < i2) {
+                float f2 = f(view2) + (f * this.b.l());
+                if (f2 > (-this.d.get(i)) + f(this.a.getChildAt(i3 + 1))) {
+                    n(view2, f2);
                 } else {
-                    throw new IOException("parse response error: statuscode is " + i);
+                    j(view2, i);
                 }
+            } else if (i > i2) {
+                float f3 = f(view2) + (f * this.b.e());
+                if (f3 > (-this.d.get(i)) + f(this.a.getChildAt(i3 - 1))) {
+                    n(view2, f3);
+                } else {
+                    j(view2, i);
+                }
+            }
+        } else if (i > i2) {
+            float f4 = f(view2) + (f * this.b.l());
+            if (f4 < (-this.d.get(i)) + f(this.a.getChildAt(i3 - 1))) {
+                n(view2, f4);
             } else {
-                return (JSONObject) invokeILL.objValue;
+                j(view2, i);
+            }
+        } else if (i < i2) {
+            float f5 = f(view2) + (f * this.b.e());
+            if (f5 < (-this.d.get(i)) + f(this.a.getChildAt(i3 + 1))) {
+                n(view2, f5);
+            } else {
+                j(view2, i);
             }
         }
     }
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
+    public final void j(View view2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            try {
-                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (PackageManager.NameNotFoundException e) {
-                r08 defaultLog = DefaultLog.getInstance();
-                defaultLog.b(TitanDownloadService.TAG, "getVersionName Exception:" + e);
-                return "0.8";
-            }
+        if ((interceptable != null && interceptable.invokeLI(1048581, this, view2, i) != null) || view2 == null) {
+            return;
         }
-        return (String) invokeL.objValue;
+        ValueAnimator valueAnimator = this.i.get(i);
+        if (valueAnimator == null) {
+            if (Math.abs(f(view2)) < 0.1f) {
+                n(view2, 0.0f);
+                return;
+            }
+            ValueAnimator ofFloat = ValueAnimator.ofFloat(f(view2), 0.0f);
+            ofFloat.setInterpolator(new dn(1.0f));
+            ofFloat.setDuration(this.b.a());
+            ofFloat.addUpdateListener(new a(this, view2));
+            ofFloat.addListener(new b(this, i, view2));
+            this.i.append(i, ofFloat);
+            this.j.append(i, (int) f(view2));
+            ofFloat.start();
+            return;
+        }
+        if (!valueAnimator.isRunning()) {
+            valueAnimator.start();
+        }
+        float f = f(view2);
+        if (Math.abs(f) > Math.abs(this.j.get(i)) + this.b.b()) {
+            this.j.append(i, (int) f);
+            valueAnimator.setFloatValues(f, 0.0f);
+            valueAnimator.cancel();
+            valueAnimator.start();
+        }
     }
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        String sb;
-        String replace;
+    public final void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            String property = System.getProperty("http.agent");
-            if (TextUtils.isEmpty(property)) {
-                sb = "";
-            } else {
-                StringBuilder sb2 = new StringBuilder();
-                int length = property.length();
-                for (int i = 0; i < length; i++) {
-                    char charAt = property.charAt(i);
-                    if (charAt > 31 && charAt < 127) {
-                        sb2.append(charAt);
-                    } else {
-                        sb2.append(String.format("\\u%04x", Integer.valueOf(charAt)));
-                    }
-                }
-                sb = sb2.toString();
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            int childCount = this.a.getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                View childAt = this.a.getChildAt(i);
+                j(childAt, this.a.getChildAdapterPosition(childAt));
             }
-            String k = gj.k();
-            if (TextUtils.isEmpty(k)) {
-                replace = "0.0";
-            } else {
-                replace = k.replace("_", "-");
-            }
-            return sb + " baiduboxapp/" + a(context) + " (Baidu; P1 " + replace + SmallTailInfo.EMOTION_SUFFIX;
         }
-        return (String) invokeL.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:66:0x0123 A[Catch: all -> 0x0136, TRY_LEAVE, TryCatch #3 {all -> 0x0136, blocks: (B:64:0x0109, B:66:0x0123), top: B:80:0x0109 }] */
-    /* JADX WARN: Removed duplicated region for block: B:69:0x0132  */
-    /* JADX WARN: Removed duplicated region for block: B:75:0x0141  */
-    /* JADX WARN: Removed duplicated region for block: B:93:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static <T> void c(Context context, String str, String str2, byte[] bArr, Map<String, String> map, b<T> bVar) {
-        HttpURLConnection httpURLConnection;
-        InputStream inputStream;
-        OutputStream outputStream;
-        HttpURLConnection httpURLConnection2;
-        OutputStream outputStream2;
-        T t;
+    public void l(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, str, str2, bArr, map, bVar}) == null) {
-            OutputStream outputStream3 = null;
-            try {
-                httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
-                try {
-                    httpURLConnection.setConnectTimeout(30000);
-                    httpURLConnection.setReadTimeout(30000);
-                    httpURLConnection.setRequestProperty("User-Agent", b(context));
-                    httpURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
-                    httpURLConnection.setRequestMethod(str2);
-                    if (map != null) {
-                        for (Map.Entry<String, String> entry : map.entrySet()) {
-                            httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
-                        }
-                    }
-                    if (TextUtils.equals(str2, "POST")) {
-                        if (bArr == null) {
-                            DefaultLog.getInstance().b(TitanDownloadService.TAG, "post requestSync body is null");
-                            if (bVar != null) {
-                                bVar.b(-1, "post requestSync body is null", null);
-                            }
-                            Closeables.closeSafely((Closeable) null);
-                            Closeables.closeSafely((Closeable) null);
-                            if (httpURLConnection != null) {
-                                httpURLConnection.disconnect();
-                                return;
-                            }
-                            return;
-                        }
-                        httpURLConnection.setDoOutput(true);
-                        if (map == null || !map.containsKey("Content-Type")) {
-                            httpURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
-                        }
-                        outputStream2 = httpURLConnection.getOutputStream();
-                        try {
-                            outputStream2.write(bArr);
-                        } catch (Exception e) {
-                            e = e;
-                            inputStream = null;
-                            outputStream = outputStream2;
-                            e = e;
-                            httpURLConnection2 = httpURLConnection;
-                            try {
-                                DefaultLog.getInstance().b(TitanDownloadService.TAG, "post requestSync Exception:" + e);
-                                if (bVar != null) {
-                                }
-                                Closeables.closeSafely(outputStream);
-                                Closeables.closeSafely(inputStream);
-                                if (httpURLConnection2 == null) {
-                                }
-                            } catch (Throwable th) {
-                                th = th;
-                                outputStream3 = outputStream;
-                                httpURLConnection = httpURLConnection2;
-                                Closeables.closeSafely(outputStream3);
-                                Closeables.closeSafely(inputStream);
-                                if (httpURLConnection != null) {
-                                    httpURLConnection.disconnect();
-                                }
-                                throw th;
-                            }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            inputStream = null;
-                            outputStream3 = outputStream2;
-                            th = th;
-                            Closeables.closeSafely(outputStream3);
-                            Closeables.closeSafely(inputStream);
-                            if (httpURLConnection != null) {
-                            }
-                            throw th;
-                        }
-                    } else {
-                        outputStream2 = null;
-                    }
-                    int responseCode = httpURLConnection.getResponseCode();
-                    DefaultLog.getInstance().c(TitanDownloadService.TAG, "request code = " + responseCode + " msg = " + httpURLConnection.getResponseMessage());
-                    if (responseCode == 200) {
-                        inputStream = httpURLConnection.getInputStream();
-                        if (bVar != null) {
-                            try {
-                                t = bVar.a(responseCode, httpURLConnection.getResponseMessage(), inputStream);
-                            } catch (Exception e2) {
-                                e = e2;
-                                outputStream = outputStream2;
-                                e = e;
-                                httpURLConnection2 = httpURLConnection;
-                                DefaultLog.getInstance().b(TitanDownloadService.TAG, "post requestSync Exception:" + e);
-                                if (bVar != null) {
-                                    bVar.b(-1, e.getMessage(), null);
-                                }
-                                Closeables.closeSafely(outputStream);
-                                Closeables.closeSafely(inputStream);
-                                if (httpURLConnection2 == null) {
-                                    httpURLConnection2.disconnect();
-                                    return;
-                                }
-                                return;
-                            } catch (Throwable th3) {
-                                th = th3;
-                                outputStream3 = outputStream2;
-                                th = th;
-                                Closeables.closeSafely(outputStream3);
-                                Closeables.closeSafely(inputStream);
-                                if (httpURLConnection != null) {
-                                }
-                                throw th;
-                            }
-                        } else {
-                            t = null;
-                        }
-                    } else {
-                        inputStream = null;
-                        t = null;
-                    }
-                    if (bVar != null) {
-                        bVar.b(responseCode, httpURLConnection.getResponseMessage(), t);
-                    }
-                    Closeables.closeSafely(outputStream2);
-                    Closeables.closeSafely(inputStream);
-                    if (httpURLConnection != null) {
-                        httpURLConnection.disconnect();
-                    }
-                } catch (Exception e3) {
-                    e = e3;
-                    httpURLConnection2 = httpURLConnection;
-                    outputStream = null;
-                    inputStream = null;
-                } catch (Throwable th4) {
-                    th = th4;
-                    inputStream = null;
+        if ((interceptable == null || interceptable.invokeIII(1048583, this, i, i2, i3) == null) && this.a != null && this.e == 1 && !this.h) {
+            if (this.c == 2) {
+                i = i2;
+            }
+            int childCount = this.a.getChildCount();
+            if (!(this.a.getLayoutManager() instanceof LinearLayoutManager)) {
+                return;
+            }
+            int findFirstVisibleItemPosition = i3 - ((LinearLayoutManager) this.a.getLayoutManager()).findFirstVisibleItemPosition();
+            for (int i4 = findFirstVisibleItemPosition - 1; i4 >= 0; i4--) {
+                View childAt = this.a.getChildAt(i4);
+                int childAdapterPosition = this.a.getChildAdapterPosition(childAt);
+                if (childAdapterPosition != -1) {
+                    i(childAt, i, childAdapterPosition, i3, i4);
                 }
-            } catch (Exception e4) {
-                e = e4;
-                outputStream = null;
-                httpURLConnection2 = null;
-                inputStream = null;
-            } catch (Throwable th5) {
-                th = th5;
-                httpURLConnection = null;
-                inputStream = null;
+            }
+            for (int i5 = findFirstVisibleItemPosition + 1; i5 <= childCount - 1; i5++) {
+                View childAt2 = this.a.getChildAt(i5);
+                int childAdapterPosition2 = this.a.getChildAdapterPosition(childAt2);
+                if (childAdapterPosition2 != -1) {
+                    i(childAt2, i, childAdapterPosition2, i3, i5);
+                }
+            }
+        }
+    }
+
+    public void o(float f, float f2, int i) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048586, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Integer.valueOf(i)}) != null) || this.a == null) {
+            return;
+        }
+        if (this.c == 2) {
+            f = f2;
+        }
+        int i3 = 1;
+        if (Math.abs(f) < this.b.i()) {
+            this.h = true;
+            k();
+            return;
+        }
+        this.h = false;
+        if (Math.abs(f) > this.b.h()) {
+            if (f > 0.0f) {
+                i2 = this.b.h();
+            } else {
+                i2 = -this.b.h();
+            }
+            f = i2;
+        }
+        this.d.clear();
+        float f3 = this.b.f() * f;
+        if (f < 0.0f) {
+            float g = this.b.g();
+            int i4 = 1;
+            while (true) {
+                int i5 = i - i4;
+                float f4 = (i4 * g) + f3;
+                g *= 1.4f;
+                if (f4 > 0.0f) {
+                    break;
+                }
+                float c = (f4 / this.b.c()) + this.d.get(i5);
+                if (Math.abs(c) > this.b.d()) {
+                    c = -this.b.d();
+                }
+                this.d.append(i5, (int) c);
+                i4++;
+            }
+            float g2 = this.b.g();
+            while (true) {
+                int i6 = i + i3;
+                float f5 = (i3 * g2) + f3;
+                g2 *= 1.4f;
+                if (f5 <= 0.0f) {
+                    float j = (f5 / this.b.j()) + this.d.get(i6);
+                    if (Math.abs(j) > this.b.k()) {
+                        j = -this.b.k();
+                    }
+                    this.d.append(i6, (int) j);
+                    i3++;
+                } else {
+                    return;
+                }
+            }
+        } else {
+            float g3 = this.b.g();
+            int i7 = 1;
+            while (true) {
+                int i8 = i - i7;
+                float f6 = f3 - (i7 * g3);
+                g3 *= 1.4f;
+                if (f6 < 0.0f) {
+                    break;
+                }
+                float j2 = (f6 / this.b.j()) + this.d.get(i8);
+                if (Math.abs(j2) > this.b.k()) {
+                    j2 = this.b.k();
+                }
+                this.d.append(i8, (int) j2);
+                i7++;
+            }
+            float g4 = this.b.g();
+            while (true) {
+                int i9 = i + i3;
+                float f7 = f3 - (i3 * g4);
+                g4 *= 1.4f;
+                if (f7 < 0.0f) {
+                    return;
+                }
+                float c2 = (f7 / this.b.c()) + this.d.get(i9);
+                if (Math.abs(c2) > this.b.d()) {
+                    c2 = this.b.d();
+                }
+                this.d.append(i9, (int) c2);
+                i3++;
             }
         }
     }

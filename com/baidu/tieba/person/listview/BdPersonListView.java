@@ -12,7 +12,7 @@ import android.widget.Scroller;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.rx5;
+import com.baidu.tieba.xw5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -131,12 +131,12 @@ public class BdPersonListView extends BdTypeListView {
         this.K = new Scroller(this.J);
         this.L = new Scroller(this.J);
         this.V = ViewConfiguration.get(context).getScaledTouchSlop();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, rx5.ExpandListView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, xw5.ExpandListView);
         this.W = obtainStyledAttributes.getDimensionPixelSize(e0, 0);
         obtainStyledAttributes.recycle();
     }
 
-    public final void I(float f) {
+    public final void H(float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
             this.a0.a(360.0f - ((f * 360.0f) / this.W));
@@ -197,7 +197,7 @@ public class BdPersonListView extends BdTypeListView {
         }
     }
 
-    public void J() {
+    public void I() {
         a aVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (aVar = this.a0) != null) {
@@ -214,13 +214,13 @@ public class BdPersonListView extends BdTypeListView {
         return (View) invokeV.objValue;
     }
 
-    public final void K() {
+    public final void J() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.Q == null) {
             return;
         }
         if (this.M.getHeight() >= this.Q.b - (this.W / 2)) {
-            J();
+            I();
         } else {
             this.a0.b();
         }
@@ -290,7 +290,7 @@ public class BdPersonListView extends BdTypeListView {
                                             this.N.setLayoutParams(layoutParams);
                                         }
                                     }
-                                    I(a2 - this.Q.a);
+                                    H(a2 - this.Q.a);
                                 } else {
                                     b bVar2 = this.Q;
                                     if (a2 <= bVar2.a) {
@@ -307,7 +307,7 @@ public class BdPersonListView extends BdTypeListView {
                         }
                     }
                     if (this.S) {
-                        K();
+                        J();
                         if (this.c0) {
                             return true;
                         }

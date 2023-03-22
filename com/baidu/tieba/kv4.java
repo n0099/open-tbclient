@@ -1,246 +1,69 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.text.TextUtils;
-import android.webkit.JsPromptResult;
-import android.webkit.WebView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tbadk.browser.UegTbJsBridge;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.xiuba.JSResultData;
+import com.baidu.tbadk.core.util.resourceLoaderProc.BigImageLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.BigdayImageLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.EmotionShareLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.FlutterLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.ImageLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileDrawableLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileImageLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileImageLoaderProc2;
+import com.baidu.tbadk.core.util.resourceLoaderProc.LocalPicDrawableLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.LocalVideoThumbLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.MemeLoaderProc2;
+import com.baidu.tbadk.core.util.resourceLoaderProc.NinePatchLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.PortraitBlurLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.PortraitLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleBlurLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleForeverLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleForeverMemoryLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleLoaderProc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
-import java.util.HashMap;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class kv4 implements ee6 {
+public class kv4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.ee6
-    public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        de6.a(this, webView, str, jSONObject);
-    }
-
-    public kv4() {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            cg.h().o(10, new SimpleLoaderProc(true, true, false, 10));
+            cg.h().o(11, new SimpleLoaderProc(false, true, false, 10));
+            cg.h().o(42, new SimpleLoaderProc(true, false, false, 10));
+            cg.h().o(13, new SimpleLoaderProc(true, true, false, 13));
+            cg.h().o(14, new SimpleLoaderProc(false, true, false, 13));
+            cg.h().o(17, new SimpleLoaderProc(true, true, false, 17));
+            cg.h().o(18, new SimpleLoaderProc(false, true, false, 17));
+            cg.h().o(39, new SimpleBlurLoaderProc(true, 39));
+            cg.h().o(12, new PortraitLoaderProc(false, false, 12));
+            cg.h().o(26, new PortraitLoaderProc(true, false, 26));
+            cg.h().o(28, new PortraitLoaderProc(false, false, 26));
+            cg.h().o(40, new PortraitBlurLoaderProc(false, false, 40));
+            cg.h().o(19, new NinePatchLoaderProc(19));
+            cg.h().o(24, new LocalPicDrawableLoaderProc(24));
+            cg.h().o(25, new PortraitLoaderProc(false, true, 26));
+            cg.h().o(27, new BigImageLoaderProc(27));
+            cg.h().o(29, new SimpleForeverLoaderProc(true, 29));
+            cg.h().o(32, new LocalFileDrawableLoaderProc(32));
+            cg.h().o(23, new w55());
+            cg.h().o(33, new MemeLoaderProc2());
+            cg.h().o(34, new EmotionShareLoaderProc());
+            cg.h().o(35, new LocalFileImageLoaderProc(160, 160));
+            cg.h().o(36, new LocalFileImageLoaderProc());
+            cg.h().o(43, new LocalFileImageLoaderProc2());
+            cg.h().o(37, new LocalVideoThumbLoaderProc());
+            cg.h().o(38, new ImageLoaderProc());
+            cg.h().o(41, new BigdayImageLoaderProc());
+            cg.h().o(44, new FlutterLoaderProc(true, 44, false));
+            cg.h().o(15, new SimpleLoaderProc(false, true, true, 15));
+            cg.h().o(16, new SimpleLoaderProc(false, true, true, 16));
+            cg.h().o(21, new SimpleLoaderProc(false, true, true, 21));
+            cg.h().o(30, new SimpleLoaderProc(true, true, false, 30));
+            cg.h().o(31, new SimpleLoaderProc(false, true, false, 30));
+            cg.h().o(45, new SimpleForeverMemoryLoaderProc(true, true, true, 45));
+            cg.h().o(46, new SimpleLoaderProc(true, true, false, 46));
+            cg.h().o(47, new SimpleLoaderProc(false, true, false, 46));
         }
-    }
-
-    @Override // com.baidu.tieba.ee6
-    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (!TextUtils.equals("CommonJSBridge", str)) {
-                return false;
-            }
-            if (TextUtils.equals("startLoginModule", str2)) {
-                try {
-                    jsPromptResult.confirm(h(webView, new JSONObject(str3).optString("cssUrl")).a());
-                    return true;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            } else if (CommonTbJsBridge.LOAD_THIRD_PARTY_LOGIN.equals(str2)) {
-                jsPromptResult.confirm(e(webView, str3));
-            } else if (CommonTbJsBridge.START_DOWNLOAD_CSS.equals(str2)) {
-                try {
-                    jsPromptResult.confirm(g(webView, new JSONObject(str3).optString(TTDownloadField.TT_DOWNLOAD_URL)).a());
-                } catch (JSONException e2) {
-                    BdLog.e(e2);
-                }
-            } else if (UegTbJsBridge.METHOD_BIND_MOBILE_NUMBER.equals(str2)) {
-                jsPromptResult.confirm(c(webView).a());
-                return true;
-            }
-            return false;
-        }
-        return invokeLLLLL.booleanValue;
-    }
-
-    public n69 c(WebView webView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webView)) == null) {
-            n69 n69Var = new n69();
-            try {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, f85.b()));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return n69Var;
-        }
-        return (n69) invokeL.objValue;
-    }
-
-    public n69 d(WebView webView, int i, String str) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, webView, i, str)) == null) {
-            n69 n69Var = new n69();
-            JSONObject jSONObject = new JSONObject();
-            Activity a = wd6.a(webView.getContext());
-            if (a == null) {
-                try {
-                    jSONObject.put("resultCode", 0);
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                }
-                n69Var.o(jSONObject.toString());
-                return n69Var;
-            }
-            LoginActivityConfig loginActivityConfig = new LoginActivityConfig((Context) a, true);
-            loginActivityConfig.setThirdPartyLoginForResult(i, str);
-            loginActivityConfig.setUrl(webView.getOriginalUrl());
-            ViewHelper.checkUpIsLoginFromH5(loginActivityConfig);
-            try {
-                jSONObject.put("resultCode", 1);
-            } catch (JSONException e2) {
-                BdLog.e(e2);
-            }
-            n69Var.o(jSONObject.toString());
-            return n69Var;
-        }
-        return (n69) invokeLIL.objValue;
-    }
-
-    public final String e(WebView webView, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
-            if (!dj.isEmpty(str)) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    return d(webView, jSONObject.optInt("socialType", 0), jSONObject.optString("activityId")).a();
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                    return null;
-                }
-            }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public n69 h(WebView webView, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, webView, str)) == null) {
-            n69 n69Var = new n69();
-            Activity a = wd6.a(webView.getContext());
-            if (a != null) {
-                ViewHelper.checkUpIsLoginFromH5(a, webView.getOriginalUrl(), str);
-            }
-            JSResultData jSResultData = new JSResultData();
-            jSResultData.setStatus(1);
-            jSResultData.setErrorCode("0");
-            jSResultData.setErrorMsg("");
-            n69Var.o(OrmObject.jsonStrWithObject(jSResultData));
-            return n69Var;
-        }
-        return (n69) invokeLL.objValue;
-    }
-
-    public n69 f(WebView webView, HashMap<String, Boolean> hashMap) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, hashMap)) == null) {
-            if (hashMap == null || hashMap.get("isLogin") == null || !Boolean.TRUE.equals(hashMap.get("isLogin"))) {
-                return null;
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("resultCode", 1);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            a(webView, CommonTbJsBridge.LOGIN_RESULT_TO_H5, jSONObject);
-            n69 n69Var = new n69();
-            n69Var.o(jSONObject.toString());
-            return n69Var;
-        }
-        return (n69) invokeLL.objValue;
-    }
-
-    public n69 i(WebView webView, HashMap<String, Object> hashMap) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView, hashMap)) == null) {
-            if (hashMap == null) {
-                return null;
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("resultCode", 1);
-                jSONObject.put("socialType", hashMap.get("social_type"));
-                jSONObject.put("activityId", hashMap.get("activityId"));
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            a(webView, CommonTbJsBridge.RESULT_THIRD_PARTY_LOGIN, jSONObject);
-            n69 n69Var = new n69();
-            n69Var.o(jSONObject.toString());
-            return n69Var;
-        }
-        return (n69) invokeLL.objValue;
-    }
-
-    public n69 g(WebView webView, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, webView, str)) == null) {
-            n69 n69Var = new n69();
-            JSONObject jSONObject = new JSONObject();
-            if (!dj.isEmpty(str)) {
-                try {
-                    if (dj.isEmpty(str)) {
-                        jSONObject.put("resultCode", 0);
-                        n69Var.o(jSONObject.toString());
-                        return n69Var;
-                    }
-                    String customLoginCssFileName = FileHelper.getCustomLoginCssFileName(str);
-                    String customLoginCssStoragePath = FileHelper.getCustomLoginCssStoragePath(str);
-                    if (!FileHelper.checkIsCssFile(customLoginCssStoragePath)) {
-                        jSONObject.put("resultCode", 0);
-                        n69Var.o(jSONObject.toString());
-                        return n69Var;
-                    }
-                    DownloadData downloadData = new DownloadData(customLoginCssFileName, customLoginCssFileName, str, null);
-                    downloadData.setPath(customLoginCssStoragePath);
-                    uc5.k().l(downloadData);
-                    jSONObject.put("resultCode", 1);
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                }
-            }
-            n69Var.o(jSONObject.toString());
-            return n69Var;
-        }
-        return (n69) invokeLL.objValue;
     }
 }

@@ -20,15 +20,15 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.data.MemberBroadcastData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabYYSubFragment;
-import com.baidu.tieba.b35;
-import com.baidu.tieba.f36;
+import com.baidu.tieba.l26;
+import com.baidu.tieba.n15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ForumUserLiveActivity extends BaseFragmentActivity implements f36 {
+public class ForumUserLiveActivity extends BaseFragmentActivity implements l26 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public NavigationBar a;
@@ -41,8 +41,8 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements f36 {
     public PollingModel h;
     public CustomMessageListener i;
 
-    @Override // com.baidu.tieba.f36
-    public boolean U0() {
+    @Override // com.baidu.tieba.l26
+    public boolean W0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -88,7 +88,7 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements f36 {
                 if (!this.a.g || !memberBroadcastHelper.isMeetFrequency()) {
                     return;
                 }
-                this.a.s1(memberBroadcastData);
+                this.a.u1(memberBroadcastData);
             }
         }
     }
@@ -142,7 +142,7 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements f36 {
         this.i = new a(this, 2921774);
     }
 
-    @Override // com.baidu.tieba.f36
+    @Override // com.baidu.tieba.l26
     public String getFrom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -175,7 +175,7 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements f36 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             this.a.onChangeSkinType(getPageContext(), i);
-            b35.d(this.b).f(R.color.CAM_X0202);
+            n15.d(this.b).f(R.color.CAM_X0202);
             LiveTabYYSubFragment liveTabYYSubFragment = this.c;
             if (liveTabYYSubFragment != null) {
                 liveTabYYSubFragment.changeSkinType(i);
@@ -192,19 +192,19 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements f36 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d02e1);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091773);
+            setContentView(R.layout.obfuscated_res_0x7f0d02ea);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0917ae);
             this.a = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f072c));
+            this.a.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f072f));
             int i = 2;
-            this.c = LiveTabYYSubFragment.T1(false, 2, 4);
-            this.b = findViewById(R.id.obfuscated_res_0x7f090755);
-            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f090755, this.c).commitAllowingStateLoss();
+            this.c = LiveTabYYSubFragment.V1(false, 2, 4);
+            this.b = findViewById(R.id.obfuscated_res_0x7f09076e);
+            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f09076e, this.c).commitAllowingStateLoss();
             this.e = getIntent().getStringExtra("KEY_FORUM_ID");
             String stringExtra = getIntent().getStringExtra(ForumUserLiveActiivtyConfig.KEY_FORUM_NAME);
             this.d = getIntent().getStringExtra("from");
-            this.c.E1(this.e, stringExtra);
+            this.c.G1(this.e, stringExtra);
             this.a.post(new b(this));
             StatisticItem param = new StatisticItem("c14703").param("fid", this.e);
             if (TextUtils.equals(ForumUserLiveActiivtyConfig.KEY_FROM_FRS_CARD, this.d)) {
@@ -214,11 +214,11 @@ public class ForumUserLiveActivity extends BaseFragmentActivity implements f36 {
             registerListener(this.i);
             PollingModel pollingModel = new PollingModel(getPageContext(), getUniqueId());
             this.h = pollingModel;
-            pollingModel.u0(PollingModel.MEMBER_BROADCAST);
+            pollingModel.y0(PollingModel.MEMBER_BROADCAST);
         }
     }
 
-    public final void s1(MemberBroadcastData memberBroadcastData) {
+    public final void u1(MemberBroadcastData memberBroadcastData) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048582, this, memberBroadcastData) != null) || memberBroadcastData == null) {
             return;

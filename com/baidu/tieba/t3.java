@@ -1,91 +1,89 @@
 package com.baidu.tieba;
 
-import java.nio.Buffer;
-import java.nio.FloatBuffer;
-import java.nio.IntBuffer;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface t3 {
-    void B(int i, int i2, int i3, int i4, int i5);
+public class t3 extends n3 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final long e;
+    public transient /* synthetic */ FieldHolder $fh;
+    public float d;
 
-    void C(int i, IntBuffer intBuffer);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448316238, "Lcom/baidu/tieba/t3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448316238, "Lcom/baidu/tieba/t3;");
+                return;
+            }
+        }
+        e = n3.d("shininess");
+        n3.d("alphaTest");
+    }
 
-    String D(int i, int i2, IntBuffer intBuffer, IntBuffer intBuffer2);
+    @Override // com.baidu.tieba.n3
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return (super.hashCode() * 977) + d7.b(this.d);
+        }
+        return invokeV.intValue;
+    }
 
-    void E(int i, int i2);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public t3(long j, float f) {
+        super(j);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), Float.valueOf(f)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Long) newInitContext.callArgs[0]).longValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.d = f;
+    }
 
-    void F(int i);
-
-    void G(int i);
-
-    void H(int i);
-
-    void I(int i, int i2, IntBuffer intBuffer);
-
-    String J(int i);
-
-    void K(int i);
-
-    void L(int i, int i2);
-
-    int M();
-
-    void N(int i, int i2);
-
-    int P();
-
-    int Q();
-
-    int R(int i, String str);
-
-    void S(int i);
-
-    int T(int i);
-
-    int a();
-
-    void b(int i);
-
-    void d(int i);
-
-    void e(int i, int i2, int i3, int i4);
-
-    void f(int i, int i2);
-
-    void g(int i, int i2);
-
-    void h(int i, int i2, int i3, int i4, int i5, int i6, int i7, Buffer buffer);
-
-    void i(int i, FloatBuffer floatBuffer);
-
-    void j(int i, int i2, int i3);
-
-    void k(int i, int i2, int i3, int i4);
-
-    void l(int i, int i2, IntBuffer intBuffer);
-
-    void m(int i, int i2);
-
-    int n();
-
-    String o(int i);
-
-    void p(int i);
-
-    void q(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, Buffer buffer);
-
-    void r(int i);
-
-    void s(int i);
-
-    int t(int i);
-
-    void u(int i, int i2, float f);
-
-    int w(int i, String str);
-
-    String x(int i);
-
-    void y(int i, String str);
-
-    String z(int i, int i2, IntBuffer intBuffer, IntBuffer intBuffer2);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: e */
+    public int compareTo(n3 n3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n3Var)) == null) {
+            long j = this.a;
+            long j2 = n3Var.a;
+            if (j != j2) {
+                return (int) (j - j2);
+            }
+            float f = ((t3) n3Var).d;
+            if (com.badlogic.gdx.math.d.e(this.d, f)) {
+                return 0;
+            }
+            if (this.d < f) {
+                return -1;
+            }
+            return 1;
+        }
+        return invokeL.intValue;
+    }
 }

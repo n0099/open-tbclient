@@ -3,7 +3,7 @@ package com.baidu.tbadk;
 import android.content.SharedPreferences;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b55;
+import com.baidu.tieba.m35;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -61,7 +61,7 @@ public class TbadkSettings {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return b55.m().v(str);
+            return m35.m().v(str);
         }
         return invokeL.booleanValue;
     }
@@ -70,7 +70,7 @@ public class TbadkSettings {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) {
-            return b55.m().i(str, z);
+            return m35.m().i(str, z);
         }
         return invokeLZ.booleanValue;
     }
@@ -79,7 +79,7 @@ public class TbadkSettings {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
-            return b55.m().n(str, i);
+            return m35.m().n(str, i);
         }
         return invokeLI.intValue;
     }
@@ -88,7 +88,7 @@ public class TbadkSettings {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j)) == null) {
-            return b55.m().o(str, j);
+            return m35.m().o(str, j);
         }
         return invokeLJ.longValue;
     }
@@ -97,7 +97,7 @@ public class TbadkSettings {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            return b55.m().s(str, str2);
+            return m35.m().s(str, str2);
         }
         return (String) invokeLL.objValue;
     }
@@ -105,28 +105,28 @@ public class TbadkSettings {
     public void saveBoolean(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048581, this, str, z) == null) {
-            b55.m().w(str, z);
+            m35.m().w(str, z);
         }
     }
 
     public void saveInt(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048582, this, str, i) == null) {
-            b55.m().z(str, i);
+            m35.m().z(str, i);
         }
     }
 
     public void saveLong(String str, long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLJ(1048583, this, str, j) == null) {
-            b55.m().A(str, j);
+            m35.m().A(str, j);
         }
     }
 
     public void saveString(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) {
-            b55.m().B(str, str2);
+            m35.m().B(str, str2);
         }
     }
 }

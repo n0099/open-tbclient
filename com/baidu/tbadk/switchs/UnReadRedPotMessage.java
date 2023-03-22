@@ -1,6 +1,6 @@
 package com.baidu.tbadk.switchs;
 
-import com.baidu.tieba.b55;
+import com.baidu.tieba.m35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ public class UnReadRedPotMessage extends BaseNormalSwitch {
     public static final String KEY_SWITCH = "chatroom_frs_redpoint_switch";
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.qf
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.te
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -37,7 +37,7 @@ public class UnReadRedPotMessage extends BaseNormalSwitch {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b55.m().n(KEY_SWITCH, 1) == 1) {
+            if (m35.m().n(KEY_SWITCH, 1) == 1) {
                 return true;
             }
             return false;

@@ -19,12 +19,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.gh;
+import com.baidu.tieba.e75;
+import com.baidu.tieba.hi;
 import com.baidu.tieba.homepage.framework.indicator.PagerSlidingTabStrip;
 import com.baidu.tieba.homepage.personalize.view.NewHotTipLabelView;
-import com.baidu.tieba.md7;
-import com.baidu.tieba.t85;
+import com.baidu.tieba.jg;
+import com.baidu.tieba.te7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -129,7 +129,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
             }
             this.a.g = i;
             this.a.u(i);
-            this.a.v(i);
+            this.a.x(i);
         }
     }
 
@@ -161,7 +161,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         public void onGlobalLayout() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.w();
+                this.a.y();
             }
         }
     }
@@ -194,7 +194,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         public void onShow() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                gh.a().postDelayed(this.a.i, 5000L);
+                jg.a().postDelayed(this.a.i, 5000L);
             }
         }
     }
@@ -326,15 +326,15 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         }
     }
 
-    public void setHotLabelData(t85 t85Var) {
+    public void setHotLabelData(e75 e75Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, t85Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048595, this, e75Var) == null) {
             if (this.c == null) {
-                w();
+                y();
             }
             NewHotTipLabelView newHotTipLabelView = this.c;
             if (newHotTipLabelView != null) {
-                newHotTipLabelView.setData(t85Var);
+                newHotTipLabelView.setData(e75Var);
             }
         }
     }
@@ -384,7 +384,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         newHotTipLabelView.setTranslationX(this.e - i);
     }
 
-    public final void v(int i) {
+    public final void x(int i) {
         View view2;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeI(1048605, this, i) != null) || (view2 = this.d) == null) {
@@ -393,7 +393,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         view2.setTranslationX(this.e - i);
     }
 
-    public void x(float f) {
+    public void z(float f) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeF(1048607, this, f) == null) && f <= 1.0f && f >= 0.0f) {
             this.b = f;
@@ -500,7 +500,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         ViewTreeObserver.OnGlobalLayoutListener onGlobalLayoutListener;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            gh.a().removeCallbacks(this.i);
+            jg.a().removeCallbacks(this.i);
             NewHotTipLabelView newHotTipLabelView = this.c;
             if (newHotTipLabelView != null) {
                 newHotTipLabelView.setHotTipCallBack(null);
@@ -538,7 +538,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         }
     }
 
-    public void w() {
+    public void y() {
         View l;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048606, this) == null) && getHotTopicIndex() >= 0 && (l = l(getHotTopicIndex())) != null && this.a != null) {
@@ -581,13 +581,13 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
             if (viewGroup == null) {
                 return null;
             }
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ej.g(getContext(), R.dimen.tbds18), ej.g(getContext(), R.dimen.tbds18));
-            layoutParams.topMargin = ej.g(getContext(), R.dimen.tbds20);
-            layoutParams.leftMargin = ej.g(getContext(), R.dimen.tbds11);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(hi.g(getContext(), R.dimen.tbds18), hi.g(getContext(), R.dimen.tbds18));
+            layoutParams.topMargin = hi.g(getContext(), R.dimen.tbds20);
+            layoutParams.leftMargin = hi.g(getContext(), R.dimen.tbds11);
             View view2 = new View(getContext());
             view2.setLayoutParams(layoutParams);
             SkinManager.setBackgroundResource(view2, R.drawable.icon_news_red_dot);
-            view2.setTag(Integer.valueOf((int) R.id.obfuscated_res_0x7f090f1e));
+            view2.setTag(Integer.valueOf((int) R.id.obfuscated_res_0x7f090f4e));
             view2.setVisibility(8);
             viewGroup.addView(view2);
             return view2;
@@ -599,10 +599,10 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, context) == null) {
             SpeedStatsManager.getInstance().addStatsTimeStamp(4008);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03bc, (ViewGroup) this, true);
-            PagerSlidingTabStrip pagerSlidingTabStrip = (PagerSlidingTabStrip) findViewById(R.id.obfuscated_res_0x7f090ec7);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d03c6, (ViewGroup) this, true);
+            PagerSlidingTabStrip pagerSlidingTabStrip = (PagerSlidingTabStrip) findViewById(R.id.obfuscated_res_0x7f090ef7);
             this.a = pagerSlidingTabStrip;
-            pagerSlidingTabStrip.A(ej.g(context, R.dimen.T_X06), ej.g(context, R.dimen.T_X04), ej.g(context, R.dimen.tbds10), true);
+            pagerSlidingTabStrip.A(hi.g(context, R.dimen.T_X06), hi.g(context, R.dimen.T_X04), hi.g(context, R.dimen.tbds10), true);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, UtilHelper.getDimenPixelSize(R.dimen.tbds104));
             layoutParams.gravity = 1;
             layoutParams.rightMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X001);
@@ -611,7 +611,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
             this.a.setFadingEdgeLength(UtilHelper.getDimenPixelSize(R.dimen.tbds70));
             this.a.setScrollListener(new b(this));
             setOnClickListener(this);
-            x(0.0f);
+            z(0.0f);
             r();
             SpeedStatsManager.getInstance().addStatsTimeStamp(4009);
         }
@@ -625,7 +625,7 @@ public class HomeTabBarView extends RelativeLayout implements View.OnClickListen
             if (newHotTipLabelView != null) {
                 newHotTipLabelView.setVisibility(8);
                 this.d.setVisibility(8);
-                md7.c("key_new_hot_tip_dismiss_time", System.currentTimeMillis());
+                te7.c("key_new_hot_tip_dismiss_time", System.currentTimeMillis());
                 this.c.c();
             }
             ViewTreeObserver viewTreeObserver = getViewTreeObserver();

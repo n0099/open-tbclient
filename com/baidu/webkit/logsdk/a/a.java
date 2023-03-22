@@ -11,6 +11,7 @@ import android.text.TextUtils;
 import android.util.DisplayMetrics;
 import com.baidu.searchbox.logsystem.logsys.SnapshotConstant;
 import com.baidu.searchbox.util.BaiduIdentityManager;
+import com.baidu.tieba.nw;
 import com.baidu.webkit.logsdk.d.c;
 import com.huawei.hms.common.internal.TransactionIdCreater;
 import com.meizu.cloud.pushsdk.notification.model.AdvanceSetting;
@@ -668,7 +669,7 @@ public final class a {
                 c = 65535;
                 break;
             case 3529:
-                if (str.equals("nw")) {
+                if (str.equals(nw.c)) {
                     c = '\t';
                     break;
                 }

@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
-import androidx.core.app.NotificationCompat;
+import android.annotation.SuppressLint;
+import androidx.annotation.IntRange;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,19 +10,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class k42 extends j42 {
+public class k42 {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<String, Class<? extends s22>> m;
+    public static final boolean b;
+    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<s22> k;
-    public boolean l;
+    public int[] a;
 
     static {
         InterceptResult invokeClinit;
@@ -36,116 +31,132 @@ public class k42 extends j42 {
                 return;
             }
         }
-        HashMap hashMap = new HashMap();
-        m = hashMap;
-        hashMap.put("setFillStyle", p32.class);
-        m.put("fillRect", e32.class);
-        m.put("setStrokeStyle", y32.class);
-        m.put("strokeStyle", f42.class);
-        m.put("setLineCap", s32.class);
-        m.put("setLineJoin", u32.class);
-        m.put("setLineWidth", v32.class);
-        m.put("setLineDash", t32.class);
-        m.put("setMiterLimit", w32.class);
-        m.put("strokeRect", e42.class);
-        m.put("moveTo", i32.class);
-        m.put("lineTo", h32.class);
-        m.put("stroke", d42.class);
-        m.put("fill", d32.class);
-        m.put("beginPath", v22.class);
-        m.put("rect", k32.class);
-        m.put("clearRect", x22.class);
-        m.put("closePath", z22.class);
-        m.put("arc", u22.class);
-        m.put("bezierCurveTo", w22.class);
-        m.put("quadraticCurveTo", j32.class);
-        m.put("scale", o32.class);
-        m.put("rotate", m32.class);
-        m.put("translate", i42.class);
-        m.put("transform", h42.class);
-        m.put("setTransform", b42.class);
-        m.put("font", g32.class);
-        m.put("setFontSize", q32.class);
-        m.put("setTextAlign", z32.class);
-        m.put("setTextBaseline", a42.class);
-        m.put("fillText", f32.class);
-        m.put("strokeText", g42.class);
-        m.put("clip", y22.class);
-        m.put("drawImage", c32.class);
-        m.put("save", n32.class);
-        m.put("restore", l32.class);
-        m.put("setShadow", x32.class);
-        m.put("setGlobalAlpha", r32.class);
+        b = do1.a;
+        c = 5;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public k42(String str) {
-        super(str);
+    public k42(@IntRange(from = 1) int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.k = new ArrayList();
-        this.l = false;
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            JSONArray jSONArray = new JSONArray(jSONObject.optString(NotificationCompat.WearableExtender.KEY_ACTIONS));
-            int length = jSONArray.length();
-            for (int i3 = 0; i3 < length; i3++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i3);
-                String optString = optJSONObject.optString("method");
-                JSONArray optJSONArray = optJSONObject.optJSONArray("data");
-                Class<? extends s22> cls = m.get(optString);
-                if (cls != null) {
-                    s22 newInstance = cls.newInstance();
-                    newInstance.b(optJSONArray);
-                    this.k.add(newInstance);
+        c(i, false);
+    }
+
+    public k42(@IntRange(from = 1) int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        c(i, z);
+    }
+
+    public final int a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return i >> c;
+        }
+        return invokeI.intValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public boolean b(@IntRange(from = 0) int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i < 0) {
+                t42.c("Component-DiffBitMap", "diff < 0: " + i);
+                if (!b) {
+                    return false;
+                }
+                throw new IndexOutOfBoundsException("diff < 0: " + i);
+            }
+            int[] iArr = this.a;
+            int length = (iArr.length << c) - 1;
+            if (i > length) {
+                String str = "diff > " + length + ": " + i;
+                t42.c("Component-DiffBitMap", str);
+                if (!b) {
+                    return false;
+                }
+                throw new IndexOutOfBoundsException(str);
+            } else if (((1 << i) & iArr[a(i)]) == 0) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        return invokeI.booleanValue;
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public void d(@IntRange(from = 0) int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            if (i < 0) {
+                t42.c("Component-DiffBitMap", "diff < 0: " + i);
+                if (!b) {
+                    return;
+                }
+                throw new IndexOutOfBoundsException("diff < 0: " + i);
+            }
+            int[] iArr = this.a;
+            int length = (iArr.length << c) - 1;
+            if (i > length) {
+                String str = "diff > " + length + ": " + i;
+                t42.c("Component-DiffBitMap", str);
+                if (!b) {
+                    return;
+                }
+                throw new IndexOutOfBoundsException(str);
+            }
+            int a = a(i);
+            iArr[a] = (1 << i) | iArr[a];
+        }
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public final void c(@IntRange(from = 1) int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            if (i <= 0) {
+                String str = "number <= 0: " + i;
+                t42.c("Component-DiffBitMap", str);
+                if (!b) {
+                    i = 500;
+                } else {
+                    throw new NegativeArraySizeException(str);
                 }
             }
-            this.l = jSONObject.optInt("reserve") != 0;
-        } catch (Exception e) {
-            if (wp1.a) {
-                e.printStackTrace();
+            int[] iArr = new int[a(i - 1) + 1];
+            this.a = iArr;
+            int length = iArr.length;
+            if (z) {
+                for (int i2 = 0; i2 < length; i2++) {
+                    this.a[i2] = -1;
+                }
             }
         }
-    }
-
-    public List<s22> h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.k;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.l;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.j42, com.baidu.tieba.c52, com.baidu.tieba.lz2
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return super.isValid();
-        }
-        return invokeV.booleanValue;
     }
 }

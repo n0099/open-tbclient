@@ -1,5 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes3.dex */
-public interface ck5 extends ak5 {
-    String getCacheKey();
+public interface ck5 {
+    dk5 getTbPageInfo();
 }

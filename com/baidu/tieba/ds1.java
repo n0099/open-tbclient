@@ -1,95 +1,94 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import android.content.Context;
+import android.os.Message;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.http.request.HttpRequest;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class ds1 implements lu1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ds1 {
+    @Nullable
+    String A();
 
-    @Override // com.baidu.tieba.lu1
-    public File a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (File) invokeV.objValue;
-    }
+    String B();
 
-    @Override // com.baidu.tieba.d33
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-        }
-    }
+    String C();
 
-    @Override // com.baidu.tieba.d33
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
+    String D();
 
-    @Override // com.baidu.tieba.lu1
-    public void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-        }
-    }
+    long E();
 
-    @Override // com.baidu.tieba.lu1
-    public void e(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, str, str2, th) == null) {
-        }
-    }
+    HttpRequest F(Context context, Map<String, String> map);
 
-    @Override // com.baidu.tieba.lu1
-    public void flush(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-        }
-    }
+    String G();
 
-    @Override // com.baidu.tieba.lu1
-    public void i(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
-        }
-    }
+    String H();
 
-    @Override // com.baidu.tieba.lu1
-    public void w(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
-        }
-    }
+    String I();
 
-    @Override // com.baidu.tieba.lu1
-    public void w(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, th) == null) {
-        }
-    }
+    boolean J();
 
-    public ds1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    String K();
+
+    String L();
+
+    HttpRequest M(Context context, Map<String, String> map);
+
+    boolean N();
+
+    String O();
+
+    HttpRequest a(Context context, Map<String, String> map);
+
+    String b();
+
+    String c();
+
+    void d();
+
+    String e();
+
+    String f();
+
+    HttpRequest g(Context context, Map<String, String> map);
+
+    String h();
+
+    String i();
+
+    boolean isDebug();
+
+    String j();
+
+    void k();
+
+    String l();
+
+    String m(String str);
+
+    String n();
+
+    HttpRequest o(Context context, Map<String, String> map);
+
+    String p();
+
+    String q();
+
+    int r();
+
+    HttpRequest s(Context context, Map<String, String> map);
+
+    String t();
+
+    HttpRequest u(Context context, Map<String, String> map);
+
+    String v();
+
+    String w();
+
+    void x(Message message, tu2 tu2Var);
+
+    String y();
+
+    String z(Context context);
 }

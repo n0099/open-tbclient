@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 @NotProguard
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class FontParser {
     public static final String DEFAULT_FALLBACK = "/system/fonts/DroidSansFallback.ttf";
     public static final String DEFAULT_FONTS = "/system/fonts/DroidSans.ttf";
@@ -31,20 +31,20 @@ public class FontParser {
     public static final Pattern TAG_PATTERN = Pattern.compile("[\\x00-\\xFF]{4}");
     public static final Pattern STYLE_VALUE_PATTERN = Pattern.compile("-?(([0-9]+(\\.[0-9]+)?)|(\\.[0-9]+))");
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class Alias {
         public String name;
         public String toName;
         public int weight;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class Config {
         public List<Family> families = new ArrayList();
         public List<Alias> aliases = new ArrayList();
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class Axis {
         public final float styleValue;
         public final int tag;
@@ -55,7 +55,7 @@ public class FontParser {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class Family {
         public List<Font> fonts;
         public String lang;
@@ -70,7 +70,7 @@ public class FontParser {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static class Font {
         public final List<Axis> axes;
         public String fontName;

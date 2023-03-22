@@ -1,176 +1,115 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterHttpResMessage;
-import com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterRequestMessage;
-import com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterSocketResMessage;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.GetMemberTaskList.ImgInfo;
 /* loaded from: classes5.dex */
 public class l58 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ImgInfo> a;
-    public long b;
-    public List<h58> c;
-    public b d;
-    public wb e;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(int i, String str);
-
-        void b(List<ImgInfo> list, List<h58> list2, long j);
+    public static void a(@NonNull StringBuilder sb, long j, int i, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{sb, Long.valueOf(j), Integer.valueOf(i), str}) == null) {
+            sb.append("roomId");
+            sb.append("=");
+            sb.append(j);
+            sb.append(",");
+            sb.append(StatConstants.KEY_EXT_ERR_CODE);
+            sb.append("=");
+            sb.append(i);
+            sb.append(",");
+            sb.append(StatConstants.KEY_EXT_ERR_MSG);
+            sb.append("=");
+            sb.append(str);
+            sb.append(",");
+        }
     }
 
-    /* loaded from: classes5.dex */
-    public class a extends wb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ l58 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(l58 l58Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l58Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = l58Var;
-        }
-
-        @Override // com.baidu.tieba.wb
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
-                return;
-            }
-            boolean z = responsedMessage instanceof MemberTaskCenterHttpResMessage;
-            if (!z && !(responsedMessage instanceof MemberTaskCenterSocketResMessage)) {
-                return;
-            }
+    public static void b(@NonNull StringBuilder sb, boolean z) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65537, null, sb, z) == null) {
             if (z) {
-                MemberTaskCenterHttpResMessage memberTaskCenterHttpResMessage = (MemberTaskCenterHttpResMessage) responsedMessage;
-                if (memberTaskCenterHttpResMessage.hasError()) {
-                    if (this.a.d != null) {
-                        this.a.d.a(memberTaskCenterHttpResMessage.getError(), memberTaskCenterHttpResMessage.getErrorString());
-                        return;
-                    }
-                    return;
-                }
-                this.a.a = memberTaskCenterHttpResMessage.getImageList();
-                this.a.c = memberTaskCenterHttpResMessage.getTaskList();
-                if (memberTaskCenterHttpResMessage.getUserPointInfo() != null) {
-                    this.a.b = memberTaskCenterHttpResMessage.getUserPointInfo().points_total.longValue();
-                }
-                if (this.a.d != null) {
-                    this.a.d.b(this.a.a, this.a.c, this.a.b);
-                }
+                str = "success";
+            } else {
+                str = com.baidu.pass.biometrics.face.liveness.b.a.g0;
             }
-            if (responsedMessage instanceof MemberTaskCenterSocketResMessage) {
-                MemberTaskCenterSocketResMessage memberTaskCenterSocketResMessage = (MemberTaskCenterSocketResMessage) responsedMessage;
-                if (memberTaskCenterSocketResMessage.hasError()) {
-                    if (this.a.d != null) {
-                        this.a.d.a(memberTaskCenterSocketResMessage.getError(), memberTaskCenterSocketResMessage.getErrorString());
-                        return;
-                    }
-                    return;
-                }
-                this.a.a = memberTaskCenterSocketResMessage.getImageList();
-                this.a.c = memberTaskCenterSocketResMessage.getTaskList();
-                if (memberTaskCenterSocketResMessage.getUserPointInfo() != null) {
-                    this.a.b = memberTaskCenterSocketResMessage.getUserPointInfo().points_total.longValue();
-                }
-                if (this.a.d != null) {
-                    this.a.d.b(this.a.a, this.a.c, this.a.b);
-                }
-            }
+            sb.append(str);
+            sb.append(",");
         }
     }
 
-    public l58() {
+    public static void d(@NonNull String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = new a(this, CmdConfigHttp.CMD_MEMBER_TASK, 309427);
-        e59.h(309427, MemberTaskCenterSocketResMessage.class, false, false);
-        e59.c(309427, CmdConfigHttp.CMD_MEMBER_TASK, TbConfig.GET_MEMBER_TASK, MemberTaskCenterHttpResMessage.class, false, false, false, false);
-        MessageManager.getInstance().registerListener(this.e);
-    }
-
-    public void l(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.b = j;
+        if (interceptable == null || interceptable.invokeLJ(65539, null, str, j) == null) {
+            qv4.d(str + j);
         }
     }
 
-    public void m(b bVar) {
+    public static void k(@NonNull String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.d = bVar;
+        if (interceptable == null || interceptable.invokeLJ(65546, null, str, j) == null) {
+            qv4.e(str + j);
         }
     }
 
-    public long h() {
-        InterceptResult invokeV;
+    public static void c(@NonNull String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return invokeV.longValue;
-    }
-
-    public List<h58> i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().sendMessage(new MemberTaskCenterRequestMessage());
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            qv4.d(str);
         }
     }
 
-    public void k() {
+    public static void i(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.e);
+        if (interceptable == null || interceptable.invokeZ(65544, null, z) == null) {
+            StringBuilder sb = new StringBuilder();
+            b(sb, z);
+            qv4.b("login_lcp", sb.toString());
+        }
+    }
+
+    public static void j(@NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
+            qv4.e(str);
+        }
+    }
+
+    public static void e(long j, long j2, int i, boolean z, boolean z2, int i2, @NonNull String str, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2), str, Integer.valueOf(i3)}) == null) {
+            qv4.b("fetch_chat_room_msg_request", "roomId=" + j + ",beginMsgId=" + j2 + ",count=" + i + ",isFirstFetch=" + z + ",isFetchHistory=" + z2 + ",errCode=" + i2 + ",errMsg=" + str + ",resultCount=" + i3 + ",");
+        }
+    }
+
+    public static void f(long j, int i, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
+            StringBuilder sb = new StringBuilder();
+            a(sb, j, i, str);
+            qv4.b("im_enter_auto_retry_" + j, sb.toString());
+        }
+    }
+
+    public static void g(long j, int i, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
+            StringBuilder sb = new StringBuilder();
+            a(sb, j, i, str);
+            qv4.b("im_exit_auto_retry_" + j, sb.toString());
+        }
+    }
+
+    public static void h(long j, int i, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
+            StringBuilder sb = new StringBuilder();
+            a(sb, j, i, str);
+            qv4.b("login_im", sb.toString());
         }
     }
 }

@@ -1,145 +1,165 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.http.cookie.CookieManager;
-import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.http.statistics.NetworkStatRecord;
+import com.baidu.tieba.ch4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import com.google.android.exoplayer2.util.MimeTypes;
+import java.io.IOException;
+import okhttp3.Response;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class wq3 extends oe3 {
+public class wq3 extends ah4<String> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public CookieManager a;
+    public final ch4.a a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948279184, "Lcom/baidu/tieba/wq3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948279184, "Lcom/baidu/tieba/wq3;");
-                return;
-            }
-        }
-        b = wp1.a;
-    }
-
-    public wq3() {
+    public wq3(ch4.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.a = new xq3();
+        this.a = aVar;
     }
 
-    public final Bundle a(String str, String str2, int i) {
-        InterceptResult invokeLLI;
+    public final boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, str, str2, i)) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putInt("type", i);
-            bundle.putString("param1", str);
-            bundle.putString("param2", str2);
-            return bundle;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a != null) {
+                return true;
+            }
+            return false;
         }
-        return (Bundle) invokeLLI.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.oe3, com.baidu.searchbox.http.cookie.CookieManager
-    public String getCookie(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ch4.a
+    public void onStart() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return this.a.getCookie(str);
-            }
-            DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), yq3.class, a(str, "", 4));
-            if (!callOnMainWithContentProvider.isOk()) {
-                return "";
-            }
-            String string = callOnMainWithContentProvider.mResult.getString("result");
-            if (b) {
-                Log.d("DelegationCookieManager", "getCookie cookie : " + string);
-            }
-            return string;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && a()) {
+            this.a.onStart();
         }
-        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.searchbox.http.cookie.CookieManager
-    public boolean shouldAcceptCookie(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.ch4.a
+    public void b(String str, String str2, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return this.a.shouldAcceptCookie(str, str2);
-            }
-            DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), yq3.class, a(str, str2, 1));
-            if (!callOnMainWithContentProvider.isOk()) {
-                return false;
-            }
-            return callOnMainWithContentProvider.mResult.getBoolean("result");
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, jSONObject) == null) && a()) {
+            this.a.b(str, str2, jSONObject);
         }
-        return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.searchbox.http.cookie.CookieManager
-    public boolean shouldSendCookie(String str, String str2) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.callback.StatResponseCallback
+    /* renamed from: c */
+    public void onSuccess(String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return this.a.shouldSendCookie(str, str2);
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
+            if (pq3.a) {
+                Log.d("BDTLS", "BdtlsPmsRequest onSuccess=" + str);
             }
-            DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), yq3.class, a(str, str2, 2));
-            if (!callOnMainWithContentProvider.isOk()) {
-                return false;
-            }
-            return callOnMainWithContentProvider.mResult.getBoolean("result");
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.http.cookie.CookieManager
-    public void storeCookie(String str, List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, list) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                this.a.storeCookie(str, list);
+            if (this.a == null) {
                 return;
             }
-            Bundle bundle = new Bundle();
-            bundle.putInt("type", 3);
-            bundle.putString("param1", str);
-            bundle.putStringArrayList("param2", (ArrayList) list);
-            DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), yq3.class, bundle);
-            if (b) {
-                Log.d("DelegationCookieManager", "set cookies for " + str);
+            vq3 l = vq3.l();
+            if (TextUtils.equals(str, "recovery")) {
+                if (l.m().b()) {
+                    l.m().a();
+                    l.d.i(true);
+                    jr3 jr3Var = l.d;
+                    if (jr3Var instanceof hr3) {
+                        ((hr3) jr3Var).j();
+                        return;
+                    }
+                    return;
+                }
+                this.a.onFail(new Exception("Exceeded the limit of continuous downgrade"));
+                return;
+            }
+            l.m().k();
+            jr3 jr3Var2 = l.d;
+            if (jr3Var2 instanceof hr3) {
+                hr3 hr3Var = (hr3) jr3Var2;
+                if (l.k()) {
+                    if (l.d.b == 1) {
+                        uq3.a(MimeTypes.BASE_TYPE_APPLICATION);
+                        this.a.c(str, i);
+                        hr3Var.h = 0;
+                        return;
+                    }
+                    int i2 = hr3Var.h;
+                    hr3Var.h = i2 + 1;
+                    if (i2 < 3) {
+                        hr3Var.j();
+                        return;
+                    }
+                    ch4.a aVar = this.a;
+                    aVar.onFail(new IOException("request fail : " + str));
+                    hr3Var.h = 0;
+                    return;
+                }
+                this.a.c(str, i);
+                hr3Var.h = 0;
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.searchbox.http.callback.StatResponseCallback
+    /* renamed from: d */
+    public String parseResponse(Response response, int i, NetworkStatRecord networkStatRecord) throws Exception {
+        InterceptResult invokeLIL;
+        String string;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, response, i, networkStatRecord)) == null) {
+            if (response != null && response.body() != null) {
+                vq3 l = vq3.l();
+                if (TextUtils.equals(response.headers().get("Bdtls"), "recovery")) {
+                    l.m().s(0);
+                    return "recovery";
+                }
+                if (l.k()) {
+                    string = l.d.g(response.body().bytes());
+                    if (pq3.a) {
+                        Log.d("BDTLS", "BdtlsPmsRequest parseResponse=" + string);
+                    }
+                } else {
+                    string = response.body().string();
+                }
+                b(String.valueOf(response.request().url()), string, networkStatRecord.toUBCJson());
+                return string;
+            }
+            return "";
+        }
+        return (String) invokeLIL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.callback.StatResponseCallback
+    public void onFail(Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, exc) == null) {
+            if (pq3.a) {
+                Log.d("BDTLS", "BdtlsPmsRequest onFail = " + exc.getMessage());
+            }
+            if (a()) {
+                this.a.onFail(exc);
             }
         }
     }

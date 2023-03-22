@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.richText.TbRichText;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.fi9;
+import com.baidu.tieba.hi;
+import com.baidu.tieba.oo9;
 import com.baidu.tieba.pb.pb.main.view.EditorScrollView;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -47,8 +47,8 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
                 return;
             }
         }
-        n = ej.g(TbadkApplication.getInst(), R.dimen.tbds348);
-        o = ej.g(TbadkApplication.getInst(), R.dimen.tbds308);
+        n = hi.g(TbadkApplication.getInst(), R.dimen.tbds348);
+        o = hi.g(TbadkApplication.getInst(), R.dimen.tbds308);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -138,7 +138,7 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
             int i = 0;
             if (imageUrlData != null && jSONArray != null && jSONArray.length() > 0) {
                 this.m = true;
-                fi9.a().d(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
+                oo9.a().d(TbadkCoreApplication.getInst().getResources().getColor(R.color.transparent));
                 TbRichText Z = TbRichTextView.Z(jSONArray, false);
                 g(d(Z.toString()));
                 this.j.setText(Z);
@@ -156,17 +156,17 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             LayoutInflater.from(context).inflate(R.layout.floorimage_textview_layout_new, (ViewGroup) this, true);
-            TbRichTextView tbRichTextView = (TbRichTextView) findViewById(R.id.obfuscated_res_0x7f0922f3);
+            TbRichTextView tbRichTextView = (TbRichTextView) findViewById(R.id.obfuscated_res_0x7f09234b);
             this.j = tbRichTextView;
             tbRichTextView.setVerticalScrollBarEnabled(true);
             this.j.setTextSize(AbsFloorImageTextView.i);
             this.j.setTextColor(SkinManager.getColor(R.color.white_alpha83));
             this.j.S = true;
-            EditorScrollView editorScrollView = (EditorScrollView) findViewById(R.id.obfuscated_res_0x7f091f50);
+            EditorScrollView editorScrollView = (EditorScrollView) findViewById(R.id.obfuscated_res_0x7f091f9b);
             this.k = editorScrollView;
-            editorScrollView.setPadding(0, ej.g(TbadkApplication.getInst(), R.dimen.tbds34), 0, AbsFloorImageTextView.e);
+            editorScrollView.setPadding(0, hi.g(TbadkApplication.getInst(), R.dimen.tbds34), 0, AbsFloorImageTextView.e);
             this.k.setOnTouchListener(this.c);
-            ((ViewGroup.MarginLayoutParams) this.k.getLayoutParams()).topMargin = ej.g(TbadkApplication.getInst(), R.dimen.tbds174);
+            ((ViewGroup.MarginLayoutParams) this.k.getLayoutParams()).topMargin = hi.g(TbadkApplication.getInst(), R.dimen.tbds174);
             setVisibility(8);
         }
     }
@@ -175,9 +175,9 @@ public class FloorImageTextViewNew extends AbsFloorImageTextView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            float i = ej.i(getContext());
-            int j = ej.j(getContext());
-            int l = ej.l(getContext());
+            float i = hi.i(getContext());
+            int j = hi.j(getContext());
+            int l = hi.l(getContext());
             double d = i;
             int i2 = (d > 3.0d ? 1 : (d == 3.0d ? 0 : -1));
             if (i2 == 0 && l >= 1920 && j >= 2049) {

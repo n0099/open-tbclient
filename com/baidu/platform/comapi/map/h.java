@@ -39,7 +39,6 @@ import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.egl.EGLSurface;
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
-import org.webrtc.EglBase10;
 /* loaded from: classes2.dex */
 public class h extends TextureView implements TextureView.SurfaceTextureListener {
     public static /* synthetic */ Interceptable $ic = null;
@@ -244,7 +243,7 @@ public class h extends TextureView implements TextureView.SurfaceTextureListener
                 }
             }
             this.a = hVar;
-            this.b = EglBase10.EGL_CONTEXT_CLIENT_VERSION;
+            this.b = 12440;
         }
 
         public /* synthetic */ c(h hVar, com.baidu.platform.comapi.map.i iVar) {

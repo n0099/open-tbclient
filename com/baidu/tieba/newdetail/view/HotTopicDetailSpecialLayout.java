@@ -7,8 +7,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.s88;
-import com.baidu.tieba.t88;
+import com.baidu.tieba.vd8;
+import com.baidu.tieba.wd8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int A;
+    public int a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotTopicDetailSpecialLayout(Context context) {
@@ -38,8 +38,8 @@ public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
                 return;
             }
         }
-        this.A = 3;
-        K();
+        this.a = 3;
+        b();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -61,8 +61,8 @@ public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
                 return;
             }
         }
-        this.A = 3;
-        K();
+        this.a = 3;
+        b();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -84,29 +84,29 @@ public class HotTopicDetailSpecialLayout extends BdTypeRecyclerView {
                 return;
             }
         }
-        this.A = 3;
-        K();
+        this.a = 3;
+        b();
     }
 
-    public void J(TbPageContext tbPageContext) {
+    public void a(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
             ArrayList arrayList = new ArrayList();
-            arrayList.add(new s88(tbPageContext));
-            arrayList.add(new t88(tbPageContext));
-            a(arrayList);
+            arrayList.add(new vd8(tbPageContext));
+            arrayList.add(new wd8(tbPageContext));
+            addAdapters(arrayList);
         }
     }
 
-    public void L(int i) {
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && this.A != i) {
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && this.a != i) {
             getListAdapter().notifyDataSetChanged();
-            this.A = i;
+            this.a = i;
         }
     }
 
-    public final void K() {
+    public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setLayoutManager(new LinearLayoutManager(getContext()));

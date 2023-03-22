@@ -2,8 +2,8 @@ package com.baidu.tieba.ad.incentivevideo.net;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.ez5;
-import com.baidu.tieba.kz5;
+import com.baidu.tieba.ky5;
+import com.baidu.tieba.qy5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public class GetIncentiveVideoTaskResMsg extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kz5 mAdIncentiveVideoTaskData;
+    public qy5 mAdIncentiveVideoTaskData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetIncentiveVideoTaskResMsg(int i) {
@@ -44,21 +44,21 @@ public class GetIncentiveVideoTaskResMsg extends JsonHttpResponsedMessage {
             int statusCode = getStatusCode();
             int error = getError();
             if (statusCode == 200 && error == 0 && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-                this.mAdIncentiveVideoTaskData = new kz5();
+                this.mAdIncentiveVideoTaskData = new qy5();
                 String optString = optJSONObject.optString("request_key");
                 this.mAdIncentiveVideoTaskData.f(optString);
                 this.mAdIncentiveVideoTaskData.g(optJSONObject.optString("scheme"));
-                ez5.i().u(optString);
+                ky5.i().u(optString);
             }
         }
     }
 
-    public kz5 getAdIncentiveVideoTaskData() {
+    public qy5 getAdIncentiveVideoTaskData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mAdIncentiveVideoTaskData;
         }
-        return (kz5) invokeV.objValue;
+        return (qy5) invokeV.objValue;
     }
 }

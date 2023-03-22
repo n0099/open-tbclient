@@ -1,18 +1,17 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ch4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class fi4 {
+public class fi4 extends ci4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public boolean b;
-    public long c;
-    public long d;
-    public long e;
 
     public fi4() {
         Interceptable interceptable = $ic;
@@ -25,6 +24,22 @@ public class fi4 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.ch4
+    public void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, ch4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048576, this, str, map, map2, jSONObject, aVar) == null) {
+            ei4.b(str, map, map2, jSONObject, new dh4(aVar));
+        }
+    }
+
+    @Override // com.baidu.tieba.ch4
+    public void z(String str, Map<String, String> map, Map<String, String> map2, ch4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map, map2, aVar) == null) {
+            ei4.a(str, map, map2, new dh4(aVar));
         }
     }
 }

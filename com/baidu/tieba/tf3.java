@@ -1,159 +1,140 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.ubc.Flow;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.concurrent.locks.ReadWriteLock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 /* loaded from: classes6.dex */
-public class tf3 {
+public abstract class tf3 implements xf3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ReadWriteLock c;
     public transient /* synthetic */ FieldHolder $fh;
+    public File a;
+    public final long b;
 
-    public static sf3 a(String str) {
-        InterceptResult invokeL;
-        Object obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            Flow d = so4.d(str);
-            if (g()) {
-                obj = ts2.A0().beginFlow(str);
-            } else {
-                obj = null;
-            }
-            return new sf3(obj, d);
-        }
-        return (sf3) invokeL.objValue;
-    }
+    @NonNull
+    public abstract String c();
 
-    public static void b(@NonNull sf3 sf3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, sf3Var) == null) {
-            if (g()) {
-                ts2.A0().b(sf3Var.b());
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948179240, "Lcom/baidu/tieba/tf3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            Flow a = sf3Var.a();
-            if (a != null) {
-                a.cancel();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948179240, "Lcom/baidu/tieba/tf3;");
+                return;
             }
         }
+        c = new ReentrantReadWriteLock();
     }
 
-    public static void c(@NonNull sf3 sf3Var) {
+    public tf3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, sf3Var) == null) {
-            if (g()) {
-                ts2.A0().c(sf3Var.b());
-            }
-            Flow a = sf3Var.a();
-            if (a != null) {
-                a.end();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = d();
+        this.b = getMaxSize();
     }
 
-    public static void d(@NonNull sf3 sf3Var, String str, String str2) {
+    @Override // com.baidu.tieba.xf3
+    public boolean a(long j) {
+        InterceptResult invokeJ;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, sf3Var, str, str2) == null) {
-            if (g()) {
-                ts2.A0().a(sf3Var.b(), str, str2);
-            }
-            Flow a = sf3Var.a();
-            if (a != null) {
-                a.addEvent(str, str2);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            c.readLock().lock();
+            try {
+                if (e() + j > this.b) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                return z;
+            } finally {
+                c.readLock().unlock();
             }
         }
+        return invokeJ.booleanValue;
     }
 
-    public static void i(String str, String str2, JSONObject jSONObject) {
+    @Override // com.baidu.tieba.xf3
+    public void b(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65544, null, str, str2, jSONObject) == null) {
-            if (g()) {
-                ts2.A0().f(str, jSONObject);
-            }
-            so4.l(str2, jSONObject);
-        }
-    }
-
-    public static void e(@NonNull sf3 sf3Var, String str, String str2, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{sf3Var, str, str2, Long.valueOf(j)}) == null) {
-            if (g()) {
-                ts2.A0().g(sf3Var.b(), str, str2, j);
-            }
-            Flow a = sf3Var.a();
-            if (a != null) {
-                a.addEvent(str, str2, j);
-            }
-        }
-    }
-
-    public static void f(@NonNull sf3 sf3Var, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, sf3Var, str) == null) {
-            if (g()) {
-                ts2.A0().h(sf3Var.b(), str);
-            }
-            Flow a = sf3Var.a();
-            if (a != null) {
-                a.setValueWithDuration(str);
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            c.writeLock().lock();
+            try {
+                try {
+                    if (this.a == null) {
+                        this.a = d();
+                    }
+                    File file = this.a;
+                    if (!file.exists()) {
+                        file.createNewFile();
+                    }
+                    xn4.O(String.valueOf(e() + j).getBytes(), file);
+                } catch (Exception e) {
+                    if (do1.a) {
+                        e.printStackTrace();
+                    }
+                }
+            } finally {
+                c.writeLock().unlock();
             }
         }
     }
 
-    public static void h(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, str, str2) == null) {
-            if (g()) {
-                ts2.A0().i(str, str2);
-            }
-            so4.h(str, str2);
-        }
-    }
-
-    public static void j(String str, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, str, map) == null) {
-            if (g()) {
-                ts2.A0().d(str, map);
-            }
-            so4.j(str, map);
-        }
-    }
-
-    public static void k(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, str, jSONObject) == null) {
-            if (g()) {
-                ts2.A0().f(str, jSONObject);
-            }
-            so4.l(str, jSONObject);
-        }
-    }
-
-    public static void l(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, null, str, str2) == null) {
-            ts2.A0().i(str, str2);
-        }
-    }
-
-    public static void m(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65548, null, str, jSONObject) == null) {
-            ts2.A0().f(str, jSONObject);
-        }
-    }
-
-    public static boolean g() {
+    public final File d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return ts2.A0().e();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return new File(c() + File.separator + "record.pro");
         }
-        return invokeV.booleanValue;
+        return (File) invokeV.objValue;
+    }
+
+    public final long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.a == null) {
+                this.a = d();
+            }
+            File file = this.a;
+            if (file.exists() && file.isFile()) {
+                String E = xn4.E(file);
+                try {
+                    if (!TextUtils.isEmpty(E) && TextUtils.isDigitsOnly(E.trim())) {
+                        return Long.parseLong(E.trim());
+                    }
+                } catch (Exception e) {
+                    if (do1.a) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            return 0L;
+        }
+        return invokeV.longValue;
     }
 }

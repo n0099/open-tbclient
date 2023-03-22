@@ -6,7 +6,7 @@ import com.yy.hiidostatis.inner.util.ProcessUtil;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.util.Enumeration;
 import java.util.Hashtable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class GeneralProxy {
     public static FlushManager mFlushManager;
     public static Hashtable<String, GeneralStatisTool> statisToolContainer = new Hashtable<>();

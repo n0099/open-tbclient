@@ -1,444 +1,294 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.os.Build;
-import android.os.Environment;
-import android.os.Process;
-import android.provider.Settings;
-import android.system.Os;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.util.DeviceId;
-import com.baidu.android.imsdk.chatmessage.messages.NetDiskFileMsg;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ApiReplaceUtil;
+import com.baidu.searchbox.config.AppConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
-import java.util.Random;
-/* loaded from: classes4.dex */
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
 public class j10 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public z00 b;
 
-    /* loaded from: classes4.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static boolean a(String str, int i) {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
-                if (Build.VERSION.SDK_INT >= 21) {
-                    try {
-                        Os.chmod(str, i);
-                        return true;
-                    } catch (Exception e) {
-                        h10.c(e);
-                        return false;
-                    }
-                }
-                return true;
-            }
-            return invokeLI.booleanValue;
-        }
-    }
-
-    public j10(Context context, z00 z00Var) {
+    public static synchronized void a(List<j8> list) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, z00Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = context;
-        this.b = z00Var;
-    }
-
-    public static void g(String str, String str2) {
-        File file;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        File file2 = new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig");
-        File file3 = new File(file2, ".cuid");
-        try {
-            if (file2.exists() && !file2.isDirectory()) {
-                Random random = new Random();
-                File parentFile = file2.getParentFile();
-                String name = file2.getName();
-                do {
-                    file = new File(parentFile, name + random.nextInt() + ".tmp");
-                } while (file.exists());
-                file2.renameTo(file);
-                file.delete();
-            }
-            file2.mkdirs();
-            FileWriter fileWriter = new FileWriter(file3, false);
-            byte[] a2 = k00.a();
-            fileWriter.write(a10.a(g00.c(a2, a2, (str + "=" + str2).getBytes()), IMAudioTransRequest.CHARSET));
-            fileWriter.flush();
-            fileWriter.close();
-        } catch (IOException | Exception unused) {
-        }
-    }
-
-    public static void l(String str) {
-        File file;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            File file2 = new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig");
-            File file3 = new File(file2, ".cuid2");
-            try {
-                if (file2.exists() && !file2.isDirectory()) {
-                    Random random = new Random();
-                    File parentFile = file2.getParentFile();
-                    String name = file2.getName();
-                    do {
-                        file = new File(parentFile, name + random.nextInt() + ".tmp");
-                    } while (file.exists());
-                    file2.renameTo(file);
-                    file.delete();
-                }
-                file2.mkdirs();
-                FileWriter fileWriter = new FileWriter(file3, false);
-                fileWriter.write(str);
-                fileWriter.flush();
-                fileWriter.close();
-            } catch (IOException | Exception unused) {
-            }
-        }
-    }
-
-    public final i10 a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            List<y00> h = this.b.h(context);
-            i10 i10Var = null;
-            if (h != null) {
-                String str = NetDiskFileMsg.JSON_KEY_FILES;
-                File filesDir = context.getFilesDir();
-                if (!NetDiskFileMsg.JSON_KEY_FILES.equals(filesDir.getName())) {
-                    Log.e("CuidV266Manager", "fetal error:: app files dir name is unexpectedly :: " + filesDir.getAbsolutePath());
-                    str = filesDir.getName();
-                }
-                for (y00 y00Var : h) {
-                    if (!y00Var.d) {
-                        File file = new File(new File(y00Var.a.dataDir, str), "libcuid.so");
-                        if (file.exists() && (i10Var = i10.e(h10.a(file))) != null) {
-                            break;
+        if (interceptable == null || interceptable.invokeL(65536, null, list) == null) {
+            synchronized (j10.class) {
+                if (list != null) {
+                    if (list.size() > 0) {
+                        if (AppConfig.isDebug()) {
+                            Log.d("ExperimentManager", "deleteExpInfoList >> " + list.size());
                         }
-                    }
-                }
-            }
-            return i10Var;
-        }
-        return (i10) invokeL.objValue;
-    }
-
-    public i10 b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            i10 a2 = a(this.a);
-            if (a2 == null) {
-                a2 = i10.e(k("com.baidu.deviceid.v2"));
-            }
-            boolean j = j(com.kuaishou.weapon.p0.h.i);
-            if (a2 == null && j) {
-                a2 = f();
-            }
-            if (a2 == null) {
-                a2 = i();
-            }
-            boolean z = false;
-            if (a2 == null && j) {
-                z = true;
-                a2 = n(m(""));
-            }
-            if (!z) {
-                m("");
-            }
-            if (a2 != null) {
-                a2.k();
-            }
-            return a2;
-        }
-        return (i10) invokeL.objValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x0037, code lost:
-        if (r0 == null) goto L5;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:24:0x0064, code lost:
-        if (r2 == null) goto L10;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x0095, code lost:
-        if (r2 == null) goto L21;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:16:0x0040  */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x006f  */
-    /* JADX WARN: Removed duplicated region for block: B:39:0x009a  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void c(i10 i10Var) {
-        boolean d;
-        boolean j;
-        i10 n;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, i10Var) == null) {
-            File file = new File(this.a.getFilesDir(), "libcuid.so");
-            String h = i10Var.h();
-            if (file.exists()) {
-                i10 e = i10.e(h10.a(file));
-                if (e != null) {
-                    if (e.k()) {
-                        h(e.h());
-                    }
-                }
-                d = d();
-                if (d) {
-                    String k = k("com.baidu.deviceid.v2");
-                    if (!TextUtils.isEmpty(k)) {
-                        i10 e2 = i10.e(k);
-                        if (e2 != null) {
-                            if (e2.k()) {
-                                e("com.baidu.deviceid.v2", e2.h());
+                        String a = m10.a();
+                        JSONObject jSONObject = new JSONObject();
+                        try {
+                            if (!TextUtils.isEmpty(a)) {
+                                jSONObject = new JSONObject(a);
                             }
-                        }
-                    }
-                    e("com.baidu.deviceid.v2", h);
-                }
-                j = j("android.permission.WRITE_EXTERNAL_STORAGE");
-                if (j) {
-                    if (new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid2").exists()) {
-                        i10 f = f();
-                        if (f != null) {
-                            if (f.k()) {
-                                h = f.h();
+                            for (j8 j8Var : list) {
+                                jSONObject.remove(j8Var.c() + "_" + j8Var.b());
                             }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
                         }
+                        m10.f(jSONObject);
                     }
-                    l(h);
                 }
-                if (d) {
-                    String k2 = k("bd_setting_i");
-                    if (i10.c(TextUtils.isEmpty(k2) ? 0 : k2.length())) {
-                        str = "O";
-                    } else {
-                        str = i10.d(k2) ? "0" : "0";
-                    }
-                    e("bd_setting_i", str);
-                }
-                if (j || !new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid").exists() || (n = n(m(""))) == null || !n.k()) {
-                    return;
-                }
-                g(n.b, n.a);
-                return;
-            }
-            h(h);
-            d = d();
-            if (d) {
-            }
-            j = j("android.permission.WRITE_EXTERNAL_STORAGE");
-            if (j) {
-            }
-            if (d) {
-            }
-            if (j) {
             }
         }
     }
 
-    public final boolean d() {
+    public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? j("android.permission.WRITE_SETTINGS") : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return m10.a();
+        }
+        return (String) invokeV.objValue;
     }
 
-    public final boolean e(String str, String str2) {
-        InterceptResult invokeLL;
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            try {
-                return Settings.System.putString(this.a.getContentResolver(), str, str2);
-            } catch (Exception e) {
-                h10.c(e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return m10.b();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return m10.c();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return m10.d();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static JSONObject[] f(JSONObject jSONObject, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, jSONObject, i)) == null) {
+            JSONObject[] jSONObjectArr = new JSONObject[i];
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                int a = s10.a(next, i);
+                JSONObject jSONObject2 = jSONObjectArr[a];
+                if (jSONObject2 == null) {
+                    jSONObject2 = new JSONObject();
+                    jSONObjectArr[a] = jSONObject2;
+                }
+                try {
+                    Object obj = jSONObject.get(next);
+                    if (obj != null) {
+                        jSONObject2.put(next, obj);
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObjectArr;
+        }
+        return (JSONObject[]) invokeLI.objValue;
+    }
+
+    public static synchronized boolean n(JSONObject jSONObject, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65549, null, jSONObject, z)) == null) {
+            synchronized (j10.class) {
+                if (jSONObject != null) {
+                    if (jSONObject.length() != 0) {
+                        int a = t8.b().a();
+                        return l(f(jSONObject, a), a, z);
+                    }
+                }
                 return false;
             }
         }
-        return invokeLL.booleanValue;
+        return invokeLZ.booleanValue;
     }
 
-    public final i10 f() {
-        InterceptResult invokeV;
+    public static synchronized void g(List<j8> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            File file = new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid2");
-            if (file.exists()) {
-                return i10.e(h10.a(file));
+        if (interceptable == null || interceptable.invokeL(65542, null, list) == null) {
+            synchronized (j10.class) {
+                if (list != null) {
+                    if (list.size() != 0) {
+                        if (AppConfig.isDebug()) {
+                            Log.d("ExperimentManager", "saveExpInfoList >> " + list.size());
+                        }
+                        String a = m10.a();
+                        JSONObject jSONObject = new JSONObject();
+                        try {
+                            if (!TextUtils.isEmpty(a)) {
+                                jSONObject = new JSONObject(a);
+                            }
+                            for (j8 j8Var : list) {
+                                String str = j8Var.c() + "_" + j8Var.b();
+                                JSONObject jSONObject2 = new JSONObject();
+                                if (j8Var.e() && j8Var.d() != -1) {
+                                    jSONObject2.put("is_upload", j8Var.e());
+                                    jSONObject2.put("expired_time", j8Var.d());
+                                }
+                                jSONObject.put(str, jSONObject2);
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                        m10.f(jSONObject);
+                    }
+                }
             }
-            return null;
         }
-        return (i10) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, INVOKE, MOVE_EXCEPTION, INVOKE, INVOKE, MOVE_EXCEPTION] complete} */
-    @SuppressLint({"NewApi"})
-    public final boolean h(String str) {
-        InterceptResult invokeL;
-        int i;
-        File file;
+    public static synchronized void h(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            int i2 = (!DeviceId.sDataCuidInfoShable || Build.VERSION.SDK_INT >= 24) ? 0 : 1;
-            FileOutputStream fileOutputStream = null;
-            try {
-                try {
-                    fileOutputStream = this.a.openFileOutput("libcuid.so", i2);
-                    fileOutputStream.write(str.getBytes());
-                    fileOutputStream.flush();
-                    if (fileOutputStream != null) {
-                        try {
-                            fileOutputStream.close();
-                        } catch (Exception e) {
-                            h10.c(e);
-                        }
-                    }
-                    if (Build.VERSION.SDK_INT >= 21) {
-                        if (i2 == 0 && DeviceId.sDataCuidInfoShable) {
-                            i = 436;
-                            file = new File(this.a.getFilesDir(), "libcuid.so");
-                        } else if (!DeviceId.sDataCuidInfoShable) {
-                            i = 432;
-                            file = new File(this.a.getFilesDir(), "libcuid.so");
-                        }
-                        return a.a(file.getAbsolutePath(), i);
-                    }
-                    return true;
-                } catch (Exception e2) {
-                    h10.c(e2);
-                    if (fileOutputStream != null) {
-                        try {
-                            fileOutputStream.close();
-                        } catch (Exception e3) {
-                            h10.c(e3);
-                        }
-                    }
-                    return false;
-                }
-            } catch (Throwable th) {
-                if (fileOutputStream != null) {
-                    try {
-                        fileOutputStream.close();
-                    } catch (Exception e4) {
-                        h10.c(e4);
+        if (interceptable == null || interceptable.invokeL(65543, null, jSONObject) == null) {
+            synchronized (j10.class) {
+                if (jSONObject != null) {
+                    if (jSONObject.length() != 0) {
+                        m10.g(jSONObject);
                     }
                 }
-                throw th;
+            }
+        }
+    }
+
+    public static synchronized void i(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, jSONObject) == null) {
+            synchronized (j10.class) {
+                if (AppConfig.isDebug()) {
+                    Log.d("ExperimentManager", "saveV1SwitchData >> " + jSONObject);
+                }
+                m10.h(jSONObject);
+            }
+        }
+    }
+
+    public static synchronized void j(JSONObject jSONObject, JSONObject jSONObject2, List<j8> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65545, null, jSONObject, jSONObject2, list) == null) {
+            synchronized (j10.class) {
+                if (n(jSONObject2, true)) {
+                    k(jSONObject);
+                    g(list);
+                }
+            }
+        }
+    }
+
+    public static synchronized boolean k(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, jSONObject)) == null) {
+            synchronized (j10.class) {
+                if (jSONObject != null) {
+                    if (jSONObject.length() != 0) {
+                        String d = m10.d();
+                        if (!TextUtils.isEmpty(d)) {
+                            try {
+                                JSONObject jSONObject2 = new JSONObject(d);
+                                Iterator<String> keys = jSONObject.keys();
+                                while (keys.hasNext()) {
+                                    String next = keys.next();
+                                    jSONObject2.put(next, jSONObject.get(next));
+                                }
+                                if (jSONObject2.length() > 0) {
+                                    m10.i(jSONObject2);
+                                    return true;
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        } else {
+                            m10.i(jSONObject);
+                        }
+                        return false;
+                    }
+                }
+                return false;
             }
         }
         return invokeL.booleanValue;
     }
 
-    public final i10 i() {
-        InterceptResult invokeV;
+    public static boolean l(JSONObject[] jSONObjectArr, int i, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? i10.a(k("com.baidu.deviceid"), k("bd_setting_i")) : (i10) invokeV.objValue;
-    }
-
-    public final boolean j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) ? this.a.checkPermission(str, Process.myPid(), Process.myUid()) == 0 : invokeL.booleanValue;
-    }
-
-    public final String k(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            try {
-                return ApiReplaceUtil.getString(this.a.getContentResolver(), str);
-            } catch (Exception e) {
-                h10.c(e);
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final String m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) ? "0" : (String) invokeL.objValue;
-    }
-
-    public final i10 n(String str) {
-        InterceptResult invokeL;
-        String str2;
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            String str3 = "";
-            File file = new File(Environment.getExternalStorageDirectory(), "baidu/.cuid");
-            if (!file.exists()) {
-                file = new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig/.cuid");
-            }
-            try {
-                BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
-                StringBuilder sb = new StringBuilder();
-                while (true) {
-                    String readLine = bufferedReader.readLine();
-                    if (readLine == null) {
-                        break;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{jSONObjectArr, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            for (int i2 = 0; i2 < i; i2++) {
+                JSONObject jSONObject = jSONObjectArr[i2];
+                String e = m10.e(i2);
+                if (TextUtils.isEmpty(e)) {
+                    m10.j(jSONObject, i2);
+                } else {
+                    try {
+                        JSONObject jSONObject2 = new JSONObject(e);
+                        Iterator<String> keys = jSONObject.keys();
+                        while (keys.hasNext()) {
+                            String next = keys.next();
+                            Object obj = jSONObject.get(next);
+                            if (!jSONObject2.has(next) || z) {
+                                jSONObject2.put(next, obj);
+                            }
+                        }
+                        if (jSONObject2.length() > 0) {
+                            m10.j(jSONObject2, i2);
+                        }
+                    } catch (JSONException e2) {
+                        e2.printStackTrace();
                     }
-                    sb.append(readLine);
-                    sb.append("\r\n");
                 }
-                bufferedReader.close();
-                byte[] a2 = k00.a();
-                split = new String(g00.d(a2, a2, a10.b(sb.toString().getBytes()))).split("=");
-            } catch (FileNotFoundException | IOException | Exception unused) {
             }
-            if (split != null && split.length == 2) {
-                str2 = split[0];
-                try {
-                    str3 = split[1];
-                } catch (FileNotFoundException | IOException | Exception unused2) {
-                }
-                return i10.a(str3, str2);
-            }
-            str2 = "";
-            return i10.a(str3, str2);
+            return true;
         }
-        return (i10) invokeL.objValue;
+        return invokeCommon.booleanValue;
+    }
+
+    public static synchronized void m(JSONObject jSONObject, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65548, null, jSONObject, i) == null) {
+            synchronized (j10.class) {
+                if (jSONObject != null) {
+                    if (jSONObject.length() != 0) {
+                        String e = m10.e(i);
+                        if (!TextUtils.isEmpty(e)) {
+                            try {
+                                JSONObject jSONObject2 = new JSONObject(e);
+                                Iterator<String> keys = jSONObject.keys();
+                                while (keys.hasNext()) {
+                                    String next = keys.next();
+                                    jSONObject2.put(next, jSONObject.get(next));
+                                }
+                                m10.j(jSONObject2, i);
+                            } catch (JSONException e2) {
+                                e2.printStackTrace();
+                            }
+                        } else {
+                            m10.j(jSONObject, i);
+                        }
+                    }
+                }
+            }
+        }
     }
 }

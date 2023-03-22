@@ -1,9 +1,9 @@
 package com.baidu.tieba.common.jscore;
 
 import androidx.annotation.Keep;
-import com.baidu.tieba.fe6;
 import com.baidu.tieba.h5power.OfflineWebViewBridge_Proxy;
-import com.baidu.tieba.jd6;
+import com.baidu.tieba.kd6;
+import com.baidu.tieba.oc6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -31,8 +31,8 @@ public class BridgeConfig_Frames {
     public static void register() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            jd6 jd6Var = new jd6();
-            fe6.a().d(jd6Var, new OfflineWebViewBridge_Proxy(jd6Var));
+            oc6 oc6Var = new oc6();
+            kd6.a().d(oc6Var, new OfflineWebViewBridge_Proxy(oc6Var));
         }
     }
 }

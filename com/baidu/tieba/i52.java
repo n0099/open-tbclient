@@ -1,61 +1,97 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.apache.http.cookie.ClientCookie;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public final class i52 extends x42<TextView, k52> {
+public class i52 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public JSONArray b;
+    public String c;
+    public String d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public i52(@Nullable Context context, @NonNull k52 k52Var) {
-        super(context, k52Var);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947804419, "Lcom/baidu/tieba/i52;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947804419, "Lcom/baidu/tieba/i52;");
+                return;
+            }
+        }
+        e = do1.a;
+    }
+
+    public i52() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, k52Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (y42) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.x42
-    /* renamed from: a0 */
-    public void X(@NonNull TextView textView, @NonNull k52 k52Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, textView, k52Var) == null) {
-            Y(textView, k52Var, 16);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.b52
-    @NonNull
-    /* renamed from: Z */
-    public TextView v(@NonNull Context context) {
+    public static i52 b(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            return new TextView(context);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            i52 i52Var = new i52();
+            try {
+                i52Var.b = jSONObject.getJSONArray("host");
+                i52Var.a = jSONObject.getString("appKey");
+                jSONObject.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
+                i52Var.c = jSONObject.getString(ClientCookie.PORT_ATTR);
+                i52Var.d = Uri.decode(jSONObject.optString("url"));
+                return i52Var;
+            } catch (JSONException unused) {
+                if (e) {
+                    Log.e("RemoteDebugModel", "DebuggerLaunchAction params is invalid");
+                    return null;
+                }
+                return null;
+            }
         }
-        return (TextView) invokeL.objValue;
+        return (i52) invokeL.objValue;
+    }
+
+    public String a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            JSONArray jSONArray = this.b;
+            if (jSONArray == null) {
+                return "";
+            }
+            String optString = jSONArray.optString(i);
+            if (TextUtils.isEmpty(optString)) {
+                return "";
+            }
+            return "http://" + optString + ":" + this.c;
+        }
+        return (String) invokeI.objValue;
     }
 }

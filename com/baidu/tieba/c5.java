@@ -1,37 +1,97 @@
 package com.baidu.tieba;
 
-import com.badlogic.gdx.graphics.g3d.model.data.ModelMaterial;
+import com.badlogic.gdx.utils.BufferUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.nio.ByteBuffer;
+import java.nio.ShortBuffer;
 /* loaded from: classes3.dex */
-public class c5 {
+public class c5 implements d5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final short[] a;
-    public final h7<d5> b;
-    public final h7<ModelMaterial> c;
-    public final h7<f5> d;
-    public final h7<b5> e;
+    public final ShortBuffer a;
+    public final ByteBuffer b;
+    public final boolean c;
+    public int d;
+    public final boolean e;
 
-    public c5() {
+    public c5(boolean z, int i) {
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new short[2];
-        this.b = new h7<>();
-        this.c = new h7<>();
-        this.d = new h7<>();
-        this.e = new h7<>();
+        if (i == 0) {
+            z2 = true;
+        } else {
+            z2 = false;
+        }
+        this.e = z2;
+        ByteBuffer e = BufferUtils.e((z2 ? 1 : i) * 2);
+        this.b = e;
+        ShortBuffer asShortBuffer = e.asShortBuffer();
+        this.a = asShortBuffer;
+        this.c = true;
+        asShortBuffer.flip();
+        this.b.flip();
+        this.d = o0.f.n();
+    }
+
+    @Override // com.baidu.tieba.d5, com.baidu.tieba.r6
+    public void dispose() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            o0.f.E(34963, 0);
+            o0.f.b(this.d);
+            this.d = 0;
+            if (this.c) {
+                BufferUtils.b(this.b);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.d5
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.e) {
+                return 0;
+            }
+            return this.a.limit();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.d5
+    public ShortBuffer getBuffer() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (ShortBuffer) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.d5
+    public void invalidate() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.d = o0.f.n();
+        }
     }
 }

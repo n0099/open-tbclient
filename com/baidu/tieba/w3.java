@@ -1,101 +1,163 @@
 package com.baidu.tieba;
 
-import com.badlogic.gdx.graphics.Pixmap;
-import com.badlogic.gdx.utils.GdxRuntimeException;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.badlogic.gdx.graphics.g3d.model.data.ModelMaterial;
+import com.baidu.android.common.others.IStringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.k6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedInputStream;
-import java.io.Closeable;
-import java.io.DataInputStream;
-import java.nio.ByteBuffer;
-import java.util.zip.InflaterInputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdSdk;
+import com.meizu.cloud.pushsdk.notification.model.NotificationStyle;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 /* loaded from: classes6.dex */
 public class w3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public k6<ModelMaterial> a;
 
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final byte[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(265252340, "Lcom/baidu/tieba/w3$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(265252340, "Lcom/baidu/tieba/w3$a;");
-                    return;
-                }
-            }
-            a = new byte[32000];
-        }
-
-        /* JADX WARN: Not initialized variable reg: 1, insn: 0x0084: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r1 I:??[OBJECT, ARRAY]), block:B:27:0x0084 */
-        public static Pixmap a(q3 q3Var) {
-            InterceptResult invokeL;
-            Exception e;
-            Closeable closeable;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, q3Var)) == null) {
-                Closeable closeable2 = null;
-                try {
-                    try {
-                        DataInputStream dataInputStream = new DataInputStream(new InflaterInputStream(new BufferedInputStream(q3Var.m())));
-                        try {
-                            Pixmap pixmap = new Pixmap(dataInputStream.readInt(), dataInputStream.readInt(), Pixmap.Format.fromGdx2DPixmapFormat(dataInputStream.readInt()));
-                            ByteBuffer m = pixmap.m();
-                            m.position(0);
-                            m.limit(m.capacity());
-                            synchronized (a) {
-                                while (true) {
-                                    int read = dataInputStream.read(a);
-                                    if (read > 0) {
-                                        m.put(a, 0, read);
-                                    }
-                                }
-                            }
-                            m.position(0);
-                            m.limit(m.capacity());
-                            p8.a(dataInputStream);
-                            return pixmap;
-                        } catch (Exception e2) {
-                            e = e2;
-                            throw new GdxRuntimeException("Couldn't read Pixmap from file '" + q3Var + "'", e);
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        closeable2 = closeable;
-                        p8.a(closeable2);
-                        throw th;
-                    }
-                } catch (Exception e3) {
-                    e = e3;
-                } catch (Throwable th2) {
-                    th = th2;
-                    p8.a(closeable2);
-                    throw th;
-                }
-            } else {
-                return (Pixmap) invokeL.objValue;
+    public w3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new k6<>();
     }
 
-    public static Pixmap a(q3 q3Var) {
+    public ModelMaterial a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, q3Var)) == null) {
-            return a.a(q3Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            k6.b<ModelMaterial> it = this.a.iterator();
+            while (it.hasNext()) {
+                ModelMaterial next = it.next();
+                if (next.a.equals(str)) {
+                    return next;
+                }
+            }
+            ModelMaterial modelMaterial = new ModelMaterial();
+            modelMaterial.a = str;
+            modelMaterial.c = new u2(u2.e);
+            this.a.a(modelMaterial);
+            return modelMaterial;
         }
-        return (Pixmap) invokeL.objValue;
+        return (ModelMaterial) invokeL.objValue;
+    }
+
+    public void b(t2 t2Var) {
+        String str;
+        float f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t2Var) == null) {
+            u2 u2Var = u2.e;
+            if (t2Var != null && t2Var.c()) {
+                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(t2Var.m()), 4096);
+                String str2 = "default";
+                String str3 = null;
+                float f2 = 1.0f;
+                float f3 = 0.0f;
+                u2 u2Var2 = u2Var;
+                while (true) {
+                    try {
+                        String readLine = bufferedReader.readLine();
+                        if (readLine == null) {
+                            break;
+                        }
+                        if (readLine.length() > 0 && readLine.charAt(0) == '\t') {
+                            readLine = readLine.substring(1).trim();
+                        }
+                        String[] split = readLine.split("\\s+");
+                        if (split[0].length() != 0 && split[0].charAt(0) != '#') {
+                            String lowerCase = split[0].toLowerCase();
+                            if (lowerCase.equals("newmtl")) {
+                                ModelMaterial modelMaterial = new ModelMaterial();
+                                modelMaterial.a = str2;
+                                modelMaterial.c = new u2(u2Var);
+                                modelMaterial.d = new u2(u2Var2);
+                                modelMaterial.h = f2;
+                                modelMaterial.g = f3;
+                                if (str3 != null) {
+                                    m4 m4Var = new m4();
+                                    m4Var.d = 2;
+                                    m4Var.a = new String(str3);
+                                    if (modelMaterial.i == null) {
+                                        modelMaterial.i = new k6<>(1);
+                                    }
+                                    modelMaterial.i.a(m4Var);
+                                }
+                                this.a.a(modelMaterial);
+                                if (split.length <= 1) {
+                                    str = "default";
+                                } else {
+                                    str = split[1].replace(IStringUtil.EXTENSION_SEPARATOR, '_');
+                                }
+                                str2 = str;
+                                u2Var = u2.e;
+                                u2Var2 = u2.e;
+                                f2 = 1.0f;
+                                f3 = 0.0f;
+                            } else {
+                                if (!lowerCase.equals("kd") && !lowerCase.equals(FunAdSdk.PLATFORM_KS)) {
+                                    if (!lowerCase.equals("tr") && !lowerCase.equals("d")) {
+                                        if (lowerCase.equals(NotificationStyle.NOTIFICATION_STYLE)) {
+                                            f3 = Float.parseFloat(split[1]);
+                                        } else if (lowerCase.equals("map_kd")) {
+                                            str3 = t2Var.i().a(split[1]).j();
+                                        }
+                                    }
+                                    f2 = Float.parseFloat(split[1]);
+                                }
+                                float parseFloat = Float.parseFloat(split[1]);
+                                float parseFloat2 = Float.parseFloat(split[2]);
+                                float parseFloat3 = Float.parseFloat(split[3]);
+                                if (split.length > 4) {
+                                    f = Float.parseFloat(split[4]);
+                                } else {
+                                    f = 1.0f;
+                                }
+                                if (split[0].toLowerCase().equals("kd")) {
+                                    u2Var = new u2();
+                                    u2Var.d(parseFloat, parseFloat2, parseFloat3, f);
+                                } else {
+                                    u2Var2 = new u2();
+                                    u2Var2.d(parseFloat, parseFloat2, parseFloat3, f);
+                                }
+                            }
+                        }
+                    } catch (IOException unused) {
+                        return;
+                    }
+                }
+                bufferedReader.close();
+                ModelMaterial modelMaterial2 = new ModelMaterial();
+                modelMaterial2.a = str2;
+                modelMaterial2.c = new u2(u2Var);
+                modelMaterial2.d = new u2(u2Var2);
+                modelMaterial2.h = f2;
+                modelMaterial2.g = f3;
+                if (str3 != null) {
+                    m4 m4Var2 = new m4();
+                    m4Var2.d = 2;
+                    m4Var2.a = new String(str3);
+                    if (modelMaterial2.i == null) {
+                        modelMaterial2.i = new k6<>(1);
+                    }
+                    modelMaterial2.i.a(m4Var2);
+                }
+                this.a.a(modelMaterial2);
+            }
+        }
     }
 }

@@ -8,7 +8,7 @@ import android.media.MediaCrypto;
 import android.media.MediaExtractor;
 import android.media.MediaFormat;
 import android.view.Surface;
-import com.baidu.tieba.n1a;
+import com.baidu.tieba.w7a;
 import com.baidu.ugc.editvideo.record.RecordConstants;
 import java.nio.ByteBuffer;
 @TargetApi(18)
@@ -127,8 +127,8 @@ public class InnerAudioProcessor extends InnerMediaProcessor {
                 } else {
                     if (dequeueOutputBuffer == -2) {
                         MediaFormat outputFormat = mediaCodec.getOutputFormat();
-                        n1a.n(outputFormat, mediaFormat, "sample-rate", RecordConstants.AUDIO_ENCODE_SAMPLE_RATE);
-                        n1a.n(outputFormat, mediaFormat, "channel-count", i4);
+                        w7a.n(outputFormat, mediaFormat, "sample-rate", RecordConstants.AUDIO_ENCODE_SAMPLE_RATE);
+                        w7a.n(outputFormat, mediaFormat, "channel-count", i4);
                         mediaCodec3 = mediaCodec2;
                         obj = null;
                         mediaCodec3.configure(mediaFormat, (Surface) null, (MediaCrypto) null, i4);
@@ -384,7 +384,7 @@ public class InnerAudioProcessor extends InnerMediaProcessor {
         MediaCodec mediaCodec2;
         MediaCodec mediaCodec3;
         int integer;
-        MediaCodecInfo m = n1a.m("audio/mp4a-latm");
+        MediaCodecInfo m = w7a.m("audio/mp4a-latm");
         if (m == null) {
             return;
         }
@@ -393,7 +393,7 @@ public class InnerAudioProcessor extends InnerMediaProcessor {
         e = null;
         Exception e = null;
         try {
-            mediaExtractor = n1a.b(this.mSourcePath);
+            mediaExtractor = w7a.b(this.mSourcePath);
         } catch (Exception e2) {
             mediaCodec = null;
             mediaExtractor = null;
@@ -405,18 +405,18 @@ public class InnerAudioProcessor extends InnerMediaProcessor {
             mediaCodec = null;
         }
         try {
-            MediaFormat trackFormat = mediaExtractor.getTrackFormat(n1a.e(mediaExtractor));
+            MediaFormat trackFormat = mediaExtractor.getTrackFormat(w7a.e(mediaExtractor));
             if (this.mDoDecode) {
                 MediaFormat mediaFormat = new MediaFormat();
                 mediaFormat.setString("mime", "audio/mp4a-latm");
                 mediaFormat.setInteger("aac-profile", 2);
                 mediaFormat.setInteger("max-input-size", 8192);
-                n1a.n(trackFormat, mediaFormat, "sample-rate", RecordConstants.AUDIO_ENCODE_SAMPLE_RATE);
-                n1a.n(trackFormat, mediaFormat, "channel-count", 1);
-                n1a.n(trackFormat, mediaFormat, "bitrate", RecordConstants.AUDIO_ENCODE_BIT_RATE);
+                w7a.n(trackFormat, mediaFormat, "sample-rate", RecordConstants.AUDIO_ENCODE_SAMPLE_RATE);
+                w7a.n(trackFormat, mediaFormat, "channel-count", 1);
+                w7a.n(trackFormat, mediaFormat, "bitrate", RecordConstants.AUDIO_ENCODE_BIT_RATE);
                 mediaCodec2 = MediaCodec.createByCodecName(m.getName());
                 try {
-                    mediaCodec = n1a.a(trackFormat);
+                    mediaCodec = w7a.a(trackFormat);
                     try {
                         try {
                             doExtractDecodeEditEncodeMux(mediaExtractor, mediaCodec, mediaCodec2, mediaFormat);

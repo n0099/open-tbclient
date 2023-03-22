@@ -1,32 +1,23 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.PrivateForumPopInfoData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.enterForum.data.ForumCreateInfoData;
-import com.baidu.tieba.enterForum.data.HotSearchInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ForumGuide.DataRes;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import tbclient.ForumGuide.LikeForum;
 /* loaded from: classes6.dex */
 public class sm6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wm6 a;
-    public o05 b;
-    public ForumCreateInfoData c;
-    public PrivateForumPopInfoData d;
-    public an6 e;
-    public bn6 f;
-    public boolean g;
-    public int h;
-    public HotSearchInfoData i;
-    public int j;
+    public ArrayList<qm6> a;
 
     public sm6() {
         Interceptable interceptable = $ic;
@@ -41,194 +32,55 @@ public class sm6 {
                 return;
             }
         }
-        this.g = true;
-        this.h = 0;
-        this.a = new wm6();
-        this.b = new o05();
-        this.c = new ForumCreateInfoData();
-        this.d = new PrivateForumPopInfoData();
-        this.e = new an6();
-        this.f = new bn6();
-        this.g = false;
+        this.a = new ArrayList<>();
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (System.currentTimeMillis() / vb5.a.longValue() == (this.h * 1000) / vb5.a.longValue()) {
-                return true;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Iterator<qm6> it = this.a.iterator();
+            while (it.hasNext()) {
+                it.next().E(0);
             }
-            return false;
         }
-        return invokeV.booleanValue;
     }
 
-    public ForumCreateInfoData b() {
+    public ArrayList<qm6> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (ForumCreateInfoData) invokeV.objValue;
-    }
-
-    public bn6 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return (bn6) invokeV.objValue;
-    }
-
-    public HotSearchInfoData d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.i;
-        }
-        return (HotSearchInfoData) invokeV.objValue;
-    }
-
-    public wm6 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.a;
         }
-        return (wm6) invokeV.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    public o05 f() {
-        InterceptResult invokeV;
+    public void c(List<?> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) != null) || list == null) {
+            return;
         }
-        return (o05) invokeV.objValue;
+        d(list, null);
     }
 
-    public int g() {
-        InterceptResult invokeV;
+    public void d(List<?> list, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.j;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void i(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, dataRes) != null) || dataRes == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, list, context) != null) || list == null) {
             return;
         }
         try {
-            if (dataRes.like_forum != null) {
-                this.a.c(dataRes.like_forum);
-            }
-            if (dataRes.forum_create_info != null) {
-                this.c.R(dataRes.forum_create_info);
-            }
-            if (!ListUtils.isEmpty(dataRes.hot_search)) {
-                this.i = new HotSearchInfoData();
-                this.i.P(dataRes.hot_search.get(0).search_title);
-            }
-        } catch (Exception e) {
-            BdLog.detailException(e);
-        }
-    }
-
-    public void j(tbclient.ForumRecommend.DataRes dataRes) {
-        int intValue;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, dataRes) != null) || dataRes == null) {
-            return;
-        }
-        try {
-            if (dataRes.forum_popup_info != null) {
-                this.f.f(dataRes.forum_popup_info);
-            }
-            p(dataRes.time.intValue());
-            if (dataRes.sort_type.intValue() == 0) {
-                intValue = 1;
-            } else {
-                intValue = dataRes.sort_type.intValue();
-            }
-            this.j = intValue;
-            if (dataRes.like_forum != null) {
-                this.a.c(dataRes.like_forum);
-            }
-            if (dataRes.recommend_forum_info != null) {
-                this.b.h(dataRes.recommend_forum_info);
-            }
-            if (dataRes.forum_create_info != null) {
-                this.c.R(dataRes.forum_create_info);
-            }
-            if (dataRes.private_forum_popinfo != null) {
-                this.d.S(dataRes.private_forum_popinfo);
-            }
-            if (dataRes.hot_search != null) {
-                HotSearchInfoData hotSearchInfoData = new HotSearchInfoData();
-                this.i = hotSearchInfoData;
-                hotSearchInfoData.O(dataRes.hot_search);
-            }
-            if (dataRes.nav_tab_info != null) {
-                this.e.a(dataRes.nav_tab_info);
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                if (!(list.get(i) instanceof LikeForum)) {
+                    return;
+                }
+                qm6 qm6Var = new qm6();
+                qm6Var.z((LikeForum) list.get(i));
+                if (!TextUtils.isEmpty(qm6Var.m())) {
+                    this.a.add(qm6Var);
+                }
             }
         } catch (Exception e) {
             BdLog.detailException(e);
-        }
-    }
-
-    public void k(ForumCreateInfoData forumCreateInfoData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, forumCreateInfoData) == null) {
-            this.c = forumCreateInfoData;
-        }
-    }
-
-    public void l(HotSearchInfoData hotSearchInfoData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, hotSearchInfoData) == null) {
-            this.i = hotSearchInfoData;
-        }
-    }
-
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.g = z;
-        }
-    }
-
-    public void n(wm6 wm6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, wm6Var) == null) {
-            this.a = wm6Var;
-        }
-    }
-
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.j = i;
-        }
-    }
-
-    public void p(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
-            this.h = i;
         }
     }
 }

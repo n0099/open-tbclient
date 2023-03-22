@@ -1,26 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import android.util.Pair;
+import java.util.AbstractMap;
+import java.util.LinkedList;
 import java.util.List;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public interface s3a {
-    public static final ServiceReference a = new ServiceReference("voyager", StatConstants.VALUE_TYPE_UPLOAD);
+    void a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, List<AbstractMap.SimpleEntry<String, String>> list);
 
-    void a(String str, String str2, int i, r3a r3aVar);
-
-    void b(List<String> list, String str, long j, JSONObject jSONObject);
-
-    void c(String str, String str2, JSONObject jSONObject);
-
-    boolean d(JSONObject jSONObject);
-
-    void e(String str, String str2, r3a r3aVar);
-
-    void f();
-
-    void g(List<String> list, String str, long j, r3a r3aVar);
-
-    void retry();
+    void b(int i, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, LinkedList<Pair<String, Object>> linkedList);
 }

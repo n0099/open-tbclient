@@ -1,8 +1,8 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.tieba.nh;
-import com.baidu.tieba.ri;
+import com.baidu.tieba.qg;
+import com.baidu.tieba.uh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -86,7 +86,7 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(TencentMMSwitch.class);
             SwitchManager.getInstance().registerSwitch(PageStayDurationSwitch.class);
             SwitchManager.getInstance().registerSwitch(UseHttpdnsSdkSwitch.class);
-            SwitchManager.getInstance().registerSwitch(ri.class);
+            SwitchManager.getInstance().registerSwitch(uh.class);
             SwitchManager.getInstance().registerSwitch(RepostToDynamicDefaultSwitch.class);
             SwitchManager.getInstance().registerSwitch(PbPreloadSwitch.class);
             SwitchManager.getInstance().registerSwitch(FlutterSignAllEnableSwitch.class);
@@ -107,7 +107,7 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(VideoMiddleAdSwitch.class);
             SwitchManager.getInstance().registerSwitch(GdtPrivacySwitch.class);
             SwitchManager.getInstance().registerSwitch(KsPrivacySwitch.class);
-            SwitchManager.getInstance().registerSwitch(nh.class);
+            SwitchManager.getInstance().registerSwitch(qg.class);
             SwitchManager.getInstance().registerSwitch(CsjPrivacySwitch.class);
             SwitchManager.getInstance().registerSwitch(FunAdServerRecordSwitch.class);
             SwitchManager.getInstance().registerSwitch(FunAdSplashClickRegionSwitch.class);
@@ -145,6 +145,11 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(BigImageCacheOptimizeSwitch.class);
             SwitchManager.getInstance().registerSwitch(UploadLogButtonSwitch.class);
             SwitchManager.getInstance().registerSwitch(EnableYaLogSwitch.class);
+            SwitchManager.getInstance().registerSwitch(ImagePrePageLimitSwitch.class);
+            SwitchManager.getInstance().registerSwitch(WebViewOptSwitch.class);
+            SwitchManager.getInstance().registerSwitch(FunnySpriteSwitch.class);
+            SwitchManager.getInstance().registerSwitch(FunnySpriteDeviceScoreSwitch.class);
+            SwitchManager.getInstance().registerSwitch(OfflinePkgAutoCleanSwitch.class);
         }
     }
 }

@@ -1,82 +1,56 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.BdLog;
+import android.app.Activity;
+import android.content.Context;
+import android.content.MutableContextWrapper;
+import android.webkit.JsPromptResult;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.browser.CommonTbJsBridge;
+import com.baidu.tbadk.core.hybrid.BridgeWebView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Callable;
-import java.util.concurrent.TimeUnit;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
 public class vq5 {
     public static /* synthetic */ Interceptable $ic;
+    public static vq5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final Handler a;
-    public final int b;
-    public final long c;
-    public int d;
-    @Nullable
-    public Runnable e;
+    public final HashMap<String, uq5> a;
 
-    /* loaded from: classes6.dex */
-    public interface c<T> {
-        void call(boolean z, T t);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948249455, "Lcom/baidu/tieba/vq5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948249455, "Lcom/baidu/tieba/vq5;");
+        }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements c<Void> {
+    public class a implements qc9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c a;
-        public final /* synthetic */ vq5 b;
+        public final /* synthetic */ oc9 a;
+        public final /* synthetic */ WebView b;
 
-        /* loaded from: classes6.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    b bVar = this.a;
-                    bVar.b.k(bVar.a);
-                }
-            }
-        }
-
-        public b(vq5 vq5Var, c cVar) {
+        public a(vq5 vq5Var, oc9 oc9Var, WebView webView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vq5Var, cVar};
+                Object[] objArr = {vq5Var, oc9Var, webView};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -86,157 +60,135 @@ public class vq5 {
                     return;
                 }
             }
-            this.b = vq5Var;
-            this.a = cVar;
+            this.a = oc9Var;
+            this.b = webView;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.vq5.c
-        public void call(boolean z, Void r6) {
+        @Override // com.baidu.tieba.qc9
+        public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, r6) == null) && !z) {
-                this.b.e = new a(this);
-                this.b.a.postDelayed(this.b.e, this.b.c);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Callable a;
-        public final /* synthetic */ vq5 b;
-
-        public a(vq5 vq5Var, Callable callable) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vq5Var, callable};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) {
+                oc9 oc9Var = this.a;
+                if (oc9Var != null) {
+                    return oc9Var.c(this.b, str, jsPromptResult);
                 }
+                return false;
             }
-            this.b = vq5Var;
-            this.a = callable;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.l(this.a);
-            }
+            return invokeLL.booleanValue;
         }
     }
 
-    public vq5(int i, int i2, @NonNull TimeUnit timeUnit) {
+    public vq5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), timeUnit};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new Handler(Looper.getMainLooper());
-        this.b = i;
-        this.c = timeUnit.toMillis(i2);
+        this.a = new HashMap<>();
     }
 
-    public void i(@NonNull c<c<Void>> cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
-            h();
-            k(cVar);
-        }
-    }
-
-    public void j(@NonNull Callable<Boolean> callable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, callable) == null) {
-            h();
-            l(callable);
-        }
-    }
-
-    @NonNull
-    public static vq5 g() {
+    public static vq5 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return new vq5(10, 1000, TimeUnit.MILLISECONDS);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (vq5.class) {
+                    if (b == null) {
+                        b = new vq5();
+                    }
+                }
+            }
+            return b;
         }
         return (vq5) invokeV.objValue;
     }
 
-    public void h() {
+    public uq5 a(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Runnable runnable = this.e;
-            if (runnable != null) {
-                this.a.removeCallbacks(runnable);
-                this.e = null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
+            if (this.a.size() >= 8) {
+                f();
             }
-            this.d = 0;
+            uq5 uq5Var = new uq5();
+            BridgeWebView bridgeWebView = new BridgeWebView(new MutableContextWrapper(context));
+            bridgeWebView.setBackgroundColor(R.color.transparent);
+            wq5.b(bridgeWebView);
+            oc9 oc9Var = new oc9();
+            oc9Var.a(new CommonTbJsBridge(context, bridgeWebView));
+            nt4 nt4Var = new nt4();
+            nt4Var.b(new a(this, oc9Var, bridgeWebView));
+            bridgeWebView.setWebChromeClient(nt4Var);
+            uq5Var.a = bridgeWebView;
+            uq5Var.b = str;
+            uq5Var.c = 0;
+            this.a.put(str, uq5Var);
+            return uq5Var;
         }
+        return (uq5) invokeLL.objValue;
     }
 
-    public final void k(@NonNull c<c<Void>> cVar) {
+    public uq5 c(Activity activity, String str) {
+        InterceptResult invokeLL;
+        WebView webView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            try {
-                if (this.d < this.b) {
-                    boolean z = true;
-                    int i = this.d + 1;
-                    this.d = i;
-                    if (i < this.b) {
-                        z = false;
-                    }
-                    cVar.call(z, new b(this, cVar));
-                }
-            } catch (Exception e) {
-                BdLog.e(e);
-                Runnable runnable = this.e;
-                if (runnable != null) {
-                    this.a.removeCallbacks(runnable);
-                    this.e = null;
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str)) == null) {
+            uq5 uq5Var = this.a.get(str);
+            if (uq5Var != null && (webView = uq5Var.a) != null) {
+                ((MutableContextWrapper) webView.getContext()).setBaseContext(activity);
+                this.a.remove(str);
+                return uq5Var;
             }
+            return null;
         }
+        return (uq5) invokeLL.objValue;
     }
 
-    public final void l(@NonNull Callable<Boolean> callable) {
+    public boolean d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, callable) == null) {
-            try {
-                if (this.d < this.b) {
-                    this.d++;
-                    if (!callable.call().booleanValue()) {
-                        a aVar = new a(this, callable);
-                        this.e = aVar;
-                        this.a.postDelayed(aVar, this.c);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return this.a.containsKey(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (this.a.containsKey(str) && this.a.get(str) != null && this.a.get(str).a()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            long j = 0;
+            String str = null;
+            for (String str2 : this.a.keySet()) {
+                uq5 uq5Var = this.a.get(str2);
+                if (uq5Var != null) {
+                    if (uq5Var.d < j) {
+                        str = uq5Var.b;
                     }
+                    j = uq5Var.d;
                 }
-            } catch (Exception e) {
-                BdLog.e(e);
-                Runnable runnable = this.e;
-                if (runnable != null) {
-                    this.a.removeCallbacks(runnable);
-                    this.e = null;
-                }
+            }
+            if (str != null) {
+                this.a.remove(str);
             }
         }
     }

@@ -1,83 +1,30 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class jb {
+public class jb extends kb {
     public static /* synthetic */ Interceptable $ic;
+    public static jb c;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public final Handler c;
 
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448308085, "Lcom/baidu/tieba/jb;")) == null) {
+            return;
         }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ jb a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(jb jbVar, Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jbVar, looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = jbVar;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                super.handleMessage(message);
-                if (message.what == 1) {
-                    this.a.c.removeMessages(1);
-                    BdLog.i("this is reconn time:" + this.a.b);
-                    BdSocketLinkService.startService(true, "time to reconnStragety");
-                    jb.c(this.a);
-                    if (BdNetTypeUtil.isNetWorkAvailable()) {
-                        if (this.a.b >= bi.o().q("alert_im", 3)) {
-                            BdStatisticsManager bdStatisticsManager = BdStatisticsManager.getInstance();
-                            bdStatisticsManager.alert("alert_im", "Socket_Reconnect_" + String.valueOf(this.a.b) + "_times");
-                        }
-                    }
-                    int[] c = ab.c();
-                    if (c != null && this.a.b < c.length) {
-                        BdLog.i("Next will be delay:" + c[this.a.b]);
-                        this.a.c.sendMessageDelayed(this.a.c.obtainMessage(1), (long) (c[this.a.b] * 1000));
-                        return;
-                    }
-                    this.a.f("reconnStragety to the end");
-                }
-            }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448308085, "Lcom/baidu/tieba/jb;");
         }
     }
 
@@ -85,67 +32,48 @@ public class jb {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = false;
-        this.b = 0;
-        this.c = new a(this, Looper.getMainLooper());
+        this.a = new lb(20000, 10000, 5000);
+        this.b = 3;
     }
 
-    public static /* synthetic */ int c(jb jbVar) {
-        int i = jbVar.b;
-        jbVar.b = i + 1;
-        return i;
-    }
-
-    public void f(String str) {
+    public static jb c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && this.a) {
-            bb.a("reconn", 0, 0, "stop", BdSocketLinkService.STOP_RECONN, str);
-            this.a = false;
-            this.b = 0;
-            BdLog.i("stop reconnStrategy");
-            this.c.removeMessages(1);
-        }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (!BdSocketLinkService.isAvailable()) {
-                f("online failed 5");
-            } else if (!this.a) {
-                this.a = true;
-                this.c.removeMessages(1);
-                if (ek.j().l()) {
-                    BdLog.d("启动重连策略失败，  WebSocketClient opened");
-                    f("in Opened");
-                    return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (c == null) {
+                synchronized (jb.class) {
+                    if (c == null) {
+                        c = new jb();
+                    }
                 }
-                d();
-                BdLog.d("启动重连策略");
-                this.b = 0;
-                int[] c = ab.c();
-                if (c != null && c.length >= 1) {
-                    BdLog.i("start reconnStrategy... the first will be delay" + c[0]);
-                    int i = BdSocketLinkService.STOP_RECONN;
-                    bb.a("reconn", 0, 0, "reconn", i, str + " retryTimes=" + String.valueOf(this.b));
-                    Handler handler = this.c;
-                    handler.sendMessageDelayed(handler.obtainMessage(1), (long) (c[0] * 1000));
-                    return;
-                }
-                BdLog.i("don't have reconnStrategy!");
-            } else {
-                BdLog.d("重连策略正在运行中， 再次启动无效");
-                bb.a("reconn", 0, 0, "start", BdSocketLinkService.ALLREADY, "have in Running,so invalid");
             }
+            return c;
+        }
+        return (jb) invokeV.objValue;
+    }
+
+    public void d(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) {
+            if (i < 3000) {
+                i = 3000;
+            }
+            if (i2 < 3000) {
+                i2 = 3000;
+            }
+            if (i3 < 3000) {
+                i3 = 3000;
+            }
+            this.a = new lb(i, i2, i3);
         }
     }
 }

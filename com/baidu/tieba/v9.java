@@ -1,7 +1,11 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.inputmethod.InputMethodManager;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,85 +13,226 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.LinkedList;
 /* loaded from: classes6.dex */
-public class v9<T> {
+public class v9 extends u9<CustomMessage<?>, CustomMessageTask> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public x9<T> mContext;
-    public InputMethodManager mInputManager;
 
-    public v9(x9<T> x9Var) {
+    /* loaded from: classes6.dex */
+    public class a extends BdAsyncTask<String, String, CustomResponsedMessage<?>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public CustomMessage a;
+        public CustomMessageTask b;
+        public final /* synthetic */ v9 c;
+
+        public a(v9 v9Var, CustomMessage customMessage, CustomMessageTask customMessageTask) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v9Var, customMessage, customMessageTask};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = v9Var;
+            this.a = null;
+            this.b = null;
+            setPriority(customMessageTask.getPriority());
+            setParallel(customMessageTask.getParallel());
+            if (customMessage != null) {
+                setTag(customMessage.getTag());
+            }
+            setKey(String.valueOf(customMessageTask.getCmd()));
+            setParallel(customMessageTask.getTaskParallel());
+            if (customMessageTask.isImme()) {
+                setPriority(4);
+            }
+            this.a = customMessage;
+            this.b = customMessageTask;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public CustomResponsedMessage doInBackground(String... strArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+                CustomMessageTask customMessageTask = this.b;
+                if (customMessageTask == null) {
+                    return null;
+                }
+                if (customMessageTask.getRunnable() == null) {
+                    BdLog.e("CustomTask :" + this.b.getClass().getName() + "did not contain a runnable!!");
+                    return null;
+                }
+                try {
+                    return this.b.getRunnable().run(this.a);
+                } catch (Exception e) {
+                    BdLog.detailException(e);
+                    return null;
+                }
+            }
+            return (CustomResponsedMessage) invokeL.objValue;
+        }
+
+        public CustomMessage c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.a;
+            }
+            return (CustomMessage) invokeV.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: d */
+        public void onPostExecute(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, customResponsedMessage) == null) {
+                if (customResponsedMessage != null) {
+                    customResponsedMessage.setOrginalMessage(this.a);
+                    this.c.a.dispatchResponsedMessage(customResponsedMessage);
+                    return;
+                }
+                BdLog.e("CustomTask :" + this.b.getClass().getName() + "returns a NULL!!");
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public v9(MessageManager messageManager) {
+        super(messageManager);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {x9Var};
+            Object[] objArr = {messageManager};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((MessageManager) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mContext = null;
-        this.mInputManager = null;
-        this.mContext = x9Var;
     }
 
-    public void HidenSoftKeyPad(View view2) {
+    @Override // com.baidu.tieba.r9
+    public LinkedList<CustomMessage<?>> e(int i, BdUniqueId bdUniqueId) {
+        InterceptResult invokeIL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            try {
-                if (this.mInputManager == null) {
-                    getInputMethodManager();
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, bdUniqueId)) == null) {
+            if (i != 0) {
+                str = String.valueOf(i);
+            } else {
+                str = null;
+            }
+            LinkedList<BdAsyncTask<?, ?, ?>> searchAllTask = BdAsyncTask.searchAllTask(bdUniqueId, str);
+            LinkedList<CustomMessage<?>> linkedList = new LinkedList<>();
+            Iterator<BdAsyncTask<?, ?, ?>> it = searchAllTask.iterator();
+            while (it.hasNext()) {
+                BdAsyncTask<?, ?, ?> next = it.next();
+                if (next instanceof a) {
+                    linkedList.add(((a) next).c());
                 }
-                if (this.mInputManager != null && view2 != null) {
-                    this.mInputManager.hideSoftInputFromWindow(view2.getWindowToken(), 2);
+            }
+            return linkedList;
+        }
+        return (LinkedList) invokeIL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.r9
+    /* renamed from: l */
+    public void f(CustomMessage customMessage, CustomMessageTask customMessageTask) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048582, this, customMessage, customMessageTask) == null) && customMessage != null && customMessageTask != null) {
+            if (customMessageTask.getType() == CustomMessageTask.TASK_TYPE.SYNCHRONIZED) {
+                CustomResponsedMessage<?> customResponsedMessage = null;
+                try {
+                    customResponsedMessage = customMessageTask.getRunnable().run(customMessage);
+                    if (customResponsedMessage != null) {
+                        customResponsedMessage.setOrginalMessage(customMessage);
+                    }
+                } catch (Exception e) {
+                    BdLog.detailException(e);
                 }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+                if (customResponsedMessage != null) {
+                    this.a.dispatchResponsedMessage(customResponsedMessage);
+                    return;
+                }
+                return;
             }
+            new a(this, customMessage, customMessageTask).execute(new String[0]);
         }
     }
 
-    public void ShowSoftKeyPad(View view2) {
+    @Override // com.baidu.tieba.r9
+    public void h(int i, BdUniqueId bdUniqueId) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            try {
-                getInputMethodManager().showSoftInput(view2, 0);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bdUniqueId) == null) {
+            if (i != 0) {
+                str = String.valueOf(i);
+            } else {
+                str = null;
             }
+            BdAsyncTask.removeAllTask(bdUniqueId, str);
         }
     }
 
-    public void setInputMethodManager(InputMethodManager inputMethodManager) {
+    public LinkedList<CustomMessage<?>> i(BdUniqueId bdUniqueId) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, inputMethodManager) == null) {
-            this.mInputManager = inputMethodManager;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bdUniqueId)) == null) {
+            return e(0, bdUniqueId);
+        }
+        return (LinkedList) invokeL.objValue;
+    }
+
+    public void j(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
+            h(0, bdUniqueId);
         }
     }
 
-    public InputMethodManager getInputMethodManager() {
-        InterceptResult invokeV;
+    public <T> CustomResponsedMessage<T> k(CustomMessage customMessage, CustomMessageTask customMessageTask, Class<T> cls) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.mInputManager == null) {
-                this.mInputManager = (InputMethodManager) this.mContext.getContext().getSystemService("input_method");
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, customMessage, customMessageTask, cls)) == null) {
+            CustomResponsedMessage<T> customResponsedMessage = null;
+            if (customMessageTask == null) {
+                return null;
             }
-            return this.mInputManager;
+            if (customMessageTask.getType() == CustomMessageTask.TASK_TYPE.SYNCHRONIZED) {
+                try {
+                    customResponsedMessage = (CustomResponsedMessage<T>) customMessageTask.getRunnable().run(customMessage);
+                } catch (Exception e) {
+                    BdLog.detailException(e);
+                }
+                if (customResponsedMessage != null) {
+                    this.a.dispatchResponsedMessage(customResponsedMessage);
+                }
+            } else {
+                new a(this, customMessage, customMessageTask).execute(new String[0]);
+            }
+            return customResponsedMessage;
         }
-        return (InputMethodManager) invokeV.objValue;
-    }
-
-    public x9<T> getPageContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.mContext;
-        }
-        return (x9) invokeV.objValue;
+        return (CustomResponsedMessage) invokeLLL.objValue;
     }
 }

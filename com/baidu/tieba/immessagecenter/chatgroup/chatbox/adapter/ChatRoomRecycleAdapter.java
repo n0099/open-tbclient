@@ -7,10 +7,10 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ks7;
-import com.baidu.tieba.ms7;
-import com.baidu.tieba.ns7;
-import com.baidu.tieba.os7;
+import com.baidu.tieba.rt7;
+import com.baidu.tieba.tt7;
+import com.baidu.tieba.ut7;
+import com.baidu.tieba.vt7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,9 +23,9 @@ public class ChatRoomRecycleAdapter extends RecyclerView.Adapter<BaseItemViewHol
     public transient /* synthetic */ FieldHolder $fh;
     public final b a;
     @NonNull
-    public final ns7 b;
+    public final ut7 b;
     @NonNull
-    public final ms7 c;
+    public final tt7 c;
     @NonNull
     public final TbPageContext d;
     public RecyclerView e;
@@ -96,7 +96,7 @@ public class ChatRoomRecycleAdapter extends RecyclerView.Adapter<BaseItemViewHol
     }
 
     /* loaded from: classes4.dex */
-    public class b implements os7 {
+    public class b implements vt7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatRoomRecycleAdapter a;
@@ -123,7 +123,7 @@ public class ChatRoomRecycleAdapter extends RecyclerView.Adapter<BaseItemViewHol
             this(chatRoomRecycleAdapter);
         }
 
-        @Override // com.baidu.tieba.os7
+        @Override // com.baidu.tieba.vt7
         public void b(int i, int i2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
@@ -131,16 +131,16 @@ public class ChatRoomRecycleAdapter extends RecyclerView.Adapter<BaseItemViewHol
             }
         }
 
-        @Override // com.baidu.tieba.os7
-        public void c(int i, @NonNull List<ks7> list) {
+        @Override // com.baidu.tieba.vt7
+        public void c(int i, @NonNull List<rt7> list) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, list) == null) && !list.isEmpty()) {
                 this.a.notifyItemRangeChanged(i, list.size());
             }
         }
 
-        @Override // com.baidu.tieba.os7
-        public void g(int i, @NonNull List<ks7> list) {
+        @Override // com.baidu.tieba.vt7
+        public void g(int i, @NonNull List<rt7> list) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, list) == null) && !list.isEmpty()) {
                 this.a.notifyItemRangeInserted(i, list.size());
@@ -148,12 +148,12 @@ public class ChatRoomRecycleAdapter extends RecyclerView.Adapter<BaseItemViewHol
         }
     }
 
-    public ChatRoomRecycleAdapter(@NonNull ns7 ns7Var, @NonNull ms7 ms7Var, @NonNull TbPageContext tbPageContext) {
+    public ChatRoomRecycleAdapter(@NonNull ut7 ut7Var, @NonNull tt7 tt7Var, @NonNull TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ns7Var, ms7Var, tbPageContext};
+            Object[] objArr = {ut7Var, tt7Var, tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -165,10 +165,10 @@ public class ChatRoomRecycleAdapter extends RecyclerView.Adapter<BaseItemViewHol
         }
         b bVar = new b(this, null);
         this.a = bVar;
-        this.b = ns7Var;
+        this.b = ut7Var;
         this.d = tbPageContext;
-        this.c = ms7Var;
-        ms7Var.d(bVar);
+        this.c = tt7Var;
+        tt7Var.d(bVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

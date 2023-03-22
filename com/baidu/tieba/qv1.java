@@ -1,101 +1,62 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.android.imsdk.internal.Constants;
+import android.animation.ObjectAnimator;
+import android.view.View;
+import android.view.animation.LinearInterpolator;
+import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-/* loaded from: classes5.dex */
-public final class qv1 extends pu2<qv1> {
+/* loaded from: classes6.dex */
+public class qv1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        public static final String a = pu2.r("SwanFileFetcher.Params", "file_url");
-        public static final String b = pu2.r("SwanFileFetcher.Params", "file_save_path");
-        public static final String c = pu2.r("SwanFileFetcher.Params", "file_head_map");
-        public static final String d = pu2.r("SwanFileFetcher.Params", "image_save_gallery");
-        public static final String e = pu2.r("SwanFileFetcher.Params", "file_cancel_tag");
-    }
-
-    public qv1 J() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this : (qv1) invokeV.objValue;
-    }
-
-    public qv1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.io3
-    public /* bridge */ /* synthetic */ io3 d() {
-        J();
-        return this;
-    }
-
-    public qv1 E(String str) {
+    public static ObjectAnimator a(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return z(a.e, str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, 0.0f);
+            ofFloat.setDuration(320L);
+            ofFloat.setInterpolator(new xd4(0.32f, 0.6f, 0.1f, 1.0f));
+            return ofFloat;
         }
-        return (qv1) invokeL.objValue;
+        return (ObjectAnimator) invokeL.objValue;
     }
 
-    public qv1 G(String str) {
+    public static ObjectAnimator b(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return z(a.b, str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.ALPHA, 0.0f);
+            ofFloat.setDuration(240L);
+            ofFloat.setInterpolator(new LinearInterpolator());
+            return ofFloat;
         }
-        return (qv1) invokeL.objValue;
+        return (ObjectAnimator) invokeL.objValue;
     }
 
-    public qv1 H(String str) {
+    public static ObjectAnimator c(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return z(a.a, str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.ALPHA, 1.0f);
+            ofFloat.setDuration(320L);
+            ofFloat.setInterpolator(new LinearInterpolator());
+            return ofFloat;
         }
-        return (qv1) invokeL.objValue;
+        return (ObjectAnimator) invokeL.objValue;
     }
 
-    public qv1 I(boolean z) {
-        InterceptResult invokeZ;
+    public static ObjectAnimator d(View view2, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-            return t(a.d, z);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, view2, i)) == null) {
+            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(view2, Key.TRANSLATION_Y, i);
+            ofFloat.setDuration(240L);
+            ofFloat.setInterpolator(new xd4(0.32f, 0.6f, 0.1f, 1.0f));
+            return ofFloat;
         }
-        return (qv1) invokeZ.objValue;
-    }
-
-    public qv1 F(Map<String, String> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            Bundle bundle = new Bundle();
-            if (map != null && !map.isEmpty()) {
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    bundle.putString(entry.getKey(), entry.getValue());
-                }
-            }
-            return u(a.c, bundle);
-        }
-        return (qv1) invokeL.objValue;
+        return (ObjectAnimator) invokeLI.objValue;
     }
 }

@@ -16,8 +16,8 @@ import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcher;
 import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcherHolder;
 import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.tieba.sma;
-import com.baidu.tieba.yma;
+import com.baidu.tieba.ora;
+import com.baidu.tieba.ura;
 /* loaded from: classes2.dex */
 public final class DelegateUtils implements DelegateDef {
     public static Handler sMainHandler = new Handler(Looper.getMainLooper());
@@ -96,13 +96,13 @@ public final class DelegateUtils implements DelegateDef {
     }
 
     @NonNull
-    public static sma<DelegateResult> safeCallOnMainWithContentProvider(@NonNull final Context context, @NonNull final Class<? extends ProviderDelegation> cls, @Nullable final Bundle bundle) {
-        return sma.a(new sma.a<DelegateResult>() { // from class: com.baidu.searchbox.process.ipc.delegate.DelegateUtils.1
+    public static ora<DelegateResult> safeCallOnMainWithContentProvider(@NonNull final Context context, @NonNull final Class<? extends ProviderDelegation> cls, @Nullable final Bundle bundle) {
+        return ora.a(new ora.a<DelegateResult>() { // from class: com.baidu.searchbox.process.ipc.delegate.DelegateUtils.1
             /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.sma.a, com.baidu.tieba.gna
-            public void call(yma<? super DelegateResult> ymaVar) {
-                ymaVar.onNext(DelegateUtils.callOnMainWithContentProvider(context, cls, bundle));
-                ymaVar.onCompleted();
+            @Override // com.baidu.tieba.ora.a, com.baidu.tieba.csa
+            public void call(ura<? super DelegateResult> uraVar) {
+                uraVar.onNext(DelegateUtils.callOnMainWithContentProvider(context, cls, bundle));
+                uraVar.onCompleted();
             }
         });
     }

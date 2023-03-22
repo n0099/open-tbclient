@@ -1,312 +1,266 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
+import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.publisher.view.PhotoChooseView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.view.SimpleDraweeView;
+import com.facebook.imagepipeline.common.ImageDecodeOptions;
+import com.facebook.imagepipeline.common.ResizeOptions;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class k53 {
+public class k53 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public List<String> d;
+    public Context e;
+    public PhotoChooseView.b f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947864032, "Lcom/baidu/tieba/k53;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ k53 b;
+
+        public a(k53 k53Var, int i) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k53Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947864032, "Lcom/baidu/tieba/k53;");
+            this.b = k53Var;
+            this.a = i;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.b.d.remove(this.a);
+                this.b.notifyDataSetChanged();
+                if (this.b.f != null) {
+                    this.b.f.a(this.b.d.size());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public SimpleDraweeView a;
+        public ImageView b;
+        public RelativeLayout c;
+        public TextView d;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public k53(Context context, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = wp1.a;
+        this.c = 9;
+        this.d = new ArrayList(0);
+        this.e = context;
+        this.a = i;
+        this.b = i2;
     }
 
-    public static void j() {
-        v82 V;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: d */
+    public String getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65546, null) == null) && (V = zu2.U().V()) != null && (V.m() instanceof w82)) {
-            zu2.U().getActivity().onBackPressed();
-        }
-    }
-
-    public static void a(Map<String, String> map, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, map, str) != null) || map == null) {
-            return;
-        }
-        String b = b(map, "dynamicLibPath", 3);
-        String b2 = b(map, "dynamicLibConfig", 3);
-        String b3 = b(map, "pluginPath", 4);
-        String b4 = b(map, "dependenciesPath", 6);
-        String b5 = b(map, "dependenciesConfig", 6);
-        if (!TextUtils.isEmpty(str) && a) {
-            e53.b(str + ", dynamicLibPath = " + b + "; dynamicLibConfig = " + b2 + "; pluginPath = " + b3 + "; dependenciesPath = " + b4 + "; dependenciesConfig = " + b5);
-        }
-    }
-
-    public static String b(Map<String, String> map, String str, int i) {
-        InterceptResult invokeLLI;
-        String str2;
-        SwanAppConfigData swanAppConfigData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, map, str, i)) == null) {
-            if (map == null || TextUtils.isEmpty(str)) {
-                return null;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i < this.d.size()) {
+                return this.d.get(i);
             }
-            m93 M = m93.M();
-            if (M != null) {
-                str2 = M.U().e(str, null);
+            return "more_option";
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public boolean e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (i == getCount() - 1 && this.d.size() < this.c) {
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void f(List<String> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && list != null) {
+            for (String str : list) {
+                if (!this.d.contains(str)) {
+                    this.d.add(str);
+                }
+            }
+        }
+    }
+
+    public void g(PhotoChooseView.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
+            this.f = bVar;
+        }
+    }
+
+    public void h(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public List<String> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            int size = this.d.size();
+            int i = this.c;
+            if (size < i) {
+                return size + 1;
+            }
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        View view3;
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                bVar = new b();
+                view3 = LayoutInflater.from(this.e).inflate(R.layout.obfuscated_res_0x7f0d08a2, viewGroup, false);
+                bVar.a = (SimpleDraweeView) view3.findViewById(R.id.obfuscated_res_0x7f091c72);
+                bVar.b = (ImageView) view3.findViewById(R.id.obfuscated_res_0x7f091c6f);
+                bVar.c = (RelativeLayout) view3.findViewById(R.id.obfuscated_res_0x7f091c78);
+                bVar.d = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f091c79);
+                bVar.a.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                int o = kl3.o(this.e) - kl3.g(30.0f);
+                int i2 = this.a;
+                int i3 = this.b;
+                int i4 = (o - (i2 * (i3 - 1))) / i3;
+                RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) bVar.a.getLayoutParams();
+                layoutParams.width = i4;
+                layoutParams.height = i4;
+                bVar.a.setLayoutParams(layoutParams);
+                bVar.a.setBackground(ContextCompat.getDrawable(this.e, R.drawable.obfuscated_res_0x7f08126f));
+                view3.setTag(bVar);
             } else {
-                str2 = null;
+                view3 = view2;
+                bVar = (b) view2.getTag();
             }
-            if (!TextUtils.isEmpty(str2)) {
-                map.put(str, str2);
-                return str2;
-            }
-            if (M != null) {
-                swanAppConfigData = M.Q();
+            int o2 = kl3.o(this.e) / 3;
+            int o3 = kl3.o(this.e) / 3;
+            bVar.b.setImageResource(R.drawable.obfuscated_res_0x7f08126e);
+            bVar.b.setVisibility(8);
+            if (e(i)) {
+                bVar.c.setVisibility(8);
+                bVar.a.setBackground(ContextCompat.getDrawable(this.e, R.drawable.obfuscated_res_0x7f08126b));
+                bVar.a.setImageResource(R.drawable.obfuscated_res_0x7f081269);
             } else {
-                swanAppConfigData = null;
-            }
-            if (i == 3) {
-                t43.m(swanAppConfigData, false);
-                str2 = i(str, null);
-            } else if (i == 4) {
-                str2 = l(swanAppConfigData);
-            } else if (i == 6) {
-                r43.a(swanAppConfigData);
-                str2 = i(str, null);
-            }
-            map.put(str, str2);
-            return str2;
-        }
-        return (String) invokeLLI.objValue;
-    }
-
-    public static void c(String str, String str2) {
-        m93 M;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && !TextUtils.isEmpty(str) && (M = m93.M()) != null) {
-            M.U().j(str, str2);
-        }
-    }
-
-    public static String i(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, str2)) == null) {
-            m93 M = m93.M();
-            if (M != null && !TextUtils.isEmpty(str)) {
-                return M.U().e(str, str2);
-            }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String d(List<i53> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list)) == null) {
-            int size = list.size();
-            StringBuilder sb = new StringBuilder();
-            sb.append("select * from (SELECT * from ");
-            sb.append("swan_plugin");
-            sb.append(" ORDER BY update_time) group by bundle_id having bundle_id in ");
-            sb.append("(");
-            for (int i = 0; i < size; i++) {
-                sb.append("'");
-                sb.append(list.get(i).a);
-                sb.append("'");
-                if (i == size - 1) {
-                    sb.append(SmallTailInfo.EMOTION_SUFFIX);
-                } else {
-                    sb.append(",");
-                }
-            }
-            sb.append(ParamableElem.DIVIDE_PARAM);
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String l(SwanAppConfigData swanAppConfigData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, swanAppConfigData)) == null) {
-            if (swanAppConfigData == null) {
-                e53.b("parse app.json is null");
-                return null;
-            }
-            List<i53> i = swanAppConfigData.i(4);
-            if (i != null && !i.isEmpty()) {
-                JSONObject jSONObject = new JSONObject();
-                for (i53 i53Var : i) {
-                    if (i53Var != null && i53Var.a()) {
-                        mm3.f(jSONObject, i53Var.a, i53Var.e);
+                bVar.b.setVisibility(0);
+                String item = getItem(i);
+                if (!TextUtils.isEmpty(item)) {
+                    if (el3.c(item)) {
+                        bVar.c.setVisibility(0);
+                        bVar.d.setText(this.e.getString(R.string.obfuscated_res_0x7f0f1386));
+                    } else if (el3.f(item)) {
+                        bVar.c.setVisibility(0);
+                        bVar.d.setText(this.e.getString(R.string.obfuscated_res_0x7f0f1387));
+                    } else {
+                        bVar.c.setVisibility(8);
                     }
-                }
-                String jSONObject2 = jSONObject.toString();
-                c("pluginPath", jSONObject2);
-                return jSONObject2;
-            }
-            c("pluginPath", null);
-            e53.b("this swan app not apply on someone plugin");
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return null;
-            }
-            SwanAppConfigData b = y93.b(str);
-            if (b == null) {
-                e53.b("getDownloadKey, app.json is null");
-                return null;
-            }
-            SwanAppConfigData.m mVar = b.d;
-            if (mVar == null) {
-                e53.b("getDownloadKey, sub pkg obj is null");
-                return null;
-            }
-            Map<String, String> map = mVar.a;
-            if (map == null) {
-                e53.b("getDownloadKey, sub pkg map is null");
-                return null;
-            }
-            return map.get(str2);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String f(String str) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            ni4 g = g(str);
-            if (g != null && !TextUtils.isEmpty(g.r)) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                return g.r;
-            }
-            e53.b("get plugin appKey form db, but empty, plugin appId = " + str);
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static ni4 h(String str) {
-        InterceptResult invokeL;
-        SwanAppConfigData Q;
-        List<ni4> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            if (!d72.d() && !l53.H() && !l53.D()) {
-                return g(str);
-            }
-            m93 M = m93.M();
-            if (M != null && (Q = M.Q()) != null && (list = Q.l) != null) {
-                for (ni4 ni4Var : list) {
-                    if (TextUtils.equals(str, ni4Var.g)) {
-                        return ni4Var;
-                    }
+                    Fresco.getImagePipeline().evictFromCache(ll3.p(item));
+                    bVar.a.setController(Fresco.newDraweeControllerBuilder().setAutoPlayAnimations(false).setOldController(bVar.a.getController()).setImageRequest(ImageRequestBuilder.newBuilderWithSource(ll3.p(item)).setResizeOptions(new ResizeOptions((int) (o2 / 2.0f), (int) (o3 / 2.0f))).setImageDecodeOptions(ImageDecodeOptions.newBuilder().setForceStaticImage(true).build()).build()).build());
                 }
             }
-            return null;
+            bVar.b.setOnClickListener(new a(this, i));
+            return view3;
         }
-        return (ni4) invokeL.objValue;
-    }
-
-    public static ni4 g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            return t43.p(str, com.kuaishou.weapon.p0.q1.e, 0L);
-        }
-        return (ni4) invokeL.objValue;
-    }
-
-    public static List<ni4> k(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65547, null, str, z)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                int length = jSONArray.length();
-                if (length == 0) {
-                    return null;
-                }
-                ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        String optString = optJSONObject.optString("plugin_id");
-                        if (!TextUtils.isEmpty(optString)) {
-                            ni4 ni4Var = new ni4();
-                            ni4Var.g = optString;
-                            ni4Var.i = optJSONObject.optLong("version_code", 0L);
-                            ni4Var.j = optJSONObject.optString("version_name", com.kuaishou.weapon.p0.q1.e);
-                            ni4Var.p = optJSONObject.optString("token");
-                            ni4Var.q = optJSONObject.optString("domains");
-                            ni4Var.h = 4;
-                            ni4Var.r = optJSONObject.optString(GameGuideConfigInfo.KEY_APP_KEY);
-                            ni4Var.s = optJSONObject.optString("app_name");
-                            ni4Var.l = "";
-                            ni4Var.m = "";
-                            ni4Var.n = "";
-                            arrayList.add(ni4Var);
-                            if (z) {
-                                jh4.i().m(ni4Var);
-                            }
-                        }
-                    }
-                }
-                return arrayList;
-            } catch (JSONException e) {
-                e53.b(Log.getStackTraceString(e));
-                return null;
-            }
-        }
-        return (List) invokeLZ.objValue;
+        return (View) invokeILL.objValue;
     }
 }

@@ -1,13 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.write.write.sticker.view.StickerView;
+import android.graphics.Bitmap;
 /* loaded from: classes5.dex */
 public interface oq9 {
-    void a(StickerView stickerView);
-
-    void b(StickerView stickerView, boolean z);
-
-    void c(StickerView stickerView);
-
-    void onDelete();
+    void a(int i, Bitmap bitmap);
 }

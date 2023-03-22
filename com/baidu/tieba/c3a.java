@@ -1,45 +1,31 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.u2a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedHashMap;
 /* loaded from: classes3.dex */
-public class c3a {
+public final class c3a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public long b;
-    public int c;
-    public long d;
-    public int e;
+    public final LinkedHashMap<String, Long> a;
 
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
+    public class a extends g3a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ com.baidu.ubs.analytics.a.l a;
 
-    /* loaded from: classes3.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public boolean b;
-        public long c;
-        public int d;
-        public long e;
-        public int f;
-
-        public b(String str) {
+        public a(c3a c3aVar, com.baidu.ubs.analytics.a.l lVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str};
+                Object[] objArr = {c3aVar, lVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,30 +35,22 @@ public class c3a {
                     return;
                 }
             }
-            this.a = str;
-            this.b = e3a.a;
-            this.c = e3a.g;
-            this.d = e3a.j;
-            this.e = e3a.l;
-            this.f = e3a.m;
+            this.a = lVar;
         }
 
-        public c3a g() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.g3a
+        public final void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return new c3a(this, null);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                new m2a().c(this.a);
             }
-            return (c3a) invokeV.objValue;
         }
     }
 
-    public c3a(b bVar) {
+    public c3a() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -82,95 +60,42 @@ public class c3a {
                 return;
             }
         }
-        String unused = bVar.a;
-        this.a = bVar.b;
-        this.b = bVar.c;
-        this.c = bVar.d;
-        this.d = bVar.e;
-        this.e = bVar.f;
+        this.a = new LinkedHashMap<>();
     }
 
-    public /* synthetic */ c3a(b bVar, a aVar) {
-        this(bVar);
-    }
-
-    public long a() {
-        InterceptResult invokeV;
+    public final void a(String str) {
+        u2a u2aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return invokeV.longValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return invokeV.longValue;
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.a = z;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !TextUtils.isEmpty(str)) {
+            com.baidu.ubs.analytics.a.l lVar = new com.baidu.ubs.analytics.a.l();
+            synchronized (this.a) {
+                Long remove = this.a.remove(str);
+                if (remove == null) {
+                    return;
+                }
+                try {
+                    lVar.setStartTime(String.valueOf(remove));
+                    lVar.t(str);
+                    lVar.z(String.valueOf(System.currentTimeMillis()));
+                    u2aVar = u2a.a.a;
+                    lVar.setPath(u2aVar.b());
+                    lVar.x(d3a.e().I());
+                } catch (Exception e) {
+                    m3a.a(e.toString());
+                    e3a.b(e.toString());
+                }
+                f3a.c(new a(this, lVar));
+            }
         }
     }
 
-    public void g(long j) {
+    public final void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.b = j;
-        }
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public void j(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            this.d = j;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && !TextUtils.isEmpty(str)) {
+            synchronized (this.a) {
+                this.a.put(str, Long.valueOf(System.currentTimeMillis()));
+                String.valueOf(System.currentTimeMillis());
+            }
         }
     }
 }

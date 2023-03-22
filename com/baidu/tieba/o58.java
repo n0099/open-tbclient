@@ -1,71 +1,99 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import android.location.Address;
+import android.os.Bundle;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.util.tbselector.TBSelector;
-import com.baidu.tbadk.core.util.tbselector.shadow.ShadowDrawable;
-import com.baidu.tieba.memberCenter.memberpay.MemberPayResult;
-import com.baidu.tieba.view.RoundRelativeLayout;
+import com.baidu.location.BDLocation;
+import com.baidu.location.BDLocationListener;
+import com.baidu.location.LocationClient;
+import com.baidu.location.LocationClientOption;
+import com.baidu.permissionhelper.ApiUtil;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tieba.cf;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.util.Locale;
 /* loaded from: classes5.dex */
-public class o58 extends BaseAdapter {
+public class o58 implements df {
     public static /* synthetic */ Interceptable $ic;
+    public static o58 k;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<MemberPayResult.e> a;
-    public final LayoutInflater b;
-    public final int c;
-    public final int d;
-    public final int e;
-    public final int f;
-    public final int g;
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? i : invokeI.longValue;
-    }
+    public Context a;
+    public boolean b;
+    public String c;
+    public cf.d d;
+    public b e;
+    public LocationClient f;
+    public LocationClientOption g;
+    public Address h;
+    public long i;
+    public boolean j;
 
     /* loaded from: classes5.dex */
-    public class a {
+    public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public RelativeLayout a;
-        public LinearLayout b;
-        public TextView c;
-        public TextView d;
-        public TextView e;
-        public TextView f;
-        public TextView g;
-        public RoundRelativeLayout h;
-        public ImageView i;
-        public LinearLayout j;
 
-        public a(o58 o58Var, View view2) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {o58Var, view2};
+                Object[] objArr = {Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2001330) {
+                if ((ApiUtil.shouldCheckPermission() && !PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) || !(customResponsedMessage.getData() instanceof Boolean)) {
+                    return;
+                }
+                if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                    cf.n().r(o58.j());
+                } else {
+                    cf.n().v(o58.j());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements BDLocationListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ o58 a;
+
+        public b(o58 o58Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o58Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -75,227 +103,179 @@ public class o58 extends BaseAdapter {
                     return;
                 }
             }
-            this.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091de3);
-            this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090755);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09258d);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09258f);
-            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09258c);
-            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09258e);
-            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092563);
-            this.h = (RoundRelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091bd2);
-            this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e39);
-            this.h.setRoundLayoutRadius(new float[]{o58Var.g, o58Var.g, o58Var.g, o58Var.g, o58Var.g, o58Var.g, 0.0f, o58Var.g});
-            this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091bd1);
+            this.a = o58Var;
+        }
+
+        public /* synthetic */ b(o58 o58Var, a aVar) {
+            this(o58Var);
+        }
+
+        @Override // com.baidu.location.BDLocationListener
+        public void onReceiveLocation(BDLocation bDLocation) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, bDLocation) == null) {
+                if ((!ApiUtil.shouldCheckPermission() || PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) && bDLocation != null && bDLocation.getLocType() != 62 && bDLocation.getLocType() != 63 && bDLocation.getLocType() != 67 && bDLocation.getLocType() != 68 && bDLocation.getLocType() <= 161) {
+                    this.a.c();
+                    this.a.h = new Address(Locale.getDefault());
+                    this.a.h.setLatitude(bDLocation.getLatitude());
+                    this.a.h.setLongitude(bDLocation.getLongitude());
+                    m35 m = m35.m();
+                    m.B("key_last_receive_location_latitude_and_longitude", bDLocation.getLatitude() + "," + bDLocation.getLongitude());
+                    this.a.h.setLocality(bDLocation.getCity());
+                    Bundle bundle = new Bundle();
+                    bundle.putFloat("radius", bDLocation.getRadius());
+                    bundle.putDouble("altitude", bDLocation.getAltitude());
+                    bundle.putFloat("speed", bDLocation.getSpeed());
+                    bundle.putString("cityCode", bDLocation.getCityCode());
+                    bundle.putString("street", bDLocation.getStreet());
+                    bundle.putString("streetNumber", bDLocation.getStreetNumber());
+                    bundle.putString("province", bDLocation.getProvince());
+                    this.a.h.setExtras(bundle);
+                    this.a.i = System.currentTimeMillis();
+                    StringBuffer stringBuffer = new StringBuffer();
+                    if (bDLocation.getDistrict() == null || bDLocation.getStreet() == null) {
+                        stringBuffer.append(bDLocation.getCity());
+                    }
+                    stringBuffer.append(bDLocation.getDistrict());
+                    stringBuffer.append(bDLocation.getStreet());
+                    if (bDLocation.getAddrStr() != null) {
+                        this.a.h.setAddressLine(0, stringBuffer.toString());
+                    }
+                    if (this.a.d != null) {
+                        this.a.d.a(0, "", this.a.h, this.a.i, this.a.j);
+                        o29.e().i(String.valueOf(this.a.h.getLatitude()));
+                        o29.e().j(String.valueOf(this.a.h.getLongitude()));
+                        o29.e().k(System.currentTimeMillis());
+                    }
+                }
+            }
         }
     }
 
-    public o58(TbPageContext<?> tbPageContext) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947983351, "Lcom/baidu/tieba/o58;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947983351, "Lcom/baidu/tieba/o58;");
+                return;
+            }
+        }
+        MessageManager.getInstance().registerListener(new a(2001330));
+    }
+
+    public static o58 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            if (k == null) {
+                synchronized (o58.class) {
+                    if (k == null) {
+                        k = new o58();
+                    }
+                }
+            }
+            return k;
+        }
+        return (o58) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.df
+    public void c() {
+        LocationClient locationClient;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (locationClient = this.f) != null && locationClient.isStarted()) {
+            try {
+                this.f.stop();
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.df
+    public void destroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            c();
+        }
+    }
+
+    public o58() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = LayoutInflater.from(tbPageContext.getPageActivity());
-        this.c = tbPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds294);
-        this.d = tbPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds416);
-        this.e = tbPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.M_H_X007);
-        this.f = tbPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.M_H_X004);
-        this.g = tbPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds42);
+        this.b = true;
+        this.c = "";
+        this.d = null;
+        this.i = 0L;
+        this.j = false;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: b */
-    public MemberPayResult.e getItem(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.df
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return (MemberPayResult.e) ListUtils.getItem(this.a, i);
-        }
-        return (MemberPayResult.e) invokeI.objValue;
-    }
-
-    public void f(List<MemberPayResult.e> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
-            this.a = list;
-        }
-    }
-
-    public MemberPayResult.e c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (ListUtils.isEmpty(this.a)) {
-                return null;
-            }
-            for (MemberPayResult.e eVar : this.a) {
-                if (eVar != null && eVar.i) {
-                    return eVar;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            if ((!ApiUtil.shouldCheckPermission() || PermissionUtil.checkLocationForBaiduLocation(TbadkCoreApplication.getInst())) && this.b && this.f != null) {
+                try {
+                    this.j = z;
+                    if (z) {
+                        this.g.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);
+                    }
+                    this.f.setLocOption(this.g);
+                    if (!this.f.isStarted()) {
+                        this.f.start();
+                    }
+                    this.f.requestLocation();
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                    c();
+                    cf.d dVar = this.d;
+                    if (dVar != null) {
+                        dVar.a(5, "", this.h, this.i, this.j);
+                    }
                 }
             }
-            return null;
-        }
-        return (MemberPayResult.e) invokeV.objValue;
-    }
-
-    public final void d(int i, MemberPayResult.e eVar, a aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, eVar, aVar) == null) && eVar != null && eVar.f >= 0) {
-            aVar.g.setText(h(eVar.b, 7));
-            if (TextUtils.isEmpty(eVar.c)) {
-                aVar.f.setVisibility(4);
-            } else {
-                aVar.f.setVisibility(0);
-                aVar.f.setText(h(eVar.c, 10));
-            }
-            TextView textView = aVar.e;
-            textView.setText("" + (eVar.f / 100));
-            if (TextUtils.isEmpty(eVar.d)) {
-                aVar.j.setVisibility(4);
-                aVar.h.setVisibility(4);
-                aVar.d.setVisibility(4);
-            } else {
-                aVar.h.setVisibility(0);
-                aVar.d.setVisibility(0);
-                aVar.j.setVisibility(0);
-                aVar.d.setText(eVar.d);
-            }
-            if (i == 0) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar.a.getLayoutParams();
-                layoutParams.width = this.c;
-                layoutParams.height = this.d;
-                layoutParams.leftMargin = this.e;
-                layoutParams.rightMargin = this.f;
-                aVar.a.setLayoutParams(layoutParams);
-            } else {
-                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) aVar.a.getLayoutParams();
-                layoutParams2.width = this.c;
-                layoutParams2.height = this.d;
-                layoutParams2.leftMargin = 0;
-                layoutParams2.rightMargin = this.f;
-                aVar.a.setLayoutParams(layoutParams2);
-            }
-            SkinManager.setViewTextColor(aVar.c, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(aVar.d, (int) R.color.CAM_X0101);
-            SkinManager.setBackgroundResource(aVar.d, R.drawable.member_price_tag_bg_shape);
-            b35.d(aVar.d).A(R.string.F_X02);
-            SkinManager.setViewTextColor(aVar.e, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(aVar.f, (int) R.color.CAM_X0109);
-            SkinManager.setViewTextColor(aVar.g, (int) R.color.CAM_X0105);
-            b35.d(aVar.g).A(R.string.F_X01);
-            e(aVar);
-            g(eVar, aVar);
         }
     }
 
-    public void e(a aVar) {
+    @Override // com.baidu.tieba.df
+    public void b(cf.d dVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            TBSelector.makeShadowDrawable().setShape(1).setShapeRadius(UtilHelper.getDimenPixelSize(R.dimen.tbds42)).setShadowColor(R.color.CAM_X0301).setShadowAlpha(200).setShadowSide(ShadowDrawable.NO_TOP).setShadowRadius(UtilHelper.getDimenPixelSize(R.dimen.tbds16)).setOffsetX(0).setOffsetY(UtilHelper.getDimenPixelSize(R.dimen.tbds45)).into(aVar.j);
-        }
-    }
-
-    public final void g(MemberPayResult.e eVar, a aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, eVar, aVar) == null) && eVar != null && aVar != null) {
-            SkinManager.setViewTextColor(aVar.e, (int) R.color.CAM_X0301);
-            SkinManager.setViewTextColor(aVar.c, (int) R.color.CAM_X0301);
-            aVar.i.setVisibility(8);
-            if (eVar.i) {
-                SkinManager.setBackgroundResource(aVar.b, R.drawable.member_price_bg_shape_s);
-                b35 d = b35.d(aVar.b);
-                d.e(R.string.A_X09);
-                d.n(R.string.J_X07);
-                d.k(R.color.CAM_X0335);
-                d.j(R.string.A_X05);
-                d.l(R.dimen.L_X04);
-                d.f(R.color.CAM_X0335);
-                b35 d2 = b35.d(aVar.g);
-                d2.A(R.string.F_X02);
-                d2.v(R.color.CAM_X0311);
-                b35 d3 = b35.d(aVar.f);
-                d3.v(R.color.CAM_X0311);
-                d3.z(R.dimen.T_X09);
-                d3.A(R.string.F_X02);
-                if (aVar.f.getVisibility() == 0) {
-                    aVar.i.setVisibility(0);
-                    return;
-                } else {
-                    aVar.i.setVisibility(8);
-                    return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
+            this.a = TbadkCoreApplication.getInst().getContext();
+            this.d = dVar;
+            this.c = "baidu";
+            if (this.b) {
+                try {
+                    this.f = new LocationClient(this.a);
+                    LocationClientOption locationClientOption = new LocationClientOption();
+                    this.g = locationClientOption;
+                    locationClientOption.setOpenGps(true);
+                    this.g.setIgnoreKillProcess(true);
+                    this.g.setProdName(this.c);
+                    this.g.setAddrType("all");
+                    this.g.setCoorType("bd09ll");
+                    b bVar = new b(this, null);
+                    this.e = bVar;
+                    this.f.registerLocationListener(bVar);
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
                 }
             }
-            SkinManager.setBackgroundResource(aVar.b, R.drawable.member_price_bg_shape_n);
-            b35 d4 = b35.d(aVar.b);
-            d4.m(0);
-            d4.n(R.string.J_X07);
-            d4.k(R.color.CAM_X0335);
-            d4.l(R.dimen.L_X04);
-            d4.j(R.string.A_X09);
-            d4.f(R.color.CAM_X0201);
-            b35 d5 = b35.d(aVar.f);
-            d5.v(R.color.CAM_X0109);
-            d5.z(R.dimen.T_X09);
-            d5.A(R.string.F_X01);
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return ListUtils.getCount(this.a);
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                view2 = this.b.inflate(R.layout.obfuscated_res_0x7f0d05b4, (ViewGroup) null);
-                view2.setTag(new a(this, view2));
-            }
-            d(i, getItem(i), (a) view2.getTag());
-            return view2;
-        }
-        return (View) invokeILL.objValue;
-    }
-
-    public final String h(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, str, i)) == null) {
-            if (str.length() > i) {
-                return str.substring(0, i - 1) + StringHelper.STRING_MORE;
-            }
-            return str;
-        }
-        return (String) invokeLI.objValue;
-    }
-
-    public void i(MemberPayResult.e eVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048587, this, eVar) == null) && eVar != null && !ListUtils.isEmpty(this.a)) {
-            for (MemberPayResult.e eVar2 : this.a) {
-                if (eVar2 != null) {
-                    eVar2.i = eVar2.a.equals(eVar.a);
-                }
-            }
-            notifyDataSetChanged();
         }
     }
 }

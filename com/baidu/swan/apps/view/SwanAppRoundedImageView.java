@@ -7,8 +7,8 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
-import com.baidu.tieba.vp1;
-import com.baidu.tieba.w73;
+import com.baidu.tieba.co1;
+import com.baidu.tieba.d63;
 @SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes3.dex */
 public class SwanAppRoundedImageView extends ImageView {
@@ -92,7 +92,7 @@ public class SwanAppRoundedImageView extends ImageView {
     @Deprecated
     public void setBackgroundDrawable(Drawable drawable) {
         if (this.d && drawable != null) {
-            this.f = w73.b(drawable, this.g, this.a, this.b, this.c);
+            this.f = d63.b(drawable, this.g, this.a, this.b, this.c);
         } else {
             this.f = drawable;
         }
@@ -105,13 +105,13 @@ public class SwanAppRoundedImageView extends ImageView {
         }
         this.c = i;
         Drawable drawable = this.e;
-        if (drawable instanceof w73) {
-            ((w73) drawable).d(i);
+        if (drawable instanceof d63) {
+            ((d63) drawable).d(i);
         }
         if (this.d) {
             Drawable drawable2 = this.f;
-            if (drawable2 instanceof w73) {
-                ((w73) drawable2).d(i);
+            if (drawable2 instanceof d63) {
+                ((d63) drawable2).d(i);
             }
         }
         if (this.b > 0) {
@@ -125,13 +125,13 @@ public class SwanAppRoundedImageView extends ImageView {
         }
         this.b = i;
         Drawable drawable = this.e;
-        if (drawable instanceof w73) {
-            ((w73) drawable).e(i);
+        if (drawable instanceof d63) {
+            ((d63) drawable).e(i);
         }
         if (this.d) {
             Drawable drawable2 = this.f;
-            if (drawable2 instanceof w73) {
-                ((w73) drawable2).e(i);
+            if (drawable2 instanceof d63) {
+                ((d63) drawable2).e(i);
             }
         }
         invalidate();
@@ -143,13 +143,13 @@ public class SwanAppRoundedImageView extends ImageView {
         }
         this.a = i;
         Drawable drawable = this.e;
-        if (drawable instanceof w73) {
-            ((w73) drawable).f(i);
+        if (drawable instanceof d63) {
+            ((d63) drawable).f(i);
         }
         if (this.d) {
             Drawable drawable2 = this.f;
-            if (drawable2 instanceof w73) {
-                ((w73) drawable2).f(i);
+            if (drawable2 instanceof d63) {
+                ((d63) drawable2).f(i);
             }
         }
     }
@@ -157,11 +157,11 @@ public class SwanAppRoundedImageView extends ImageView {
     @Override // android.widget.ImageView
     public void setImageBitmap(Bitmap bitmap) {
         if (bitmap != null) {
-            w73 w73Var = new w73(bitmap, this.a, this.b, this.c);
-            this.e = w73Var;
+            d63 d63Var = new d63(bitmap, this.a, this.b, this.c);
+            this.e = d63Var;
             ImageView.ScaleType scaleType = this.g;
             if (scaleType != null) {
-                w73Var.h(scaleType);
+                d63Var.h(scaleType);
             }
         } else {
             this.e = null;
@@ -172,7 +172,7 @@ public class SwanAppRoundedImageView extends ImageView {
     @Override // android.widget.ImageView
     public void setImageDrawable(Drawable drawable) {
         if (drawable != null) {
-            this.e = w73.b(drawable, this.g, this.a, this.b, this.c);
+            this.e = d63.b(drawable, this.g, this.a, this.b, this.c);
         } else {
             this.e = null;
         }
@@ -185,7 +185,7 @@ public class SwanAppRoundedImageView extends ImageView {
 
     public SwanAppRoundedImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, vp1.RoundedImageView, i, 0);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, co1.RoundedImageView, i, 0);
         int i2 = obtainStyledAttributes.getInt(0, -1);
         if (i2 >= 0) {
             setScaleType(h[i2]);
@@ -210,19 +210,19 @@ public class SwanAppRoundedImageView extends ImageView {
         this.d = z;
         if (z) {
             Drawable drawable = this.f;
-            if (drawable instanceof w73) {
-                ((w73) drawable).h(this.g);
-                ((w73) this.f).f(this.a);
-                ((w73) this.f).e(this.b);
-                ((w73) this.f).d(this.c);
+            if (drawable instanceof d63) {
+                ((d63) drawable).h(this.g);
+                ((d63) this.f).f(this.a);
+                ((d63) this.f).e(this.b);
+                ((d63) this.f).d(this.c);
             } else {
                 setBackgroundDrawable(drawable);
             }
         } else {
             Drawable drawable2 = this.f;
-            if (drawable2 instanceof w73) {
-                ((w73) drawable2).e(0);
-                ((w73) this.f).f(0.0f);
+            if (drawable2 instanceof d63) {
+                ((d63) drawable2).e(0);
+                ((d63) this.f).f(0.0f);
             }
         }
         invalidate();
@@ -247,12 +247,12 @@ public class SwanAppRoundedImageView extends ImageView {
                     break;
             }
             Drawable drawable = this.e;
-            if ((drawable instanceof w73) && ((w73) drawable).c() != scaleType) {
-                ((w73) this.e).h(scaleType);
+            if ((drawable instanceof d63) && ((d63) drawable).c() != scaleType) {
+                ((d63) this.e).h(scaleType);
             }
             Drawable drawable2 = this.f;
-            if ((drawable2 instanceof w73) && ((w73) drawable2).c() != scaleType) {
-                ((w73) this.f).h(scaleType);
+            if ((drawable2 instanceof d63) && ((d63) drawable2).c() != scaleType) {
+                ((d63) this.f).h(scaleType);
             }
             setWillNotCacheDrawing(true);
             requestLayout();

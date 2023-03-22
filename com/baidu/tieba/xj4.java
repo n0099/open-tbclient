@@ -1,61 +1,97 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import com.baidu.searchbox.http.request.HttpRequestBuilder;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidubce.AbstractBceClient;
-import java.util.Map;
-import okhttp3.MediaType;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class xj4 extends pi4 {
+public class xj4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile xj4 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public a a;
 
-    public static void a(String str, Map<String, String> map, Map<String, String> map2, ti4<String> ti4Var) {
+    /* loaded from: classes6.dex */
+    public static class a extends do4 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a() {
+            super("swan_preload_package");
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((String) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+    }
+
+    public xj4() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLL(65536, null, str, map, map2, ti4Var) != null) || d(str, ti4Var)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new a();
+    }
+
+    public static xj4 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (xj4.class) {
+                    if (b == null) {
+                        b = new xj4();
+                    }
+                }
+            }
+            return b;
+        }
+        return (xj4) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.getString("version", "0");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void c(wj4 wj4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wj4Var) == null) && wj4Var != null) {
+            this.a.edit().putString("version", wj4Var.c()).apply();
+        }
+    }
+
+    public void d(JSONObject jSONObject) {
+        wj4 a2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null || (a2 = wj4.a(jSONObject)) == null) {
             return;
         }
-        c(qg4.g().getRequest(), str, map, map2, ti4Var);
-    }
-
-    public static void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, ti4<String> ti4Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLLL(65537, null, str, map, map2, jSONObject, ti4Var) != null) || d(str, ti4Var)) {
-            return;
-        }
-        mg4 postStringRequest = qg4.g().postStringRequest();
-        yg4.a(postStringRequest, map);
-        postStringRequest.content(jSONObject.toString()).mediaType(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE)).requestFrom(6);
-        c(postStringRequest, str, map, map2, ti4Var);
-    }
-
-    /* JADX WARN: Type inference failed for: r4v1, types: [com.baidu.searchbox.http.request.HttpRequestBuilder] */
-    public static void c(HttpRequestBuilder<?> httpRequestBuilder, String str, Map<String, String> map, Map<String, String> map2, ti4<String> ti4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65538, null, httpRequestBuilder, str, map, map2, ti4Var) == null) {
-            httpRequestBuilder.url(ui4.j(str, map)).requestSubFrom(10).addHeaders(map2).userAgent(pi4.b).cookieManager(pi4.a).enableStat(true).build().executeStat(ti4Var);
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static boolean d(String str, ti4<String> ti4Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, ti4Var)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return true;
-            }
-            if (ti4Var != null) {
-                ti4Var.onStart();
-                return false;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
+        ef4.b().H(a2);
     }
 }

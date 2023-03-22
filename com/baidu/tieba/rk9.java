@@ -1,9 +1,15 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
 public interface rk9 {
-    void g(String str);
+    void a(int i);
 
-    void k(String str);
+    void b();
 
-    void n();
+    void onConvertAborted();
+
+    void onConvertFailed();
+
+    void onConvertProgress(int i);
+
+    void onConvertSuccess();
 }

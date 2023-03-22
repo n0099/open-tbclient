@@ -1,156 +1,231 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.chatmessage.IChatRoomEnterListener;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.im.db.pojo.GroupChatRoomPojo;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.ImageMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.NoticeModifySysMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.RecallSysMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.ShareForumSysMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.ShareThreadSysMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TextGenImageMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TextMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TipsSysMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.VoiceMsg;
+import com.baidu.tbadk.data.ChatRoomInfoData;
+import com.baidu.tieba.immessagecenter.chatgroup.data.ChatRoomInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class ou7 {
+public class ou7 extends jt7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final cu7 a;
+    public long k;
+    public final Set<Long> l;
+    public boolean m;
+    @Nullable
+    public final qu7 n;
+    @Nullable
+    public ru7 o;
+    public final CustomMessageListener p;
 
-    public ou7() {
+    @Override // com.baidu.tieba.jt7
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "SCENE_CHAT_ENTRANCE" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ou7 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ou7 ou7Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ou7Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ou7Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Map map;
+            ChatRoomInfo chatRoomInfo;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && !customResponsedMessage.hasError() && (customResponsedMessage.getData() instanceof Map) && (map = (Map) customResponsedMessage.getData()) != null && !map.isEmpty() && (chatRoomInfo = (ChatRoomInfo) map.get(Long.valueOf(this.a.k))) != null && this.a.n != null) {
+                this.a.n.a(chatRoomInfo);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements jg5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ou7 a;
+
+        public b(ou7 ou7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ou7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ou7Var;
+        }
+
+        @Override // com.baidu.tieba.jg5
+        public void a(long j, int i, @NonNull String str, @Nullable IChatRoomEnterListener.ChatRoomInfo chatRoomInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), str, chatRoomInfo}) == null) {
+                this.a.l.add(Long.valueOf(j));
+                if (this.a.o != null && i == 0) {
+                    this.a.o.b(j);
+                }
+                this.a.m = true;
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements kg5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ou7 a;
+
+        public c(ou7 ou7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ou7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ou7Var;
+        }
+
+        @Override // com.baidu.tieba.kg5
+        public void a(long j, int i, @NonNull String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
+                this.a.l.remove(Long.valueOf(j));
+                if (this.a.o != null && i == -200) {
+                    this.a.o.a(j);
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ou7(@NonNull Context context, @Nullable qu7 qu7Var) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, qu7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new cu7();
-        b();
+        this.k = 0L;
+        this.l = new HashSet();
+        this.p = new a(this, 2921766);
+        this.n = qu7Var;
+        MessageManager.getInstance().registerListener(this.p);
     }
 
-    @Nullable
-    public static String a(List<GroupChatRoomPojo> list) {
-        InterceptResult invokeL;
+    public boolean A(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, list)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < list.size(); i++) {
-                GroupChatRoomPojo groupChatRoomPojo = list.get(i);
-                HashMap hashMap = new HashMap();
-                hashMap.put("room_id", Long.valueOf(groupChatRoomPojo.getRoomId()));
-                hashMap.put("msg_id", String.valueOf(groupChatRoomPojo.getLatestMsgId()));
-                arrayList.add(hashMap);
-            }
-            if (ListUtils.isEmpty(arrayList)) {
-                return null;
-            }
-            return DataExt.toJson(arrayList);
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
+            return this.l.contains(Long.valueOf(j));
         }
-        return (String) invokeL.objValue;
+        return invokeJ.booleanValue;
     }
 
-    public static long f(@NonNull ChatMsg chatMsg) {
-        InterceptResult invokeL;
+    public void B(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, chatMsg)) == null) {
-            long millis = TimeUnit.MICROSECONDS.toMillis(chatMsg.getMsgId());
-            if (millis == 0) {
-                return System.currentTimeMillis();
-            }
-            return millis;
-        }
-        return invokeL.longValue;
-    }
-
-    public boolean c(ChatMsg chatMsg) {
-        InterceptResult invokeL;
-        BaseSysMsg e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chatMsg)) == null) {
-            if (chatMsg == null || (e = e(chatMsg)) == null || e.getMsgConf() == null || !e.getMsgConf().isVisible()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.F(1, TextMsg.class);
-            this.a.F(3, VoiceMsg.class);
-            this.a.F(2, ImageMsg.class);
-            this.a.F(101, TextGenImageMsg.class);
-            this.a.F(7009, ShareForumSysMsg.class);
-            this.a.F(7010, ShareThreadSysMsg.class);
-            this.a.F(7001, NoticeModifySysMsg.class);
-            this.a.G(RecallSysMsg.MSG_TYPE_LIST, RecallSysMsg.class);
-            this.a.G(TipsSysMsg.MSG_TYPE_LIST, TipsSysMsg.class);
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            q(j, 0);
         }
     }
 
-    @Nullable
-    public BaseMsg d(long j, @NonNull ChatMsg chatMsg) {
-        InterceptResult invokeJL;
+    @Override // com.baidu.tieba.jt7
+    public void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(Constants.METHOD_SEND_USER_MSG, this, j, chatMsg)) == null) {
-            if (TextUtils.isEmpty(chatMsg.getChatRoomContentExt())) {
-                return null;
-            }
-            return this.a.D(j, chatMsg);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.k();
+            this.m = false;
+            this.l.clear();
+            n(null);
+            p(null);
+            MessageManager.getInstance().unRegisterListener(this.p);
         }
-        return (BaseMsg) invokeJL.objValue;
     }
 
-    @Nullable
-    public BaseSysMsg e(@NonNull ChatMsg chatMsg) {
-        InterceptResult invokeL;
+    public boolean y() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, chatMsg)) == null) {
-            if (TextUtils.isEmpty(chatMsg.getMsgContent())) {
-                return null;
-            }
-            try {
-                BaseSysMsg E = this.a.E(chatMsg);
-                if (E.getMsgConf() != null) {
-                    if (E.getMsgConf().isVisible()) {
-                        return E;
-                    }
-                }
-                return null;
-            } catch (Exception e) {
-                BdLog.e(e);
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.m;
         }
-        return (BaseSysMsg) invokeL.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public void z(List<ChatRoomInfoData> list, long j, @Nullable ru7 ru7Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048581, this, new Object[]{list, Long.valueOf(j), ru7Var}) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        this.k = j;
+        this.o = ru7Var;
+        j(uu7.c(list));
+        this.f = new b(this);
+        this.g = new c(this);
+        n(this.f);
+        p(this.g);
     }
 }

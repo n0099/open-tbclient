@@ -2,12 +2,12 @@ package com.baidu.ugc.audioedit;
 
 import com.baidu.audioprocesswrapper.DuAudioProcess;
 import com.baidu.audioprocesswrapper.DuDelayProcess;
-import com.baidu.tieba.d1a;
-import com.baidu.tieba.rx9;
+import com.baidu.tieba.a4a;
+import com.baidu.tieba.m7a;
 import com.yy.mobile.framework.revenuesdk.baseapi.ErrorCode;
 import java.util.Arrays;
 /* loaded from: classes7.dex */
-public class AudioChangeOperator implements rx9 {
+public class AudioChangeOperator implements a4a {
     public static final int DU_AUDIO_EFFECT_SHIFT_AGC = 4;
     public static final int DU_AUDIO_EFFECT_SHIFT_AIR = 20;
     public static final int DU_AUDIO_EFFECT_SHIFT_COMPRESS = 24;
@@ -97,7 +97,7 @@ public class AudioChangeOperator implements rx9 {
         this.mHarmonyType = 700;
     }
 
-    @Override // com.baidu.tieba.rx9
+    @Override // com.baidu.tieba.a4a
     public int availableBytes() {
         if (canDelay()) {
             return this.mDelayProcess.a();
@@ -109,7 +109,7 @@ public class AudioChangeOperator implements rx9 {
         return 0;
     }
 
-    @Override // com.baidu.tieba.rx9
+    @Override // com.baidu.tieba.a4a
     public void clearQueues() {
         DuAudioProcess duAudioProcess = this.mDuAudioProcess;
         if (duAudioProcess != null) {
@@ -117,7 +117,7 @@ public class AudioChangeOperator implements rx9 {
         }
     }
 
-    @Override // com.baidu.tieba.rx9
+    @Override // com.baidu.tieba.a4a
     public void close() {
         DuAudioProcess duAudioProcess = this.mDuAudioProcess;
         if (duAudioProcess != null) {
@@ -130,7 +130,7 @@ public class AudioChangeOperator implements rx9 {
         this.mDelayProcess = null;
     }
 
-    @Override // com.baidu.tieba.rx9
+    @Override // com.baidu.tieba.a4a
     public void flush() {
         DuAudioProcess duAudioProcess = this.mDuAudioProcess;
         if (duAudioProcess != null) {
@@ -162,8 +162,8 @@ public class AudioChangeOperator implements rx9 {
             i2 = 1;
         }
         duAudioProcess.j(i2);
-        d1a.d("AudioChangeOperatorNew: 切换效果 mPitchType = " + this.mPitchType);
-        d1a.d("AudioChangeOperatorNew: 切换效果 mReverbType = " + this.mReverbType);
+        m7a.d("AudioChangeOperatorNew: 切换效果 mPitchType = " + this.mPitchType);
+        m7a.d("AudioChangeOperatorNew: 切换效果 mReverbType = " + this.mReverbType);
     }
 
     private boolean checkTypesEquals(int[] iArr, int[] iArr2, double[] dArr) {
@@ -220,14 +220,14 @@ public class AudioChangeOperator implements rx9 {
         if (i3 > 300) {
             j |= (i3 - 300) << 4;
         }
-        d1a.d("AudioChangeOperatorNew: 创建DuAudioProcess开始");
+        m7a.d("AudioChangeOperatorNew: 创建DuAudioProcess开始");
         this.mDuAudioProcess = new DuAudioProcess(this.mSampleRate, this.mChannelCount, j);
         audioSwitch();
-        d1a.d("AudioChangeOperatorNew: 创建DuAudioProcess完成");
-        d1a.d("AudioChangeOperatorNew: 创建DuDelayProcess开始");
+        m7a.d("AudioChangeOperatorNew: 创建DuAudioProcess完成");
+        m7a.d("AudioChangeOperatorNew: 创建DuDelayProcess开始");
         this.mDelayProcess = new DuDelayProcess(this.mSampleRate, 1);
         setDelayConfig();
-        d1a.d("AudioChangeOperatorNew: 创建DuDelayProcess完成");
+        m7a.d("AudioChangeOperatorNew: 创建DuDelayProcess完成");
     }
 
     private void setDelayConfig() {
@@ -265,7 +265,7 @@ public class AudioChangeOperator implements rx9 {
             duDelayProcess3.h(2);
             this.mDelayProcess.i(newPosition);
         }
-        d1a.d("AudioChangeOperatorNew: delayConfig = " + delayConfig.toString());
+        m7a.d("AudioChangeOperatorNew: delayConfig = " + delayConfig.toString());
     }
 
     private boolean shouldClose(DelayConfig delayConfig) {
@@ -284,7 +284,7 @@ public class AudioChangeOperator implements rx9 {
         this.mAudioChangeConfig = audioChangeConfig;
     }
 
-    @Override // com.baidu.tieba.rx9
+    @Override // com.baidu.tieba.a4a
     public boolean available() {
         if (this.mReverbType <= 100 && this.mPitchType <= 0 && this.mDenoiseType <= 200 && this.mAgcType <= 300 && this.mEQType <= 400 && this.mAirType <= 500 && this.mHarmonyType <= 700 && !delayAvailable()) {
             return false;
@@ -292,7 +292,7 @@ public class AudioChangeOperator implements rx9 {
         return true;
     }
 
-    @Override // com.baidu.tieba.rx9
+    @Override // com.baidu.tieba.a4a
     public int getBytes(byte[] bArr, int i) {
         if (canDelay()) {
             return this.mDelayProcess.e(bArr, i);
@@ -304,7 +304,7 @@ public class AudioChangeOperator implements rx9 {
         return 0;
     }
 
-    @Override // com.baidu.tieba.rx9
+    @Override // com.baidu.tieba.a4a
     public boolean putBytes(byte[] bArr, int i) {
         init();
         DuAudioProcess duAudioProcess = this.mDuAudioProcess;
@@ -318,14 +318,14 @@ public class AudioChangeOperator implements rx9 {
         return false;
     }
 
-    @Override // com.baidu.tieba.rx9
+    @Override // com.baidu.tieba.a4a
     public void initVoiceChanger(int i, int i2, int i3, int i4) {
         this.mChannelCount = i2;
         this.mSampleRate = i3;
         this.mByteWidth = i4;
     }
 
-    @Override // com.baidu.tieba.rx9
+    @Override // com.baidu.tieba.a4a
     public void setVoiceChangeType(int[] iArr) {
         if (checkTypesEquals(iArr, this.mLastEQparams, this.mLastReverbParams)) {
             return;
@@ -353,7 +353,7 @@ public class AudioChangeOperator implements rx9 {
         }
     }
 
-    @Override // com.baidu.tieba.rx9
+    @Override // com.baidu.tieba.a4a
     public void setVoiceChangeType(int[] iArr, int[] iArr2, double[] dArr) {
         this.mLastEQparams = iArr2;
         this.mLastReverbParams = dArr;

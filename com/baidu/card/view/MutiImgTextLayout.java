@@ -17,12 +17,12 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dy;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.mn;
+import com.baidu.tieba.gx;
+import com.baidu.tieba.hi;
+import com.baidu.tieba.hw4;
+import com.baidu.tieba.lf6;
+import com.baidu.tieba.pm;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
-import com.baidu.tieba.xf6;
-import com.baidu.tieba.zx4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,15 +32,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
-public class MutiImgTextLayout extends LinearLayout implements dy<zx4> {
+public class MutiImgTextLayout extends LinearLayout implements gx<hw4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int g;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
     public TextView b;
     public PlayVoiceBntNew c;
-    public xf6<zx4> d;
-    public zx4 e;
+    public lf6<hw4> d;
+    public hw4 e;
     public boolean f;
 
     public void setFrom(String str) {
@@ -55,9 +55,9 @@ public class MutiImgTextLayout extends LinearLayout implements dy<zx4> {
         }
     }
 
-    public void setPreloadSizeReadyCallback(mn mnVar) {
+    public void setPreloadSizeReadyCallback(pm pmVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, mnVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, pmVar) == null) {
         }
     }
 
@@ -87,7 +87,7 @@ public class MutiImgTextLayout extends LinearLayout implements dy<zx4> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            xf6<zx4> subClickListener;
+            lf6<hw4> subClickListener;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (subClickListener = this.a.getSubClickListener()) != null) {
                 view2.setTag("2");
@@ -109,7 +109,7 @@ public class MutiImgTextLayout extends LinearLayout implements dy<zx4> {
                 return;
             }
         }
-        g = ej.l(TbadkCoreApplication.getInst()) - ((ej.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + ej.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
+        g = hi.l(TbadkCoreApplication.getInst()) - ((hi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + hi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
     }
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -164,10 +164,10 @@ public class MutiImgTextLayout extends LinearLayout implements dy<zx4> {
         }
     }
 
-    public void setSubClickListener(xf6<zx4> xf6Var) {
+    public void setSubClickListener(lf6<hw4> lf6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, xf6Var) == null) {
-            this.d = xf6Var;
+        if (interceptable == null || interceptable.invokeL(1048586, this, lf6Var) == null) {
+            this.d = lf6Var;
         }
     }
 
@@ -206,16 +206,16 @@ public class MutiImgTextLayout extends LinearLayout implements dy<zx4> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.dy
+    @Override // com.baidu.tieba.gx
     /* renamed from: d */
-    public void a(zx4 zx4Var) {
+    public void a(hw4 hw4Var) {
         boolean z;
         boolean z2;
         boolean z3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zx4Var) == null) {
-            this.e = zx4Var;
-            ThreadData threadData = zx4Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hw4Var) == null) {
+            this.e = hw4Var;
+            ThreadData threadData = hw4Var.getThreadData();
             ThreadCardUtils.setTitle(this.a, threadData, this.f);
             ThreadCardUtils.setAbstract(this.b, this.a, threadData, g, this.f);
             TextView textView = this.a;
@@ -267,13 +267,13 @@ public class MutiImgTextLayout extends LinearLayout implements dy<zx4> {
         }
     }
 
-    public xf6<zx4> getSubClickListener() {
+    public lf6<hw4> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.d;
         }
-        return (xf6) invokeV.objValue;
+        return (lf6) invokeV.objValue;
     }
 
     @Override // android.widget.LinearLayout, android.view.View

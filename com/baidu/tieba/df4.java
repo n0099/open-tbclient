@@ -1,225 +1,41 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.Intent;
-import android.os.Bundle;
-import android.text.Editable;
 import android.text.TextUtils;
-import android.text.TextWatcher;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.inputmethod.InputMethodManager;
-import android.widget.EditText;
-import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.location.Address;
-import com.baidu.mapapi.CoordType;
-import com.baidu.mapapi.SDKInitializer;
-import com.baidu.mapapi.search.core.PoiInfo;
-import com.baidu.mapapi.search.core.SearchResult;
-import com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener;
-import com.baidu.mapapi.search.poi.PoiCitySearchOption;
-import com.baidu.mapapi.search.poi.PoiDetailResult;
-import com.baidu.mapapi.search.poi.PoiDetailSearchResult;
-import com.baidu.mapapi.search.poi.PoiIndoorResult;
-import com.baidu.mapapi.search.poi.PoiResult;
-import com.baidu.mapapi.search.poi.PoiSearch;
-import com.baidu.swan.map.location.LocationDetailAdapter;
-import com.baidu.swan.map.location.LocationFooterViewHolder;
-import com.baidu.swan.map.location.LocationItemDecoration;
-import com.baidu.swan.map.location.model.SelectedLocationInfo;
-import com.baidu.tieba.v82;
+import com.baidu.swan.pms.PMSConstants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class df4 extends s82 implements ye4, OnGetPoiSearchResultListener, View.OnKeyListener, View.OnFocusChangeListener, TextWatcher, View.OnTouchListener, View.OnClickListener {
+public class df4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public EditText G0;
-    public View H0;
-    public TextView I0;
-    public RecyclerView J0;
-    public LocationDetailAdapter K0;
-    public LinearLayoutManager L0;
-    public List<ze4> M0;
-    public PoiSearch N0;
-    public InputMethodManager O0;
-    public int P0;
-    public int Q0;
-    public String R0;
-    public boolean S0;
-    public boolean T0;
-    public String U0;
 
-    @Override // com.baidu.tieba.s82
-    public boolean J() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947702615, "Lcom/baidu/tieba/df4;")) == null) {
+            return;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.s82
-    public void U1(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-    }
-
-    @Override // android.text.TextWatcher
-    public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, charSequence, i, i2, i3) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.s82
-    public boolean c2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.s82
-    public boolean e2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.s82, com.baidu.searchbox.widget.SlideInterceptor
-    public boolean isSlidable(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, motionEvent)) == null) {
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.s82
-    public void j2() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener
-    public void onGetPoiDetailResult(PoiDetailResult poiDetailResult) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, poiDetailResult) == null) {
-        }
-    }
-
-    @Override // com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener
-    public void onGetPoiDetailResult(PoiDetailSearchResult poiDetailSearchResult) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, poiDetailSearchResult) == null) {
-        }
-    }
-
-    @Override // com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener
-    public void onGetPoiIndoorResult(PoiIndoorResult poiIndoorResult) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, poiIndoorResult) == null) {
-        }
-    }
-
-    @Override // android.text.TextWatcher
-    public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048604, this, charSequence, i, i2, i3) == null) {
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class a extends RecyclerView.OnScrollListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ df4 a;
-
-        public a(df4 df4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {df4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = df4Var;
-        }
-
-        @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-        public void onScrollStateChanged(RecyclerView recyclerView, int i) {
-            int Z2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i) == null) {
-                super.onScrollStateChanged(recyclerView, i);
-                if (i == 0 && (Z2 = this.a.Z2()) >= 0 && Z2 + 1 == this.a.K0.getItemCount()) {
-                    this.a.a3();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ df4 a;
-
-        public b(df4 df4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {df4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = df4Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                df4 df4Var = this.a;
-                df4Var.g3(df4Var.G0, true);
-            }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947702615, "Lcom/baidu/tieba/df4;");
         }
     }
 
@@ -227,334 +43,298 @@ public class df4 extends s82 implements ye4, OnGetPoiSearchResultListener, View.
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.N0 = null;
-        this.P0 = 0;
-        this.Q0 = 0;
-        this.U0 = Address.Builder.BEI_JING;
     }
 
-    public final void X2() {
-        Activity activity;
+    public static void a(@NonNull JSONObject jSONObject, @Nullable Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (activity = this.c0) != null) {
-            activity.onBackPressed();
-        }
-    }
-
-    public final View Y2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int Z2 = Z2();
-            if (Z2 == -1) {
-                return null;
-            }
-            return this.L0.findViewByPosition(Z2);
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public final int Z2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            LinearLayoutManager linearLayoutManager = this.L0;
-            if (linearLayoutManager != null) {
-                return linearLayoutManager.findLastVisibleItemPosition();
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    public void a3() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || this.S0) {
+        if ((interceptable != null && interceptable.invokeLL(65538, null, jSONObject, map) != null) || map == null) {
             return;
         }
-        if (this.P0 < this.Q0) {
-            j3(this.R0);
-            this.S0 = true;
-            return;
-        }
-        d3();
-    }
-
-    public final void d3() {
-        View Y2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048586, this) != null) || (Y2 = Y2()) == null) {
-            return;
-        }
-        RecyclerView.ViewHolder childViewHolder = this.J0.getChildViewHolder(Y2);
-        if (childViewHolder instanceof LocationFooterViewHolder) {
-            ((LocationFooterViewHolder) childViewHolder).b(false);
-        }
-    }
-
-    public final void e3() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048589, this) != null) || TextUtils.isEmpty(this.R0)) {
-            return;
-        }
-        this.P0 = 0;
-        j3(this.R0);
-        g3(this.G0, false);
-    }
-
-    public void i3() {
-        v82 V;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && (V = zu2.U().V()) != null) {
-            v82.b i = V.i("navigateTo");
-            i.n(v82.g, v82.i);
-            i.j(this);
-            i.b();
-        }
-    }
-
-    @Override // com.baidu.swan.support.v4.app.Fragment
-    public void y0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
-            super.y0();
-            this.N0.destroy();
-        }
-    }
-
-    public static df4 c3(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle)) == null) {
-            df4 df4Var = new df4();
-            if (bundle != null) {
-                df4Var.j1(bundle);
+        try {
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                jSONObject.put(entry.getKey(), entry.getValue());
             }
-            return df4Var;
-        }
-        return (df4) invokeL.objValue;
-    }
-
-    public final void f3(Intent intent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048590, this, intent) != null) || N() == null) {
-            return;
-        }
-        N().q0(P(), 0, intent);
-    }
-
-    public void h3(boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-            View view2 = this.H0;
-            if (z) {
-                i = 0;
-            } else {
-                i = 8;
-            }
-            view2.setVisibility(i);
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048597, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f0904ff) {
-            X2();
-        }
-    }
-
-    @Override // android.text.TextWatcher
-    public void afterTextChanged(Editable editable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, editable) == null) {
-            if (editable != null && editable.length() > 0) {
-                this.T0 = false;
-                this.P0 = 0;
-                this.Q0 = 0;
-                String obj = editable.toString();
-                this.R0 = obj;
-                j3(obj);
-                return;
-            }
-            this.M0.clear();
-            this.K0.setData(this.M0);
-            this.R0 = "";
-            this.P0 = 0;
-            this.Q0 = 0;
-            this.T0 = true;
-        }
-    }
-
-    @Override // com.baidu.tieba.ye4
-    public void e(ze4 ze4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, ze4Var) == null) {
-            Intent intent = new Intent();
-            PoiInfo poiInfo = ze4Var.a;
-            if (poiInfo != null && poiInfo.location != null) {
-                intent.putExtra(SelectedLocationInfo.LOCATION_KEY, new SelectedLocationInfo(poiInfo.name, poiInfo.address, poiInfo.location));
-            }
-            f3(intent);
-            X2();
-        }
-    }
-
-    public final void j3(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-            this.N0.searchInCity(new PoiCitySearchOption().cityLimit(false).scope(2).city(this.U0).keyword(str).pageCapacity(13).pageNum(this.P0));
-        }
-    }
-
-    @SuppressLint({"ClickableViewAccessibility"})
-    public final void b3(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
-            this.M0 = new ArrayList(11);
-            if (p() != null) {
-                String string = p().getString("city");
-                if (TextUtils.isEmpty(string)) {
-                    string = Address.Builder.BEI_JING;
-                }
-                this.U0 = string;
-            }
-            this.G0 = (EditText) view2.findViewById(R.id.obfuscated_res_0x7f091f8a);
-            this.J0 = (RecyclerView) view2.findViewById(R.id.obfuscated_res_0x7f091570);
-            this.H0 = view2.findViewById(R.id.obfuscated_res_0x7f09182d);
-            this.I0 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904ff);
-            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(zu2.U().getActivity());
-            this.L0 = linearLayoutManager;
-            this.J0.setLayoutManager(linearLayoutManager);
-            LocationDetailAdapter locationDetailAdapter = new LocationDetailAdapter(zu2.U().getActivity(), this.J0, this);
-            this.K0 = locationDetailAdapter;
-            this.J0.setAdapter(locationDetailAdapter);
-            this.J0.addItemDecoration(new LocationItemDecoration(zu2.U().getActivity()));
-            this.J0.setOnTouchListener(this);
-            this.I0.setOnClickListener(this);
-            PoiSearch newInstance = PoiSearch.newInstance();
-            this.N0 = newInstance;
-            newInstance.setOnGetPoiSearchResultListener(this);
-            this.G0.addTextChangedListener(this);
-            this.G0.setOnFocusChangeListener(this);
-            this.G0.setOnKeyListener(this);
-            this.G0.requestFocus();
-            this.J0.addOnScrollListener(new a(this));
-            this.G0.postDelayed(new b(this), 100L);
-        }
-    }
-
-    public void g3(View view2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048591, this, view2, z) == null) {
-            if (this.O0 == null) {
-                this.O0 = (InputMethodManager) zu2.U().getActivity().getApplicationContext().getSystemService("input_method");
-            }
-            InputMethodManager inputMethodManager = this.O0;
-            if (inputMethodManager == null) {
-                return;
-            }
-            if (z) {
-                inputMethodManager.showSoftInput(view2, 0);
-            } else {
-                inputMethodManager.hideSoftInputFromWindow(view2.getWindowToken(), 0);
-            }
-        }
-    }
-
-    @Override // android.view.View.OnFocusChangeListener
-    public void onFocusChange(View view2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048598, this, view2, z) == null) {
-            g3(this.G0, z);
-        }
-    }
-
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
+    public static boolean b(zi4 zi4Var, of4 of4Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048605, this, view2, motionEvent)) == null) {
-            g3(this.G0, false);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, zi4Var, of4Var)) == null) {
+            if (of4Var == null) {
+                return true;
+            }
+            if (zi4Var == null) {
+                of4Var.C(new ng4(2100, "request对象为空"));
+                return true;
+            }
             return false;
         }
         return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.mapapi.search.poi.OnGetPoiSearchResultListener
-    public void onGetPoiResult(PoiResult poiResult) {
+    public static JSONObject i(@Nullable dj4<JSONArray> dj4Var, @Nullable dj4<JSONObject> dj4Var2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, poiResult) == null) {
-            boolean z = false;
-            this.S0 = false;
-            if (this.T0) {
-                return;
-            }
-            if (poiResult.error == SearchResult.ERRORNO.NO_ERROR) {
-                this.Q0 = poiResult.getTotalPageNum();
-                if (this.P0 == 0) {
-                    this.M0.clear();
-                }
-                this.M0.addAll(ze4.a(poiResult.getAllPoi()));
-                this.K0.g(this.M0, this.R0);
-                this.P0++;
-            } else {
-                if (this.P0 == 0) {
-                    this.Q0 = 0;
-                    this.M0.clear();
-                    this.K0.setData(this.M0);
-                }
-                d3();
-            }
-            if (this.P0 == 0 && this.M0.size() == 0) {
-                z = true;
-            }
-            h3(z);
-            if (this.M0.size() <= 0) {
-                d3();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, dj4Var, dj4Var2)) == null) {
+            return gj4.a(dj4Var, dj4Var2);
+        }
+        return (JSONObject) invokeLL.objValue;
+    }
+
+    public static synchronized void l(aj4 aj4Var, of4 of4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65549, null, aj4Var, of4Var) == null) {
+            synchronized (df4.class) {
+                m(aj4Var, of4Var, null);
             }
         }
     }
 
-    @Override // android.view.View.OnKeyListener
-    public boolean onKey(View view2, int i, KeyEvent keyEvent) {
-        InterceptResult invokeLIL;
+    public static synchronized void c(vi4 vi4Var, of4 of4Var) {
+        ch4 M;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048603, this, view2, i, keyEvent)) == null) {
-            if (i == 66) {
-                e3();
-                return true;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, vi4Var, of4Var) == null) {
+            synchronized (df4.class) {
+                if (b(vi4Var, of4Var)) {
+                    return;
+                }
+                if (TextUtils.isEmpty(vi4Var.g())) {
+                    of4Var.C(new ng4(2100, "bundleId为空"));
+                    return;
+                }
+                HashMap<String, String> i = xg4.i(vi4Var);
+                if (of4Var.B() != null) {
+                    i.putAll(of4Var.B());
+                }
+                of4Var.D();
+                if (vi4Var.n() == 1 && vi4Var.h() == 2101) {
+                    M = ef4.b().n();
+                } else {
+                    M = ef4.b().M();
+                }
+                M.z(bh4.e(), i, of4Var.t(), new ii4(vi4Var.g(), of4Var, vi4Var));
             }
-            return false;
         }
-        return invokeLIL.booleanValue;
     }
 
-    @Override // com.baidu.swan.support.v4.app.Fragment
-    public View x0(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        InterceptResult invokeLLL;
+    public static synchronized void d(si4 si4Var, of4 of4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048606, this, layoutInflater, viewGroup, bundle)) == null) {
-            td4.a();
-            SDKInitializer.setCoordType(CoordType.GCJ02);
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0088, viewGroup, false);
-            b3(inflate);
-            if (T1()) {
-                inflate = W1(inflate);
-                w1(-1);
+        if (interceptable == null || interceptable.invokeLL(65541, null, si4Var, of4Var) == null) {
+            synchronized (df4.class) {
+                if (b(si4Var, of4Var)) {
+                    return;
+                }
+                if (si4Var.f() != null && !si4Var.f().isEmpty()) {
+                    HashMap<String, String> f = xg4.f(si4Var);
+                    if (of4Var.B() != null && f != null) {
+                        f.putAll(of4Var.B());
+                    }
+                    JSONObject d = xg4.d(si4Var);
+                    if (d == null) {
+                        of4Var.C(new ng4(2100, "构造请求body失败"));
+                        return;
+                    }
+                    a(d, of4Var.y());
+                    of4Var.D();
+                    ef4.b().M().b(bh4.d(), f, of4Var.t(), d, new gi4(of4Var, si4Var));
+                    return;
+                }
+                of4Var.C(new ng4(2100, "pkg List为空"));
             }
-            return D1(inflate, this);
         }
-        return (View) invokeLLL.objValue;
+    }
+
+    public static synchronized void h(yi4 yi4Var, of4 of4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65545, null, yi4Var, of4Var) == null) {
+            synchronized (df4.class) {
+                if (b(yi4Var, of4Var)) {
+                    return;
+                }
+                if (TextUtils.isEmpty(yi4Var.f())) {
+                    of4Var.C(new ng4(2100, "bundleId为空"));
+                } else if (TextUtils.isEmpty(yi4Var.k())) {
+                    of4Var.C(new ng4(2100, "分包名为空"));
+                } else {
+                    HashMap<String, String> k = xg4.k(yi4Var);
+                    if (of4Var.B() != null) {
+                        k.putAll(of4Var.B());
+                    }
+                    of4Var.D();
+                    ef4.b().M().z(bh4.e(), k, of4Var.t(), new ki4(yi4Var.f(), of4Var, yi4Var));
+                }
+            }
+        }
+    }
+
+    public static void e(List<String> list, @Nullable String str, @Nullable if4 if4Var) {
+        cf4 b;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(65542, null, list, str, if4Var) != null) || (b = ef4.b()) == null) {
+            return;
+        }
+        if (PMSConstants.a(b)) {
+            ik4.e().f();
+        }
+        JSONObject jSONObject = new JSONObject();
+        try {
+            jSONObject.put("appkeys", new JSONArray((Collection) list));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        HashMap hashMap = new HashMap();
+        hashMap.put("src_app", str);
+        b.M().b(bh4.c(), hashMap, null, jSONObject, new jf4(if4Var));
+    }
+
+    public static synchronized void f(ui4 ui4Var, of4 of4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, ui4Var, of4Var) == null) {
+            synchronized (df4.class) {
+                if (b(ui4Var, of4Var)) {
+                    return;
+                }
+                if (ui4Var.f() != null && !ui4Var.f().isEmpty()) {
+                    HashMap<String, String> f = xg4.f(ui4Var);
+                    if (of4Var.B() != null && f != null) {
+                        f.putAll(of4Var.B());
+                    }
+                    JSONObject e = xg4.e(ui4Var);
+                    if (e == null) {
+                        of4Var.C(new ng4(2100, "构造请求body失败"));
+                        return;
+                    }
+                    if (PMSConstants.a(ef4.b())) {
+                        ik4.e().f();
+                    }
+                    a(e, of4Var.y());
+                    of4Var.D();
+                    ef4.b().M().b(bh4.d(), f, of4Var.t(), e, new hi4(of4Var, ui4Var));
+                    return;
+                }
+                of4Var.C(new ng4(2100, "pkg List为空"));
+            }
+        }
+    }
+
+    public static synchronized void g(wi4 wi4Var, of4 of4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65544, null, wi4Var, of4Var) == null) {
+            synchronized (df4.class) {
+                if (b(wi4Var, of4Var)) {
+                    return;
+                }
+                HashMap<String, String> j = xg4.j(wi4Var);
+                if (of4Var.B() != null) {
+                    j.putAll(of4Var.B());
+                }
+                of4Var.D();
+                ef4.b().M().z(bh4.f(), j, of4Var.t(), new ji4(of4Var, wi4Var));
+            }
+        }
+    }
+
+    public static synchronized boolean j(String str) {
+        InterceptResult invokeL;
+        boolean c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            synchronized (df4.class) {
+                c = th4.b().c(str);
+            }
+            return c;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static synchronized boolean k(String str) {
+        InterceptResult invokeL;
+        boolean d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
+            synchronized (df4.class) {
+                d = th4.b().d(str);
+            }
+            return d;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static synchronized void m(aj4 aj4Var, of4 of4Var, of4 of4Var2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65550, null, aj4Var, of4Var, of4Var2) == null) {
+            synchronized (df4.class) {
+                n(aj4Var, of4Var, of4Var2, null);
+            }
+        }
+    }
+
+    public static synchronized void n(aj4 aj4Var, of4 of4Var, of4 of4Var2, @Nullable qk4 qk4Var) {
+        dj4<JSONArray> g;
+        of4 callback;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65551, null, aj4Var, of4Var, of4Var2, qk4Var) == null) {
+            synchronized (df4.class) {
+                if (b(aj4Var, of4Var)) {
+                    return;
+                }
+                if (PMSConstants.a(ef4.b())) {
+                    ik4.e().f();
+                }
+                if (qk4Var == null) {
+                    g = null;
+                } else {
+                    g = qk4Var.g();
+                }
+                if (qk4Var == null) {
+                    callback = null;
+                } else {
+                    callback = qk4Var.getCallback();
+                }
+                HashMap hashMap = new HashMap();
+                if (of4Var.B() != null) {
+                    hashMap.putAll(of4Var.B());
+                }
+                of4Var.D();
+                ef4.b().M().b(bh4.g(), hashMap, of4Var.t(), i(g, null), new li4(of4Var, aj4Var, of4Var2, callback));
+            }
+        }
+    }
+
+    public static synchronized void o(qk4 qk4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65552, null, qk4Var) == null) {
+            synchronized (df4.class) {
+                if (qk4Var == null) {
+                    return;
+                }
+                of4 callback = qk4Var.getCallback();
+                if (callback == null) {
+                    return;
+                }
+                zi4 request = qk4Var.getRequest();
+                if (request == null) {
+                    callback.C(new ng4(2100, "request对象为空"));
+                    return;
+                }
+                Map<String, String> B = callback.B();
+                if (callback.B() != null) {
+                    B = new HashMap(B);
+                }
+                callback.D();
+                ef4.b().M().b(bh4.g(), B, callback.t(), i(qk4Var.g(), null), new li4(callback, request, null, callback));
+            }
+        }
     }
 }

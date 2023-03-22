@@ -11,13 +11,13 @@ import android.widget.TextView;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gl0;
-import com.baidu.tieba.j51;
-import com.baidu.tieba.l21;
-import com.baidu.tieba.m21;
-import com.baidu.tieba.oi0;
-import com.baidu.tieba.qr0;
-import com.baidu.tieba.zl0;
+import com.baidu.tieba.b11;
+import com.baidu.tieba.c11;
+import com.baidu.tieba.eh0;
+import com.baidu.tieba.gq0;
+import com.baidu.tieba.pk0;
+import com.baidu.tieba.wj0;
+import com.baidu.tieba.z31;
 import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
 import com.yy.gslbsdk.db.DelayTB;
 import kotlin.Lazy;
@@ -30,9 +30,9 @@ import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 import kotlin.ranges.RangesKt___RangesKt;
-@Metadata(bv = {1, 0, 3}, d1 = {"\u0000T\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0002\b\u000e\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u00012\u00020\u0002B'\b\u0007\u0012\u0006\u00104\u001a\u000203\u0012\n\b\u0002\u00106\u001a\u0004\u0018\u000105\u0012\b\b\u0002\u00107\u001a\u00020\b¢\u0006\u0004\b8\u00109J\u0017\u0010\u0006\u001a\u00020\u00052\u0006\u0010\u0004\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\u0006\u0010\u0007J\u000f\u0010\t\u001a\u00020\bH\u0014¢\u0006\u0004\b\t\u0010\nJ\u000f\u0010\u000b\u001a\u00020\bH\u0014¢\u0006\u0004\b\u000b\u0010\nJ\u000f\u0010\f\u001a\u00020\u0000H\u0016¢\u0006\u0004\b\f\u0010\rJ!\u0010\u0012\u001a\u00020\u00052\b\u0010\u000f\u001a\u0004\u0018\u00010\u000e2\u0006\u0010\u0011\u001a\u00020\u0010H\u0002¢\u0006\u0004\b\u0012\u0010\u0013J\u0017\u0010\u0014\u001a\u00020\u00052\u0006\u0010\u000f\u001a\u00020\u000eH\u0002¢\u0006\u0004\b\u0014\u0010\u0015J\u0017\u0010\u0016\u001a\u00020\u00052\u0006\u0010\u000f\u001a\u00020\u000eH\u0002¢\u0006\u0004\b\u0016\u0010\u0015J\u0017\u0010\u0018\u001a\u00020\u00052\u0006\u0010\u0017\u001a\u00020\bH\u0016¢\u0006\u0004\b\u0018\u0010\u0019J\u0017\u0010\u001a\u001a\u00020\u00052\u0006\u0010\u000f\u001a\u00020\u000eH\u0002¢\u0006\u0004\b\u001a\u0010\u0015J\u000f\u0010\u001b\u001a\u00020\u0005H\u0002¢\u0006\u0004\b\u001b\u0010\u001cJ\u0019\u0010\u001d\u001a\u00020\u00052\b\u0010\u000f\u001a\u0004\u0018\u00010\u000eH\u0016¢\u0006\u0004\b\u001d\u0010\u0015J\u0019\u0010\u001e\u001a\u00020\u00052\b\u0010\u000f\u001a\u0004\u0018\u00010\u000eH\u0016¢\u0006\u0004\b\u001e\u0010\u0015J!\u0010\u001e\u001a\u00020\u00052\b\u0010\u000f\u001a\u0004\u0018\u00010\u000e2\u0006\u0010\u0011\u001a\u00020\u0010H\u0016¢\u0006\u0004\b\u001e\u0010\u0013J!\u0010#\u001a\u00020\u00052\b\u0010 \u001a\u0004\u0018\u00010\u001f2\u0006\u0010\"\u001a\u00020!H\u0016¢\u0006\u0004\b#\u0010$R\u0016\u0010%\u001a\u00020\u001f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b%\u0010&R%\u0010-\u001a\n (*\u0004\u0018\u00010'0'8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b)\u0010*\u001a\u0004\b+\u0010,R%\u00100\u001a\n (*\u0004\u0018\u00010'0'8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b.\u0010*\u001a\u0004\b/\u0010,R\u0016\u00101\u001a\u00020\b8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b1\u00102¨\u0006:"}, d2 = {"Lcom/baidu/nadcore/slidingtag/NadDownloadSlidingTagView;", "Lcom/baidu/tieba/zl0;", "Lcom/baidu/nadcore/slidingtag/NadSlidingTagBaseView;", "Landroid/view/ViewGroup;", "parent", "", "bind", "(Landroid/view/ViewGroup;)V", "", "getCurrentMeasuredWidth", "()I", "getNextMeasuredWidth", "getRealView", "()Lcom/baidu/nadcore/slidingtag/NadDownloadSlidingTagView;", "Lcom/baidu/nadcore/model/NadSlidingTagModel;", "model", "", DelayTB.DELAY, "innerStartDelay", "(Lcom/baidu/nadcore/model/NadSlidingTagModel;J)V", "setDownloadTextView", "(Lcom/baidu/nadcore/model/NadSlidingTagModel;)V", "setLinear", "maxWidthPx", "setMaxWidth", "(I)V", "setTextViewList", "setTvListMaxWidth", "()V", "start", "startDelay", "", "text", "Lcom/baidu/nadcore/download/model/AdDownloadBean;", "data", StickerDataChangeType.UPDATE, "(Ljava/lang/String;Lcom/baidu/nadcore/download/model/AdDownloadBean;)V", "downloadInitText", "Ljava/lang/String;", "Landroid/widget/TextView;", "kotlin.jvm.PlatformType", "downloadTextPrefix$delegate", "Lkotlin/Lazy;", "getDownloadTextPrefix", "()Landroid/widget/TextView;", "downloadTextPrefix", "downloadTextView$delegate", "getDownloadTextView", "downloadTextView", "maxWidth", "I", "Landroid/content/Context;", "context", "Landroid/util/AttributeSet;", "attributeSet", "style", "<init>", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "nadcore-lib-business"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
+@Metadata(bv = {1, 0, 3}, d1 = {"\u0000T\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\t\n\u0002\b\u000e\n\u0002\u0010\u000e\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0005\u0018\u00002\u00020\u00012\u00020\u0002B'\b\u0007\u0012\u0006\u00104\u001a\u000203\u0012\n\b\u0002\u00106\u001a\u0004\u0018\u000105\u0012\b\b\u0002\u00107\u001a\u00020\b¢\u0006\u0004\b8\u00109J\u0017\u0010\u0006\u001a\u00020\u00052\u0006\u0010\u0004\u001a\u00020\u0003H\u0016¢\u0006\u0004\b\u0006\u0010\u0007J\u000f\u0010\t\u001a\u00020\bH\u0014¢\u0006\u0004\b\t\u0010\nJ\u000f\u0010\u000b\u001a\u00020\bH\u0014¢\u0006\u0004\b\u000b\u0010\nJ\u000f\u0010\f\u001a\u00020\u0000H\u0016¢\u0006\u0004\b\f\u0010\rJ!\u0010\u0012\u001a\u00020\u00052\b\u0010\u000f\u001a\u0004\u0018\u00010\u000e2\u0006\u0010\u0011\u001a\u00020\u0010H\u0002¢\u0006\u0004\b\u0012\u0010\u0013J\u0017\u0010\u0014\u001a\u00020\u00052\u0006\u0010\u000f\u001a\u00020\u000eH\u0002¢\u0006\u0004\b\u0014\u0010\u0015J\u0017\u0010\u0016\u001a\u00020\u00052\u0006\u0010\u000f\u001a\u00020\u000eH\u0002¢\u0006\u0004\b\u0016\u0010\u0015J\u0017\u0010\u0018\u001a\u00020\u00052\u0006\u0010\u0017\u001a\u00020\bH\u0016¢\u0006\u0004\b\u0018\u0010\u0019J\u0017\u0010\u001a\u001a\u00020\u00052\u0006\u0010\u000f\u001a\u00020\u000eH\u0002¢\u0006\u0004\b\u001a\u0010\u0015J\u000f\u0010\u001b\u001a\u00020\u0005H\u0002¢\u0006\u0004\b\u001b\u0010\u001cJ\u0019\u0010\u001d\u001a\u00020\u00052\b\u0010\u000f\u001a\u0004\u0018\u00010\u000eH\u0016¢\u0006\u0004\b\u001d\u0010\u0015J\u0019\u0010\u001e\u001a\u00020\u00052\b\u0010\u000f\u001a\u0004\u0018\u00010\u000eH\u0016¢\u0006\u0004\b\u001e\u0010\u0015J!\u0010\u001e\u001a\u00020\u00052\b\u0010\u000f\u001a\u0004\u0018\u00010\u000e2\u0006\u0010\u0011\u001a\u00020\u0010H\u0016¢\u0006\u0004\b\u001e\u0010\u0013J!\u0010#\u001a\u00020\u00052\b\u0010 \u001a\u0004\u0018\u00010\u001f2\u0006\u0010\"\u001a\u00020!H\u0016¢\u0006\u0004\b#\u0010$R\u0016\u0010%\u001a\u00020\u001f8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b%\u0010&R%\u0010-\u001a\n (*\u0004\u0018\u00010'0'8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b)\u0010*\u001a\u0004\b+\u0010,R%\u00100\u001a\n (*\u0004\u0018\u00010'0'8B@\u0002X\u0082\u0084\u0002¢\u0006\f\n\u0004\b.\u0010*\u001a\u0004\b/\u0010,R\u0016\u00101\u001a\u00020\b8\u0002@\u0002X\u0082\u000e¢\u0006\u0006\n\u0004\b1\u00102¨\u0006:"}, d2 = {"Lcom/baidu/nadcore/slidingtag/NadDownloadSlidingTagView;", "Lcom/baidu/tieba/pk0;", "Lcom/baidu/nadcore/slidingtag/NadSlidingTagBaseView;", "Landroid/view/ViewGroup;", "parent", "", "bind", "(Landroid/view/ViewGroup;)V", "", "getCurrentMeasuredWidth", "()I", "getNextMeasuredWidth", "getRealView", "()Lcom/baidu/nadcore/slidingtag/NadDownloadSlidingTagView;", "Lcom/baidu/nadcore/model/NadSlidingTagModel;", "model", "", DelayTB.DELAY, "innerStartDelay", "(Lcom/baidu/nadcore/model/NadSlidingTagModel;J)V", "setDownloadTextView", "(Lcom/baidu/nadcore/model/NadSlidingTagModel;)V", "setLinear", "maxWidthPx", "setMaxWidth", "(I)V", "setTextViewList", "setTvListMaxWidth", "()V", "start", "startDelay", "", "text", "Lcom/baidu/nadcore/download/model/AdDownloadBean;", "data", StickerDataChangeType.UPDATE, "(Ljava/lang/String;Lcom/baidu/nadcore/download/model/AdDownloadBean;)V", "downloadInitText", "Ljava/lang/String;", "Landroid/widget/TextView;", "kotlin.jvm.PlatformType", "downloadTextPrefix$delegate", "Lkotlin/Lazy;", "getDownloadTextPrefix", "()Landroid/widget/TextView;", "downloadTextPrefix", "downloadTextView$delegate", "getDownloadTextView", "downloadTextView", "maxWidth", "I", "Landroid/content/Context;", "context", "Landroid/util/AttributeSet;", "attributeSet", "style", "<init>", "(Landroid/content/Context;Landroid/util/AttributeSet;I)V", "nadcore-lib-business"}, k = 1, mv = {1, 1, 15}, pn = "", xi = 0, xs = "")
 /* loaded from: classes2.dex */
-public final class NadDownloadSlidingTagView extends NadSlidingTagBaseView implements zl0<NadDownloadSlidingTagView> {
+public final class NadDownloadSlidingTagView extends NadSlidingTagBaseView implements pk0<NadDownloadSlidingTagView> {
     public int p;
     public String q;
     public final Lazy r;
@@ -57,7 +57,7 @@ public final class NadDownloadSlidingTagView extends NadSlidingTagBaseView imple
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zl0
+    @Override // com.baidu.tieba.pk0
     public NadDownloadSlidingTagView getRealView() {
         return this;
     }
@@ -101,10 +101,10 @@ public final class NadDownloadSlidingTagView extends NadSlidingTagBaseView imple
         this(context, (i2 & 2) != 0 ? null : attributeSet, (i2 & 4) != 0 ? 0 : i);
     }
 
-    private final void setDownloadTextView(qr0 qr0Var) {
+    private final void setDownloadTextView(gq0 gq0Var) {
         String str;
         boolean z;
-        qr0.b bVar = qr0Var.c;
+        gq0.b bVar = gq0Var.c;
         String str2 = null;
         if (bVar != null) {
             str = bVar.a;
@@ -121,11 +121,11 @@ public final class NadDownloadSlidingTagView extends NadSlidingTagBaseView imple
             Intrinsics.checkNotNullExpressionValue(str, "resources.getString(com.…tring.nad_download_start)");
         }
         this.q = str;
-        qr0.c cVar = (qr0.c) CollectionsKt___CollectionsKt.getOrNull(qr0Var.a, 0);
+        gq0.c cVar = (gq0.c) CollectionsKt___CollectionsKt.getOrNull(gq0Var.a, 0);
         if (cVar != null) {
             str2 = cVar.c;
         }
-        int f = oi0.f(str2, R.color.nad_sliding_tag_text_color_default);
+        int f = eh0.f(str2, R.color.nad_sliding_tag_text_color_default);
         TextView downloadTextPrefix = getDownloadTextPrefix();
         downloadTextPrefix.setTextColor(f);
         downloadTextPrefix.setTextSize(0, getTextSizePx());
@@ -146,14 +146,14 @@ public final class NadDownloadSlidingTagView extends NadSlidingTagBaseView imple
         downloadTextView.setVisibility(0);
     }
 
-    private final void setLinear(qr0 qr0Var) {
+    private final void setLinear(gq0 gq0Var) {
         LinearLayout linear = getLinear();
         int i = 0;
         if (!getTvList().isEmpty()) {
             if (getLinear().getChildAt(0) instanceof AdImageView) {
-                linear.setPadding(j51.c.a(linear.getContext(), 5.0f), j51.c.a(linear.getContext(), 5.0f), j51.c.a(linear.getContext(), 5.0f), j51.c.a(linear.getContext(), 5.0f));
+                linear.setPadding(z31.c.a(linear.getContext(), 5.0f), z31.c.a(linear.getContext(), 5.0f), z31.c.a(linear.getContext(), 5.0f), z31.c.a(linear.getContext(), 5.0f));
             } else {
-                linear.setPadding(j51.c.a(linear.getContext(), 7.0f), j51.c.a(linear.getContext(), 8.0f), j51.c.a(linear.getContext(), 5.0f), j51.c.a(linear.getContext(), 8.0f));
+                linear.setPadding(z31.c.a(linear.getContext(), 7.0f), z31.c.a(linear.getContext(), 8.0f), z31.c.a(linear.getContext(), 5.0f), z31.c.a(linear.getContext(), 8.0f));
             }
             linear.setGravity(16);
             TextView textView = (TextView) CollectionsKt___CollectionsKt.getOrNull(getTvList(), 0);
@@ -169,9 +169,9 @@ public final class NadDownloadSlidingTagView extends NadSlidingTagBaseView imple
         linear.setVisibility(i);
     }
 
-    private final void setTextViewList(qr0 qr0Var) {
-        for (qr0.c cVar : qr0Var.a) {
-            TextView a = m21.a(getContext(), cVar);
+    private final void setTextViewList(gq0 gq0Var) {
+        for (gq0.c cVar : gq0Var.a) {
+            TextView a = c11.a(getContext(), cVar);
             if (a != null) {
                 a.setTextSize(0, getTextSizePx());
                 a.setLayoutParams(r());
@@ -190,7 +190,7 @@ public final class NadDownloadSlidingTagView extends NadSlidingTagBaseView imple
         x();
     }
 
-    @Override // com.baidu.tieba.zl0
+    @Override // com.baidu.tieba.pk0
     public void b(ViewGroup parent) {
         Intrinsics.checkNotNullParameter(parent, "parent");
         if (!(parent instanceof RelativeLayout)) {
@@ -220,23 +220,23 @@ public final class NadDownloadSlidingTagView extends NadSlidingTagBaseView imple
             textView.setLayoutParams(r());
         }
         if (getLinear().getChildAt(0) instanceof AdImageView) {
-            int a2 = j51.c.a(getContext(), 5.0f) + getIconSizePx() + j51.c.a(getContext(), 5.0f) + p(textView) + j51.c.a(getContext(), 5.0f);
+            int a2 = z31.c.a(getContext(), 5.0f) + getIconSizePx() + z31.c.a(getContext(), 5.0f) + p(textView) + z31.c.a(getContext(), 5.0f);
             TextView downloadTextPrefix = getDownloadTextPrefix();
             Intrinsics.checkNotNullExpressionValue(downloadTextPrefix, "downloadTextPrefix");
-            int p2 = a2 + p(downloadTextPrefix) + j51.c.a(getContext(), 5.0f);
+            int p2 = a2 + p(downloadTextPrefix) + z31.c.a(getContext(), 5.0f);
             TextView downloadTextView = getDownloadTextView();
             Intrinsics.checkNotNullExpressionValue(downloadTextView, "downloadTextView");
             p = p2 + p(downloadTextView);
-            a = j51.c.a(getContext(), 9.0f);
+            a = z31.c.a(getContext(), 9.0f);
         } else {
-            int a3 = j51.c.a(getContext(), 7.0f) + p(textView) + j51.c.a(getContext(), 5.0f);
+            int a3 = z31.c.a(getContext(), 7.0f) + p(textView) + z31.c.a(getContext(), 5.0f);
             TextView downloadTextPrefix2 = getDownloadTextPrefix();
             Intrinsics.checkNotNullExpressionValue(downloadTextPrefix2, "downloadTextPrefix");
-            int p3 = a3 + p(downloadTextPrefix2) + j51.c.a(getContext(), 5.0f);
+            int p3 = a3 + p(downloadTextPrefix2) + z31.c.a(getContext(), 5.0f);
             TextView downloadTextView2 = getDownloadTextView();
             Intrinsics.checkNotNullExpressionValue(downloadTextView2, "downloadTextView");
             p = p3 + p(downloadTextView2);
-            a = j51.c.a(getContext(), 9.0f);
+            a = z31.c.a(getContext(), 9.0f);
         }
         int i = p + a;
         int i2 = this.p;
@@ -261,23 +261,23 @@ public final class NadDownloadSlidingTagView extends NadSlidingTagBaseView imple
             textView.setLayoutParams(r());
         }
         if (getLinear().getChildAt(0) instanceof AdImageView) {
-            int a2 = j51.c.a(getContext(), 5.0f) + getIconSizePx() + j51.c.a(getContext(), 5.0f) + p(textView) + j51.c.a(getContext(), 5.0f);
+            int a2 = z31.c.a(getContext(), 5.0f) + getIconSizePx() + z31.c.a(getContext(), 5.0f) + p(textView) + z31.c.a(getContext(), 5.0f);
             TextView downloadTextPrefix = getDownloadTextPrefix();
             Intrinsics.checkNotNullExpressionValue(downloadTextPrefix, "downloadTextPrefix");
-            int p2 = a2 + p(downloadTextPrefix) + j51.c.a(getContext(), 5.0f);
+            int p2 = a2 + p(downloadTextPrefix) + z31.c.a(getContext(), 5.0f);
             TextView downloadTextView = getDownloadTextView();
             Intrinsics.checkNotNullExpressionValue(downloadTextView, "downloadTextView");
             p = p2 + p(downloadTextView);
-            a = j51.c.a(getContext(), 9.0f);
+            a = z31.c.a(getContext(), 9.0f);
         } else {
-            int a3 = j51.c.a(getContext(), 7.0f) + p(textView) + j51.c.a(getContext(), 5.0f);
+            int a3 = z31.c.a(getContext(), 7.0f) + p(textView) + z31.c.a(getContext(), 5.0f);
             TextView downloadTextPrefix2 = getDownloadTextPrefix();
             Intrinsics.checkNotNullExpressionValue(downloadTextPrefix2, "downloadTextPrefix");
-            int p3 = a3 + p(downloadTextPrefix2) + j51.c.a(getContext(), 5.0f);
+            int p3 = a3 + p(downloadTextPrefix2) + z31.c.a(getContext(), 5.0f);
             TextView downloadTextView2 = getDownloadTextView();
             Intrinsics.checkNotNullExpressionValue(downloadTextView2, "downloadTextView");
             p = p3 + p(downloadTextView2);
-            a = j51.c.a(getContext(), 9.0f);
+            a = z31.c.a(getContext(), 9.0f);
         }
         int i = p + a;
         int i2 = this.p;
@@ -288,14 +288,14 @@ public final class NadDownloadSlidingTagView extends NadSlidingTagBaseView imple
         return i;
     }
 
-    @Override // com.baidu.tieba.zl0
-    public void update(String str, gl0 data) {
+    @Override // com.baidu.tieba.pk0
+    public void update(String str, wj0 data) {
         Intrinsics.checkNotNullParameter(data, "data");
         TextView downloadTextView = getDownloadTextView();
         if (downloadTextView != null) {
             AdDownloadStatus adDownloadStatus = data.c;
             if (adDownloadStatus != null) {
-                int i = l21.$EnumSwitchMapping$0[adDownloadStatus.ordinal()];
+                int i = b11.$EnumSwitchMapping$0[adDownloadStatus.ordinal()];
                 if (i != 1) {
                     if (i == 2) {
                         str = getResources().getString(R.string.nad_downloading);
@@ -311,17 +311,17 @@ public final class NadDownloadSlidingTagView extends NadSlidingTagBaseView imple
 
     public final void x() {
         int a;
-        int a2 = this.p - j51.c.a(getContext(), 9.0f);
+        int a2 = this.p - z31.c.a(getContext(), 9.0f);
         TextView downloadTextView = getDownloadTextView();
         Intrinsics.checkNotNullExpressionValue(downloadTextView, "downloadTextView");
-        int p = (a2 - p(downloadTextView)) - j51.c.a(getContext(), 5.0f);
+        int p = (a2 - p(downloadTextView)) - z31.c.a(getContext(), 5.0f);
         TextView downloadTextPrefix = getDownloadTextPrefix();
         Intrinsics.checkNotNullExpressionValue(downloadTextPrefix, "downloadTextPrefix");
-        int p2 = (p - p(downloadTextPrefix)) - j51.c.a(getContext(), 5.0f);
+        int p2 = (p - p(downloadTextPrefix)) - z31.c.a(getContext(), 5.0f);
         if (getLinear().getChildAt(0) instanceof AdImageView) {
-            a = getIconSizePx() + j51.c.a(getContext(), 5.0f) + j51.c.a(getContext(), 5.0f);
+            a = getIconSizePx() + z31.c.a(getContext(), 5.0f) + z31.c.a(getContext(), 5.0f);
         } else {
-            a = j51.c.a(getContext(), 7.0f);
+            a = z31.c.a(getContext(), 7.0f);
         }
         int i = p2 - a;
         for (TextView textView : getTvList()) {

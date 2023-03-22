@@ -1,41 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.unitedscheme.security.ISchemeHeadIoc;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.swan.game.ad.entity.AdResponseInfo;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class kw3 implements ISchemeHeadIoc {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface kw3 {
+    void a(String str, JSONObject jSONObject, ResponseCallback<AdResponseInfo> responseCallback);
 
-    public kw3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void b(String str, JSONObject jSONObject, ResponseCallback<cw3> responseCallback);
 
-    @Override // com.baidu.searchbox.unitedscheme.security.ISchemeHeadIoc
-    public String getSchemeHead() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return ts2.n().getSchemeHeader();
-        }
-        return (String) invokeV.objValue;
-    }
+    void c(String str, ResponseCallback<lv3> responseCallback);
+
+    void d(String str);
+
+    void e(String str);
+
+    void f(String str, ResponseCallback<AdResponseInfo> responseCallback);
 }

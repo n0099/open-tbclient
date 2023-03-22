@@ -1,73 +1,30 @@
 package com.baidu.tieba;
 
-import android.util.Pair;
-import android.widget.ListAdapter;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.faceshop.EmotionPackageData;
-import com.baidu.tieba.newfaceshop.nativemotionmanager.managers.MyEmotionHorizontalAdater;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.LinkedHashMap;
 import java.util.List;
+import tbclient.GetVipInfo.DataRes;
+import tbclient.GetVipInfo.VipBasicList;
+import tbclient.GetVipInfo.VipSpecialItem;
 /* loaded from: classes4.dex */
 public class fa8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdListView a;
-    public MyEmotionHorizontalAdater b;
-    public List<EmotionPackageData> c;
-    public final List<a> d;
-    public ka8 e;
-    public da8 f;
+    public ArrayList<String> a;
+    public s98 b;
+    public LinkedHashMap<String, v98> c;
 
-    /* loaded from: classes4.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public int c;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "id: " + this.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + "firstVisibleItem: " + this.b + StringUtil.ARRAY_ELEMENT_SEPARATOR + "padX: " + this.c;
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    public fa8(TbPageContext<?> tbPageContext, BdListView bdListView, da8 da8Var) {
+    public fa8(DataRes dataRes) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdListView, da8Var};
+            Object[] objArr = {dataRes};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -77,80 +34,43 @@ public class fa8 {
                 return;
             }
         }
-        this.a = bdListView;
-        ka8 ka8Var = new ka8(tbPageContext);
-        this.e = ka8Var;
-        ka8Var.b(TbadkCoreApplication.getInst().getSkinType());
-        this.a.addHeaderView(this.e.a());
-        this.c = new ArrayList();
-        this.d = new ArrayList();
-        MyEmotionHorizontalAdater myEmotionHorizontalAdater = new MyEmotionHorizontalAdater(this.c, this.d, tbPageContext);
-        this.b = myEmotionHorizontalAdater;
-        this.f = da8Var;
-        this.a.setAdapter((ListAdapter) myEmotionHorizontalAdater);
-    }
-
-    public void a(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && i >= 0 && i < this.c.size() && i2 >= 0 && i2 < this.c.size()) {
-            List<EmotionPackageData> list = this.c;
-            list.add(i2, list.remove(i));
-            List<a> list2 = this.d;
-            list2.add(i2, list2.remove(i));
-            this.b.notifyDataSetChanged();
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921312, new Pair(Integer.valueOf(i), Integer.valueOf(i2))));
+        if (dataRes == null) {
+            return;
         }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ArrayList arrayList = new ArrayList(this.d);
-            this.d.clear();
-            for (EmotionPackageData emotionPackageData : this.c) {
-                a aVar = null;
-                Iterator it = arrayList.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    a aVar2 = (a) it.next();
-                    if (aVar2 != null && aVar2.a == emotionPackageData.id) {
-                        aVar = aVar2;
-                        break;
+        String str = dataRes.grade_intro_title;
+        String str2 = dataRes.grade_intro_link;
+        new ea8(dataRes);
+        new ga8(dataRes.special_list);
+        new x98(dataRes.cooperate_list);
+        new ba8(dataRes.theme_list);
+        new t98(dataRes.banner_list);
+        new ja8(dataRes.task_list);
+        new ia8(dataRes.rank, dataRes.user);
+        new z98(dataRes.daily_list);
+        s98 s98Var = new s98();
+        this.b = s98Var;
+        s98Var.a(dataRes);
+        List<VipBasicList> list = dataRes.basic_list;
+        if (list != null && list.size() > 0) {
+            this.c = new LinkedHashMap<>();
+            for (VipBasicList vipBasicList : dataRes.basic_list) {
+                List<VipSpecialItem> list2 = vipBasicList.item;
+                if (list2 != null && list2.size() > 0) {
+                    v98 v98Var = new v98(vipBasicList);
+                    if (v98Var.c != 3 || v98Var.a().size() >= 2) {
+                        this.c.put(v98Var.d, v98Var);
                     }
                 }
-                if (aVar == null) {
-                    aVar = new a();
-                    aVar.a = emotionPackageData.id;
-                }
-                this.d.add(aVar);
             }
         }
-    }
-
-    public void update() {
-        ka8 ka8Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.b != null && this.a != null && this.c != null && (ka8Var = this.e) != null && this.f != null) {
-            ka8Var.c();
-            this.f.b(0, this.b.b());
-            this.f.a(ca8.b().a());
-            this.b.notifyDataSetChanged();
-        }
-    }
-
-    public void update(List<EmotionPackageData> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && this.a != null && this.b != null) {
-            this.c.clear();
-            this.c.addAll(list);
-            b();
-            this.b.d();
-            this.e.update(Integer.valueOf(this.b.b()));
-            this.f.b(0, this.b.b());
-            this.f.a(ca8.b().a());
-            this.b.notifyDataSetChanged();
+        List<String> list3 = dataRes.card_order;
+        if (list3 != null && list3.size() > 0) {
+            this.a = new ArrayList<>();
+            for (String str3 : dataRes.card_order) {
+                if (!StringUtils.isNull(str3)) {
+                    this.a.add(str3);
+                }
+            }
         }
     }
 }

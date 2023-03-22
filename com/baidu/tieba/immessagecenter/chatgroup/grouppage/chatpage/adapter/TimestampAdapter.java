@@ -9,10 +9,10 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b35;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseViewHolder;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TimestampSysMsg;
+import com.baidu.tieba.n15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,7 +48,7 @@ public class TimestampAdapter extends BaseSysAdapter<TimestampSysMsg, Holder> {
                     return;
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092378);
+            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923d2);
         }
     }
 
@@ -76,12 +76,12 @@ public class TimestampAdapter extends BaseSysAdapter<TimestampSysMsg, Holder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter
     @NonNull
-    /* renamed from: E */
-    public Holder z(@NonNull ViewGroup viewGroup) {
+    /* renamed from: I */
+    public Holder D(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
-            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d08e9, viewGroup, false));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new Holder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0905, viewGroup, false));
         }
         return (Holder) invokeL.objValue;
     }
@@ -89,16 +89,16 @@ public class TimestampAdapter extends BaseSysAdapter<TimestampSysMsg, Holder> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseSysAdapter
     @NonNull
-    /* renamed from: F */
-    public View B(int i, @NonNull ViewGroup viewGroup, @NonNull TimestampSysMsg timestampSysMsg, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
+    /* renamed from: J */
+    public View F(int i, @NonNull ViewGroup viewGroup, @NonNull TimestampSysMsg timestampSysMsg, @NonNull Holder holder, @NonNull List<Object> list, int i2) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), viewGroup, timestampSysMsg, holder, list, Integer.valueOf(i2)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), viewGroup, timestampSysMsg, holder, list, Integer.valueOf(i2)})) == null) {
             if (timestampSysMsg != null && timestampSysMsg.getTimeShow() != null) {
                 holder.a.setText(timestampSysMsg.getTimeShow());
-                b35 d = b35.d(holder.a);
-                d.v(R.color.CAM_X0108);
-                d.z(R.dimen.T_X09);
+                n15 d = n15.d(holder.a);
+                d.w(R.color.CAM_X0108);
+                d.A(R.dimen.T_X09);
             }
             return holder.getView();
         }

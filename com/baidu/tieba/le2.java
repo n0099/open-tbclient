@@ -1,10 +1,6 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,51 +8,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 import java.util.TreeMap;
 /* loaded from: classes5.dex */
-public class le2 {
+public final class le2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean l;
+    public static final boolean b;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public String b;
-    public String c;
-    public String d;
-    public boolean e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
-
-    /* loaded from: classes5.dex */
-    public static class a extends PrefetchEvent.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(@Nullable Map<String, String> map, String str) {
-            super(map, str);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {map, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Map) objArr2[0], (String) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -71,7 +30,9 @@ public class le2 {
                 return;
             }
         }
-        l = wp1.a;
+        b = do1.a;
+        ar2.g0().getSwitch("swan_slave_ready", false);
+        c = false;
     }
 
     public le2() {
@@ -88,71 +49,38 @@ public class le2 {
         }
     }
 
-    public static le2 a(sv1<?> sv1Var, PrefetchEvent prefetchEvent, m93 m93Var) {
-        InterceptResult invokeLLL;
-        long j;
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, sv1Var, prefetchEvent, m93Var)) == null) {
-            if (l) {
-                j = System.currentTimeMillis();
-            } else {
-                j = 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b) {
+                Log.d("SlaveReadyEvent", "isSlaveReadyABSwitchOn:" + c);
             }
-            le2 le2Var = new le2();
-            le2Var.h = sv1Var.a();
-            le2Var.a = prefetchEvent.appPath;
-            le2Var.b = prefetchEvent.pageUrl;
-            le2Var.f = prefetchEvent.rootPath;
-            SwanAppConfigData Q = m93Var.Q();
-            le2Var.c = prefetchEvent.pageType;
-            String c = w93.c(prefetchEvent.appPath, en3.f(ed3.b(prefetchEvent.pageUrl)));
-            le2Var.g = c;
-            ba3 b = ba3.b(c, Q.e);
-            le2Var.k = b.r;
-            le2Var.d = b.g;
-            le2Var.e = prefetchEvent.isT7Available;
-            le2Var.i = prefetchEvent.sConsole;
-            if (!TextUtils.isEmpty(prefetchEvent.userActionApis)) {
-                le2Var.j = prefetchEvent.userActionApis;
-            }
-            if (l) {
-                long currentTimeMillis = System.currentTimeMillis();
-                Log.d("SlavePreloadEvent", "build slave preload event cost - " + (currentTimeMillis - j) + "ms");
-            }
-            return le2Var;
+            return c;
         }
-        return (le2) invokeLLL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public a b() {
+    public String toString() {
         InterceptResult invokeV;
-        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (l) {
-                j = System.currentTimeMillis();
-            } else {
-                j = 0;
+            return "SlaveReadyEvent{slaveId='" + this.a + "'}";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static uh2 a(le2 le2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, le2Var)) == null) {
+            if (b) {
+                Log.d("SlaveReadyEvent", "createSlaveReadyMessage:" + le2Var);
             }
             TreeMap treeMap = new TreeMap();
-            treeMap.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, this.h);
-            treeMap.put(PrefetchEvent.EVENT_KEY_APP_PATH, this.a);
-            treeMap.put("pagePath", this.b);
-            treeMap.put("pageType", this.c);
-            treeMap.put("onReachBottomDistance", this.d);
-            treeMap.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, String.valueOf(this.e));
-            treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_SCONSOLE, this.i);
-            treeMap.put("root", this.f);
-            treeMap.put(PrefetchEvent.EVENT_USER_ACTION_APIS, this.j);
-            k53.a(treeMap, "slave preload ready event");
-            ed3.a(this.b, treeMap);
-            treeMap.put("pageConfig", this.g);
-            if (l) {
-                long currentTimeMillis = System.currentTimeMillis();
-                Log.d("SlavePreloadEvent", "build slave preload msg cost - " + (currentTimeMillis - j) + "ms");
-            }
-            return new a(treeMap, "preload");
+            treeMap.put("slaveId", le2Var.a);
+            return new uh2("SlaveReady", treeMap);
         }
-        return (a) invokeV.objValue;
+        return (uh2) invokeL.objValue;
     }
 }

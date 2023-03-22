@@ -1,47 +1,24 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import com.baidu.live.feed.search.LiveFeedSearchActivity;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
 /* loaded from: classes4.dex */
-public class fb0 implements ac0 {
+public class fb0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public fb0() {
+    public static void a(Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeL(65536, null, runnable) == null) {
+            ExecutorUtilsExt.postOnElastic(runnable, "live-feedpage-" + hb0.a().b(), 3);
         }
     }
 
-    @Override // com.baidu.tieba.ac0
-    public void a(Context context, String str) {
+    public static void b(Runnable runnable, String str, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) && context != null) {
-            Intent intent = new Intent(context, LiveFeedSearchActivity.class);
-            intent.putExtra("source", str);
-            if (!(context instanceof Activity)) {
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-            }
-            context.startActivity(intent);
+        if (interceptable == null || interceptable.invokeLLI(65537, null, runnable, str, i) == null) {
+            ExecutorUtilsExt.postOnElastic(runnable, str, i);
         }
     }
 }

@@ -142,7 +142,7 @@ public class BdExpandListView extends BdListView {
         obtainStyledAttributes.recycle();
     }
 
-    public final void I(float f) {
+    public final void H(float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
             this.S.a(360.0f - ((f * 360.0f) / this.R));
@@ -182,7 +182,7 @@ public class BdExpandListView extends BdListView {
         }
     }
 
-    public void J() {
+    public void I() {
         b bVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bVar = this.S) != null) {
@@ -202,13 +202,13 @@ public class BdExpandListView extends BdListView {
         }
     }
 
-    public void K() {
+    public void J() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.M == null) {
             return;
         }
         if (this.I.getHeight() >= this.M.b - (this.R / 2)) {
-            J();
+            I();
         } else {
             this.S.b();
         }
@@ -247,7 +247,7 @@ public class BdExpandListView extends BdListView {
                             if (a2 > cVar.a && a2 <= cVar.b) {
                                 this.N = true;
                                 this.I.setLayoutParams(new AbsListView.LayoutParams(this.I.getWidth(), a2));
-                                I(a2 - this.M.a);
+                                H(a2 - this.M.a);
                             } else {
                                 c cVar2 = this.M;
                                 if (a2 <= cVar2.a) {
@@ -264,7 +264,7 @@ public class BdExpandListView extends BdListView {
                     }
                 }
                 if (this.N) {
-                    K();
+                    J();
                 } else {
                     this.S.b();
                 }

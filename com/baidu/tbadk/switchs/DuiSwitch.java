@@ -14,7 +14,7 @@ public class DuiSwitch extends BaseNormalSwitch {
     public static DuiSwitch mInstance;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.qf
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.te
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class DuiSwitch extends BaseNormalSwitch {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.qf
+    @Override // com.baidu.tbadk.switchs.BaseNormalSwitch, com.baidu.tieba.te
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

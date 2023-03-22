@@ -1,77 +1,163 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.frsfeedforums.FrsFeedItemViewHolder;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.FrsPage.ForumGroup;
+import tbclient.FrsPage.GroupFeedCard;
 /* loaded from: classes6.dex */
-public class w07 extends zu6<j49, FrsFeedItemViewHolder> {
+public final class w07 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
+    public static final a c;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public u07 l;
-    public boolean m;
+    public final GroupFeedCard a;
+    public final String b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w07(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
-        super(tbPageContext, bdUniqueId);
+    @JvmStatic
+    public static final void h(ForumGroup forumGroup, List<gn> list, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, forumGroup, list, str) == null) {
+            c.b(forumGroup, list, str);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final BdUniqueId a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
+                return (BdUniqueId) invokeV.objValue;
+            }
+            return w07.d;
+        }
+
+        @JvmStatic
+        public final void b(ForumGroup frsForumGroup, List<gn> newList, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, frsForumGroup, newList, str) == null) {
+                Intrinsics.checkNotNullParameter(frsForumGroup, "frsForumGroup");
+                Intrinsics.checkNotNullParameter(newList, "newList");
+                int i = 0;
+                int i2 = 0;
+                for (gn gnVar : newList) {
+                    Integer num = frsForumGroup.feed_card.index;
+                    Intrinsics.checkNotNullExpressionValue(num, "frsForumGroup.feed_card.index");
+                    if (i >= num.intValue()) {
+                        break;
+                    }
+                    if (!Intrinsics.areEqual(gnVar.getType(), ThreadData.TYPE_TOP) && !eo5.p(gnVar)) {
+                        i++;
+                    }
+                    i2++;
+                }
+                if (i2 <= newList.size()) {
+                    GroupFeedCard groupFeedCard = frsForumGroup.feed_card;
+                    Intrinsics.checkNotNullExpressionValue(groupFeedCard, "frsForumGroup.feed_card");
+                    newList.add(i2, new w07(groupFeedCard, str));
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948216843, "Lcom/baidu/tieba/w07;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948216843, "Lcom/baidu/tieba/w07;");
+                return;
+            }
+        }
+        c = new a(null);
+        BdUniqueId gen = BdUniqueId.gen();
+        Intrinsics.checkNotNullExpressionValue(gen, "gen()");
+        d = gen;
+    }
+
+    public w07(GroupFeedCard data, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {data, str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.m = z;
+        Intrinsics.checkNotNullParameter(data, "data");
+        this.a = data;
+        this.b = str;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: E */
-    public FrsFeedItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final GroupFeedCard f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d031a, (ViewGroup) null);
-            this.l = new u07(this.c, inflate, 2, this.m, this.mPageId);
-            return new FrsFeedItemViewHolder(inflate);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (FrsFeedItemViewHolder) invokeL.objValue;
+        return (GroupFeedCard) invokeV.objValue;
     }
 
-    public View F(int i, View view2, ViewGroup viewGroup, j49 j49Var, FrsFeedItemViewHolder frsFeedItemViewHolder) {
-        InterceptResult invokeCommon;
+    public final String g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, j49Var, frsFeedItemViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) j49Var, (j49) frsFeedItemViewHolder);
-            if (j49Var != null) {
-                this.l.o(j49Var.b(), j49Var.a());
-            }
-            return view2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return (View) invokeCommon.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.zu6, com.baidu.tieba.qn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        F(i, view2, viewGroup, (j49) obj, (FrsFeedItemViewHolder) viewHolder);
-        return view2;
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.gn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return d;
+        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

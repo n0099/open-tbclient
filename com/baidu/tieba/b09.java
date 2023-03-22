@@ -1,195 +1,107 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.view.RoundRelativeLayout;
+import android.graphics.Paint;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.EncodeHintType;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
+import java.util.EnumMap;
+import java.util.Map;
 /* loaded from: classes3.dex */
-public class b09 extends a09 {
+public class b09 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<EncodeHintType, Object> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context M;
-    public o39 N;
-    public RoundRelativeLayout O;
-    public TbImageView P;
-    public TextView Q;
-    public TextView R;
-    public RoundRelativeLayout S;
-    public TbImageView T;
-    public TextView U;
-    public TextView V;
-    public ImageView W;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b09(Context context, boolean z, int i, o39 o39Var) {
-        super(context, z, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z), Integer.valueOf(i), o39Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947591294, "Lcom/baidu/tieba/b09;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947591294, "Lcom/baidu/tieba/b09;");
                 return;
             }
         }
-        this.M = context;
-        this.N = o39Var;
-        A0();
-        g0(2);
+        EnumMap enumMap = new EnumMap(EncodeHintType.class);
+        a = enumMap;
+        enumMap.put((EnumMap) EncodeHintType.CHARACTER_SET, (EncodeHintType) IMAudioTransRequest.CHARSET);
+        a.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
+        a.put(EncodeHintType.MARGIN, 0);
     }
 
-    public final void A0() {
+    public static Bitmap a(Bitmap bitmap, Bitmap bitmap2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.O = (RoundRelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0920fa);
-            this.P = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0920f9);
-            this.S = (RoundRelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0913e0);
-            this.T = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0920fd);
-            this.Q = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920fc);
-            this.R = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0920fb);
-            this.U = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0925ac);
-            this.V = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0925ab);
-            this.W = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091039);
-            C0();
-            this.O.setRoundLayoutRadius(z25.z(R.string.J_X06));
-            this.S.setRoundLayoutRadius(z25.z(R.string.J_X04));
-        }
-    }
-
-    @Override // com.baidu.tieba.a09
-    public View B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(R.layout.obfuscated_res_0x7f0d0858, (ViewGroup) null);
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public final void B0(TbImageView tbImageView) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbImageView) != null) || tbImageView == null) {
-            return;
-        }
-        if (this.N.b() == 1) {
-            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080aeb);
-        } else if (this.N.b() == 2) {
-            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080c65);
-        } else if (this.N.b() == 3) {
-            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080aec);
-        } else if (this.N.b() == 4) {
-            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080aef);
-        } else {
-            tbImageView.K(this.N.c(), 10, false);
-        }
-    }
-
-    public final void C0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            int l = (ej.l(TbadkCoreApplication.getInst()) * 879) / 1076;
-            int i = (l * 1342) / 879;
-            ViewGroup.LayoutParams layoutParams = this.O.getLayoutParams();
-            if (layoutParams != null) {
-                layoutParams.width = l;
-                layoutParams.height = i;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bitmap, bitmap2)) == null) {
+            if (bitmap != null && bitmap2 != null) {
+                int width = bitmap.getWidth();
+                int height = bitmap.getHeight();
+                int width2 = bitmap2.getWidth();
+                int height2 = bitmap2.getHeight();
+                float f = ((width * 1.0f) / 5.0f) / width2;
+                Bitmap createBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+                try {
+                    Canvas canvas = new Canvas(createBitmap);
+                    canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
+                    canvas.scale(f, f, width / 2, height / 2);
+                    canvas.drawBitmap(bitmap2, (width - width2) / 2, (height - height2) / 2, (Paint) null);
+                    canvas.save();
+                    canvas.restore();
+                    return createBitmap;
+                } catch (Exception unused) {
+                    return null;
+                }
             }
-            this.O.setLayoutParams(layoutParams);
-            int i2 = (l * 416) / 879;
-            ViewGroup.LayoutParams layoutParams2 = this.P.getLayoutParams();
-            if (layoutParams2 != null) {
-                layoutParams2.width = i2;
-                layoutParams2.height = i2;
-            }
-            this.P.setLayoutParams(layoutParams2);
+            return bitmap;
         }
+        return (Bitmap) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.a09
-    public ShareItem E(int i) {
-        InterceptResult invokeI;
+    public static Bitmap b(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            ShareItem shareItem = this.z.get(1);
-            if (shareItem == null) {
-                shareItem = new ShareItem();
-            }
-            shareItem.r0 = false;
-            shareItem.q0 = false;
-            shareItem.w = "";
-            shareItem.k0 = 1;
-            shareItem.j(z0(this.O));
-            shareItem.h();
-            this.z.put(1, shareItem);
-            return super.E(i);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+            return c(str, i, -16777216, -1, null);
         }
-        return (ShareItem) invokeI.objValue;
+        return (Bitmap) invokeLI.objValue;
     }
 
-    @Override // com.baidu.tieba.a09
-    public void j0(Window window) {
+    public static Bitmap c(String str, int i, int i2, int i3, Bitmap bitmap) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, window) == null) {
-            window.setLayout(-1, -1);
-        }
-    }
-
-    public final Bitmap z0(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, view2)) == null) {
-            if (view2 == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bitmap})) == null) {
+            try {
+                BitMatrix encode = new MultiFormatWriter().encode(str, BarcodeFormat.QR_CODE, i, i, a);
+                int[] iArr = new int[i * i];
+                for (int i4 = 0; i4 < i; i4++) {
+                    for (int i5 = 0; i5 < i; i5++) {
+                        if (encode.get(i5, i4)) {
+                            iArr[(i4 * i) + i5] = i2;
+                        } else {
+                            iArr[(i4 * i) + i5] = i3;
+                        }
+                    }
+                }
+                Bitmap createBitmap = Bitmap.createBitmap(i, i, Bitmap.Config.ARGB_8888);
+                createBitmap.setPixels(iArr, 0, i, 0, 0, i, i);
+                return a(createBitmap, bitmap);
+            } catch (Exception unused) {
                 return null;
             }
-            Bitmap createBitmap = Bitmap.createBitmap(view2.getWidth(), view2.getHeight(), Bitmap.Config.ARGB_4444);
-            view2.draw(new Canvas(createBitmap));
-            return createBitmap;
         }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.a09
-    public void n0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.b.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0202));
-            if (this.N != null) {
-                B0(this.P);
-                this.T.setImageBitmap(this.N.a());
-                this.Q.setText(this.N.d());
-            }
-            WebPManager.setPureDrawable(this.W, R.drawable.obfuscated_res_0x7f080a3a, R.color.CAM_X0101, null);
-            b35.d(this.U).v(R.color.CAM_X0101);
-            b35.d(this.V).v(R.color.CAM_X0101);
-            b35 d = b35.d(this.Q);
-            d.A(R.string.F_X02);
-            d.v(R.color.CAM_X0102);
-            b35.d(this.R).v(R.color.CAM_X0103);
-            super.n0();
-        }
+        return (Bitmap) invokeCommon.objValue;
     }
 }

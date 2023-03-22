@@ -1,6 +1,19 @@
 package com.baidu.tieba;
 
+import android.text.InputFilter;
+import android.text.Spanned;
+import android.text.TextUtils;
+import android.widget.EditText;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.switchs.LimitLowQualityPicUploadSwitch;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,221 +21,236 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.NoSuchElementException;
-import javax.annotation.concurrent.NotThreadSafe;
-@NotThreadSafe
 /* loaded from: classes6.dex */
-public class vs9<E> implements Iterable<E> {
+public class vs9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<E> a;
-    public int b;
-    public int c;
-    public boolean d;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Object<E> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public boolean c;
-        public final /* synthetic */ vs9 d;
-
-        public b(vs9 vs9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vs9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = vs9Var;
-            this.b = 0;
-            this.c = false;
-            vs9Var.j();
-            this.a = vs9Var.f();
-        }
-
-        public /* synthetic */ b(vs9 vs9Var, a aVar) {
-            this(vs9Var);
-        }
-
-        public final void a() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.c) {
-                this.c = true;
-                this.d.h();
-            }
-        }
-
-        public boolean hasNext() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                int i = this.b;
-                while (i < this.a && this.d.i(i) == null) {
-                    i++;
-                }
-                if (i < this.a) {
-                    return true;
-                }
-                a();
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public void remove() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                throw new UnsupportedOperationException();
-            }
-        }
-
-        public E next() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                while (true) {
-                    int i = this.b;
-                    if (i >= this.a || this.d.i(i) != null) {
-                        break;
-                    }
-                    this.b++;
-                }
-                int i2 = this.b;
-                if (i2 < this.a) {
-                    vs9 vs9Var = this.d;
-                    this.b = i2 + 1;
-                    return (E) vs9Var.i(i2);
-                }
-                a();
-                throw new NoSuchElementException();
-            }
-            return (E) invokeV.objValue;
-        }
+    public interface c {
+        void a();
     }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948251501, "Lcom/baidu/tieba/vs9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948251501, "Lcom/baidu/tieba/vs9;");
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948251501, "Lcom/baidu/tieba/vs9;")) == null) {
+            return;
         }
-    }
-
-    public vs9() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.a = new ArrayList();
-        this.b = 0;
-        this.c = 0;
-        this.d = false;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948251501, "Lcom/baidu/tieba/vs9;");
+        }
     }
 
-    public final int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.size();
-        }
-        return invokeV.intValue;
-    }
+    /* loaded from: classes6.dex */
+    public static class a implements InputFilter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public c a;
+        public int b;
+        public String c;
 
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            for (int size = this.a.size() - 1; size >= 0; size--) {
-                if (this.a.get(size) == null) {
-                    this.a.remove(size);
+        public a(int i, c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            int i = this.b - 1;
+            this.c = "[^a-zA-Z0-9一-龥]";
             this.b = i;
-            if (i > 0 || !this.d) {
-                return;
+            this.a = cVar;
+        }
+
+        public final String a(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+                return str2.replaceAll(str, "");
             }
-            this.d = false;
-            g();
+            return (String) invokeLL.objValue;
+        }
+
+        @Override // android.text.InputFilter
+        public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), spanned, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+                if (spanned != null && charSequence != null) {
+                    String a = a(this.c, charSequence.toString());
+                    int d = dq5.d(spanned.toString()) - (i4 - i3);
+                    int d2 = dq5.d(a);
+                    int i5 = this.b;
+                    int i6 = i5 - d;
+                    if (d + d2 > i5) {
+                        c cVar = this.a;
+                        if (cVar != null) {
+                            cVar.a();
+                        }
+                        return StringHelper.cutChineseAndEnglishWithSuffix(a, i6, "");
+                    }
+                    return a;
+                }
+                return charSequence;
+            }
+            return (CharSequence) invokeCommon.objValue;
         }
     }
 
-    @Override // java.lang.Iterable
-    public Iterator<E> iterator() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return new b(this, null);
+    /* loaded from: classes6.dex */
+    public static class b implements InputFilter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public c a;
+        public EditText b;
+        public int c;
+
+        public b(EditText editText, int i, c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {editText, Integer.valueOf(i), cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = editText;
+            this.c = i;
+            this.a = cVar;
         }
-        return (Iterator) invokeV.objValue;
+
+        @Override // android.text.InputFilter
+        public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), spanned, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+                if (spanned != null && charSequence != null) {
+                    if (" ".equals(charSequence)) {
+                        return charSequence;
+                    }
+                    int e = dq5.e(spanned.toString()) - (i4 - i3);
+                    int e2 = dq5.e(charSequence.toString());
+                    if (e == 0 && e2 > this.c && TextUtils.isEmpty(this.b.getText())) {
+                        c cVar = this.a;
+                        if (cVar != null) {
+                            cVar.a();
+                        }
+                        return dq5.m(charSequence.toString(), this.c);
+                    } else if (!TextUtils.isEmpty(this.b.getText()) && (e + e2) - dq5.k(this.b.getText().toString()) > this.c) {
+                        c cVar2 = this.a;
+                        if (cVar2 != null) {
+                            cVar2.a();
+                        }
+                        if (e2 > this.c) {
+                            return spanned.toString().substring(i3, i4);
+                        }
+                        return "";
+                    } else {
+                        return charSequence;
+                    }
+                }
+                return charSequence;
+            }
+            return (CharSequence) invokeCommon.objValue;
+        }
     }
 
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.b++;
-        }
-    }
-
-    public boolean e(E e) {
+    public static boolean a(ImageFileInfo imageFileInfo) {
         InterceptResult invokeL;
+        String filePath;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, e)) == null) {
-            if (e != null && !this.a.contains(e)) {
-                this.a.add(e);
-                this.c++;
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, imageFileInfo)) == null) {
+            if (!LimitLowQualityPicUploadSwitch.isOff() && imageFileInfo != null && !imageFileInfo.isGif() && (filePath = imageFileInfo.getFilePath()) != null) {
+                long fileSize = FileHelper.getFileSize(filePath);
+                if (fileSize < 5120) {
+                    e(1, "" + fileSize);
+                    return true;
+                }
+                int[] imageFileWH = FileHelper.getImageFileWH(filePath);
+                if (imageFileWH[0] < 100 || imageFileWH[1] < 100) {
+                    e(2, imageFileWH[0] + "*" + imageFileWH[1]);
+                    return true;
+                }
             }
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    public final E i(int i) {
-        InterceptResult invokeI;
+    public static boolean b(ImageFileInfo imageFileInfo) {
+        InterceptResult invokeL;
+        String filePath;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return this.a.get(i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, imageFileInfo)) == null) {
+            int n = m35.m().n("key_upload_pic_max_width", 0);
+            int n2 = m35.m().n("key_upload_pic_max_height", 0);
+            if (n <= 0 || n2 <= 0 || imageFileInfo == null || imageFileInfo.isGif() || (filePath = imageFileInfo.getFilePath()) == null) {
+                return false;
+            }
+            int[] imageFileWH = FileHelper.getImageFileWH(filePath);
+            if (imageFileWH[0] < n && imageFileWH[1] < n2) {
+                return false;
+            }
+            return true;
         }
-        return (E) invokeI.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public static boolean c(ImageFileInfo imageFileInfo) {
+        InterceptResult invokeL;
+        String filePath;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, imageFileInfo)) == null) {
+            if (!LimitLowQualityPicUploadSwitch.isOff() && imageFileInfo != null && !imageFileInfo.isGif() && (filePath = imageFileInfo.getFilePath()) != null) {
+                long fileSize = FileHelper.getFileSize(filePath);
+                if (fileSize > 4194304) {
+                    e(1, "" + fileSize);
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return m35.m().n("show_write_title_tip_count", 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public static void e(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65541, null, i, str) == null) {
+            TiebaStatic.log(new StatisticItem("c14021").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", i).param("obj_param1", str));
+        }
+    }
+
+    public static void f(WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65542, null, writeData) == null) && writeData != null && !TextUtils.isEmpty(writeData.getTitle())) {
+            m35.m().z("show_write_title_tip_count", d() + 1);
+        }
     }
 }

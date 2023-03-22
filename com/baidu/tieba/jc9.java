@@ -1,155 +1,153 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.HeadImageView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class jc9 extends BaseAdapter {
+public class jc9 {
     public static /* synthetic */ Interceptable $ic;
+    public static HashMap<String, lc9> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<lc9> a;
-    public TbPageContext<?> b;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
+    public static void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return 0L;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
         }
-        return invokeI.longValue;
     }
 
     /* loaded from: classes5.dex */
-    public static class a {
+    public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public HeadImageView a;
-        public TextView b;
-        public View c;
-        public View d;
 
-        public a() {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BackgroundSwitchMessage) && ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
+                jc9.a(1);
             }
         }
     }
 
-    public jc9(TbPageContext<?> tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947878633, "Lcom/baidu/tieba/jc9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947878633, "Lcom/baidu/tieba/jc9;");
                 return;
             }
         }
-        this.b = tbPageContext;
+        MessageManager.getInstance().registerListener(new a(2001011));
+        a = new HashMap<>();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public lc9 getItem(int i) {
-        InterceptResult invokeI;
+    public static void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<lc9> list = this.a;
-            if (list != null && list.size() > 0 && i >= 0 && i < this.a.size()) {
-                return this.a.get(i);
+        if (interceptable == null || interceptable.invokeI(65537, null, i) == null) {
+            for (String str : a.keySet()) {
+                b(a.get(str), i);
             }
-            return null;
-        }
-        return (lc9) invokeI.objValue;
-    }
-
-    public void b(List<lc9> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.a = list;
         }
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
+    public static void b(lc9 lc9Var, int i) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<lc9> list = this.a;
-            if (list != null) {
-                return list.size();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            lc9 item = getItem(i);
-            if (view2 != null) {
-                aVar = (a) view2.getTag();
-            } else {
-                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d024f, viewGroup, false);
-                aVar = new a();
-                HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f0908ee);
-                aVar.a = headImageView;
-                headImageView.setDefaultResource(R.drawable.img_default_100);
-                aVar.a.setDefaultBgResource(R.color.CAM_X0204);
-                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0908ed);
-                aVar.c = view2.findViewById(R.id.obfuscated_res_0x7f0923a0);
-                aVar.d = view2.findViewById(R.id.obfuscated_res_0x7f09089e);
-                view2.setTag(aVar);
-            }
-            if (item != null) {
-                aVar.a.K(item.a(), 10, false);
-                aVar.b.setText(item.b());
-                b55 m = b55.m();
-                if (item.c() - m.o("dressup_center_red_tip_" + TbadkCoreApplication.getCurrentAccount() + "_" + item.getType(), 0L) > 0) {
-                    aVar.c.setVisibility(0);
+        if (interceptable == null || interceptable.invokeLI(65538, null, lc9Var, i) == null) {
+            kc9 kc9Var = lc9Var.d;
+            kc9 kc9Var2 = lc9Var.e;
+            kc9 kc9Var3 = lc9Var.f;
+            if (kc9Var.b + kc9Var2.b + kc9Var3.b >= i) {
+                og ogVar = new og("dbg");
+                ogVar.b("act", lc9Var.c);
+                ogVar.b("httpTimeCost", String.valueOf(kc9Var.a));
+                ogVar.b("httpNum", String.valueOf(kc9Var.b));
+                ogVar.b("httpFailnum", String.valueOf(kc9Var.c));
+                ogVar.b("httpSize", String.valueOf(kc9Var.d));
+                ogVar.b("socketTimeCost", String.valueOf(kc9Var2.a));
+                ogVar.b("socketNum", String.valueOf(kc9Var2.b));
+                ogVar.b("socketFailnum", String.valueOf(kc9Var2.c));
+                ogVar.b("socketSize", String.valueOf(kc9Var2.d));
+                ogVar.b("abortTimeCost", String.valueOf(kc9Var3.a));
+                ogVar.b("abortNum", String.valueOf(kc9Var3.b));
+                ogVar.b("netType", lc9Var.b);
+                if (lc9Var.a) {
+                    str = "1";
                 } else {
-                    aVar.c.setVisibility(4);
+                    str = "0";
                 }
-                if (i == getCount() - 1) {
-                    aVar.d.setVisibility(8);
-                } else {
-                    aVar.d.setVisibility(0);
-                }
+                ogVar.b("isJson", str);
+                BdStatisticsManager.getInstance().debug("frs", ogVar);
+                kc9Var.a();
+                kc9Var2.a();
+                kc9Var3.a();
             }
-            this.b.getLayoutMode().k(view2);
-            return view2;
         }
-        return (View) invokeILL.objValue;
+    }
+
+    public static void c(String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(65539, null, str, str2, z) == null) {
+            if (str2 == null) {
+                str2 = "";
+            }
+            String str3 = str + str2;
+            if (!a.containsKey(str3)) {
+                a.put(str3, new lc9(str, str2, z));
+            }
+        }
+    }
+
+    public static lc9 e(String str, String str2, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65541, null, str, str2, z)) == null) {
+            if (str2 == null) {
+                str2 = "";
+            }
+            String str3 = str + str2;
+            if (!a.containsKey(str3)) {
+                a.put(str3, new lc9(str, str2, z));
+            }
+            return a.get(str3);
+        }
+        return (lc9) invokeLLZ.objValue;
     }
 }

@@ -1,77 +1,134 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 /* loaded from: classes4.dex */
-public class el3 extends jb3 {
+public class el3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public el3(ja3 ja3Var) {
-        super(ja3Var, "/swanAPI/updateTextarea");
+    public static boolean d(int i, int i2, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ja3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            if (z) {
+                return false;
             }
+            float f = i;
+            if (f > 100.0f) {
+                float f2 = i2;
+                if (f2 > 100.0f) {
+                    float f3 = f / f2;
+                    return f3 > 2.5f || 1.0f / f3 > 2.5f;
+                }
+                return false;
+            }
+            return false;
         }
+        return invokeCommon.booleanValue;
     }
 
-    @Override // com.baidu.tieba.jb3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m93 m93Var) {
-        InterceptResult invokeLLLL;
+    public static BitmapFactory.Options a(Uri uri) {
+        InterceptResult invokeL;
+        InputStream openInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, m93Var)) == null) {
-            if (jb3.b) {
-                Log.d("UpdateTextAreaAction", "handle entity: " + unitedSchemeEntity.toString());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, uri)) == null) {
+            Context appContext = AppRuntime.getAppContext();
+            InputStream inputStream = null;
+            if (appContext == null || uri == null) {
+                return null;
             }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            try {
+                try {
+                    openInputStream = appContext.getContentResolver().openInputStream(uri);
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (FileNotFoundException e) {
+                e = e;
+            }
+            try {
+                BitmapFactory.decodeStream(openInputStream, null, options);
+                xn4.d(openInputStream);
+            } catch (FileNotFoundException e2) {
+                e = e2;
+                inputStream = openInputStream;
+                e.printStackTrace();
+                xn4.d(inputStream);
+                return options;
+            } catch (Throwable th2) {
+                th = th2;
+                inputStream = openInputStream;
+                xn4.d(inputStream);
+                throw th;
+            }
+            return options;
+        }
+        return (BitmapFactory.Options) invokeL.objValue;
+    }
+
+    public static boolean b(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, uri)) == null) {
+            BitmapFactory.Options a = a(uri);
+            if (a == null) {
                 return false;
             }
-            m62.i("UpdateTextAreaAction", "UpdateTextAreaAction updateParams: " + optParamsAsJo);
-            String optString = optParamsAsJo.optString("slaveId");
-            String optString2 = optParamsAsJo.optString("componentId");
-            x52 x52Var = (x52) z52.b(optString, optString2);
-            if (x52Var == null) {
-                String str = "can't find textarea component:#" + optString2;
-                m62.c("UpdateTextAreaAction", str);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str);
+            String str = a.outMimeType;
+            if (TextUtils.isEmpty(str) || !str.equalsIgnoreCase("image/gif")) {
                 return false;
             }
-            y52 y52Var = (y52) x52Var.l();
-            y52Var.g(optParamsAsJo);
-            d52 update = x52Var.update((x52) y52Var);
-            if (!update.a()) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, update.b);
-                return false;
-            }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-            x52Var.U0(optString2);
             return true;
         }
-        return invokeLLLL.booleanValue;
+        return invokeL.booleanValue;
+    }
+
+    public static boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return b(ll3.p(str));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean e(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, uri)) == null) {
+            BitmapFactory.Options a = a(uri);
+            if (a != null && d(a.outWidth, a.outHeight, b(uri))) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return e(ll3.p(str));
+        }
+        return invokeL.booleanValue;
     }
 }

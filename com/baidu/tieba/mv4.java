@@ -1,26 +1,65 @@
 package com.baidu.tieba;
 
-import android.webkit.JsPromptResult;
-import android.webkit.WebView;
-import com.baidu.adp.lib.util.BdLog;
+import android.app.Activity;
+import android.app.Application;
+import android.content.Intent;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.atomData.LogoActivityConfig;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class mv4 implements ee6 {
+public class mv4 implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.ee6
-    public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        de6.a(this, webView, str, jSONObject);
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityDestroyed(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityPaused(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityResumed(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStarted(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStopped(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+        }
     }
 
     public mv4() {
@@ -37,66 +76,26 @@ public class mv4 implements ee6 {
         }
     }
 
-    @Override // com.baidu.tieba.ee6
-    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLLL;
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (CommonTbJsBridge.GET_CLIPPER_INFORMATION.equals(str2)) {
-                jsPromptResult.confirm(c(webView).a());
-                return true;
-            } else if (CommonTbJsBridge.SET_CLIPPER_INFORMATION.equals(str2)) {
-                try {
-                    jsPromptResult.confirm(d(webView, new JSONObject(str3).optString("txt")).a());
-                    return true;
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                    return false;
-                }
-            } else {
-                return false;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, activity, bundle) == null) && !PermissionUtil.isAgreePrivacyPolicy() && activity != null && !activity.getClass().getSimpleName().equals("LogoActivity") && activity.getClass().getPackage().getName().startsWith("com.baidu.tieba") && !PermissionUtil.isBrowseMode()) {
+            if (activity.getIntent() != null && activity.getIntent().getBooleanExtra(ImageViewerConfig.KEY_IS_BROWSE_MODE, false)) {
+                PermissionUtil.doBrowseModeInit();
+                return;
             }
-        }
-        return invokeLLLLL.booleanValue;
-    }
-
-    public n69 c(WebView webView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webView)) == null) {
-            n69 n69Var = new n69();
-            String clipBoardContent = UtilHelper.getClipBoardContent();
-            int i = !dj.isEmpty(clipBoardContent) ? 1 : 0;
+            Class<?> cls = null;
             try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("resultCode", i);
-                jSONObject.put("data", clipBoardContent);
-                n69Var.o(jSONObject.toString());
-                return n69Var;
-            } catch (JSONException e) {
-                BdLog.e(e);
-                return n69Var;
+                cls = Class.forName(SpeedRuntimeProvider.SPLASH_ACTIVITY_NAME);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            if (cls != null) {
+                Intent intent = new Intent(activity, cls);
+                intent.putExtra(LogoActivityConfig.EXTRAINTENT, activity.getIntent());
+                activity.startActivity(intent);
+                activity.finish();
             }
         }
-        return (n69) invokeL.objValue;
-    }
-
-    public n69 d(WebView webView, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, str)) == null) {
-            n69 n69Var = new n69();
-            ui.a(str);
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("resultCode", 1);
-                n69Var.o(jSONObject.toString());
-                return n69Var;
-            } catch (JSONException e) {
-                BdLog.e(e);
-                return n69Var;
-            }
-        }
-        return (n69) invokeLL.objValue;
     }
 }

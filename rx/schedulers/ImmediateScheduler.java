@@ -1,11 +1,11 @@
 package rx.schedulers;
 
-import com.baidu.tieba.vma;
+import com.baidu.tieba.rra;
 @Deprecated
 /* loaded from: classes9.dex */
-public final class ImmediateScheduler extends vma {
-    @Override // com.baidu.tieba.vma
-    public vma.a createWorker() {
+public final class ImmediateScheduler extends rra {
+    @Override // com.baidu.tieba.rra
+    public rra.a createWorker() {
         return null;
     }
 

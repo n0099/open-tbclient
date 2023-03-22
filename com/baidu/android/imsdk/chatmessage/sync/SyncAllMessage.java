@@ -53,7 +53,9 @@ public class SyncAllMessage extends SyncStrategy {
             }
         }
         this.mMaxMsgid = -1L;
-        this.mContext = context;
+        if (context != null) {
+            this.mContext = context.getApplicationContext();
+        }
     }
 
     private long getDeviceMaxNotifyMsgid() {

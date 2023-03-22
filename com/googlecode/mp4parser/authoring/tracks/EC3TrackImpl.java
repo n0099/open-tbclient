@@ -7,6 +7,7 @@ import com.coremedia.iso.boxes.SampleDescriptionBox;
 import com.coremedia.iso.boxes.SoundMediaHeaderBox;
 import com.coremedia.iso.boxes.SubSampleInformationBox;
 import com.coremedia.iso.boxes.sampleentry.AudioSampleEntry;
+import com.google.android.exoplayer2.extractor.ogg.OpusReader;
 import com.googlecode.mp4parser.DataSource;
 import com.googlecode.mp4parser.authoring.AbstractTrack;
 import com.googlecode.mp4parser.authoring.Sample;
@@ -396,7 +397,7 @@ public class EC3TrackImpl extends AbstractTrack {
                 bitStreamInfo.samplerate = 44100;
             }
         } else {
-            bitStreamInfo.samplerate = 48000;
+            bitStreamInfo.samplerate = OpusReader.SAMPLE_RATE;
         }
         int i7 = bitStreamInfo.samplerate;
         if (i7 == 0) {

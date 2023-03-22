@@ -6,7 +6,7 @@ import com.yy.hiidostatis.api.StatisOption;
 import com.yy.hiidostatis.defs.StatisAPI;
 import com.yy.hiidostatis.inner.util.ThreadPool;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public enum HStaticApi {
     instante;
     

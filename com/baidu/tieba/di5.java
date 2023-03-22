@@ -1,21 +1,44 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.tbadk.mutiprocess.face.EmotionReloadEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: ChatBoxDialogService.java */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final /* synthetic */ class di5 {
+public class di5 implements ph5<EmotionReloadEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static ei5 a() {
-        InterceptResult invokeV;
+    public di5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return (ei5) ServiceManager.getService(ei5.a);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return (ei5) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ph5
+    /* renamed from: a */
+    public boolean onEvent(EmotionReloadEvent emotionReloadEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, emotionReloadEvent)) == null) {
+            if (emotionReloadEvent == null) {
+                return false;
+            }
+            MessageManager.getInstance().runTask(2004603, (Class) null);
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

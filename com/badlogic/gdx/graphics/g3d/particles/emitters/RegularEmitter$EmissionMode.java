@@ -7,7 +7,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.webrtc.PeerConnectionFactory;
 /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
 /* loaded from: classes.dex */
 public final class RegularEmitter$EmissionMode {
@@ -31,7 +30,7 @@ public final class RegularEmitter$EmissionMode {
                 return;
             }
         }
-        Enabled = new RegularEmitter$EmissionMode(PeerConnectionFactory.TRIAL_ENABLED, 0);
+        Enabled = new RegularEmitter$EmissionMode("Enabled", 0);
         EnabledUntilCycleEnd = new RegularEmitter$EmissionMode("EnabledUntilCycleEnd", 1);
         RegularEmitter$EmissionMode regularEmitter$EmissionMode = new RegularEmitter$EmissionMode("Disabled", 2);
         Disabled = regularEmitter$EmissionMode;

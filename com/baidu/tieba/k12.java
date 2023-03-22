@@ -1,112 +1,46 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.graphics.Canvas;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class k12 implements i12 {
+public class k12 extends z02 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static volatile k12 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<i12> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947860157, "Lcom/baidu/tieba/k12;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947860157, "Lcom/baidu/tieba/k12;");
-                return;
-            }
+    @Override // com.baidu.tieba.z02
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
         }
-        b = wp1.a;
     }
 
     public k12() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        ArrayList arrayList = new ArrayList();
-        this.a = arrayList;
-        arrayList.add(new j12());
-    }
-
-    public static k12 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (k12.class) {
-                    if (c == null) {
-                        c = new k12();
-                    }
-                }
-            }
-            return c;
-        }
-        return (k12) invokeV.objValue;
-    }
-
-    public synchronized void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                if (b) {
-                    Log.d("Api-Marker", "release: ");
-                }
-                if (c == null) {
-                    return;
-                }
-                c = null;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.i12
-    public void a(String str) {
+    @Override // com.baidu.tieba.z02
+    public void a(a12 a12Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (b) {
-                Log.d("Api-Marker", "markStart: " + str);
-            }
-            for (int i = 0; i < this.a.size(); i++) {
-                this.a.get(i).a(str);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.i12
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (b) {
-                Log.d("Api-Marker", "markEnd: " + str);
-            }
-            for (int i = 0; i < this.a.size(); i++) {
-                this.a.get(i).b(str);
-            }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, a12Var, canvas) == null) {
+            int alpha = a12Var.b.getAlpha();
+            a12Var.c(a12Var.b);
+            canvas.drawPath(a12Var.f, a12Var.b);
+            a12Var.b.setAlpha(alpha);
         }
     }
 }

@@ -1,15 +1,38 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.service.AbConfigService;
+import com.baidu.searchbox.live.nps.util.PluginUtils;
+import com.baidu.searchbox.live.pluginmanager.MiniPluginManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class q78 implements p78 {
+public class q78 implements AbConfigService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AbConfigService
+    public Object getSwitch(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return null;
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.AbConfigService
+    public String getSwitch(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
 
     public q78() {
         Interceptable interceptable = $ic;
@@ -25,23 +48,25 @@ public class q78 implements p78 {
         }
     }
 
-    @Override // com.baidu.tieba.p78
-    public l78 get() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.live.interfaces.service.AbConfigService
+    public boolean getSwitch(String str, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return xt8.m();
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z)) == null) {
+            if ("android_live_enable_nps_multi_plugin_online".equals(str)) {
+                return true;
+            }
+            if ("android_live_enable_nps_multi_plugin".equals(str)) {
+                if (PluginUtils.isLivenpsMatchMultiNps()) {
+                    return true;
+                }
+                return false;
+            } else if (!MiniPluginManager.LIVE_PRE_REQUEST_ENTER_SWITCH.equals(str) && !"android_live_media_pre_inflate_queue".equals(str) && !"live_android_mixview_pager".equals(str)) {
+                return true;
+            } else {
+                return false;
+            }
         }
-        return (l78) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.p78
-    public m78 a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, str2, str3)) == null) {
-            return new n78(str, str2, str3);
-        }
-        return (m78) invokeLLL.objValue;
+        return invokeLZ.booleanValue;
     }
 }

@@ -17,8 +17,8 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.data.VirtualImageCustomState;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b35;
-import com.baidu.tieba.b49;
+import com.baidu.tieba.ga9;
+import com.baidu.tieba.n15;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -101,7 +101,7 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
             n = 0.3f;
             Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.icon_virtual_image_tip);
             if (drawable != null) {
-                DrawableCompat.setTint(drawable, b49.a(b49.f(str), n));
+                DrawableCompat.setTint(drawable, ga9.a(ga9.f(str), n));
                 this.g.setBackground(drawable);
                 this.g.setPadding(j, 0, k, 0);
             }
@@ -190,7 +190,7 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
     public void i() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && !this.i) {
-            b35.d(this.d).v(R.color.CAM_X0105);
+            n15.d(this.d).w(R.color.CAM_X0105);
         }
     }
 
@@ -220,7 +220,7 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.h.setVisibility(0);
             this.d.setText(R.string.set_virtual_mood_state);
-            b35.d(this.d).z(R.dimen.T_X07);
+            n15.d(this.d).A(R.dimen.T_X07);
             WebPManager.setPureDrawable(this.h, R.drawable.icon_pure_virtual_add, R.color.CAM_X0605, WebPManager.ResourceStateType.NORMAL);
             k("#FFFFFF", l, true);
         }
@@ -287,11 +287,11 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
             n = 0.8f;
             Drawable drawable = ContextCompat.getDrawable(getContext(), R.drawable.icon_virtual_image_tip_right);
             if (drawable != null) {
-                DrawableCompat.setTint(drawable, b49.a(b49.f(str), n));
+                DrawableCompat.setTint(drawable, ga9.a(ga9.f(str), n));
                 this.g.setBackground(drawable);
                 this.g.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X006), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X009), 0);
             }
-            b35.d(this.d).v(R.color.CAM_X0611);
+            n15.d(this.d).w(R.color.CAM_X0611);
         }
     }
 
@@ -348,10 +348,10 @@ public class VirtualImageStatusTip extends AbsTbHorizontalSpreadView {
             }
             this.d.setText(content);
             if (this.i) {
-                b35.d(this.d).z(R.dimen.T_X07);
+                n15.d(this.d).A(R.dimen.T_X07);
                 k(str, UtilHelper.getDimenPixelSize(R.dimen.tbds60), false);
             } else {
-                b35.d(this.d).z(R.dimen.T_X08);
+                n15.d(this.d).A(R.dimen.T_X08);
                 setBackground(str);
             }
             i();

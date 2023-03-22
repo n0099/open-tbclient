@@ -1,34 +1,68 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.io.File;
 /* loaded from: classes5.dex */
 public class ll2 {
     public static /* synthetic */ Interceptable $ic;
+    public static File a;
+    public static String b;
+    public static String c;
+    public static String d;
+    public static String e;
+    public static String f;
+    public static String g;
+    public static String h;
+    public static String i;
+    public static String j;
+    public static String k;
+    public static String l;
+    public static String m;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public List<String> c;
-    public sl2 d;
-    public long e;
-    public List<ml2> f;
-    public String g;
-    public byte[] h;
 
-    public ll2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947946647, "Lcom/baidu/tieba/ll2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947946647, "Lcom/baidu/tieba/ll2;");
+                return;
             }
         }
+        a = pq2.g();
+        b = "swan_core";
+        c = "extension_core";
+        d = AppRuntime.getAppContext().getCacheDir() + File.separator + "cloneSwanApp";
+        e = "cloneFolder_";
+        f = d + File.separator + e;
+        g = "clone_pkg_folder";
+        h = "clone_core_folder";
+        i = "clone_dynamic_lib_folder";
+        j = "clone_sp_folder";
+        k = "clone_db_folder";
+        l = "cloneZip.zip";
+        m = "clone_zipFiles";
+    }
+
+    public static File a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            File file = new File(bf3.w());
+            if (!xn4.l(file)) {
+                return null;
+            }
+            return file;
+        }
+        return (File) invokeV.objValue;
     }
 }

@@ -1,253 +1,239 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import android.os.SystemClock;
-import android.preference.PreferenceManager;
+import android.os.Process;
 import android.text.TextUtils;
-import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.pba;
-import com.baidu.tieba.v5a;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.j5a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.FunAdConfig;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.internal.api.Module;
-import com.fun.ad.sdk.internal.api.PidLoaderCreator;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import java.io.ByteArrayInputStream;
-import java.io.ByteArrayOutputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.download.exception.DownloadException;
 import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.nio.charset.Charset;
-import java.security.MessageDigest;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Random;
-import java.util.Set;
-import java.util.UUID;
-import org.json.JSONObject;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.ProtocolException;
+import java.net.URL;
 /* loaded from: classes5.dex */
-public final class p5a {
+public class p5a implements j5a {
     public static /* synthetic */ Interceptable $ic;
-    public static v5a a;
-    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final j5a.a b;
+    public volatile int c;
+    public volatile long d;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a(n5a n5aVar);
-    }
-
-    public static <T extends u5a> T a(Random random, List<T> list, w5a<T> w5aVar) {
-        InterceptResult invokeLLL;
+    public p5a(String str, j5a.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, random, list, w5aVar)) == null) {
-            if (random == null || list == null || list.isEmpty()) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            LogPrinter.v("Start select for class:%s with size:%d", list.iterator().next().getClass().getSimpleName(), Integer.valueOf(list.size()));
-            ArrayList arrayList = new ArrayList();
-            int size = list.size();
-            T t = null;
-            for (int i = 0; i < size; i++) {
-                T t2 = list.get(i);
-                if (w5aVar != null) {
-                    if (!w5aVar.a(t2)) {
-                        continue;
-                    }
-                    if (t == null && t2.b() != t.b()) {
-                        break;
-                    }
-                    arrayList.add(t2);
-                    t = t2;
-                } else {
-                    if (!t2.a()) {
-                        continue;
-                    }
-                    if (t == null) {
-                    }
-                    arrayList.add(t2);
-                    t = t2;
-                }
-            }
-            if (arrayList.isEmpty()) {
-                LogPrinter.v("No one is selected", new Object[0]);
-                return null;
-            }
-            return (T) arrayList.get(random.nextInt(arrayList.size()));
         }
-        return (T) invokeLLL.objValue;
+        this.a = str;
+        this.b = aVar;
     }
 
-    public static boolean g(String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        v5a v5aVar;
-        boolean z;
-        boolean z2;
+    public final void a() throws DownloadException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, jSONObject)) == null) {
-            if (str == null || jSONObject == null || (v5aVar = a) == null) {
-                return false;
-            }
-            for (v5a.a aVar : v5aVar.a) {
-                if (str.equals(aVar.a)) {
-                    for (Map.Entry<String, Set<Object>> entry : aVar.b.entrySet()) {
-                        Object opt = jSONObject.opt(entry.getKey());
-                        if (opt != null) {
-                            Iterator<Object> it = entry.getValue().iterator();
-                            while (true) {
-                                if (it.hasNext()) {
-                                    if (opt.equals(it.next())) {
-                                        z2 = true;
-                                        continue;
-                                        break;
-                                    }
-                                } else {
-                                    z2 = false;
-                                    continue;
-                                    break;
-                                }
-                            }
-                            if (!z2) {
-                            }
-                        }
-                        z = false;
-                    }
-                    z = true;
-                    if (z) {
-                        return true;
-                    }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (!isCanceled()) {
+                if (!isPaused()) {
+                    return;
                 }
+                throw new DownloadException(106, "Connection Paused!");
+            }
+            throw new DownloadException(107, "Connection Canceled!");
+        }
+    }
+
+    @Override // com.baidu.tieba.j5a
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.c = 107;
+        }
+    }
+
+    @Override // com.baidu.tieba.j5a
+    public boolean isCanceled() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.c == 107) {
+                return true;
             }
             return false;
         }
-        return invokeLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public static <T> T b(String str, cba<T> cbaVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, cbaVar)) == null) {
-            if (str != null && cbaVar != null) {
-                try {
-                    byte[] decode = Base64.decode(str, 0);
-                    if (decode == null) {
-                        return null;
-                    }
-                    try {
-                        return cbaVar.a(new ObjectInputStream(new ByteArrayInputStream(decode)));
-                    } catch (IOException e) {
-                        LogPrinter.e(e);
-                        return null;
-                    }
-                } catch (Exception e2) {
-                    LogPrinter.e(e2);
-                }
-            }
-            return null;
-        }
-        return (T) invokeLL.objValue;
-    }
-
-    public static String c() {
+    @Override // com.baidu.tieba.j5a
+    public boolean isPaused() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (TextUtils.isEmpty(b)) {
-                SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(FunAdSdk.getAppContext());
-                String string = defaultSharedPreferences.getString("u_tok", "");
-                if (TextUtils.isEmpty(string)) {
-                    string = UUID.randomUUID().toString();
-                    try {
-                        MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                        messageDigest.update(string.getBytes(Charset.forName("UTF-8")));
-                        string = Base64.encodeToString(messageDigest.digest(), 2);
-                    } catch (Throwable unused) {
-                        if (string.length() >= 24) {
-                            string = string.substring(0, 24);
-                        }
-                    }
-                    defaultSharedPreferences.edit().putString("u_tok", string).apply();
-                }
-                b = string;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.c == 106) {
+                return true;
             }
-            return b;
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:12:0x0020 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:13:0x0021  */
+    @Override // com.baidu.tieba.j5a
+    public void pause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.c = 106;
+        }
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            Process.setThreadPriority(10);
+            this.c = 102;
+            this.b.onConnecting();
+            try {
+                b();
+            } catch (DownloadException e) {
+                c(e);
+            }
+        }
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:24:0x0064 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x0082  */
+    /* JADX WARN: Type inference failed for: r2v2 */
+    /* JADX WARN: Type inference failed for: r2v5, types: [java.net.HttpURLConnection] */
+    /* JADX WARN: Type inference failed for: r2v6 */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String d(eba ebaVar) {
-        InterceptResult invokeL;
-        byte[] bArr;
+    public final void b() throws DownloadException {
+        IOException e;
+        ProtocolException e2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, ebaVar)) == null) {
-            if (ebaVar != null) {
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.d = System.currentTimeMillis();
+            try {
+                URL url = new URL(this.a);
+                ?? r2 = 0;
                 try {
-                    ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
-                    ebaVar.srzable(objectOutputStream);
-                    objectOutputStream.flush();
-                    bArr = byteArrayOutputStream.toByteArray();
-                } catch (IOException unused) {
+                    try {
+                        HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
+                        try {
+                            httpURLConnection.setConnectTimeout(4000);
+                            httpURLConnection.setReadTimeout(4000);
+                            httpURLConnection.setRequestMethod("GET");
+                            httpURLConnection.setRequestProperty("Range", "bytes=0-");
+                            int responseCode = httpURLConnection.getResponseCode();
+                            if (responseCode == 200) {
+                                d(httpURLConnection, false);
+                            } else if (responseCode == 206) {
+                                d(httpURLConnection, true);
+                            } else {
+                                throw new DownloadException(108, "UnSupported response code:" + responseCode);
+                            }
+                            if (httpURLConnection != null) {
+                                httpURLConnection.disconnect();
+                            }
+                        } catch (ProtocolException e3) {
+                            e2 = e3;
+                            throw new DownloadException(108, "Protocol error", e2);
+                        } catch (IOException e4) {
+                            e = e4;
+                            throw new DownloadException(108, "IO error", e);
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        r2 = url;
+                        if (r2 != 0) {
+                            r2.disconnect();
+                        }
+                        throw th;
+                    }
+                } catch (ProtocolException e5) {
+                    e2 = e5;
+                } catch (IOException e6) {
+                    e = e6;
+                } catch (Throwable th2) {
+                    th = th2;
+                    if (r2 != 0) {
+                    }
+                    throw th;
                 }
-                if (bArr != null) {
-                    return null;
-                }
-                return Base64.encodeToString(bArr, 0);
+            } catch (MalformedURLException e7) {
+                throw new DownloadException(108, "Bad url.", e7);
             }
-            bArr = null;
-            if (bArr != null) {
-            }
-        } else {
-            return (String) invokeL.objValue;
         }
     }
 
-    public static void e(long j, a aVar, FunAdConfig funAdConfig, Map<String, PidLoaderCreator> map) {
+    public final void c(DownloadException downloadException) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), aVar, funAdConfig, map}) == null) {
-            pba.a aVar2 = pba.a;
-            aVar2.a = System.currentTimeMillis() - 0;
-            aVar2.b = SystemClock.currentThreadTimeMillis() - 0;
-            LogPrinter.d("All ssp initialized with %dms consumed.", Long.valueOf(System.currentTimeMillis() - j));
-            funAdConfig.moduleInitManager.tryCallbackComplete();
-            aVar.a(new n5a(map));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadException) == null) {
+            switch (downloadException.getErrorCode()) {
+                case 106:
+                    synchronized (this.b) {
+                        this.c = 106;
+                        this.b.onConnectPaused();
+                    }
+                    return;
+                case 107:
+                    synchronized (this.b) {
+                        this.c = 107;
+                        this.b.onConnectCanceled();
+                    }
+                    return;
+                case 108:
+                    synchronized (this.b) {
+                        this.c = 108;
+                        this.b.b(downloadException);
+                    }
+                    return;
+                default:
+                    throw new IllegalArgumentException("Unknown state");
+            }
         }
     }
 
-    public static void f(String str, String str2, FunAdConfig funAdConfig, Map<String, PidLoaderCreator> map, String str3) {
-        Module module;
+    public final void d(HttpURLConnection httpURLConnection, boolean z) throws DownloadException {
+        long contentLength;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65541, null, str, str2, funAdConfig, map, str3) == null) {
-            try {
-                module = (Module) Class.forName(str2).getConstructor(new Class[0]).newInstance(new Object[0]);
-                LogPrinter.d("Module for %s created", str2);
-            } catch (Exception e) {
-                LogPrinter.e(e, "Module for %s not found", str2);
-                module = null;
+        if (interceptable == null || interceptable.invokeLZ(1048580, this, httpURLConnection, z) == null) {
+            String headerField = httpURLConnection.getHeaderField("Content-Length");
+            if (!TextUtils.isEmpty(headerField) && !headerField.equals("0") && !headerField.equals("-1")) {
+                contentLength = Long.parseLong(headerField);
+            } else {
+                contentLength = httpURLConnection.getContentLength();
             }
-            if (module == null) {
-                return;
-            }
-            try {
-                PidLoaderCreator init = module.init(funAdConfig, str3);
-                if (init == null) {
-                    LogPrinter.e("Module for %s init failed", str);
+            if (contentLength <= 0) {
+                String headerField2 = httpURLConnection.getHeaderField("Ohc-File-Size");
+                if (!TextUtils.isEmpty(headerField2) && !headerField2.equals("0") && !headerField2.equals("-1")) {
+                    contentLength = Long.parseLong(headerField2);
                 } else {
-                    map.put(str, init);
+                    contentLength = httpURLConnection.getContentLength();
                 }
-            } catch (Exception unused) {
+                if (contentLength <= 0) {
+                    throw new DownloadException(108, "length <= 0");
+                }
             }
+            a();
+            this.c = 103;
+            this.b.onConnected(System.currentTimeMillis() - this.d, contentLength, z);
         }
     }
 }

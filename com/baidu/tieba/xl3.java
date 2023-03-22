@@ -1,82 +1,29 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.util.io.AssetUtils;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.IOException;
-import java.io.InputStream;
+import java.util.Collections;
+import java.util.HashSet;
 /* loaded from: classes6.dex */
-public final class xl3 {
+public class xl3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(Context context, String str) {
-        InterceptResult invokeLL;
+    @NonNull
+    @SafeVarargs
+    public static <E> HashSet<E> a(E... eArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            if (context == null || TextUtils.isEmpty(str)) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, eArr)) == null) {
+            if (eArr != null && eArr.length > 0) {
+                HashSet<E> hashSet = new HashSet<>(eArr.length);
+                Collections.addAll(hashSet, eArr);
+                return hashSet;
             }
-            try {
-                qp4.d(context.getAssets().open(str, 0));
-                return true;
-            } catch (IOException unused) {
-                qp4.d(null);
-                return false;
-            } catch (Throwable th) {
-                qp4.d(null);
-                throw th;
-            }
+            return new HashSet<>();
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static String b(Context context, String str) {
-        InterceptResult invokeLL;
-        InputStream inputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            InputStream inputStream2 = null;
-            r0 = null;
-            String str2 = null;
-            try {
-                inputStream = context.getAssets().open(str);
-            } catch (IOException e) {
-                e = e;
-                inputStream = null;
-            } catch (Throwable th) {
-                th = th;
-                qp4.d(inputStream2);
-                throw th;
-            }
-            if (inputStream == null) {
-                qp4.d(inputStream);
-                return null;
-            }
-            try {
-                try {
-                    str2 = tp4.b(inputStream);
-                } catch (IOException e2) {
-                    e = e2;
-                    if (wp1.a) {
-                        Log.w(AssetUtils.TAG, "loadPresetDatas", e);
-                    }
-                    qp4.d(inputStream);
-                    return str2;
-                }
-                qp4.d(inputStream);
-                return str2;
-            } catch (Throwable th2) {
-                th = th2;
-                inputStream2 = inputStream;
-                qp4.d(inputStream2);
-                throw th;
-            }
-        }
-        return (String) invokeLL.objValue;
+        return (HashSet) invokeL.objValue;
     }
 }

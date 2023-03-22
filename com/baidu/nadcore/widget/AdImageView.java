@@ -12,12 +12,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.AppCompatImageView;
 import com.baidu.nadcore.widget.IAdImageView;
-import com.baidu.tieba.ic1;
-import com.baidu.tieba.nc1;
-import com.baidu.tieba.yb1;
+import com.baidu.tieba.db1;
+import com.baidu.tieba.oa1;
+import com.baidu.tieba.ya1;
 /* loaded from: classes2.dex */
 public class AdImageView extends AppCompatImageView implements IAdImageView {
-    public final nc1 a;
+    public final db1 a;
     public IAdImageView.ImageScaleType b;
     public final Path c;
 
@@ -25,12 +25,12 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
         this(context, null);
     }
 
-    public void g(String str) {
-        k(str, true);
+    public void o(String str) {
+        p(str, true);
     }
 
-    public void m(String str) {
-        yb1.a().d(str);
+    public void q(String str) {
+        oa1.a().d(str);
     }
 
     public void setImageScaleType(IAdImageView.ImageScaleType imageScaleType) {
@@ -54,18 +54,18 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
         this(context, attributeSet, 0);
     }
 
-    public void k(String str, boolean z) {
+    public void p(String str, boolean z) {
         if (TextUtils.isEmpty(str)) {
             setImageBitmap(null);
         } else {
-            yb1.a().a(str, this, z);
+            oa1.a().a(str, this, z);
         }
     }
 
     public void setBorder(float f, @ColorInt int i) {
-        nc1.a aVar = this.a.d;
+        db1.a aVar = this.a.d;
         if (aVar == null) {
-            aVar = new nc1.a();
+            aVar = new db1.a();
         }
         aVar.c = f;
         aVar.d = i;
@@ -74,17 +74,17 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
 
     public AdImageView(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.a = new nc1();
+        this.a = new db1();
         this.c = new Path();
-        n(attributeSet);
+        r(attributeSet);
     }
 
-    public void f(String str, int i, int i2) {
-        yb1.a().b(str, this, i, i2);
+    public void n(String str, int i, int i2) {
+        oa1.a().b(str, this, i, i2);
     }
 
     @NonNull
-    public nc1 getConfig() {
+    public db1 getConfig() {
         return this.a;
     }
 
@@ -93,50 +93,17 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
     }
 
     public void setCircle() {
-        nc1.a aVar = this.a.d;
+        db1.a aVar = this.a.d;
         if (aVar == null) {
-            aVar = new nc1.a();
+            aVar = new db1.a();
         }
         aVar.a = true;
         this.a.d = aVar;
     }
 
-    public final void n(AttributeSet attributeSet) {
-        if (attributeSet == null) {
-            return;
-        }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, ic1.AdImageView);
-        int resourceId = obtainStyledAttributes.getResourceId(5, 0);
-        if (resourceId != 0) {
-            this.a.a = resourceId;
-        }
-        int resourceId2 = obtainStyledAttributes.getResourceId(4, 0);
-        if (resourceId2 != 0) {
-            this.a.c = resourceId2;
-        }
-        nc1.a aVar = new nc1.a();
-        if (obtainStyledAttributes.getBoolean(3, false)) {
-            aVar.a = true;
-        } else {
-            int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(0, 0);
-            if (dimensionPixelSize > 0) {
-                float floatValue = Integer.valueOf(dimensionPixelSize).floatValue();
-                aVar.b = new float[]{floatValue, floatValue, floatValue, floatValue};
-            } else {
-                aVar.b = new float[]{obtainStyledAttributes.getDimensionPixelSize(8, 0), obtainStyledAttributes.getDimensionPixelSize(11, 0), obtainStyledAttributes.getDimensionPixelSize(7, 0), obtainStyledAttributes.getDimensionPixelSize(10, 0)};
-            }
-        }
-        this.a.d = aVar;
-        int i = obtainStyledAttributes.getInt(6, -1);
-        if (i >= 0) {
-            setScaleType(IAdImageView.l0[i]);
-        }
-        obtainStyledAttributes.recycle();
-    }
-
     @Override // android.widget.ImageView, android.view.View
     public void onDraw(Canvas canvas) {
-        nc1.a aVar = getConfig().d;
+        db1.a aVar = getConfig().d;
         if (aVar == null) {
             super.onDraw(canvas);
             return;
@@ -175,10 +142,43 @@ public class AdImageView extends AppCompatImageView implements IAdImageView {
         super.onDraw(canvas);
     }
 
+    public final void r(AttributeSet attributeSet) {
+        if (attributeSet == null) {
+            return;
+        }
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, ya1.AdImageView);
+        int resourceId = obtainStyledAttributes.getResourceId(5, 0);
+        if (resourceId != 0) {
+            this.a.a = resourceId;
+        }
+        int resourceId2 = obtainStyledAttributes.getResourceId(4, 0);
+        if (resourceId2 != 0) {
+            this.a.c = resourceId2;
+        }
+        db1.a aVar = new db1.a();
+        if (obtainStyledAttributes.getBoolean(3, false)) {
+            aVar.a = true;
+        } else {
+            int dimensionPixelSize = obtainStyledAttributes.getDimensionPixelSize(0, 0);
+            if (dimensionPixelSize > 0) {
+                float floatValue = Integer.valueOf(dimensionPixelSize).floatValue();
+                aVar.b = new float[]{floatValue, floatValue, floatValue, floatValue};
+            } else {
+                aVar.b = new float[]{obtainStyledAttributes.getDimensionPixelSize(8, 0), obtainStyledAttributes.getDimensionPixelSize(11, 0), obtainStyledAttributes.getDimensionPixelSize(7, 0), obtainStyledAttributes.getDimensionPixelSize(10, 0)};
+            }
+        }
+        this.a.d = aVar;
+        int i = obtainStyledAttributes.getInt(6, -1);
+        if (i >= 0) {
+            setScaleType(IAdImageView.l0[i]);
+        }
+        obtainStyledAttributes.recycle();
+    }
+
     public void setRadius(float f, float f2, float f3, float f4) {
-        nc1.a aVar = this.a.d;
+        db1.a aVar = this.a.d;
         if (aVar == null) {
-            aVar = new nc1.a();
+            aVar = new db1.a();
         }
         aVar.a = false;
         aVar.b = new float[]{f, f2, f3, f4};

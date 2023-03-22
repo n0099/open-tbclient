@@ -1,30 +1,35 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.View;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tieba.ow;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class wn8 {
+public abstract class wn8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
-    public String c;
-    public String d;
-    public Drawable e;
-    public Drawable f;
-    public Drawable g;
-    public boolean h;
-    public String i;
+    public TbPageContext a;
+    public lf6 b;
+    public ow.a c;
+    public OriginalThreadInfo d;
+    public int e;
 
-    public wn8() {
+    public abstract View a();
+
+    public abstract void b(TbPageContext tbPageContext, int i);
+
+    public abstract void c(OriginalThreadInfo originalThreadInfo);
+
+    public wn8(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,22 +39,21 @@ public class wn8 {
                 return;
             }
         }
-        this.a = false;
+        this.e = 3;
+        this.a = tbPageContext;
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public void d(ow.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            this.c = aVar;
         }
-        return invokeV.booleanValue;
     }
 
-    public void b(boolean z) {
+    public void e(lf6 lf6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.a = z;
+        if (interceptable == null || interceptable.invokeL(1048580, this, lf6Var) == null) {
+            this.b = lf6Var;
         }
     }
 }

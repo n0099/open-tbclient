@@ -1,75 +1,64 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.asynctask.BdAsyncTaskParallelType;
+import android.content.Context;
+import android.content.SharedPreferences;
+import com.baidu.spswitch.utils.SoftInputSharedPreferences;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidParameterException;
 /* loaded from: classes4.dex */
 public class fa0 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile SharedPreferences a;
     public transient /* synthetic */ FieldHolder $fh;
-    public ld0 a;
-    public BdAsyncTaskParallelType b;
-    public int c;
 
-    public fa0(BdAsyncTaskParallelType bdAsyncTaskParallelType, ld0 ld0Var) {
+    public fa0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdAsyncTaskParallelType, ld0Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = null;
-        this.b = BdAsyncTaskParallelType.MAX_PARALLEL;
-        this.c = 1;
-        if (bdAsyncTaskParallelType != null && ld0Var != null) {
-            this.b = bdAsyncTaskParallelType;
-            this.a = ld0Var;
-            return;
-        }
-        throw new InvalidParameterException("BdAsyncTaskParallel parameter null");
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public static int a(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
+            return c(context).getInt(SoftInputSharedPreferences.KEY_SOFITNPUT_HEIGHT, i);
         }
-        return invokeV.intValue;
+        return invokeLI.intValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    public static boolean b(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ld0 ld0Var = this.a;
-            if (ld0Var == null) {
-                return 0;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, context, i)) == null) {
+            return c(context).edit().putInt(SoftInputSharedPreferences.KEY_SOFITNPUT_HEIGHT, i).commit();
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static SharedPreferences c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (a == null) {
+                synchronized (fa0.class) {
+                    if (a == null) {
+                        a = context.getSharedPreferences("live_feed_search_softinput", 0);
+                    }
+                }
             }
-            return ld0Var.b();
+            return a;
         }
-        return invokeV.intValue;
-    }
-
-    public BdAsyncTaskParallelType getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (BdAsyncTaskParallelType) invokeV.objValue;
+        return (SharedPreferences) invokeL.objValue;
     }
 }

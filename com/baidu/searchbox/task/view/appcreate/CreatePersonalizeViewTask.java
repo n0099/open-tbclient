@@ -4,9 +4,9 @@ import android.app.Activity;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.gh5;
 import com.baidu.tieba.homepage.personalize.PersonalizePageView;
-/* loaded from: classes3.dex */
+import com.baidu.tieba.tf5;
+/* loaded from: classes2.dex */
 public class CreatePersonalizeViewTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public String getName() {
@@ -22,7 +22,7 @@ public class CreatePersonalizeViewTask extends LaunchTask {
     public void execute() {
         try {
             PersonalizePageView personalizePageView = new PersonalizePageView(TbadkCoreApplication.getInst());
-            gh5.e().a(1011, personalizePageView);
+            tf5.e().a(1011, personalizePageView);
             Activity mainActivity = TbadkCoreApplication.getInst().getMainActivity();
             if (mainActivity == null) {
                 return;

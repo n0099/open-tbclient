@@ -1,60 +1,53 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.view.MotionEvent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.tbadk.data.ChatRoomEntranceData;
 /* loaded from: classes4.dex */
-public abstract class dh5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public eh5 a;
-    public TbFragmentTabIndicator b;
+public interface dh5 {
+    @NonNull
+    public static final ServiceReference a = new ServiceReference("ImMessageCenter", "ChatFloatEntranceService");
 
-    public abstract eh5 a();
-
-    public abstract TbFragmentTabIndicator c(Context context);
-
-    public abstract boolean d();
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-        }
+    /* loaded from: classes4.dex */
+    public interface a {
     }
 
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-        }
+    /* loaded from: classes4.dex */
+    public interface b {
+        void N0();
+
+        void O0(MotionEvent motionEvent);
+
+        void S0();
+
+        void c();
+
+        Fragment d();
+
+        void destroy();
+
+        int getState();
+
+        boolean j0();
+
+        void l1(boolean z);
+
+        void o1();
+
+        boolean r1(String str);
+
+        void u(ChatRoomEntranceData chatRoomEntranceData);
+
+        void z1(long j, String str, boolean z, boolean z2);
     }
 
-    public dh5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = a();
-    }
+    void a(@Nullable a aVar);
 
-    public eh5 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (eh5) invokeV.objValue;
-    }
+    @NonNull
+    b b(String str, gh5 gh5Var);
+
+    void onChangeSkinType(int i);
 }

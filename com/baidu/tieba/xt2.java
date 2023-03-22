@@ -1,19 +1,20 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
-/* loaded from: classes6.dex */
-public abstract class xt2 implements bu2 {
+import java.util.List;
+/* loaded from: classes7.dex */
+public class xt2 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile xt2 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public final kg3 a;
 
     public xt2() {
         Interceptable interceptable = $ic;
@@ -28,38 +29,78 @@ public abstract class xt2 implements bu2 {
                 return;
             }
         }
-        this.a = -1;
+        this.a = new kg3("swan_local_ab_data");
+        if (ProcessUtils.isMainProcess()) {
+            this.a.clear();
+        }
+        c();
     }
 
-    public JSONObject d(@NonNull String str, @NonNull String str2) {
-        InterceptResult invokeLL;
+    public static xt2 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("name", str);
-                jSONObject.put("value", str2);
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (xt2.class) {
+                    if (b == null) {
+                        b = new xt2();
+                    }
+                }
             }
-            return jSONObject;
+            return b;
         }
-        return (JSONObject) invokeLL.objValue;
+        return (xt2) invokeV.objValue;
     }
 
-    public boolean e(String str) {
-        InterceptResult invokeL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (this.a == -1) {
-                ts2.g0().getSwitch(str, 0);
-                this.a = 0;
-            }
-            if (this.a != 1) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.getString(Config.SID, "");
         }
-        return invokeL.booleanValue;
+        return (String) invokeV.objValue;
+    }
+
+    public final void c() {
+        String substring;
+        Object e;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && ProcessUtils.isMainProcess()) {
+            List<yt2> c = new wt2().c();
+            for (yt2 yt2Var : c) {
+                zt2 b2 = yt2Var.b();
+                au2 c2 = yt2Var.c();
+                if (b2 == null) {
+                    e = c2.d();
+                } else {
+                    e = b2.e();
+                }
+                if (e instanceof Boolean) {
+                    this.a.writeBool(c2.e(), ((Boolean) e).booleanValue());
+                } else if (e instanceof Double) {
+                    this.a.writeDouble(c2.e(), ((Double) e).doubleValue());
+                } else if (e instanceof Integer) {
+                    this.a.writeInt(c2.e(), ((Integer) e).intValue());
+                } else if (e instanceof Long) {
+                    this.a.writeLong(c2.e(), ((Long) e).longValue());
+                } else if (e instanceof String) {
+                    this.a.writeString(c2.e(), (String) e);
+                }
+            }
+            StringBuilder sb = new StringBuilder();
+            for (yt2 yt2Var2 : c) {
+                zt2 b3 = yt2Var2.b();
+                if (b3 != null) {
+                    sb.append(b3.d());
+                    sb.append("-");
+                }
+            }
+            if (sb.length() == 0) {
+                substring = "";
+            } else {
+                substring = sb.substring(0, sb.length() - 1);
+            }
+            this.a.writeString(Config.SID, substring);
+        }
     }
 }

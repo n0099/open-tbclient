@@ -1,107 +1,227 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.uva;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.PayType;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import tv.athena.revenue.api.pay.params.AppCustomExpand;
-import tv.athena.revenue.payui.model.PayFinishInfo;
-import tv.athena.revenue.payui.view.IYYPayWayView;
-import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
+import kotlin.collections.builders.MapBuilder;
 /* loaded from: classes6.dex */
-public class vta implements IYYPayWayView.a {
+public final class vta<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public Dialog b;
-    public IYYPayWayView c;
-    public IYYPayWayView.b d;
-    public IPayCallback<CurrencyChargeMessage> e;
-    public tsa f;
-    public boolean g;
+    public final float a;
+    public int b;
+    public int c;
+    public int d;
+    public T[] e;
 
-    public vta(Activity activity, boolean z, Dialog dialog, IYYPayWayView iYYPayWayView, IYYPayWayView.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback, tsa tsaVar) {
+    public static int c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            int i2 = i * MapBuilder.MAGIC;
+            return i2 ^ (i2 >>> 16);
+        }
+        return invokeI.intValue;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public vta() {
+        this(16, 0.75f);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity, Boolean.valueOf(z), dialog, iYYPayWayView, bVar, iPayCallback, tsaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                this(((Integer) objArr[0]).intValue(), ((Float) objArr[1]).floatValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        RLog.info("PayWayViewCallback", "create PayWayViewCallback");
-        this.a = activity;
-        this.b = dialog;
-        this.c = iYYPayWayView;
-        this.d = bVar;
-        this.e = iPayCallback;
-        this.f = tsaVar;
-        this.g = z;
     }
 
-    @Override // tv.athena.revenue.payui.view.IYYPayWayView.a
-    public void a(oua ouaVar, lua luaVar, AppCustomExpand appCustomExpand) {
+    public vta(int i, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, ouaVar, luaVar, appCustomExpand) == null) {
-            oua ouaVar2 = new oua(PayType.ALI_PAY_SIGN, ouaVar.b, ouaVar.c, ouaVar.d, ouaVar.e, ouaVar.f);
-            RLog.info("PayWayViewCallback", "onStartSignPay payType=" + ouaVar2.a + ", payAmount=" + luaVar);
-            this.f.m(this.a, luaVar, ouaVar2, this.b, this.c, appCustomExpand, this.d, this.e);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Float.valueOf(f)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = f;
+        int b = oua.b(i);
+        this.b = b - 1;
+        this.d = (int) (f * b);
+        this.e = (T[]) new Object[b];
+    }
+
+    public boolean a(T t) {
+        InterceptResult invokeL;
+        T t2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
+            T[] tArr = this.e;
+            int i = this.b;
+            int c = c(t.hashCode()) & i;
+            T t3 = tArr[c];
+            if (t3 != null) {
+                if (t3.equals(t)) {
+                    return false;
+                }
+                do {
+                    c = (c + 1) & i;
+                    t2 = tArr[c];
+                    if (t2 == null) {
+                    }
+                } while (!t2.equals(t));
+                return false;
+            }
+            tArr[c] = t;
+            int i2 = this.c + 1;
+            this.c = i2;
+            if (i2 >= this.d) {
+                d();
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.c == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.c = 0;
+            this.e = (T[]) new Object[0];
         }
     }
 
-    @Override // tv.athena.revenue.payui.view.IYYPayWayView.a
-    public void b(oua ouaVar, lua luaVar, AppCustomExpand appCustomExpand) {
+    public T[] h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ouaVar, luaVar, appCustomExpand) == null) {
-            RLog.info("PayWayViewCallback", "onStartPay payType=" + ouaVar.a + ", payAmount=" + luaVar);
-            this.f.f(this.a, ouaVar, luaVar, this.b, this.c, appCustomExpand, this.d, this.e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.e;
+        }
+        return (T[]) ((Object[]) invokeV.objValue);
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            T[] tArr = this.e;
+            int length = tArr.length;
+            int i = length << 1;
+            int i2 = i - 1;
+            T[] tArr2 = (T[]) new Object[i];
+            int i3 = this.c;
+            while (true) {
+                int i4 = i3 - 1;
+                if (i3 != 0) {
+                    do {
+                        length--;
+                    } while (tArr[length] == null);
+                    int c = c(tArr[length].hashCode()) & i2;
+                    if (tArr2[c] != null) {
+                        do {
+                            c = (c + 1) & i2;
+                        } while (tArr2[c] != null);
+                    }
+                    tArr2[c] = tArr[length];
+                    i3 = i4;
+                } else {
+                    this.b = i2;
+                    this.d = (int) (i * this.a);
+                    this.e = tArr2;
+                    return;
+                }
+            }
         }
     }
 
-    @Override // tv.athena.revenue.payui.view.IYYPayWayView.a
-    public void c(nua nuaVar) {
+    public boolean e(T t) {
+        InterceptResult invokeL;
+        T t2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nuaVar) == null) {
-            RLog.info("PayWayViewCallback", "showSplitOrderView info:" + nuaVar);
-            bva.a(this.b, PayDialogType.PAY_WAY_DIALOG);
-            tsa tsaVar = this.f;
-            Activity activity = this.a;
-            uva.b bVar = nuaVar.b;
-            tsaVar.a(activity, bVar.a, bVar.d, bVar.e, PaySplitOrderViewSource.SOURCE_FROM_PAY_WAY_DIALOG, bVar.f, this.e);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, t)) == null) {
+            T[] tArr = this.e;
+            int i = this.b;
+            int c = c(t.hashCode()) & i;
+            T t3 = tArr[c];
+            if (t3 == null) {
+                return false;
+            }
+            if (t3.equals(t)) {
+                return f(c, tArr, i);
+            }
+            do {
+                c = (c + 1) & i;
+                t2 = tArr[c];
+                if (t2 == null) {
+                    return false;
+                }
+            } while (!t2.equals(t));
+            return f(c, tArr, i);
         }
+        return invokeL.booleanValue;
     }
 
-    @Override // tv.athena.revenue.payui.view.IYYPayWayView.a
-    public void onRefreshViewFail(int i, String str) {
+    public boolean f(int i, T[] tArr, int i2) {
+        InterceptResult invokeCommon;
+        int i3;
+        T t;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
-            PayFinishInfo b = cva.b(PayDialogType.PAY_WAY_DIALOG, i, str, this.g);
-            RLog.info("PayWayViewCallback", "showPayWayDialog onRefreshViewFail message:" + b);
-            this.f.j(b);
-            bva.b(this.b, PayDialogType.PAY_WAY_DIALOG);
-        }
-    }
-
-    @Override // tv.athena.revenue.payui.view.IYYPayWayView.a
-    public void toHelpCenterPage() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.f.u(this.a);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), tArr, Integer.valueOf(i2)})) == null) {
+            this.c--;
+            while (true) {
+                int i4 = i + 1;
+                while (true) {
+                    i3 = i4 & i2;
+                    t = tArr[i3];
+                    if (t == null) {
+                        tArr[i] = null;
+                        return true;
+                    }
+                    int c = c(t.hashCode()) & i2;
+                    if (i <= i3) {
+                        if (i < c && c <= i3) {
+                            i4 = i3 + 1;
+                        }
+                    } else {
+                        if (i >= c && c > i3) {
+                            break;
+                        }
+                        i4 = i3 + 1;
+                    }
+                }
+                tArr[i] = t;
+                i = i3;
+            }
+        } else {
+            return invokeCommon.booleanValue;
         }
     }
 }

@@ -1,32 +1,28 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.webkit.WebView;
+import android.view.View;
+import android.widget.LinearLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.hybrid.BridgeHandler;
-import com.baidu.tbadk.core.hybrid.NamedBridgeHandler;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public abstract class f45 {
+public class f45 implements h45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final WebView a;
-    public final w35 b;
+    public final TBLottieAnimationView a;
 
-    public abstract void c(g45 g45Var);
-
-    public abstract void e(String str, BridgeHandler bridgeHandler);
-
-    public f45(WebView webView, w35 w35Var) {
+    public f45(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {webView, w35Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,23 +32,53 @@ public abstract class f45 {
                 return;
             }
         }
-        this.a = webView;
-        this.b = w35Var;
+        TBLottieAnimationView tBLottieAnimationView = new TBLottieAnimationView(context);
+        this.a = tBLottieAnimationView;
+        tBLottieAnimationView.loop(true);
     }
 
-    public final void d(NamedBridgeHandler namedBridgeHandler) {
+    @Override // com.baidu.tieba.h45
+    public void a(d45 d45Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, namedBridgeHandler) == null) {
-            e(namedBridgeHandler.scope(), namedBridgeHandler);
+        if (interceptable == null || interceptable.invokeL(1048576, this, d45Var) == null) {
+            TBLottieAnimationView tBLottieAnimationView = this.a;
+            int i = d45Var.c;
+            int i2 = -2;
+            if (i < 0) {
+                i = -2;
+            }
+            int i3 = d45Var.c;
+            if (i3 >= 0) {
+                i2 = i3;
+            }
+            tBLottieAnimationView.setLayoutParams(new LinearLayout.LayoutParams(i, i2));
+            SkinManager.setLottieAnimation(this.a, d45Var.b);
         }
     }
 
-    public final Context getContext() {
+    @Override // com.baidu.tieba.h45
+    public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.getContext();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (Context) invokeV.objValue;
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.h45
+    public void onDismiss() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.cancelAnimation();
+        }
+    }
+
+    @Override // com.baidu.tieba.h45
+    public void onShow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.playAnimation();
+        }
     }
 }

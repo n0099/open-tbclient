@@ -1,30 +1,24 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TbImageHelper;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.FrsPage.ActivityHead;
+import tbclient.FrsPage.HeadImgs;
+import tbclient.FrsPage.Size;
 /* loaded from: classes4.dex */
 public class hx4 {
     public static /* synthetic */ Interceptable $ic;
-    public static hx4 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public String c;
-    public boolean d;
-    public int e;
-
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-        }
-    }
+    public ArrayList<kx4> a;
+    public String b;
+    public kw4 c;
 
     public hx4() {
         Interceptable interceptable = $ic;
@@ -39,125 +33,91 @@ public class hx4 {
                 return;
             }
         }
-        this.a = 0;
-        this.b = 0;
-        this.c = null;
-        this.d = true;
-        this.e = 0;
+        this.a = new ArrayList<>();
     }
 
-    public static hx4 c() {
-        InterceptResult invokeV;
-        hx4 hx4Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            hx4 hx4Var2 = f;
-            if (hx4Var2 == null) {
-                synchronized (hx4.class) {
-                    if (f == null) {
-                        f = new hx4();
-                    }
-                    hx4Var = f;
-                }
-                return hx4Var;
-            }
-            return hx4Var2;
-        }
-        return (hx4) invokeV.objValue;
-    }
-
-    public String a() {
+    public kw4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.c;
         }
-        return (String) invokeV.objValue;
+        return (kw4) invokeV.objValue;
     }
 
-    public int b() {
+    public ArrayList<kx4> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            b55 m = b55.m();
-            int n = m.n(TbadkCoreApplication.getCurrentAccount() + "add_image_water", 2);
-            this.b = n;
-            return n;
+            return this.a;
         }
-        return invokeV.intValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    public int d() {
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int n = b55.m().n("image_quality", 0);
-            this.a = n;
-            return n;
+            return this.b;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public int e() {
-        InterceptResult invokeV;
+    public void d(ActivityHead activityHead, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a = b55.m().n("image_quality", 0);
-            b55.m().n("new_abstract_state", 0);
-            this.e = b55.m().n("view_image_quality", 0);
-            boolean i = b55.m().i("show_images", true);
-            this.d = i;
-            if (!i) {
-                this.d = true;
-                b55.m().H("show_images");
-                b55.m().z("view_image_quality", 0);
-                this.e = 0;
-            }
-        }
-    }
-
-    public void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048585, this, i) != null) || this.e == i) {
+        if ((interceptable != null && interceptable.invokeLJ(1048579, this, activityHead, j) != null) || activityHead == null) {
             return;
         }
-        this.e = i;
-        b55.m().z("view_image_quality", i);
-        TbImageHelper.getInstance().updateFrsShowBigImage();
-        TbImageHelper.getInstance().updateUrlQuality();
+        activityHead.activity_type.intValue();
+        String str = activityHead.activity_title;
+        Size size = activityHead.top_size;
+        if (size != null) {
+            size.width.intValue();
+        }
+        Size size2 = activityHead.top_size;
+        if (size2 != null) {
+            size2.height.intValue();
+        }
+        this.b = activityHead.obj_id;
+        f(activityHead.head_imgs);
+        kw4 kw4Var = new kw4();
+        kw4Var.a = activityHead.pull_down_pic_android;
+        kw4Var.b = activityHead.pull_down_url;
+        kw4Var.c = activityHead.pull_down_interval.intValue();
+        kw4Var.d = activityHead.pull_down_exposure_url;
+        kw4Var.e = activityHead.pull_down_click_url;
+        kw4Var.f = activityHead.pull_down_schema;
+        kw4Var.g = activityHead.pull_down_package_name;
+        kw4Var.h = activityHead.is_ad.booleanValue();
+        kw4Var.i = activityHead.obj_id;
+        kw4Var.j = j;
+        this.c = kw4Var;
     }
 
-    public void i(int i) {
+    public void e(HeadImgs headImgs) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048583, this, i) != null) || this.b == i) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, headImgs) != null) || headImgs == null) {
             return;
         }
-        this.b = i;
-        b55 m = b55.m();
-        m.z(TbadkCoreApplication.getCurrentAccount() + "add_image_water", i);
+        kx4 kx4Var = new kx4();
+        kx4Var.o(headImgs);
+        this.a.add(kx4Var);
+    }
+
+    public void f(List<HeadImgs> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        for (HeadImgs headImgs : list) {
+            e(headImgs);
+        }
+    }
+
+    public void g(ArrayList<kx4> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, arrayList) == null) {
+            this.a = arrayList;
+        }
     }
 }

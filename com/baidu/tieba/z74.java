@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
 import android.util.Log;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.v74;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,16 +11,57 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class z74 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<t12> a;
+    public ArrayList<v74> a;
+    public String b;
+    public String c;
+    public int d;
+
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ x74 a;
+        public final /* synthetic */ z74 b;
+
+        public a(z74 z74Var, x74 x74Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {z74Var, x74Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = z74Var;
+            this.a = x74Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ArrayList<long[]> e = this.b.e();
+                y74 y74Var = new y74();
+                y74Var.a = this.b.b;
+                y74Var.b = e;
+                y74Var.c = this.b.c;
+                k44.i().b(y74Var, this.a);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -35,15 +76,15 @@ public class z74 {
                 return;
             }
         }
-        b = wp1.a;
+        e = do1.a;
     }
 
-    public z74(JSONArray jSONArray) {
+    public z74(ArrayList<w74> arrayList, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jSONArray};
+            Object[] objArr = {arrayList, str, str2};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -53,85 +94,70 @@ public class z74 {
                 return;
             }
         }
-        this.a = new ArrayList();
-        if (jSONArray == null) {
+        if (e) {
+            Log.d("ClipVideoTask", "videoPath=" + str + "clipList=" + arrayList);
+        }
+        ArrayList<v74> d = d(arrayList);
+        this.a = d;
+        this.b = str;
+        this.c = str2;
+        this.d = d.size();
+    }
+
+    public void c(x74 x74Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, x74Var) != null) || x74Var == null) {
             return;
         }
-        if (b) {
-            Log.d("SwanGamePreloadConfig", "jsonArray:" + jSONArray);
-        }
-        int length = jSONArray.length();
-        int i3 = 0;
-        int i4 = 0;
-        for (int i5 = 0; i5 < length; i5++) {
-            JSONObject optJSONObject = jSONArray.optJSONObject(i5);
-            if (optJSONObject != null) {
-                String optString = optJSONObject.optString("type");
-                char c = 65535;
-                int hashCode = optString.hashCode();
-                if (hashCode != 1095692943) {
-                    if (hashCode == 1427818632 && optString.equals("download")) {
-                        c = 1;
+        nk3.l(new a(this, x74Var), "clipVideo");
+    }
+
+    public final ArrayList<v74> d(ArrayList<w74> arrayList) {
+        InterceptResult invokeL;
+        v74 a2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arrayList)) == null) {
+            ArrayList<v74> arrayList2 = new ArrayList<>();
+            if (arrayList != null && arrayList.size() != 0) {
+                Iterator<w74> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    w74 next = it.next();
+                    if (next != null && (a2 = next.a()) != null) {
+                        arrayList2.add(a2);
                     }
-                } else if (optString.equals("request")) {
-                    c = 0;
-                }
-                if (c != 0) {
-                    if (c == 1 && i4 < 10) {
-                        this.a.add(a(optJSONObject));
-                        i4++;
-                    }
-                } else if (i3 < 3) {
-                    this.a.add(b(optJSONObject));
-                    i3++;
                 }
             }
+            return arrayList2;
         }
+        return (ArrayList) invokeL.objValue;
     }
 
-    public final t12 a(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public ArrayList<long[]> e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            t12 t12Var = new t12();
-            t12Var.G("type", jSONObject.optString("type"));
-            t12Var.G("url", jSONObject.optString("url"));
-            t12Var.G("filePath", jSONObject.optString("filePath"));
-            t12Var.G("header", c(jSONObject.optJSONObject("header")));
-            return t12Var;
-        }
-        return (t12) invokeL.objValue;
-    }
-
-    public final t12 b(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            t12 t12Var = new t12();
-            t12Var.G("type", jSONObject.optString("type"));
-            t12Var.G("url", jSONObject.optString("url"));
-            t12Var.G("responseType", jSONObject.optString("responseType"));
-            t12Var.G("header", c(jSONObject.optJSONObject("header")));
-            return t12Var;
-        }
-        return (t12) invokeL.objValue;
-    }
-
-    public final t12 c(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ArrayList<long[]> arrayList = new ArrayList<>();
+            if (this.d == 0) {
+                return arrayList;
             }
-            t12 t12Var = new t12();
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                t12Var.G(next, jSONObject.optString(next));
+            if (e) {
+                Log.d("ClipVideoTask", "mergeRange mRangeList = " + this.a);
             }
-            return t12Var;
+            Collections.sort(this.a, new v74.a());
+            v74 v74Var = this.a.get(0);
+            for (int i = 1; i < this.d; i++) {
+                v74 v74Var2 = this.a.get(i);
+                if (!v74Var.b(v74Var2)) {
+                    arrayList.add(v74.a(v74Var));
+                    v74Var = v74Var2;
+                }
+            }
+            arrayList.add(v74.a(v74Var));
+            if (e) {
+                Log.d("ClipVideoTask", "mergeRange mergeList = " + arrayList);
+            }
+            return arrayList;
         }
-        return (t12) invokeL.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 }

@@ -9,11 +9,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b35;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.eq6;
+import com.baidu.tieba.aq6;
+import com.baidu.tieba.hi;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.ReMsgInfo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.view.ReplyContentView;
+import com.baidu.tieba.n15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -119,11 +119,11 @@ public final class ReplyContentView extends AppCompatTextView {
     public final void a(ReMsgInfo reMsgInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, reMsgInfo) == null) {
-            eq6.d(getContext(), reMsgInfo.getContent(), this.c, new eq6.i() { // from class: com.baidu.tieba.ot7
+            aq6.d(getContext(), reMsgInfo.getContent(), this.c, new aq6.i() { // from class: com.baidu.tieba.qv7
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.eq6.i
+                @Override // com.baidu.tieba.aq6.i
                 public final void a(SpannableStringBuilder spannableStringBuilder) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, spannableStringBuilder) == null) {
@@ -158,10 +158,10 @@ public final class ReplyContentView extends AppCompatTextView {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            b35 d = b35.d(this);
-            d.v(this.g);
-            d.z(R.dimen.T_X07);
-            d.n(R.string.J_X05);
+            n15 d = n15.d(this);
+            d.w(this.g);
+            d.A(R.dimen.T_X07);
+            d.o(R.string.J_X05);
             d.f(this.f);
         }
     }
@@ -170,7 +170,7 @@ public final class ReplyContentView extends AppCompatTextView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             if (z) {
-                getLayoutParams().width = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds608);
+                getLayoutParams().width = hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds608);
             } else {
                 getLayoutParams().width = i;
             }

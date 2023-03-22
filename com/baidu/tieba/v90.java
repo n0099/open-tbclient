@@ -1,155 +1,22 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.dns.transmit.DnsTransmitter;
+import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import com.baidu.live.feed.search.LiveFeedSearchActivity;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.SocketException;
-import java.net.UnknownHostException;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.TimeUnit;
-import okhttp3.Call;
-import okhttp3.Callback;
-import okhttp3.Dns;
-import okhttp3.Headers;
-import okhttp3.MediaType;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class v90 {
+public class v90 implements qa0 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile v90 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public OkHttpClient a;
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        Map<String, String> getHeaders();
-
-        String getHost();
-
-        String getMediaType();
-
-        String getMethod();
-
-        byte[] getRequestParameter();
-    }
-
-    /* loaded from: classes6.dex */
-    public interface d {
-        void onFailure(int i, String str);
-
-        void onSuccess(byte[] bArr);
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements Callback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
-
-        public a(v90 v90Var, d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v90Var, dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dVar;
-        }
-
-        @Override // okhttp3.Callback
-        public void onFailure(@NonNull Call call, @NonNull IOException iOException) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
-                String str = "HttpRequest error :" + iOException.toString();
-                if (iOException instanceof SocketException) {
-                    str = "HttpRequest SocketException :" + iOException.toString();
-                }
-                v90.b(this.a, 10003, str);
-            }
-        }
-
-        @Override // okhttp3.Callback
-        public void onResponse(@NonNull Call call, @NonNull Response response) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
-                try {
-                    if (response.code() != 200) {
-                        v90.b(this.a, response.code(), response.message());
-                    } else if (response.body() == null) {
-                        v90.b(this.a, 10004, "response body empty");
-                    } else {
-                        byte[] bytes = response.body().bytes();
-                        aa0.b("HttpExecutor", "onSuccess errorCode ：" + response.code() + ", errorMsg :" + new String(bytes));
-                        this.a.onSuccess(bytes);
-                    }
-                } catch (IOException e) {
-                    d dVar = this.a;
-                    v90.b(dVar, 10001, "parse response exception ：" + e);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements Dns {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c(v90 v90Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v90Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // okhttp3.Dns
-        public List<InetAddress> lookup(String str) throws UnknownHostException {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                aa0.b("HttpExecutor", "LCPHttpDns lookup  hostName is " + str);
-                if (!TextUtils.isEmpty(str) && str.contains(DnsTransmitter.IDC_HOST)) {
-                    InetAddress[] allByName = InetAddress.getAllByName(DnsTransmitter.BGP_IP);
-                    aa0.b("HttpExecutor", "LCPHttpDns lookup  hostName direct ip");
-                    return Arrays.asList(allByName);
-                }
-                aa0.b("HttpExecutor", "LCPHttpDns lookup  hostName is by System");
-                return Dns.SYSTEM.lookup(str);
-            }
-            return (List) invokeL.objValue;
-        }
-    }
 
     public v90() {
         Interceptable interceptable = $ic;
@@ -161,91 +28,20 @@ public class v90 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.a = new OkHttpClient.Builder().connectTimeout(10L, TimeUnit.SECONDS).readTimeout(10L, TimeUnit.SECONDS).writeTimeout(10L, TimeUnit.SECONDS).build();
-    }
-
-    public static void b(@NonNull d dVar, int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65538, null, dVar, i, str) == null) {
-            dVar.onFailure(i, str);
-            aa0.b("HttpExecutor", "failedResponse errorCode ：" + i + ", errorMsg :" + str);
         }
     }
 
-    public static Headers c(Map<String, String> map) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.qa0
+    public void a(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
-            try {
-                Headers.Builder builder = new Headers.Builder();
-                if (map != null && map.size() > 0) {
-                    for (String str : map.keySet()) {
-                        String str2 = str.toString();
-                        builder.add(str2, map.get(str2));
-                    }
-                }
-                return builder.build();
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) && context != null) {
+            Intent intent = new Intent(context, LiveFeedSearchActivity.class);
+            intent.putExtra("source", str);
+            if (!(context instanceof Activity)) {
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
             }
-        }
-        return (Headers) invokeL.objValue;
-    }
-
-    public static v90 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (b == null) {
-                synchronized (v90.class) {
-                    if (b == null) {
-                        b = new v90();
-                    }
-                }
-            }
-            return b;
-        }
-        return (v90) invokeV.objValue;
-    }
-
-    public void e(@NonNull b bVar, @NonNull d dVar) {
-        Request build;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, bVar, dVar) == null) {
-            try {
-                String host = bVar.getHost();
-                byte[] requestParameter = bVar.getRequestParameter();
-                if (requestParameter != null && requestParameter.length > 0) {
-                    if (bVar.getMethod().equals("POST")) {
-                        build = new Request.Builder().url(host).post(RequestBody.create(MediaType.parse(bVar.getMediaType()), requestParameter)).build();
-                    } else {
-                        if (requestParameter != null && requestParameter.length > 0) {
-                            host = host + "?" + new String(requestParameter);
-                        }
-                        build = new Request.Builder().url(host).build();
-                    }
-                    Map<String, String> headers = bVar.getHeaders();
-                    Headers c2 = c(headers);
-                    OkHttpClient okHttpClient = this.a;
-                    if (headers != null && c2 != null) {
-                        build = build.newBuilder().headers(c2).build();
-                        String str = headers.get("Host");
-                        if (!TextUtils.isEmpty(str) && str.contains(DnsTransmitter.IDC_HOST)) {
-                            okHttpClient = this.a.newBuilder().dns(new c(this)).build();
-                        }
-                    }
-                    aa0.a("HttpExecutor", "request url :" + host + " , method :" + bVar.getMethod() + " , body :" + new String(bVar.getRequestParameter()));
-                    okHttpClient.newCall(build).enqueue(new a(this, dVar));
-                    return;
-                }
-                b(dVar, 10000, "request args exception");
-            } catch (Exception e) {
-                b(dVar, 10004, "request exception :" + e);
-            }
+            context.startActivity(intent);
         }
     }
 }

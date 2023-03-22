@@ -1,358 +1,460 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.os.Build;
-import android.text.TextUtils;
+import android.content.Context;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.activity.social.YYInnerSSOLoginActivity;
+import com.baidu.sapi2.result.OneKeyLoginOptResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.http.Headers;
-import java.io.BufferedWriter;
-import java.io.ByteArrayOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import okhttp3.internal.http2.Http2Codec;
-import org.apache.http.protocol.HTTP;
+import com.sdk.base.api.CallBack;
+import com.sdk.base.module.manager.SDKManager;
+import com.sdk.mobile.manager.login.cucc.UiOauthManager;
+import com.sdk.mobile.manager.oauth.cucc.OauthManager;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gm1 {
+public class gm1 extends yl1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HttpURLConnection a;
-    public b b;
-    public c c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public int h;
-    public int i;
-    public boolean j;
-    public Uri.Builder k;
-    public int l;
+    public boolean s;
 
     /* loaded from: classes4.dex */
-    public interface b {
-        void a(String str, int i);
-
-        void onSuccess(String str, String str2);
-    }
-
-    /* loaded from: classes4.dex */
-    public interface c {
-        void a(String str, int i);
-
-        void b(InputStream inputStream, String str);
-    }
-
-    /* loaded from: classes4.dex */
-    public class a extends rm1 {
+    public class a extends hm1<Object> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gm1 c;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ int d;
+        public final /* synthetic */ gm1 e;
 
-        public a(gm1 gm1Var) {
+        public a(gm1 gm1Var, long j, int i, int i2, int i3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gm1Var};
+                Object[] objArr = {gm1Var, Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = gm1Var;
+            this.e = gm1Var;
+            this.b = i;
+            this.c = i2;
+            this.d = i3;
         }
 
-        @Override // com.baidu.tieba.rm1
-        public Object b() {
-            InterceptResult invokeV;
+        @Override // com.sdk.base.api.CallBack
+        public void onFailed(int i, int i2, String str, String str2) {
+            int i3;
             Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeV = interceptable.invokeV(1048576, this)) != null) {
-                return invokeV.objValue;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2}) == null) {
+                long currentTimeMillis = System.currentTimeMillis() - a();
+                if (!this.e.M(i2, this.b) || (i3 = this.c) != 0) {
+                    this.e.I(i2, str, this.b);
+                } else {
+                    this.e.x(this.b, this.d, i3 + 1);
+                }
+                sm1.c(this.e.a, this.e.c, i2, currentTimeMillis, this.d, str2);
             }
-            this.c.i();
-            this.c.e();
-            return null;
+        }
+
+        @Override // com.sdk.base.api.CallBack
+        public void onSuccess(int i, String str, int i2, Object obj, String str2) {
+            int i3;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), obj, str2}) == null) {
+                long currentTimeMillis = System.currentTimeMillis() - a();
+                if (i != 0) {
+                    if (!this.e.M(i2, this.b) || (i3 = this.c) != 0) {
+                        this.e.I(i2, str, this.b);
+                    } else {
+                        this.e.x(this.b, this.d, i3 + 1);
+                    }
+                } else {
+                    this.e.D(obj, this.b);
+                }
+                sm1.c(this.e.a, this.e.c, i2, currentTimeMillis, this.d, str2);
+            }
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public gm1(int i, String str) {
-        this(i, str, "GET");
+    /* loaded from: classes4.dex */
+    public class b implements CallBack<Object> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ gm1 b;
+
+        public b(gm1 gm1Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gm1Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = gm1Var;
+            this.a = i;
+        }
+
+        @Override // com.sdk.base.api.CallBack
+        public void onFailed(int i, int i2, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2}) == null) {
+                this.b.y(i2, str, this.a);
+            }
+        }
+
+        @Override // com.sdk.base.api.CallBack
+        public void onSuccess(int i, String str, int i2, Object obj, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), obj, str2}) == null) {
+                if (i != 0) {
+                    this.b.y(i2, str, this.a);
+                } else {
+                    this.b.L(obj, this.a);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c extends xm1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Object b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ gm1 d;
+
+        public c(gm1 gm1Var, Object obj, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gm1Var, obj, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = gm1Var;
+            this.b = obj;
+            this.c = i;
+        }
+
+        @Override // com.baidu.tieba.xm1
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject((String) this.b);
+                    this.d.g = jSONObject.optString(OneKeyLoginOptResult.OptResultFields.SECURITY_PHONE);
+                    this.d.e = jSONObject.optString(YYInnerSSOLoginActivity.o);
+                    this.d.f = jSONObject.optLong("exp");
+                    JSONObject jSONObject2 = new JSONObject();
+                    jSONObject2.put(OneKeyLoginOptResult.OptResultFields.SECURITY_PHONE, this.d.a(this.d.g));
+                    this.d.e(this.c, 0, 0, this.d.c, jSONObject2.toString(), 1);
+                } catch (Throwable unused) {
+                    gm1 gm1Var = this.d;
+                    gm1Var.e(this.c, 3, 2009, gm1Var.c, "cu on handle login unknown error.", 1);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class d extends xm1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ gm1 e;
+
+        public d(gm1 gm1Var, int i, int i2, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gm1Var, Integer.valueOf(i), Integer.valueOf(i2), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = gm1Var;
+            this.b = i;
+            this.c = i2;
+            this.d = str;
+        }
+
+        @Override // com.baidu.tieba.xm1
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    if (this.e.c != this.e.d && this.b == 1101) {
+                        this.e.e(this.c, 3, 2002, this.e.c, "pre login error, wrong sim operator", 1);
+                    } else {
+                        gm1 gm1Var = this.e;
+                        int i = this.c;
+                        int i2 = this.b;
+                        int i3 = this.e.c;
+                        gm1Var.e(i, 2, i2, i3, "cu pre login error." + this.d + ", status " + this.b, 1);
+                    }
+                } catch (Throwable unused) {
+                    gm1 gm1Var2 = this.e;
+                    gm1Var2.e(this.c, 3, 2009, gm1Var2.c, "cu on handle login unknown error.", 1);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class e extends xm1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Object b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ gm1 d;
+
+        public e(gm1 gm1Var, Object obj, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gm1Var, obj, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = gm1Var;
+            this.b = obj;
+            this.c = i;
+        }
+
+        @Override // com.baidu.tieba.xm1
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject((String) this.b);
+                    this.d.h = jSONObject.optString(YYInnerSSOLoginActivity.o);
+                    this.d.i = jSONObject.optLong("exp");
+                    this.d.e(this.c, 0, 0, this.d.c, "preVerify success", 3);
+                } catch (Throwable unused) {
+                    gm1 gm1Var = this.d;
+                    gm1Var.e(this.c, 3, 2009, gm1Var.c, "cu on handle preVerify unknown error.", 3);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class f extends xm1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ gm1 e;
+
+        public f(gm1 gm1Var, int i, int i2, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gm1Var, Integer.valueOf(i), Integer.valueOf(i2), str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = gm1Var;
+            this.b = i;
+            this.c = i2;
+            this.d = str;
+        }
+
+        @Override // com.baidu.tieba.xm1
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    if (this.e.c != this.e.d && this.b == 1101) {
+                        this.e.e(this.c, 3, 2002, this.e.c, "pre verify error, wrong sim operator", 3);
+                    } else {
+                        gm1 gm1Var = this.e;
+                        int i = this.c;
+                        int i2 = this.b;
+                        int i3 = this.e.c;
+                        gm1Var.e(i, 2, i2, i3, "cu pre verify error." + this.d + ", status " + this.b, 3);
+                    }
+                } catch (Throwable unused) {
+                    gm1 gm1Var2 = this.e;
+                    gm1Var2.e(this.c, 3, 2009, gm1Var2.c, "cu on handle verify unknown error.", 3);
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gm1(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (String) objArr2[2]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.s = false;
+        this.c = 2;
     }
 
-    public gm1(int i, String str, String str2) {
+    @Override // com.baidu.tieba.yl1, com.baidu.tieba.xl1
+    public void p(Context context, int i, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, str2};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            super.p(context, i, j);
+        }
+    }
+
+    public final void x(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(1048583, this, i, i2, i3) == null) {
+            UiOauthManager.getInstance(this.a).login(8, new a(this, System.currentTimeMillis(), i, i3, i2));
+        }
+    }
+
+    public final void D(Object obj, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, obj, i) == null) {
+            zm1.c().b(new c(this, obj, i));
+        }
+    }
+
+    public final void L(Object obj, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, obj, i) == null) {
+            zm1.c().b(new e(this, obj, i));
+        }
+    }
+
+    public final void I(int i, String str, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
+            zm1.c().b(new d(this, i, i2, str));
+        }
+    }
+
+    public void y(int i, String str, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
+            zm1.c().b(new f(this, i, i2, str));
+        }
+    }
+
+    public final boolean M(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048579, this, i, i2)) == null) {
+            boolean c2 = ml1.g(this.a).c();
+            boolean n = ml1.g(this.a).n("k_retry_code_cu", i);
+            boolean h = rl1.j().h(i2);
+            if (c2 && n && h) {
+                return true;
             }
+            return false;
         }
-        this.b = null;
-        this.c = null;
-        this.g = "text/plain";
-        this.h = 10000;
-        this.i = 10000;
-        this.j = false;
-        this.k = null;
-        this.l = i;
-        this.d = str;
-        this.e = str2;
+        return invokeII.booleanValue;
     }
 
-    public void c(c cVar) {
+    @Override // com.baidu.tieba.xl1
+    public void h(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            this.c = cVar;
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            try {
-                if (this.l == 1) {
-                    sm1.a().c(new a(this));
-                } else {
-                    sm1.a().c(new a(this));
+        if (interceptable == null || interceptable.invokeLI(1048580, this, context, i) == null) {
+            super.h(context, i);
+            if (!ml1.g(this.a).d()) {
+                e(i, 3, 997, this.c, "pre verify error. sdk stop run", 3);
+            } else if (!r()) {
+                e(i, 3, 2006, this.c, "pre verify error. cu has not valid config.", 3);
+            } else if (ml1.g(this.a).a()) {
+                if (!this.s) {
+                    SDKManager.init(this.a, xl1.o, xl1.p);
+                    SDKManager.setUseCache(false);
+                    SDKManager.securityType(0);
+                    SDKManager.setDebug(ql1.c());
+                    this.s = true;
                 }
-            } catch (Exception unused) {
-            }
-        }
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, INVOKE, IF] complete} */
-    public final void e() {
-        HttpURLConnection httpURLConnection;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            try {
-                try {
-                    this.a.connect();
-                    int responseCode = this.a.getResponseCode();
-                    if (responseCode == 302 || responseCode == 301) {
-                        this.a.setInstanceFollowRedirects(false);
-                        HttpURLConnection g = g(this.a);
-                        this.a = g;
-                        responseCode = g.getResponseCode();
-                    }
-                    if (responseCode / 100 != 2) {
-                        if (this.b != null) {
-                            this.b.a(this.a.getResponseMessage(), responseCode);
-                        }
-                        if (this.c != null) {
-                            this.c.a(this.a.getResponseMessage(), responseCode);
-                        }
-                    } else {
-                        String a2 = qm1.a(this.d);
-                        if (this.b != null) {
-                            this.b.onSuccess(f(), a2);
-                        }
-                        if (this.c != null) {
-                            this.c.b(this.a.getInputStream(), a2);
-                        }
-                    }
-                    httpURLConnection = this.a;
-                    if (httpURLConnection == null) {
-                        return;
-                    }
-                } catch (Exception e) {
-                    if (this.b != null) {
-                        b bVar = this.b;
-                        bVar.a("Net Connect RuntimeError: " + e.toString(), 0);
-                    }
-                    if (this.c != null) {
-                        c cVar = this.c;
-                        cVar.a("Net Connect RuntimeError: " + e.toString(), 0);
-                    }
-                    httpURLConnection = this.a;
-                    if (httpURLConnection == null) {
-                        return;
-                    }
-                }
-                httpURLConnection.disconnect();
-            } catch (Throwable th) {
-                HttpURLConnection httpURLConnection2 = this.a;
-                if (httpURLConnection2 != null) {
-                    httpURLConnection2.disconnect();
-                }
-                throw th;
+                OauthManager.getInstance(this.a).getAuthoriseCode(8, new b(this, i));
+            } else {
+                e(i, 3, 995, this.c, "pre verify error. cu sdk stop run.", 3);
             }
         }
     }
 
-    public final void i() {
+    @Override // com.baidu.tieba.xl1
+    public void i(Context context, int i, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && !TextUtils.isEmpty(this.d)) {
-            try {
-                HttpURLConnection b2 = qm1.b(new URL(this.d));
-                this.a = b2;
-                b2.setConnectTimeout(this.h);
-                this.a.setReadTimeout(this.i);
-                if (Integer.parseInt(Build.VERSION.SDK) < 8) {
-                    System.setProperty("http.keepAlive", "false");
+        if (interceptable == null || interceptable.invokeLII(1048581, this, context, i, i2) == null) {
+            super.i(context, i, i2);
+            if (!ml1.g(this.a).d()) {
+                e(i2, 3, 997, this.c, "pre login error. sdk stop run", 1);
+            } else if (!r()) {
+                e(i2, 3, 2006, this.c, "pre login error. cu has not valid config.", 1);
+            } else if (ml1.g(this.a).a()) {
+                if (!this.s) {
+                    System.currentTimeMillis();
+                    SDKManager.init(this.a, xl1.o, xl1.p);
+                    SDKManager.setUseCache(false);
+                    SDKManager.securityType(0);
+                    SDKManager.setDebug(ql1.c());
+                    this.s = true;
                 }
-                this.a.setRequestMethod(this.e);
-                this.a.setUseCaches(this.j);
-                if (!TextUtils.isEmpty(this.f)) {
-                    this.a.setRequestProperty("User-Agent", this.f);
-                }
-                this.a.setRequestProperty("Content-type", this.g);
-                this.a.setRequestProperty(HTTP.CONN_DIRECTIVE, Http2Codec.KEEP_ALIVE);
-                this.a.setRequestProperty(Headers.CACHE_CONTROL, "no-cache");
-                if (this.e.equals("POST")) {
-                    this.a.setDoInput(true);
-                    this.a.setDoOutput(true);
-                    if (this.k != null) {
-                        h(this.k.build().getEncodedQuery(), this.a);
-                    }
-                }
-            } catch (ArrayIndexOutOfBoundsException e) {
-                b bVar = this.b;
-                if (bVar != null) {
-                    bVar.a("Net Create RuntimeError: " + e.toString(), 0);
-                }
-                c cVar = this.c;
-                if (cVar != null) {
-                    cVar.a("Net Create RuntimeError: " + e.toString(), 0);
-                }
-            } catch (Throwable th) {
-                b bVar2 = this.b;
-                if (bVar2 != null) {
-                    bVar2.a("Net Create RuntimeError: " + th.toString(), 0);
-                }
-                c cVar2 = this.c;
-                if (cVar2 != null) {
-                    cVar2.a("Net Create RuntimeError: " + th.toString(), 0);
-                }
-            }
-        }
-    }
-
-    public String f() throws Exception {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            InputStream inputStream = null;
-            try {
-                inputStream = this.a.getInputStream();
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                byte[] bArr = new byte[128];
-                while (true) {
-                    int read = inputStream.read(bArr);
-                    if (read == -1) {
-                        break;
-                    }
-                    byteArrayOutputStream.write(bArr, 0, read);
-                }
-                byteArrayOutputStream.flush();
-                return byteArrayOutputStream.toString();
-            } finally {
-                if (inputStream != null) {
-                    inputStream.close();
-                }
-            }
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final HttpURLConnection g(HttpURLConnection httpURLConnection) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(1048580, this, httpURLConnection)) != null) {
-            return (HttpURLConnection) invokeL.objValue;
-        }
-        while (true) {
-            try {
-                int responseCode = httpURLConnection.getResponseCode();
-                if (responseCode == 302 || responseCode == 301) {
-                    HttpURLConnection httpURLConnection2 = (HttpURLConnection) new URL(httpURLConnection.getHeaderField("Location")).openConnection();
-                    try {
-                        httpURLConnection2.setConnectTimeout(httpURLConnection2.getConnectTimeout());
-                        httpURLConnection2.setInstanceFollowRedirects(false);
-                        httpURLConnection2.setRequestProperty("Range", "bytes=0-");
-                        httpURLConnection = httpURLConnection2;
-                    } catch (Exception unused) {
-                        return httpURLConnection2;
-                    }
-                } else {
-                    return httpURLConnection;
-                }
-            } catch (Exception unused2) {
-                return httpURLConnection;
-            }
-        }
-    }
-
-    public final void h(String str, HttpURLConnection httpURLConnection) throws IOException {
-        OutputStream outputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, str, httpURLConnection) == null) {
-            BufferedWriter bufferedWriter = null;
-            try {
-                outputStream = httpURLConnection.getOutputStream();
-                try {
-                    BufferedWriter bufferedWriter2 = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
-                    try {
-                        bufferedWriter2.write(str);
-                        bufferedWriter2.flush();
-                        bufferedWriter2.close();
-                        if (outputStream != null) {
-                            outputStream.close();
-                        }
-                    } catch (Throwable th) {
-                        th = th;
-                        bufferedWriter = bufferedWriter2;
-                        if (bufferedWriter != null) {
-                            bufferedWriter.close();
-                        }
-                        if (outputStream != null) {
-                            outputStream.close();
-                        }
-                        throw th;
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                }
-            } catch (Throwable th3) {
-                th = th3;
-                outputStream = null;
+                x(i2, i, 0);
+            } else {
+                e(i2, 3, 995, this.c, "pre login error. cu sdk stop run.", 1);
             }
         }
     }

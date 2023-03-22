@@ -1,10 +1,14 @@
 package com.baidu.tieba;
 
+import android.os.Handler;
+import android.os.Message;
+import android.util.Pair;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.adp.lib.webSocket.WebSocketException;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ej;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,23 +16,39 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.io.UnsupportedEncodingException;
+import java.net.SocketException;
+import java.net.SocketTimeoutException;
+import java.nio.ByteBuffer;
+import java.util.HashMap;
 import java.util.Map;
-import org.apache.http.message.BasicNameValuePair;
+import kotlin.jvm.internal.ByteCompanionObject;
 /* loaded from: classes4.dex */
-public class ek {
+public class ek extends Thread {
     public static /* synthetic */ Interceptable $ic;
-    public static ek h;
+    public static long p;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<BasicNameValuePair> b;
-    public String[] c;
-    public String d;
-    public fk e;
-    public ArrayList<dk> f;
-    public dk g;
+    public final Handler a;
+    public final ej.a b;
+    public final dk c;
+    public final ByteBuffer d;
+    public final dj e;
+    public boolean f;
+    public int g;
+    public boolean h;
+    public int i;
+    public b j;
+    public int k;
+    public final fj l;
+    public int m;
+    public long n;
+    public long o;
+
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -46,434 +66,569 @@ public class ek {
     }
 
     /* loaded from: classes4.dex */
-    public class a implements dk {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ek a;
+        public int a;
+        public boolean b;
+        public int c;
+        public int d;
+        public byte[] e;
 
-        public a(ek ekVar) {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ekVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ekVar;
-        }
-
-        @Override // com.baidu.tieba.dk
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                Iterator it = this.a.f.iterator();
-                while (it.hasNext()) {
-                    ((dk) it.next()).a(str);
                 }
             }
         }
 
-        @Override // com.baidu.tieba.dk
-        public void c(zj zjVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zjVar) == null) {
-                Iterator it = this.a.f.iterator();
-                while (it.hasNext()) {
-                    ((dk) it.next()).c(zjVar);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.dk
-        public void d(byte[] bArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
-                Iterator it = this.a.f.iterator();
-                while (it.hasNext()) {
-                    ((dk) it.next()).d(bArr);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.dk
-        public void f(hk hkVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, hkVar) == null) {
-                Iterator it = this.a.f.iterator();
-                while (it.hasNext()) {
-                    ((dk) it.next()).f(hkVar);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.dk
-        public void h(zj zjVar) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048583, this, zjVar) == null) && zjVar != null) {
-                zjVar.c();
-            }
-        }
-
-        @Override // com.baidu.tieba.dk
-        public void i(zj zjVar) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, zjVar) == null) && zjVar != null) {
-                zjVar.b();
-            }
-        }
-
-        @Override // com.baidu.tieba.dk
-        public void onOpen(Map<String, String> map) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, map) == null) {
-                Iterator it = this.a.f.iterator();
-                while (it.hasNext()) {
-                    ((dk) it.next()).onOpen(map);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.dk
-        public void b(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) != null) {
-                return;
-            }
-            this.a.e = null;
-            Iterator it = this.a.f.iterator();
-            while (it.hasNext()) {
-                ((dk) it.next()).b(i, str);
-            }
-        }
-
-        @Override // com.baidu.tieba.dk
-        public void g(int i, zj zjVar) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(1048582, this, i, zjVar) == null) && zjVar != null) {
-                zjVar.a(i);
-            }
-        }
-
-        @Override // com.baidu.tieba.dk
-        public void e() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                Iterator it = this.a.f.iterator();
-                while (it.hasNext()) {
-                    ((dk) it.next()).e();
-                }
-            }
+        public /* synthetic */ b(a aVar) {
+            this();
         }
     }
 
-    public ek() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ek(Handler handler, ej.a aVar, dk dkVar, String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {handler, aVar, dkVar, str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.d = null;
-        this.e = null;
-        this.f = new ArrayList<>();
-        this.g = null;
-        this.g = new a(this);
+        this.f = false;
+        this.h = false;
+        this.l = new fj();
+        this.m = 0;
+        this.n = 0L;
+        this.o = 0L;
+        this.a = handler;
+        this.b = aVar;
+        this.c = dkVar;
+        this.d = ByteBuffer.allocateDirect(dkVar.b() + 14);
+        this.e = new dj(dkVar.c());
+        this.j = null;
+        this.g = 1;
     }
 
-    public boolean c(dk dkVar) {
-        InterceptResult invokeL;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dkVar)) == null) {
-            if (dkVar != null) {
-                synchronized (ek.class) {
-                    if (!this.f.contains(dkVar)) {
-                        return this.f.add(dkVar);
-                    }
-                    return false;
-                }
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (ek.class) {
+                p = 0L;
             }
-            return false;
         }
-        return invokeL.booleanValue;
     }
 
-    public synchronized boolean v(zj zjVar) {
-        InterceptResult invokeL;
+    public final boolean b() throws Exception {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, zjVar)) == null) {
-            synchronized (this) {
-                if (zjVar == null) {
-                    return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int i = this.g;
+            if (i != 3 && i != 2) {
+                if (i == 1) {
+                    return o();
                 }
-                ej.c();
-                if (this.e != null) {
-                    return this.e.I(zjVar);
-                }
-                if (zjVar != null) {
-                    zjVar.a(1);
+                if (i == 0) {
                 }
                 return false;
             }
+            return n();
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
+    }
+
+    public long c() {
+        InterceptResult invokeV;
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (ek.class) {
+                j = p;
+            }
+            return j;
+        }
+        return invokeV.longValue;
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            this.f = true;
+            try {
+                this.b.close();
+            } catch (Throwable th) {
+                BdLog.e(th);
+            }
+        }
+    }
+
+    public void d(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+            this.n = 0L;
+            this.o = 0L;
+            Message obtainMessage = this.a.obtainMessage();
+            obtainMessage.obj = obj;
+            this.a.sendMessage(obtainMessage);
+        }
+    }
+
+    public void e(byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bArr) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            this.o = currentTimeMillis;
+            d(new kj(bArr, this.n, currentTimeMillis));
+        }
+    }
+
+    public void h(byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bArr) == null) {
+            d(new tj(bArr));
+        }
+    }
+
+    public void i(byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr) == null) {
+            d(new uj(bArr));
+        }
+    }
+
+    public void j(byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, bArr) == null) {
+            d(new wj(bArr));
+        }
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+            d(new ck(str));
+        }
     }
 
     public void f(int i, String str) {
-        fk fkVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) && (fkVar = this.e) != null) {
-            this.e = null;
-            fkVar.q(i, str);
-            if (this.e != null) {
-                BdLog.e("close is opened and thread is leaded!!!");
-                this.e = null;
-            }
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) {
+            d(new mj(i, str));
         }
     }
 
-    public static ek j() {
-        InterceptResult invokeV;
+    public void g(boolean z, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (h == null) {
-                synchronized (ek.class) {
-                    if (h == null) {
-                        h = new ek();
+        if (interceptable == null || interceptable.invokeZL(1048582, this, z, map) == null) {
+            d(new ak(z, map));
+        }
+    }
+
+    public final Map<String, String> l(byte[] bArr) throws UnsupportedEncodingException {
+        InterceptResult invokeL;
+        String[] split;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, bArr)) == null) {
+            String str = new String(bArr, "UTF-8");
+            HashMap hashMap = new HashMap();
+            for (String str2 : str.split("\r\n")) {
+                if (str2.length() > 0) {
+                    String[] split2 = str2.split(": ");
+                    if (split2.length == 2) {
+                        hashMap.put(split2[0], split2[1]);
                     }
                 }
             }
-            return h;
+            return hashMap;
         }
-        return (ek) invokeV.objValue;
+        return (Map) invokeL.objValue;
     }
 
-    public void d() {
-        fk fkVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (fkVar = this.e) != null) {
-            fkVar.o();
-        }
-    }
-
-    public void e() {
-        fk fkVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (fkVar = this.e) != null) {
-            fkVar.p();
-        }
-    }
-
-    public long g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            fk fkVar = this.e;
-            if (fkVar != null) {
-                return fkVar.z();
-            }
-            return -1L;
-        }
-        return invokeV.longValue;
-    }
-
-    public long h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            fk fkVar = this.e;
-            if (fkVar != null) {
-                return fkVar.A();
-            }
-            return -1L;
-        }
-        return invokeV.longValue;
-    }
-
-    public long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            fk fkVar = this.e;
-            if (fkVar != null) {
-                return fkVar.v();
-            }
-            return -1L;
-        }
-        return invokeV.longValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (t()) {
-                ej.c();
-            }
-            fk fkVar = this.e;
-            if (fkVar != null && fkVar.E() && !this.e.F()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (t()) {
-                ej.c();
-            }
-            fk fkVar = this.e;
-            if (fkVar != null && fkVar.E()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            fk fkVar = this.e;
-            if (fkVar != null) {
-                return fkVar.w();
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            fk fkVar = this.e;
-            if (fkVar != null) {
-                return fkVar.x();
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            fk fkVar = this.e;
-            if (fkVar != null) {
-                return fkVar.B();
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long p() {
+    public final Pair<Integer, String> m() throws UnsupportedEncodingException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            fk fkVar = this.e;
-            if (fkVar != null) {
-                return fkVar.y();
+            int i = 4;
+            while (i < this.d.position() && this.d.get(i) != 32) {
+                i++;
             }
-            return -1L;
+            int i2 = i + 1;
+            int i3 = i2;
+            while (i3 < this.d.position() && this.d.get(i3) != 32) {
+                i3++;
+            }
+            int i4 = 0;
+            int i5 = 0;
+            while (true) {
+                int i6 = i2 + i4;
+                if (i6 >= i3) {
+                    break;
+                }
+                i5 = (i5 * 10) + (this.d.get(i6) - 48);
+                i4++;
+            }
+            int i7 = i3 + 1;
+            int i8 = i7;
+            while (i8 < this.d.position() && this.d.get(i8) != 13) {
+                i8++;
+            }
+            int i9 = i8 - i7;
+            byte[] bArr = new byte[i9];
+            this.d.position(i7);
+            this.d.get(bArr, 0, i9);
+            return new Pair<>(Integer.valueOf(i5), new String(bArr, "UTF-8"));
         }
-        return invokeV.longValue;
+        return (Pair) invokeV.objValue;
     }
 
-    public String q() {
+    /* JADX WARN: Removed duplicated region for block: B:188:0x0360 A[RETURN, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:189:0x0362 A[ORIG_RETURN, RETURN] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final boolean n() throws Exception {
         InterceptResult invokeV;
+        int i;
+        int i2;
+        String str;
+        boolean z;
+        boolean z2;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            if (t()) {
-                ej.c();
-            }
-            fk fkVar = this.e;
-            if (fkVar != null && fkVar.C()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return BdBaseApplication.getInst().isDebugMode();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void r(String str, String str2, String[] strArr, List<BasicNameValuePair> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048590, this, str, str2, strArr, list) == null) {
-            this.a = str;
-            this.d = str2;
-            this.c = strArr;
-            this.b = list;
-            t();
-        }
-    }
-
-    public boolean u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            if (t()) {
-                ej.c();
-            }
-            fk fkVar = this.e;
-            if (fkVar != null) {
-                if (!fkVar.C() && !this.e.E()) {
-                    this.e.q(1, null);
-                    this.e = null;
-                } else {
-                    t();
-                    return true;
+            b bVar = this.j;
+            int i3 = 10;
+            byte[] bArr = null;
+            if (bVar == null) {
+                if (this.d.position() >= 2) {
+                    byte b2 = this.d.get(0);
+                    if ((b2 & 128) != 0) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    int i4 = (b2 & 112) >> 4;
+                    int i5 = b2 & 15;
+                    byte b3 = this.d.get(1);
+                    if ((b3 & 128) != 0) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
+                    }
+                    int i6 = b3 & ByteCompanionObject.MAX_VALUE;
+                    if (i4 == 0) {
+                        if (!z2) {
+                            if (i5 > 7) {
+                                if (z) {
+                                    if (i6 <= 125) {
+                                        if (i5 != 8 && i5 != 9 && i5 != 10) {
+                                            throw new WebSocketException("control frame using reserved opcode " + i5);
+                                        } else if (i5 == 8 && i6 == 1) {
+                                            throw new WebSocketException("received close control frame with payload len 1");
+                                        }
+                                    } else {
+                                        throw new WebSocketException("control frame with payload length > 125 octets");
+                                    }
+                                } else {
+                                    throw new WebSocketException("fragmented control frame");
+                                }
+                            } else if (i5 != 0 && i5 != 1 && i5 != 2) {
+                                throw new WebSocketException("data frame using reserved opcode " + i5);
+                            } else if (!this.h && i5 == 0) {
+                                throw new WebSocketException("received continuation data frame outside fragmented message");
+                            } else {
+                                if (this.h && i5 != 0) {
+                                    throw new WebSocketException("received non-continuation data frame while inside fragmented message");
+                                }
+                            }
+                            if (i6 < 126) {
+                                i3 = 2;
+                            } else if (i6 == 126) {
+                                i3 = 4;
+                            } else if (i6 != 127) {
+                                throw new Exception("BdLogic error");
+                            }
+                            if (this.d.position() >= i3) {
+                                if (i6 == 126) {
+                                    j = ((this.d.get(2) & 255) << 8) | (this.d.get(3) & 255);
+                                    if (j < 126) {
+                                        throw new WebSocketException("invalid data frame length (not using minimal length encoding)");
+                                    }
+                                } else if (i6 == 127) {
+                                    if ((this.d.get(2) & 128) == 0) {
+                                        j = (this.d.get(9) & 255) | ((this.d.get(2) & 255) << 56) | ((this.d.get(3) & 255) << 48) | ((this.d.get(4) & 255) << 40) | ((this.d.get(5) & 255) << 32) | ((this.d.get(6) & 255) << 24) | ((this.d.get(7) & 255) << 16) | ((this.d.get(8) & 255) << 8);
+                                        if (j < 65536) {
+                                            throw new WebSocketException("invalid data frame length (not using minimal length encoding)");
+                                        }
+                                    } else {
+                                        throw new WebSocketException("invalid data frame length (> 2^63)");
+                                    }
+                                } else {
+                                    j = i6;
+                                }
+                                b bVar2 = new b(null);
+                                this.j = bVar2;
+                                bVar2.a = i5;
+                                bVar2.b = z;
+                                bVar2.d = (int) j;
+                                bVar2.c = i3;
+                                int position = this.d.position();
+                                b bVar3 = this.j;
+                                bVar3.e = new byte[bVar3.c];
+                                this.d.position(0);
+                                ByteBuffer byteBuffer = this.d;
+                                b bVar4 = this.j;
+                                byteBuffer.get(bVar4.e, 0, bVar4.c);
+                                this.d.position(this.j.c);
+                                this.d.limit(position);
+                                this.d.compact();
+                                if (this.j.d != 0 && this.d.position() < this.j.d) {
+                                    return false;
+                                }
+                                return true;
+                            }
+                            return false;
+                        }
+                        throw new WebSocketException("masked server frame");
+                    }
+                    throw new WebSocketException("RSV != 0 and no extension negotiated");
                 }
-            }
-            this.e = new fk();
-            try {
-                al alVar = new al();
-                alVar.j(this.d);
-                this.e.r(this.a, this.c, this.g, alVar, this.b);
-                return true;
-            } catch (WebSocketException unused) {
-                this.e = null;
                 return false;
             }
+            int i7 = this.k;
+            int i8 = bVar.d;
+            if (i7 >= i8) {
+                int i9 = bVar.a;
+                if (i9 > 7) {
+                    if (i9 == 8) {
+                        int i10 = 1005;
+                        if (i8 >= 2) {
+                            byte[] bArr2 = bVar.e;
+                            i10 = ((bArr2[0] & 255) * 256) + (bArr2[1] & 255);
+                            if (i10 >= 1000 && ((i10 < 1000 || i10 > 2999 || i10 == 1000 || i10 == 1001 || i10 == 1002 || i10 == 1003 || i10 == 1007 || i10 == 1008 || i10 == 1009 || i10 == 1010 || i10 == 1011) && i10 < 5000)) {
+                                b bVar5 = this.j;
+                                int i11 = bVar5.d;
+                                if (i11 > 2) {
+                                    byte[] bArr3 = new byte[i11 - 2];
+                                    System.arraycopy(bVar5.e, 2, bArr3, 0, i11 - 2);
+                                    fj fjVar = new fj();
+                                    fjVar.c(bArr3);
+                                    if (fjVar.a()) {
+                                        str = new String(bArr3, "UTF-8");
+                                        f(i10, str);
+                                    } else {
+                                        throw new WebSocketException("invalid close reasons (not UTF-8)");
+                                    }
+                                }
+                            } else {
+                                throw new WebSocketException("invalid close code " + i10);
+                            }
+                        }
+                        str = null;
+                        f(i10, str);
+                    } else if (i9 == 9) {
+                        h(this.e.toByteArray());
+                    } else if (i9 == 10) {
+                        i(this.e.toByteArray());
+                    } else {
+                        throw new Exception("BdLogic error");
+                    }
+                } else {
+                    if (!this.h) {
+                        i = 1;
+                        this.h = true;
+                        this.i = i9;
+                        if (i9 == 1 && this.c.h()) {
+                            this.l.b();
+                        }
+                    } else {
+                        i = 1;
+                    }
+                    if (this.i == i && this.c.h() && !this.l.c(this.e.toByteArray())) {
+                        throw new WebSocketException("invalid UTF-8 in text message payload");
+                    }
+                    if (this.j.b) {
+                        int i12 = this.i;
+                        if (i12 == 1) {
+                            if (this.c.h() && !this.l.a()) {
+                                throw new WebSocketException("UTF-8 text message payload ended within Unicode code point");
+                            }
+                            if (this.c.d()) {
+                                j(this.e.toByteArray());
+                            } else {
+                                k(new String(this.e.toByteArray(), "UTF-8"));
+                            }
+                        } else if (i12 == 2) {
+                            e(this.e.toByteArray());
+                        } else {
+                            throw new Exception("BdLogic error");
+                        }
+                        i2 = 0;
+                        this.h = false;
+                        this.e.reset();
+                        this.j = null;
+                        this.k = i2;
+                        if (this.d.position() <= 0) {
+                            return true;
+                        }
+                        return false;
+                    }
+                }
+                i2 = 0;
+                this.j = null;
+                this.k = i2;
+                if (this.d.position() <= 0) {
+                }
+            } else {
+                int position2 = this.d.position();
+                int i13 = this.j.d;
+                int i14 = this.k;
+                if (i13 - i14 < position2) {
+                    position2 = i13 - i14;
+                }
+                int position3 = this.d.position();
+                if (this.j.d > 0) {
+                    bArr = new byte[position2];
+                    this.d.position(0);
+                    this.d.get(bArr, 0, position2);
+                }
+                this.d.position(position2);
+                this.d.limit(position3);
+                this.d.compact();
+                if (bArr != null) {
+                    this.e.write(bArr);
+                }
+                int i15 = this.k + position2;
+                this.k = i15;
+                if (i15 >= this.j.d) {
+                    return true;
+                }
+                return false;
+            }
+        } else {
+            return invokeV.booleanValue;
+        }
+    }
+
+    public final boolean o() throws UnsupportedEncodingException {
+        InterceptResult invokeV;
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            int position = this.d.position() - 4;
+            while (true) {
+                z = false;
+                if (position < 0) {
+                    break;
+                } else if (this.d.get(position + 0) == 13 && this.d.get(position + 1) == 10 && this.d.get(position + 2) == 13 && this.d.get(position + 3) == 10) {
+                    int position2 = this.d.position();
+                    Map<String, String> map = null;
+                    if (this.d.get(0) == 72 && this.d.get(1) == 84 && this.d.get(2) == 84 && this.d.get(3) == 80) {
+                        Pair<Integer, String> m = m();
+                        if (((Integer) m.first).intValue() >= 300) {
+                            d(new zj(((Integer) m.first).intValue(), (String) m.second));
+                            z2 = true;
+                        } else {
+                            z2 = false;
+                        }
+                        if (position > 0) {
+                            this.d.position(0);
+                            byte[] bArr = new byte[position];
+                            this.d.get(bArr);
+                            map = l(bArr);
+                        }
+                    } else {
+                        z2 = false;
+                    }
+                    this.d.position(position + 4);
+                    this.d.limit(position2);
+                    this.d.compact();
+                    if (this.m < this.b.a() && map.size() == 0) {
+                        this.m++;
+                        return true;
+                    }
+                    this.m = 0;
+                    if (!z2) {
+                        if (this.d.position() > 0) {
+                            z = true;
+                        }
+                        this.g = 3;
+                    } else {
+                        this.g = 0;
+                        this.f = true;
+                        z = true;
+                    }
+                    g(!z2, map);
+                } else {
+                    position--;
+                }
+            }
+            return z;
         }
         return invokeV.booleanValue;
+    }
+
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            try {
+                try {
+                    this.d.clear();
+                    do {
+                        try {
+                            int read = this.b.read(this.d);
+                            if (read > 0) {
+                                if (this.n <= 0) {
+                                    this.n = System.currentTimeMillis();
+                                }
+                                synchronized (ek.class) {
+                                    p += read;
+                                }
+                            }
+                            if (read > 0) {
+                                while (b()) {
+                                }
+                            } else if (read < 0) {
+                                d(new nj(new SocketException("len < 0")));
+                                this.f = true;
+                            }
+                        } catch (SocketTimeoutException unused) {
+                            if (!BdNetTypeUtil.isNetWorkAvailable()) {
+                                this.f = true;
+                                d(new nj(new SocketException("not net")));
+                                return;
+                            }
+                        }
+                    } while (!this.f);
+                } catch (WebSocketException e) {
+                    d(new vj(e));
+                } catch (SocketException e2) {
+                    d(new nj(e2));
+                } catch (Exception e3) {
+                    d(new pj(e3));
+                }
+            } finally {
+                this.f = true;
+            }
+        }
     }
 }

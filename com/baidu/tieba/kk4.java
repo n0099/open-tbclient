@@ -1,16 +1,15 @@
 package com.baidu.tieba;
 
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class kk4 {
+public class kk4 extends bj4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public JSONObject b;
 
     public kk4() {
         Interceptable interceptable = $ic;
@@ -23,6 +22,17 @@ public class kk4 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.bj4, com.baidu.tieba.ej4
+    public void b(JSONObject jSONObject, of4 of4Var, @Nullable of4 of4Var2, @Nullable of4 of4Var3) {
+        JSONObject optJSONObject;
+        hk4 a;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, jSONObject, of4Var, of4Var2, of4Var3) == null) && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("base_info")) != null && (a = hk4.a(optJSONObject)) != null) {
+            ik4.e().i(a);
+            ik4.e().j(a.k);
         }
     }
 }

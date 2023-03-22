@@ -1,25 +1,18 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class jr2 extends gn2<xr2> {
+public class jr2 implements lg4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.gn2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setMuted" : (String) invokeV.objValue;
-    }
 
     public jr2() {
         Interceptable interceptable = $ic;
@@ -35,18 +28,13 @@ public class jr2 extends gn2<xr2> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gn2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull xr2 xr2Var) {
+    @Override // com.baidu.tieba.lg4
+    public vn4 a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, xr2Var) == null) {
-            Object obj = command.obj;
-            if (obj instanceof Boolean) {
-                xr2Var.l(((Boolean) obj).booleanValue());
-                String str = command.what;
-                d(xr2Var, str, "setMuted:" + command.obj, false);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return new kg3(str);
         }
+        return (vn4) invokeL.objValue;
     }
 }

@@ -1,69 +1,111 @@
 package com.baidu.tieba;
 
-import android.webkit.WebResourceRequest;
-import android.webkit.WebResourceResponse;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.cd6;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.common.jscore.BridgeConfig_Frames;
+import com.baidu.tieba.common.jscore.BridgeConfig_tbadkcore;
+import com.baidu.tieba.common.jscore.JsInterfaces_Frames;
+import com.baidu.tieba.common.jscore.JsInterfaces_tbadkcore;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class fd6 implements ed6 {
+public class fd6 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile fd6 b;
+    public static final Set<String> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public ed6 a;
 
-    public fd6() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947760337, "Lcom/baidu/tieba/fd6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947760337, "Lcom/baidu/tieba/fd6;");
+                return;
+            }
+        }
+        a = new HashSet();
+    }
+
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            try {
+                b();
+            } catch (Exception unused) {
             }
         }
     }
 
-    public static fd6 b() {
-        InterceptResult invokeV;
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (fd6.class) {
-                    if (b == null) {
-                        b = new fd6();
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            BridgeConfig_Frames.register();
+            JsInterfaces_tbadkcore.register();
+            JsInterfaces_Frames.register();
+            BridgeConfig_tbadkcore.register();
+        }
+    }
+
+    public static void c(String str) {
+        JSONArray jSONArray;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            a.clear();
+            try {
+                jSONArray = new JSONArray(str);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                jSONArray = null;
+            }
+            if (vd6.c(jSONArray)) {
+                return;
+            }
+            for (int i = 0; i < jSONArray.length(); i++) {
+                try {
+                    String str2 = (String) jSONArray.get(i);
+                    if (!TextUtils.isEmpty(str2)) {
+                        a.add(str2);
+                    }
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public static void d(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject) == null) && jSONObject != null) {
+            c(jSONObject.optString("wv_white_url_list", "[]"));
+            dd6.b(jSONObject.optString("wv_prefetch_config", "[]"));
+        }
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (!TextUtils.isEmpty(str) && !vd6.a(a)) {
+                for (String str2 : a) {
+                    if (str.contains(str2)) {
+                        return true;
                     }
                 }
             }
-            return b;
+            return false;
         }
-        return (fd6) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ed6
-    public WebResourceResponse a(String str, WebResourceRequest webResourceRequest) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, webResourceRequest)) == null) {
-            ed6 ed6Var = this.a;
-            if (ed6Var == null) {
-                return null;
-            }
-            return ed6Var.a(str, webResourceRequest);
-        }
-        return (WebResourceResponse) invokeLL.objValue;
-    }
-
-    public void c(cd6.a aVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) && aVar != null) {
-            this.a = aVar.b();
-        }
+        return invokeL.booleanValue;
     }
 }

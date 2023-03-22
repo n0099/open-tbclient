@@ -1,775 +1,196 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.util.Log;
-import android.view.ViewConfiguration;
-import android.view.animation.AnimationUtils;
-import android.view.animation.Interpolator;
-import androidx.core.view.InputDeviceCompat;
+import android.text.InputFilter;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.bdtask.model.response.TaskResponseData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
+import com.baidu.tbadk.core.atomData.LoginActivityConfig;
+import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class xk7 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static float f = 8.0f;
-    public static float g = 1.0f;
+public class xk7 extends nb5 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final a b;
-    public final a c;
-    public Interpolator d;
-    public final boolean e;
+    public boolean a;
 
     /* loaded from: classes6.dex */
-    public static class a {
+    public class a implements mb5 {
         public static /* synthetic */ Interceptable $ic;
-        public static float p;
-        public static final float[] q;
-        public static final float[] r;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public int c;
-        public int d;
-        public float e;
-        public float f;
-        public long g;
-        public int h;
-        public int i;
-        public int j;
-        public boolean k;
-        public int l;
-        public float m;
-        public int n;
-        public float o;
+        public final /* synthetic */ wk7 a;
+        public final /* synthetic */ xk7 b;
 
-        public static float m(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i)) == null) ? i > 0 ? -2000.0f : 2000.0f : invokeI.floatValue;
-        }
-
-        static {
-            InterceptResult invokeClinit;
-            float f;
-            float f2;
-            float f3;
-            float f4;
-            float f5;
-            float f6;
-            float f7;
-            float f8;
-            float f9;
-            float f10;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-286257080, "Lcom/baidu/tieba/xk7$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-286257080, "Lcom/baidu/tieba/xk7$a;");
-                    return;
-                }
-            }
-            p = (float) (Math.log(0.78d) / Math.log(0.9d));
-            q = new float[101];
-            r = new float[101];
-            float f11 = 0.0f;
-            float f12 = 0.0f;
-            for (int i = 0; i < 100; i++) {
-                float f13 = i / 100.0f;
-                float f14 = 1.0f;
-                while (true) {
-                    f = 2.0f;
-                    f2 = ((f14 - f11) / 2.0f) + f11;
-                    f3 = 3.0f;
-                    f4 = 1.0f - f2;
-                    f5 = f2 * 3.0f * f4;
-                    f6 = f2 * f2 * f2;
-                    float f15 = (((f4 * 0.175f) + (f2 * 0.35000002f)) * f5) + f6;
-                    if (Math.abs(f15 - f13) < 1.0E-5d) {
-                        break;
-                    } else if (f15 > f13) {
-                        f14 = f2;
-                    } else {
-                        f11 = f2;
-                    }
-                }
-                q[i] = (f5 * ((f4 * 0.5f) + f2)) + f6;
-                float f16 = 1.0f;
-                while (true) {
-                    f7 = ((f16 - f12) / f) + f12;
-                    f8 = 1.0f - f7;
-                    f9 = f7 * f3 * f8;
-                    f10 = f7 * f7 * f7;
-                    float f17 = (((f8 * 0.5f) + f7) * f9) + f10;
-                    if (Math.abs(f17 - f13) < 1.0E-5d) {
-                        break;
-                    }
-                    if (f17 > f13) {
-                        f16 = f7;
-                    } else {
-                        f12 = f7;
-                    }
-                    f = 2.0f;
-                    f3 = 3.0f;
-                }
-                r[i] = (f9 * ((f8 * 0.175f) + (f7 * 0.35000002f))) + f10;
-            }
-            float[] fArr = q;
-            r[100] = 1.0f;
-            fArr[100] = 1.0f;
-        }
-
-        public a(Context context) {
+        public a(xk7 xk7Var, wk7 wk7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {context};
-                interceptable.invokeUnInit(65537, newInitContext);
+                Object[] objArr = {xk7Var, wk7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.m = ViewConfiguration.getScrollFriction();
-            this.n = 0;
-            this.k = true;
-            this.o = context.getResources().getDisplayMetrics().density * 160.0f * 386.0878f * 0.84f;
+            this.b = xk7Var;
+            this.a = wk7Var;
         }
 
-        public final double n(int i) {
-            InterceptResult invokeI;
+        @Override // com.baidu.tieba.mb5
+        public void C(lb5 lb5Var) {
+            int size;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-                return Math.log((Math.abs(i) * 0.35f) / (this.m * this.o));
+            if ((interceptable != null && interceptable.invokeL(1048576, this, lb5Var) != null) || lb5Var == null) {
+                return;
             }
-            return invokeI.doubleValue;
-        }
-
-        public final double o(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-                double n = n(i);
-                float f = p;
-                return this.m * this.o * Math.exp((f / (f - 1.0d)) * n);
-            }
-            return invokeI.doubleValue;
-        }
-
-        public final int p(int i) {
-            InterceptResult invokeI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-                return (int) (Math.exp(n(i) / (p - 1.0d)) * 1000.0d);
-            }
-            return invokeI.intValue;
-        }
-
-        public void s(float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(1048586, this, f) == null) {
-                this.m = f;
-            }
-        }
-
-        public void y(float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeF(1048593, this, f) == null) {
-                int i = this.a;
-                this.b = i + Math.round(f * (this.c - i));
-            }
-        }
-
-        public final void h(int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIII(1048576, this, i, i2, i3) == null) {
-                float abs = Math.abs((i3 - i) / (i2 - i));
-                int i4 = (int) (abs * 100.0f);
-                if (i4 < 100) {
-                    float f = i4 / 100.0f;
-                    int i5 = i4 + 1;
-                    float[] fArr = r;
-                    float f2 = fArr[i4];
-                    this.h = (int) (this.h * (f2 + (((abs - f) / ((i5 / 100.0f) - f)) * (fArr[i5] - f2))));
-                }
-            }
-        }
-
-        public final void x(int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIII(1048592, this, i, i2, i3) == null) {
-                this.k = false;
-                this.n = 1;
-                this.a = i;
-                this.c = i2;
-                int i4 = i - i2;
-                this.f = m(i4);
-                this.d = -i4;
-                this.l = Math.abs(i4);
-                this.h = (int) (Math.sqrt((i4 * (-2.0d)) / this.f) * 1000.0d);
-            }
-        }
-
-        public boolean i() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                int i = this.n;
-                if (i != 0) {
-                    if (i == 1) {
-                        return false;
-                    }
-                    if (i == 2) {
-                        this.g += this.h;
-                        x(this.c, this.a, 0);
-                    }
-                } else if (this.h >= this.i) {
-                    return false;
-                } else {
-                    this.a = this.c;
-                    int i2 = (int) this.e;
-                    this.d = i2;
-                    this.f = m(i2);
-                    this.g += this.h;
-                    r();
-                }
-                update();
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public final void r() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-                int i = this.d;
-                float abs = (i * i) / (Math.abs(this.f) * 2.0f);
-                float signum = Math.signum(this.d);
-                int i2 = this.l;
-                if (abs > i2) {
-                    float f = -signum;
-                    int i3 = this.d;
-                    this.f = ((f * i3) * i3) / (i2 * 2.0f);
-                    abs = i2;
-                }
-                this.l = (int) abs;
-                this.n = 2;
-                int i4 = this.a;
-                if (this.d <= 0) {
-                    abs = -abs;
-                }
-                this.c = i4 + ((int) abs);
-                this.h = -((int) ((this.d * 1000.0f) / this.f));
-            }
-        }
-
-        public void j() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.b = this.c;
-                this.k = true;
-            }
-        }
-
-        public final void k(int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIII(1048579, this, i, i2, i3) == null) {
-                float f = this.f;
-                float sqrt = (float) Math.sqrt((((((i3 * i3) / 2.0f) / Math.abs(f)) + Math.abs(i2 - i)) * 2.0d) / Math.abs(this.f));
-                this.g -= (int) ((sqrt - ((-i3) / f)) * 1000.0f);
-                this.a = i2;
-                this.d = (int) ((-this.f) * sqrt);
-            }
-        }
-
-        public void l(int i, int i2, int i3, int i4, int i5) {
-            float f;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-                this.l = i5;
-                this.k = false;
-                this.d = i2;
-                this.e = i2;
-                this.i = 0;
-                this.h = 0;
-                this.g = AnimationUtils.currentAnimationTimeMillis();
-                this.a = i;
-                this.b = i;
-                if (i <= i4 && i >= i3) {
-                    this.n = 0;
-                    double d = 0.0d;
-                    if (i2 != 0) {
-                        int p2 = p(i2);
-                        this.i = p2;
-                        this.h = p2;
-                        d = o(i2);
-                    }
-                    int signum = (int) (d * Math.signum(f));
-                    this.j = signum;
-                    int i6 = i + signum;
-                    this.c = i6;
-                    if (i6 < i3) {
-                        h(this.a, i6, i3);
-                        this.c = i3;
-                    }
-                    int i7 = this.c;
-                    if (i7 > i4) {
-                        h(this.a, i7, i4);
-                        this.c = i4;
+            int i = lb5Var.a;
+            if (i != 4 && i != 6) {
+                if (i != 7) {
+                    if (i != 8) {
+                        if (i != 14) {
+                            if (i == 15) {
+                                int intValue = ((Integer) lb5Var.c).intValue();
+                                if (this.a.r() != null && this.a.r().getChosedFiles() != null && (size = this.a.r().getChosedFiles().size()) >= 1 && intValue >= 0 && intValue < size) {
+                                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new WriteMulitImageActivityConfig(this.a.getContext().getPageActivity(), 12012, this.a.r(), intValue)));
+                                    return;
+                                }
+                                return;
+                            }
+                            return;
+                        }
+                        AlbumActivityConfig albumActivityConfig = new AlbumActivityConfig((Context) this.a.getContext().getPageActivity(), this.a.r().toJsonString(), true, true);
+                        albumActivityConfig.setRequestCode(TaskResponseData.ERROR_NO_TASK_OFFLINE_03);
+                        if (jd5.a().b() == 1) {
+                            albumActivityConfig.setRequestFrom(4);
+                            if (this.a.r() != null) {
+                                this.a.r().setMaxImagesAllowed(1);
+                            }
+                        } else if (this.a.r() != null) {
+                            this.a.r().setMaxImagesAllowed(10);
+                        }
+                        hi.z(this.a.getContext().getPageActivity(), this.a.getContext().getPageActivity().getCurrentFocus());
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2002001, albumActivityConfig));
+                        return;
+                    } else if (!this.b.g(this.a.getContext(), 11001)) {
+                        return;
+                    } else {
+                        this.a.y();
+                        TiebaStatic.log(new StatisticItem("c13363").param("topic_id", String.valueOf(this.a.s())));
                         return;
                     }
-                    return;
                 }
-                u(i, i3, i4, i2);
-            }
-        }
-
-        public void q(int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, i3) == null) && this.n == 0) {
-                this.l = i3;
-                this.g = AnimationUtils.currentAnimationTimeMillis();
-                u(i, i2, i2, (int) this.e);
-            }
-        }
-
-        public boolean t(int i, int i2, int i3) {
-            InterceptResult invokeIII;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIII = interceptable.invokeIII(1048587, this, i, i2, i3)) == null) {
-                this.k = true;
-                this.c = i;
-                this.a = i;
-                this.d = 0;
-                this.g = AnimationUtils.currentAnimationTimeMillis();
-                this.h = 0;
-                if (i < i2) {
-                    x(i, i2, 0);
-                } else if (i > i3) {
-                    x(i, i3, 0);
-                }
-                return !this.k;
-            }
-            return invokeIII.booleanValue;
-        }
-
-        public final void v(int i, int i2, int i3) {
-            int i4;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIII(1048590, this, i, i2, i3) == null) {
-                if (i3 == 0) {
-                    i4 = i - i2;
-                } else {
-                    i4 = i3;
-                }
-                this.f = m(i4);
-                k(i, i2, i3);
-                r();
-            }
-        }
-
-        public void w(int i, int i2, int i3) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIII(1048591, this, i, i2, i3) == null) {
-                this.k = false;
-                this.a = i;
-                this.c = i + i2;
-                this.g = AnimationUtils.currentAnimationTimeMillis();
-                this.h = i3;
-                this.f = 0.0f;
-                this.d = 0;
-            }
-        }
-
-        public final void u(int i, int i2, int i3, int i4) {
-            boolean z;
-            int i5;
-            int i6;
-            int i7;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIIII(1048588, this, i, i2, i3, i4) == null) {
-                boolean z2 = true;
-                if (i > i2 && i < i3) {
-                    Log.e("OverScroller", "startAfterEdge called from a valid position");
-                    this.k = true;
-                    return;
-                }
-                if (i > i3) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                if (z) {
-                    i5 = i3;
-                } else {
-                    i5 = i2;
-                }
-                int i8 = i - i5;
-                if (i8 * i4 < 0) {
-                    z2 = false;
-                }
-                if (z2) {
-                    v(i, i5, i4);
-                } else if (o(i4) > Math.abs(i8)) {
-                    if (z) {
-                        i6 = i2;
-                    } else {
-                        i6 = i;
-                    }
-                    if (z) {
-                        i7 = i;
-                    } else {
-                        i7 = i3;
-                    }
-                    l(i, i4, i6, i7, this.l);
-                } else {
-                    x(i, i5, i4);
-                }
-            }
-        }
-
-        public boolean update() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-                long currentAnimationTimeMillis = AnimationUtils.currentAnimationTimeMillis() - this.g;
-                int i = this.h;
-                if (currentAnimationTimeMillis > i) {
-                    return false;
-                }
-                double d = 0.0d;
-                int i2 = this.n;
-                if (i2 != 0) {
-                    if (i2 != 1) {
-                        if (i2 == 2) {
-                            float f = ((float) currentAnimationTimeMillis) / 1000.0f;
-                            int i3 = this.d;
-                            float f2 = this.f;
-                            this.e = i3 + (f2 * f);
-                            d = (i3 * f) + (((f2 * f) * f) / 2.0f);
-                        }
-                    } else {
-                        float f3 = ((float) currentAnimationTimeMillis) / i;
-                        float f4 = f3 * f3;
-                        float signum = Math.signum(this.d);
-                        int i4 = this.l;
-                        this.e = signum * i4 * 6.0f * ((-f3) + f4);
-                        d = i4 * signum * ((3.0f * f4) - ((2.0f * f3) * f4));
-                    }
-                } else {
-                    float f5 = ((float) currentAnimationTimeMillis) / this.i;
-                    int i5 = (int) (f5 * 100.0f);
-                    float f6 = 1.0f;
-                    float f7 = 0.0f;
-                    if (i5 < 100) {
-                        float f8 = i5 / 100.0f;
-                        int i6 = i5 + 1;
-                        float[] fArr = q;
-                        float f9 = fArr[i5];
-                        f7 = (fArr[i6] - f9) / ((i6 / 100.0f) - f8);
-                        f6 = f9 + ((f5 - f8) * f7);
-                    }
-                    int i7 = this.j;
-                    this.e = ((f7 * i7) / this.i) * 1000.0f;
-                    d = f6 * i7;
-                }
-                this.b = this.a + ((int) Math.round(d));
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948303333, "Lcom/baidu/tieba/xk7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948303333, "Lcom/baidu/tieba/xk7;");
+                this.a.getContext().showToast((int) R.string.over_limit_tip);
+                this.b.a = true;
                 return;
             }
-        }
-        g = 1.0f / n(1.0f);
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.j();
-            this.c.j();
+            this.a.H((String) lb5Var.c);
+            this.b.a = false;
         }
     }
 
-    public final int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeV = interceptable.invokeV(1048581, this)) != null) {
-            return invokeV.intValue;
-        }
-        return this.b.b;
-    }
-
-    public final boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.b.k && this.c.k) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public xk7(Context context) {
-        this(context, null);
+    public xk7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (Interpolator) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public static float n(float f2) {
-        InterceptResult invokeF;
-        float exp;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(InputDeviceCompat.SOURCE_TRACKBALL, null, f2)) == null) {
-            float f3 = f2 * f;
-            if (f3 < 1.0f) {
-                exp = f3 - (1.0f - ((float) Math.exp(-f3)));
-            } else {
-                exp = ((1.0f - ((float) Math.exp(1.0f - f3))) * 0.63212055f) + 0.36787945f;
-            }
-            return exp * g;
-        }
-        return invokeF.floatValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public xk7(Context context, Interpolator interpolator) {
-        this(context, interpolator, true);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, interpolator};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (Interpolator) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public boolean h(float f2, float f3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f2), Float.valueOf(f3)})) == null) {
-            int i = this.b.c - this.b.a;
-            int i2 = this.c.c - this.c.a;
-            if (!g() && Math.signum(f2) == Math.signum(i) && Math.signum(f3) == Math.signum(i2)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public xk7(Context context, Interpolator interpolator, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, interpolator, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65539, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.d = interpolator;
-        this.e = z;
-        this.b = new a(context);
-        this.c = new a(context);
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
-        float interpolation;
+    @Override // com.baidu.tieba.nb5
+    public pb5 b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (g()) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            EditorTools editorTools = new EditorTools(context);
+            editorTools.setIsFromPb(false);
+            editorTools.setBarMaxLauCount(5);
+            editorTools.setBackgroundColorId(0);
+            editorTools.setBarLauncherType(2);
+            editorTools.setBarBackgroundColorId(R.color.CAM_X0207);
+            editorTools.F(false);
+            return new wk7(editorTools);
+        }
+        return (pb5) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.nb5
+    public void c(pb5 pb5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pb5Var) != null) || pb5Var == null) {
+            return;
+        }
+        EditorTools b = pb5Var.b();
+        a aVar = new a(this, (wk7) pb5Var);
+        b.setActionListener(5, aVar);
+        b.setActionListener(4, aVar);
+        b.setActionListener(6, aVar);
+        b.setActionListener(7, aVar);
+        b.setActionListener(16, aVar);
+        b.setActionListener(14, aVar);
+        b.setActionListener(15, aVar);
+        b.setActionListener(8, aVar);
+        b.setActionListener(32, aVar);
+        b.setActionListener(45, aVar);
+    }
+
+    @Override // com.baidu.tieba.nb5
+    public void d(pb5 pb5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pb5Var) == null) {
+            EditorTools b = pb5Var.b();
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(5);
+            b.h(arrayList);
+            wb5 p = b.p(5);
+            if (p != null) {
+                p.e(false);
+                p.l = 1;
             }
-            int i = this.a;
-            if (i != 0) {
-                if (i == 1) {
-                    if (!this.b.k && !this.b.update() && !this.b.i()) {
-                        this.b.j();
-                    }
-                    if (!this.c.k && !this.c.update() && !this.c.i()) {
-                        this.c.j();
-                    }
-                }
-            } else {
-                long currentAnimationTimeMillis = AnimationUtils.currentAnimationTimeMillis() - this.b.g;
-                int i2 = this.b.h;
-                if (currentAnimationTimeMillis < i2) {
-                    float f2 = ((float) currentAnimationTimeMillis) / i2;
-                    Interpolator interpolator = this.d;
-                    if (interpolator == null) {
-                        interpolation = n(f2);
-                    } else {
-                        interpolation = interpolator.getInterpolation(f2);
-                    }
-                    this.b.y(interpolation);
-                    this.c.y(interpolation);
-                } else {
-                    a();
-                }
+            b.d(new hc5(b.getContext(), 3));
+            yk7 yk7Var = new yk7(b.getContext());
+            if (yk7Var.g() != null) {
+                yk7Var.g().setFilters(new InputFilter[]{new InputFilter.LengthFilter(14000)});
             }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void c(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)}) == null) {
-            d(i, i2, i3, i4, i5, i6, i7, i8, 0, 0);
+            b.d(yk7Var);
+            b.f();
+            b.C(new lb5(35, 5, Boolean.FALSE));
+            b.s();
         }
     }
 
-    public void d(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, int i10) {
-        int i11;
-        int i12;
-        int i13;
-        int i14;
+    public final boolean g(TbPageContext<?> tbPageContext, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9), Integer.valueOf(i10)}) == null) {
-            if (this.e && !g()) {
-                float f2 = this.b.e;
-                float f3 = this.c.e;
-                i11 = i3;
-                float f4 = i11;
-                if (Math.signum(f4) == Math.signum(f2)) {
-                    i12 = i4;
-                    float f5 = i12;
-                    if (Math.signum(f5) == Math.signum(f3)) {
-                        i13 = (int) (f5 + f3);
-                        i14 = (int) (f4 + f2);
-                        this.a = 1;
-                        this.b.l(i, i14, i5, i6, i9);
-                        this.c.l(i2, i13, i7, i8, i10);
-                    }
-                    i13 = i12;
-                    i14 = i11;
-                    this.a = 1;
-                    this.b.l(i, i14, i5, i6, i9);
-                    this.c.l(i2, i13, i7, i8, i10);
-                }
-            } else {
-                i11 = i3;
-            }
-            i12 = i4;
-            i13 = i12;
-            i14 = i11;
-            this.a = 1;
-            this.b.l(i, i14, i5, i6, i9);
-            this.c.l(i2, i13, i7, i8, i10);
-        }
-    }
-
-    public float e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return (float) Math.sqrt((this.b.e * this.b.e) + (this.c.e * this.c.e));
-        }
-        return invokeV.floatValue;
-    }
-
-    public void i(int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, i3) == null) {
-            this.b.q(i, i2, i3);
-        }
-    }
-
-    public final void j(float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048585, this, f2) == null) {
-            this.b.s(f2);
-            this.c.s(f2);
-        }
-    }
-
-    public void k(Interpolator interpolator) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, interpolator) == null) {
-            this.d = interpolator;
-        }
-    }
-
-    public boolean l(int i, int i2, int i3, int i4, int i5, int i6) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
-            this.a = 1;
-            boolean t = this.b.t(i, i3, i4);
-            boolean t2 = this.c.t(i2, i5, i6);
-            if (t || t2) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, tbPageContext, i)) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (currentAccount != null && currentAccount.length() > 0) {
                 return true;
             }
+            TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig(tbPageContext.getPageActivity(), true, i)));
             return false;
         }
-        return invokeCommon.booleanValue;
-    }
-
-    public void m(int i, int i2, int i3, int i4, int i5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            this.a = 0;
-            this.b.w(i, i3, i5);
-            this.c.w(i2, i4, i5);
-        }
+        return invokeLI.booleanValue;
     }
 }

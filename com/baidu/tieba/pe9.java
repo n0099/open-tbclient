@@ -1,236 +1,52 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ProgressBar;
-import android.widget.TextView;
-import androidx.exifinterface.media.ExifInterface;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.video.editvideo.data.PendantData;
+import android.content.Intent;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class pe9 extends BaseAdapter {
-    public static /* synthetic */ Interceptable $ic;
+public class pe9 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = true;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<PendantData> a;
-    public x9 b;
-    public b c;
 
-    /* loaded from: classes5.dex */
-    public interface b {
-        void a(View view2, int i, PendantData pendantData);
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            return null;
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ pe9 a;
-
-        public a(pe9 pe9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pe9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = pe9Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.c != null) {
-                c cVar = (c) view2.getTag();
-                if (!(cVar.b.getTag() instanceof Integer)) {
-                    return;
-                }
-                Integer num = (Integer) cVar.b.getTag();
-                if (this.a.a.size() <= num.intValue()) {
-                    return;
-                }
-                this.a.c.a(view2, num.intValue(), (PendantData) this.a.a.get(num.intValue()));
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public TbImageView b;
-        public ProgressBar c;
-
-        public c(pe9 pe9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pe9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    public pe9(x9 x9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {x9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = x9Var;
-    }
-
-    public void c(List<PendantData> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || list == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948059301, "Lcom/baidu/tieba/pe9;")) == null) {
             return;
         }
-        this.a = list;
-        notifyDataSetChanged();
-    }
-
-    public void d(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
-            this.c = bVar;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948059301, "Lcom/baidu/tieba/pe9;");
         }
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
+    public static boolean a(Intent intent) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<PendantData> list = this.a;
-            if (list == null) {
-                return 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, intent)) == null) {
+            if (intent == null) {
+                return false;
             }
-            return list.size();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        c cVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d04ef, (ViewGroup) null);
-                cVar = new c(this);
-                cVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0907ad);
-                cVar.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091a0f);
-                cVar.c = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091a12);
-                cVar.b.setDefaultBgResource(R.color.transparent);
-                cVar.b.setDefaultResource(R.color.CAM_X0101);
-                view2.setOnClickListener(new a(this));
-                view2.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0201));
-                view2.setTag(cVar);
+            String action = intent.getAction();
+            Set<String> categories = intent.getCategories();
+            if (a && action != null && categories != null && TextUtils.equals(action, "android.intent.action.MAIN") && categories.contains("android.intent.category.LAUNCHER")) {
+                z = true;
             } else {
-                cVar = (c) view2.getTag();
+                z = false;
             }
-            PendantData pendantData = this.a.get(i);
-            if (pendantData != null) {
-                cVar.b.setTag(Integer.valueOf(i));
-                int i2 = pendantData.pendantType;
-                if (i2 != 0) {
-                    if (i2 != 1) {
-                        if (i2 != 2) {
-                            if (i2 != 3) {
-                                cVar.a.setVisibility(8);
-                                cVar.b.setVisibility(0);
-                                cVar.c.setVisibility(8);
-                                cVar.b.K(pendantData.img, 10, false);
-                            } else {
-                                cVar.a.setVisibility(0);
-                                cVar.b.setVisibility(8);
-                                cVar.c.setVisibility(8);
-                                cVar.a.setTextColor(SkinManager.getColor(R.color.CAM_X0109));
-                                cVar.a.setText(ExifInterface.GPS_DIRECTION_TRUE);
-                                cVar.a.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.bg_cover_text_border));
-                            }
-                        } else {
-                            cVar.a.setVisibility(0);
-                            cVar.b.setVisibility(8);
-                            cVar.c.setVisibility(8);
-                            cVar.a.setTextColor(SkinManager.getColor(R.color.CAM_X0111));
-                            cVar.a.setText(ExifInterface.GPS_DIRECTION_TRUE);
-                            cVar.a.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0109));
-                        }
-                    } else {
-                        cVar.a.setVisibility(0);
-                        cVar.b.setVisibility(8);
-                        cVar.c.setVisibility(8);
-                        cVar.a.setTextColor(SkinManager.getColor(R.color.CAM_X0111));
-                        cVar.a.setText(ExifInterface.GPS_DIRECTION_TRUE);
-                        cVar.a.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0302));
-                    }
-                } else {
-                    cVar.a.setVisibility(0);
-                    cVar.b.setVisibility(8);
-                    cVar.c.setVisibility(8);
-                    cVar.a.setTextColor(SkinManager.getColor(R.color.CAM_X0110));
-                    cVar.a.setText("No");
-                    cVar.a.setBackgroundDrawable(SkinManager.getDrawable(R.drawable.bg_cover_text_border));
-                }
-            }
-            return view2;
+            a = false;
+            return z;
         }
-        return (View) invokeILL.objValue;
+        return invokeL.booleanValue;
     }
 }

@@ -1,119 +1,197 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
+import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
-import com.baidu.swan.apps.jsbridge.SwanAppGlobalJsBridge;
-import com.baidu.swan.apps.jsbridge.SwanAppJsBridge;
-import com.baidu.swan.apps.jsbridge.SwanAppNativeSwanJsBridge;
-import com.baidu.swan.apps.jsbridge.SwanAppPreloadJsBridge;
-import com.baidu.swan.apps.jsbridge.SwanAppUtilsJavaScriptInterface;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.lifecycle.process.LifecycleProcessType;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
 public class vt2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
+    public static final vt2 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public ut2 a;
-    public ut2 b;
-    public SwanAppUtilsJavaScriptInterface c;
-    public kx1 d;
+    public final AtomicBoolean a;
+    public final List<st2> b;
+
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends bt2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public final /* synthetic */ vt2 b;
+
+        public b(vt2 vt2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vt2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = vt2Var;
+            this.a = 0;
+        }
+
+        @Override // com.baidu.tieba.bt2, android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStarted(@NonNull Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+                int i = this.a + 1;
+                this.a = i;
+                if (i == 1) {
+                    this.b.d(activity);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.bt2, android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStopped(@NonNull Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+                int i = this.a - 1;
+                this.a = i;
+                if (i == 0) {
+                    this.b.e(activity);
+                }
+            }
+        }
+
+        public /* synthetic */ b(vt2 vt2Var, a aVar) {
+            this(vt2Var);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948252245, "Lcom/baidu/tieba/vt2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948252245, "Lcom/baidu/tieba/vt2;");
+                return;
+            }
+        }
+        c = do1.a;
+        d = new vt2();
+    }
+
+    public static vt2 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return d;
+        }
+        return (vt2) invokeV.objValue;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (LifecycleProcessType.getCurrent() == LifecycleProcessType.MAIN) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     public vt2() {
+        List<st2> list;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new AtomicBoolean(false);
+        dj1<st2> dj1Var = new ut2().a;
+        if (dj1Var == null) {
+            list = null;
+        } else {
+            list = dj1Var.getList();
+        }
+        this.b = list;
+    }
+
+    public void b(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && !this.a.getAndSet(true) && c()) {
+            Context applicationContext = context.getApplicationContext();
+            if (applicationContext instanceof Application) {
+                ((Application) applicationContext).registerActivityLifecycleCallbacks(new b(this, null));
             }
         }
     }
 
-    public void a(Activity activity) {
+    public void d(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            ut2 ut2Var = this.a;
-            if (ut2Var != null) {
-                ut2Var.setActivityRef(activity);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+            if (c) {
+                String curProcessName = ProcessUtils.getCurProcessName();
+                Log.d("ProcessLifecycleDispatcher", curProcessName + " to foreground");
             }
-            ut2 ut2Var2 = this.b;
-            if (ut2Var2 != null) {
-                ut2Var2.setActivityRef(activity);
-            }
-            SwanAppUtilsJavaScriptInterface swanAppUtilsJavaScriptInterface = this.c;
-            if (swanAppUtilsJavaScriptInterface != null) {
-                swanAppUtilsJavaScriptInterface.setActivity(activity);
-            }
-            kx1 kx1Var = this.d;
-            if (kx1Var != null) {
-                kx1Var.i(activity);
+            if (this.b != null) {
+                LifecycleProcessType current = LifecycleProcessType.getCurrent();
+                for (st2 st2Var : this.b) {
+                    if (current == st2Var.b()) {
+                        st2Var.a(true, activity);
+                    }
+                }
             }
         }
     }
 
-    public final void d(k82 k82Var) {
+    public void e(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, k82Var) == null) {
-            k82Var.addJavascriptInterface(new SwanAppNativeSwanJsBridge(k82Var), SwanAppNativeSwanJsBridge.JAVASCRIPT_INTERFACE_NAME);
-        }
-    }
-
-    public final void b(k82 k82Var, Context context, CallbackHandler callbackHandler, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher, @NonNull kx1 kx1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k82Var, context, callbackHandler, unitedSchemeMainDispatcher, kx1Var) == null) {
-            SwanAppGlobalJsBridge swanAppGlobalJsBridge = new SwanAppGlobalJsBridge(context, unitedSchemeMainDispatcher, callbackHandler, k82Var);
-            this.a = swanAppGlobalJsBridge;
-            k82Var.addJavascriptInterface(swanAppGlobalJsBridge, SwanAppGlobalJsBridge.JAVASCRIPT_INTERFACE_NAME);
-            SwanAppJsBridge swanAppJsBridge = new SwanAppJsBridge(context, unitedSchemeMainDispatcher, callbackHandler, k82Var);
-            this.b = swanAppJsBridge;
-            k82Var.addJavascriptInterface(swanAppJsBridge, SwanAppJsBridge.JAVASCRIPT_INTERFACE_NAME);
-            k82Var.addJavascriptInterface(new SwanAppPreloadJsBridge(k82Var), SwanAppPreloadJsBridge.JAVASCRIPT_INTERFACE_NAME);
-            kx1Var.b(k82Var);
-        }
-    }
-
-    public final void c(@NonNull k82 k82Var, Context context, @NonNull kx1 kx1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, k82Var, context, kx1Var) == null) {
-            SwanAppUtilsJavaScriptInterface swanAppUtilsJavaScriptInterface = new SwanAppUtilsJavaScriptInterface(context, k82Var);
-            this.c = swanAppUtilsJavaScriptInterface;
-            swanAppUtilsJavaScriptInterface.setSource("swan_");
-            k82Var.addJavascriptInterface(this.c, SwanAppUtilsJavaScriptInterface.JAVASCRIPT_INTERFACE_NAME);
-            kx1Var.a(k82Var);
-        }
-    }
-
-    public void e(k82 k82Var, Context context, CallbackHandler callbackHandler, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(1048580, this, k82Var, context, callbackHandler, unitedSchemeMainDispatcher) == null) && k82Var != null && context != null && callbackHandler != null && unitedSchemeMainDispatcher != null) {
-            kx1 kx1Var = new kx1(context, callbackHandler, k82Var);
-            this.d = kx1Var;
-            b(k82Var, context, callbackHandler, unitedSchemeMainDispatcher, kx1Var);
-            if (k82Var instanceof wg2) {
-                c(k82Var, context, this.d);
-            } else {
-                d(k82Var);
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            if (c) {
+                String curProcessName = ProcessUtils.getCurProcessName();
+                Log.d("ProcessLifecycleDispatcher", curProcessName + " to background");
             }
-        }
-    }
-
-    public void f(Context context, k82 k82Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, context, k82Var) == null) {
-            SwanAppUtilsJavaScriptInterface swanAppUtilsJavaScriptInterface = new SwanAppUtilsJavaScriptInterface(context, k82Var);
-            this.c = swanAppUtilsJavaScriptInterface;
-            swanAppUtilsJavaScriptInterface.setSource("swan_");
-            k82Var.addJavascriptInterface(this.c, SwanAppUtilsJavaScriptInterface.JAVASCRIPT_INTERFACE_NAME);
-            this.c.setForceShareLight(true);
+            if (this.b != null) {
+                LifecycleProcessType current = LifecycleProcessType.getCurrent();
+                for (st2 st2Var : this.b) {
+                    if (current == st2Var.b()) {
+                        st2Var.a(false, activity);
+                    }
+                }
+            }
         }
     }
 }

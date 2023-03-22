@@ -14,7 +14,7 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.core.view.ViewCompat;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ws5;
+import com.baidu.tieba.cs5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public RecyclerView a;
-    public ws5 b;
+    public cs5 b;
     public View c;
     public int d;
     public int e;
@@ -65,12 +65,12 @@ public class PullLeftRefreshLayout extends FrameLayout {
 
         /* renamed from: com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class C0203a implements ValueAnimator.AnimatorUpdateListener {
+        public class C0202a implements ValueAnimator.AnimatorUpdateListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public C0203a(a aVar) {
+            public C0202a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -176,7 +176,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
                     ValueAnimator ofInt = ValueAnimator.ofInt(this.c, 0);
                     this.d = ofInt;
                     ofInt.setDuration(100L);
-                    this.d.addUpdateListener(new C0203a(this));
+                    this.d.addUpdateListener(new C0202a(this));
                     this.d.addListener(new b(this));
                     this.d.start();
                 }
@@ -484,11 +484,11 @@ public class PullLeftRefreshLayout extends FrameLayout {
         }
     }
 
-    public void setRefreshViewAndListener(ws5 ws5Var) {
+    public void setRefreshViewAndListener(cs5 cs5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, ws5Var) == null) {
-            this.b = ws5Var;
-            this.c = ws5Var.getView();
+        if (interceptable == null || interceptable.invokeL(1048592, this, cs5Var) == null) {
+            this.b = cs5Var;
+            this.c = cs5Var.getView();
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
             layoutParams.gravity = 8388613;
             this.c.setLayoutParams(layoutParams);
@@ -656,9 +656,9 @@ public class PullLeftRefreshLayout extends FrameLayout {
                                 getParent().requestDisallowInterceptTouchEvent(true);
                             }
                             this.d = 2;
-                            ws5 ws5Var = this.b;
-                            if (ws5Var != null) {
-                                ws5Var.b(this.c);
+                            cs5 cs5Var = this.b;
+                            if (cs5Var != null) {
+                                cs5Var.b(this.c);
                             }
                             return true;
                         }
@@ -714,9 +714,9 @@ public class PullLeftRefreshLayout extends FrameLayout {
                         if (abs >= 0.0f) {
                             this.n = 0.0f;
                             this.a.setTranslationX(0.0f);
-                            ws5 ws5Var = this.b;
-                            if (ws5Var != null) {
-                                ws5Var.b(this.c);
+                            cs5 cs5Var = this.b;
+                            if (cs5Var != null) {
+                                cs5Var.b(this.c);
                             }
                         } else {
                             int i2 = this.f;
@@ -724,21 +724,21 @@ public class PullLeftRefreshLayout extends FrameLayout {
                                 float f2 = -i2;
                                 this.n = f2;
                                 this.a.setTranslationX(f2);
-                                ws5 ws5Var2 = this.b;
-                                if (ws5Var2 != null) {
-                                    ws5Var2.a(this.c);
+                                cs5 cs5Var2 = this.b;
+                                if (cs5Var2 != null) {
+                                    cs5Var2.a(this.c);
                                 }
                             } else {
                                 this.a.setTranslationX(abs);
                                 if (Math.abs(this.n) > this.h) {
-                                    ws5 ws5Var3 = this.b;
-                                    if (ws5Var3 != null) {
-                                        ws5Var3.a(this.c);
+                                    cs5 cs5Var3 = this.b;
+                                    if (cs5Var3 != null) {
+                                        cs5Var3.a(this.c);
                                     }
                                 } else {
-                                    ws5 ws5Var4 = this.b;
-                                    if (ws5Var4 != null) {
-                                        ws5Var4.b(this.c);
+                                    cs5 cs5Var4 = this.b;
+                                    if (cs5Var4 != null) {
+                                        cs5Var4.b(this.c);
                                     }
                                 }
                             }

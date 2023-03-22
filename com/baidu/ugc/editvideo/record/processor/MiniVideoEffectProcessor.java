@@ -1,9 +1,9 @@
 package com.baidu.ugc.editvideo.record.processor;
 
 import com.baidu.minivideo.effect.core.vlogedit.MediaTrack;
-import com.baidu.tieba.bh0;
-import com.baidu.tieba.i1a;
-import com.baidu.tieba.tg0;
+import com.baidu.tieba.jf0;
+import com.baidu.tieba.r7a;
+import com.baidu.tieba.rf0;
 /* loaded from: classes7.dex */
 public class MiniVideoEffectProcessor extends BaseEffectProcessor {
     public boolean mIsDraw = true;
@@ -13,20 +13,20 @@ public class MiniVideoEffectProcessor extends BaseEffectProcessor {
     }
 
     @Override // com.baidu.ugc.editvideo.record.processor.IEffectProcessor
-    public int onProcessFrame(tg0 tg0Var, int i, float[] fArr) {
+    public int onProcessFrame(jf0 jf0Var, int i, float[] fArr) {
         int i2;
-        if (tg0Var == null || !this.mIsDraw) {
+        if (jf0Var == null || !this.mIsDraw) {
             return i;
         }
         int i3 = 1;
         while (true) {
-            if (i3 >= i1a.b(tg0Var.l())) {
+            if (i3 >= r7a.b(jf0Var.l())) {
                 i2 = i;
                 break;
             }
-            MediaTrack mediaTrack = (MediaTrack) i1a.c(tg0Var.l(), i3);
-            if (mediaTrack != null && bh0.m(mediaTrack, "effect")) {
-                i2 = tg0Var.j(mediaTrack, i, null);
+            MediaTrack mediaTrack = (MediaTrack) r7a.c(jf0Var.l(), i3);
+            if (mediaTrack != null && rf0.m(mediaTrack, "effect")) {
+                i2 = jf0Var.j(mediaTrack, i, null);
                 break;
             }
             i3++;

@@ -1,15 +1,32 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.Intent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.max.ImmersiveVideoDetailActivity;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import com.fun.ad.sdk.FunAdSdk;
+import java.util.HashMap;
+import java.util.Map;
+@Service
 /* loaded from: classes7.dex */
-public class zn0 implements jk1 {
+public class zn0 extends rh0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.rh0
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? FunAdSdk.PLATFORM_MAX : (String) invokeV.objValue;
+    }
 
     public zn0() {
         Interceptable interceptable = $ic;
@@ -25,17 +42,17 @@ public class zn0 implements jk1 {
         }
     }
 
-    @Override // com.baidu.tieba.jk1
-    public Object get() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.rh0
+    public boolean b(@NonNull Context context, @NonNull vh0 vh0Var, @Nullable Map<String, Object> map, @Nullable zh0 zh0Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new ii0());
-            arrayList.add(new sw0());
-            arrayList.add(new m81());
-            return arrayList;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, vh0Var, map, zh0Var)) == null) {
+            super.b(context, vh0Var, map, zh0Var);
+            HashMap<String, String> d = vh0Var.d();
+            Intent intent = new Intent(context, ImmersiveVideoDetailActivity.class);
+            intent.putExtra("map", d);
+            return r31.d(context, intent);
         }
-        return invokeV.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

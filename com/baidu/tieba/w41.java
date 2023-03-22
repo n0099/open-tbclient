@@ -1,54 +1,99 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import android.content.pm.PackageManager;
+import com.baidu.tieba.z31;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public interface w41 {
-    <T> T a(Class<T> cls);
-
-    void b(Context context);
+public class w41 extends y41 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static final class a implements w41 {
+    public interface b {
+        void onRequestPermissionsResult(int i, String[] strArr, int[] iArr);
+    }
+
+    /* loaded from: classes6.dex */
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String[] a;
+        public final /* synthetic */ Activity b;
+        public final /* synthetic */ b c;
+        public final /* synthetic */ int d;
 
-        @Override // com.baidu.tieba.w41
-        public <T> T a(Class<T> clazz) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, clazz)) == null) {
-                Intrinsics.checkNotNullParameter(clazz, "clazz");
-                return null;
-            }
-            return (T) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.w41
-        public void b(Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-                Intrinsics.checkNotNullParameter(context, "context");
-            }
-        }
-
-        public a() {
+        public a(String[] strArr, Activity activity, b bVar, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {strArr, activity, bVar, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
+            }
+            this.a = strArr;
+            this.b = activity;
+            this.c = bVar;
+            this.d = i;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                int[] iArr = new int[this.a.length];
+                PackageManager packageManager = this.b.getPackageManager();
+                String packageName = this.b.getPackageName();
+                int length = this.a.length;
+                for (int i = 0; i < length; i++) {
+                    iArr[i] = packageManager.checkPermission(this.a[i], packageName);
+                }
+                this.c.onRequestPermissionsResult(this.d, this.a, iArr);
+            }
+        }
+    }
+
+    public static boolean b(Activity activity, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, activity, str)) == null) {
+            if (z31.b.d() && x41.a(activity, str)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void requestPermissions(Activity activity, String[] strArr, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65537, null, activity, strArr, i) == null) {
+            if (z31.b.d()) {
+                x41.requestPermissions(activity, strArr, i);
+            } else if (activity instanceof b) {
+                requestPermissions(activity, strArr, i, (b) activity);
+            }
+        }
+    }
+
+    public static void requestPermissions(Activity activity, String[] strArr, int i, b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLIL(65538, null, activity, strArr, i, bVar) == null) {
+            if (z31.b.d()) {
+                x41.requestPermissions(activity, strArr, i);
+            } else if (!activity.isFinishing() && bVar != null) {
+                wi0.b(new a(strArr, activity, bVar, i));
             }
         }
     }

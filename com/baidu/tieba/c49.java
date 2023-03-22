@@ -1,373 +1,198 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.cache.BdCacheService;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.adp.widget.BdSwitchView.BdSwitchView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.jf;
-import com.baidu.tieba.tbadkCore.FrsRequestData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.data.ShakeAdSwitchData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.setting.more.AdSettingActivity;
+import com.baidu.tieba.setting.more.MsgSettingItemView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.App;
-import tbclient.BannerList;
-import tbclient.FrsPage.DataRes;
-import tbclient.FrsPage.ForumInfo;
-import tbclient.FrsPage.FrsPageResIdl;
-import tbclient.ThreadInfo;
-import tbclient.User;
 /* loaded from: classes3.dex */
-public class c49 {
+public class c49 extends y8<AdSettingActivity> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Wire c;
-    public static c49 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public l49 a;
-    public jf<byte[]> b;
+    public AdSettingActivity a;
+    public View b;
+    public NavigationBar c;
+    public MsgSettingItemView d;
+    public TextView e;
+    public ImageView f;
+    public ShakeAdSwitchData g;
+    public MsgSettingItemView h;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947624929, "Lcom/baidu/tieba/c49;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes3.dex */
+    public class a implements BdSwitchView.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(c49 c49Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947624929, "Lcom/baidu/tieba/c49;");
-                return;
-            }
-        }
-        c = new Wire(new Class[0]);
-    }
-
-    public static c49 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (c49.class) {
-                    if (d == null) {
-                        d = new c49();
-                    }
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c49Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            return d;
         }
-        return (c49) invokeV.objValue;
-    }
 
-    public long h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            long o = b55.m().o("key_frs_cache_time", 604800000L);
-            if (o < 0) {
-                return 604800000L;
+        @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
+        public void g0(View view2, BdSwitchView.SwitchState switchState) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, switchState) == null) {
+                m35 m = m35.m();
+                if (BdSwitchView.SwitchState.ON == switchState) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                m.w("key_splash_shake_ad_open", z);
             }
-            return o;
         }
-        return invokeV.longValue;
     }
 
-    public l49 j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.a;
-        }
-        return (l49) invokeV.objValue;
-    }
-
-    public c49() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c49(AdSettingActivity adSettingActivity) {
+        super(adSettingActivity.getPageContext());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {adSettingActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((a9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.b = BdCacheService.n().b("tb.frs.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
+        this.a = adSettingActivity;
+        m();
     }
 
-    public void a(String str, byte[] bArr, boolean z) {
+    public final void i() {
+        int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(1048576, this, str, bArr, z) == null) && str != null && str.length() > 0) {
-            if (z) {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                jf<byte[]> jfVar = this.b;
-                jfVar.e(currentAccount + str, bArr, h());
-                return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d.setText(R.string.obfuscated_res_0x7f0f0b79);
+            this.d.setOnSwitchStateChangeListener(this.a);
+            AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
+            int i2 = 0;
+            if (currentAccountObj != null) {
+                i2 = currentAccountObj.getMemberCloseAdIsOpen();
+                i = currentAccountObj.getMemberCloseAdVipClose();
+            } else {
+                i = 0;
             }
-            String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
-            jf<byte[]> jfVar2 = this.b;
-            jfVar2.i(currentAccount2 + str, bArr, h());
-        }
-    }
-
-    public void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && this.b != null && str != null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            jf<byte[]> jfVar = this.b;
-            byte[] bArr = jfVar.get(currentAccount + str);
-            if (bArr != null && bArr.length > 0) {
-                try {
-                    FrsPageResIdl frsPageResIdl = (FrsPageResIdl) c.parseFrom(bArr, FrsPageResIdl.class);
-                    if (frsPageResIdl != null && frsPageResIdl.data != null && frsPageResIdl.data.forum != null && frsPageResIdl.data.forum.banner_list != null && frsPageResIdl.data.forum.banner_list.app != null && frsPageResIdl.data.forum.banner_list.app.size() > 0) {
-                        ArrayList arrayList = new ArrayList();
-                        for (App app : frsPageResIdl.data.forum.banner_list.app) {
-                            boolean isNull = StringUtils.isNull(str2);
-                            if (app != null && (isNull || str2.equals(hv8.a(app)))) {
-                                arrayList.add(app);
-                            }
-                        }
-                        BannerList.Builder builder = new BannerList.Builder(frsPageResIdl.data.forum.banner_list);
-                        if (builder.app != null) {
-                            builder.app.removeAll(arrayList);
-                        }
-                        FrsPageResIdl.Builder builder2 = new FrsPageResIdl.Builder(frsPageResIdl);
-                        DataRes.Builder builder3 = new DataRes.Builder(frsPageResIdl.data);
-                        ForumInfo.Builder builder4 = new ForumInfo.Builder(frsPageResIdl.data.forum);
-                        builder4.banner_list = builder.build(true);
-                        builder3.forum = builder4.build(true);
-                        builder2.data = builder3.build(true);
-                        a(str, builder2.build(true).toByteArray(), true);
-                    }
-                } catch (Exception e) {
-                    BdLog.detailException(e);
-                }
+            if (i2 == 0) {
+                this.d.setVisibility(8);
+                this.e.setVisibility(8);
+            } else if (i == 0) {
+                this.d.e();
+            } else {
+                this.d.g();
             }
         }
     }
 
-    public void m(String str, byte[] bArr) {
-        List<ThreadInfo> list;
-        int count;
+    public final void l() {
+        MsgSettingItemView msgSettingItemView;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048587, this, str, bArr) == null) && this.b != null && str != null && bArr != null && bArr.length > 0) {
-            try {
-                FrsPageResIdl frsPageResIdl = (FrsPageResIdl) c.parseFrom(bArr, FrsPageResIdl.class);
-                if (frsPageResIdl == null || frsPageResIdl.data == null || (count = ListUtils.getCount((list = frsPageResIdl.data.thread_list))) <= 0) {
-                    return;
-                }
-                if (count >= 15) {
-                    a(str, bArr, true);
-                    return;
-                }
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                jf<byte[]> jfVar = this.b;
-                byte[] bArr2 = jfVar.get(currentAccount + str);
-                if (bArr2 == null) {
-                    a(str, bArr, true);
-                    return;
-                }
-                FrsPageResIdl frsPageResIdl2 = (FrsPageResIdl) c.parseFrom(bArr2, FrsPageResIdl.class);
-                if (frsPageResIdl2 != null && frsPageResIdl2.data != null && frsPageResIdl2.data.thread_list != null) {
-                    List<ThreadInfo> list2 = frsPageResIdl2.data.thread_list;
-                    int count2 = ListUtils.getCount(list2);
-                    ArrayList arrayList = new ArrayList();
-                    ArrayList arrayList2 = new ArrayList();
-                    int i = 0;
-                    for (int i2 = 15; i < count2 && count < i2; i2 = 15) {
-                        ThreadInfo threadInfo = (ThreadInfo) ListUtils.getItem(list2, i);
-                        if (threadInfo != null && threadInfo.tid != null && threadInfo.is_top.intValue() == 0 && !k(threadInfo.tid.longValue(), list)) {
-                            arrayList.add(threadInfo);
-                            User f = f(frsPageResIdl2.data.user_list, threadInfo.author_id.longValue());
-                            if (f != null) {
-                                arrayList2.add(f);
-                            }
-                            count++;
-                        }
-                        i++;
-                    }
-                    FrsPageResIdl.Builder builder = new FrsPageResIdl.Builder(frsPageResIdl);
-                    DataRes.Builder builder2 = new DataRes.Builder(frsPageResIdl.data);
-                    builder2.thread_list.addAll(arrayList);
-                    builder2.user_list.addAll(arrayList2);
-                    builder.data = builder2.build(true);
-                    a(str, builder.build(true).toByteArray(), true);
-                    return;
-                }
-                a(str, bArr, true);
-            } catch (Exception e) {
-                BdLog.detailException(e);
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (msgSettingItemView = this.h) == null) {
+            return;
+        }
+        ShakeAdSwitchData shakeAdSwitchData = this.g;
+        if (shakeAdSwitchData != null && shakeAdSwitchData.isShow != 0) {
+            msgSettingItemView.setVisibility(0);
+            this.h.setTextStr(this.g.title);
+            this.h.setTipTextStr(this.g.desc);
+            if (m35.m().i("key_splash_shake_ad_open", true)) {
+                this.h.g();
+            } else {
+                this.h.e();
             }
+            this.h.setOnSwitchStateChangeListener(new a(this));
+            return;
+        }
+        this.h.setVisibility(8);
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.setContentView(R.layout.obfuscated_res_0x7f0d0071);
+            NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.view_navigation_bar);
+            this.c = navigationBar;
+            navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.c.setTitleText(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f00ab));
+            this.d = (MsgSettingItemView) this.a.findViewById(R.id.obfuscated_res_0x7f091659);
+            this.e = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f09165a);
+            this.f = (ImageView) this.a.findViewById(R.id.obfuscated_res_0x7f0902c5);
+            this.b = this.a.findViewById(R.id.obfuscated_res_0x7f091920);
+            this.h = (MsgSettingItemView) this.a.findViewById(R.id.obfuscated_res_0x7f092044);
+            i();
         }
     }
 
-    public void c(String str, String str2) {
+    public void n() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) && this.b != null && str != null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            jf<byte[]> jfVar = this.b;
-            byte[] bArr = jfVar.get(currentAccount + str);
-            if (bArr != null && bArr.length > 0) {
-                try {
-                    FrsPageResIdl frsPageResIdl = (FrsPageResIdl) c.parseFrom(bArr, FrsPageResIdl.class);
-                    if (frsPageResIdl != null && frsPageResIdl.data != null && frsPageResIdl.data.ala_stage_list != null) {
-                        DataRes.Builder builder = new DataRes.Builder(frsPageResIdl.data);
-                        if (builder.ala_stage_list != null) {
-                            builder.ala_stage_list.clear();
-                        }
-                        FrsPageResIdl.Builder builder2 = new FrsPageResIdl.Builder(frsPageResIdl);
-                        builder2.data = builder.build(true);
-                        a(str, builder2.build(true).toByteArray(), true);
-                    }
-                } catch (Exception e) {
-                    BdLog.detailException(e);
-                }
-            }
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.d.e();
         }
     }
 
-    public void d(String str, String str2) {
+    public void o() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) && this.b != null && str != null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            jf<byte[]> jfVar = this.b;
-            byte[] bArr = jfVar.get(currentAccount + str);
-            if (bArr != null && bArr.length > 0) {
-                try {
-                    FrsPageResIdl frsPageResIdl = (FrsPageResIdl) c.parseFrom(bArr, FrsPageResIdl.class);
-                    if (frsPageResIdl != null && frsPageResIdl.data != null && frsPageResIdl.data.thread_list != null) {
-                        ArrayList arrayList = new ArrayList();
-                        for (ThreadInfo threadInfo : frsPageResIdl.data.thread_list) {
-                            if (threadInfo != null && threadInfo.tid != null && str2 != null && str2.equals(threadInfo.tid.toString())) {
-                                arrayList.add(threadInfo);
-                            }
-                        }
-                        DataRes.Builder builder = new DataRes.Builder(frsPageResIdl.data);
-                        if (builder.thread_list != null) {
-                            builder.thread_list.removeAll(arrayList);
-                        }
-                        FrsPageResIdl.Builder builder2 = new FrsPageResIdl.Builder(frsPageResIdl);
-                        builder2.data = builder.build(true);
-                        a(str, builder2.build(true).toByteArray(), true);
-                    }
-                } catch (Exception e) {
-                    BdLog.detailException(e);
-                }
-            }
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.d.g();
         }
     }
 
-    public boolean e(String str) {
-        InterceptResult invokeL;
+    public void onChangeSkinType(int i) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (this.b != null && str != null) {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                jf<byte[]> jfVar = this.b;
-                byte[] bArr = jfVar.get(currentAccount + str);
-                if (bArr != null && bArr.length > 0) {
-                    l49 l49Var = new l49();
-                    this.a = l49Var;
-                    l49Var.isFromCache = true;
-                    l49Var.parserProtobuf(bArr, false);
-                    ForumData forumData = this.a.forum;
-                    if (forumData != null && forumData.getFrsBannerData() != null) {
-                        this.a.forum.getFrsBannerData().i = false;
-                    }
-                    return true;
-                }
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            fv4 layoutMode = this.a.getLayoutMode();
+            if (i == 4) {
+                z = true;
+            } else {
+                z = false;
             }
-            return false;
+            layoutMode.l(z);
+            this.a.getLayoutMode().k(this.b);
+            this.c.onChangeSkinType(getPageContext(), i);
+            this.d.c(this.a.getPageContext(), i);
+            this.h.c(this.a.getPageContext(), i);
+            SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0105);
+            SkinManager.setBackgroundColor(this.e, R.color.CAM_X0201);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
         }
-        return invokeL.booleanValue;
     }
 
-    public final User f(List<User> list, long j) {
-        InterceptResult invokeLJ;
+    public void p(ShakeAdSwitchData shakeAdSwitchData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, list, j)) == null) {
-            if (ListUtils.isEmpty(list)) {
-                return null;
-            }
-            for (User user : list) {
-                if (user != null && user.id.longValue() == j) {
-                    return user;
-                }
-            }
-            return null;
-        }
-        return (User) invokeLJ.objValue;
-    }
-
-    public final boolean k(long j, List<ThreadInfo> list) {
-        InterceptResult invokeJL;
-        Long l;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048585, this, j, list)) == null) {
-            int count = ListUtils.getCount(list);
-            for (int i = 0; i < count; i++) {
-                ThreadInfo threadInfo = (ThreadInfo) ListUtils.getItem(list, i);
-                if (threadInfo != null && (l = threadInfo.tid) != null && l.longValue() == j) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeJL.booleanValue;
-    }
-
-    public String g(String str, int i, int i2, int i3) {
-        InterceptResult invokeLIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(1048582, this, str, i, i2, i3)) == null) {
-            String str2 = str + i + i2;
-            if (i3 != 0) {
-                return str + i + i2 + FrsRequestData.CATEGORY_ID_KEY + i3;
-            }
-            return str2;
-        }
-        return (String) invokeLIII.objValue;
-    }
-
-    public boolean l(String str) {
-        InterceptResult invokeL;
-        jf.b<byte[]> h;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            if (str != null && str.length() > 0 && (h = this.b.h(str)) != null) {
-                return UtilHelper.isSameDay(h.c, System.currentTimeMillis());
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void n(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048588, this, str, z) == null) && str != null && str.length() > 0) {
-            if (z) {
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                jf<byte[]> jfVar = this.b;
-                jfVar.remove(currentAccount + str);
-                return;
-            }
-            String currentAccount2 = TbadkCoreApplication.getCurrentAccount();
-            jf<byte[]> jfVar2 = this.b;
-            jfVar2.d(currentAccount2 + str);
+        if (interceptable == null || interceptable.invokeL(1048582, this, shakeAdSwitchData) == null) {
+            this.g = shakeAdSwitchData;
+            l();
         }
     }
 }

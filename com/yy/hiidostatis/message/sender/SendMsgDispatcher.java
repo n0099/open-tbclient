@@ -16,7 +16,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class SendMsgDispatcher implements Task, Runnable, MessageSender.ResultListener, ISingleton {
     public static final int CHANGE_LIMIT_SIZE_THRESHOLD = 3;
     public static final int LIMIT_SIZE = 40960;

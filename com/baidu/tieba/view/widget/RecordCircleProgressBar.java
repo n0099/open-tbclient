@@ -11,7 +11,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vj9;
+import com.baidu.tieba.eq9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class RecordCircleProgressBar extends View implements vj9, Runnable {
+public class RecordCircleProgressBar extends View implements eq9, Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -45,7 +45,7 @@ public class RecordCircleProgressBar extends View implements vj9, Runnable {
     public int t;
     public boolean u;
     public boolean v;
-    public vj9.a w;
+    public eq9.a w;
     public float x;
     public int y;
     public Runnable z;
@@ -117,7 +117,7 @@ public class RecordCircleProgressBar extends View implements vj9, Runnable {
         }
     }
 
-    @Override // com.baidu.tieba.vj9
+    @Override // com.baidu.tieba.eq9
     public void setProgress(long j) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeJ(1048592, this, j) == null) && this.o.size() > 0) {
@@ -202,7 +202,7 @@ public class RecordCircleProgressBar extends View implements vj9, Runnable {
         this.m.setColor(this.j);
     }
 
-    @Override // com.baidu.tieba.vj9
+    @Override // com.baidu.tieba.eq9
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -213,7 +213,7 @@ public class RecordCircleProgressBar extends View implements vj9, Runnable {
                 this.x = getProgress();
                 invalidate();
             }
-            vj9.a aVar = this.w;
+            eq9.a aVar = this.w;
             if (aVar != null) {
                 aVar.a(this.x);
             }
@@ -224,7 +224,7 @@ public class RecordCircleProgressBar extends View implements vj9, Runnable {
         long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            vj9.a aVar = this.w;
+            eq9.a aVar = this.w;
             if (aVar != null && (aVar.getSpeed() == 0.5f || this.w.getSpeed() == 0.33333334f)) {
                 j = 25;
             } else {
@@ -238,12 +238,12 @@ public class RecordCircleProgressBar extends View implements vj9, Runnable {
     public void run() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && this.p != 0 && this.o.size() != 0) {
-            vj9.a aVar = this.w;
+            eq9.a aVar = this.w;
             if (aVar != null) {
                 aVar.onProgress(this.x);
             }
             if (this.x >= this.r) {
-                vj9.a aVar2 = this.w;
+                eq9.a aVar2 = this.w;
                 if (aVar2 != null) {
                     aVar2.onFinish();
                     return;
@@ -254,7 +254,7 @@ public class RecordCircleProgressBar extends View implements vj9, Runnable {
         }
     }
 
-    @Override // com.baidu.tieba.vj9
+    @Override // com.baidu.tieba.eq9
     public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -279,7 +279,7 @@ public class RecordCircleProgressBar extends View implements vj9, Runnable {
         }
     }
 
-    @Override // com.baidu.tieba.vj9
+    @Override // com.baidu.tieba.eq9
     public int getMaxDuration() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -289,7 +289,7 @@ public class RecordCircleProgressBar extends View implements vj9, Runnable {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.vj9
+    @Override // com.baidu.tieba.eq9
     public float getProgress() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -303,7 +303,7 @@ public class RecordCircleProgressBar extends View implements vj9, Runnable {
         return invokeV.floatValue;
     }
 
-    @Override // com.baidu.tieba.vj9
+    @Override // com.baidu.tieba.eq9
     public int getSlideNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -322,7 +322,7 @@ public class RecordCircleProgressBar extends View implements vj9, Runnable {
         }
     }
 
-    @Override // com.baidu.tieba.vj9
+    @Override // com.baidu.tieba.eq9
     public void reset() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -335,7 +335,7 @@ public class RecordCircleProgressBar extends View implements vj9, Runnable {
         }
     }
 
-    @Override // com.baidu.tieba.vj9
+    @Override // com.baidu.tieba.eq9
     public void start() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
@@ -345,7 +345,7 @@ public class RecordCircleProgressBar extends View implements vj9, Runnable {
         }
     }
 
-    @Override // com.baidu.tieba.vj9
+    @Override // com.baidu.tieba.eq9
     public void stop() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
@@ -429,7 +429,7 @@ public class RecordCircleProgressBar extends View implements vj9, Runnable {
         }
     }
 
-    @Override // com.baidu.tieba.vj9
+    @Override // com.baidu.tieba.eq9
     public void setMaxDuration(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
@@ -437,7 +437,7 @@ public class RecordCircleProgressBar extends View implements vj9, Runnable {
         }
     }
 
-    @Override // com.baidu.tieba.vj9
+    @Override // com.baidu.tieba.eq9
     public void setMinDuration(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
@@ -445,8 +445,8 @@ public class RecordCircleProgressBar extends View implements vj9, Runnable {
         }
     }
 
-    @Override // com.baidu.tieba.vj9
-    public void setOnProgressListener(vj9.a aVar) {
+    @Override // com.baidu.tieba.eq9
+    public void setOnProgressListener(eq9.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, aVar) == null) {
             this.w = aVar;
@@ -461,7 +461,7 @@ public class RecordCircleProgressBar extends View implements vj9, Runnable {
         }
     }
 
-    @Override // com.baidu.tieba.vj9
+    @Override // com.baidu.tieba.eq9
     public void setShowDeleteLastTip(boolean z) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeZ(1048594, this, z) == null) && this.s != z) {

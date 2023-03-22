@@ -1,39 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Inject;
+import com.baidu.nadcore.max.event.NestedEvent;
+import com.baidu.nadcore.max.event.WebEventTypeEnum;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ao0 {
+public final /* synthetic */ class ao0 {
+    public static final /* synthetic */ int[] $EnumSwitchMapping$0;
+    public static final /* synthetic */ int[] $EnumSwitchMapping$1;
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject(force = false)
-    public nk1<yn0> a;
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            lk1 b = lk1.b();
-            this.a = b;
-            b.a(new zn0());
-        }
-    }
-
-    public ao0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        a();
+    static {
+        int[] iArr = new int[NestedEvent.values().length];
+        $EnumSwitchMapping$0 = iArr;
+        iArr[NestedEvent.UP_SHOW_WEB.ordinal()] = 1;
+        $EnumSwitchMapping$0[NestedEvent.UP_SHOW_VIDEO.ordinal()] = 2;
+        int[] iArr2 = new int[WebEventTypeEnum.values().length];
+        $EnumSwitchMapping$1 = iArr2;
+        iArr2[WebEventTypeEnum.WEB_INIT_SUCCESS.ordinal()] = 1;
+        $EnumSwitchMapping$1[WebEventTypeEnum.WEB_DESTROY.ordinal()] = 2;
     }
 }

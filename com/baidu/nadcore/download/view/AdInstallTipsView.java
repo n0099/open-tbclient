@@ -13,13 +13,13 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d61;
-import com.baidu.tieba.ko0;
-import com.baidu.tieba.lo0;
-import com.baidu.tieba.pm0;
-import com.baidu.tieba.rm0;
+import com.baidu.tieba.an0;
+import com.baidu.tieba.bn0;
+import com.baidu.tieba.fl0;
+import com.baidu.tieba.hl0;
+import com.baidu.tieba.t41;
 /* loaded from: classes2.dex */
-public class AdInstallTipsView extends LinearLayout implements rm0, View.OnClickListener {
+public class AdInstallTipsView extends LinearLayout implements hl0, View.OnClickListener {
     public ImageView a;
     public TextView b;
     public FrameLayout c;
@@ -28,7 +28,7 @@ public class AdInstallTipsView extends LinearLayout implements rm0, View.OnClick
     public FrameLayout f;
     public TextView g;
     public CountDownTextView h;
-    public pm0<AdInstallTipsView> i;
+    public fl0<AdInstallTipsView> i;
     public b j;
 
     /* loaded from: classes2.dex */
@@ -39,15 +39,15 @@ public class AdInstallTipsView extends LinearLayout implements rm0, View.OnClick
     }
 
     /* loaded from: classes2.dex */
-    public class a implements lo0 {
-        @Override // com.baidu.tieba.lo0
+    public class a implements bn0 {
+        @Override // com.baidu.tieba.bn0
         public void a() {
         }
 
         public a() {
         }
 
-        @Override // com.baidu.tieba.lo0
+        @Override // com.baidu.tieba.bn0
         public void b(Bitmap bitmap) {
             AdInstallTipsView.this.a.setImageBitmap(bitmap);
         }
@@ -57,7 +57,7 @@ public class AdInstallTipsView extends LinearLayout implements rm0, View.OnClick
         this(context, null);
     }
 
-    @Override // com.baidu.tieba.rm0
+    @Override // com.baidu.tieba.hl0
     public void a(long j) {
         boolean z;
         ClogBuilder.Area area;
@@ -87,12 +87,12 @@ public class AdInstallTipsView extends LinearLayout implements rm0, View.OnClick
         this(context, attributeSet, 0);
     }
 
-    @Override // com.baidu.tieba.rm0
+    @Override // com.baidu.tieba.hl0
     public void b(long j, long j2) {
         e().b(j, j2);
     }
 
-    @Override // com.baidu.tieba.rm0
+    @Override // com.baidu.tieba.hl0
     public void c(long j, long j2) {
         e().c(j, j2);
         b bVar = this.j;
@@ -101,7 +101,7 @@ public class AdInstallTipsView extends LinearLayout implements rm0, View.OnClick
         }
     }
 
-    @Override // com.baidu.tieba.rm0
+    @Override // com.baidu.tieba.hl0
     public void onProgress(long j, long j2) {
         e().onProgress(j, j2);
     }
@@ -123,7 +123,7 @@ public class AdInstallTipsView extends LinearLayout implements rm0, View.OnClick
         setBackground(getResources().getDrawable(R.drawable.nad_install_tips_bg));
         setOrientation(0);
         setGravity(16);
-        this.i = new pm0<>(this);
+        this.i = new fl0<>(this);
     }
 
     public final void g(View view2) {
@@ -152,7 +152,7 @@ public class AdInstallTipsView extends LinearLayout implements rm0, View.OnClick
         this.c.setOnClickListener(this);
         this.f.setOnClickListener(this);
         setOnClickListener(this);
-        d61.a(getContext(), this.c, 10.0f);
+        t41.a(getContext(), this.c, 10.0f);
     }
 
     @Override // android.view.View.OnClickListener
@@ -180,7 +180,7 @@ public class AdInstallTipsView extends LinearLayout implements rm0, View.OnClick
     }
 
     public void update(String str, String str2, long j, boolean z) {
-        ko0.a().c(str, new a());
+        an0.a().c(str, new a());
         this.b.setText(str2);
         if (z) {
             this.d.setVisibility(8);

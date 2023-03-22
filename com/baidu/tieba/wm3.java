@@ -1,197 +1,64 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.content.res.Resources;
-import android.os.Build;
-import android.provider.Settings;
-import android.text.TextUtils;
-import android.util.DisplayMetrics;
-import android.util.Pair;
-import android.view.Display;
-import android.view.WindowManager;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.util.devices.RomUtils;
-import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.SystemClock;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class wm3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948275340, "Lcom/baidu/tieba/wm3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public static class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public long[] b;
+        public final /* synthetic */ Runnable c;
+
+        public a(Runnable runnable) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {runnable};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948275340, "Lcom/baidu/tieba/wm3;");
-                return;
+            this.c = runnable;
+            this.a = 5;
+            this.b = new long[5];
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                long[] jArr = this.b;
+                System.arraycopy(jArr, 1, jArr, 0, jArr.length - 1);
+                long[] jArr2 = this.b;
+                jArr2[jArr2.length - 1] = SystemClock.uptimeMillis();
+                if (this.b[0] >= SystemClock.uptimeMillis() - 1000) {
+                    this.b = new long[this.a];
+                    this.c.run();
+                }
             }
         }
-        a = un3.b;
     }
 
-    public static boolean e() {
-        InterceptResult invokeV;
+    public static void a(View view2, Runnable runnable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            Context appContext = AppRuntime.getAppContext();
-            if (f(appContext)) {
-                return false;
-            }
-            return a(appContext);
+        if (interceptable == null || interceptable.invokeLL(65536, null, view2, runnable) == null) {
+            view2.setOnClickListener(new a(runnable));
         }
-        return invokeV.booleanValue;
-    }
-
-    @SuppressLint({"PrivateApi", "ObsoleteSdkInt"})
-    public static boolean a(Context context) {
-        InterceptResult invokeL;
-        boolean z;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            Resources resources = context.getResources();
-            int identifier = resources.getIdentifier(SapiSystemBarTintManager.SystemBarConfig.k, "bool", "android");
-            boolean z2 = false;
-            if (identifier > 0) {
-                z = resources.getBoolean(identifier);
-            } else {
-                z = false;
-            }
-            try {
-                if (Build.VERSION.SDK_INT < 21) {
-                    i = Settings.System.getInt(context.getContentResolver(), "navigationbar_is_min", 0);
-                } else {
-                    i = Settings.Global.getInt(context.getContentResolver(), "navigationbar_is_min", 0);
-                }
-                if (i != 0) {
-                    return false;
-                }
-                Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
-                String str = (String) cls.getMethod("get", String.class).invoke(cls, "qemu.hw.mainkeys");
-                if (!"1".equals(str)) {
-                    if ("0".equals(str)) {
-                        z2 = true;
-                    } else {
-                        z2 = z;
-                    }
-                }
-                return z2;
-            } catch (Exception unused) {
-                return z;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static Pair<Integer, Integer> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            Pair<Integer, Integer> d = d();
-            return new Pair<>(Integer.valueOf(((Integer) d.first).intValue()), Integer.valueOf(((Integer) d.second).intValue() - c()));
-        }
-        return (Pair) invokeV.objValue;
-    }
-
-    public static int c() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (!e()) {
-                return 0;
-            }
-            Resources resources = AppRuntime.getAppContext().getResources();
-            if (dn3.L()) {
-                str = SapiSystemBarTintManager.SystemBarConfig.h;
-            } else {
-                str = SapiSystemBarTintManager.SystemBarConfig.i;
-            }
-            return dn3.r(resources, str);
-        }
-        return invokeV.intValue;
-    }
-
-    public static Pair<Integer, Integer> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            Context appContext = AppRuntime.getAppContext();
-            WindowManager windowManager = (WindowManager) appContext.getSystemService("window");
-            if (windowManager == null) {
-                return new Pair<>(Integer.valueOf(dn3.o(appContext)), Integer.valueOf(dn3.n(appContext)));
-            }
-            Display defaultDisplay = windowManager.getDefaultDisplay();
-            DisplayMetrics displayMetrics = new DisplayMetrics();
-            defaultDisplay.getRealMetrics(displayMetrics);
-            return new Pair<>(Integer.valueOf(displayMetrics.widthPixels), Integer.valueOf(displayMetrics.heightPixels));
-        }
-        return (Pair) invokeV.objValue;
-    }
-
-    public static boolean f(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            String str = Build.BRAND;
-            try {
-                if (TextUtils.isEmpty(str)) {
-                    if (Settings.Global.getInt(context.getContentResolver(), "navigationbar_is_min", 0) == 0) {
-                        return false;
-                    }
-                    return true;
-                }
-                if (!str.equalsIgnoreCase("HUAWEI") && !str.equalsIgnoreCase("HONOR")) {
-                    if (str.equalsIgnoreCase(RomUtils.ROM_XIAOMI)) {
-                        if (Settings.Global.getInt(context.getContentResolver(), "force_fsg_nav_bar", 0) == 0) {
-                            return false;
-                        }
-                        return true;
-                    } else if (str.equalsIgnoreCase("VIVO")) {
-                        if (Settings.Secure.getInt(context.getContentResolver(), "navigation_gesture_on", 0) == 0) {
-                            return false;
-                        }
-                        return true;
-                    } else if (str.equalsIgnoreCase(a)) {
-                        if (Settings.Secure.getInt(context.getContentResolver(), "navigation_gesture_on", 0) == 0) {
-                            return false;
-                        }
-                        return true;
-                    } else if (str.equalsIgnoreCase("SAMSUNG")) {
-                        if (Settings.Global.getInt(context.getContentResolver(), "navigationbar_hide_bar_enabled", 0) == 0) {
-                            return false;
-                        }
-                        return true;
-                    } else if (Settings.Global.getInt(context.getContentResolver(), "navigation_gesture_on", 0) == 0) {
-                        return false;
-                    } else {
-                        return true;
-                    }
-                }
-                if (Settings.System.getInt(context.getContentResolver(), "navigationbar_is_min", 0) == 0) {
-                    return false;
-                }
-                return true;
-            } catch (Exception e) {
-                if (wp1.a) {
-                    e.printStackTrace();
-                }
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
     }
 }

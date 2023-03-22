@@ -1,50 +1,66 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.graphics.drawable.ColorDrawable;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.PopupWindow;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class h81 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface h81 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "sailorIocUtil");
+    public static final h81 b = new a();
 
-    public static void a(Context context, PopupWindow popupWindow) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, context, popupWindow) != null) || !(context instanceof Activity)) {
-            return;
-        }
-        popupWindow.getContentView().setSystemUiVisibility(((Activity) context).getWindow().getDecorView().getSystemUiVisibility() | 512 | 2);
-    }
+    boolean a();
 
-    public static ViewGroup b(Context context, ViewGroup viewGroup, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, context, viewGroup, z)) == null) {
-            if (!(context instanceof Activity)) {
-                return null;
+    void b(@Nullable String str, @Nullable Map<String, String> map, @Nullable String str2);
+
+    void c();
+
+    /* loaded from: classes4.dex */
+    public static class a implements h81 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.h81
+        public boolean a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return false;
             }
-            if (viewGroup == null) {
-                viewGroup = new FrameLayout(context);
-                viewGroup.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-                ColorDrawable colorDrawable = new ColorDrawable(-16777216);
-                colorDrawable.setAlpha(86);
-                viewGroup.setBackground(colorDrawable);
-            }
-            ViewGroup viewGroup2 = (ViewGroup) ((Activity) context).getWindow().getDecorView();
-            if (viewGroup.getParent() != null) {
-                viewGroup2.removeView(viewGroup);
-            }
-            if (z) {
-                viewGroup2.addView(viewGroup);
-            }
-            return viewGroup;
+            return invokeV.booleanValue;
         }
-        return (ViewGroup) invokeLLZ.objValue;
+
+        @Override // com.baidu.tieba.h81
+        public void b(@Nullable String str, @Nullable Map<String, String> map, @Nullable String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map, str2) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.h81
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 }

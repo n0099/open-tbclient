@@ -83,7 +83,7 @@ public class AppCompatRadioButton extends RadioButton implements TintableCompoun
     }
 
     public AppCompatRadioButton(Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f0405a4);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0405af);
     }
 
     public AppCompatRadioButton(Context context, @Nullable AttributeSet attributeSet, int i) {

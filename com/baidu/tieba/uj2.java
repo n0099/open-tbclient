@@ -1,264 +1,2135 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.util.Log;
-import androidx.annotation.Nullable;
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import android.webkit.JavascriptInterface;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.v8engine.JSExceptionType;
+import com.baidu.searchbox.v8engine.JsArrayBuffer;
+import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import okhttp3.internal.http2.Http2Codec;
+@SuppressLint({"UseSparseArrays"})
 /* loaded from: classes6.dex */
-public class uj2 extends yj2<zk2, cl2> {
+public class uj2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
-    public static volatile uj2 e;
-    public static boolean f;
     public transient /* synthetic */ FieldHolder $fh;
+    public vj2 a;
+    public bf2 b;
+    public yj2 c;
 
     /* loaded from: classes6.dex */
-    public static class a extends ProviderDelegation {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ Boolean b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ Map d;
+        public final /* synthetic */ fk2 e;
+        public final /* synthetic */ uj2 f;
 
-        public int e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return 0;
-            }
-            return invokeV.intValue;
-        }
+        /* renamed from: com.baidu.tieba.uj2$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class RunnableC0439a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ sj2 a;
+            public final /* synthetic */ a b;
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final yj2 d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return vj2.f(e());
-            }
-            return (yj2) invokeV.objValue;
-        }
-
-        public final ExtensionCore c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (d() == null) {
-                    return null;
-                }
-                ExtensionCore d = d().d();
-                if (!d.isAvailable()) {
-                    d().h();
-                    return d().d();
-                }
-                return d;
-            }
-            return (ExtensionCore) invokeV.objValue;
-        }
-
-        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-        public Bundle execCall(Bundle bundle) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, bundle)) == null) {
-                Bundle bundle2 = new Bundle();
-                bundle2.putParcelable("aiapps_extension_core", c());
-                return bundle2;
-            }
-            return (Bundle) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b extends ProviderDelegation {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-        public Bundle execCall(Bundle bundle) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-                Bundle bundle2 = new Bundle();
-                bundle2.putBoolean("swan_preset_extension", uj2.f);
-                m62.k("ExtCore-AppsManager", "is extension file exists : " + uj2.f);
-                return bundle2;
-            }
-            return (Bundle) invokeL.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948212844, "Lcom/baidu/tieba/uj2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948212844, "Lcom/baidu/tieba/uj2;");
-                return;
-            }
-        }
-        d = wp1.a;
-        f = m();
-    }
-
-    public static uj2 k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (e == null) {
-                synchronized (uj2.class) {
-                    if (e == null) {
-                        e = new uj2();
+            public RunnableC0439a(a aVar, sj2 sj2Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, sj2Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
                     }
                 }
+                this.b = aVar;
+                this.a = sj2Var;
             }
-            return e;
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put(Integer.valueOf(this.b.c), "dirPath");
+                    rj2 v = dk2.v(this.a, "mkdir:", this.b.d);
+                    a aVar = this.b;
+                    if (!dk2.a(v, aVar.e, hashMap, aVar.f.b)) {
+                        return;
+                    }
+                    fk2 fk2Var = this.b.e;
+                    fk2Var.errMsg = "mkdir:" + this.a.b;
+                    a aVar2 = this.b;
+                    dk2.b(aVar2.e, aVar2.d);
+                }
+            }
         }
-        return (uj2) invokeV.objValue;
+
+        public a(uj2 uj2Var, String str, Boolean bool, int i, Map map, fk2 fk2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uj2Var, str, bool, Integer.valueOf(i), map, fk2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f = uj2Var;
+            this.a = str;
+            this.b = bool;
+            this.c = i;
+            this.d = map;
+            this.e = fk2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f.b.runOnJSThread(new RunnableC0439a(this, this.f.a.o(this.a, this.b.booleanValue(), false)));
+            }
+        }
     }
 
-    public static zk2 l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (j()) {
-                return new zk2();
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ int d;
+        public final /* synthetic */ Map e;
+        public final /* synthetic */ fk2 f;
+        public final /* synthetic */ uj2 g;
+
+        /* loaded from: classes6.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ sj2 a;
+            public final /* synthetic */ b b;
+
+            public a(b bVar, sj2 sj2Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, sj2Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = bVar;
+                this.a = sj2Var;
             }
-            return new al2();
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put(Integer.valueOf(this.b.c), "srcPath");
+                    hashMap.put(Integer.valueOf(this.b.d), "destPath");
+                    rj2 v = dk2.v(this.a, "copyFile:", this.b.e);
+                    b bVar = this.b;
+                    if (!dk2.a(v, bVar.f, hashMap, bVar.g.b)) {
+                        return;
+                    }
+                    b bVar2 = this.b;
+                    dk2.b(bVar2.f, bVar2.e);
+                }
+            }
         }
-        return (zk2) invokeV.objValue;
+
+        public b(uj2 uj2Var, String str, String str2, int i, int i2, Map map, fk2 fk2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uj2Var, str, str2, Integer.valueOf(i), Integer.valueOf(i2), map, fk2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.g = uj2Var;
+            this.a = str;
+            this.b = str2;
+            this.c = i;
+            this.d = i2;
+            this.e = map;
+            this.f = fk2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.g.b.runOnJSThread(new a(this, this.g.a.c(this.a, this.b, false)));
+            }
+        }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uj2() {
-        super(l(), new cl2());
+    /* loaded from: classes6.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ byte[] c;
+        public final /* synthetic */ Map d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ int f;
+        public final /* synthetic */ int g;
+        public final /* synthetic */ fk2 h;
+        public final /* synthetic */ uj2 i;
+
+        /* loaded from: classes6.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ sj2 a;
+            public final /* synthetic */ c b;
+
+            public a(c cVar, sj2 sj2Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {cVar, sj2Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = cVar;
+                this.a = sj2Var;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put(Integer.valueOf(this.b.g), "filePath");
+                    rj2 v = dk2.v(this.a, "appendFile:", this.b.d);
+                    c cVar = this.b;
+                    if (!dk2.a(v, cVar.h, hashMap, cVar.i.b)) {
+                        return;
+                    }
+                    c cVar2 = this.b;
+                    dk2.b(cVar2.h, cVar2.d);
+                }
+            }
+        }
+
+        public c(uj2 uj2Var, String str, String str2, byte[] bArr, Map map, String str3, int i, int i2, fk2 fk2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uj2Var, str, str2, bArr, map, str3, Integer.valueOf(i), Integer.valueOf(i2), fk2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.i = uj2Var;
+            this.a = str;
+            this.b = str2;
+            this.c = bArr;
+            this.d = map;
+            this.e = str3;
+            this.f = i;
+            this.g = i2;
+            this.h = fk2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Object obj;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                vj2 vj2Var = this.i.a;
+                String str = this.a;
+                if (TextUtils.isEmpty(this.b)) {
+                    obj = this.c;
+                } else {
+                    obj = this.b;
+                }
+                sj2 b = vj2Var.b(str, obj, dk2.I(Http2Codec.ENCODING, this.d), false);
+                if (!TextUtils.isEmpty(this.e)) {
+                    b.b = this.e;
+                    b.a = -2;
+                    dk2.d(this.i.b, this.e);
+                } else {
+                    int i = this.f;
+                    if (i != 7 && i != 12) {
+                        b.b = "fail encoding must be a string";
+                        b.a = -2;
+                        dk2.d(this.i.b, b.b);
+                    }
+                }
+                this.i.b.runOnJSThread(new a(this, b));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ Map c;
+        public final /* synthetic */ fk2 d;
+        public final /* synthetic */ uj2 e;
+
+        /* loaded from: classes6.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ sj2 a;
+            public final /* synthetic */ d b;
+
+            public a(d dVar, sj2 sj2Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {dVar, sj2Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = dVar;
+                this.a = sj2Var;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put(Integer.valueOf(this.b.b), "path");
+                    rj2 v = dk2.v(this.a, "access:", this.b.c);
+                    d dVar = this.b;
+                    if (!dk2.a(v, dVar.d, hashMap, dVar.e.b)) {
+                        return;
+                    }
+                    d dVar2 = this.b;
+                    dk2.b(dVar2.d, dVar2.c);
+                }
+            }
+        }
+
+        public d(uj2 uj2Var, String str, int i, Map map, fk2 fk2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uj2Var, str, Integer.valueOf(i), map, fk2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = uj2Var;
+            this.a = str;
+            this.b = i;
+            this.c = map;
+            this.d = fk2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.e.b.runOnJSThread(new a(this, this.e.a.a(this.a, false)));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class e implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ Map c;
+        public final /* synthetic */ fk2 d;
+        public final /* synthetic */ uj2 e;
+
+        /* loaded from: classes6.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ sj2 a;
+            public final /* synthetic */ e b;
+
+            public a(e eVar, sj2 sj2Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {eVar, sj2Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = eVar;
+                this.a = sj2Var;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put(Integer.valueOf(this.b.b), "path");
+                    rj2 v = dk2.v(this.a, "stat:", this.b.c);
+                    e eVar = this.b;
+                    if (!dk2.a(v, eVar.d, hashMap, eVar.e.b)) {
+                        return;
+                    }
+                    lk2 lk2Var = new lk2();
+                    sj2 sj2Var = this.a;
+                    lk2Var.stats = sj2Var.d;
+                    lk2Var.errMsg = sj2Var.b;
+                    dk2.b(lk2Var, this.b.c);
+                }
+            }
+        }
+
+        public e(uj2 uj2Var, String str, int i, Map map, fk2 fk2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uj2Var, str, Integer.valueOf(i), map, fk2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = uj2Var;
+            this.a = str;
+            this.b = i;
+            this.c = map;
+            this.d = fk2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.e.b.runOnJSThread(new a(this, this.e.a.y(this.a, false)));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class f implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ Map c;
+        public final /* synthetic */ fk2 d;
+        public final /* synthetic */ uj2 e;
+
+        /* loaded from: classes6.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ sj2 a;
+            public final /* synthetic */ f b;
+
+            public a(f fVar, sj2 sj2Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {fVar, sj2Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = fVar;
+                this.a = sj2Var;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put(Integer.valueOf(this.b.b), "filePath");
+                    rj2 v = dk2.v(this.a, "getFileInfo:", this.b.c);
+                    f fVar = this.b;
+                    if (!dk2.a(v, fVar.d, hashMap, fVar.e.b)) {
+                        return;
+                    }
+                    gk2 gk2Var = new gk2();
+                    gk2Var.errMsg = "getFileInfo:" + this.a.b;
+                    sj2 sj2Var = this.a;
+                    gk2Var.digest = sj2Var.g;
+                    gk2Var.size = (int) sj2Var.e;
+                    dk2.b(gk2Var, this.b.c);
+                }
+            }
+        }
+
+        public f(uj2 uj2Var, String str, int i, Map map, fk2 fk2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uj2Var, str, Integer.valueOf(i), map, fk2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = uj2Var;
+            this.a = str;
+            this.b = i;
+            this.c = map;
+            this.d = fk2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.e.b.runOnJSThread(new a(this, this.e.a.e(this.a)));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class g implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Map a;
+        public final /* synthetic */ fk2 b;
+        public final /* synthetic */ uj2 c;
+
+        /* loaded from: classes6.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ sj2 a;
+            public final /* synthetic */ g b;
+
+            public a(g gVar, sj2 sj2Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {gVar, sj2Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = gVar;
+                this.a = sj2Var;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                int size;
+                tj2[] tj2VarArr;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    rj2 v = dk2.v(this.a, "getSavedFileList:", this.b.a);
+                    g gVar = this.b;
+                    if (!dk2.a(v, gVar.b, null, gVar.c.b)) {
+                        return;
+                    }
+                    hk2 hk2Var = new hk2();
+                    List<tj2> list = this.a.f;
+                    if (list == null) {
+                        size = 0;
+                    } else {
+                        size = list.size();
+                    }
+                    if (size == 0) {
+                        tj2VarArr = new tj2[0];
+                    } else {
+                        tj2VarArr = (tj2[]) this.a.f.toArray(new tj2[size]);
+                    }
+                    hk2Var.fileList = tj2VarArr;
+                    g gVar2 = this.b;
+                    hk2Var.errMsg = gVar2.b.errMsg;
+                    dk2.b(hk2Var, gVar2.a);
+                }
+            }
+        }
+
+        public g(uj2 uj2Var, Map map, fk2 fk2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uj2Var, map, fk2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = uj2Var;
+            this.a = map;
+            this.b = fk2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.c.b.runOnJSThread(new a(this, this.c.a.i()));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class h implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ Map c;
+        public final /* synthetic */ fk2 d;
+        public final /* synthetic */ uj2 e;
+
+        /* loaded from: classes6.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ sj2 a;
+            public final /* synthetic */ h b;
+
+            public a(h hVar, sj2 sj2Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {hVar, sj2Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = hVar;
+                this.a = sj2Var;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put(Integer.valueOf(this.b.b), "filePath");
+                    rj2 v = dk2.v(this.a, "removeSavedFile:", this.b.c);
+                    h hVar = this.b;
+                    if (!dk2.a(v, hVar.d, hashMap, hVar.e.b)) {
+                        return;
+                    }
+                    h hVar2 = this.b;
+                    dk2.b(hVar2.d, hVar2.c);
+                }
+            }
+        }
+
+        public h(uj2 uj2Var, String str, int i, Map map, fk2 fk2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uj2Var, str, Integer.valueOf(i), map, fk2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = uj2Var;
+            this.a = str;
+            this.b = i;
+            this.c = map;
+            this.d = fk2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.e.b.runOnJSThread(new a(this, this.e.a.t(this.a)));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class i implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ byte[] c;
+        public final /* synthetic */ Map d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ int f;
+        public final /* synthetic */ int g;
+        public final /* synthetic */ fk2 h;
+        public final /* synthetic */ uj2 i;
+
+        /* loaded from: classes6.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ sj2 a;
+            public final /* synthetic */ i b;
+
+            public a(i iVar, sj2 sj2Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {iVar, sj2Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = iVar;
+                this.a = sj2Var;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put(Integer.valueOf(this.b.g), "filePath");
+                    rj2 v = dk2.v(this.a, "writeFile:", this.b.d);
+                    i iVar = this.b;
+                    if (!dk2.a(v, iVar.h, hashMap, iVar.i.b)) {
+                        return;
+                    }
+                    fk2 fk2Var = this.b.h;
+                    fk2Var.errMsg = "writeFile:" + this.a.b;
+                    i iVar2 = this.b;
+                    dk2.b(iVar2.h, iVar2.d);
+                }
+            }
+        }
+
+        public i(uj2 uj2Var, String str, String str2, byte[] bArr, Map map, String str3, int i, int i2, fk2 fk2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uj2Var, str, str2, bArr, map, str3, Integer.valueOf(i), Integer.valueOf(i2), fk2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.i = uj2Var;
+            this.a = str;
+            this.b = str2;
+            this.c = bArr;
+            this.d = map;
+            this.e = str3;
+            this.f = i;
+            this.g = i2;
+            this.h = fk2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Object obj;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                vj2 vj2Var = this.i.a;
+                String str = this.a;
+                if (TextUtils.isEmpty(this.b)) {
+                    obj = this.c;
+                } else {
+                    obj = this.b;
+                }
+                sj2 C = vj2Var.C(false, str, obj, dk2.I(Http2Codec.ENCODING, this.d));
+                if (!TextUtils.isEmpty(this.e)) {
+                    C.b = this.e;
+                    C.a = -2;
+                    dk2.d(this.i.b, this.e);
+                } else {
+                    int i = this.f;
+                    if (i != 7 && i != 12) {
+                        C.b = "fail encoding must be a string";
+                        C.a = -2;
+                        dk2.d(this.i.b, C.b);
+                    }
+                }
+                this.i.b.runOnJSThread(new a(this, C));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class j implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ Map c;
+        public final /* synthetic */ fk2 d;
+        public final /* synthetic */ uj2 e;
+
+        /* loaded from: classes6.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ sj2 a;
+            public final /* synthetic */ j b;
+
+            public a(j jVar, sj2 sj2Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {jVar, sj2Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = jVar;
+                this.a = sj2Var;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put(Integer.valueOf(this.b.b), "filePath");
+                    rj2 v = dk2.v(this.a, "unlink:", this.b.c);
+                    j jVar = this.b;
+                    if (!dk2.a(v, jVar.d, hashMap, jVar.e.b)) {
+                        return;
+                    }
+                    fk2 fk2Var = this.b.d;
+                    fk2Var.errMsg = "unlink:" + this.a.b;
+                    j jVar2 = this.b;
+                    dk2.b(jVar2.d, jVar2.c);
+                }
+            }
+        }
+
+        public j(uj2 uj2Var, String str, int i, Map map, fk2 fk2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uj2Var, str, Integer.valueOf(i), map, fk2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = uj2Var;
+            this.a = str;
+            this.b = i;
+            this.c = map;
+            this.d = fk2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.e.b.runOnJSThread(new a(this, this.e.a.z(this.a, false)));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class k implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ int d;
+        public final /* synthetic */ Map e;
+        public final /* synthetic */ fk2 f;
+        public final /* synthetic */ uj2 g;
+
+        /* loaded from: classes6.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ sj2 a;
+            public final /* synthetic */ k b;
+
+            public a(k kVar, sj2 sj2Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {kVar, sj2Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = kVar;
+                this.a = sj2Var;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put(Integer.valueOf(this.b.c), "zipFilePath");
+                    hashMap.put(Integer.valueOf(this.b.d), "targetPath");
+                    rj2 v = dk2.v(this.a, "unzip:", this.b.e);
+                    k kVar = this.b;
+                    if (!dk2.a(v, kVar.f, hashMap, kVar.g.b)) {
+                        return;
+                    }
+                    fk2 fk2Var = this.b.f;
+                    fk2Var.errMsg = "unzip:" + this.a.b;
+                    k kVar2 = this.b;
+                    dk2.b(kVar2.f, kVar2.e);
+                }
+            }
+        }
+
+        public k(uj2 uj2Var, String str, String str2, int i, int i2, Map map, fk2 fk2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uj2Var, str, str2, Integer.valueOf(i), Integer.valueOf(i2), map, fk2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.g = uj2Var;
+            this.a = str;
+            this.b = str2;
+            this.c = i;
+            this.d = i2;
+            this.e = map;
+            this.f = fk2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.g.b.runOnJSThread(new a(this, this.g.a.A(this.a, this.b)));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class l implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ int d;
+        public final /* synthetic */ Map e;
+        public final /* synthetic */ fk2 f;
+        public final /* synthetic */ uj2 g;
+
+        /* loaded from: classes6.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ sj2 a;
+            public final /* synthetic */ l b;
+
+            public a(l lVar, sj2 sj2Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {lVar, sj2Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = lVar;
+                this.a = sj2Var;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                String str;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put(Integer.valueOf(this.b.c), "tempFilePath");
+                    hashMap.put(Integer.valueOf(this.b.d), "filePath");
+                    rj2 v = dk2.v(this.a, "saveFile:", this.b.e);
+                    l lVar = this.b;
+                    if (!dk2.a(v, lVar.f, hashMap, lVar.g.b)) {
+                        return;
+                    }
+                    kk2 kk2Var = new kk2();
+                    List<String> list = this.a.c;
+                    if (list != null) {
+                        str = list.get(0);
+                    } else {
+                        str = null;
+                    }
+                    kk2Var.savedFilePath = str;
+                    kk2Var.errMsg = this.a.b;
+                    dk2.b(kk2Var, this.b.e);
+                }
+            }
+        }
+
+        public l(uj2 uj2Var, String str, String str2, int i, int i2, Map map, fk2 fk2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uj2Var, str, str2, Integer.valueOf(i), Integer.valueOf(i2), map, fk2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.g = uj2Var;
+            this.a = str;
+            this.b = str2;
+            this.c = i;
+            this.d = i2;
+            this.e = map;
+            this.f = fk2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.g.b.runOnJSThread(new a(this, this.g.a.x(this.a, this.b, false)));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class m implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ int b;
+        public final /* synthetic */ Map c;
+        public final /* synthetic */ fk2 d;
+        public final /* synthetic */ uj2 e;
+
+        /* loaded from: classes6.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ sj2 a;
+            public final /* synthetic */ m b;
+
+            public a(m mVar, sj2 sj2Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {mVar, sj2Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = mVar;
+                this.a = sj2Var;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                int size;
+                String[] strArr;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put(Integer.valueOf(this.b.b), "dirPath");
+                    rj2 v = dk2.v(this.a, "readdir:", this.b.c);
+                    m mVar = this.b;
+                    if (!dk2.a(v, mVar.d, hashMap, mVar.e.b)) {
+                        return;
+                    }
+                    ik2 ik2Var = new ik2();
+                    List<String> list = this.a.c;
+                    if (list == null) {
+                        size = 0;
+                    } else {
+                        size = list.size();
+                    }
+                    if (size == 0) {
+                        strArr = new String[0];
+                    } else {
+                        strArr = (String[]) this.a.c.toArray(new String[size]);
+                    }
+                    ik2Var.files = strArr;
+                    ik2Var.errMsg = this.a.b;
+                    dk2.b(ik2Var, this.b.c);
+                }
+            }
+        }
+
+        public m(uj2 uj2Var, String str, int i, Map map, fk2 fk2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uj2Var, str, Integer.valueOf(i), map, fk2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = uj2Var;
+            this.a = str;
+            this.b = i;
+            this.c = map;
+            this.d = fk2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.e.b.runOnJSThread(new a(this, this.e.a.s(this.a, false)));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class n implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ Boolean b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ Map d;
+        public final /* synthetic */ fk2 e;
+        public final /* synthetic */ uj2 f;
+
+        /* loaded from: classes6.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ sj2 a;
+            public final /* synthetic */ n b;
+
+            public a(n nVar, sj2 sj2Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {nVar, sj2Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = nVar;
+                this.a = sj2Var;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put(Integer.valueOf(this.b.c), "dirPath");
+                    rj2 v = dk2.v(this.a, "rmdir:", this.b.d);
+                    n nVar = this.b;
+                    if (!dk2.a(v, nVar.e, hashMap, nVar.f.b)) {
+                        return;
+                    }
+                    n nVar2 = this.b;
+                    dk2.b(nVar2.e, nVar2.d);
+                }
+            }
+        }
+
+        public n(uj2 uj2Var, String str, Boolean bool, int i, Map map, fk2 fk2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uj2Var, str, bool, Integer.valueOf(i), map, fk2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f = uj2Var;
+            this.a = str;
+            this.b = bool;
+            this.c = i;
+            this.d = map;
+            this.e = fk2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.f.b.runOnJSThread(new a(this, this.f.a.v(this.a, this.b.booleanValue(), false)));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class o implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ int d;
+        public final /* synthetic */ Map e;
+        public final /* synthetic */ fk2 f;
+        public final /* synthetic */ uj2 g;
+
+        /* loaded from: classes6.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ sj2 a;
+            public final /* synthetic */ o b;
+
+            public a(o oVar, sj2 sj2Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {oVar, sj2Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = oVar;
+                this.a = sj2Var;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                String str;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put(Integer.valueOf(this.b.d), "filePath");
+                    rj2 v = dk2.v(this.a, "readFile:", this.b.e);
+                    o oVar = this.b;
+                    if (!dk2.a(v, oVar.f, hashMap, oVar.g.b)) {
+                        return;
+                    }
+                    if (TextUtils.isEmpty(this.b.b)) {
+                        ek2 ek2Var = new ek2();
+                        sj2 sj2Var = this.a;
+                        if (sj2Var.h == null) {
+                            sj2Var.h = new byte[0];
+                        }
+                        byte[] bArr = this.a.h;
+                        ek2Var.data = new JsArrayBuffer(bArr, bArr.length);
+                        ek2Var.errMsg = this.a.b;
+                        dk2.b(ek2Var, this.b.e);
+                        return;
+                    }
+                    List<String> list = this.a.c;
+                    if (list != null) {
+                        str = list.get(0);
+                    } else {
+                        str = null;
+                    }
+                    jk2 jk2Var = new jk2();
+                    jk2Var.data = str;
+                    jk2Var.errMsg = this.a.b;
+                    dk2.b(jk2Var, this.b.e);
+                }
+            }
+        }
+
+        public o(uj2 uj2Var, String str, String str2, int i, int i2, Map map, fk2 fk2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uj2Var, str, str2, Integer.valueOf(i), Integer.valueOf(i2), map, fk2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.g = uj2Var;
+            this.a = str;
+            this.b = str2;
+            this.c = i;
+            this.d = i2;
+            this.e = map;
+            this.f = fk2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                sj2 q = this.g.a.q(this.a, this.b, false);
+                int i = this.c;
+                if (i != 7 && i != 12) {
+                    q.b = "fail encoding must be a string";
+                    q.a = -2;
+                    dk2.d(this.g.b, q.b);
+                }
+                this.g.b.runOnJSThread(new a(this, q));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class p implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ int d;
+        public final /* synthetic */ Map e;
+        public final /* synthetic */ fk2 f;
+        public final /* synthetic */ uj2 g;
+
+        /* loaded from: classes6.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ sj2 a;
+            public final /* synthetic */ p b;
+
+            public a(p pVar, sj2 sj2Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {pVar, sj2Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = pVar;
+                this.a = sj2Var;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put(Integer.valueOf(this.b.c), "oldPath");
+                    hashMap.put(Integer.valueOf(this.b.d), "newPath");
+                    rj2 v = dk2.v(this.a, "rename:", this.b.e);
+                    p pVar = this.b;
+                    if (!dk2.a(v, pVar.f, hashMap, pVar.g.b)) {
+                        return;
+                    }
+                    p pVar2 = this.b;
+                    dk2.b(pVar2.f, pVar2.e);
+                }
+            }
+        }
+
+        public p(uj2 uj2Var, String str, String str2, int i, int i2, Map map, fk2 fk2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uj2Var, str, str2, Integer.valueOf(i), Integer.valueOf(i2), map, fk2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.g = uj2Var;
+            this.a = str;
+            this.b = str2;
+            this.c = i;
+            this.d = i2;
+            this.e = map;
+            this.f = fk2Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.g.b.runOnJSThread(new a(this, this.g.a.u(this.a, this.b, false)));
+            }
+        }
+    }
+
+    public uj2(bf2 bf2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((yk2) objArr[0], (bl2) objArr[1]);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {bf2Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = bf2Var;
+        c();
     }
 
-    public static boolean j() {
-        InterceptResult invokeV;
+    @JavascriptInterface
+    public void mkdirSync(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                m62.k("ExtCore-AppsManager", "MainProcess mPresetExtension: " + f);
-                return f;
-            }
-            b63 c = z53.c(b.class, null);
-            boolean z = true;
-            if (c.a() && !c.a.getBoolean("swan_preset_extension", true)) {
-                z = false;
-            }
-            m62.k("ExtCore-AppsManager", "swanProcess mPresetExtension: " + z);
-            return z;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            mkdirSync(str, false);
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.yj2
-    @Nullable
-    public ExtensionCore c() {
-        InterceptResult invokeV;
-        ExtensionCore extensionCore;
+    @JavascriptInterface
+    public void rmdirSync(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                extensionCore = d();
-            } else {
-                Bundle bundle = z53.c(a.class, null).a;
-                bundle.setClassLoader(ExtensionCore.class.getClassLoader());
-                extensionCore = (ExtensionCore) bundle.getParcelable("aiapps_extension_core");
-                if (d) {
-                    Log.d("ExtCore-AppsManager", "getExtensionCore:" + ProcessUtils.getCurProcessName() + " extension core: " + extensionCore);
+        if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
+            rmdirSync(str, false);
+        }
+    }
+
+    @JavascriptInterface
+    public String saveFileSync(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, str)) == null) {
+            return saveFileSync(str, qj2.USER_DATA_PATH);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @JavascriptInterface
+    public void access(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jsObject) != null) || !dk2.T(this.a, this.b, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
+            return;
+        }
+        int O = dk2.O("path", jsObject);
+        fk2 fk2Var = new fk2();
+        Map<String, Object> J = dk2.J(this.a, jsObject, fk2Var, "access:fail parameter error: parameter.path should be String instead of Undefined;");
+        if (J == null) {
+            return;
+        }
+        String I = dk2.I("path", J);
+        this.c.h(new d(this, I, O, J, fk2Var), "aigamesaccess:", I);
+    }
+
+    @JavascriptInterface
+    public void copyFile(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, jsObject) != null) || !dk2.T(this.a, this.b, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
+            return;
+        }
+        int O = dk2.O("srcPath", jsObject);
+        int O2 = dk2.O("destPath", jsObject);
+        fk2 fk2Var = new fk2();
+        Map<String, Object> J = dk2.J(this.a, jsObject, fk2Var, "copyFile:fail parameter error: parameter.srcPath should be String instead of Undefined;");
+        if (J == null) {
+            return;
+        }
+        String I = dk2.I("srcPath", J);
+        String I2 = dk2.I("destPath", J);
+        this.c.h(new b(this, I, I2, O, O2, J, fk2Var), "aigamescopyFile:", I, I2);
+    }
+
+    @JavascriptInterface
+    public void getFileInfo(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048586, this, jsObject) != null) || !dk2.T(this.a, this.b, jsObject, "fail parameter error: parameter.filePath should be String instead of ")) {
+            return;
+        }
+        int O = dk2.O("filePath", jsObject);
+        fk2 fk2Var = new fk2();
+        Map<String, Object> J = dk2.J(this.a, jsObject, fk2Var, "getFileInfo:fail parameter error: parameter.filePath should be String instead of Undefined;");
+        if (J == null) {
+            return;
+        }
+        String I = dk2.I("filePath", J);
+        this.c.h(new f(this, I, O, J, fk2Var), "aigamesgetFileInfo:", I);
+    }
+
+    @JavascriptInterface
+    public void mkdir(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048588, this, jsObject) != null) || !dk2.T(this.a, this.b, jsObject, "fail parameter error: parameter.dirPath should be String instead of ")) {
+            return;
+        }
+        int O = dk2.O("dirPath", jsObject);
+        fk2 fk2Var = new fk2();
+        Map<String, Object> J = dk2.J(this.a, jsObject, fk2Var, "mkdir:fail parameter error: parameter.dirPath should be String instead of Undefined;");
+        if (J == null) {
+            return;
+        }
+        String I = dk2.I("dirPath", J);
+        this.c.h(new a(this, I, (Boolean) dk2.H("recursive", J, Boolean.FALSE), O, J, fk2Var), "aigamesmkdir:", I);
+    }
+
+    @JavascriptInterface
+    public void readFile(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048591, this, jsObject) != null) || !dk2.T(this.a, this.b, jsObject, "fail parameter error: parameter.dirPath should be String instead of ")) {
+            return;
+        }
+        int O = dk2.O("filePath", jsObject);
+        int O2 = dk2.O(Http2Codec.ENCODING, jsObject);
+        fk2 fk2Var = new fk2();
+        Map<String, Object> J = dk2.J(this.a, jsObject, fk2Var, "readFile:fail parameter error: parameter.filePath should be String instead of Undefined;");
+        if (J == null) {
+            return;
+        }
+        String I = dk2.I(Http2Codec.ENCODING, J);
+        String I2 = dk2.I("filePath", J);
+        this.c.h(new o(this, I2, I, O2, O, J, fk2Var), "aigamesreadFile:", I2);
+    }
+
+    @JavascriptInterface
+    public JsArrayBuffer readFileSync(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
+            if (!dk2.T(this.a, this.b, null, null)) {
+                return null;
+            }
+            this.c.k(str);
+            sj2 q = this.a.q(str, null, true);
+            dk2.d0(this.b, q, JSExceptionType.Error, "unknown error", "readFileSync:");
+            if (q.h == null) {
+                q.h = new byte[0];
+            }
+            byte[] bArr = q.h;
+            return new JsArrayBuffer(bArr, bArr.length);
+        }
+        return (JsArrayBuffer) invokeL.objValue;
+    }
+
+    @JavascriptInterface
+    public void readdir(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048594, this, jsObject) != null) || !dk2.T(this.a, this.b, jsObject, "fail parameter error: parameter.dirPath should be String instead of ")) {
+            return;
+        }
+        int O = dk2.O("dirPath", jsObject);
+        fk2 fk2Var = new fk2();
+        Map<String, Object> J = dk2.J(this.a, jsObject, fk2Var, "readdir:fail parameter error: parameter.dirPath should be String instead of Undefined;");
+        if (J == null) {
+            return;
+        }
+        String I = dk2.I("dirPath", J);
+        this.c.h(new m(this, I, O, J, fk2Var), "aigamesreaddir:", I);
+    }
+
+    @JavascriptInterface
+    public String[] readdirSync(String str) {
+        InterceptResult invokeL;
+        int size;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
+            if (!dk2.T(this.a, this.b, null, null)) {
+                return null;
+            }
+            this.c.k(str);
+            sj2 s = this.a.s(str, true);
+            dk2.d0(this.b, s, JSExceptionType.Error, "unknown error", "readdirSync:");
+            if (s != null && s.a == 0) {
+                List<String> list = s.c;
+                if (list == null) {
+                    size = 0;
+                } else {
+                    size = list.size();
                 }
+                if (size == 0) {
+                    return new String[0];
+                }
+                return (String[]) s.c.toArray(new String[size]);
             }
-            if (extensionCore != null && l53.Y() && extensionCore.extensionCoreVersionCode < 4294967297L) {
-                return l53.a(extensionCore);
-            }
-            return extensionCore;
+            return new String[0];
         }
-        return (ExtensionCore) invokeV.objValue;
+        return (String[]) invokeL.objValue;
     }
 
-    public static boolean m() {
-        InterceptResult invokeV;
-        boolean z;
+    @JavascriptInterface
+    public void removeSavedFile(JsObject jsObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            tk2 tk2Var = new tk2();
-            if (xl3.a(AppRuntime.getAppContext(), tk2Var.d()) && xl3.a(AppRuntime.getAppContext(), tk2Var.a())) {
-                z = true;
+        if ((interceptable != null && interceptable.invokeL(1048596, this, jsObject) != null) || !dk2.T(this.a, this.b, jsObject, "fail parameter error: parameter.filePath should be String instead of ")) {
+            return;
+        }
+        int O = dk2.O("filePath", jsObject);
+        fk2 fk2Var = new fk2();
+        Map<String, Object> J = dk2.J(this.a, jsObject, fk2Var, "removeSavedFile:fail parameter error: parameter.filePath should be String instead of Undefined;");
+        if (J == null) {
+            return;
+        }
+        this.c.h(new h(this, dk2.I("filePath", J), O, J, fk2Var), "aigamesremoveSavedFile:", new String[0]);
+    }
+
+    @JavascriptInterface
+    public void rename(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048597, this, jsObject) != null) || !dk2.T(this.a, this.b, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
+            return;
+        }
+        int O = dk2.O("oldPath", jsObject);
+        int O2 = dk2.O("newPath", jsObject);
+        fk2 fk2Var = new fk2();
+        Map<String, Object> J = dk2.J(this.a, jsObject, fk2Var, "rename:fail parameter error: parameter.oldPath should be String instead of Undefined;");
+        if (J == null) {
+            return;
+        }
+        String I = dk2.I("oldPath", J);
+        String I2 = dk2.I("newPath", J);
+        this.c.h(new p(this, I, I2, O, O2, J, fk2Var), "aigamesrename:", I, I2);
+    }
+
+    @JavascriptInterface
+    public void rmdir(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048599, this, jsObject) != null) || !dk2.T(this.a, this.b, jsObject, "fail parameter error: parameter.dirPath should be String instead of ")) {
+            return;
+        }
+        int O = dk2.O("dirPath", jsObject);
+        fk2 fk2Var = new fk2();
+        Map<String, Object> J = dk2.J(this.a, jsObject, fk2Var, "rmdir:fail parameter error: parameter.dirPath should be String instead of Undefined;");
+        if (J == null) {
+            return;
+        }
+        String I = dk2.I("dirPath", J);
+        this.c.h(new n(this, I, (Boolean) dk2.H("recursive", J, Boolean.FALSE), O, J, fk2Var), "aigamesrmdir:", I);
+    }
+
+    @JavascriptInterface
+    public void saveFile(JsObject jsObject) {
+        int i2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048602, this, jsObject) != null) || !dk2.T(this.a, this.b, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
+            return;
+        }
+        int O = dk2.O("tempFilePath", jsObject);
+        int O2 = dk2.O("filePath", jsObject);
+        if (O2 == 12) {
+            i2 = 7;
+        } else {
+            i2 = O2;
+        }
+        fk2 fk2Var = new fk2();
+        Map<String, Object> J = dk2.J(this.a, jsObject, fk2Var, "saveFile:fail parameter error: parameter.tempFilePath should be String instead of Undefined;");
+        if (J == null) {
+            return;
+        }
+        String I = dk2.I("tempFilePath", J);
+        String I2 = dk2.I("filePath", J);
+        this.c.h(new l(this, I, I2, O, i2, J, fk2Var), "aigamessaveFile:", I, I2);
+    }
+
+    @JavascriptInterface
+    public void stat(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048605, this, jsObject) != null) || !dk2.T(this.a, this.b, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
+            return;
+        }
+        int O = dk2.O("path", jsObject);
+        fk2 fk2Var = new fk2();
+        Map<String, Object> J = dk2.J(this.a, jsObject, fk2Var, "stat:fail parameter error: parameter.path should be String instead of Undefined;");
+        if (J == null) {
+            return;
+        }
+        String I = dk2.I("path", J);
+        this.c.h(new e(this, I, O, J, fk2Var), "aigamesstat:", I);
+    }
+
+    @JavascriptInterface
+    public zj2 statSync(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, str)) == null) {
+            if (!dk2.T(this.a, this.b, null, null)) {
+                return null;
+            }
+            this.c.k(str);
+            sj2 y = this.a.y(str, true);
+            dk2.d0(this.b, y, JSExceptionType.Error, "unknown error", "statSync:");
+            if (y == null || y.a != 0) {
+                return null;
+            }
+            return y.d;
+        }
+        return (zj2) invokeL.objValue;
+    }
+
+    @JavascriptInterface
+    public void unlink(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048607, this, jsObject) != null) || !dk2.T(this.a, this.b, jsObject, "fail parameter error: parameter.filePath should be String instead of ")) {
+            return;
+        }
+        int O = dk2.O("filePath", jsObject);
+        fk2 fk2Var = new fk2();
+        Map<String, Object> J = dk2.J(this.a, jsObject, fk2Var, "unlink:fail parameter error: parameter.filePath should be String instead of Undefined;");
+        if (J == null) {
+            return;
+        }
+        String I = dk2.I("filePath", J);
+        this.c.h(new j(this, I, O, J, fk2Var), "aigamesunlink:", I);
+    }
+
+    @JavascriptInterface
+    public void unzip(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048609, this, jsObject) != null) || !dk2.T(this.a, this.b, jsObject, "fail parameter error: parameter.path should be String instead of ")) {
+            return;
+        }
+        int O = dk2.O("zipFilePath", jsObject);
+        int O2 = dk2.O("targetPath", jsObject);
+        fk2 fk2Var = new fk2();
+        Map<String, Object> J = dk2.J(this.a, jsObject, fk2Var, "unzip:fail parameter error: parameter.zipFilePath should be String instead of Undefined;");
+        if (J == null) {
+            return;
+        }
+        String I = dk2.I("zipFilePath", J);
+        String I2 = dk2.I("targetPath", J);
+        this.c.h(new k(this, I, I2, O, O2, J, fk2Var), "aigamesunzip:", I, I2);
+    }
+
+    @JavascriptInterface
+    public void accessSync(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || !dk2.T(this.a, this.b, null, null)) {
+            return;
+        }
+        this.c.k(str);
+        dk2.d0(this.b, this.a.a(str, true), JSExceptionType.Error, "unknown error", "accessSync:");
+    }
+
+    @JavascriptInterface
+    public void getSavedFileList(JsObject jsObject) {
+        fk2 fk2Var;
+        Map<String, Object> J;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048587, this, jsObject) != null) || !dk2.T(this.a, this.b, jsObject, "fail parameter error: parameter.filePath should be String instead of ") || (J = dk2.J(this.a, jsObject, (fk2Var = new fk2()), "getSavedFileList:fail parameter error: parameter.filePath should be String instead of Undefined;")) == null) {
+            return;
+        }
+        this.c.h(new g(this, J, fk2Var), "aigamesgetSavedFileList:", new String[0]);
+    }
+
+    @JavascriptInterface
+    public void unlinkSync(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048608, this, str) != null) || !dk2.T(this.a, this.b, null, null)) {
+            return;
+        }
+        this.c.k(str);
+        dk2.d0(this.b, this.a.z(str, true), JSExceptionType.Error, "unknown error", "unlinkSync:");
+    }
+
+    @JavascriptInterface
+    public void appendFile(JsObject jsObject) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jsObject) != null) || !dk2.T(this.a, this.b, jsObject, "fail parameter error: parameter.filePath should be String instead of ")) {
+            return;
+        }
+        int O = dk2.O(Http2Codec.ENCODING, jsObject);
+        int O2 = dk2.O("filePath", jsObject);
+        int O3 = dk2.O("data", jsObject);
+        if (O3 != 5 && O3 != 2 && O3 != 3) {
+            str = dk2.w(O3);
+        } else {
+            str = "fail data argument must not be a number";
+        }
+        String str2 = str;
+        byte[] r = dk2.r(jsObject);
+        fk2 fk2Var = new fk2();
+        Map<String, Object> J = dk2.J(this.a, jsObject, fk2Var, "appendFile:fail parameter error: parameter.filePath should be String instead of Undefined;");
+        if (J == null) {
+            return;
+        }
+        String I = dk2.I("data", J);
+        String I2 = dk2.I("filePath", J);
+        this.c.h(new c(this, I2, I, r, J, str2, O, O2, fk2Var), "aigamesappendFile:", I2);
+    }
+
+    @JavascriptInterface
+    public void writeFile(JsObject jsObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048610, this, jsObject) != null) || !dk2.T(this.a, this.b, jsObject, "fail parameter error: parameter.dirPath should be String instead of ")) {
+            return;
+        }
+        int O = dk2.O("filePath", jsObject);
+        String w = dk2.w(dk2.O("data", jsObject));
+        int O2 = dk2.O(Http2Codec.ENCODING, jsObject);
+        byte[] r = dk2.r(jsObject);
+        fk2 fk2Var = new fk2();
+        Map<String, Object> J = dk2.J(this.a, jsObject, fk2Var, "writeFile:fail parameter error: parameter.filePath should be String instead of Undefined;");
+        if (J == null) {
+            return;
+        }
+        String I = dk2.I("data", J);
+        String I2 = dk2.I("filePath", J);
+        this.c.h(new i(this, I2, I, r, J, w, O2, O, fk2Var), "aigameswriteFile:", I2);
+    }
+
+    @JavascriptInterface
+    public void appendFileSync(String str, JsArrayBuffer jsArrayBuffer) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, jsArrayBuffer) == null) {
+            appendFileSync(str, jsArrayBuffer, (String) null);
+        }
+    }
+
+    @JavascriptInterface
+    public void writeFileSync(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048613, this, str, str2) == null) {
+            writeFileSync(str, str2, "");
+        }
+    }
+
+    @JavascriptInterface
+    public void appendFileSync(String str, JsArrayBuffer jsArrayBuffer, String str2) {
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, str, jsArrayBuffer, str2) == null) {
+            if (jsArrayBuffer == null) {
+                str3 = null;
             } else {
-                z = false;
+                str3 = new String(jsArrayBuffer.buffer());
             }
-            m62.k("ExtCore-AppsManager", "preset extension isFileExists : " + z);
-            return z;
+            appendFileSync(str, str3, str2);
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.yj2
-    public String b(int i) {
-        InterceptResult invokeI;
+    @JavascriptInterface
+    public void writeFileSync(String str, JsArrayBuffer jsArrayBuffer, String str2) {
+        String str3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i != 1) {
-                return dk2.b().getPath();
+        if (interceptable == null || interceptable.invokeLLL(1048612, this, str, jsArrayBuffer, str2) == null) {
+            if (jsArrayBuffer == null) {
+                str3 = null;
+            } else {
+                str3 = new String(jsArrayBuffer.buffer());
             }
-            return null;
+            writeFileSync(str, str3, str2);
         }
-        return (String) invokeI.objValue;
+    }
+
+    @JavascriptInterface
+    public void appendFileSync(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
+            appendFileSync(str, str2, (String) null);
+        }
+    }
+
+    @JavascriptInterface
+    public void appendFileSync(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(1048582, this, str, str2, str3) != null) || !dk2.T(this.a, this.b, null, null)) {
+            return;
+        }
+        this.c.k(str);
+        dk2.d0(this.b, this.a.b(str, str2, str3, true), JSExceptionType.Error, "unknown error", "appendFileSync:");
+    }
+
+    @JavascriptInterface
+    public void writeFileSync(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(1048614, this, str, str2, str3) != null) || !dk2.T(this.a, this.b, null, null)) {
+            return;
+        }
+        this.c.k(str);
+        dk2.d0(this.b, this.a.C(true, str, str2, str3), JSExceptionType.Error, "unknown error", "writeFileSync:");
+    }
+
+    public final void c() {
+        wf3 bk2Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            t73 b0 = t73.b0();
+            if (b0 != null) {
+                bk2Var = b0.h0();
+            } else {
+                bk2Var = new bk2();
+            }
+            this.a = new vj2(AppRuntime.getAppContext(), gt2.U().z(), bk2Var);
+            this.c = yj2.d();
+        }
+    }
+
+    @JavascriptInterface
+    public void copyFileSync(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048585, this, str, str2) != null) || !dk2.T(this.a, this.b, null, null)) {
+            return;
+        }
+        this.c.k(str, str2);
+        dk2.d0(this.b, this.a.c(str, str2, true), JSExceptionType.Error, "unknown error", "copyFileSync:");
+    }
+
+    @JavascriptInterface
+    public void mkdirSync(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(1048590, this, str, z) != null) || !dk2.T(this.a, this.b, null, null)) {
+            return;
+        }
+        this.c.k(str);
+        dk2.d0(this.b, this.a.o(str, z, true), JSExceptionType.Error, "unknown error", "mkdirSync:");
+    }
+
+    @JavascriptInterface
+    public void renameSync(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048598, this, str, str2) != null) || !dk2.T(this.a, this.b, null, null)) {
+            return;
+        }
+        this.c.k(str, str2);
+        dk2.d0(this.b, this.a.u(str, str2, true), JSExceptionType.Error, "unknown error", "renameSync:");
+    }
+
+    @JavascriptInterface
+    public void rmdirSync(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLZ(1048601, this, str, z) != null) || !dk2.T(this.a, this.b, null, null)) {
+            return;
+        }
+        this.c.k(str);
+        dk2.d0(this.b, this.a.v(str, z, true), JSExceptionType.Error, "unknown error", "rmdirSync:");
+    }
+
+    @JavascriptInterface
+    public void writeFileSync(String str, JsArrayBuffer jsArrayBuffer) {
+        byte[] buffer;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048611, this, str, jsArrayBuffer) != null) || !dk2.T(this.a, this.b, null, null)) {
+            return;
+        }
+        this.c.k(str);
+        vj2 vj2Var = this.a;
+        if (jsArrayBuffer == null) {
+            buffer = new byte[0];
+        } else {
+            buffer = jsArrayBuffer.buffer();
+        }
+        dk2.d0(this.b, vj2Var.C(true, str, buffer, null), JSExceptionType.Error, "unknown error", "writeFileSync:");
+    }
+
+    @JavascriptInterface
+    public String readFileSync(String str, String str2) {
+        InterceptResult invokeLL;
+        List<String> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048593, this, str, str2)) == null) {
+            if (!dk2.T(this.a, this.b, null, null)) {
+                return null;
+            }
+            this.c.k(str);
+            sj2 q = this.a.q(str, str2, true);
+            dk2.d0(this.b, q, JSExceptionType.Error, "unknown error", "readFileSync:");
+            if (q == null || q.a != 0 || (list = q.c) == null) {
+                return null;
+            }
+            return list.get(0);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    @JavascriptInterface
+    public String saveFileSync(String str, String str2) {
+        InterceptResult invokeLL;
+        List<String> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048604, this, str, str2)) == null) {
+            if (!dk2.T(this.a, this.b, null, null)) {
+                return null;
+            }
+            this.c.k(str, str2);
+            sj2 x = this.a.x(str, str2, true);
+            dk2.d0(this.b, x, JSExceptionType.Error, "unknown error", "saveFileSync:");
+            if (x == null || x.a != 0 || (list = x.c) == null) {
+                return null;
+            }
+            return list.get(0);
+        }
+        return (String) invokeLL.objValue;
     }
 }

@@ -1,98 +1,62 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.audiorecorder.lib.voice.VoiceRecordButton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class po {
+public class po extends wb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final RecyclerView a;
-    @Nullable
-    public Runnable b;
 
-    /* loaded from: classes5.dex */
-    public class a extends RecyclerView.OnScrollListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ po a;
-
-        public a(po poVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {poVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = poVar;
-        }
-
-        @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
-        public void onScrollStateChanged(@NonNull RecyclerView recyclerView, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, recyclerView, i) == null) {
-                super.onScrollStateChanged(recyclerView, i);
-                if (this.a.d() && this.a.b != null) {
-                    recyclerView.post(this.a.b);
-                    this.a.b = null;
-                }
-            }
-        }
-    }
-
-    public po(@NonNull RecyclerView recyclerView) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public po(Context context) {
+        super(context, TbadkCoreApplication.getInst().getResources().getString(R.string.msglist_voice), 6);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {recyclerView};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = recyclerView;
-        recyclerView.addOnScrollListener(new a(this));
+        this.d = R.drawable.icon_pure_post_voice_n_svg;
+        this.e = R.drawable.icon_mask_post_voice24_selection_svg;
+        this.i = true;
+        this.n = 6;
+        this.o = true;
+        this.m = VoiceRecordButton.z(context);
+        this.p = new int[]{1, 9};
     }
 
-    public void e(@NonNull Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) {
-            if (d()) {
-                runnable.run();
-            } else {
-                this.b = runnable;
-            }
-        }
-    }
-
-    public final boolean d() {
+    @Override // com.baidu.tieba.wb5
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a.getScrollState() == 0 && !this.a.isComputingLayout()) {
-                return true;
+            if (!TbadkCoreApplication.getInst().isAudioRecorderOpen()) {
+                String uegVoiceWarning = TbadkCoreApplication.getInst().getUegVoiceWarning();
+                if (StringUtils.isNull(uegVoiceWarning)) {
+                    uegVoiceWarning = TbadkCoreApplication.getInst().getString(R.string.ueg_voice_warning);
+                }
+                UtilHelper.showToast(TbadkCoreApplication.getInst(), uegVoiceWarning);
+                return false;
             }
-            return false;
+            return super.a();
         }
         return invokeV.booleanValue;
     }

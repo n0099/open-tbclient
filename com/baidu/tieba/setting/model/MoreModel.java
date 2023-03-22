@@ -3,7 +3,7 @@ package com.baidu.tieba.setting.model;
 import com.baidu.adp.base.BdBaseModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.data.PersonChangeData;
-import com.baidu.tieba.x9;
+import com.baidu.tieba.a9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -116,7 +116,7 @@ public class MoreModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((x9) newInitContext.callArgs[0]);
+                super((a9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -130,7 +130,7 @@ public class MoreModel extends BdBaseModel {
         }
     }
 
-    public PersonChangeData N() {
+    public PersonChangeData R() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -139,7 +139,7 @@ public class MoreModel extends BdBaseModel {
         return (PersonChangeData) invokeV.objValue;
     }
 
-    public boolean O() {
+    public boolean S() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -148,14 +148,14 @@ public class MoreModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void P(PersonChangeData personChangeData) {
+    public void T(PersonChangeData personChangeData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, personChangeData) == null) {
             this.a = personChangeData;
         }
     }
 
-    public void Q(boolean z) {
+    public void U(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             this.b = z;

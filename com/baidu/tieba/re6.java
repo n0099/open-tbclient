@@ -1,119 +1,143 @@
 package com.baidu.tieba;
 
-import android.net.http.SslError;
-import android.webkit.SslErrorHandler;
-import android.webkit.WebResourceRequest;
-import android.webkit.WebView;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class re6 implements je6 {
+public class re6 extends me6<pk6> {
     public static /* synthetic */ Interceptable $ic;
-    public static final re6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
+    public TextView i;
+    public TextView j;
+    public TextView k;
+    public TextView l;
+    public TextView m;
+    public View n;
+    public View o;
+    public String p;
 
-    @Override // com.baidu.tieba.je6
-    public void a(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
+    @Override // com.baidu.tieba.me6
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, webView, sslErrorHandler, sslError) == null) {
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d019d : invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.je6
-    public void e(WebView webView, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, webView, str) == null) {
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948118790, "Lcom/baidu/tieba/re6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948118790, "Lcom/baidu/tieba/re6;");
-                return;
-            }
-        }
-        b = new re6();
-    }
-
-    public re6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public re6(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        r(h());
+    }
+
+    public void t(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.p = str;
+        }
+    }
+
+    @Override // com.baidu.tieba.me6
+    public void m(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundResource(h(), R.color.CAM_X0201);
+            SkinManager.setBackgroundResource(this.n, R.color.CAM_X0205);
+            SkinManager.setBackgroundResource(this.o, R.color.CAM_X0205);
+            SkinManager.setViewTextColor(this.i, R.color.CAM_X0106, 1);
+            SkinManager.setViewTextColor(this.j, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(this.l, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(this.m, R.color.CAM_X0105, 1);
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+            if (view2 == this.j || view2 == this.k || view2 == this.l || view2 == this.m) {
+                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 8).param("fid", this.p));
+                UrlManager.getInstance().dealOneLink((TbPageContext) g9.a(this.b.getPageActivity()), new String[]{(String) view2.getTag()}, true);
             }
         }
     }
 
-    public static re6 f() {
-        InterceptResult invokeV;
+    public final void r(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
-        }
-        return (re6) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.je6
-    public void b(WebView webView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView) == null) {
-            this.a = 0L;
-        }
-    }
-
-    @Override // com.baidu.tieba.je6
-    public void c(WebView webView, WebResourceRequest webResourceRequest, int i, CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_SEND_USER_MSG, this, webView, webResourceRequest, i, charSequence) == null) {
-            ke6.b("lt-log", "onPageError：" + webResourceRequest.getUrl());
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09057d);
+            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09057e);
+            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09057f);
+            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090580);
+            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090581);
+            this.j.setOnClickListener(this);
+            this.k.setOnClickListener(this);
+            this.l.setOnClickListener(this);
+            this.m.setOnClickListener(this);
+            this.n = view2.findViewById(R.id.obfuscated_res_0x7f0908c2);
+            this.o = view2.findViewById(R.id.obfuscated_res_0x7f0908c3);
         }
     }
 
-    @Override // com.baidu.tieba.je6
-    public void d(WebView webView, String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.me6
+    /* renamed from: s */
+    public void l(pk6 pk6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, webView, str) == null) {
-            this.a = System.currentTimeMillis();
-            ke6.b("lt-log", "onPageStarted：" + str);
-        }
-    }
-
-    @Override // com.baidu.tieba.je6
-    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, webView, str)) == null) {
-            ke6.b("lt-log", "shouldOverrideUrlLoading：" + str);
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.je6
-    public void onPageFinished(WebView webView, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, webView, str) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            ke6.b("lt-log", "onPageFinished：(" + (currentTimeMillis - this.a) + "ms)" + str);
+        if ((interceptable == null || interceptable.invokeL(1048581, this, pk6Var) == null) && pk6Var != null && pk6Var.c() != null) {
+            if (!TextUtils.isEmpty(pk6Var.c().title)) {
+                this.i.setText(pk6Var.c().title);
+            }
+            this.j.setVisibility(8);
+            this.k.setVisibility(8);
+            this.l.setVisibility(8);
+            this.m.setVisibility(8);
+            if (pk6Var.c().sub_nodes.size() >= 1) {
+                this.j.setVisibility(0);
+                this.j.setTag(pk6Var.c().sub_nodes.get(0).url);
+                this.j.setText(pk6Var.c().sub_nodes.get(0).title);
+            }
+            if (pk6Var.c().sub_nodes.size() >= 2) {
+                this.k.setVisibility(0);
+                this.k.setTag(pk6Var.c().sub_nodes.get(1).url);
+                this.k.setText(pk6Var.c().sub_nodes.get(1).title);
+            }
+            if (pk6Var.c().sub_nodes.size() >= 3) {
+                this.l.setVisibility(0);
+                this.l.setTag(pk6Var.c().sub_nodes.get(2).url);
+                this.l.setText(pk6Var.c().sub_nodes.get(2).title);
+            }
+            if (pk6Var.c().sub_nodes.size() >= 4) {
+                this.m.setVisibility(0);
+                this.m.setTag(pk6Var.c().sub_nodes.get(3).url);
+                this.m.setText(pk6Var.c().sub_nodes.get(3).title);
+            }
         }
     }
 }

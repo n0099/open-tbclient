@@ -87,7 +87,7 @@ public class ig implements is<ig, Object>, Serializable, Cloneable {
         this();
         this.f652b = str;
         this.f651a = z;
-        m559a(true);
+        m561a(true);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -110,21 +110,21 @@ public class ig implements is<ig, Object>, Serializable, Cloneable {
         int a15;
         int a16;
         if (ig.class.equals(igVar.getClass())) {
-            int compareTo = Boolean.valueOf(m560a()).compareTo(Boolean.valueOf(igVar.m560a()));
+            int compareTo = Boolean.valueOf(m562a()).compareTo(Boolean.valueOf(igVar.m562a()));
             if (compareTo != 0) {
                 return compareTo;
             }
-            if (!m560a() || (a16 = it.a(this.f647a, igVar.f647a)) == 0) {
-                int compareTo2 = Boolean.valueOf(m563b()).compareTo(Boolean.valueOf(igVar.m563b()));
+            if (!m562a() || (a16 = it.a(this.f647a, igVar.f647a)) == 0) {
+                int compareTo2 = Boolean.valueOf(m565b()).compareTo(Boolean.valueOf(igVar.m565b()));
                 if (compareTo2 != 0) {
                     return compareTo2;
                 }
-                if (!m563b() || (a15 = it.a(this.f646a, igVar.f646a)) == 0) {
-                    int compareTo3 = Boolean.valueOf(m564c()).compareTo(Boolean.valueOf(igVar.m564c()));
+                if (!m565b() || (a15 = it.a(this.f646a, igVar.f646a)) == 0) {
+                    int compareTo3 = Boolean.valueOf(m566c()).compareTo(Boolean.valueOf(igVar.m566c()));
                     if (compareTo3 != 0) {
                         return compareTo3;
                     }
-                    if (!m564c() || (a14 = it.a(this.f652b, igVar.f652b)) == 0) {
+                    if (!m566c() || (a14 = it.a(this.f652b, igVar.f652b)) == 0) {
                         int compareTo4 = Boolean.valueOf(d()).compareTo(Boolean.valueOf(igVar.d()));
                         if (compareTo4 != 0) {
                             return compareTo4;
@@ -241,7 +241,7 @@ public class ig implements is<ig, Object>, Serializable, Cloneable {
 
     public ig a(boolean z) {
         this.f651a = z;
-        m559a(true);
+        m561a(true);
         return this;
     }
 
@@ -251,17 +251,17 @@ public class ig implements is<ig, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m556a() {
+    public String m558a() {
         return this.f652b;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Map<String, String> m557a() {
+    public Map<String, String> m559a() {
         return this.f650a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m558a() {
+    public void m560a() {
         if (this.f652b != null) {
             return;
         }
@@ -270,22 +270,22 @@ public class ig implements is<ig, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.is
     public void a(jd jdVar) {
-        jdVar.mo617a();
+        jdVar.mo619a();
         while (true) {
-            ja mo613a = jdVar.mo613a();
-            byte b2 = mo613a.a;
+            ja mo615a = jdVar.mo615a();
+            byte b2 = mo615a.a;
             if (b2 == 0) {
                 jdVar.f();
                 if (f()) {
-                    m558a();
+                    m560a();
                     return;
                 }
                 throw new je("Required field 'requireAck' was not found in serialized data! Struct: " + toString());
             }
-            switch (mo613a.f813a) {
+            switch (mo615a.f813a) {
                 case 1:
                     if (b2 == 11) {
-                        this.f647a = jdVar.mo618a();
+                        this.f647a = jdVar.mo620a();
                         continue;
                         jdVar.g();
                     }
@@ -301,46 +301,46 @@ public class ig implements is<ig, Object>, Serializable, Cloneable {
                     break;
                 case 3:
                     if (b2 == 11) {
-                        this.f652b = jdVar.mo618a();
+                        this.f652b = jdVar.mo620a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 4:
                     if (b2 == 11) {
-                        this.f654c = jdVar.mo618a();
+                        this.f654c = jdVar.mo620a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 5:
                     if (b2 == 11) {
-                        this.f655d = jdVar.mo618a();
+                        this.f655d = jdVar.mo620a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 6:
                     if (b2 == 2) {
-                        this.f651a = jdVar.mo623a();
-                        m559a(true);
+                        this.f651a = jdVar.mo625a();
+                        m561a(true);
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 7:
                     if (b2 == 11) {
-                        this.f656e = jdVar.mo618a();
+                        this.f656e = jdVar.mo620a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 8:
                     if (b2 == 13) {
-                        jc mo615a = jdVar.mo615a();
-                        this.f650a = new HashMap(mo615a.f815a * 2);
-                        for (int i2 = 0; i2 < mo615a.f815a; i2++) {
-                            this.f650a.put(jdVar.mo618a(), jdVar.mo618a());
+                        jc mo617a = jdVar.mo617a();
+                        this.f650a = new HashMap(mo617a.f815a * 2);
+                        for (int i2 = 0; i2 < mo617a.f815a; i2++) {
+                            this.f650a.put(jdVar.mo620a(), jdVar.mo620a());
                         }
                         jdVar.h();
                         continue;
@@ -349,42 +349,42 @@ public class ig implements is<ig, Object>, Serializable, Cloneable {
                     break;
                 case 9:
                     if (b2 == 11) {
-                        this.f657f = jdVar.mo618a();
+                        this.f657f = jdVar.mo620a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 10:
                     if (b2 == 11) {
-                        this.f658g = jdVar.mo618a();
+                        this.f658g = jdVar.mo620a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 12:
                     if (b2 == 11) {
-                        this.f659h = jdVar.mo618a();
+                        this.f659h = jdVar.mo620a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 13:
                     if (b2 == 11) {
-                        this.f660i = jdVar.mo618a();
+                        this.f660i = jdVar.mo620a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 14:
                     if (b2 == 11) {
-                        this.f648a = jdVar.mo619a();
+                        this.f648a = jdVar.mo621a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 15:
                     if (b2 == 10) {
-                        this.f645a = jdVar.mo612a();
+                        this.f645a = jdVar.mo614a();
                         b(true);
                         continue;
                         jdVar.g();
@@ -392,7 +392,7 @@ public class ig implements is<ig, Object>, Serializable, Cloneable {
                     break;
                 case 20:
                     if (b2 == 2) {
-                        this.f653b = jdVar.mo623a();
+                        this.f653b = jdVar.mo625a();
                         c(true);
                         continue;
                         jdVar.g();
@@ -412,33 +412,33 @@ public class ig implements is<ig, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m559a(boolean z) {
+    public void m561a(boolean z) {
         this.f649a.set(0, z);
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m560a() {
+    public boolean m562a() {
         return this.f647a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m561a(ig igVar) {
+    public boolean m563a(ig igVar) {
         if (igVar == null) {
             return false;
         }
-        boolean m560a = m560a();
-        boolean m560a2 = igVar.m560a();
-        if ((m560a || m560a2) && !(m560a && m560a2 && this.f647a.equals(igVar.f647a))) {
+        boolean m562a = m562a();
+        boolean m562a2 = igVar.m562a();
+        if ((m562a || m562a2) && !(m562a && m562a2 && this.f647a.equals(igVar.f647a))) {
             return false;
         }
-        boolean m563b = m563b();
-        boolean m563b2 = igVar.m563b();
-        if ((m563b || m563b2) && !(m563b && m563b2 && this.f646a.m513a(igVar.f646a))) {
+        boolean m565b = m565b();
+        boolean m565b2 = igVar.m565b();
+        if ((m565b || m565b2) && !(m565b && m565b2 && this.f646a.m515a(igVar.f646a))) {
             return false;
         }
-        boolean m564c = m564c();
-        boolean m564c2 = igVar.m564c();
-        if ((m564c || m564c2) && !(m564c && m564c2 && this.f652b.equals(igVar.f652b))) {
+        boolean m566c = m566c();
+        boolean m566c2 = igVar.m566c();
+        if ((m566c || m566c2) && !(m566c && m566c2 && this.f652b.equals(igVar.f652b))) {
             return false;
         }
         boolean d2 = d();
@@ -500,7 +500,7 @@ public class ig implements is<ig, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public byte[] m562a() {
+    public byte[] m564a() {
         a(it.a(this.f648a));
         return this.f648a.array();
     }
@@ -516,14 +516,14 @@ public class ig implements is<ig, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.is
     public void b(jd jdVar) {
-        m558a();
+        m560a();
         jdVar.a(f644a);
-        if (this.f647a != null && m560a()) {
+        if (this.f647a != null && m562a()) {
             jdVar.a(a);
             jdVar.a(this.f647a);
             jdVar.b();
         }
-        if (this.f646a != null && m563b()) {
+        if (this.f646a != null && m565b()) {
             jdVar.a(b);
             this.f646a.b(jdVar);
             jdVar.b();
@@ -597,7 +597,7 @@ public class ig implements is<ig, Object>, Serializable, Cloneable {
             jdVar.b();
         }
         jdVar.c();
-        jdVar.mo621a();
+        jdVar.mo623a();
     }
 
     public void b(boolean z) {
@@ -605,7 +605,7 @@ public class ig implements is<ig, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public boolean m563b() {
+    public boolean m565b() {
         return this.f646a != null;
     }
 
@@ -623,7 +623,7 @@ public class ig implements is<ig, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public boolean m564c() {
+    public boolean m566c() {
         return this.f652b != null;
     }
 
@@ -642,7 +642,7 @@ public class ig implements is<ig, Object>, Serializable, Cloneable {
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof ig)) {
-            return m561a((ig) obj);
+            return m563a((ig) obj);
         }
         return false;
     }
@@ -695,7 +695,7 @@ public class ig implements is<ig, Object>, Serializable, Cloneable {
         boolean z;
         StringBuilder sb = new StringBuilder("XmPushActionNotification(");
         boolean z2 = false;
-        if (m560a()) {
+        if (m562a()) {
             sb.append("debug:");
             String str = this.f647a;
             if (str == null) {
@@ -707,7 +707,7 @@ public class ig implements is<ig, Object>, Serializable, Cloneable {
         } else {
             z = true;
         }
-        if (m563b()) {
+        if (m565b()) {
             if (!z) {
                 sb.append(StringUtil.ARRAY_ELEMENT_SEPARATOR);
             }

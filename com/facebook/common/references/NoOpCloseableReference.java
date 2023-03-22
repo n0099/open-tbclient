@@ -7,7 +7,7 @@ public class NoOpCloseableReference<T> extends CloseableReference<T> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.references.CloseableReference
     /* renamed from: clone */
-    public CloseableReference<T> mo83clone() {
+    public CloseableReference<T> mo85clone() {
         return this;
     }
 

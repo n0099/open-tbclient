@@ -7,9 +7,9 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.atomData.PersonInfoActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.om5;
+import com.baidu.tieba.hv4;
+import com.baidu.tieba.ll5;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.zw4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,7 +35,7 @@ public class FlutterPluginStatic {
                 return;
             }
         }
-        if (zw4.c().contains("-Flutter")) {
+        if (hv4.c().contains("-Flutter")) {
             MessageManager.getInstance().registerListener(new CustomMessageListener(2921674) { // from class: com.baidu.tieba.flutter.FlutterPluginStatic.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -67,8 +67,8 @@ public class FlutterPluginStatic {
                     if ((interceptable2 == null || interceptable2.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null) {
                         if (customResponsedMessage.getData() instanceof IntentConfig) {
                             FlutterPluginManager.getInstance().init((IntentConfig) customResponsedMessage.getData());
-                        } else if (customResponsedMessage.getData() instanceof om5) {
-                            FlutterPluginManager.getInstance().init((om5) customResponsedMessage.getData());
+                        } else if (customResponsedMessage.getData() instanceof ll5) {
+                            FlutterPluginManager.getInstance().init((ll5) customResponsedMessage.getData());
                         } else if (customResponsedMessage.getData() instanceof FlutterOpenData) {
                             FlutterPluginManager.getInstance().init((FlutterOpenData) customResponsedMessage.getData());
                         } else {

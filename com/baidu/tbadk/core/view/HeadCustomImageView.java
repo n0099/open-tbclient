@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.data.MetaData;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b49;
-import com.baidu.tieba.d65;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.ga9;
+import com.baidu.tieba.hi;
+import com.baidu.tieba.o45;
 import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -78,8 +78,8 @@ public class HeadCustomImageView extends RelativeLayout {
             }
         }
         this.g = true;
-        this.h = ej.g(TbadkApplication.getInst(), R.dimen.tbds36);
-        this.m = ej.g(TbadkApplication.getInst(), R.dimen.tbds118);
+        this.h = hi.g(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.m = hi.g(TbadkApplication.getInst(), R.dimen.tbds118);
         this.v = true;
         d(context);
     }
@@ -104,8 +104,8 @@ public class HeadCustomImageView extends RelativeLayout {
             }
         }
         this.g = true;
-        this.h = ej.g(TbadkApplication.getInst(), R.dimen.tbds36);
-        this.m = ej.g(TbadkApplication.getInst(), R.dimen.tbds118);
+        this.h = hi.g(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.m = hi.g(TbadkApplication.getInst(), R.dimen.tbds118);
         this.v = true;
         d(context);
     }
@@ -153,8 +153,8 @@ public class HeadCustomImageView extends RelativeLayout {
             }
         }
         this.g = true;
-        this.h = ej.g(TbadkApplication.getInst(), R.dimen.tbds36);
-        this.m = ej.g(TbadkApplication.getInst(), R.dimen.tbds118);
+        this.h = hi.g(TbadkApplication.getInst(), R.dimen.tbds36);
+        this.m = hi.g(TbadkApplication.getInst(), R.dimen.tbds118);
         this.v = true;
         d(context);
     }
@@ -182,7 +182,7 @@ public class HeadCustomImageView extends RelativeLayout {
             if (this.c != null && TbSingleton.getInstance().getLightEmotionInfo() != null && TbSingleton.getInstance().getLightEmotionInfo().size() != 0) {
                 Rect rect = new Rect();
                 this.c.getGlobalVisibleRect(rect);
-                d65.b(this.n, rect.centerX(), rect.bottom, this.u, 1, this.t, this.v);
+                o45.b(this.n, rect.centerX(), rect.bottom, this.u, 1, this.t, this.v);
                 return true;
             }
             return false;
@@ -227,7 +227,7 @@ public class HeadCustomImageView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048593, this, str) == null) && (tbImageView = this.a) != null && tbImageView.getVisibility() == 0 && this.n != null && this.d != null) {
             this.a.setDefaultBgResource(R.color.transparent);
-            this.a.setBackgroundColor(b49.a(b49.f(str), 0.3f));
+            this.a.setBackgroundColor(ga9.a(ga9.f(str), 0.3f));
         }
     }
 
@@ -242,7 +242,7 @@ public class HeadCustomImageView extends RelativeLayout {
             this.b = (TbImageView) findViewById(R.id.head_image_view);
             this.a = (TbImageView) findViewById(R.id.head_image_background);
             this.d = (RoundRelativeLayout) findViewById(R.id.head_image_background_container);
-            int g = ej.g(context, R.dimen.tbds90);
+            int g = hi.g(context, R.dimen.tbds90);
             this.e = g;
             this.d.setRoundLayoutRadius(new float[]{g, g, g, g, g, g, g, g});
             RoundRelativeLayout roundRelativeLayout = this.c;
@@ -327,7 +327,7 @@ public class HeadCustomImageView extends RelativeLayout {
         TbImageView tbImageView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048594, this, str) == null) && (tbImageView = this.a) != null && tbImageView.getVisibility() == 0) {
-            this.a.K(str, 45, false);
+            this.a.M(str, 45, false);
         }
     }
 
@@ -335,7 +335,7 @@ public class HeadCustomImageView extends RelativeLayout {
         TbImageView tbImageView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048595, this, str) == null) && (tbImageView = this.b) != null && tbImageView.getVisibility() == 0 && str != null) {
-            this.b.G(str, 10, 0, 0, true);
+            this.b.I(str, 10, 0, 0, true);
             invalidate();
         }
     }

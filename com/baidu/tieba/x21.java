@@ -1,25 +1,23 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.thread.executor.BaseExecutorCell;
+import com.baidu.nadcore.thread.task.ElasticTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class x21 implements a31 {
+public class x21 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final StringBuilder a;
-
-    @Override // com.baidu.tieba.a31
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-        }
-    }
+    @NonNull
+    public BaseExecutorCell a;
+    @NonNull
+    public BaseExecutorCell b;
+    @NonNull
+    public BaseExecutorCell c;
 
     public x21() {
         Interceptable interceptable = $ic;
@@ -34,62 +32,33 @@ public class x21 implements a31 {
                 return;
             }
         }
-        this.a = new StringBuilder();
+        this.a = BaseExecutorCell.b(k21.d, BaseExecutorCell.ExecutorType.ARTERY);
+        this.b = BaseExecutorCell.b(k21.e, BaseExecutorCell.ExecutorType.ARTERY);
+        this.c = BaseExecutorCell.b(k21.f, BaseExecutorCell.ExecutorType.ARTERY);
     }
 
-    @Override // com.baidu.tieba.a31
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
+    public boolean a(ElasticTask elasticTask) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.a31
-    public <T extends a31> T b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
-            return (T) d(str, str2);
-        }
-        return (T) invokeLL.objValue;
-    }
-
-    public <T extends a31> T c(String str, Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, obj)) == null) {
-            return (T) d(str, obj);
-        }
-        return (T) invokeLL.objValue;
-    }
-
-    public <T extends a31> T d(String str, Object obj) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, obj)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return this;
-            }
-            if (obj != null) {
-                try {
-                    if (!TextUtils.isEmpty(String.valueOf(obj))) {
-                        if (this.a.length() > 0) {
-                            this.a.append('&');
-                        }
-                        StringBuilder sb = this.a;
-                        sb.append(str);
-                        sb.append('=');
-                        sb.append(obj);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, elasticTask)) == null) {
+            int b = elasticTask.b();
+            if (b != 0 && b != 1) {
+                if (b == 2) {
+                    if (this.b.c(elasticTask)) {
+                        return true;
                     }
-                } catch (Exception unused) {
+                    return this.c.c(elasticTask);
+                } else if (b == 3) {
+                    return this.c.c(elasticTask);
+                } else {
+                    return false;
                 }
+            } else if (this.a.c(elasticTask) || this.b.c(elasticTask)) {
+                return true;
+            } else {
+                return this.c.c(elasticTask);
             }
-            return this;
         }
-        return (T) invokeLL.objValue;
+        return invokeL.booleanValue;
     }
 }

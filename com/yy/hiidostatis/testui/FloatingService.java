@@ -18,7 +18,7 @@ import android.widget.TextView;
 import com.yy.hiidostatis.inner.util.UiThreadExecutor;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public enum FloatingService {
     INSTANCT;
     
@@ -35,7 +35,7 @@ public enum FloatingService {
     public LogAdapter adapter = new LogAdapter();
     public volatile boolean init = false;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class FloatingOnTouchListener implements View.OnTouchListener {
         public long downTime;
         public boolean hasDown;
@@ -98,7 +98,7 @@ public enum FloatingService {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class LogAdapter extends BaseAdapter {
         @Override // android.widget.Adapter
         public long getItemId(int i) {

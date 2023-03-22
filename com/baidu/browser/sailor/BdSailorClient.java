@@ -5,7 +5,7 @@ import android.net.http.SslError;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.browser.core.INoProGuard;
-import com.baidu.tieba.gx;
+import com.baidu.tieba.jw;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.WebKitClient;
 import com.baidu.webkit.sdk.WebView;
 /* loaded from: classes.dex */
-public class BdSailorClient extends WebKitClient implements INoProGuard, ISailorUrlPushService, gx {
+public class BdSailorClient extends WebKitClient implements INoProGuard, ISailorUrlPushService, jw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 

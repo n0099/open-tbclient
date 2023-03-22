@@ -1,59 +1,42 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ph {
+public class ph extends xg {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.xg
+    public String p() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (context == null) {
-                return null;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "stat" : (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ph(th thVar) {
+        super(thVar);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {thVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((th) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (BdNetTypeUtil.isWifiNet()) {
-                return "WIFI";
-            }
-            if (BdNetTypeUtil.isMobileNet()) {
-                int curOperatorType = BdNetTypeUtil.curOperatorType();
-                StringBuilder sb = new StringBuilder();
-                if (curOperatorType != 1) {
-                    if (curOperatorType != 2) {
-                        if (curOperatorType != 3) {
-                            sb.append('N');
-                        } else {
-                            sb.append('T');
-                        }
-                    } else {
-                        sb.append('U');
-                    }
-                } else {
-                    sb.append('M');
-                }
-                if (BdNetTypeUtil.isWap()) {
-                    sb.append("_WAP_");
-                } else {
-                    sb.append("_NET_");
-                }
-                if (BdNetTypeUtil.is3GNet()) {
-                    sb.append("3G");
-                } else if (BdNetTypeUtil.is4GNet()) {
-                    sb.append("4G");
-                } else if (BdNetTypeUtil.is2GNet()) {
-                    sb.append("2G");
-                } else {
-                    sb.append('N');
-                }
-                return sb.toString();
-            }
-            return "unknown";
         }
-        return (String) invokeL.objValue;
+        this.o = "stat";
+        this.s = true;
+        this.p = false;
     }
 }

@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.hi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -107,17 +107,17 @@ public class RelationBarCellView extends RelativeLayout implements View.OnClickL
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0312, (ViewGroup) this, true);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090bd6);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090bd7);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090bd5);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d031c, (ViewGroup) this, true);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090c01);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090c02);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090c00);
             this.b.setDefaultResource(17170445);
             this.b.setDefaultBgResource(R.color.CAM_X0205);
             this.b.setBorderColor(0);
-            this.b.setRadius(ej.g(getContext(), R.dimen.tbds20));
+            this.b.setRadius(hi.g(getContext(), R.dimen.tbds20));
             this.b.setConrers(5);
-            this.e = ej.g(context, R.dimen.tbds471);
-            this.f = ej.g(context, R.dimen.tbds164);
+            this.e = hi.g(context, R.dimen.tbds471);
+            this.f = hi.g(context, R.dimen.tbds164);
             setOnClickListener(this);
             b();
         }
@@ -153,9 +153,9 @@ public class RelationBarCellView extends RelativeLayout implements View.OnClickL
             }
             setVisibility(0);
             this.g = oriForumInfo;
-            this.b.K(oriForumInfo.ori_avatar, 10, false);
+            this.b.M(oriForumInfo.ori_avatar, 10, false);
             this.c.setText(oriForumInfo.ori_fname);
-            this.d.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0737), StringHelper.numFormatOverWanNa(oriForumInfo.ori_member_num.longValue())));
+            this.d.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f073a), StringHelper.numFormatOverWanNa(oriForumInfo.ori_member_num.longValue())));
         }
     }
 

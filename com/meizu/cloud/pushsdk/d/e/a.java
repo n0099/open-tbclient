@@ -27,7 +27,7 @@ public abstract class a {
 
     /* renamed from: com.meizu.cloud.pushsdk.d.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0663a {
+    public static class C0668a {
         public final com.meizu.cloud.pushsdk.d.b.a a;
         public final String b;
         public final String c;
@@ -42,50 +42,50 @@ public abstract class a {
         public int l = 10;
         public TimeUnit m = TimeUnit.SECONDS;
 
-        public C0663a(com.meizu.cloud.pushsdk.d.b.a aVar, String str, String str2, Context context, Class<? extends a> cls) {
+        public C0668a(com.meizu.cloud.pushsdk.d.b.a aVar, String str, String str2, Context context, Class<? extends a> cls) {
             this.a = aVar;
             this.b = str;
             this.c = str2;
             this.d = context;
         }
 
-        public C0663a a(int i) {
+        public C0668a a(int i) {
             this.l = i;
             return this;
         }
 
-        public C0663a a(c cVar) {
+        public C0668a a(c cVar) {
             this.e = cVar;
             return this;
         }
 
-        public C0663a a(com.meizu.cloud.pushsdk.d.f.b bVar) {
+        public C0668a a(com.meizu.cloud.pushsdk.d.f.b bVar) {
             this.g = bVar;
             return this;
         }
 
-        public C0663a a(Boolean bool) {
+        public C0668a a(Boolean bool) {
             this.f = bool.booleanValue();
             return this;
         }
     }
 
-    public a(C0663a c0663a) {
-        this.b = c0663a.a;
-        this.f = c0663a.c;
-        this.g = c0663a.f;
-        this.e = c0663a.b;
-        this.c = c0663a.e;
-        this.h = c0663a.g;
-        this.i = c0663a.h;
-        this.j = c0663a.k;
-        int i = c0663a.l;
+    public a(C0668a c0668a) {
+        this.b = c0668a.a;
+        this.f = c0668a.c;
+        this.g = c0668a.f;
+        this.e = c0668a.b;
+        this.c = c0668a.e;
+        this.h = c0668a.g;
+        this.i = c0668a.h;
+        this.j = c0668a.k;
+        int i = c0668a.l;
         this.k = i < 2 ? 2 : i;
-        this.l = c0663a.m;
+        this.l = c0668a.m;
         if (this.i) {
-            this.d = new b(c0663a.i, c0663a.j, c0663a.m, c0663a.d);
+            this.d = new b(c0668a.i, c0668a.j, c0668a.m, c0668a.d);
         }
-        com.meizu.cloud.pushsdk.d.f.c.a(c0663a.g);
+        com.meizu.cloud.pushsdk.d.f.c.a(c0668a.g);
         com.meizu.cloud.pushsdk.d.f.c.c(n, "Tracker created successfully.", new Object[0]);
     }
 

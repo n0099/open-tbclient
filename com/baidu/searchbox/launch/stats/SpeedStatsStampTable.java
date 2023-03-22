@@ -41,8 +41,6 @@ public final class SpeedStatsStampTable {
     public static final int GAME_VIDEO_TAB_ON_CREATE_START_STAMP_KEY = 5042;
     public static final int GAME_VIDEO_TAB_ON_CREATE_VIEW_END_STAMP_KEY = 5045;
     public static final int GAME_VIDEO_TAB_ON_CREATE_VIEW_START_STAMP_KEY = 5044;
-    public static final int HOME_FRAGMENT_CHECK_CONCERN_RED_TIP_END_STAMP_KEY = 4024;
-    public static final int HOME_FRAGMENT_CHECK_CONCERN_RED_TIP_START_STAMP_KEY = 4023;
     public static final int HOME_FRAGMENT_FIRST_LOAD_END_STAMP_KEY = 4022;
     public static final int HOME_FRAGMENT_FIRST_LOAD_START_STAMP_KEY = 4021;
     public static final int HOME_FRAGMENT_INIT_MODEL_END_STAMP_KEY = 4016;

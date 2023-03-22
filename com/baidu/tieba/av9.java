@@ -1,13 +1,15 @@
 package com.baidu.tieba;
+
+import android.widget.EditText;
 /* loaded from: classes3.dex */
 public interface av9 {
-    xu9 a();
+    void b(boolean z);
 
-    zu9 b();
+    int f();
 
-    zt9 c();
+    void l();
 
-    du9 d();
+    void n();
 
-    yu9 e();
+    EditText p();
 }

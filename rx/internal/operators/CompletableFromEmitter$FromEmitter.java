@@ -1,20 +1,20 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.ina;
-import com.baidu.tieba.rma;
-import com.baidu.tieba.zma;
-import com.baidu.tieba.zqa;
+import com.baidu.tieba.esa;
+import com.baidu.tieba.nra;
+import com.baidu.tieba.vra;
+import com.baidu.tieba.vva;
 import java.util.concurrent.atomic.AtomicBoolean;
 import rx.internal.subscriptions.CancellableSubscription;
 import rx.internal.subscriptions.SequentialSubscription;
 /* loaded from: classes9.dex */
-public final class CompletableFromEmitter$FromEmitter extends AtomicBoolean implements zma {
+public final class CompletableFromEmitter$FromEmitter extends AtomicBoolean implements vra {
     public static final long serialVersionUID = 5539301318568668881L;
-    public final rma actual;
+    public final nra actual;
     public final SequentialSubscription resource = new SequentialSubscription();
 
-    public CompletableFromEmitter$FromEmitter(rma rmaVar) {
-        this.actual = rmaVar;
+    public CompletableFromEmitter$FromEmitter(nra nraVar) {
+        this.actual = nraVar;
     }
 
     public void onError(Throwable th) {
@@ -26,18 +26,18 @@ public final class CompletableFromEmitter$FromEmitter extends AtomicBoolean impl
                 this.resource.unsubscribe();
             }
         }
-        zqa.j(th);
+        vva.j(th);
     }
 
-    public void setCancellation(ina inaVar) {
-        setSubscription(new CancellableSubscription(inaVar));
+    public void setCancellation(esa esaVar) {
+        setSubscription(new CancellableSubscription(esaVar));
     }
 
-    public void setSubscription(zma zmaVar) {
-        this.resource.update(zmaVar);
+    public void setSubscription(vra vraVar) {
+        this.resource.update(vraVar);
     }
 
-    @Override // com.baidu.tieba.zma
+    @Override // com.baidu.tieba.vra
     public boolean isUnsubscribed() {
         return get();
     }
@@ -52,7 +52,7 @@ public final class CompletableFromEmitter$FromEmitter extends AtomicBoolean impl
         }
     }
 
-    @Override // com.baidu.tieba.zma
+    @Override // com.baidu.tieba.vra
     public void unsubscribe() {
         if (compareAndSet(false, true)) {
             this.resource.unsubscribe();

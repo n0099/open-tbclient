@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes6.dex */
-public class uo2 extends gn2<xp2> {
+public class uo2 extends nl2<po2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.gn2
+    @Override // com.baidu.tieba.nl2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "enableZoom" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "showConfirmBar" : (String) invokeV.objValue;
     }
 
     public uo2() {
@@ -36,17 +36,15 @@ public class uo2 extends gn2<xp2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gn2
+    @Override // com.baidu.tieba.nl2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull xp2 xp2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull po2 po2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, xp2Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, po2Var) == null) {
+            int i = command.arg1;
             String str = command.what;
-            d(xp2Var, str, "" + command.obj, true);
-            Object obj = command.obj;
-            if (obj instanceof Boolean) {
-                xp2Var.y(((Boolean) obj).booleanValue());
-            }
+            d(po2Var, str, "(keyboardHeight)" + i, false);
+            po2Var.z0(i);
         }
     }
 }

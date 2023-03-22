@@ -6,7 +6,7 @@ import android.text.method.Touch;
 import android.view.MotionEvent;
 import android.widget.TextView;
 import androidx.annotation.Nullable;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class BdLinkTouchMovementMethod extends LinkMovementMethod {
     public static BdLinkTouchMovementMethod instance;
     public BdLinkTouchDecorHelper mBdLinkTouchDecorHelper = new BdLinkTouchDecorHelper();

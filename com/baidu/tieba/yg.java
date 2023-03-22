@@ -1,44 +1,81 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public abstract class yg<T> {
+public class yg {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public void onCancelled(String str) {
+    public static void a(ArrayList<String> arrayList, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+        if (interceptable == null || interceptable.invokeLZ(65536, null, arrayList, z) == null) {
+            ac acVar = new ac(BdStatisticsManager.getInstance().getWriteDir(), null, DiskFileOperate.Action.DELETE_FILES, arrayList);
+            acVar.setSdCard(z);
+            acVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+            ub.f().a(acVar);
         }
     }
 
-    public void onLoaded(T t, String str, int i) {
+    public static File[] b(boolean z, boolean z2) {
+        InterceptResult invokeCommon;
+        File[] fileArr;
+        File[] listFiles;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t, str, i) == null) {
-        }
-    }
-
-    public void onProgressUpdate(Object... objArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objArr) == null) {
-        }
-    }
-
-    public yg() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
+            DiskFileOperate diskFileOperate = new DiskFileOperate(BdStatisticsManager.getInstance().getWriteDir(), null, DiskFileOperate.Action.INFO);
+            diskFileOperate.setSdCard(z);
+            diskFileOperate.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+            ub.f().call(diskFileOperate);
+            if (diskFileOperate.getFileInfo() != null && diskFileOperate.getFileInfo().listFiles() != null) {
+                fileArr = diskFileOperate.getFileInfo().listFiles();
+            } else {
+                fileArr = null;
             }
+            if (z2) {
+                DiskFileOperate diskFileOperate2 = new DiskFileOperate(BdStatisticsManager.getInstance().getNotUploadWriteDir(), null, DiskFileOperate.Action.INFO);
+                diskFileOperate2.setSdCard(z);
+                diskFileOperate2.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
+                ub.f().call(diskFileOperate2);
+                if (diskFileOperate2.getFileInfo() != null && (listFiles = diskFileOperate2.getFileInfo().listFiles()) != null && listFiles.length != 0) {
+                    if (fileArr != null && fileArr.length != 0) {
+                        File[] fileArr2 = new File[listFiles.length + fileArr.length];
+                        System.arraycopy(fileArr, 0, fileArr2, 0, fileArr.length);
+                        System.arraycopy(listFiles, 0, fileArr2, fileArr.length, listFiles.length);
+                        return fileArr2;
+                    }
+                    return listFiles;
+                }
+            }
+            return fileArr;
         }
+        return (File[]) invokeCommon.objValue;
+    }
+
+    public static ArrayList<ah> c(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
+            ArrayList<ah> arrayList = new ArrayList<>();
+            File[] b = b(z, true);
+            if (b != null) {
+                for (File file : b) {
+                    if (file.isFile()) {
+                        String name = file.getName();
+                        if (!TextUtils.isEmpty(name)) {
+                            arrayList.add(new ah(name, file.length(), file.lastModified()));
+                        }
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeZ.objValue;
     }
 }

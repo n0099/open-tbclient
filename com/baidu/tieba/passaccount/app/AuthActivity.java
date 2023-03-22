@@ -20,8 +20,8 @@ import com.baidu.sapi2.utils.enums.BindWidgetAction;
 import com.baidu.sapi2.utils.enums.Domain;
 import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ah8;
 import com.baidu.tieba.passaccount.framework.PassManagerStatic;
-import com.baidu.tieba.xb8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -255,13 +255,13 @@ public class AuthActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
             int i = this.u;
             if (i == 0) {
-                xb8.f().b(z, str);
+                ah8.f().b(z, str);
             } else if (i == 1) {
-                xb8.f().e(z);
+                ah8.f().e(z);
             } else if (i == 2) {
-                xb8.f().c(z);
+                ah8.f().c(z);
             } else {
-                xb8.f().a(null);
+                ah8.f().a(null);
             }
             finish();
         }

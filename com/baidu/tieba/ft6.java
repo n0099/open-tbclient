@@ -1,65 +1,56 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.forumMember.member.ManagerApplyViewHolder;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tieba.filedownloader.FileDownloaderProxy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public class ft6 extends zu6<gt6, ManagerApplyViewHolder> {
-    public static /* synthetic */ Interceptable $ic = null;
-
-    /* renamed from: n */
-    public static final int obfuscated = 2131296972;
+public final class ft6 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fb5 l;
-    public View.OnClickListener m;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947775713, "Lcom/baidu/tieba/ft6;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947775713, "Lcom/baidu/tieba/ft6;");
-        }
-    }
 
     /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
+    public static final class a implements it6 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ft6 a;
+        public final /* synthetic */ DownloadData a;
 
-        public a(ft6 ft6Var) {
+        @Override // com.baidu.tieba.it6
+        public void a(DownloadData data) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, data) == null) {
+                Intrinsics.checkNotNullParameter(data, "data");
+            }
+        }
+
+        @Override // com.baidu.tieba.it6
+        public void b(DownloadData data) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data) == null) {
+                Intrinsics.checkNotNullParameter(data, "data");
+            }
+        }
+
+        @Override // com.baidu.tieba.it6
+        public void f(DownloadData data) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, data) == null) {
+                Intrinsics.checkNotNullParameter(data, "data");
+            }
+        }
+
+        public a(DownloadData downloadData) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ft6Var};
+                Object[] objArr = {downloadData};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -69,122 +60,128 @@ public class ft6 extends zu6<gt6, ManagerApplyViewHolder> {
                     return;
                 }
             }
-            this.a = ft6Var;
+            this.a = downloadData;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.tieba.it6
+        public void c(DownloadData data) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                Object tag = view2.getTag(ft6.obfuscated);
-                if (!TbadkCoreApplication.isLogin() || !StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
-                    UrlManager.getInstance().dealOneLink((TbPageContext) da.a(this.a.mContext), new String[]{tag.toString()});
-                } else {
-                    this.a.K(TbadkCoreApplication.getCurrentAccountInfo());
-                }
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, data) == null) {
+                Intrinsics.checkNotNullParameter(data, "data");
+                ku4.c().b(TbadkCoreStatisticKey.FILE_DOWNLOAD_COMPLETION, String.valueOf(this.a.getSource()), this.a.getName(), this.a.getUrl());
+            }
+        }
+
+        @Override // com.baidu.tieba.it6
+        public void d(DownloadData data) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, data) == null) {
+                Intrinsics.checkNotNullParameter(data, "data");
+                ku4.c().b(TbadkCoreStatisticKey.FILE_DOWNLOAD_PAUSE, String.valueOf(this.a.getSource()), this.a.getName(), this.a.getUrl());
+            }
+        }
+
+        @Override // com.baidu.tieba.it6
+        public void e(DownloadData data) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, data) == null) {
+                Intrinsics.checkNotNullParameter(data, "data");
+                ku4.c().b(TbadkCoreStatisticKey.FILE_DOWNLOAD_DELETE, String.valueOf(this.a.getSource()), this.a.getName(), this.a.getUrl());
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ft6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext, bdUniqueId);
+    public ft6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.m = new a(this);
     }
 
-    public void onDestroy() {
-        fb5 fb5Var;
+    public final ht6 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (fb5Var = this.l) != null) {
-            fb5Var.s();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return FileDownloaderProxy.b.a(1);
+        }
+        return (ht6) invokeV.objValue;
+    }
+
+    public final void a(it6 callback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, callback) == null) {
+            Intrinsics.checkNotNullParameter(callback, "callback");
+            c().a(callback);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: H */
-    public ManagerApplyViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    public final void b(DownloadData data) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, data) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            c().c(data);
+        }
+    }
+
+    public final int d(DownloadData data) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            return new ManagerApplyViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d034b, (ViewGroup) null));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, data)) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            return c().f(data);
         }
-        return (ManagerApplyViewHolder) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    public View J(int i, View view2, ViewGroup viewGroup, gt6 gt6Var, ManagerApplyViewHolder managerApplyViewHolder) {
-        InterceptResult invokeCommon;
+    public final int e(DownloadData data) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, gt6Var, managerApplyViewHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) gt6Var, (gt6) managerApplyViewHolder);
-            if (gt6Var != null && !gt6Var.c() && managerApplyViewHolder != null) {
-                if (gt6Var.c()) {
-                    managerApplyViewHolder.d.setVisibility(8);
-                    return view2;
-                }
-                if (managerApplyViewHolder.e != this.f) {
-                    SkinManager.setViewTextColor(managerApplyViewHolder.b, R.color.CAM_X0109, 1);
-                    SkinManager.setViewTextColor(managerApplyViewHolder.a, R.color.CAM_X0105, 1);
-                    SkinManager.setBackgroundResource(managerApplyViewHolder.c, R.drawable.frs_member_manito_bg);
-                }
-                int b = gt6Var.b();
-                if (b > 0) {
-                    managerApplyViewHolder.b.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), StringHelper.numberUniformFormat(b)));
-                    managerApplyViewHolder.c.setTag(obfuscated, gt6Var.a());
-                    managerApplyViewHolder.c.setOnClickListener(this.m);
-                    managerApplyViewHolder.c.setEnabled(true);
-                    managerApplyViewHolder.c.setClickable(true);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, data)) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            return c().d(data);
+        }
+        return invokeL.intValue;
+    }
+
+    public final void f(DownloadData data) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, data) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            c().e(data);
+        }
+    }
+
+    public final void g(it6 callback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, callback) == null) {
+            Intrinsics.checkNotNullParameter(callback, "callback");
+            c().g(callback);
+        }
+    }
+
+    public final boolean h(DownloadData downloadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, downloadData)) == null) {
+            Intrinsics.checkNotNullParameter(downloadData, "downloadData");
+            int d = c().d(downloadData);
+            boolean b = c().b(downloadData, new a(downloadData));
+            if (b) {
+                if (d == 7) {
+                    ku4.c().b(TbadkCoreStatisticKey.FILE_DOWNLOAD_RESUME, String.valueOf(downloadData.getSource()), downloadData.getName(), downloadData.getUrl());
                 } else {
-                    managerApplyViewHolder.b.setText(this.mContext.getResources().getString(R.string.apply_no_left_tip));
-                    managerApplyViewHolder.c.setEnabled(false);
-                    managerApplyViewHolder.c.setClickable(false);
+                    ku4.c().b(TbadkCoreStatisticKey.FILE_DOWNLOAD_START, String.valueOf(downloadData.getSource()), downloadData.getName(), downloadData.getUrl());
                 }
-                managerApplyViewHolder.b.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SkinManager.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
-                managerApplyViewHolder.e = this.f;
             }
-            return view2;
+            return b;
         }
-        return (View) invokeCommon.objValue;
-    }
-
-    public final void K(AccountData accountData) {
-        Activity activity;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
-            x9<?> a2 = da.a(this.mContext);
-            if (a2 instanceof TbPageContext) {
-                activity = ((TbPageContext) a2).getPageActivity();
-            } else {
-                activity = null;
-            }
-            if (this.l == null) {
-                this.l = new fb5(activity);
-            }
-            this.l.p();
-            this.l.u(accountData);
-            this.l.z(1);
-        }
-    }
-
-    @Override // com.baidu.tieba.zu6, com.baidu.tieba.qn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        J(i, view2, viewGroup, (gt6) obj, (ManagerApplyViewHolder) viewHolder);
-        return view2;
+        return invokeL.booleanValue;
     }
 }

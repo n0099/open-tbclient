@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class SchemeCollecter {
     public static final String CLASSIFY_BASE = "base";
     public static final String CLASSIFY_EMPTY = "empty";

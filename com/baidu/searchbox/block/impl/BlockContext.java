@@ -11,7 +11,7 @@ import com.baidu.searchbox.block.ioc.IBlockRegister;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.track.Track;
 import com.baidu.searchbox.track.ui.TrackUI;
-import com.baidu.tieba.nk1;
+import com.baidu.tieba.dj1;
 @Autowired
 /* loaded from: classes2.dex */
 public class BlockContext {
@@ -21,7 +21,7 @@ public class BlockContext {
             if (AppConfig.isDebug()) {
                 Log.d(BlockMonitor.TAG, "onAppBlock");
             }
-            nk1<IBlockRegister> iBlockUploadList = BlockRuntime.getInstance().getIBlockUploadList();
+            dj1<IBlockRegister> iBlockUploadList = BlockRuntime.getInstance().getIBlockUploadList();
             if (iBlockUploadList != null && iBlockUploadList.getList() != null && blockInfo != null) {
                 if (AppConfig.isDebug()) {
                     Log.i(BlockMonitor.TAG, "blockInfo = " + blockInfo.getStackTrace());

@@ -1,14 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
+import android.app.Activity;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
 /* loaded from: classes5.dex */
-public class mx0 implements sn0 {
+public abstract class mx0 extends ex0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,13 +28,44 @@ public class mx0 implements sn0 {
         }
     }
 
-    @Override // com.baidu.tieba.sn0
-    public i01 create() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ex0
+    @NonNull
+    /* renamed from: M */
+    public yr0 u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new px0();
+            return (yr0) super.u();
         }
-        return (i01) invokeV.objValue;
+        return (yr0) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ex0, com.baidu.tieba.rx0
+    public void onLayerRelease() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.onLayerRelease();
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mx0(@NonNull Activity activity) {
+        super(activity);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
 }

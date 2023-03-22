@@ -1,7 +1,7 @@
 package com.baidu.tbadk.core.log;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.r08;
+import com.baidu.tieba.w58;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,7 @@ public final class YunDialogLog {
     public static /* synthetic */ Interceptable $ic;
     public static final YunDialogLog INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
-    public final r08 instance;
+    public final w58 instance;
 
     static {
         InterceptResult invokeClinit;
@@ -36,13 +36,13 @@ public final class YunDialogLog {
         $VALUES = new YunDialogLog[]{yunDialogLog};
     }
 
-    public static r08 getInstance() {
+    public static w58 getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             return INSTANCE.instance;
         }
-        return (r08) invokeV.objValue;
+        return (w58) invokeV.objValue;
     }
 
     public static YunDialogLog[] values() {
@@ -72,7 +72,7 @@ public final class YunDialogLog {
                 return;
             }
         }
-        this.instance = new r08("dialog");
+        this.instance = new w58("dialog");
     }
 
     public static YunDialogLog valueOf(String str) {

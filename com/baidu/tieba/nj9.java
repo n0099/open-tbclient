@@ -1,74 +1,96 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
+import android.app.Activity;
+import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.internal.Intrinsics;
-@JvmName(name = "FestivalTipViewHelper")
 /* loaded from: classes5.dex */
-public final class nj9 {
+public class nj9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a(String str, String str2, TbRichTextView.Position position) {
-        boolean z;
+    public static boolean d(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, str, str2, position) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_FESTIVAL_TIP_VIEW_CLICK);
-            boolean z2 = false;
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i == 1990059 : invokeI.booleanValue;
+    }
+
+    public static void a(m05 m05Var, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65536, null, m05Var, i) == null) && m05Var != null && i >= 0) {
+            int i2 = 1;
+            int i3 = i + 1;
+            boolean d = m05Var.d();
+            String valueOf = String.valueOf(TbadkCoreApplication.getCurrentAccountId());
+            if (d) {
+                i2 = 2;
             }
-            if (!z) {
-                statisticItem.addParam("tid", str);
-            }
-            if (!((str2 == null || str2.length() == 0) ? true : true)) {
-                statisticItem.addParam("pid", str2);
-            }
-            if (position != null) {
-                statisticItem.addParam("obj_locate", position.getIndex());
-            }
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.eventStat();
+            TiebaStatic.log(new StatisticItem("c14633").param("uid", valueOf).param("obj_locate", i3).param("obj_type", i2));
         }
     }
 
-    public static final void b(PostData postData, TbRichTextView richTextView, boolean z) {
+    public static boolean b(Activity activity, int i, String str) {
+        InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65537, null, postData, richTextView, z) == null) {
-            Intrinsics.checkNotNullParameter(postData, "postData");
-            Intrinsics.checkNotNullParameter(richTextView, "richTextView");
-            if (postData.A() != null) {
-                if (z) {
-                    richTextView.getLayoutStrategy().m(-1);
-                } else {
-                    richTextView.getLayoutStrategy().m(ej.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004));
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, activity, i, str)) == null) {
+            if (d(i)) {
+                e(activity, str);
+                return true;
+            }
+            return false;
+        }
+        return invokeLIL.booleanValue;
+    }
+
+    public static void g(ViewGroup viewGroup, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLZ(65542, null, viewGroup, str, z) == null) && viewGroup != null && !TextUtils.isEmpty(str)) {
+            BdTopToast bdTopToast = new BdTopToast(viewGroup.getContext());
+            bdTopToast.h(z);
+            bdTopToast.g(str);
+            bdTopToast.i(viewGroup);
+        }
+    }
+
+    public static String c(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            if (view2 == null) {
+                return null;
+            }
+            Object tag = view2.getTag();
+            if (tag instanceof bc9) {
+                bc9 bc9Var = (bc9) tag;
+                if (bc9Var.r() != null) {
+                    return bc9Var.r().getUserId();
                 }
             }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void e(Activity activity, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, str) == null) && activity != null && !TextUtils.isEmpty(str)) {
+            g((ViewGroup) activity.findViewById(16908290), str, false);
         }
     }
 
-    public static final void c(PostData postData, TbRichTextView richTextView) {
-        Rect rect;
+    public static void f(View view2, bc9 bc9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, postData, richTextView) == null) {
-            Intrinsics.checkNotNullParameter(postData, "postData");
-            Intrinsics.checkNotNullParameter(richTextView, "richTextView");
-            ku5 layoutStrategy = richTextView.getLayoutStrategy();
-            if (postData.A() != null) {
-                rect = new Rect(-1, -1, -1, ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds53));
-            } else {
-                rect = null;
-            }
-            layoutStrategy.s(rect);
+        if ((interceptable != null && interceptable.invokeLL(65541, null, view2, bc9Var) != null) || view2 == null) {
+            return;
         }
+        view2.setTag(bc9Var);
     }
 }

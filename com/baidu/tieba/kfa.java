@@ -1,156 +1,225 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.efa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.InputStream;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONObject;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.AdRipper;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.qq.e.ads.banner2.UnifiedBannerADListener;
+import com.qq.e.ads.banner2.UnifiedBannerView;
+import com.qq.e.comm.util.AdError;
 /* loaded from: classes5.dex */
-public class kfa implements cfa {
+public class kfa extends ReporterPidLoader<UnifiedBannerView> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final Context b;
-    public final String c;
-    public final zea d;
-    public final mfa e;
-    public final nfa f;
-    public final Map<String, String> g;
-    public final List<ufa> h;
-    public final Map<String, String> i;
 
-    public kfa(Context context, String str, zea zeaVar, InputStream inputStream, Map<String, String> map, List<ufa> list, String str2) {
+    /* loaded from: classes5.dex */
+    public class a implements UnifiedBannerADListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public boolean b;
+        public final /* synthetic */ UnifiedBannerView[] c;
+        public final /* synthetic */ kfa d;
+
+        public a(kfa kfaVar, UnifiedBannerView[] unifiedBannerViewArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kfaVar, unifiedBannerViewArr};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = kfaVar;
+            this.c = unifiedBannerViewArr;
+        }
+
+        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
+        public void onADClicked() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                LogPrinter.d();
+                this.d.onAdClicked(this.c[0], this.b, new String[0]);
+                this.b = true;
+            }
+        }
+
+        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
+        public void onADCloseOverlay() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                LogPrinter.d();
+            }
+        }
+
+        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
+        public void onADClosed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                LogPrinter.e();
+                this.d.onAdClose(this.c[0]);
+            }
+        }
+
+        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
+        public void onADExposure() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                LogPrinter.d();
+                this.d.onAdShow(this.c[0], this.a, new String[0]);
+                this.a = true;
+            }
+        }
+
+        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
+        public void onADLeftApplication() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                LogPrinter.d();
+            }
+        }
+
+        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
+        public void onADOpenOverlay() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                LogPrinter.e();
+            }
+        }
+
+        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
+        public void onADReceive() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+                LogPrinter.d();
+                this.d.onAdLoaded((kfa) this.c[0]);
+            }
+        }
+
+        @Override // com.qq.e.ads.banner2.UnifiedBannerADListener
+        public void onNoAD(AdError adError) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, adError) == null) {
+                this.d.onError(adError.getErrorCode(), adError.getErrorMsg());
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kfa(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.BANNER), pid, false);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, zeaVar, inputStream, map, list, str2};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = new HashMap();
-        context = context.getApplicationContext() != null ? context.getApplicationContext() : context;
-        this.b = context;
-        str = str == null ? context.getPackageName() : str;
-        this.c = str;
-        if (inputStream != null) {
-            this.e = new qfa(inputStream, str);
-            ifa.a(inputStream);
-        } else {
-            this.e = new tfa(this.b, str);
-        }
-        this.f = new nfa(this.e);
-        if (zeaVar != zea.b && "1.0".equals(this.e.a("/configuration_version", null))) {
-            throw new RuntimeException("The file version does not match,please download the latest agconnect-services.json from the AGC website.");
-        }
-        this.d = (zeaVar == null || zeaVar == zea.b) ? ifa.f(this.e.a("/region", null), this.e.a("/agcgw/url", null)) : zeaVar;
-        this.g = ifa.d(map);
-        this.h = list;
-        this.a = str2 == null ? e() : str2;
     }
 
-    @Override // com.baidu.tieba.cfa
-    public String a(String str) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public AdRipper createAdRipper(Ssp.Pid pid) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) ? f(str, null) : (String) invokeL.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new wea(pid) : (AdRipper) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.cfa
-    public zea b() {
-        InterceptResult invokeV;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            zea zeaVar = this.d;
-            return zeaVar == null ? zea.b : zeaVar;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, context, funAdSlot) == null) {
+            onLoadStart(funAdSlot);
+            if (!(context instanceof Activity)) {
+                onError(0, "NoA");
+                return;
+            }
+            UnifiedBannerView unifiedBannerView = new UnifiedBannerView((Activity) context, this.mPid.pid, new a(this, r6));
+            unifiedBannerView.setRefresh(0);
+            unifiedBannerView.loadAD();
+            UnifiedBannerView[] unifiedBannerViewArr = {unifiedBannerView};
         }
-        return (zea) invokeV.objValue;
     }
 
-    public final String c(String str) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        UnifiedBannerView unifiedBannerView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) && (unifiedBannerView = (UnifiedBannerView) obj) != null) {
+            unifiedBannerView.destroy();
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public double getAdBiddingPrices(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            Map<String, efa.a> a = efa.a();
-            if (a.containsKey(str)) {
-                if (this.i.containsKey(str)) {
-                    return this.i.get(str);
-                }
-                efa.a aVar = a.get(str);
-                if (aVar == null) {
-                    return null;
-                }
-                String a2 = aVar.a(this);
-                this.i.put(str, a2);
-                return a2;
-            }
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            return ((UnifiedBannerView) obj).getECPM() / 100.0d;
         }
-        return (String) invokeL.objValue;
+        return invokeL.doubleValue;
     }
 
-    public List<ufa> d() {
-        InterceptResult invokeV;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void setAdBiddingResult(Object obj, double d, double d2, boolean z, int i) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.h : (List) invokeV.objValue;
-    }
-
-    public final String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return String.valueOf(("{packageName='" + this.c + "', routePolicy=" + this.d + ", reader=" + this.e.toString().hashCode() + ", customConfigMap=" + new JSONObject(this.g).toString().hashCode() + '}').hashCode());
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{obj, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            UnifiedBannerView unifiedBannerView = (UnifiedBannerView) obj;
+            double d3 = d * 100.0d;
+            if (z) {
+                unifiedBannerView.sendWinNotification((int) d3);
+                return;
+            }
+            int i2 = 1;
+            if (i == 3) {
+                i2 = 2;
+            } else if (i == 5) {
+                i2 = 3;
+            }
+            unifiedBannerView.sendLossNotification((int) d3, i2, "");
         }
-        return (String) invokeV.objValue;
     }
 
-    public String f(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            if (str == null) {
-                return str2;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, activity, viewGroup, str, obj)) == null) {
+            UnifiedBannerView unifiedBannerView = (UnifiedBannerView) obj;
+            onShowStart(unifiedBannerView);
+            if (unifiedBannerView.getParent() != null) {
+                ((ViewGroup) unifiedBannerView.getParent()).removeView(unifiedBannerView);
             }
-            String e = ifa.e(str);
-            String str3 = this.g.get(e);
-            if (str3 != null) {
-                return str3;
-            }
-            String c = c(e);
-            if (c != null) {
-                return c;
-            }
-            String a = this.e.a(e, str2);
-            return nfa.c(a) ? this.f.a(a, str2) : a;
+            viewGroup.removeAllViews();
+            int width = viewGroup.getWidth();
+            viewGroup.addView(unifiedBannerView, new ViewGroup.LayoutParams(width, Math.round(width / 6.4f)));
+            return true;
         }
-        return (String) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.cfa
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.b : (Context) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.cfa
-    public String getIdentifier() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.a : (String) invokeV.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
@@ -10,17 +11,16 @@ public class lq5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final <T extends IntentConfig> void a(int i, T t) {
+    public static void a(int i) {
+        int videoAutoPlayReal;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65536, null, i, t) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(i, t));
-        }
-    }
-
-    public static final <T extends IntentConfig> void b(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, t) == null) {
-            a(2002001, t);
+        if (interceptable == null || interceptable.invokeI(65536, null, i) == null) {
+            if (TbadkCoreApplication.getInst().getVideoAutoPlayReal() == -1) {
+                videoAutoPlayReal = TbadkCoreApplication.getInst().getAutoPlaySwitch();
+            } else {
+                videoAutoPlayReal = TbadkCoreApplication.getInst().getVideoAutoPlayReal();
+            }
+            StatisticItem.make(CommonStatisticKey.KEY_VIDEO_AD_PLAY_SWITCH).param("obj_type", i).param(TiebaStatic.Params.OBJ_PARAM2, videoAutoPlayReal).eventStat();
         }
     }
 }

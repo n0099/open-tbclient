@@ -1,47 +1,47 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.nna;
-import com.baidu.tieba.uma;
-import com.baidu.tieba.yma;
+import com.baidu.tieba.jsa;
+import com.baidu.tieba.qra;
+import com.baidu.tieba.ura;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes9.dex */
-public final class OnSubscribeFromArray$FromArrayProducer<T> extends AtomicLong implements uma {
+public final class OnSubscribeFromArray$FromArrayProducer<T> extends AtomicLong implements qra {
     public static final long serialVersionUID = 3534218984725836979L;
     public final T[] array;
-    public final yma<? super T> child;
+    public final ura<? super T> child;
     public int index;
 
-    public OnSubscribeFromArray$FromArrayProducer(yma<? super T> ymaVar, T[] tArr) {
-        this.child = ymaVar;
+    public OnSubscribeFromArray$FromArrayProducer(ura<? super T> uraVar, T[] tArr) {
+        this.child = uraVar;
         this.array = tArr;
     }
 
     public void fastPath() {
-        yma<? super T> ymaVar = this.child;
+        ura<? super T> uraVar = this.child;
         for (T t : this.array) {
             Object obj = (Object) t;
-            if (ymaVar.isUnsubscribed()) {
+            if (uraVar.isUnsubscribed()) {
                 return;
             }
-            ymaVar.onNext(obj);
+            uraVar.onNext(obj);
         }
-        if (ymaVar.isUnsubscribed()) {
+        if (uraVar.isUnsubscribed()) {
             return;
         }
-        ymaVar.onCompleted();
+        uraVar.onCompleted();
     }
 
-    @Override // com.baidu.tieba.uma
+    @Override // com.baidu.tieba.qra
     public void request(long j) {
         int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
         if (i >= 0) {
             if (j == Long.MAX_VALUE) {
-                if (nna.b(this, j) == 0) {
+                if (jsa.b(this, j) == 0) {
                     fastPath();
                     return;
                 }
                 return;
-            } else if (i != 0 && nna.b(this, j) == 0) {
+            } else if (i != 0 && jsa.b(this, j) == 0) {
                 slowPath(j);
                 return;
             } else {
@@ -52,7 +52,7 @@ public final class OnSubscribeFromArray$FromArrayProducer<T> extends AtomicLong 
     }
 
     public void slowPath(long j) {
-        yma<? super T> ymaVar = this.child;
+        ura<? super T> uraVar = this.child;
         T[] tArr = this.array;
         int length = tArr.length;
         int i = this.index;
@@ -60,14 +60,14 @@ public final class OnSubscribeFromArray$FromArrayProducer<T> extends AtomicLong 
             long j2 = 0;
             while (true) {
                 if (j != 0 && i != length) {
-                    if (ymaVar.isUnsubscribed()) {
+                    if (uraVar.isUnsubscribed()) {
                         return;
                     }
-                    ymaVar.onNext((Object) tArr[i]);
+                    uraVar.onNext((Object) tArr[i]);
                     i++;
                     if (i == length) {
-                        if (!ymaVar.isUnsubscribed()) {
-                            ymaVar.onCompleted();
+                        if (!uraVar.isUnsubscribed()) {
+                            uraVar.onCompleted();
                             return;
                         }
                         return;

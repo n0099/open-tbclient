@@ -1,14 +1,13 @@
 package com.baidu.tieba;
 
-import java.lang.annotation.ElementType;
-import java.lang.annotation.Retention;
-import java.lang.annotation.RetentionPolicy;
-import java.lang.annotation.Target;
-@Target({ElementType.METHOD})
-@Retention(RetentionPolicy.RUNTIME)
+import android.view.View;
 /* loaded from: classes4.dex */
-public @interface h45 {
-    boolean isAsync() default false;
+public interface h45 {
+    void a(d45 d45Var);
 
-    String value() default "";
+    View getView();
+
+    void onDismiss();
+
+    void onShow();
 }

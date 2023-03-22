@@ -1,17 +1,23 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.websocket.WebSocketTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class k84 {
+public class k84 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile k84 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public volatile ArrayList<j84> b;
 
     public k84() {
         Interceptable interceptable = $ic;
@@ -23,55 +29,79 @@ public final class k84 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = new ArrayList<>(20);
     }
 
-    public final boolean a() {
+    public static k84 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            y03 d = d();
-            if (d != null) {
-                return d.a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (k84.class) {
+                    if (c == null) {
+                        c = new k84();
+                    }
+                }
             }
-            return false;
+            return c;
         }
-        return invokeV.booleanValue;
+        return (k84) invokeV.objValue;
     }
 
-    public final y03 d() {
+    public synchronized void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                this.b.clear();
+                this.a = 0;
+            }
+        }
+    }
+
+    public synchronized void a(j84 j84Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, j84Var) == null) {
+            synchronized (this) {
+                if (j84Var == null) {
+                    return;
+                }
+                if (this.b.size() < 20) {
+                    this.b.add(j84Var);
+                } else {
+                    this.a++;
+                }
+            }
+        }
+    }
+
+    public synchronized JSONObject d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            m93 M = m93.M();
-            if (M != null) {
-                return M.m0();
-            }
-            return null;
-        }
-        return (y03) invokeV.objValue;
-    }
-
-    public final void b(WebSocketTask task) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, task) == null) {
-            Intrinsics.checkNotNullParameter(task, "task");
-            y03 d = d();
-            if (d != null) {
-                d.b(task);
-            }
-        }
-    }
-
-    public final void c(String taskId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, taskId) == null) {
-            Intrinsics.checkNotNullParameter(taskId, "taskId");
-            y03 d = d();
-            if (d != null) {
-                d.c(taskId);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                int size = this.b.size();
+                if (size == 0) {
+                    return null;
+                }
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("dropcnt", this.a);
+                    jSONObject.put("errorcnt", size);
+                    JSONArray jSONArray = new JSONArray();
+                    jSONObject.put("errors", jSONArray);
+                    Iterator<j84> it = this.b.iterator();
+                    while (it.hasNext()) {
+                        jSONArray.put(it.next().a());
+                    }
+                } catch (JSONException unused) {
+                }
+                this.b.clear();
+                return jSONObject;
             }
         }
+        return (JSONObject) invokeV.objValue;
     }
 }

@@ -1,99 +1,58 @@
 package com.baidu.tieba;
 
+import android.graphics.Canvas;
+import android.graphics.ColorFilter;
+import android.graphics.drawable.Drawable;
+import android.widget.ImageView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.vma;
-import com.baidu.tieba.wma;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeUnit;
+import com.opensource.svgaplayer.SVGAVideoEntity;
 /* loaded from: classes4.dex */
-public final class foa<T> implements wma.c<T> {
+public final class foa extends Drawable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final wma.c<T> a;
-    public final long b;
-    public final TimeUnit c;
-    public final vma d;
+    public boolean a;
+    public int b;
+    public ImageView.ScaleType c;
+    public final koa d;
+    public final SVGAVideoEntity e;
+    public final goa f;
 
-    /* loaded from: classes4.dex */
-    public static final class a<T> extends xma<T> implements fna {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final xma<? super T> b;
-        public final vma.a c;
-        public final long d;
-        public final TimeUnit e;
-        public T f;
-        public Throwable g;
-
-        public a(xma<? super T> xmaVar, vma.a aVar, long j, TimeUnit timeUnit) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xmaVar, aVar, Long.valueOf(j), timeUnit};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = xmaVar;
-            this.c = aVar;
-            this.d = j;
-            this.e = timeUnit;
+    @Override // android.graphics.drawable.Drawable
+    public int getOpacity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return -2;
         }
+        return invokeV.intValue;
+    }
 
-        @Override // com.baidu.tieba.xma
-        public void b(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
-                this.g = th;
-                this.c.c(this, this.d, this.e);
-            }
-        }
-
-        @Override // com.baidu.tieba.xma
-        public void c(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-                this.f = t;
-                this.c.c(this, this.d, this.e);
-            }
-        }
-
-        @Override // com.baidu.tieba.fna
-        public void call() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                try {
-                    Throwable th = this.g;
-                    if (th != null) {
-                        this.g = null;
-                        this.b.b(th);
-                    } else {
-                        T t = this.f;
-                        this.f = null;
-                        this.b.c(t);
-                    }
-                } finally {
-                    this.c.unsubscribe();
-                }
-            }
+    @Override // android.graphics.drawable.Drawable
+    public void setAlpha(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
         }
     }
 
-    public foa(wma.c<T> cVar, long j, TimeUnit timeUnit, vma vmaVar) {
+    @Override // android.graphics.drawable.Drawable
+    public void setColorFilter(ColorFilter colorFilter) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, colorFilter) == null) {
+        }
+    }
+
+    public foa(SVGAVideoEntity sVGAVideoEntity, goa goaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cVar, Long.valueOf(j), timeUnit, vmaVar};
+            Object[] objArr = {sVGAVideoEntity, goaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -103,25 +62,61 @@ public final class foa<T> implements wma.c<T> {
                 return;
             }
         }
-        this.a = cVar;
-        this.d = vmaVar;
-        this.b = j;
-        this.c = timeUnit;
+        this.e = sVGAVideoEntity;
+        this.f = goaVar;
+        this.a = true;
+        this.c = ImageView.ScaleType.MATRIX;
+        this.d = new koa(sVGAVideoEntity, goaVar);
     }
 
-    public void call(xma<? super T> xmaVar) {
+    public final int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, xmaVar) == null) {
-            vma.a createWorker = this.d.createWorker();
-            a aVar = new a(xmaVar, createWorker, this.b, this.c);
-            xmaVar.a(createWorker);
-            xmaVar.a(aVar);
-            this.a.call(aVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public final SVGAVideoEntity b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
+        }
+        return (SVGAVideoEntity) invokeV.objValue;
+    }
+
+    public final void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) || this.a == z) {
+            return;
+        }
+        this.a = z;
+        invalidateSelf();
+    }
+
+    public final void d(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || this.b == i) {
+            return;
+        }
+        this.b = i;
+        invalidateSelf();
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public void draw(Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, canvas) == null) && !this.a && canvas != null) {
+            this.d.a(canvas, this.b, this.c);
         }
     }
 
-    @Override // com.baidu.tieba.wma.c, com.baidu.tieba.gna
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((xma) ((xma) obj));
+    public final void e(ImageView.ScaleType scaleType) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, scaleType) == null) {
+            this.c = scaleType;
+        }
     }
 }

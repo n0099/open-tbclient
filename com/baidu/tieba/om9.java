@@ -1,55 +1,121 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.webkit.WebView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import android.widget.ImageView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.atomData.AccountAccessActivityConfig;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.write.vcode.newVcode.NewVcodeView;
+import com.baidu.tieba.video.record.GLVideoPreviewView;
+import com.baidu.tieba.video.record.ProgressView;
+import com.baidu.tieba.video.record.RecordVideoActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.faceunity.encoder.TextureMovieEncoder;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class om9 implements pm9 {
+public class om9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final NewVcodeView a;
-    public final NewWriteModel b;
-    public boolean c;
-    public PostWriteCallBackData d;
-    public final NewWriteModel.d e;
-    public NewWriteModel.d f;
+    public int a;
+    public int b;
+    public RecordVideoActivity c;
+    public ProgressView d;
+    public List<b> e;
+    public boolean f;
+    public long g;
+    public int h;
 
-    @Override // com.baidu.tieba.pm9
-    public void e(boolean z, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZL(1048580, this, z, str) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.pm9
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-        }
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(int i);
     }
 
     /* loaded from: classes5.dex */
-    public class a implements NewWriteModel.d {
+    public class a implements ProgressView.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ om9 a;
+
+        /* renamed from: com.baidu.tieba.om9$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class C0366a implements TextureMovieEncoder.OnEncoderStatusUpdateListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ mm9 a;
+            public final /* synthetic */ a b;
+
+            @Override // com.faceunity.encoder.TextureMovieEncoder.OnEncoderStatusUpdateListener
+            public void onStartSuccess() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                }
+            }
+
+            /* renamed from: com.baidu.tieba.om9$a$a$a  reason: collision with other inner class name */
+            /* loaded from: classes5.dex */
+            public class RunnableC0367a implements Runnable {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ C0366a a;
+
+                public RunnableC0367a(C0366a c0366a) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {c0366a};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.a = c0366a;
+                }
+
+                @Override // java.lang.Runnable
+                public void run() {
+                    Interceptable interceptable = $ic;
+                    if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b.a.c != null) {
+                        this.a.b.a.c.y0();
+                    }
+                }
+            }
+
+            public C0366a(a aVar, mm9 mm9Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, mm9Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = mm9Var;
+            }
+
+            @Override // com.faceunity.encoder.TextureMovieEncoder.OnEncoderStatusUpdateListener
+            public void onStopSuccess() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    jg.a().post(new RunnableC0367a(this));
+                    this.a.setOnEncoderStatusUpdateListener(null);
+                }
+            }
+        }
 
         public a(om9 om9Var) {
             Interceptable interceptable = $ic;
@@ -69,53 +135,35 @@ public class om9 implements pm9 {
             this.a = om9Var;
         }
 
-        @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, m95 m95Var, WriteData writeData, AntiData antiData) {
-            String str;
-            String str2;
+        @Override // com.baidu.tieba.video.record.ProgressView.a
+        public void a(int i) {
+            nm9 nm9Var;
+            mm9 q;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, m95Var, writeData, antiData}) != null) || this.a.a == null) {
-                return;
-            }
-            this.a.a.showPostThreadLoadingView(false);
-            if (!z) {
-                if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 227001) {
-                    this.a.a.getContext().setVisible(false);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AccountAccessActivityConfig(this.a.a.getContext().getActivity(), 12006, writeData, postWriteCallBackData.getAccessState())));
-                    return;
-                } else if (this.a.f != null) {
-                    this.a.f.callback(false, postWriteCallBackData, m95Var, writeData, antiData);
-                    return;
-                } else {
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                this.a.h = i;
+                if (i != 100 || this.a.c == null || (nm9Var = this.a.c.k) == null || (q = nm9Var.q()) == null) {
                     return;
                 }
+                if (q instanceof GLVideoPreviewView) {
+                    q.setOnEncoderStatusUpdateListener(new C0366a(this, q));
+                    this.a.o();
+                    return;
+                }
+                this.a.o();
+                if (this.a.c != null) {
+                    this.a.c.y0();
+                }
             }
-            this.a.d = postWriteCallBackData;
-            this.a.c = true;
-            String str3 = null;
-            if (m95Var != null && m95Var.a() != null) {
-                String str4 = m95Var.a().endPoint;
-                String str5 = m95Var.a().successImg;
-                String str6 = m95Var.a().slideEndPoint;
-                str = str4;
-                str3 = str5;
-                str2 = str6;
-            } else {
-                str = null;
-                str2 = null;
-            }
-            this.a.a.runJsMethod("success", str3 + "," + str + "," + str2);
-            z49.j(writeData);
-            b89.a(writeData, postWriteCallBackData.getThreadId());
         }
     }
 
-    public om9(NewVcodeView newVcodeView, NewWriteModel newWriteModel) {
+    public om9(RecordVideoActivity recordVideoActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {newVcodeView, newWriteModel};
+            Object[] objArr = {recordVideoActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -125,120 +173,209 @@ public class om9 implements pm9 {
                 return;
             }
         }
-        a aVar = new a(this);
-        this.e = aVar;
-        this.a = newVcodeView;
-        this.b = newWriteModel;
-        newWriteModel.l0(aVar);
-    }
-
-    @Override // com.baidu.tieba.pm9
-    public void c(NewWriteModel.d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dVar) == null) {
-            this.f = dVar;
+        this.a = 1;
+        this.c = recordVideoActivity;
+        if (recordVideoActivity == null) {
+            return;
+        }
+        ImageView imageView = (ImageView) recordVideoActivity.findViewById(R.id.obfuscated_res_0x7f090508);
+        ImageView imageView2 = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f090add);
+        ProgressView progressView = (ProgressView) this.c.findViewById(R.id.obfuscated_res_0x7f092777);
+        this.d = progressView;
+        progressView.setListener(new a(this));
+        if (!hm9.f(true)) {
+            imageView2.setVisibility(4);
+        }
+        if (!hm9.g(recordVideoActivity.getPackageManager())) {
+            imageView.setVisibility(8);
         }
     }
 
-    @Override // com.baidu.tieba.pm9
-    public void onPageFinished(WebView webView, String str) {
-        NewVcodeView newVcodeView;
+    public void m(int i) {
+        File[] listFiles;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048583, this, webView, str) == null) && (newVcodeView = this.a) != null) {
-            newVcodeView.showWebViewDelay(1000);
-        }
-    }
-
-    @Override // com.baidu.tieba.pm9
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.a.setRatio(0.9433962f);
-            this.a.showWebView(false);
-            this.a.getWebView().loadUrl(TbConfig.SERVER_ADDRESS_WEB_VIEW + "n/captcha-drag");
-        }
-    }
-
-    @Override // com.baidu.tieba.pm9
-    public boolean b(WebView webView, String str) {
-        InterceptResult invokeLL;
-        WriteData d0;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str)) == null) {
-            if (this.b.d0() == null || StringUtils.isNull(str) || (d0 = this.b.d0()) == null) {
-                return false;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.a = i;
+            if (i == 1) {
+                this.d.setVisibility(4);
+                this.d.d();
+                this.b = 0;
+                File file = new File(qk9.f);
+                if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
+                    for (File file2 : listFiles) {
+                        if (file2.getPath().startsWith("rec_tmp_")) {
+                            file2.delete();
+                        }
+                    }
+                }
             }
-            if (str.contains("objc:loadReady")) {
-                if (d0.getVcodeExtra() == null) {
-                    return false;
+            List<b> list = this.e;
+            if (list != null) {
+                for (b bVar : list) {
+                    bVar.a(this.a);
                 }
-                this.a.runJsMethod("handleFreshCaptcha", "'" + d0.getVcodeUrl() + "','" + d0.getVcodeExtra().slideImg + "','" + d0.getVcodeExtra().textImg + "'");
-                return true;
-            } else if (str.contains("objc:jsChangePosition")) {
-                j(tr5.a(str));
-                return true;
-            } else if (str.contains("objc:finish")) {
-                if (d0.isAddThread()) {
-                    String string = this.a.getContext().getResources().getString(R.string.send_success);
-                    PostWriteCallBackData postWriteCallBackData = this.d;
-                    String str3 = null;
-                    if (postWriteCallBackData != null) {
-                        str3 = postWriteCallBackData.getPreMsg();
-                        str2 = this.d.getColorMsg();
-                        string = this.d.getErrorString();
-                    } else {
-                        str2 = null;
-                    }
-                    a89.b(this.a.getContext().getActivity(), string, str3, str2);
-                }
-                Intent intent = new Intent();
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("post_write_callback_data", this.d);
-                intent.putExtras(bundle);
-                BaseActivity context = this.a.getContext();
-                this.a.getContext();
-                context.setResult(-1, intent);
-                this.a.getContext().finish();
-                return true;
-            } else {
-                if (str.contains("objc:jumpToFeedback()")) {
-                    NewVcodeView newVcodeView = this.a;
-                    if (newVcodeView != null && newVcodeView.getContext() != null) {
-                        nm9.a(this.a.getContext().getPageContext());
-                    }
-                    return true;
-                }
-                return false;
             }
         }
-        return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.pm9
+    public void c(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            if (this.e == null) {
+                this.e = new ArrayList();
+            }
+            this.e.add(bVar);
+        }
+    }
+
     public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.showPostThreadLoadingView(false);
-            this.b.cancelLoadData();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ProgressView progressView = this.d;
+            if (progressView != null) {
+                progressView.setCurrentState(ProgressView.State.DELETE);
+            }
+            this.b = this.d.getLastProgress();
+            nm9 nm9Var = this.c.k;
+            if (nm9Var != null) {
+                nm9Var.h();
+            }
         }
     }
 
-    public final void j(String str) {
+    public int e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            if (!ej.F()) {
-                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0d11);
-                this.a.getContext().finish();
-            } else if (!StringUtils.isNull(str)) {
-                this.a.showPostThreadLoadingView(true);
-                this.b.d0().setVcode(str);
-                this.b.d0().setVcodeType("5");
-                this.b.o0();
-            } else {
-                this.a.getContext().showToast(R.string.obfuscated_res_0x7f0f0d11);
-                this.a.getContext().finish();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.h;
+        }
+        return invokeV.intValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.a == 6) {
+                return true;
             }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            pm9 pm9Var = this.c.I;
+            if (pm9Var != null) {
+                return pm9Var.i();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            int f = f();
+            if (f != 2 && f != 7) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.d.b()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void l() {
+        ProgressView progressView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && !this.f && (progressView = this.d) != null) {
+            progressView.setCurrentState(ProgressView.State.ROLLBACK);
+        }
+    }
+
+    public void n() {
+        nm9 nm9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048587, this) != null) || this.f) {
+            return;
+        }
+        ProgressView progressView = this.d;
+        if (progressView != null) {
+            progressView.setVisibility(0);
+            this.d.setCurrentState(ProgressView.State.START);
+        }
+        if (!this.f) {
+            this.f = true;
+            this.g = System.currentTimeMillis();
+        }
+        RecordVideoActivity recordVideoActivity = this.c;
+        if (recordVideoActivity != null && (nm9Var = recordVideoActivity.k) != null) {
+            nm9Var.L();
+            pm9 pm9Var = this.c.I;
+            if (pm9Var != null) {
+                pm9Var.n(this.b);
+            }
+        }
+    }
+
+    public void o() {
+        nm9 nm9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || !this.f) {
+            return;
+        }
+        ProgressView progressView = this.d;
+        if (progressView != null) {
+            progressView.setCurrentState(ProgressView.State.PAUSE);
+        }
+        this.f = false;
+        this.b = (int) (this.b + (System.currentTimeMillis() - this.g));
+        ProgressView progressView2 = this.d;
+        if (progressView2 != null) {
+            int lastProgress = progressView2.getLastProgress();
+            int i = this.b;
+            if (lastProgress != i) {
+                this.d.c(i);
+            }
+        }
+        RecordVideoActivity recordVideoActivity = this.c;
+        if (recordVideoActivity != null && (nm9Var = recordVideoActivity.k) != null) {
+            nm9Var.M();
         }
     }
 }

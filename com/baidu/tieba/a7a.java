@@ -1,158 +1,126 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
+import android.media.MediaCodec;
+import android.media.MediaFormat;
+import android.media.MediaMuxer;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.x6a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTImage;
-import com.bytedance.sdk.openadsdk.TTNativeAd;
-import com.fun.ad.sdk.ChannelNativeAds;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.FunNativeAd;
-import com.fun.ad.sdk.internal.api.BaseFunNativeAd;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import java.util.ArrayList;
-import java.util.List;
+import com.faceunity.encoder.MediaMuxerWrapper;
+import java.io.IOException;
+import java.nio.ByteBuffer;
 /* loaded from: classes3.dex */
-public class a7a extends BaseFunNativeAd {
+public class a7a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final k7a b;
-    public final x6a c;
+    public final MediaMuxer a;
+    public int b;
+    public int c;
+    public boolean d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a7a(k7a k7aVar, String str, Ssp.Pid pid, x6a x6aVar) {
-        super(str, pid);
+    public a7a(String str) throws IOException {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {k7aVar, str, pid, x6aVar};
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = k7aVar;
-        this.c = x6aVar;
+        this.b = 2;
+        this.c = 0;
+        this.d = false;
+        this.a = new MediaMuxer(str, 0);
     }
 
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public ChannelNativeAds getChannelNativeAds() {
-        InterceptResult invokeV;
+    public synchronized int a(MediaFormat mediaFormat) {
+        InterceptResult invokeL;
+        int addTrack;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return ChannelNativeAds.createCsj(this.b.a);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mediaFormat)) == null) {
+            synchronized (this) {
+                if (this.d) {
+                    throw new IllegalStateException("muxer already started");
+                }
+                addTrack = this.a.addTrack(mediaFormat);
+                m7a.j(MediaMuxerWrapper.TAG, "addTrack:trackNum=" + this.b + ",trackIx=" + addTrack + ",format=" + mediaFormat);
+            }
+            return addTrack;
         }
-        return (ChannelNativeAds) invokeV.objValue;
+        return invokeL.intValue;
     }
 
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public String getDescription() {
-        InterceptResult invokeV;
+    public synchronized void b(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return ((TTNativeAd) this.b.a).getDescription();
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, byteBuffer, bufferInfo) == null) {
+            synchronized (this) {
+                if (this.c > 0) {
+                    this.a.writeSampleData(i, byteBuffer, bufferInfo);
+                }
+            }
         }
-        return (String) invokeV.objValue;
     }
 
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public String getIconUrl() {
+    public synchronized boolean c() {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            TTImage icon = ((TTNativeAd) this.b.a).getIcon();
-            if (icon == null) {
-                return null;
-            }
-            return icon.getImageUrl();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public String getTitle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            String source = ((TTNativeAd) this.b.a).getSource();
-            if (TextUtils.isEmpty(source)) {
-                return ((TTNativeAd) this.b.a).getTitle();
-            }
-            return source;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public View getVideoView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return ((TTNativeAd) this.b.a).getAdView();
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public List<String> getImageUrls() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<TTImage> imageList = ((TTNativeAd) this.b.a).getImageList();
-            if (imageList != null && !imageList.isEmpty()) {
-                ArrayList arrayList = new ArrayList();
-                for (TTImage tTImage : imageList) {
-                    arrayList.add(tTImage.getImageUrl());
+            synchronized (this) {
+                m7a.k(MediaMuxerWrapper.TAG, "start:");
+                int i = this.c + 1;
+                this.c = i;
+                if (this.b > 0 && i == this.b) {
+                    this.a.start();
+                    this.d = true;
+                    notifyAll();
+                    m7a.k(MediaMuxerWrapper.TAG, "MediaMuxer started:");
                 }
-                return arrayList;
+                z = this.d;
             }
-            return null;
+            return z;
         }
-        return (List) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public FunNativeAd.InteractionType getInteractionType() {
+    public synchronized void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                m7a.k(MediaMuxerWrapper.TAG, "stop:mStatredCount=" + this.c);
+                int i = this.c + (-1);
+                this.c = i;
+                if (this.b > 0 && i <= 0) {
+                    if (this.d) {
+                        this.a.stop();
+                    }
+                    this.a.release();
+                    this.d = false;
+                    m7a.k(MediaMuxerWrapper.TAG, "MediaMuxer stopped:");
+                }
+            }
+        }
+    }
+
+    public synchronized boolean e() {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int interactionType = ((TTNativeAd) this.b.a).getInteractionType();
-            if (interactionType != 2 && interactionType != 3) {
-                if (interactionType != 4) {
-                    if (interactionType != 5) {
-                        return FunNativeAd.InteractionType.TYPE_UNKNOW;
-                    }
-                    return FunNativeAd.InteractionType.TYPE_DIAL;
-                }
-                return FunNativeAd.InteractionType.TYPE_DOWNLOAD;
+            synchronized (this) {
+                z = this.d;
             }
-            return FunNativeAd.InteractionType.TYPE_BROWSE;
+            return z;
         }
-        return (FunNativeAd.InteractionType) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BaseFunNativeAd
-    public void showInternal(Context context, ViewGroup viewGroup, List<View> list, List<View> list2, FunAdInteractionListener funAdInteractionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048583, this, context, viewGroup, list, list2, funAdInteractionListener) == null) {
-            x6a x6aVar = this.c;
-            k7a k7aVar = this.b;
-            x6aVar.g(context, k7aVar, this.mSid, viewGroup, list, list2, new x6a.b(x6aVar, k7aVar), funAdInteractionListener);
-        }
+        return invokeV.booleanValue;
     }
 }

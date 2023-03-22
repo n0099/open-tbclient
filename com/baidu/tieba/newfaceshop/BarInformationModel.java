@@ -12,8 +12,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.data.BazhuInfoData;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.a9;
 import com.baidu.tieba.newfaceshop.message.BazhuInfoResponseMessage;
-import com.baidu.tieba.x9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ public class BarInformationModel extends BdBaseModel {
 
     /* loaded from: classes5.dex */
     public interface b {
-        void B(BazhuInfoData bazhuInfoData);
+        void D(BazhuInfoData bazhuInfoData);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -77,7 +77,7 @@ public class BarInformationModel extends BdBaseModel {
                     bVar = (b) extra;
                 }
                 if (bVar != null && (bazhuInfoResponseMessage = (BazhuInfoResponseMessage) httpResponsedMessage) != null) {
-                    bVar.B(bazhuInfoResponseMessage.data);
+                    bVar.D(bazhuInfoResponseMessage.data);
                 }
             }
         }
@@ -95,7 +95,7 @@ public class BarInformationModel extends BdBaseModel {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((x9) newInitContext.callArgs[0]);
+                super((a9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -108,7 +108,7 @@ public class BarInformationModel extends BdBaseModel {
         registerListener(this.a);
     }
 
-    public void N(b bVar) {
+    public void R(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_BAR_ZHU_INFORMATION);

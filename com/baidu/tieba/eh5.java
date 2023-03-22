@@ -1,59 +1,21 @@
 package com.baidu.tieba;
 
-import androidx.fragment.app.Fragment;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* compiled from: GroupChatService.java */
 /* loaded from: classes4.dex */
-public class eh5 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int j = 1;
-    public static int k = 2;
-    public static int l = 3;
-    public static int m = 4;
+public final /* synthetic */ class eh5 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Fragment a;
-    public int b;
-    public String c;
-    public int d;
-    public int e;
-    public int f;
-    public String g;
-    public hh5 h;
-    public int i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947734359, "Lcom/baidu/tieba/eh5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947734359, "Lcom/baidu/tieba/eh5;");
-        }
-    }
-
-    public eh5() {
+    public static fh5 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return (fh5) ServiceManager.getService(fh5.a);
         }
-        this.i = j;
+        return (fh5) invokeV.objValue;
     }
 }

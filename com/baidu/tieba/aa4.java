@@ -1,20 +1,19 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.JsFunction;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class aa4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public JSONObject d;
-    public ba4 e;
+    public JsFunction a;
+    public JsFunction b;
+    public JsFunction c;
 
     public aa4() {
         Interceptable interceptable = $ic;
@@ -30,12 +29,55 @@ public class aa4 {
         }
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public void b() {
+        JsFunction jsFunction;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "{ videoPath=" + this.a + " , query=" + this.b + " , title=" + this.c + ", extra=" + this.d + ", videoEditorParams=" + this.e + " }";
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (jsFunction = this.c) != null) {
+            jsFunction.call();
         }
-        return (String) invokeV.objValue;
+    }
+
+    public void c() {
+        JsFunction jsFunction;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (jsFunction = this.b) != null) {
+            jsFunction.call();
+        }
+    }
+
+    public static aa4 d(a02 a02Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, a02Var)) == null) {
+            if (a02Var == null) {
+                return null;
+            }
+            aa4 aa4Var = new aa4();
+            JsFunction u = a02Var.u("onCheckForUpdate");
+            aa4Var.a = u;
+            if (u != null) {
+                u.setReleaseMode(false);
+            }
+            JsFunction u2 = a02Var.u("onUpdateReady");
+            aa4Var.b = u2;
+            if (u2 != null) {
+                u2.setReleaseMode(false);
+            }
+            JsFunction u3 = a02Var.u("onUpdateFailed");
+            aa4Var.c = u3;
+            if (u3 != null) {
+                u3.setReleaseMode(false);
+            }
+            return aa4Var;
+        }
+        return (aa4) invokeL.objValue;
+    }
+
+    public void a(ba4 ba4Var) {
+        JsFunction jsFunction;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, ba4Var) == null) && (jsFunction = this.a) != null) {
+            jsFunction.call(ba4Var);
+        }
     }
 }

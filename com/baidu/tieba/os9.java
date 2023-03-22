@@ -1,27 +1,29 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.core.data.ErrorData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class os9 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ns9 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public ErrorData a;
+    public String b;
+    public String c;
 
-    public static synchronized ns9 a() {
-        InterceptResult invokeV;
-        ns9 ns9Var;
+    public os9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (os9.class) {
-                if (a == null) {
-                    a = new ns9();
-                }
-                ns9Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return ns9Var;
         }
-        return (ns9) invokeV.objValue;
     }
 }

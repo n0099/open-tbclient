@@ -1,140 +1,57 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.os.Build;
+import android.text.TextUtils;
+import android.webkit.CookieManager;
+import android.webkit.CookieSyncManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeUnit;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringNumberConversionsKt;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes5.dex */
-public final class kr0 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final a q;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final boolean a;
-    public final boolean b;
-    public final int c;
-    public final int d;
-    public int e;
-    public final int f;
-    public final int g;
-    public final int h;
-    public final boolean i;
-    public final String j;
-    public final int k;
-    public final boolean l;
-    public boolean m;
-    public final boolean n;
-    public final String o;
-    public final int p;
+public interface kr0 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "nativeCookieMgr");
+    public static final ServiceReference b = new ServiceReference("nad.core", "sailorCookieMgr");
+    public static final kr0 c = new a();
+    public static final kr0 d = new b();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947922560, "Lcom/baidu/tieba/kr0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947922560, "Lcom/baidu/tieba/kr0;");
-                return;
-            }
-        }
-        q = new a(null);
-    }
+    String getCookie(String str);
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof kr0) {
-                    kr0 kr0Var = (kr0) obj;
-                    return this.a == kr0Var.a && this.b == kr0Var.b && this.c == kr0Var.c && this.d == kr0Var.d && this.e == kr0Var.e && this.f == kr0Var.f && this.g == kr0Var.g && this.h == kr0Var.h && this.i == kr0Var.i && Intrinsics.areEqual(this.j, kr0Var.j) && this.k == kr0Var.k && this.l == kr0Var.l && this.m == kr0Var.m && this.n == kr0Var.n && Intrinsics.areEqual(this.o, kr0Var.o) && this.p == kr0Var.p;
-                }
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
+    boolean shouldAcceptCookie(String str, String str2);
 
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r0v3, types: [int] */
-    /* JADX WARN: Type inference failed for: r0v34 */
-    /* JADX WARN: Type inference failed for: r0v35 */
-    /* JADX WARN: Type inference failed for: r2v1, types: [boolean] */
-    /* JADX WARN: Type inference failed for: r2v15, types: [boolean] */
-    /* JADX WARN: Type inference failed for: r2v17, types: [boolean] */
-    /* JADX WARN: Type inference failed for: r2v9, types: [boolean] */
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            boolean z = this.a;
-            ?? r0 = z;
-            if (z) {
-                r0 = 1;
-            }
-            int i = r0 * 31;
-            ?? r2 = this.b;
-            int i2 = r2;
-            if (r2 != 0) {
-                i2 = 1;
-            }
-            int i3 = (((((((((((((i + i2) * 31) + this.c) * 31) + this.d) * 31) + this.e) * 31) + this.f) * 31) + this.g) * 31) + this.h) * 31;
-            ?? r22 = this.i;
-            int i4 = r22;
-            if (r22 != 0) {
-                i4 = 1;
-            }
-            int i5 = (i3 + i4) * 31;
-            String str = this.j;
-            int hashCode = (((i5 + (str != null ? str.hashCode() : 0)) * 31) + this.k) * 31;
-            ?? r23 = this.l;
-            int i6 = r23;
-            if (r23 != 0) {
-                i6 = 1;
-            }
-            int i7 = (hashCode + i6) * 31;
-            ?? r24 = this.m;
-            int i8 = r24;
-            if (r24 != 0) {
-                i8 = 1;
-            }
-            int i9 = (i7 + i8) * 31;
-            boolean z2 = this.n;
-            int i10 = (i9 + (z2 ? 1 : z2 ? 1 : 0)) * 31;
-            String str2 = this.o;
-            return ((i10 + (str2 != null ? str2.hashCode() : 0)) * 31) + this.p;
-        }
-        return invokeV.intValue;
-    }
+    boolean shouldSendCookie(String str, String str2);
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            return "CmdPolicy(showTailFrame=" + this.a + ", unmountLandingUrl=" + this.b + ", guideArrowShowTime=" + this.c + ", guideArrowType=" + this.d + ", autoScrollLoopCount=" + this.e + ", downloadTaskDuration=" + this.f + ", invokeTaskDuration=" + this.g + ", invokeTaskShowTime=" + this.h + ", tailNineSplitScreen=" + this.i + ", tailNineChargeModify=" + this.j + ", tailNineSplitChargeDuration=" + this.k + ", btnIconShowSwitch=" + this.l + ", bottomArrowShow=" + this.m + ", bigCardAutoInvoke=" + this.n + ", bigCardAutoInvokeChargeMode=" + this.o + ", bigCardAutoInvokeChargeTime=" + this.p + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
+    void storeCookie(String str, List<String> list);
 
     /* loaded from: classes5.dex */
-    public static final class a {
+    public static class a implements kr0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.kr0
+        public boolean shouldAcceptCookie(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+                return true;
+            }
+            return invokeLL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.kr0
+        public boolean shouldSendCookie(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+                return true;
+            }
+            return invokeLL.booleanValue;
+        }
 
         public a() {
             Interceptable interceptable = $ic;
@@ -150,290 +67,124 @@ public final class kr0 {
             }
         }
 
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        @JvmStatic
-        public final kr0 a(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            boolean z;
-            boolean z2;
-            int i;
-            int i2;
-            int i3;
-            boolean z3;
-            int i4;
+        public final kr0 a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-                if (jSONObject != null) {
-                    if (jSONObject.optInt("show_tail_frame", 0) == 1) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    if (jSONObject.optInt("unmount_lp_url") == 1) {
-                        z2 = true;
-                    } else {
-                        z2 = false;
-                    }
-                    int optInt = jSONObject.optInt("ad_immersive_video_tip_delay", -1);
-                    int optInt2 = jSONObject.optInt("ad_immersive_video_tip_type", 0);
-                    int optInt3 = jSONObject.optInt("auto_scroll_loop", 0);
-                    int optInt4 = jSONObject.optInt("download_exp_duration");
-                    String optString = jSONObject.optString("invoke_exp_duration");
-                    Intrinsics.checkNotNullExpressionValue(optString, "it.optString(\"invoke_exp_duration\")");
-                    Integer intOrNull = StringsKt__StringNumberConversionsKt.toIntOrNull(optString);
-                    if (intOrNull != null) {
-                        i = intOrNull.intValue();
-                    } else {
-                        i = 0;
-                    }
-                    String optString2 = jSONObject.optString("invoke_exp_show_time");
-                    Intrinsics.checkNotNullExpressionValue(optString2, "it.optString(\"invoke_exp_show_time\")");
-                    Integer intOrNull2 = StringsKt__StringNumberConversionsKt.toIntOrNull(optString2);
-                    if (intOrNull2 != null) {
-                        i2 = intOrNull2.intValue();
-                    } else {
-                        i2 = 10;
-                    }
-                    boolean areEqual = Intrinsics.areEqual(jSONObject.optString("tail_nine_split_screen", "0"), "1");
-                    String optString3 = jSONObject.optString("tail_nine_charge_modify", "0");
-                    Intrinsics.checkNotNullExpressionValue(optString3, "it.optString(\"tail_nine_charge_modify\", \"0\")");
-                    String optString4 = jSONObject.optString("tail_nine_split_screen_charge_duration");
-                    Intrinsics.checkNotNullExpressionValue(optString4, "it.optString(\"tail_nine_…_screen_charge_duration\")");
-                    Integer intOrNull3 = StringsKt__StringNumberConversionsKt.toIntOrNull(optString4);
-                    if (intOrNull3 != null) {
-                        i3 = intOrNull3.intValue();
-                    } else {
-                        i3 = 0;
-                    }
-                    if (jSONObject.optInt("btn_icon_show_switch", 1) == 1) {
-                        z3 = true;
-                    } else {
-                        z3 = false;
-                    }
-                    boolean areEqual2 = Intrinsics.areEqual(jSONObject.optString("bottom_arrow_show_switch", "0"), "1");
-                    boolean areEqual3 = Intrinsics.areEqual(jSONObject.optString("big_card_nine_split_screen", "0"), "1");
-                    String optString5 = jSONObject.optString("big_card_nine_charge_modify", "0");
-                    Intrinsics.checkNotNullExpressionValue(optString5, "it.optString(\"big_card_nine_charge_modify\", \"0\")");
-                    String optString6 = jSONObject.optString("big_card_nine_split_screen_charge_duration");
-                    Intrinsics.checkNotNullExpressionValue(optString6, "it.optString(\"big_card_n…_screen_charge_duration\")");
-                    Integer intOrNull4 = StringsKt__StringNumberConversionsKt.toIntOrNull(optString6);
-                    if (intOrNull4 != null) {
-                        i4 = intOrNull4.intValue();
-                    } else {
-                        i4 = 0;
-                    }
-                    return new kr0(z, z2, optInt, optInt2, optInt3, optInt4, i, i2, areEqual, optString3, i3, z3, areEqual2, areEqual3, optString5, i4);
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (ServiceManager.getService(kr0.a) != null) {
+                    return (kr0) ServiceManager.getService(kr0.a);
                 }
-                return null;
+                return kr0.d;
             }
-            return (kr0) invokeL.objValue;
+            return (kr0) invokeV.objValue;
         }
-    }
 
-    public kr0(boolean z, boolean z2, int i, int i2, int i3, int i4, int i5, int i6, boolean z3, String tailNineChargeModify, int i7, boolean z4, boolean z5, boolean z6, String bigCardAutoInvokeChargeMode, int i8) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Boolean.valueOf(z3), tailNineChargeModify, Integer.valueOf(i7), Boolean.valueOf(z4), Boolean.valueOf(z5), Boolean.valueOf(z6), bigCardAutoInvokeChargeMode, Integer.valueOf(i8)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i9 = newInitContext.flag;
-            if ((i9 & 1) != 0) {
-                int i10 = i9 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        public final kr0 b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (ServiceManager.getService(kr0.b) != null) {
+                    return (kr0) ServiceManager.getService(kr0.b);
+                }
+                return kr0.d;
+            }
+            return (kr0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.kr0
+        public String getCookie(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                if (!TextUtils.isEmpty(b().getCookie(str))) {
+                    return b().getCookie(str);
+                }
+                return a().getCookie(str);
+            }
+            return (String) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.kr0
+        public void storeCookie(String str, List<String> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048581, this, str, list) == null) {
+                b().storeCookie(str, list);
+                a().storeCookie(str, list);
             }
         }
-        Intrinsics.checkNotNullParameter(tailNineChargeModify, "tailNineChargeModify");
-        Intrinsics.checkNotNullParameter(bigCardAutoInvokeChargeMode, "bigCardAutoInvokeChargeMode");
-        this.a = z;
-        this.b = z2;
-        this.c = i;
-        this.d = i2;
-        this.e = i3;
-        this.f = i4;
-        this.g = i5;
-        this.h = i6;
-        this.i = z3;
-        this.j = tailNineChargeModify;
-        this.k = i7;
-        this.l = z4;
-        this.m = z5;
-        this.n = z6;
-        this.o = bigCardAutoInvokeChargeMode;
-        this.p = i8;
     }
 
-    public final int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
+    /* loaded from: classes5.dex */
+    public static class b implements kr0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.n;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.o;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int i = this.p;
-            if (i <= 0) {
-                return 0L;
+        @Override // com.baidu.tieba.kr0
+        public boolean shouldAcceptCookie(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+                return true;
             }
-            return TimeUnit.SECONDS.toMillis(i);
+            return invokeLL.booleanValue;
         }
-        return invokeV.longValue;
-    }
 
-    public final boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.m;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.l;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final Long g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            int i = this.f;
-            if (i <= 0) {
-                return null;
+        @Override // com.baidu.tieba.kr0
+        public boolean shouldSendCookie(String str, String str2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+                return true;
             }
-            return Long.valueOf(TimeUnit.SECONDS.toMillis(i));
+            return invokeLL.booleanValue;
         }
-        return (Long) invokeV.objValue;
-    }
 
-    public final int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public final int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public final int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public final Long k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            int i = this.g;
-            if (i <= 0) {
-                return null;
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            return Long.valueOf(TimeUnit.SECONDS.toMillis(i));
         }
-        return (Long) invokeV.objValue;
-    }
 
-    public final int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    public final long m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            int i = this.k;
-            if (i <= 0) {
-                return 0L;
+        @Override // com.baidu.tieba.kr0
+        public String getCookie(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                try {
+                    return CookieManager.getInstance().getCookie(str);
+                } catch (Exception unused) {
+                    return null;
+                }
             }
-            return TimeUnit.SECONDS.toMillis(i);
+            return (String) invokeL.objValue;
         }
-        return invokeV.longValue;
-    }
 
-    public final boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return this.a;
+        @Override // com.baidu.tieba.kr0
+        public void storeCookie(String str, List<String> list) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048579, this, str, list) == null) && list != null && list.size() > 0) {
+                try {
+                    CookieManager cookieManager = CookieManager.getInstance();
+                    for (String str2 : list) {
+                        cookieManager.setCookie(str, str2);
+                    }
+                    if (Build.VERSION.SDK_INT >= 21) {
+                        CookieManager.getInstance().flush();
+                        return;
+                    }
+                    CookieSyncManager.createInstance(hi0.b());
+                    CookieSyncManager.getInstance().sync();
+                } catch (Exception unused) {
+                }
+            }
         }
-        return invokeV.booleanValue;
-    }
-
-    public final String o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.j;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return this.i;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
     }
 }

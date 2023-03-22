@@ -1,5 +1,6 @@
 package com.google.zxing.oned.rss.expanded.decoders;
 
+import com.google.android.exoplayer2.extractor.ogg.DefaultOggSeeker;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.common.BitArray;
 import com.huawei.hms.common.internal.TransactionIdCreater;
@@ -47,13 +48,13 @@ public final class AI013x0x1xDecoder extends AI01weightDecoder {
     public void addWeightCode(StringBuilder sb, int i) {
         sb.append('(');
         sb.append(this.firstAIdigits);
-        sb.append(i / 100000);
+        sb.append(i / DefaultOggSeeker.MATCH_BYTE_RANGE);
         sb.append(')');
     }
 
     @Override // com.google.zxing.oned.rss.expanded.decoders.AI01weightDecoder
     public int checkWeight(int i) {
-        return i % 100000;
+        return i % DefaultOggSeeker.MATCH_BYTE_RANGE;
     }
 
     @Override // com.google.zxing.oned.rss.expanded.decoders.AbstractExpandedDecoder

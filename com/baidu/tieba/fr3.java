@@ -1,259 +1,189 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.support.v4.app.FragmentActivity;
-import com.baidu.tieba.qe3;
+import com.baidu.swan.bdtls.Certificate;
+import com.baidu.swan.bdtls.DH;
+import com.baidu.swan.bdtls.RSA;
+import com.baidu.swan.bdtls.impl.model.Bdtls$ApplicationData;
+import com.baidu.swan.bdtls.impl.model.Bdtls$ClientHello;
+import com.baidu.swan.bdtls.impl.model.Bdtls$Extension;
+import com.baidu.swan.bdtls.impl.model.Bdtls$Random;
+import com.baidu.swan.bdtls.impl.model.Bdtls$ServerHello;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.google.protobuf.ByteString;
+import java.nio.ByteBuffer;
+import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Random;
 /* loaded from: classes4.dex */
-public class fr3 extends jb3 {
+public class fr3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public class a implements fo3<me3> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ fr3 c;
-
-        public a(fr3 fr3Var, CallbackHandler callbackHandler, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fr3Var, callbackHandler, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = fr3Var;
-            this.a = callbackHandler;
-            this.b = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fo3
-        /* renamed from: b */
-        public void a(me3 me3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, me3Var) == null) {
-                if (me3Var == null || me3Var.d) {
-                    this.c.n(false, null, this.a, this.b, 10005, "system deny");
-                    fg3.r(10005, me3Var);
-                    return;
-                }
-                this.c.p(me3Var, this.a, this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements yp1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ me3 a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ fr3 d;
-
-        public b(fr3 fr3Var, me3 me3Var, CallbackHandler callbackHandler, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fr3Var, me3Var, callbackHandler, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = fr3Var;
-            this.a = me3Var;
-            this.b = callbackHandler;
-            this.c = str;
-        }
-
-        @Override // com.baidu.tieba.yp1
-        public void onResult(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                if (jb3.b) {
-                    Log.d("LoginAndGetMobileAction", "onResult: loginStatusCode = " + i);
-                }
-                if (i == -2) {
-                    this.d.n(false, null, this.b, this.c, 20050002, "user did cancel login");
-                } else if (i != 0) {
-                    this.d.n(false, null, this.b, this.c, 20050003, "user fail to login");
-                } else {
-                    this.d.o(this.a.c, zu2.U().getActivity(), this.b, this.c);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c implements fo3<pe3<qe3.b>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ fr3 c;
-
-        public c(fr3 fr3Var, CallbackHandler callbackHandler, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fr3Var, callbackHandler, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = fr3Var;
-            this.a = callbackHandler;
-            this.b = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.fo3
-        /* renamed from: b */
-        public void a(pe3<qe3.b> pe3Var) {
-            qe3.b bVar;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pe3Var) == null) {
-                if (pe3Var == null || !pe3Var.c() || (bVar = pe3Var.a) == null || bVar.c == null) {
-                    this.c.n(true, null, this.a, this.b, 20050004, "user fail to get mobile information");
-                    return;
-                }
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("data", pe3Var.a.c.optString("data"));
-                    jSONObject.put("iv", pe3Var.a.c.optString("iv"));
-                    this.c.n(true, jSONObject, this.a, this.b, 0, "success");
-                } catch (JSONException unused) {
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fr3(ja3 ja3Var) {
-        super(ja3Var, "/swanAPI/getPhoneNumberByLogin");
+    public static br3 a(er3 er3Var, byte[] bArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ja3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, er3Var, bArr)) == null) {
+            br3 br3Var = null;
+            if (er3Var == null || bArr == null || bArr.length == 0) {
+                return null;
             }
-        }
-    }
-
-    @Override // com.baidu.tieba.jb3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m93 m93Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, m93Var)) == null) {
-            if (m93Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "runtime exception");
-                return false;
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty params");
-                return false;
-            }
-            String optString = optParamsAsJo.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
-                return false;
-            }
-            zp1 N = l93.K().q().N();
-            if (N == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty account");
-                return false;
-            }
-            if (N.e(context)) {
-                n(true, null, callbackHandler, optString, 20050001, "user already login");
-            } else {
-                m93Var.e0().e("login_with_mobile", new a(this, callbackHandler, optString));
-            }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            return true;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final void n(boolean z, JSONObject jSONObject, CallbackHandler callbackHandler, String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), jSONObject, callbackHandler, str, Integer.valueOf(i), str2}) == null) {
-            JSONObject jSONObject2 = new JSONObject();
-            JSONObject jSONObject3 = new JSONObject();
             try {
-                jSONObject2.put("loginState", z);
-                if (jSONObject != null) {
-                    jSONObject2.put("mobile", jSONObject);
+                if (bArr[0] != 2) {
+                    return null;
                 }
-                jSONObject3 = UnitedSchemeUtility.wrapCallbackParams(jSONObject2, i, str2);
-            } catch (JSONException unused) {
+                br3 br3Var2 = new br3();
+                try {
+                    Bdtls$ServerHello parseFrom = Bdtls$ServerHello.parseFrom(Arrays.copyOfRange(bArr, 1, bArr.length));
+                    if (parseFrom == null) {
+                        return null;
+                    }
+                    br3Var2.a(parseFrom);
+                    List<Bdtls$Extension> extensionsList = parseFrom.getExtensionsList();
+                    if (extensionsList == null) {
+                        return null;
+                    }
+                    for (Bdtls$Extension bdtls$Extension : extensionsList) {
+                        int type = bdtls$Extension.getType();
+                        byte[] byteArray = bdtls$Extension.getData().toByteArray();
+                        if (type == 0) {
+                            byte[] decrypt = RSA.decrypt(byteArray);
+                            int a = tq3.a(decrypt);
+                            byte[] dHSecretKey = DH.getDHSecretKey(a, er3Var.d().intValue(), er3Var.f().intValue());
+                            er3Var.l(dHSecretKey);
+                            er3Var.p(Integer.valueOf(a));
+                            if (pq3.a) {
+                                Log.d("BDTLS", "GroupId=" + er3Var.d());
+                                Log.d("BDTLS", "client dh pubkey secret=" + er3Var.f());
+                                Log.d("BDTLS", "client dh pubkey=" + er3Var.e());
+                                Log.d("BDTLS", "server dh pubkey=" + a);
+                                Log.d("BDTLS", "server dh raw pubkey=" + tq3.d(decrypt));
+                                Log.d("BDTLS", "aeskey=" + tq3.d(dHSecretKey));
+                            }
+                        }
+                    }
+                    if (parseFrom.getSKR() == null) {
+                        return null;
+                    }
+                    Bdtls$ApplicationData.b newBuilder = Bdtls$ApplicationData.newBuilder();
+                    newBuilder.u(parseFrom.getSKR());
+                    Bdtls$ApplicationData build = newBuilder.build();
+                    er3Var.t(build.toByteArray());
+                    if (er3Var.c() == null) {
+                        return null;
+                    }
+                    long currentTimeMillis = (System.currentTimeMillis() / 1000) + parseFrom.getLifeTime();
+                    if (pq3.a) {
+                        Log.d("BDTLS", "liftTime=" + parseFrom.getLifeTime());
+                        Log.d("BDTLS", "expireTime=" + currentTimeMillis);
+                    }
+                    er3Var.r(currentTimeMillis);
+                    if (parseFrom.getCipherSuite() != null) {
+                        er3Var.q(parseFrom.getCipherSuite().toByteArray());
+                    }
+                    if (r13.c()) {
+                        new ar3().edit().putString("secretKey", Arrays.toString(er3Var.c())).putString("sessionTicket", String.valueOf(build)).putLong("expireTime", currentTimeMillis).apply();
+                        return br3Var2;
+                    }
+                    return br3Var2;
+                } catch (Exception e) {
+                    e = e;
+                    br3Var = br3Var2;
+                    if (pq3.a) {
+                        e.printStackTrace();
+                        Log.d("BDTLS", "exception=" + e.getMessage());
+                    }
+                    return br3Var;
+                }
+            } catch (Exception e2) {
+                e = e2;
             }
-            callbackHandler.handleSchemeDispatchCallback(str, jSONObject3.toString());
+        } else {
+            return (br3) invokeLL.objValue;
         }
     }
 
-    public final void o(boolean z, FragmentActivity fragmentActivity, CallbackHandler callbackHandler, String str) {
+    public static byte[] b(er3 er3Var, br3 br3Var) {
+        InterceptResult invokeLL;
+        byte[] encrypt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), fragmentActivity, callbackHandler, str}) == null) {
-            if (z) {
-                qe3 a2 = l93.K().x().a().b().a(fragmentActivity, z, "login_with_mobile", null);
-                a2.o(new c(this, callbackHandler, str));
-                a2.call();
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, er3Var, br3Var)) == null) {
+            if (br3Var == null) {
+                return null;
             }
-            n(true, null, callbackHandler, str, 20050004, "user fail to get mobile information");
+            int currentTimeMillis = (int) (System.currentTimeMillis() / 1000);
+            byte[] bArr = new byte[32];
+            new Random().nextBytes(bArr);
+            Bdtls$Random.b newBuilder = Bdtls$Random.newBuilder();
+            newBuilder.v(currentTimeMillis);
+            newBuilder.w(ByteString.copyFrom(bArr));
+            Bdtls$Random build = newBuilder.build();
+            int dHGroupId = DH.getDHGroupId();
+            int dHSecret = DH.getDHSecret();
+            int dHPublicKey = DH.getDHPublicKey(dHGroupId, dHSecret);
+            er3Var.m(Integer.valueOf(dHGroupId));
+            er3Var.o(Integer.valueOf(dHSecret));
+            er3Var.n(Integer.valueOf(dHPublicKey));
+            byte[] g = tq3.g(dHPublicKey);
+            if (g == null || (encrypt = RSA.encrypt(g)) == null) {
+                return null;
+            }
+            byte[] bytes = zn4.a(Certificate.getSignature(ar2.c()), "", false).getBytes(StandardCharsets.UTF_8);
+            LinkedList linkedList = new LinkedList();
+            Bdtls$Extension.b newBuilder2 = Bdtls$Extension.newBuilder();
+            newBuilder2.v(0);
+            newBuilder2.u(ByteString.copyFrom(encrypt));
+            linkedList.offer(newBuilder2.build());
+            Bdtls$Extension.b newBuilder3 = Bdtls$Extension.newBuilder();
+            newBuilder3.v(1);
+            newBuilder3.u(ByteString.copyFrom(new byte[]{0}));
+            linkedList.offer(newBuilder3.build());
+            Bdtls$Extension.b newBuilder4 = Bdtls$Extension.newBuilder();
+            newBuilder4.v(2);
+            newBuilder4.u(ByteString.copyFrom(tq3.g(dHGroupId)));
+            linkedList.offer(newBuilder4.build());
+            Bdtls$Extension.b newBuilder5 = Bdtls$Extension.newBuilder();
+            newBuilder5.v(3);
+            newBuilder5.u(ByteString.copyFrom(bytes));
+            linkedList.offer(newBuilder5.build());
+            if (r13.c()) {
+                if (or3.getContext() != null) {
+                    Bdtls$Extension.b newBuilder6 = Bdtls$Extension.newBuilder();
+                    newBuilder6.v(4);
+                    newBuilder6.u(ByteString.copyFrom(or3.getContext().b().getBytes()));
+                    linkedList.offer(newBuilder6.build());
+                }
+                if (or3.getContext() != null) {
+                    Bdtls$Extension.b newBuilder7 = Bdtls$Extension.newBuilder();
+                    newBuilder7.v(5);
+                    newBuilder7.u(ByteString.copyFrom(un4.f().getBytes()));
+                    linkedList.offer(newBuilder7.build());
+                }
+            }
+            if (pq3.a) {
+                Log.d("BDTLS", "groupId encode=" + dHGroupId);
+                Log.d("BDTLS", "secretC encode=" + dHSecret);
+                Log.d("BDTLS", "pubKey encode=" + dHPublicKey);
+                Log.d("BDTLS", "signature encode=" + new String(bytes));
+            }
+            Bdtls$ClientHello.b newBuilder8 = Bdtls$ClientHello.newBuilder();
+            Iterator it = linkedList.iterator();
+            while (it.hasNext()) {
+                newBuilder8.m((Bdtls$Extension) it.next());
+            }
+            newBuilder8.B(build);
+            newBuilder8.l(ByteString.copyFrom(qq3.c));
+            byte[] byteArray = newBuilder8.build().toByteArray();
+            ByteBuffer allocate = ByteBuffer.allocate(byteArray.length + 1);
+            allocate.put((byte) 1);
+            allocate.put(byteArray);
+            return allocate.array();
         }
-    }
-
-    public final void p(me3 me3Var, CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, me3Var, callbackHandler, str) == null) {
-            new ir3().h(new b(this, me3Var, callbackHandler, str));
-        }
+        return (byte[]) invokeLL.objValue;
     }
 }

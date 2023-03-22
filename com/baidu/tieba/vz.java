@@ -7,12 +7,10 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class vz {
+public class vz {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
+    public xz a;
 
     public vz() {
         Interceptable interceptable = $ic;
@@ -28,23 +26,35 @@ public abstract class vz {
         }
     }
 
-    public int a() {
+    public static vz a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b : invokeV.intValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            vz vzVar = new vz();
+            xz xzVar = new xz();
+            vzVar.a = xzVar;
+            xzVar.e("PKCS1Padding");
+            return vzVar;
+        }
+        return (vz) invokeV.objValue;
     }
 
-    public abstract com.baidu.cesium.a.b b(byte[] bArr, int i, int i2);
-
-    public int c() {
-        InterceptResult invokeV;
+    public void b(int i, yz yzVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : invokeV.intValue;
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, yzVar) == null) {
+            this.a.a(i, yzVar, wz.a);
+        }
     }
 
-    public int d() {
-        InterceptResult invokeV;
+    public final byte[] c(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.c : invokeV.intValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
+            if (bArr != null) {
+                return this.a.d(bArr, 0, bArr.length);
+            }
+            throw new IllegalArgumentException("Null input buffer");
+        }
+        return (byte[]) invokeL.objValue;
     }
 }

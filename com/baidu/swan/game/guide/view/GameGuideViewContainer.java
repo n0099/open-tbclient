@@ -10,8 +10,8 @@ import android.view.animation.DecelerateInterpolator;
 import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.tieba.dn3;
-import com.baidu.tieba.wm3;
+import com.baidu.tieba.dl3;
+import com.baidu.tieba.kl3;
 /* loaded from: classes3.dex */
 public class GameGuideViewContainer extends FrameLayout {
     public int a;
@@ -43,8 +43,8 @@ public class GameGuideViewContainer extends FrameLayout {
 
     public final int d(int i) {
         int i2;
-        if (i < dn3.g(10.0f)) {
-            i2 = dn3.g(10.0f);
+        if (i < kl3.g(10.0f)) {
+            i2 = kl3.g(10.0f);
         } else {
             i2 = i;
         }
@@ -94,7 +94,7 @@ public class GameGuideViewContainer extends FrameLayout {
         int i5 = i4 / 2;
         if (i >= i5) {
             i2 = (int) (((i4 - i) / i5) * 400.0f);
-            i3 = dn3.g(10.0f);
+            i3 = kl3.g(10.0f);
         } else {
             i2 = (int) ((i / i5) * 400.0f);
             i3 = i4 - this.a;
@@ -114,9 +114,9 @@ public class GameGuideViewContainer extends FrameLayout {
         this.d = getContext().getResources().getDisplayMetrics().widthPixels;
         this.c = getContext().getResources().getDisplayMetrics().heightPixels;
         if (2 == getContext().getResources().getConfiguration().orientation) {
-            this.d += wm3.c();
+            this.d += dl3.c();
         } else {
-            this.c += wm3.c();
+            this.c += dl3.c();
         }
         this.g = ViewConfiguration.get(getContext()).getScaledTouchSlop();
     }

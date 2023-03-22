@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b55;
-import com.baidu.tieba.tr9;
-import com.baidu.tieba.vr9;
+import com.baidu.tieba.cy9;
+import com.baidu.tieba.ey9;
+import com.baidu.tieba.m35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,11 +30,11 @@ import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u0000P\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0010\u0002\n\u0002\b\u0004\n\u0002\u0010\u000e\n\u0002\b\u0004\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u0002\u0018\u00002\u00020\u00012\u00020\u0002B\u0005¢\u0006\u0002\u0010\u0003J\b\u0010\u001f\u001a\u00020 H\u0016J\u0006\u0010!\u001a\u00020 J\u001a\u0010\"\u001a\u00020 2\u0006\u0010#\u001a\u00020\u00052\b\u0010$\u001a\u0004\u0018\u00010%H\u0016J\u0010\u0010&\u001a\u00020 2\u0006\u0010'\u001a\u00020\u0005H\u0014J\u0012\u0010(\u001a\u00020 2\b\u0010)\u001a\u0004\u0018\u00010*H\u0014J\u0010\u0010+\u001a\u00020 2\u0006\u0010,\u001a\u00020-H\u0016J\b\u0010.\u001a\u00020 H\u0002R\u001a\u0010\u0004\u001a\u00020\u0005X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0006\u0010\u0007\"\u0004\b\b\u0010\tR\u001a\u0010\n\u001a\u00020\u000bX\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b\f\u0010\r\"\u0004\b\u000e\u0010\u000fR\u001a\u0010\u0010\u001a\u00020\u0011X\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b\u0012\u0010\u0013\"\u0004\b\u0014\u0010\u0015R\u001a\u0010\u0016\u001a\u00020\u0005X\u0086\u000e¢\u0006\u000e\n\u0000\u001a\u0004\b\u0017\u0010\u0007\"\u0004\b\u0018\u0010\tR\u001a\u0010\u0019\u001a\u00020\u001aX\u0086.¢\u0006\u000e\n\u0000\u001a\u0004\b\u001b\u0010\u001c\"\u0004\b\u001d\u0010\u001e¨\u0006/"}, d2 = {"Lcom/baidu/tieba/write/write/work/guide/WorkVideoGuideActivity;", "Lcom/baidu/tbadk/core/BaseFragmentActivity;", "Lcom/baidu/tieba/write/write/work/guide/IWorkVideoGuidePresenter;", "()V", "mFrom", "", "getMFrom", "()I", "setMFrom", "(I)V", "mModel", "Lcom/baidu/tieba/write/write/work/guide/WorkVideoGuideModel;", "getMModel", "()Lcom/baidu/tieba/write/write/work/guide/WorkVideoGuideModel;", "setMModel", "(Lcom/baidu/tieba/write/write/work/guide/WorkVideoGuideModel;)V", "mRootView", "Landroid/view/View;", "getMRootView", "()Landroid/view/View;", "setMRootView", "(Landroid/view/View;)V", "mStatus", "getMStatus", "setMStatus", "mView", "Lcom/baidu/tieba/write/write/work/guide/WorkVideoGuideView;", "getMView", "()Lcom/baidu/tieba/write/write/work/guide/WorkVideoGuideView;", "setMView", "(Lcom/baidu/tieba/write/write/work/guide/WorkVideoGuideView;)V", "finishPage", "", "initParmas", "netCallBack", "error", "errorMsg", "", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "onCreate", "savedInstanceState", "Landroid/os/Bundle;", "openUpgrade", InvoiceBuildActivity.EXTRA_PARAMS_ISCHECK, "", "showLog", "write_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
-public final class WorkVideoGuideActivity extends BaseFragmentActivity implements tr9 {
+public final class WorkVideoGuideActivity extends BaseFragmentActivity implements cy9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public WorkVideoGuideModel a;
-    public vr9 b;
+    public ey9 b;
     public View c;
     public int d;
     public int e;
@@ -53,7 +53,7 @@ public final class WorkVideoGuideActivity extends BaseFragmentActivity implement
         }
     }
 
-    @Override // com.baidu.tieba.tr9
+    @Override // com.baidu.tieba.cy9
     public void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -61,7 +61,7 @@ public final class WorkVideoGuideActivity extends BaseFragmentActivity implement
         }
     }
 
-    public final WorkVideoGuideModel p1() {
+    public final WorkVideoGuideModel r1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
@@ -75,7 +75,7 @@ public final class WorkVideoGuideActivity extends BaseFragmentActivity implement
         return (WorkVideoGuideModel) invokeV.objValue;
     }
 
-    public final View q1() {
+    public final View s1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -89,33 +89,33 @@ public final class WorkVideoGuideActivity extends BaseFragmentActivity implement
         return (View) invokeV.objValue;
     }
 
-    public final vr9 r1() {
+    public final ey9 t1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            vr9 vr9Var = this.b;
-            if (vr9Var != null) {
-                return vr9Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            ey9 ey9Var = this.b;
+            if (ey9Var != null) {
+                return ey9Var;
             }
             Intrinsics.throwUninitializedPropertyAccessException("mView");
             return null;
         }
-        return (vr9) invokeV.objValue;
+        return (ey9) invokeV.objValue;
     }
 
-    public final void s1() {
+    public final void u1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.e = getIntent().getIntExtra(WorkPublishGuideActivityConfig.PARAM_WORK_POP_STATUS, 0);
             this.d = getIntent().getIntExtra(WorkPublishGuideActivityConfig.PARAM_WORK_FROM, 0);
         }
     }
 
-    @Override // com.baidu.tieba.tr9
-    public void K0(boolean z) {
+    @Override // com.baidu.tieba.cy9
+    public void N0(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            p1().P(z);
+            r1().T(z);
         }
     }
 
@@ -123,19 +123,19 @@ public final class WorkVideoGuideActivity extends BaseFragmentActivity implement
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            r1().q();
+            t1().q();
         }
     }
 
     public final void setMRootView(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
             Intrinsics.checkNotNullParameter(view2, "<set-?>");
             this.c = view2;
         }
     }
 
-    public final void t1(WorkVideoGuideModel workVideoGuideModel) {
+    public final void v1(WorkVideoGuideModel workVideoGuideModel) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, workVideoGuideModel) == null) {
             Intrinsics.checkNotNullParameter(workVideoGuideModel, "<set-?>");
@@ -143,29 +143,29 @@ public final class WorkVideoGuideActivity extends BaseFragmentActivity implement
         }
     }
 
-    public final void u1(vr9 vr9Var) {
+    public final void w1(ey9 ey9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, vr9Var) == null) {
-            Intrinsics.checkNotNullParameter(vr9Var, "<set-?>");
-            this.b = vr9Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, ey9Var) == null) {
+            Intrinsics.checkNotNullParameter(ey9Var, "<set-?>");
+            this.b = ey9Var;
         }
     }
 
-    @Override // com.baidu.tieba.tr9
-    public void k1(int i, String str) {
+    @Override // com.baidu.tieba.cy9
+    public void m1(int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) {
             if (i == 0) {
-                b55.m().z("key_work_video_guide_pop", 0);
+                m35.m().z("key_work_video_guide_pop", 0);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921624, Boolean.TRUE));
                 setResult(-1);
                 finish();
                 return;
             }
             if (TextUtils.isEmpty(str)) {
-                str = getString(R.string.obfuscated_res_0x7f0f0d0f);
+                str = getString(R.string.obfuscated_res_0x7f0f0d1d);
             }
-            r1().F(str);
+            t1().F(str);
         }
     }
 
@@ -174,20 +174,20 @@ public final class WorkVideoGuideActivity extends BaseFragmentActivity implement
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             super.onCreate(bundle);
-            View inflate = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d098d, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d09ac, (ViewGroup) null);
             Intrinsics.checkNotNullExpressionValue(inflate, "from(this).inflate(R.lay…deo_guide_activity, null)");
             setMRootView(inflate);
-            s1();
+            u1();
             TbPageContext<BaseFragmentActivity> pageContext = getPageContext();
             Intrinsics.checkNotNullExpressionValue(pageContext, "pageContext");
-            u1(new vr9(pageContext, q1(), this.e, this.d, this));
-            t1(new WorkVideoGuideModel(getPageContext(), this));
-            setContentView(q1());
-            v1();
+            w1(new ey9(pageContext, s1(), this.e, this.d, this));
+            v1(new WorkVideoGuideModel(getPageContext(), this));
+            setContentView(s1());
+            x1();
         }
     }
 
-    public final void v1() {
+    public final void x1() {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {

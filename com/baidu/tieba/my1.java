@@ -1,104 +1,43 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.media.AudioManager;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class my1 extends fy1 {
+public class my1 extends zx1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public AudioManager f;
 
-    @Override // com.baidu.tieba.px1
+    @Override // com.baidu.tieba.wv1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "TabBarApi" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ boolean b;
-        public final /* synthetic */ boolean c;
-        public final /* synthetic */ my1 d;
-
-        public a(my1 my1Var, String str, boolean z, boolean z2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {my1Var, str, Boolean.valueOf(z), Boolean.valueOf(z2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = my1Var;
-            this.a = str;
-            this.b = z;
-            this.c = z2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            boolean j;
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                yk3 z = my1.z();
-                if (z == null) {
-                    m62.c("TabBarApi", "tabBarViewController is null");
-                    this.d.d(this.a, new m12(1001));
-                    return;
-                }
-                if (this.b) {
-                    j = z.r(this.c);
-                } else {
-                    j = z.j(this.c);
-                }
-                if (!j) {
-                    StringBuilder sb = new StringBuilder();
-                    if (this.b) {
-                        str = "open";
-                    } else {
-                        str = "close";
-                    }
-                    sb.append(str);
-                    sb.append("bottom bar fail");
-                    m62.c("TabBarApi", sb.toString());
-                    this.d.d(this.a, new m12(1001));
-                }
-                this.d.d(this.a, new m12(0));
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "VolumeApi" : (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public my1(@NonNull nx1 nx1Var) {
-        super(nx1Var);
+    public my1(@NonNull uv1 uv1Var) {
+        super(uv1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {nx1Var};
+            Object[] objArr = {uv1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((nx1) newInitContext.callArgs[0]);
+                super((uv1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -106,133 +45,89 @@ public class my1 extends fy1 {
         }
     }
 
-    public static boolean B() {
+    public tz1 x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            v82 V = zu2.U().V();
-            if (V != null && V.o() != null && V.o().e2()) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            q("#getMediaVolume", false);
+            t73 b0 = t73.b0();
+            if (b0 == null) {
+                return new tz1(1001, "swan app is null");
             }
-            return true;
+            SwanAppActivity w = b0.w();
+            if (w == null) {
+                t42.c("VolumeApi", "swan activity is null");
+                return new tz1(1001, "swan activity is null");
+            }
+            if (this.f == null) {
+                this.f = (AudioManager) w.getSystemService("audio");
+            }
+            float streamMaxVolume = this.f.getStreamMaxVolume(3);
+            float streamVolume = this.f.getStreamVolume(3);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("value", streamVolume / streamMaxVolume);
+                return new tz1(0, jSONObject);
+            } catch (JSONException unused) {
+                return new tz1(1001, "make result json error");
+            }
         }
-        return invokeV.booleanValue;
+        return (tz1) invokeV.objValue;
     }
 
-    public static yk3 z() {
-        InterceptResult invokeV;
-        u82 l;
+    public final int y(float f, int i) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            v82 V = zu2.U().V();
-            if (V != null && (l = V.l()) != null) {
-                return l.v3();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), Integer.valueOf(i)})) == null) {
+            int round = Math.round(i * f);
+            if (round == 0 && f > 0.0f) {
+                return 1;
             }
-            return null;
+            return round;
         }
-        return (yk3) invokeV.objValue;
+        return invokeCommon.intValue;
     }
 
-    public final m12 A(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
-            if (B()) {
-                m62.c("TabBarApi", "fail not TabBar page");
-                return new m12(1001, "fail not TabBar page");
-            }
-            Pair<m12, JSONObject> s = s(str);
-            m12 m12Var = (m12) s.first;
-            if (!m12Var.isSuccess()) {
-                return m12Var;
-            }
-            JSONObject jSONObject = (JSONObject) s.second;
-            String optString = jSONObject.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                m62.c("TabBarApi", "callback is null");
-                return new m12(1001, "callback is null");
-            }
-            gn3.e0(new a(this, optString, z, jSONObject.optBoolean("animation")));
-            return m12.f();
-        }
-        return (m12) invokeLZ.objValue;
-    }
-
-    public m12 C(String str) {
+    public tz1 z(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#openTabBar", false);
-            return A(str, true);
-        }
-        return (m12) invokeL.objValue;
-    }
-
-    public m12 x(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            q("#closeTabBar", false);
-            return A(str, false);
-        }
-        return (m12) invokeL.objValue;
-    }
-
-    public m12 D(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            q("#setTabBarItem", false);
-            Pair<m12, JSONObject> s = s(str);
-            m12 m12Var = (m12) s.first;
-            if (!m12Var.isSuccess()) {
-                return m12Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            q("#setMediaVolume", false);
+            t73 b0 = t73.b0();
+            if (b0 == null) {
+                return new tz1(1001, "swan app is null");
             }
-            JSONObject jSONObject = (JSONObject) s.second;
-            if (B()) {
-                m62.c("TabBarApi", "fail not TabBar page");
-                return new m12(1001, "fail not TabBar page");
+            SwanAppActivity w = b0.w();
+            if (w == null) {
+                t42.c("VolumeApi", "swan activity is null");
+                return new tz1(1001, "swan activity is null");
             }
-            yk3 z = z();
-            if (z == null) {
-                m62.c("TabBarApi", "tabBarViewController is null");
-                return new m12(1001, "tabBarViewController is null");
-            } else if (!z.x(jSONObject.optInt("index"), jSONObject.optString("text"), jSONObject.optString("iconPath"), jSONObject.optString("selectedIconPath"))) {
-                m62.c("TabBarApi", "set tab bar item fail");
-                return new m12(1001, "set tab bar item fail");
-            } else {
-                return m12.f();
+            Pair<tz1, JSONObject> s = s(str);
+            tz1 tz1Var = (tz1) s.first;
+            if (!tz1Var.isSuccess()) {
+                return tz1Var;
+            }
+            try {
+                float parseFloat = Float.parseFloat(((JSONObject) s.second).optString("value"));
+                if (this.f == null) {
+                    this.f = (AudioManager) w.getSystemService("audio");
+                }
+                int streamMaxVolume = this.f.getStreamMaxVolume(3);
+                int y = y(parseFloat, streamMaxVolume);
+                if (y >= 0 && y <= streamMaxVolume) {
+                    try {
+                        this.f.setStreamVolume(3, y, 1);
+                        return tz1.f();
+                    } catch (SecurityException unused) {
+                        return new tz1(1001, "Cannot set volume under silent mode.");
+                    }
+                }
+                return new tz1(202, "value is illegal.");
+            } catch (NumberFormatException unused2) {
+                t42.c("VolumeApi", "illegal argument type");
+                return new tz1(202, "value is illegal.");
             }
         }
-        return (m12) invokeL.objValue;
-    }
-
-    public m12 y(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            q("#closeTabBarRedDot", false);
-            Pair<m12, JSONObject> s = s(str);
-            m12 m12Var = (m12) s.first;
-            if (!m12Var.isSuccess()) {
-                return m12Var;
-            }
-            int optInt = ((JSONObject) s.second).optInt("index");
-            if (B()) {
-                m62.c("TabBarApi", "fail not TabBar page");
-                return new m12(1001, "fail not TabBar page");
-            }
-            yk3 z = z();
-            if (z == null) {
-                m62.c("TabBarApi", "tabBarViewController is null");
-                return new m12(1001, "tabBarViewController is null");
-            } else if (!z.k(optInt)) {
-                m62.c("TabBarApi", "close red dot fail");
-                return new m12(1001, "close red dot fail");
-            } else {
-                return m12.f();
-            }
-        }
-        return (m12) invokeL.objValue;
+        return (tz1) invokeL.objValue;
     }
 }

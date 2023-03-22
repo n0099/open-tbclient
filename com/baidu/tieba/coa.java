@@ -1,180 +1,70 @@
 package com.baidu.tieba;
 
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.os.Handler;
+import android.os.IBinder;
+import android.os.Looper;
+import android.os.Message;
+import android.os.RemoteException;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.sma;
-import com.baidu.tieba.vma;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.uodis.opendevice.aidl.OpenDeviceIdentifierService;
 /* loaded from: classes3.dex */
-public final class coa<T> implements sma.a<T> {
+public class coa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final vma a;
-    public final sma<T> b;
+    public Handler a;
+    public Context b;
+    public c c;
+    public ServiceConnection d;
 
     /* loaded from: classes3.dex */
-    public class a implements fna {
+    public interface c {
+        void a(int i, Exception exc);
+
+        void b(String str, boolean z);
+    }
+
+    /* loaded from: classes3.dex */
+    public class a implements ServiceConnection {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yma a;
-        public final /* synthetic */ vma.a b;
-        public final /* synthetic */ coa c;
+        public final /* synthetic */ coa a;
 
-        /* renamed from: com.baidu.tieba.coa$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class C0221a extends yma<T> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ Thread e;
-            public final /* synthetic */ a f;
-
-            /* renamed from: com.baidu.tieba.coa$a$a$a  reason: collision with other inner class name */
-            /* loaded from: classes3.dex */
-            public class C0222a implements uma {
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ uma a;
-                public final /* synthetic */ C0221a b;
-
-                /* renamed from: com.baidu.tieba.coa$a$a$a$a  reason: collision with other inner class name */
-                /* loaded from: classes3.dex */
-                public class C0223a implements fna {
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
-                    public final /* synthetic */ long a;
-                    public final /* synthetic */ C0222a b;
-
-                    public C0223a(C0222a c0222a, long j) {
-                        Interceptable interceptable = $ic;
-                        if (interceptable != null) {
-                            InitContext newInitContext = TitanRuntime.newInitContext();
-                            newInitContext.initArgs = r2;
-                            Object[] objArr = {c0222a, Long.valueOf(j)};
-                            interceptable.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
-                                newInitContext.thisArg = this;
-                                interceptable.invokeInitBody(65536, newInitContext);
-                                return;
-                            }
-                        }
-                        this.b = c0222a;
-                        this.a = j;
-                    }
-
-                    @Override // com.baidu.tieba.fna
-                    public void call() {
-                        Interceptable interceptable = $ic;
-                        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                            this.b.a.request(this.a);
-                        }
-                    }
-                }
-
-                public C0222a(C0221a c0221a, uma umaVar) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {c0221a, umaVar};
-                        interceptable.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.b = c0221a;
-                    this.a = umaVar;
-                }
-
-                @Override // com.baidu.tieba.uma
-                public void request(long j) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-                        if (this.b.e == Thread.currentThread()) {
-                            this.a.request(j);
-                        } else {
-                            this.b.f.b.b(new C0223a(this, j));
-                        }
-                    }
-                }
-            }
-
-            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0221a(a aVar, yma ymaVar, Thread thread) {
-                super(ymaVar);
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, ymaVar, thread};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        super((yma) newInitContext.callArgs[0]);
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.f = aVar;
-                this.e = thread;
-            }
-
-            @Override // com.baidu.tieba.yma
-            public void f(uma umaVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, umaVar) == null) {
-                    this.f.a.f(new C0222a(this, umaVar));
-                }
-            }
-
-            @Override // com.baidu.tieba.tma
-            public void onError(Throwable th) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-                    try {
-                        this.f.a.onError(th);
-                    } finally {
-                        this.f.b.unsubscribe();
-                    }
-                }
-            }
-
-            @Override // com.baidu.tieba.tma
-            public void onNext(T t) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-                    this.f.a.onNext(t);
-                }
-            }
-
-            @Override // com.baidu.tieba.tma
-            public void onCompleted() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                    try {
-                        this.f.a.onCompleted();
-                    } finally {
-                        this.f.b.unsubscribe();
-                    }
-                }
+        @Override // android.content.ServiceConnection
+        public void onBindingDied(ComponentName componentName) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, componentName) == null) {
             }
         }
 
-        public a(coa coaVar, yma ymaVar, vma.a aVar) {
+        @Override // android.content.ServiceConnection
+        public void onNullBinding(ComponentName componentName) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
+            }
+        }
+
+        @Override // android.content.ServiceConnection
+        public void onServiceDisconnected(ComponentName componentName) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, componentName) == null) {
+            }
+        }
+
+        public a(coa coaVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {coaVar, ymaVar, aVar};
+                Object[] objArr = {coaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -184,26 +74,100 @@ public final class coa<T> implements sma.a<T> {
                     return;
                 }
             }
-            this.c = coaVar;
-            this.a = ymaVar;
-            this.b = aVar;
+            this.a = coaVar;
         }
 
-        @Override // com.baidu.tieba.fna
-        public void call() {
+        @Override // android.content.ServiceConnection
+        public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.c.b.B(new C0221a(this, this.a, Thread.currentThread()));
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, componentName, iBinder) == null) {
+                this.a.a.obtainMessage(1, OpenDeviceIdentifierService.Stub.asInterface(iBinder)).sendToTarget();
+                this.a.a.removeMessages(2);
             }
         }
     }
 
-    public coa(sma<T> smaVar, vma vmaVar) {
+    /* loaded from: classes3.dex */
+    public class b extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ coa a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(coa coaVar, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {coaVar, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = coaVar;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                int i = message.what;
+                if (i != 0) {
+                    if (i != 1) {
+                        if (i == 2) {
+                            this.a.c.a(-2, null);
+                            return;
+                        }
+                        return;
+                    }
+                    OpenDeviceIdentifierService openDeviceIdentifierService = (OpenDeviceIdentifierService) message.obj;
+                    try {
+                        try {
+                            this.a.c.b(openDeviceIdentifierService.getOaid(), openDeviceIdentifierService.isOaidTrackLimited());
+                            try {
+                                this.a.b.unbindService(this.a.d);
+                                return;
+                            } catch (Exception e) {
+                                this.a.c.a(-4, e);
+                                return;
+                            }
+                        } catch (RemoteException e2) {
+                            this.a.c.a(-3, e2);
+                            try {
+                                this.a.b.unbindService(this.a.d);
+                                return;
+                            } catch (Exception unused) {
+                                return;
+                            }
+                        }
+                    } catch (Throwable th) {
+                        try {
+                            this.a.b.unbindService(this.a.d);
+                        } catch (Exception e3) {
+                            this.a.c.a(-4, e3);
+                        }
+                        throw th;
+                    }
+                }
+                this.a.c.a(-1, null);
+            }
+        }
+    }
+
+    public coa(Context context, c cVar, Handler handler) {
+        Looper looper;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {smaVar, vmaVar};
+            Object[] objArr = {context, cVar, handler};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -213,21 +177,42 @@ public final class coa<T> implements sma.a<T> {
                 return;
             }
         }
-        this.a = vmaVar;
-        this.b = smaVar;
+        this.d = new a(this);
+        this.b = context;
+        this.c = cVar;
+        if (handler == null) {
+            looper = Looper.getMainLooper();
+        } else {
+            looper = handler.getLooper();
+        }
+        this.a = new b(this, looper);
     }
 
-    public void call(yma<? super T> ymaVar) {
+    public static void d(Context context, c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ymaVar) == null) {
-            vma.a createWorker = this.a.createWorker();
-            ymaVar.b(createWorker);
-            createWorker.b(new a(this, ymaVar, createWorker));
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, cVar) == null) {
+            e(context, cVar, null);
         }
     }
 
-    @Override // com.baidu.tieba.sma.a, com.baidu.tieba.gna
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((yma) ((yma) obj));
+    public static void e(Context context, c cVar, Handler handler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65541, null, context, cVar, handler) == null) {
+            new coa(context.getApplicationContext(), cVar, handler).f();
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
+            intent.setPackage("com.huawei.hwid");
+            if (this.b.bindService(intent, this.d, 1)) {
+                Handler handler = this.a;
+                handler.sendMessageDelayed(handler.obtainMessage(2), 10000L);
+                return;
+            }
+            this.a.sendEmptyMessage(0);
+        }
     }
 }

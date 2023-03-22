@@ -1,147 +1,222 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.poly.widget.PolyActivity;
-import com.baidu.poly.widget.WechatSignAutoRenewActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.ByteArrayOutputStream;
+import java.io.Closeable;
+import java.io.EOFException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.UnsupportedEncodingException;
+import java.nio.charset.Charset;
 /* loaded from: classes7.dex */
-public class yf1 implements si1 {
+public class yf1 implements Closeable {
     public static /* synthetic */ Interceptable $ic;
-    public static yf1 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
-    public boolean b;
+    public final InputStream a;
+    public final Charset b;
+    public byte[] c;
+    public int d;
+    public int e;
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
+    public class a extends ByteArrayOutputStream {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ yf1 a;
 
-    /* loaded from: classes7.dex */
-    public class b extends BroadcastReceiver {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yf1 this$0;
-
-        public b(yf1 yf1Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(yf1 yf1Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yf1Var};
+                Object[] objArr = {yf1Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.this$0 = yf1Var;
+            this.a = yf1Var;
         }
 
-        public /* synthetic */ b(yf1 yf1Var, a aVar) {
-            this(yf1Var);
-        }
-
-        @Override // android.content.BroadcastReceiver
-        public void onReceive(Context context, Intent intent) {
+        /* JADX WARN: Code restructure failed: missing block: B:7:0x0010, code lost:
+            if (((java.io.ByteArrayOutputStream) r5).buf[r0] == 13) goto L7;
+         */
+        @Override // java.io.ByteArrayOutputStream
+        /*
+            Code decompiled incorrectly, please refer to instructions dump.
+        */
+        public String toString() {
+            InterceptResult invokeV;
+            int i;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) && this.this$0.b) {
-                this.this$0.b = false;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                int i2 = ((ByteArrayOutputStream) this).count;
+                if (i2 > 0) {
+                    i = i2 - 1;
+                }
+                i = ((ByteArrayOutputStream) this).count;
                 try {
-                    int intExtra = intent.getIntExtra("code", 0);
-                    Intent intent2 = new Intent(PolyActivity.g, WechatSignAutoRenewActivity.class);
-                    intent2.putExtra("code", intExtra);
-                    PolyActivity.g.startActivity(intent2);
-                } catch (Exception e) {
-                    e.printStackTrace();
+                    return new String(((ByteArrayOutputStream) this).buf, 0, i, this.a.b.name());
+                } catch (UnsupportedEncodingException e) {
+                    throw new AssertionError(e);
                 }
             }
+            return (String) invokeV.objValue;
         }
     }
 
-    public yf1() {
+    public yf1(InputStream inputStream, int i, Charset charset) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream, Integer.valueOf(i), charset};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = false;
-    }
-
-    public static yf1 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (c == null) {
-                synchronized (yf1.class) {
-                    if (c == null) {
-                        c = new yf1();
-                    }
+        if (inputStream != null && charset != null) {
+            if (i >= 0) {
+                if (charset.equals(zf1.a)) {
+                    this.a = inputStream;
+                    this.b = charset;
+                    this.c = new byte[i];
+                    return;
                 }
+                throw new IllegalArgumentException("Unsupported encoding");
             }
-            return c;
+            throw new IllegalArgumentException("capacity <= 0");
         }
-        return (yf1) invokeV.objValue;
+        throw null;
     }
 
-    public final void e() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public yf1(InputStream inputStream, Charset charset) {
+        this(inputStream, 8192, charset);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream, charset};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((InputStream) objArr2[0], ((Integer) objArr2[1]).intValue(), (Charset) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            InputStream inputStream = this.a;
+            byte[] bArr = this.c;
+            int read = inputStream.read(bArr, 0, bArr.length);
+            if (read != -1) {
+                this.d = 0;
+                this.e = read;
+                return;
+            }
+            throw new EOFException();
+        }
+    }
+
+    @Override // java.io.Closeable, java.lang.AutoCloseable
+    public void close() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = new b(this, null);
-            PolyActivity.g.getApplicationContext().registerReceiver(this.a, new IntentFilter("com_baidu_poly_cashier_wechat_sign_auto_renew_receiver"));
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a != null) {
-            try {
-                PolyActivity.g.getApplicationContext().unregisterReceiver(this.a);
-            } catch (Exception e) {
-                e.printStackTrace();
+            synchronized (this.a) {
+                if (this.c != null) {
+                    this.c = null;
+                    this.a.close();
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.si1
-    public void a(Activity activity, String str, String str2) {
+    public boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, str, str2) == null) {
-            ei1.b("WECHAT signWechatAutoRenew appId=" + str);
-            fg1 a2 = vf1.a();
-            if (a2 == null) {
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.e == -1) {
+                return true;
             }
-            if (!a2.b(activity)) {
-                cj1.f(activity, "您没有安装微信，请选择其他支付方式");
-                activity.finish();
-                return;
-            }
-            this.b = true;
-            f();
-            e();
-            a2.a(activity, str, str2);
-            activity.finish();
+            return false;
         }
+        return invokeV.booleanValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this.a) {
+                if (this.c != null) {
+                    if (this.d >= this.e) {
+                        c();
+                    }
+                    for (int i3 = this.d; i3 != this.e; i3++) {
+                        if (this.c[i3] == 10) {
+                            if (i3 != this.d) {
+                                i2 = i3 - 1;
+                                if (this.c[i2] == 13) {
+                                    String str = new String(this.c, this.d, i2 - this.d, this.b.name());
+                                    this.d = i3 + 1;
+                                    return str;
+                                }
+                            }
+                            i2 = i3;
+                            String str2 = new String(this.c, this.d, i2 - this.d, this.b.name());
+                            this.d = i3 + 1;
+                            return str2;
+                        }
+                    }
+                    a aVar = new a(this, (this.e - this.d) + 80);
+                    loop1: while (true) {
+                        aVar.write(this.c, this.d, this.e - this.d);
+                        this.e = -1;
+                        c();
+                        i = this.d;
+                        while (i != this.e) {
+                            if (this.c[i] == 10) {
+                                break loop1;
+                            }
+                            i++;
+                        }
+                    }
+                    if (i != this.d) {
+                        aVar.write(this.c, this.d, i - this.d);
+                    }
+                    this.d = i + 1;
+                    return aVar.toString();
+                }
+                throw new IOException("LineReader is closed");
+            }
+        }
+        return (String) invokeV.objValue;
     }
 }

@@ -1,11 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.nps.pm.IBundleInfo;
 /* loaded from: classes5.dex */
 public interface jd1 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "crius.runtime");
-
-    int a();
-
-    boolean b();
+    void checkAuthorization(IBundleInfo iBundleInfo, int i, kd1 kd1Var);
 }

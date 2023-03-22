@@ -1,210 +1,76 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.res.AssetManager;
-import android.content.res.Resources;
-import android.os.Build;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.pm.BundleInfo;
-import com.baidu.nps.runtime.InitException;
-import com.baidu.nps.runtime.resources.ResourcesHookUtil;
-import com.baidu.nps.utils.Constant;
-import com.baidu.nps.utils.ContextHolder;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class bf1 {
-    public static /* synthetic */ Interceptable $ic;
+public final class bf1 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int[] MaxHeightScrollView;
+    public static final int MaxHeightScrollView_maxHeight = 0;
+    public static final int MaxHeightScrollView_maxHeightRatio = 1;
+    public static final int MaxHeightScrollView_minHeightRatio = 2;
+    public static final int[] PolyVerificationCodeView;
+    public static final int PolyVerificationCodeView_vcv_et_bg = 0;
+    public static final int PolyVerificationCodeView_vcv_et_cursor = 1;
+    public static final int PolyVerificationCodeView_vcv_et_cursor_visible = 2;
+    public static final int PolyVerificationCodeView_vcv_et_number = 3;
+    public static final int PolyVerificationCodeView_vcv_et_spacing = 4;
+    public static final int PolyVerificationCodeView_vcv_et_text_color = 5;
+    public static final int PolyVerificationCodeView_vcv_et_text_size = 6;
+    public static final int PolyVerificationCodeView_vcv_et_width = 7;
+    public static final int[] PopupWindow;
+    public static final int PopupWindow_android_popupAnimationStyle = 1;
+    public static final int PopupWindow_android_popupBackground = 0;
+    public static final int PopupWindow_overlapAnchor = 2;
+    public static final int PopupWindow_popupAnimationStyle = 3;
+    public static final int PopupWindow_popupBackground = 4;
+    public static final int[] ProgressButton;
+    public static final int ProgressButton_textColor = 0;
+    public static final int[] SwitchButton;
+    public static final int SwitchButton_kswAnimationDuration = 0;
+    public static final int SwitchButton_kswBackColor = 1;
+    public static final int SwitchButton_kswBackDrawable = 2;
+    public static final int SwitchButton_kswBackRadius = 3;
+    public static final int SwitchButton_kswFadeBack = 4;
+    public static final int SwitchButton_kswTextAdjust = 5;
+    public static final int SwitchButton_kswTextExtra = 6;
+    public static final int SwitchButton_kswTextOff = 7;
+    public static final int SwitchButton_kswTextOn = 8;
+    public static final int SwitchButton_kswTextThumbInset = 9;
+    public static final int SwitchButton_kswThumbColor = 10;
+    public static final int SwitchButton_kswThumbDrawable = 11;
+    public static final int SwitchButton_kswThumbHeight = 12;
+    public static final int SwitchButton_kswThumbMargin = 13;
+    public static final int SwitchButton_kswThumbMarginBottom = 14;
+    public static final int SwitchButton_kswThumbMarginLeft = 15;
+    public static final int SwitchButton_kswThumbMarginRight = 16;
+    public static final int SwitchButton_kswThumbMarginTop = 17;
+    public static final int SwitchButton_kswThumbRadius = 18;
+    public static final int SwitchButton_kswThumbRangeRatio = 19;
+    public static final int SwitchButton_kswThumbWidth = 20;
+    public static final int SwitchButton_kswTintColor = 21;
     public transient /* synthetic */ FieldHolder $fh;
-    public BundleInfo a;
-    public cf1 b;
-    public df1 c;
 
-    public bf1(BundleInfo bundleInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bundleInfo};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947642940, "Lcom/baidu/tieba/bf1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947642940, "Lcom/baidu/tieba/bf1;");
                 return;
             }
         }
-        this.c = null;
-        if (a(bundleInfo)) {
-            this.a = bundleInfo;
-            return;
-        }
-        we1.j().s(bundleInfo);
-        throw new InitException(22, "bad param bundleInfo:" + bundleInfo.toString());
-    }
-
-    public static bf1 b(BundleInfo bundleInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bundleInfo)) == null) {
-            bf1 bf1Var = new bf1(bundleInfo);
-            bf1Var.d();
-            return bf1Var;
-        }
-        return (bf1) invokeL.objValue;
-    }
-
-    public final boolean a(BundleInfo bundleInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundleInfo)) == null) {
-            if (bundleInfo == null || TextUtils.isEmpty(bundleInfo.getPackageName())) {
-                return false;
-            }
-            Application applicationContext = ContextHolder.getApplicationContext();
-            if (!kf1.d(applicationContext, bundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).exists()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public ClassLoader c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (ClassLoader) invokeV.objValue;
-    }
-
-    public final boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            this.b = af1.d().b(this.a, ContextHolder.getApplicationContext());
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return super.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (e()) {
-                if (Build.VERSION.SDK_INT < 21) {
-                    if (!g()) {
-                        throw new InitException(20, "resources init error");
-                    }
-                    return;
-                } else if (f()) {
-                    return;
-                } else {
-                    throw new InitException(20, "resources init error");
-                }
-            }
-            throw new InitException(16, "class loader init error");
-        }
-    }
-
-    public final synchronized boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                try {
-                    Application applicationContext = ContextHolder.getApplicationContext();
-                    Resources a = le1.c().a();
-                    Resources b = le1.c().b();
-                    Resources[] d = le1.c().d();
-                    ff1.a().b(applicationContext);
-                    String absolutePath = kf1.d(applicationContext, this.a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath();
-                    ResourcesHookUtil.hookResources(a, absolutePath, this.a.getGroupName());
-                    ResourcesHookUtil.hookResources(b, absolutePath, this.a.getGroupName());
-                    if (d != null) {
-                        for (Resources resources : d) {
-                            ResourcesHookUtil.hookResources(resources, absolutePath, this.a.getGroupName());
-                        }
-                    }
-                } catch (Exception unused) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final synchronized boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this) {
-                Application applicationContext = ContextHolder.getApplicationContext();
-                String absolutePath = kf1.d(applicationContext, this.a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath();
-                String str = applicationContext.getApplicationInfo().sourceDir;
-                try {
-                    AssetManager assetManager = (AssetManager) AssetManager.class.newInstance();
-                    ResourcesHookUtil.hookAssets(assetManager, absolutePath, this.a.getGroupName());
-                    ResourcesHookUtil.hookAssets(assetManager, str, this.a.getGroupName());
-                    Resources a = le1.c().a();
-                    this.c = new df1(assetManager, a.getDisplayMetrics(), a.getConfiguration(), a);
-                } catch (Exception e) {
-                    if (jf1.a()) {
-                        Log.e("Runtime", "resource", e);
-                        return false;
-                    }
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public synchronized Resources getResources(Resources resources) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, resources)) == null) {
-            synchronized (this) {
-                if (Build.VERSION.SDK_INT < 21) {
-                    return this.c;
-                }
-                Application applicationContext = ContextHolder.getApplicationContext();
-                String absolutePath = kf1.d(applicationContext, this.a.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath();
-                AssetManager assets = resources.getAssets();
-                if (ResourcesHookUtil.hookAssets(assets, absolutePath, this.a.getGroupName())) {
-                    if (this.c == null || this.c.getAssets().hashCode() != assets.hashCode()) {
-                        if (this.c != null) {
-                            if (Build.VERSION.SDK_INT >= 21) {
-                                ResourcesHookUtil.recoveryAssetsByGroup(assets, this.c.getAssets().hashCode(), this.a.getGroupName());
-                                this.c = new df1(assets, resources.getDisplayMetrics(), resources.getConfiguration(), resources);
-                            }
-                        } else {
-                            this.c = new df1(assets, resources.getDisplayMetrics(), resources.getConfiguration(), resources);
-                        }
-                    }
-                    return this.c;
-                }
-                throw new InitException(21, "resources hook error");
-            }
-        }
-        return (Resources) invokeL.objValue;
+        MaxHeightScrollView = new int[]{R.attr.obfuscated_res_0x7f0404c2, R.attr.obfuscated_res_0x7f0404c3, R.attr.obfuscated_res_0x7f0404d3};
+        PolyVerificationCodeView = new int[]{R.attr.obfuscated_res_0x7f04077f, R.attr.obfuscated_res_0x7f040780, R.attr.obfuscated_res_0x7f040781, R.attr.obfuscated_res_0x7f040782, R.attr.obfuscated_res_0x7f040783, R.attr.obfuscated_res_0x7f040784, R.attr.obfuscated_res_0x7f040785, R.attr.obfuscated_res_0x7f040786};
+        PopupWindow = new int[]{16843126, 16843465, R.attr.obfuscated_res_0x7f040518, R.attr.popupAnimationStyle, R.attr.popupBackground};
+        ProgressButton = new int[]{R.attr.obfuscated_res_0x7f0406ff};
+        SwitchButton = new int[]{R.attr.obfuscated_res_0x7f0403e3, R.attr.obfuscated_res_0x7f0403e4, R.attr.obfuscated_res_0x7f0403e5, R.attr.obfuscated_res_0x7f0403e6, R.attr.obfuscated_res_0x7f0403e7, R.attr.obfuscated_res_0x7f0403e8, R.attr.obfuscated_res_0x7f0403e9, R.attr.obfuscated_res_0x7f0403ea, R.attr.obfuscated_res_0x7f0403eb, R.attr.obfuscated_res_0x7f0403ec, R.attr.obfuscated_res_0x7f0403ed, R.attr.obfuscated_res_0x7f0403ee, R.attr.obfuscated_res_0x7f0403ef, R.attr.obfuscated_res_0x7f0403f0, R.attr.obfuscated_res_0x7f0403f1, R.attr.obfuscated_res_0x7f0403f2, R.attr.obfuscated_res_0x7f0403f3, R.attr.obfuscated_res_0x7f0403f4, R.attr.obfuscated_res_0x7f0403f5, R.attr.obfuscated_res_0x7f0403f6, R.attr.obfuscated_res_0x7f0403f7, R.attr.obfuscated_res_0x7f0403f8};
     }
 }

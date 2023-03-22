@@ -1,91 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.player.event.ControlEvent;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.app.Activity;
+import com.baidu.nadcore.player.helper.BdVideoGesture;
 /* loaded from: classes5.dex */
-public class ov0 extends vv0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ov0 {
+    void b();
 
-    public ov0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void c(int i, int i2);
 
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c(nv0.w(ControlEvent.ACTION_RESUME));
-        }
-    }
+    void f(float f);
 
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c(nv0.w(ControlEvent.ACTION_SHOW_TIP));
-        }
-    }
+    int getCurrentPosition();
 
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            c(nv0.w(ControlEvent.ACTION_START));
-        }
-    }
+    void i(float f);
 
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            c(nv0.w(ControlEvent.ACTION_STOP));
-        }
-    }
+    void l(int i, float f);
 
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            bw0 w = nv0.w(ControlEvent.ACTION_PAUSE);
-            w.n(11, Integer.valueOf(i));
-            boolean z = true;
-            if (i != 1) {
-                z = false;
-            }
-            w.n(7, Boolean.valueOf(z));
-            c(w);
-        }
-    }
+    void m(BdVideoGesture.VideoPluginGesture videoPluginGesture);
 
-    public void f(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            bw0 w = nv0.w(ControlEvent.ACTION_SEEK_MS);
-            w.n(5, Integer.valueOf(i));
-            w.n(12, Integer.valueOf(i2));
-            c(w);
-        }
-    }
+    Activity o();
 
-    public void j(int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(1048582, this, i, i2, i3) == null) {
-            bw0 w = nv0.w(ControlEvent.ACTION_SYNC_PROGRESS);
-            w.n(1, Integer.valueOf(i));
-            w.n(2, Integer.valueOf(i2));
-            w.n(3, Integer.valueOf(i3));
-            w.r(1);
-            c(w);
-        }
-    }
+    boolean p();
 }

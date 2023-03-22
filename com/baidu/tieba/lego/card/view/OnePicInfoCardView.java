@@ -17,13 +17,13 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.LineCountNotifyTextView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.iy7;
+import com.baidu.tieba.dd9;
 import com.baidu.tieba.lego.card.model.OnePicInfoCard;
-import com.baidu.tieba.py7;
-import com.baidu.tieba.sy7;
-import com.baidu.tieba.ux7;
-import com.baidu.tieba.wm5;
-import com.baidu.tieba.x69;
+import com.baidu.tieba.m38;
+import com.baidu.tieba.t38;
+import com.baidu.tieba.tl5;
+import com.baidu.tieba.w38;
+import com.baidu.tieba.y28;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -154,7 +154,7 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
     public void v(OnePicInfoCard onePicInfoCard) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, onePicInfoCard) == null) {
-            ux7.e(onePicInfoCard).d(TiebaStatic.Params.OBJ_URL, onePicInfoCard.getScheme()).b("obj_locate", getStatPosition()).a(onePicInfoCard);
+            y28.e(onePicInfoCard).d(TiebaStatic.Params.OBJ_URL, onePicInfoCard.getScheme()).b("obj_locate", getStatPosition()).a(onePicInfoCard);
             super.v(onePicInfoCard);
         }
     }
@@ -165,7 +165,7 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
         if ((interceptable != null && interceptable.invokeL(65541, this, onePicInfoCard) != null) || this.q == null) {
             return;
         }
-        if (onePicInfoCard != null && !sy7.a(onePicInfoCard.gettBgColor()) && !sy7.a(onePicInfoCard.gettBgColorN())) {
+        if (onePicInfoCard != null && !w38.a(onePicInfoCard.gettBgColor()) && !w38.a(onePicInfoCard.gettBgColorN())) {
             TextView textView = this.q;
             if (r()) {
                 i = onePicInfoCard.gettBgColorN();
@@ -178,27 +178,27 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
         SkinManager.setBackgroundResource(this.q, R.drawable.label_bg_tie_n);
     }
 
-    public final void G(TextView textView, TbImageView tbImageView, py7 py7Var) {
+    public final void G(TextView textView, TbImageView tbImageView, t38 t38Var) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, textView, tbImageView, py7Var) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, textView, tbImageView, t38Var) == null) {
             if (r()) {
-                str = py7Var.b;
+                str = t38Var.b;
             } else {
-                str = py7Var.a;
+                str = t38Var.a;
             }
             if (!TextUtils.isEmpty(str)) {
                 textView.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
                 tbImageView.setVisibility(0);
-                tbImageView.K(str, 10, false);
+                tbImageView.M(str, 10, false);
             } else {
                 tbImageView.setVisibility(8);
-                textView.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(iy7.a(py7Var.c)), (Drawable) null, (Drawable) null, (Drawable) null);
+                textView.setCompoundDrawablesWithIntrinsicBounds(SkinManager.getDrawable(m38.a(t38Var.c)), (Drawable) null, (Drawable) null, (Drawable) null);
             }
             try {
-                textView.setText(StringHelper.numberUniformFormat(Long.parseLong(py7Var.d)));
+                textView.setText(StringHelper.numberUniformFormat(Long.parseLong(t38Var.d)));
             } catch (NumberFormatException unused) {
-                textView.setText(py7Var.d);
+                textView.setText(t38Var.d);
             }
         }
     }
@@ -210,7 +210,7 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
         LineCountNotifyTextView lineCountNotifyTextView;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onePicInfoCard, i) == null) {
-            wm5.a(this.i, getRootView());
+            tl5.a(this.i, getRootView());
             SkinManager.setBackgroundResource(this.m, R.drawable.addresslist_item_bg);
             setTagBg(onePicInfoCard);
             SkinManager.setViewTextColor(this.q, (int) R.color.CAM_X0111);
@@ -235,7 +235,7 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
             } else {
                 str = null;
             }
-            this.n.K(str, 10, false);
+            this.n.M(str, 10, false);
             if (!StringUtils.isNull(onePicInfoCard.getCardTitle())) {
                 this.o.setText(onePicInfoCard.getCardTitle());
                 this.o.setGetLineCountCallback(new a(this, onePicInfoCard));
@@ -262,7 +262,7 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
                 this.r.setVisibility(8);
                 this.u.setVisibility(8);
             }
-            x69 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
+            dd9 readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory();
             if (readThreadHistory != null && readThreadHistory.d(String.valueOf(onePicInfoCard.getItemId()))) {
                 this.x = R.color.CAM_X0108;
             } else {
@@ -278,19 +278,19 @@ public class OnePicInfoCardView extends BaseCardView<OnePicInfoCard> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01b6, (ViewGroup) null);
+            ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d01ba, (ViewGroup) null);
             this.m = viewGroup;
-            this.n = (TbImageView) l(viewGroup, R.id.obfuscated_res_0x7f090fe9);
-            this.o = (LineCountNotifyTextView) l(this.m, R.id.obfuscated_res_0x7f091889);
-            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f090876);
-            View view2 = (View) l(this.m, R.id.obfuscated_res_0x7f090ef2);
-            this.q = (TextView) l(view2, R.id.obfuscated_res_0x7f090efb);
-            this.r = (LinearLayout) l(view2, R.id.obfuscated_res_0x7f09153c);
-            this.s = (TbImageView) l(view2, R.id.obfuscated_res_0x7f090f38);
-            this.t = (TextView) l(view2, R.id.obfuscated_res_0x7f0922a8);
-            this.u = (LinearLayout) l(view2, R.id.obfuscated_res_0x7f091543);
-            this.v = (TbImageView) l(view2, R.id.obfuscated_res_0x7f090f39);
-            this.w = (TextView) l(view2, R.id.obfuscated_res_0x7f0922a9);
+            this.n = (TbImageView) l(viewGroup, R.id.obfuscated_res_0x7f09101a);
+            this.o = (LineCountNotifyTextView) l(this.m, R.id.obfuscated_res_0x7f0918c8);
+            this.p = (TextView) l(this.m, R.id.obfuscated_res_0x7f090899);
+            View view2 = (View) l(this.m, R.id.obfuscated_res_0x7f090f22);
+            this.q = (TextView) l(view2, R.id.obfuscated_res_0x7f090f2b);
+            this.r = (LinearLayout) l(view2, R.id.obfuscated_res_0x7f09156e);
+            this.s = (TbImageView) l(view2, R.id.obfuscated_res_0x7f090f68);
+            this.t = (TextView) l(view2, R.id.obfuscated_res_0x7f092300);
+            this.u = (LinearLayout) l(view2, R.id.obfuscated_res_0x7f091575);
+            this.v = (TbImageView) l(view2, R.id.obfuscated_res_0x7f090f69);
+            this.w = (TextView) l(view2, R.id.obfuscated_res_0x7f092301);
             return this.m;
         }
         return (View) invokeV.objValue;

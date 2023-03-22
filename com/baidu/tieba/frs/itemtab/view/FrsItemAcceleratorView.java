@@ -18,9 +18,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b35;
-import com.baidu.tieba.b49;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.ga9;
+import com.baidu.tieba.hi;
+import com.baidu.tieba.n15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -193,20 +193,20 @@ public class FrsItemAcceleratorView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (StringUtils.isNull(this.g)) {
-                b35 d = b35.d(this.c);
-                d.n(R.string.J_X07);
+                n15 d = n15.d(this.c);
+                d.o(R.string.J_X07);
                 d.f(R.color.CAM_X0303);
             } else {
-                b35 d2 = b35.d(this.c);
-                d2.n(R.string.J_X07);
-                d2.g(b49.f(this.g));
+                n15 d2 = n15.d(this.c);
+                d2.o(R.string.J_X07);
+                d2.h(ga9.f(this.g));
             }
-            b35.d(this.d).x(R.color.CAM_X0101);
-            b35.d(this.e).f(R.color.CAM_X0617);
-            b35 d3 = b35.d(this);
-            d3.n(R.string.J_X06);
+            n15.d(this.d).y(R.color.CAM_X0101);
+            n15.d(this.e).f(R.color.CAM_X0617);
+            n15 d3 = n15.d(this);
+            d3.o(R.string.J_X06);
             d3.f(R.color.CAM_X0201);
-            b35.d(this.b).v(R.color.CAM_X0105);
+            n15.d(this.b).w(R.color.CAM_X0105);
         }
     }
 
@@ -215,9 +215,9 @@ public class FrsItemAcceleratorView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             this.b = new TextView(getContext());
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            layoutParams.setMargins(ej.g(getContext(), R.dimen.M_W_X004), 0, 0, 0);
+            layoutParams.setMargins(hi.g(getContext(), R.dimen.M_W_X004), 0, 0, 0);
             this.b.setLayoutParams(layoutParams);
-            b35.d(this.b).z(R.dimen.T_X07);
+            n15.d(this.b).A(R.dimen.T_X07);
             this.b.setText(R.string.obfuscated_res_0x7f0f0060);
             addView(this.b);
         }
@@ -227,11 +227,11 @@ public class FrsItemAcceleratorView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             setOrientation(0);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, ej.g(getContext(), R.dimen.tbds146));
-            layoutParams.setMargins(0, ej.g(getContext(), R.dimen.M_H_X003), 0, 0);
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, hi.g(getContext(), R.dimen.tbds146));
+            layoutParams.setMargins(0, hi.g(getContext(), R.dimen.M_H_X003), 0, 0);
             setLayoutParams(layoutParams);
             setGravity(16);
-            setPadding(ej.g(getContext(), R.dimen.M_W_X005), 0, ej.g(getContext(), R.dimen.M_W_X005), 0);
+            setPadding(hi.g(getContext(), R.dimen.M_W_X005), 0, hi.g(getContext(), R.dimen.M_W_X005), 0);
         }
     }
 
@@ -240,7 +240,7 @@ public class FrsItemAcceleratorView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.a = new ImageView(getContext());
             this.a.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            WebPManager.setMaskDrawable(this.a, R.drawable.obfuscated_res_0x7f0808c1, null);
+            WebPManager.setMaskDrawable(this.a, R.drawable.obfuscated_res_0x7f0808d3, null);
             addView(this.a);
         }
     }
@@ -263,24 +263,24 @@ public class FrsItemAcceleratorView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             this.c = new LinearLayout(getContext());
-            this.c.setLayoutParams(new LinearLayout.LayoutParams(-2, ej.g(getContext(), R.dimen.tbds75)));
+            this.c.setLayoutParams(new LinearLayout.LayoutParams(-2, hi.g(getContext(), R.dimen.tbds75)));
             this.c.setOrientation(0);
             this.c.setGravity(16);
             addView(this.c);
             this.d = new TextView(getContext());
             this.d.setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
             this.d.setGravity(16);
-            this.d.setPadding(ej.g(getContext(), R.dimen.M_W_X006), 0, ej.g(getContext(), R.dimen.M_W_X005), 0);
-            b35.d(this.d).z(R.dimen.T_X08);
+            this.d.setPadding(hi.g(getContext(), R.dimen.M_W_X006), 0, hi.g(getContext(), R.dimen.M_W_X005), 0);
+            n15.d(this.d).A(R.dimen.T_X08);
             this.d.setText(R.string.obfuscated_res_0x7f0f005b);
             this.c.addView(this.d);
             this.e = new View(getContext());
-            this.e.setLayoutParams(new LinearLayout.LayoutParams(ej.g(getContext(), R.dimen.tbds3), ej.g(getContext(), R.dimen.tbds29)));
+            this.e.setLayoutParams(new LinearLayout.LayoutParams(hi.g(getContext(), R.dimen.tbds3), hi.g(getContext(), R.dimen.tbds29)));
             this.c.addView(this.e);
             this.f = new ImageView(getContext());
             this.f.setLayoutParams(new LinearLayout.LayoutParams(-2, -1));
-            this.f.setPadding(ej.g(getContext(), R.dimen.M_W_X005), 0, ej.g(getContext(), R.dimen.M_W_X006), 0);
-            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080a8c, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
+            this.f.setPadding(hi.g(getContext(), R.dimen.M_W_X005), 0, hi.g(getContext(), R.dimen.M_W_X006), 0);
+            WebPManager.setPureDrawable(this.f, R.drawable.obfuscated_res_0x7f080a9f, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);
             this.c.addView(this.f);
         }
     }

@@ -1,5 +1,5 @@
 package com.google.android.material.transition;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class FadeModeResult {
     public final int endAlpha;
     public final boolean endOnTop;

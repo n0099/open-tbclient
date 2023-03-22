@@ -1,270 +1,268 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
 import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.content.pm.Signature;
-import android.os.Bundle;
+import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.util.connect.ConnectManager;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.common.security.DeviceIdBag;
+import com.baidu.searchbox.common.security.DeviceInfoManager;
+import com.baidu.searchbox.config.AppConfig;
+import com.baidu.searchbox.logsystem.basic.upload.identity.NetworkParam;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.Locale;
 /* loaded from: classes7.dex */
 public class z00 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean g;
+    public static String h;
+    public static HashMap<String, Integer> i;
+    public static HashMap<String, Integer> j;
+    public static String k;
     public transient /* synthetic */ FieldHolder $fh;
-    public v00 a;
-    public List<y00> b;
+    public Context a;
+    public boolean b;
+    public String c;
+    public String d;
+    public int e;
+    public int f;
 
-    /* loaded from: classes7.dex */
-    public class a implements Comparator<y00> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(z00 z00Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948305999, "Lcom/baidu/tieba/z00;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {z00Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948305999, "Lcom/baidu/tieba/z00;");
+                return;
             }
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(y00 y00Var, y00 y00Var2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, y00Var, y00Var2)) == null) {
-                int i = y00Var2.b - y00Var.b;
-                if (i == 0) {
-                    if (y00Var.d && y00Var2.d) {
-                        return 0;
-                    }
-                    if (y00Var.d) {
-                        return -1;
-                    }
-                    if (y00Var2.d) {
-                        return 1;
-                    }
-                }
-                return i;
-            }
-            return invokeLL.intValue;
-        }
+        g = AppConfig.isDebug();
+        h = "networkparam";
+        i = new HashMap<>();
+        j = new HashMap<>();
+        k = null;
+        i.put("WIFI", 1);
+        i.put("3GNET", 21);
+        i.put("3GWAP", 22);
+        i.put("CMNET", 31);
+        i.put("UNINET", 32);
+        i.put("CTNET", 33);
+        i.put("CMWAP", 41);
+        i.put("UNIWAP", 42);
+        i.put("CTWAP", 43);
+        j.put("46000", 1);
+        j.put("46001", 2);
+        j.put("46002", 1);
+        j.put("46003", 3);
+        j.put("46004", 1);
+        j.put("46005", 3);
+        j.put("46006", 2);
+        j.put("46007", 1);
+        j.put("46008", 1);
+        j.put("46009", 2);
+        j.put("46010", 2);
+        j.put("46011", 3);
+        j.put("46012", 3);
     }
 
     public z00() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        c();
+        this.a = AppRuntime.getAppContext();
     }
 
-    public static String a(byte[] bArr) {
-        InterceptResult invokeL;
-        StringBuilder sb;
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            if (bArr != null) {
-                String str = "";
-                for (byte b : bArr) {
-                    String hexString = Integer.toHexString(b & 255);
-                    if (hexString.length() == 1) {
-                        sb = new StringBuilder();
-                        sb.append(str);
-                        str = "0";
-                    } else {
-                        sb = new StringBuilder();
-                    }
-                    sb.append(str);
-                    sb.append(hexString);
-                    str = sb.toString();
-                }
-                return str.toLowerCase();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    @Deprecated
+    public String a() {
+        InterceptResult invokeV;
+        long j2;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (g) {
+                j2 = SystemClock.uptimeMillis();
+            } else {
+                j2 = 0;
             }
-            throw new IllegalArgumentException("Argument b ( byte array ) is null! ");
+            ConnectManager connectManager = new ConnectManager(this.a);
+            String netType = connectManager.getNetType();
+            int subType = connectManager.getSubType();
+            if (!TextUtils.isEmpty(netType)) {
+                netType = netType.toUpperCase(Locale.getDefault());
+                Integer num = i.get(netType);
+                if (num == null) {
+                    num = 5;
+                }
+                str = num + "_" + subType;
+            } else {
+                str = ((Object) 5) + "_" + subType;
+            }
+            if (g) {
+                long uptimeMillis = SystemClock.uptimeMillis();
+                Log.i(h, "getCurrentNetTypeId cost " + (uptimeMillis - j2) + "ms, current net type: " + netType + ", type id: " + str + ", subtype id: " + subType + ", subtype name: " + connectManager.getSubTypeName());
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (!t00.b().f() || this.b) {
+                return true;
+            }
+            DeviceIdBag operator = DeviceInfoManager.INSTANCE.getOperator(AppRuntime.getAppContext(), "pub_param", "");
+            if (operator.errorCode != 3) {
+                return true;
+            }
+            return !f(operator.deviceId, this.f);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean f(String str, int i2) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i2)) == null) {
+            if (!TextUtils.isEmpty(str)) {
+                Integer num = j.get(str);
+                if (num != null) {
+                    if (i2 > 30 && (i2 - num.intValue()) % 10 == 0) {
+                        return true;
+                    }
+                    if ((i2 == 21 || i2 == 22) && num.intValue() == 2) {
+                        return true;
+                    }
+                } else {
+                    t00.b().g(new a10(3));
+                }
+            }
+            t00.b().g(new a10(2));
+            return false;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            ConnectManager connectManager = new ConnectManager(this.a);
+            String netType = connectManager.getNetType();
+            int subType = connectManager.getSubType();
+            if (!TextUtils.isEmpty(netType)) {
+                String upperCase = netType.toUpperCase(Locale.getDefault());
+                if (i.get(upperCase) == null) {
+                    this.f = 5;
+                    t00.b().g(new a10(4));
+                } else {
+                    this.f = i.get(upperCase).intValue();
+                }
+                this.c = this.f + "_" + subType;
+                this.d = h(this.f, subType);
+            } else {
+                this.f = 5;
+                String str = this.f + "_" + subType;
+                this.c = str;
+                this.d = str;
+            }
+            this.e = subType;
+            int i2 = this.f;
+            if (i2 != 5 && i2 != 1) {
+                this.b = false;
+            } else {
+                this.b = true;
+            }
+            if (z) {
+                this.c = i(this.c);
+            }
+        }
+    }
+
+    public final String h(int i2, int i3) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(1048583, this, i2, i3)) == null) {
+            if (i2 != 21 && i2 != 22 && i2 != 42) {
+                if (i2 == 41) {
+                    i2 = 31;
+                } else if (i2 == 43) {
+                    i2 = 33;
+                }
+            } else {
+                i2 = 32;
+            }
+            return i2 + "_" + i3;
+        }
+        return (String) invokeII.objValue;
+    }
+
+    public String i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            if (TextUtils.equals(str, NetworkParam.NET_TYPE_ID_DISCONNECT)) {
+                if (!TextUtils.isEmpty(k)) {
+                    return k;
+                }
+                return str;
+            }
+            if (!TextUtils.isEmpty(str) && !TextUtils.equals(str, NetworkParam.NET_TYPE_ID_DISCONNECT)) {
+                k = str;
+            }
+            return str;
         }
         return (String) invokeL.objValue;
-    }
-
-    public static byte[] f(byte[] bArr, v00 v00Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, v00Var)) == null) {
-            s00 a2 = s00.a();
-            a2.b(2, v00Var);
-            return a2.c(bArr);
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public List<y00> b(Context context, Intent intent, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, context, intent, z)) == null) {
-            ArrayList arrayList = new ArrayList();
-            PackageManager packageManager = context.getPackageManager();
-            List<ResolveInfo> queryBroadcastReceivers = packageManager.queryBroadcastReceivers(intent, 0);
-            if (queryBroadcastReceivers != null) {
-                for (ResolveInfo resolveInfo : queryBroadcastReceivers) {
-                    ActivityInfo activityInfo = resolveInfo.activityInfo;
-                    if (activityInfo != null && activityInfo.applicationInfo != null) {
-                        try {
-                            Bundle bundle = packageManager.getReceiverInfo(new ComponentName(resolveInfo.activityInfo.packageName, resolveInfo.activityInfo.name), 128).metaData;
-                            if (bundle != null) {
-                                String string = bundle.getString("galaxy_data");
-                                if (!TextUtils.isEmpty(string)) {
-                                    byte[] b = a10.b(string.getBytes(IMAudioTransRequest.CHARSET));
-                                    JSONObject jSONObject = new JSONObject(new String(b));
-                                    y00 y00Var = new y00();
-                                    y00Var.b = jSONObject.getInt("priority");
-                                    y00Var.a = resolveInfo.activityInfo.applicationInfo;
-                                    if (context.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
-                                        y00Var.d = true;
-                                    }
-                                    if (z) {
-                                        String string2 = bundle.getString("galaxy_sf");
-                                        if (!TextUtils.isEmpty(string2)) {
-                                            PackageInfo packageInfo = packageManager.getPackageInfo(resolveInfo.activityInfo.applicationInfo.packageName, 64);
-                                            JSONArray jSONArray = jSONObject.getJSONArray("sigs");
-                                            int length = jSONArray.length();
-                                            String[] strArr = new String[length];
-                                            for (int i = 0; i < length; i++) {
-                                                strArr[i] = jSONArray.getString(i);
-                                            }
-                                            if (e(strArr, g(packageInfo.signatures))) {
-                                                byte[] f = f(a10.b(string2.getBytes()), this.a);
-                                                if (f != null && Arrays.equals(f, c10.a(b))) {
-                                                    y00Var.c = true;
-                                                }
-                                            }
-                                        }
-                                    }
-                                    arrayList.add(y00Var);
-                                }
-                            }
-                        } catch (Exception unused) {
-                        }
-                    }
-                }
-            }
-            Collections.sort(arrayList, new a(this));
-            return arrayList;
-        }
-        return (List) invokeLLZ.objValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = new w00(e10.a(), e10.b());
-        }
-    }
-
-    public boolean d(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            List<y00> b = b(context, new Intent("com.baidu.intent.action.GALAXY").setPackage(context.getPackageName()), true);
-            if (b == null || b.size() == 0) {
-                for (int i = 0; i < 3; i++) {
-                    Log.w("CuidBuddyInfoManager", "galaxy lib host missing meta-data,make sure you know the right way to integrate galaxy");
-                }
-                return false;
-            }
-            boolean z = b.get(0).c;
-            if (!z) {
-                for (int i2 = 0; i2 < 3; i2++) {
-                    Log.w("CuidBuddyInfoManager", "galaxy config err, In the release version of the signature should be matched");
-                }
-            }
-            return z;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean e(String[] strArr, String[] strArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, strArr, strArr2)) == null) {
-            if (strArr == null || strArr2 == null || strArr.length != strArr2.length) {
-                return false;
-            }
-            HashSet hashSet = new HashSet();
-            for (String str : strArr) {
-                hashSet.add(str);
-            }
-            HashSet hashSet2 = new HashSet();
-            for (String str2 : strArr2) {
-                hashSet2.add(str2);
-            }
-            return hashSet.equals(hashSet2);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final String[] g(Signature[] signatureArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, signatureArr)) == null) {
-            int length = signatureArr.length;
-            String[] strArr = new String[length];
-            for (int i = 0; i < length; i++) {
-                strArr[i] = a(c10.a(signatureArr[i].toByteArray()));
-            }
-            return strArr;
-        }
-        return (String[]) invokeL.objValue;
-    }
-
-    public List<y00> h(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-            List<y00> list = this.b;
-            if (list != null) {
-                return list;
-            }
-            d(context);
-            List<y00> b = b(context, new Intent("com.baidu.intent.action.GALAXY"), true);
-            this.b = b;
-            return b;
-        }
-        return (List) invokeL.objValue;
     }
 }

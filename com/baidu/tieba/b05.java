@@ -1,169 +1,385 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
-import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
-import com.baidu.tbadk.core.util.TbEnum;
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.GreyUtil;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.GraffitiInfo;
-import tbclient.MemeInfo;
-import tbclient.NativeApp;
-import tbclient.PbContent;
-import tbclient.PluginUser;
-import tbclient.TiebaPlusInfo;
-import tbclient.TogetherHi;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes3.dex */
 public class b05 {
     public static /* synthetic */ Interceptable $ic;
+    public static final HashMap<Integer, Integer[]> q;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public List<CharSequence> b;
+    public c c;
+    public final Activity d;
+    public final ViewGroup e;
+    public final ViewGroup f;
+    public final TextView g;
+    public final View h;
+    public int i;
+    public int j;
+    public int k;
+    public int l;
+    public boolean m;
+    public AlertDialog n;
+    public int o;
+    public LinearLayout.LayoutParams p;
 
-    public static ArrayList<PbContent> a(JSONArray jSONArray) throws JSONException {
+    /* loaded from: classes3.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static final int a = 2131755957;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-970645692, "Lcom/baidu/tieba/b05$b;")) == null) {
+                return;
+            }
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-970645692, "Lcom/baidu/tieba/b05$b;");
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public interface c {
+        void a(b05 b05Var, int i, View view2);
+    }
+
+    /* loaded from: classes3.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ TextView b;
+        public final /* synthetic */ b05 c;
+
+        public a(b05 b05Var, int i, TextView textView) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b05Var, Integer.valueOf(i), textView};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = b05Var;
+            this.a = i;
+            this.b = textView;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.c.c.a(this.c, this.a, this.b);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947591170, "Lcom/baidu/tieba/b05;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947591170, "Lcom/baidu/tieba/b05;");
+                return;
+            }
+        }
+        HashMap<Integer, Integer[]> hashMap = new HashMap<>(2);
+        q = hashMap;
+        hashMap.put(0, new Integer[]{Integer.valueOf((int) R.drawable.dialg_alert_btn_bg), Integer.valueOf((int) R.drawable.dialog_bdalert_button_textcolor_pressed)});
+        q.put(1, new Integer[]{Integer.valueOf((int) R.drawable.btn_blue_square), Integer.valueOf((int) R.color.CAM_X0201)});
+    }
+
+    public b05(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.j = -1;
+        this.k = -1;
+        this.l = -1;
+        this.m = false;
+        this.o = -1;
+        this.d = activity;
+        ViewGroup viewGroup = (ViewGroup) LayoutInflater.from(activity).inflate(R.layout.dialog_bdlist, (ViewGroup) null);
+        this.e = viewGroup;
+        this.g = (TextView) viewGroup.findViewById(R.id.dialog_title_list);
+        this.f = (ViewGroup) this.e.findViewById(R.id.dialog_content);
+        this.h = this.e.findViewById(R.id.line_bg);
+        this.i = R.layout.dialog_bdlist_item;
+    }
+
+    public View f(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            ViewGroup viewGroup = this.f;
+            if (viewGroup == null) {
+                return null;
+            }
+            int childCount = viewGroup.getChildCount();
+            if (i < 0 || i > childCount - 1) {
+                return null;
+            }
+            return this.f.getChildAt(i);
+        }
+        return (View) invokeI.objValue;
+    }
+
+    public b05 g(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            this.j = i;
+            return this;
+        }
+        return (b05) invokeI.objValue;
+    }
+
+    public b05 h(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            this.k = i;
+            return this;
+        }
+        return (b05) invokeI.objValue;
+    }
+
+    public b05 k(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            l(this.d.getResources().getString(i));
+            return this;
+        }
+        return (b05) invokeI.objValue;
+    }
+
+    public b05 l(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, jSONArray)) == null) {
-            if (jSONArray != null) {
-                ArrayList<PbContent> arrayList = new ArrayList<>();
-                int length = jSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    PbContent.Builder builder = new PbContent.Builder();
-                    JSONObject jSONObject = jSONArray.getJSONObject(i);
-                    builder.big_cdn_src = jSONObject.optString("big_cdn_src");
-                    builder.big_size = jSONObject.optString("big_size");
-                    builder.big_src = jSONObject.optString("big_src");
-                    builder.bsize = jSONObject.optString("bsize");
-                    builder.btn_type = Integer.valueOf(jSONObject.optInt("btn_type"));
-                    builder.c = jSONObject.optString("c");
-                    builder.cdn_src = jSONObject.optString("cdn_src");
-                    builder.cdn_src_active = jSONObject.optString("cdn_src_active");
-                    builder.count = Integer.valueOf(jSONObject.optInt("count"));
-                    builder.during_time = Integer.valueOf(jSONObject.optInt("during_time"));
-                    builder.dynamic = jSONObject.optString("dynamic");
-                    builder.e_type = Integer.valueOf(jSONObject.optInt("e_type"));
-                    JSONObject optJSONObject = jSONObject.optJSONObject("graffiti_info");
-                    if (optJSONObject != null) {
-                        GraffitiInfo.Builder builder2 = new GraffitiInfo.Builder();
-                        builder2.gid = Long.valueOf(optJSONObject.optLong(TbEnum.ParamKey.GID));
-                        builder2.url = optJSONObject.optString("url");
-                        builder.graffiti_info = builder2.build(true);
-                    }
-                    builder.height = Integer.valueOf(jSONObject.optInt(""));
-                    JSONObject optJSONObject2 = jSONObject.optJSONObject("high_together");
-                    if (optJSONObject2 != null) {
-                        TogetherHi.Builder builder3 = new TogetherHi.Builder();
-                        builder3.album_id = Long.valueOf(optJSONObject2.optLong("album_id"));
-                        builder3.album_name = optJSONObject2.optString("album_name");
-                        builder3.end_time = Integer.valueOf(optJSONObject2.optInt("end_time"));
-                        builder3.location = optJSONObject2.optString("location");
-                        builder3.num_join = Integer.valueOf(optJSONObject2.optInt("num_join"));
-                        builder3.num_signup = Integer.valueOf(optJSONObject2.optInt("num_signup"));
-                        JSONArray optJSONArray = optJSONObject2.optJSONArray("pic_urls");
-                        if (optJSONArray != null) {
-                            builder3.pic_urls = new ArrayList();
-                            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
-                                builder3.pic_urls.add(optJSONArray.optString(i2));
-                            }
-                        }
-                        JSONArray optJSONArray2 = optJSONObject2.optJSONArray("potraits");
-                        if (optJSONArray2 != null) {
-                            builder3.potraits = new ArrayList();
-                            for (int i3 = 0; i3 < optJSONArray2.length(); i3++) {
-                                builder3.potraits.add(optJSONArray2.optString(i3));
-                            }
-                        }
-                        builder3.start_time = Integer.valueOf(optJSONObject2.optInt("start_time"));
-                        builder.high_together = builder3.build(true);
-                    }
-                    builder.imgtype = jSONObject.optString("imgtype");
-                    builder.is_long_pic = Integer.valueOf(jSONObject.optInt("is_long_pic"));
-                    builder.is_native_app = Integer.valueOf(jSONObject.optInt("is_native_app"));
-                    builder.is_sub = Integer.valueOf(jSONObject.optInt("is_sub"));
-                    builder.link = jSONObject.optString("link");
-                    builder.media_subtitle = jSONObject.optString("media_subtitle");
-                    JSONObject optJSONObject3 = jSONObject.optJSONObject("meme_info");
-                    if (optJSONObject3 != null) {
-                        MemeInfo.Builder builder4 = new MemeInfo.Builder();
-                        builder4.detail_link = optJSONObject3.optString("detail_link");
-                        builder4.height = Integer.valueOf(optJSONObject3.optInt("height"));
-                        builder4.pck_id = Integer.valueOf(optJSONObject3.optInt("pck_id"));
-                        builder4.pic_id = Long.valueOf(optJSONObject3.optLong(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY));
-                        builder4.pic_url = optJSONObject3.optString("pic_url");
-                        builder4.thumbnail = optJSONObject3.optString("thumbnail");
-                        builder4.width = Integer.valueOf(optJSONObject3.optInt("width"));
-                        builder.meme_info = builder4.build(true);
-                    }
-                    JSONObject optJSONObject4 = jSONObject.optJSONObject("native_app");
-                    if (optJSONObject4 != null) {
-                        NativeApp.Builder builder5 = new NativeApp.Builder();
-                        builder5.download_and = optJSONObject4.optString("download_and");
-                        builder5.download_ios = optJSONObject4.optString("download_ios");
-                        builder5.jump_and = optJSONObject4.optString("jump_and");
-                        builder5.jump_ios = optJSONObject4.optString("jump_ios");
-                        builder.native_app = builder5.build(true);
-                    }
-                    builder.origin_size = Integer.valueOf(jSONObject.optInt("origin_size"));
-                    builder.origin_src = jSONObject.optString("origin_src");
-                    builder.packet_name = jSONObject.optString("packet_name");
-                    builder.phonetype = jSONObject.optString("phonetype");
-                    builder.show_original_btn = Integer.valueOf(jSONObject.optInt("show_original_btn"));
-                    builder.src = jSONObject.optString("src");
-                    builder.text = jSONObject.optString("text");
-                    builder.uid = Long.valueOf(jSONObject.optLong("uid"));
-                    builder.type = Integer.valueOf(jSONObject.optInt("type"));
-                    JSONObject optJSONObject5 = jSONObject.optJSONObject("tiebaplus_info");
-                    if (optJSONObject5 != null) {
-                        TiebaPlusInfo.Builder builder6 = new TiebaPlusInfo.Builder();
-                        builder6.title = optJSONObject5.optString("title");
-                        builder6.desc = optJSONObject5.optString("desc");
-                        builder6.jump_url = optJSONObject5.optString(BigdayActivityConfig.JUMP_URL);
-                        builder6.download_url = optJSONObject5.optString("download_url");
-                        builder6.app_id = optJSONObject5.optString("app_id");
-                        builder6.app_icon = optJSONObject5.optString("app_icon");
-                        builder6.app_package = optJSONObject5.optString("app_package");
-                        builder6.app_version = optJSONObject5.optString("app_version");
-                        builder6.app_privacy = optJSONObject5.optString("app_privacy");
-                        builder6.app_power = optJSONObject5.optString("app_power");
-                        builder6.app_company = optJSONObject5.optString("app_company");
-                        builder6.target_type = Integer.valueOf(optJSONObject5.optInt(GameGuideConfigInfo.KEY_TARGET_TYPE));
-                        builder6.h5_jump_type = Integer.valueOf(optJSONObject5.optInt("h5_jump_type"));
-                        builder6.h5_jump_number = optJSONObject5.optString("h5_jump_number");
-                        builder6.h5_jump_param = optJSONObject5.optString("h5_jump_param");
-                        builder6.jump_type = Integer.valueOf(optJSONObject5.optInt("jump_type"));
-                        builder6.item_id = optJSONObject5.optString("item_id");
-                        builder6.is_appoint = Integer.valueOf(optJSONObject5.optInt("is_appoint"));
-                        JSONObject optJSONObject6 = optJSONObject5.optJSONObject("plugin_user");
-                        if (optJSONObject6 != null) {
-                            PluginUser.Builder builder7 = new PluginUser.Builder();
-                            builder7.user_type = Integer.valueOf(optJSONObject6.optInt("user_type"));
-                            builder7.user_id = Long.valueOf(optJSONObject6.optLong("user_id"));
-                            builder7.user_name_show = optJSONObject6.optString("user_name_show");
-                            builder7.user_photo = optJSONObject6.optString("user_photo");
-                            builder6.plugin_user = builder7.build(true);
-                        }
-                        builder6.forum_name = optJSONObject5.optString("forum_name");
-                        builder6.jump_setting = Integer.valueOf(optJSONObject5.optInt("jump_setting"));
-                        builder6.wx_thumbnail = optJSONObject5.optString("wx_thumbnail");
-                        builder6.button_desc = optJSONObject5.optString("button_desc");
-                        builder.tiebaplus_info = builder6.build(true);
-                    }
-                    builder.url_type = Integer.valueOf(jSONObject.optInt("url_type"));
-                    builder.voice_md5 = jSONObject.optString("voice_md5");
-                    builder.width = Integer.valueOf(jSONObject.optInt("width"));
-                    builder._static = jSONObject.optString("_static");
-                    builder.item_id = Long.valueOf(jSONObject.optLong("item_id"));
-                    builder.item_forum_name = jSONObject.optString("item_forum_name");
-                    builder.link_type = Integer.valueOf(jSONObject.optInt("link_type"));
-                    arrayList.add(builder.build(true));
-                }
-                return arrayList;
-            }
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            this.a = str;
+            return this;
         }
-        return (ArrayList) invokeL.objValue;
+        return (b05) invokeL.objValue;
+    }
+
+    public void b(a9<?> a9Var) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, a9Var) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            if (a9Var instanceof TbPageContext) {
+                TbPageContext tbPageContext = (TbPageContext) a9Var;
+                fv4 layoutMode = tbPageContext.getLayoutMode();
+                if (skinType == 4) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                layoutMode.l(z);
+                tbPageContext.getLayoutMode().k(this.e);
+            }
+            this.e.setBackgroundResource(R.drawable.transparent_bg);
+        }
+    }
+
+    public b05 c(a9<?> a9Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, a9Var)) == null) {
+            if (this.m) {
+                return this;
+            }
+            this.m = true;
+            if (!TextUtils.isEmpty(this.a)) {
+                this.g.setText(this.a);
+                this.g.setVisibility(0);
+                this.h.setVisibility(0);
+            } else {
+                this.g.setVisibility(8);
+                this.h.setVisibility(8);
+            }
+            List<CharSequence> list = this.b;
+            if (list != null && list.size() > 0) {
+                int size = this.b.size();
+                for (int i = 0; i < size; i++) {
+                    d(i);
+                }
+            }
+            b(a9Var);
+            return this;
+        }
+        return (b05) invokeL.objValue;
+    }
+
+    public final View d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            View inflate = LayoutInflater.from(this.d).inflate(this.i, this.f, false);
+            LinearLayout linearLayout = (LinearLayout) inflate;
+            TextView textView = (TextView) inflate.findViewById(R.id.dialog_item_btn);
+            LinearLayout.LayoutParams layoutParams = this.p;
+            if (layoutParams != null) {
+                textView.setLayoutParams(layoutParams);
+            }
+            int i2 = this.l;
+            if (i2 != -1) {
+                textView.setTextSize(0, i2);
+            }
+            if (this.o != -1) {
+                textView.setPadding(0, 0, 0, 0);
+                textView.setGravity(this.o);
+            }
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f091473);
+            CharSequence charSequence = this.b.get(i);
+            if (charSequence.length() <= 0) {
+                charSequence = "";
+            }
+            textView.setText(charSequence);
+            if (i == this.b.size() - 1) {
+                findViewById.setVisibility(8);
+                SkinManager.setBackgroundResource(inflate, R.drawable.dialog_single_button_bg_selector);
+            } else if (this.b.size() == 1) {
+                findViewById.setVisibility(8);
+                SkinManager.setBackgroundResource(inflate, R.drawable.dialog_single_button_only_one_bg_selector);
+            } else if (i == 0 && StringUtils.isNull(this.a)) {
+                SkinManager.setBackgroundResource(inflate, R.drawable.dialog_single_button_first_bg_selector);
+            } else {
+                SkinManager.setBackgroundResource(inflate, R.drawable.dialg_alert_btn_bg);
+            }
+            if (this.c != null) {
+                linearLayout.setOnClickListener(new a(this, i, textView));
+            }
+            this.f.addView(inflate);
+            return inflate;
+        }
+        return (View) invokeI.objValue;
+    }
+
+    public void e() {
+        AlertDialog alertDialog;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (alertDialog = this.n) != null) {
+            lg.a(alertDialog, this.d);
+        }
+    }
+
+    public b05 i(List<CharSequence> list, c cVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, list, cVar)) == null) {
+            if (list != null && list.size() > 0) {
+                this.b = list;
+                if (cVar != null) {
+                    this.c = cVar;
+                }
+            }
+            return this;
+        }
+        return (b05) invokeLL.objValue;
+    }
+
+    public b05 j(CharSequence[] charSequenceArr, c cVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, charSequenceArr, cVar)) == null) {
+            if (charSequenceArr != null && charSequenceArr.length > 0) {
+                i(Arrays.asList(charSequenceArr), cVar);
+            }
+            return this;
+        }
+        return (b05) invokeLL.objValue;
+    }
+
+    public b05 m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (this.m) {
+                AlertDialog alertDialog = this.n;
+                if (alertDialog != null) {
+                    lg.i(alertDialog, this.d);
+                    return this;
+                }
+                AlertDialog create = new AlertDialog.Builder(this.d, R.style.obfuscated_res_0x7f100144).create();
+                this.n = create;
+                GreyUtil.grey(create);
+                this.n.setCanceledOnTouchOutside(true);
+                if (!lg.i(this.n, this.d)) {
+                    return this;
+                }
+                Window window = this.n.getWindow();
+                if (this.j == -1) {
+                    this.j = b.a;
+                }
+                if (this.k == -1) {
+                    this.k = 17;
+                }
+                WindowManager.LayoutParams attributes = window.getAttributes();
+                attributes.dimAmount = 0.5f;
+                window.setAttributes(attributes);
+                window.setGravity(this.k);
+                window.setContentView(this.e);
+                return this;
+            }
+            throw new RuntimeException("Dialog must be created by function create()!");
+        }
+        return (b05) invokeV.objValue;
     }
 }

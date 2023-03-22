@@ -1,145 +1,21 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.pm.PackageManager;
-import android.os.Build;
 import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.util.BaiduIdentityManager;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
+import com.baidu.android.imsdk.chatmessage.messages.gfh.GfhKeyValue;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class ml3 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static String f = "%s/%s";
-        public static String g = "%s-%s/%s";
-        public static String h = "(Baidu; P1 %s)";
-        public static String i = "%s/%s";
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public String d;
-        public String e;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-600373384, "Lcom/baidu/tieba/ml3$a;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-600373384, "Lcom/baidu/tieba/ml3$a;");
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        public final boolean e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return TextUtils.equals(BaiduIdentityManager.VALUE_OSNAME, this.c);
-            }
-            return invokeV.booleanValue;
-        }
-
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                String format = String.format(f, this.a, this.b);
-                String format2 = String.format(g, this.a, this.c, this.d);
-                String format3 = String.format(i, this.c, this.d);
-                String format4 = String.format(h, this.e);
-                if (e()) {
-                    return String.format("%s %s %s %s", format, format2, format3, format4);
-                }
-                return String.format("%s %s %s", format, format2, format4);
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public a b(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.a = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a c(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.c = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a d(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.d = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a f(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-                this.e = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a g(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-                this.b = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -154,18 +30,17 @@ public class ml3 {
                 return;
             }
         }
-        a = wp1.a;
+        a = do1.a;
     }
 
     public static String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            String str = Build.VERSION.RELEASE;
-            if (TextUtils.isEmpty(str)) {
-                return "0.0";
+            if (t73.M() != null) {
+                return t73.M().b;
             }
-            return str.replace("_", "-");
+            return "";
         }
         return (String) invokeV.objValue;
     }
@@ -174,64 +49,139 @@ public class ml3 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return d(SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME);
+            return hk3.b(hk3.a(), "yyyy-MM-dd");
         }
         return (String) invokeV.objValue;
     }
 
-    public static String c() {
+    public static int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return d("swan");
+            JSONObject d = d(a());
+            if (d == null) {
+                return 0;
+            }
+            return d.optInt("launch_count", 0);
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public static Context getContext() {
-        InterceptResult invokeV;
+    public static void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return ts2.c();
+        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
+            i(a(), "visit_duration", Long.valueOf(e()));
         }
-        return (Context) invokeV.objValue;
     }
 
-    public static String d(String str) {
+    public static JSONObject d(String str) {
         InterceptResult invokeL;
+        JSONObject jSONObject;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            String a2 = ts2.n().a();
-            a aVar = new a();
-            aVar.b(str);
-            aVar.g(xp1.a());
-            aVar.c(a2);
-            aVar.d(e());
-            aVar.f(a());
-            return aVar.a();
+            String string = hg3.a().getString("dailyInfo", "");
+            if (a) {
+                Log.i("SwanAppUserVisitInfoUtils", "dailyInfo:" + string);
+            }
+            JSONObject jSONObject2 = null;
+            try {
+                if (TextUtils.isEmpty(string)) {
+                    jSONObject = new JSONObject();
+                } else {
+                    jSONObject = new JSONObject(string);
+                }
+                if (f(jSONObject)) {
+                    jSONObject.put(GfhKeyValue.TYPE_DATE, b());
+                }
+                jSONObject2 = jSONObject.optJSONObject(str);
+                if (jSONObject2 == null) {
+                    jSONObject.put(str, new JSONObject());
+                    hg3.a().putString("dailyInfo", jSONObject.toString());
+                    return jSONObject2;
+                }
+            } catch (JSONException e) {
+                if (a) {
+                    Log.e("SwanAppUserVisitInfoUtils", e.getMessage());
+                }
+            }
+            return jSONObject2;
         }
-        return (String) invokeL.objValue;
+        return (JSONObject) invokeL.objValue;
     }
 
-    public static String e() {
+    public static long e() {
         InterceptResult invokeV;
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (!TextUtils.isEmpty(b)) {
-                return b;
+            long currentTimeMillis = System.currentTimeMillis();
+            JSONObject d = d(a());
+            if (d != null) {
+                j = d.optLong("foreground_aiapp_last_time_local", 0L);
+            } else {
+                j = 0;
+            }
+            if (d == null) {
+                return 0L;
+            }
+            return d.optLong("visit_duration", 0L) + (currentTimeMillis - j);
+        }
+        return invokeV.longValue;
+    }
+
+    public static boolean f(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, jSONObject)) == null) {
+            String b = b();
+            String optString = jSONObject.optString(GfhKeyValue.TYPE_DATE, "");
+            if (!TextUtils.isEmpty(optString) && optString.equals(b)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void g(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65543, null, j) == null) {
+            i(a(), "foreground_aiapp_last_time_local", Long.valueOf(j));
+        }
+    }
+
+    public static void i(String str, String str2, Object obj) {
+        JSONObject jSONObject;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65545, null, str, str2, obj) == null) {
+            String string = hg3.a().getString("dailyInfo", "");
+            if (a) {
+                if (TextUtils.isEmpty(string)) {
+                    str3 = "dailyinfo is null";
+                } else {
+                    str3 = string;
+                }
+                Log.i("SwanAppUserVisitInfoUtils", str3);
             }
             try {
-                String str = getContext().getPackageManager().getPackageInfo(getContext().getPackageName(), 0).versionName;
-                b = str;
-                return str;
-            } catch (PackageManager.NameNotFoundException e) {
-                if (a) {
-                    e.printStackTrace();
-                    return "0.8";
+                if (TextUtils.isEmpty(string)) {
+                    jSONObject = new JSONObject();
+                } else {
+                    jSONObject = new JSONObject(string);
                 }
-                return "0.8";
+                JSONObject optJSONObject = jSONObject.optJSONObject(str);
+                if (optJSONObject != null) {
+                    optJSONObject.put(str2, obj);
+                } else {
+                    jSONObject.put(str, new JSONObject());
+                }
+                hg3.a().putString("dailyInfo", jSONObject.toString());
+            } catch (JSONException e) {
+                if (a) {
+                    Log.e("SwanAppUserVisitInfoUtils", e.getMessage());
+                }
             }
         }
-        return (String) invokeV.objValue;
     }
 }

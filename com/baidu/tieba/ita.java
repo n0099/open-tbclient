@@ -1,103 +1,475 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.rra;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUIEventType;
-import java.util.List;
-import tv.athena.revenue.payui.model.PayFinishInfo;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
-/* loaded from: classes4.dex */
-public class ita implements IYYPayAmountView.Callback {
+import java.util.Iterator;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicReference;
+import rx.internal.schedulers.ScheduledAction;
+import rx.internal.util.RxThreadFactory;
+/* loaded from: classes5.dex */
+public final class ita extends rra implements pta {
     public static /* synthetic */ Interceptable $ic;
+    public static final long c;
+    public static final TimeUnit d;
+    public static final c e;
+    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public Dialog c;
-    public IYYPayAmountView.ViewParams d;
-    public Activity e;
-    public IPayCallback<CurrencyChargeMessage> f;
-    public tsa g;
+    public final ThreadFactory a;
+    public final AtomicReference<a> b;
 
-    public ita(int i, int i2, Dialog dialog, IYYPayAmountView.ViewParams viewParams, Activity activity, IPayCallback<CurrencyChargeMessage> iPayCallback, tsa tsaVar) {
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final ThreadFactory a;
+        public final long b;
+        public final ConcurrentLinkedQueue<c> c;
+        public final iwa d;
+        public final ScheduledExecutorService e;
+        public final Future<?> f;
+
+        /* renamed from: com.baidu.tieba.ita$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class ThreadFactoryC0301a implements ThreadFactory {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ ThreadFactory a;
+
+            public ThreadFactoryC0301a(a aVar, ThreadFactory threadFactory) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, threadFactory};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = threadFactory;
+            }
+
+            @Override // java.util.concurrent.ThreadFactory
+            public Thread newThread(Runnable runnable) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+                    Thread newThread = this.a.newThread(runnable);
+                    newThread.setName(newThread.getName() + " (Evictor)");
+                    return newThread;
+                }
+                return (Thread) invokeL.objValue;
+            }
+        }
+
+        /* loaded from: classes5.dex */
+        public class b implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public b(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.a.a();
+                }
+            }
+        }
+
+        public a(ThreadFactory threadFactory, long j, TimeUnit timeUnit) {
+            long j2;
+            ScheduledFuture<?> scheduledFuture;
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {threadFactory, Long.valueOf(j), timeUnit};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = threadFactory;
+            if (timeUnit != null) {
+                j2 = timeUnit.toNanos(j);
+            } else {
+                j2 = 0;
+            }
+            this.b = j2;
+            this.c = new ConcurrentLinkedQueue<>();
+            this.d = new iwa();
+            ScheduledExecutorService scheduledExecutorService = null;
+            if (timeUnit != null) {
+                scheduledExecutorService = Executors.newScheduledThreadPool(1, new ThreadFactoryC0301a(this, threadFactory));
+                ota.k(scheduledExecutorService);
+                b bVar = new b(this);
+                long j3 = this.b;
+                scheduledFuture = scheduledExecutorService.scheduleWithFixedDelay(bVar, j3, j3, TimeUnit.NANOSECONDS);
+            } else {
+                scheduledFuture = null;
+            }
+            this.e = scheduledExecutorService;
+            this.f = scheduledFuture;
+        }
+
+        public void a() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.c.isEmpty()) {
+                long c = c();
+                Iterator<c> it = this.c.iterator();
+                while (it.hasNext()) {
+                    c next = it.next();
+                    if (next.l() <= c) {
+                        if (this.c.remove(next)) {
+                            this.d.b(next);
+                        }
+                    } else {
+                        return;
+                    }
+                }
+            }
+        }
+
+        public c b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.d.isUnsubscribed()) {
+                    return ita.e;
+                }
+                while (!this.c.isEmpty()) {
+                    c poll = this.c.poll();
+                    if (poll != null) {
+                        return poll;
+                    }
+                }
+                c cVar = new c(this.a);
+                this.d.a(cVar);
+                return cVar;
+            }
+            return (c) invokeV.objValue;
+        }
+
+        public long c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return System.nanoTime();
+            }
+            return invokeV.longValue;
+        }
+
+        public void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                try {
+                    if (this.f != null) {
+                        this.f.cancel(true);
+                    }
+                    if (this.e != null) {
+                        this.e.shutdownNow();
+                    }
+                } finally {
+                    this.d.unsubscribe();
+                }
+            }
+        }
+
+        public void d(c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
+                cVar.m(c() + this.b);
+                this.c.offer(cVar);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class b extends rra.a implements bsa {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final iwa a;
+        public final a b;
+        public final c c;
+        public final AtomicBoolean d;
+
+        /* loaded from: classes5.dex */
+        public class a implements bsa {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ bsa a;
+            public final /* synthetic */ b b;
+
+            public a(b bVar, bsa bsaVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, bsaVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = bVar;
+                this.a = bsaVar;
+            }
+
+            @Override // com.baidu.tieba.bsa
+            public void call() {
+                Interceptable interceptable = $ic;
+                if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.b.isUnsubscribed()) {
+                    return;
+                }
+                this.a.call();
+            }
+        }
+
+        public b(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new iwa();
+            this.b = aVar;
+            this.d = new AtomicBoolean();
+            this.c = aVar.b();
+        }
+
+        @Override // com.baidu.tieba.rra.a
+        public vra b(bsa bsaVar) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bsaVar)) == null) {
+                return c(bsaVar, 0L, null);
+            }
+            return (vra) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.rra.a
+        public vra c(bsa bsaVar, long j, TimeUnit timeUnit) {
+            InterceptResult invokeCommon;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bsaVar, Long.valueOf(j), timeUnit})) == null) {
+                if (this.a.isUnsubscribed()) {
+                    return lwa.c();
+                }
+                ScheduledAction h = this.c.h(new a(this, bsaVar), j, timeUnit);
+                this.a.a(h);
+                h.addParent(this.a);
+                return h;
+            }
+            return (vra) invokeCommon.objValue;
+        }
+
+        @Override // com.baidu.tieba.bsa
+        public void call() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                this.b.d(this.c);
+            }
+        }
+
+        @Override // com.baidu.tieba.vra
+        public boolean isUnsubscribed() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.a.isUnsubscribed();
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.vra
+        public void unsubscribe() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                if (this.d.compareAndSet(false, true)) {
+                    this.c.b(this);
+                }
+                this.a.unsubscribe();
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class c extends ota {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long i;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(ThreadFactory threadFactory) {
+            super(threadFactory);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {threadFactory};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((ThreadFactory) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.i = 0L;
+        }
+
+        public long l() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.i;
+            }
+            return invokeV.longValue;
+        }
+
+        public void m(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+                this.i = j;
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947866419, "Lcom/baidu/tieba/ita;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947866419, "Lcom/baidu/tieba/ita;");
+                return;
+            }
+        }
+        d = TimeUnit.SECONDS;
+        c cVar = new c(RxThreadFactory.NONE);
+        e = cVar;
+        cVar.unsubscribe();
+        a aVar = new a(null, 0L, null);
+        f = aVar;
+        aVar.e();
+        c = Integer.getInteger("rx.io-scheduler.keepalive", 60).intValue();
+    }
+
+    public ita(ThreadFactory threadFactory) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), dialog, viewParams, activity, iPayCallback, tsaVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            Object[] objArr = {threadFactory};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        RLog.info("PayAmountViewCallback", "create PayAmountViewCallback appId:" + i + " userChannel:" + i2);
-        this.a = i;
-        this.b = i2;
-        this.c = dialog;
-        this.d = viewParams;
-        this.e = activity;
-        this.f = iPayCallback;
-        this.g = tsaVar;
+        this.a = threadFactory;
+        this.b = new AtomicReference<>(f);
+        start();
     }
 
-    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
-    public void onRefreshViewFail(int i, String str) {
+    @Override // com.baidu.tieba.rra
+    public rra.a createWorker() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-            PayFinishInfo a = cva.a(PayDialogType.PAY_AMOUNT_DIALOG, i, str);
-            RLog.error("PayAmountViewCallback", "showPayAmountDialog onFail code:" + i + " failReason:" + str + " message:" + a, new Object[0]);
-            this.g.j(a);
-            bva.b(this.c, PayDialogType.PAY_AMOUNT_DIALOG);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new b(this.b.get());
+        }
+        return (rra.a) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.pta
+    public void shutdown() {
+        a aVar;
+        a aVar2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            do {
+                aVar = this.b.get();
+                aVar2 = f;
+                if (aVar == aVar2) {
+                    return;
+                }
+            } while (!this.b.compareAndSet(aVar, aVar2));
+            aVar.e();
         }
     }
 
-    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
-    public void showInputNumberDialog(Activity activity, List<PayWayInfo> list, String str) {
+    @Override // com.baidu.tieba.pta
+    public void start() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, list, str) == null) {
-            RLog.info("PayAmountViewCallback", "showInputNumberDialog bubbleActMsg:" + str);
-            bva.a(this.c, PayDialogType.PAY_AMOUNT_DIALOG);
-            this.g.l(activity, list, str, this.d, this.f);
-        }
-    }
-
-    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
-    public void toPayWayDialog(lua luaVar, List<PayWayInfo> list, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, luaVar, list, str) == null) {
-            RLog.info("PayAmountViewCallback", "toPayWayDialog bubbleActMsg:" + str);
-            bva.a(this.c, PayDialogType.PAY_AMOUNT_DIALOG);
-            this.g.t(this.e, luaVar, list, str, this.d, this.f);
-            rua.b(this.a, this.b, PayUIEventType.purchasegotopay);
-        }
-    }
-
-    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
-    public void toBannerConfigWebPage(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.g.o(this.e, str);
-        }
-    }
-
-    @Override // tv.athena.revenue.payui.view.IYYPayAmountView.Callback
-    public void toHelpCenterPage() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.g.u(this.e);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            a aVar = new a(this.a, c, d);
+            if (!this.b.compareAndSet(f, aVar)) {
+                aVar.e();
+            }
         }
     }
 }

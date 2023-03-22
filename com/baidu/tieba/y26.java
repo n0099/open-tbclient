@@ -1,24 +1,18 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.ala.data.SdkLiveInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class y26 implements tt2 {
+public class y26 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ArrayList<SdkLiveInfoData> a;
 
     public y26() {
         Interceptable interceptable = $ic;
@@ -34,38 +28,19 @@ public class y26 implements tt2 {
         }
     }
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
+    public void a(JSONObject jSONObject, String str) {
+        JSONArray optJSONArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            return TbadkCoreApplication.getInst().getZid(context, null, 0, null);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.tt2
-    public String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            if (!ProcessUtils.isMainProcess()) {
-                return c(context);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, str) == null) && jSONObject != null && (optJSONArray = jSONObject.optJSONArray("live_list")) != null && optJSONArray.length() > 0) {
+            this.a = new ArrayList<>(optJSONArray.length());
+            for (int i = 0; i < optJSONArray.length(); i++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    SdkLiveInfoData sdkLiveInfoData = new SdkLiveInfoData();
+                    sdkLiveInfoData.fromJson(optJSONObject, str);
+                    this.a.add(sdkLiveInfoData);
+                }
             }
-            return b(context);
         }
-        return (String) invokeL.objValue;
-    }
-
-    public final String c(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(context, x26.class, null);
-            if (!callOnMainWithContentProvider.isOk()) {
-                return "";
-            }
-            return callOnMainWithContentProvider.mResult.getString("result", "");
-        }
-        return (String) invokeL.objValue;
     }
 }

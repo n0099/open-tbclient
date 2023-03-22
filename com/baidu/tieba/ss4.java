@@ -1,15 +1,19 @@
 package com.baidu.tieba;
 
+import com.baidu.tbadk.album.MediaFileInfo;
+import com.baidu.tbadk.album.VideoFileInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.BackUser.DataRes;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class ss4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+    public List<ms4> a;
+    public List<MediaFileInfo> b;
+    public List<VideoFileInfo> c;
 
     public ss4() {
         Interceptable interceptable = $ic;
@@ -21,21 +25,7 @@ public class ss4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = false;
-    }
-
-    public void a(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
-            return;
-        }
-        boolean z = true;
-        if (dataRes.is_back_user.intValue() != 1) {
-            z = false;
-        }
-        this.a = z;
     }
 }

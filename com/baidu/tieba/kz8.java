@@ -1,30 +1,41 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewStub;
+import androidx.core.view.InputDeviceCompat;
+import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tieba.sharesdk.ShareHandlerActivity;
-import com.baidu.tieba.sharesdk.bean.ShareEntity;
+import com.baidu.tbadk.core.tabHost.FragmentTabHost;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tieba.postsearch.PostSearchActivity;
+import com.baidu.tieba.postsearch.PostSearchListFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class kz8 implements pa5 {
+public class kz8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public PostSearchActivity a;
+    public View b;
+    public FragmentTabHost c;
+    public ViewPager.OnPageChangeListener d;
+    public PostSearchListFragment e;
+    public PostSearchListFragment f;
+    public PostSearchListFragment g;
 
-    public kz8(Context context, oa5 oa5Var) {
+    public kz8(PostSearchActivity postSearchActivity, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, oa5Var};
+            Object[] objArr = {postSearchActivity, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,71 +45,173 @@ public class kz8 implements pa5 {
                 return;
             }
         }
-        this.a = null;
-        this.a = context;
+        this.a = postSearchActivity;
+        this.b = view2;
     }
 
-    @Override // com.baidu.tieba.pa5
-    public void a(ShareItem shareItem, int i, boolean z) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{shareItem, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            b(shareItem, i);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.e.E1();
+            this.f.E1();
+            this.g.E1();
         }
     }
 
-    public final void b(ShareItem shareItem, int i) {
-        boolean z;
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareItem, i) == null) && this.a != null && shareItem != null) {
-            IntentConfig intentConfig = new IntentConfig(this.a);
-            ShareEntity shareEntity = new ShareEntity();
-            shareEntity.setTitle(shareItem.v);
-            shareEntity.setContent(shareItem.w);
-            shareEntity.setReadCount(shareItem.W);
-            int i2 = shareItem.R;
-            if (i2 != 2 && i2 != 6 && i2 != 8) {
-                z = false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c.getCurrentTabType();
+        }
+        return invokeV.intValue;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            FragmentTabHost.c cVar = new FragmentTabHost.c();
+            PostSearchListFragment postSearchListFragment = new PostSearchListFragment(1);
+            this.e = postSearchListFragment;
+            cVar.c = postSearchListFragment;
+            cVar.b = c(R.string.obfuscated_res_0x7f0f11b0);
+            cVar.a = 1;
+            this.c.b(cVar);
+            FragmentTabHost.c cVar2 = new FragmentTabHost.c();
+            PostSearchListFragment postSearchListFragment2 = new PostSearchListFragment(2);
+            this.f = postSearchListFragment2;
+            cVar2.c = postSearchListFragment2;
+            cVar2.b = c(R.string.obfuscated_res_0x7f0f11af);
+            cVar2.a = 2;
+            this.c.b(cVar2);
+            FragmentTabHost.c cVar3 = new FragmentTabHost.c();
+            PostSearchListFragment postSearchListFragment3 = new PostSearchListFragment(3);
+            this.g = postSearchListFragment3;
+            cVar3.c = postSearchListFragment3;
+            cVar3.b = c(R.string.obfuscated_res_0x7f0f11ae);
+            cVar3.a = 3;
+            this.c.b(cVar3);
+        }
+    }
+
+    public final FragmentTabIndicator c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
+            fragmentTabIndicator.setText(i);
+            fragmentTabIndicator.setTextSize(0, this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070207));
+            fragmentTabIndicator.h = R.color.s_actionbar_text_color;
+            fragmentTabIndicator.setContentTvTopMargin(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224));
+            fragmentTabIndicator.setWidth((hi.l(this.a.getPageContext().getContext()) - (this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07020f) * 2)) / 3);
+            return fragmentTabIndicator;
+        }
+        return (FragmentTabIndicator) invokeI.objValue;
+    }
+
+    public final void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            View inflate = ((ViewStub) this.b.findViewById(R.id.obfuscated_res_0x7f091fd5)).inflate();
+            inflate.setVisibility(0);
+            FragmentTabHost fragmentTabHost = (FragmentTabHost) inflate.findViewById(R.id.obfuscated_res_0x7f091be9);
+            this.c = fragmentTabHost;
+            fragmentTabHost.setup(this.a.getSupportFragmentManager());
+            this.c.setTabWidgetViewHeight((int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070275));
+            this.c.setShouldDrawIndicatorLine(true);
+            b();
+            this.c.k(3);
+            this.c.setCurrentTabByType(i);
+            this.c.getFragmentTabWidget().setBackGroundDrawableResId(0);
+            this.c.s(TbadkCoreApplication.getInst().getSkinType());
+            SkinManager.setBackgroundColor(this.c.getFragmentTabWidget(), R.color.CAM_X0201);
+            this.c.setOnPageChangeListener(this.d);
+        }
+    }
+
+    public final PostSearchListFragment e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        return null;
+                    }
+                    return this.g;
+                }
+                return this.f;
+            }
+            return this.e;
+        }
+        return (PostSearchListFragment) invokeI.objValue;
+    }
+
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            FragmentTabHost fragmentTabHost = this.c;
+            if (fragmentTabHost != null) {
+                fragmentTabHost.s(i);
+            }
+            FragmentTabHost fragmentTabHost2 = this.c;
+            if (fragmentTabHost2 != null && fragmentTabHost2.getFragmentTabWidget() != null) {
+                SkinManager.setBackgroundColor(this.c.getFragmentTabWidget(), R.color.CAM_X0201);
+            }
+        }
+    }
+
+    public void i(ViewPager.OnPageChangeListener onPageChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onPageChangeListener) == null) {
+            this.d = onPageChangeListener;
+            FragmentTabHost fragmentTabHost = this.c;
+            if (fragmentTabHost != null) {
+                fragmentTabHost.setOnPageChangeListener(onPageChangeListener);
+            }
+        }
+    }
+
+    public void j(boolean z) {
+        FragmentTabHost fragmentTabHost;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048585, this, z) == null) && (fragmentTabHost = this.c) != null) {
+            if (z) {
+                fragmentTabHost.setVisibility(0);
             } else {
-                z = true;
+                fragmentTabHost.setVisibility(8);
             }
-            shareEntity.setIsVideoThread(z);
-            shareEntity.setFestivalTaskTid(shareItem.Y);
-            shareEntity.setFestivalTaskType(shareItem.Z);
-            shareEntity.setImageUri(shareItem.z);
-            shareEntity.canShareBySmartApp = shareItem.v0;
-            String str = shareItem.x;
-            if (i == 6 && !StringUtils.isNull(shareItem.y)) {
-                str = shareItem.y;
+        }
+    }
+
+    public void h(int i, gz8 gz8Var, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), gz8Var, Boolean.valueOf(z)}) == null) {
+            j(true);
+            PostSearchListFragment e = e(i);
+            if (e != null) {
+                e.I1(gz8Var, z);
             }
-            shareEntity.setLinkUrl(str);
-            shareEntity.setLocalFile(shareItem.B);
-            shareEntity.setLocation(shareItem.F);
-            shareEntity.setShareTo(i);
-            shareEntity.setStats(shareItem.f());
-            shareEntity.setPreferImageToLink(shareItem.k0);
-            shareEntity.setTid(shareItem.O);
-            shareEntity.setFloorAuthorUid(shareItem.P);
-            shareEntity.setfName(shareItem.t);
-            shareEntity.setTypeShareToSmallApp(shareItem.C);
-            shareEntity.topic = shareItem.T;
-            if (i == 6 && !StringUtils.isNull(shareItem.V)) {
-                shareEntity.topic = shareItem.U + shareItem.V;
-                shareEntity.setContent("");
+        }
+    }
+
+    public void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            if (this.c == null) {
+                f(1);
+                return;
             }
-            shareEntity.taskCompleteId = shareItem.X;
-            shareEntity.diskPicOperate = shareItem.E;
-            shareEntity.setExtLiveInfo(shareItem.A0);
-            shareEntity.setFromDuXiaoMan(shareItem.m);
-            shareEntity.setUserGrowthWeight(shareItem.B0);
-            shareEntity.setTopicId(shareItem.C0);
-            shareEntity.groupData = shareItem.M0;
-            shareEntity.shareMediaType = shareItem.O0;
-            Bundle bundle = new Bundle();
-            bundle.putParcelable("extra_share_data", shareEntity);
-            bundle.putInt("extra_skin", TbadkCoreApplication.getInst().getSkinType());
-            intentConfig.getIntent().putExtras(bundle);
-            shareItem.k(true);
-            intentConfig.startActivityForResult(24007, ShareHandlerActivity.class);
+            a();
+            if (this.c.getCurrentTabType() == i) {
+                PostSearchListFragment e = e(i);
+                if (e != null) {
+                    e.J1(true);
+                    return;
+                }
+                return;
+            }
+            this.c.setCurrentTabByType(i);
         }
     }
 }

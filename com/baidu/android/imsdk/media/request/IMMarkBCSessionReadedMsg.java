@@ -240,10 +240,9 @@ public class IMMarkBCSessionReadedMsg extends Message {
         return invokeI.intValue;
     }
 
-    private void handleBjhSessionReadResult(JSONObject jSONObject) {
-        int i;
+    private void handleBjhSessionReadResult(JSONObject jSONObject, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, this, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeLI(65544, this, jSONObject, i) == null) {
             if (jSONObject != null) {
                 i = jSONObject.optInt(PmsConstant.Statistic.STATISTIC_ERRCODE);
                 if (i == 0) {
@@ -259,7 +258,7 @@ public class IMMarkBCSessionReadedMsg extends Message {
                         MediaSessionManager.getInstance(this.mContext).handleMediaAllRead();
                     }
                 }
-            } else {
+            } else if (i == 0) {
                 i = 0;
             }
             IMListener removeListener = ListenerManager.getInstance().removeListener(getListenerKey());
@@ -292,7 +291,7 @@ public class IMMarkBCSessionReadedMsg extends Message {
             if (this.mBusinessType == 27) {
                 handleBusinessSessionReadResult(i, str);
             } else {
-                handleBjhSessionReadResult(jSONObject);
+                handleBjhSessionReadResult(jSONObject, i);
             }
         }
     }
@@ -318,7 +317,7 @@ public class IMMarkBCSessionReadedMsg extends Message {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, i, str) == null) {
             String str2 = TAG;
-            LogUtils.d(str2, "handleMessageResult result = " + jSONObject.toString());
+            LogUtils.d(str2, "handleMessageResult result = " + jSONObject + ", errorCode = " + i);
             if (i == 0) {
                 handleReadResult(i, str, jSONObject);
             } else if (i != 1004 && i != 1001 && i != 4001) {

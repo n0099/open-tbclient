@@ -1,96 +1,145 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.network.outback.core.Request;
-import com.baidu.searchbox.network.outback.core.Response;
-import com.baidu.searchbox.network.outback.statistics.NetworkStatRecord;
-import com.baidu.tieba.j70;
-import com.baidu.tieba.w70;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.client.HttpClient;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes4.dex */
-public class h70 implements j70 {
+public class h70 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ConcurrentHashMap<Integer, ResponsedMessage<?>> a;
+    public static final ConcurrentHashMap<Integer, b> b;
+    public static final ConcurrentHashMap<Integer, Integer> c;
+    public static final BdUniqueId d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final t70 a;
-    public q70 b;
-    public boolean c;
 
-    public h70(o70 o70Var) {
+    /* loaded from: classes4.dex */
+    public interface b {
+        void a(ResponsedMessage<?> responsedMessage);
+
+        void b();
+    }
+
+    /* loaded from: classes4.dex */
+    public static class a extends HttpClient.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int e;
+        public final /* synthetic */ HttpMessage f;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(HttpMessage httpMessage, HttpMessageTask httpMessageTask, int i, HttpMessage httpMessage2) {
+            super(httpMessage, httpMessageTask);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {httpMessage, httpMessageTask, Integer.valueOf(i), httpMessage2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super((HttpMessage) objArr2[0], (HttpMessageTask) objArr2[1]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = i;
+            this.f = httpMessage2;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: e */
+        public void publishProgress(ResponsedMessage<?>... responsedMessageArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessageArr) == null) {
+                synchronized (h70.class) {
+                    h70.c.remove(Integer.valueOf(this.e));
+                    if (responsedMessageArr != null && responsedMessageArr.length > 0) {
+                        b bVar = (b) h70.b.remove(Integer.valueOf(this.e));
+                        if (bVar != null) {
+                            bVar.a(responsedMessageArr[0]);
+                        } else {
+                            h70.a.put(Integer.valueOf(this.f.getCmd()), responsedMessageArr[0]);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947776488, "Lcom/baidu/tieba/h70;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947776488, "Lcom/baidu/tieba/h70;");
+                return;
+            }
+        }
+        a = new ConcurrentHashMap<>();
+        b = new ConcurrentHashMap<>();
+        c = new ConcurrentHashMap<>();
+        d = BdUniqueId.gen();
+    }
+
+    public h70() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {o70Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        w70.b b = w70.b();
-        b.c(o70Var);
-        this.a = b.b();
     }
 
-    @Override // com.baidu.tieba.j70
-    public Response a(j70.a aVar) throws IOException {
-        InterceptResult invokeL;
-        long contentLength;
+    public static synchronized void d(int i, b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
-            if (!this.c) {
-                z70 z70Var = (z70) aVar;
-                Request request = aVar.request();
-                NetworkStatRecord networkStatRecord = request.getNetworkStatRecord();
-                if (request.body() == null) {
-                    contentLength = 0;
-                } else {
-                    contentLength = request.body().contentLength();
+        if (interceptable == null || interceptable.invokeIL(65541, null, i, bVar) == null) {
+            synchronized (h70.class) {
+                if (c.containsKey(Integer.valueOf(i))) {
+                    b.put(Integer.valueOf(i), bVar);
+                    return;
                 }
-                networkStatRecord.requestBodyLength = contentLength;
-                q70 c = c(request);
-                this.b = c;
-                return z70Var.b(request, c);
-            }
-            throw new IOException("The request has been cancelled.");
-        }
-        return (Response) invokeL.objValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = true;
-            q70 q70Var = this.b;
-            if (q70Var != null) {
-                q70Var.disconnect();
+                if (a.containsKey(Integer.valueOf(i))) {
+                    bVar.a(a.remove(Integer.valueOf(i)));
+                } else {
+                    bVar.b();
+                }
             }
         }
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    public static synchronized void e(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeLL(65542, null, httpMessage, httpMessageTask) == null) {
+            synchronized (h70.class) {
+                if (httpMessage != null && httpMessageTask != null) {
+                    int cmd = httpMessage.getCmd();
+                    c.put(Integer.valueOf(cmd), 0);
+                    new a(httpMessage, httpMessageTask, cmd, httpMessage).execute(new HttpMessage[0]);
+                }
+            }
         }
-        return invokeV.booleanValue;
-    }
-
-    public final q70 c(Request request) throws IOException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, request)) == null) {
-            return this.a.a(request);
-        }
-        return (q70) invokeL.objValue;
     }
 }

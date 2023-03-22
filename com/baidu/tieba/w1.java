@@ -1,147 +1,221 @@
 package com.baidu.tieba;
 
-import com.badlogic.gdx.graphics.Texture;
+import android.content.res.AssetFileDescriptor;
+import android.content.res.AssetManager;
+import com.badlogic.gdx.Files;
 import com.badlogic.gdx.utils.GdxRuntimeException;
-import com.baidu.tieba.b4;
-import com.baidu.tieba.i4;
-import com.baidu.tieba.j2;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes6.dex */
-public class w1 extends v1<b4, a> {
+public class w1 extends t2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b4.a b;
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.v1
-    /* renamed from: g */
-    public void c(t1 t1Var, String str, q3 q3Var, a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, t1Var, str, q3Var, aVar) == null) {
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a extends r1<b4> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean b;
-        public boolean c;
-        public Texture.TextureFilter d;
-        public Texture.TextureFilter e;
-        public b4.a f;
-        public String g;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = false;
-            this.c = false;
-            Texture.TextureFilter textureFilter = Texture.TextureFilter.Nearest;
-            this.d = textureFilter;
-            this.e = textureFilter;
-            this.f = null;
-            this.g = null;
-        }
-    }
+    public final AssetManager c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w1(y1 y1Var) {
-        super(y1Var);
+    public w1(AssetManager assetManager, File file, Files.FileType fileType) {
+        super(file, fileType);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {y1Var};
+            Object[] objArr = {assetManager, file, fileType};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((y1) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((File) objArr2[0], (Files.FileType) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.c = assetManager;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.u1
-    /* renamed from: f */
-    public h7<p1> a(String str, q3 q3Var, a aVar) {
-        InterceptResult invokeLLL;
-        boolean z;
-        String str2;
-        b4.a aVar2;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public w1(AssetManager assetManager, String str, Files.FileType fileType) {
+        super(str.replace('\\', WebvttCueParser.CHAR_SLASH), fileType);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, q3Var, aVar)) == null) {
-            h7<p1> h7Var = new h7<>();
-            if (aVar != null && (aVar2 = aVar.f) != null) {
-                this.b = aVar2;
-                return h7Var;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {assetManager, str, fileType};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (Files.FileType) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            if (aVar != null && aVar.b) {
-                z = true;
-            } else {
-                z = false;
+        }
+        this.c = assetManager;
+    }
+
+    @Override // com.baidu.tieba.t2
+    public t2 a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            String replace = str.replace('\\', WebvttCueParser.CHAR_SLASH);
+            if (this.a.getPath().length() == 0) {
+                return new w1(this.c, new File(replace), this.b);
             }
-            this.b = new b4.a(q3Var, z);
-            if (aVar != null && (str2 = aVar.g) != null) {
-                h7Var.a(new p1(str2, i4.class));
-            } else {
-                for (int i = 0; i < this.b.d().length; i++) {
-                    q3 b = b(this.b.c(i));
-                    j2.b bVar = new j2.b();
-                    if (aVar != null) {
-                        bVar.c = aVar.c;
-                        bVar.f = aVar.d;
-                        bVar.g = aVar.e;
+            return new w1(this.c, new File(this.a, replace), this.b);
+        }
+        return (t2) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.t2
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b == Files.FileType.Internal) {
+                String path = this.a.getPath();
+                try {
+                    this.c.open(path).close();
+                    return true;
+                } catch (Exception unused) {
+                    try {
+                        if (this.c.list(path).length > 0) {
+                            return true;
+                        }
+                        return false;
+                    } catch (Exception unused2) {
+                        return false;
                     }
-                    h7Var.a(new p1(b, Texture.class, bVar));
                 }
             }
-            return h7Var;
+            return super.c();
         }
-        return (h7) invokeLLL.objValue;
+        return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.v1
-    /* renamed from: h */
-    public b4 d(t1 t1Var, String str, q3 q3Var, a aVar) {
-        InterceptResult invokeLLLL;
-        String str2;
+    @Override // com.baidu.tieba.t2
+    public long f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, t1Var, str, q3Var, aVar)) == null) {
-            if (aVar != null && (str2 = aVar.g) != null) {
-                String str3 = q3Var.s(this.b.b[0]).h().toString();
-                i4.a f = ((i4) t1Var.j(str2, i4.class)).f(str3);
-                if (f != null) {
-                    return new b4(q3Var, f);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.b == Files.FileType.Internal) {
+                AssetFileDescriptor assetFileDescriptor = null;
+                try {
+                    assetFileDescriptor = this.c.openFd(this.a.getPath());
+                    long length = assetFileDescriptor.getLength();
+                    if (assetFileDescriptor != null) {
+                        try {
+                            assetFileDescriptor.close();
+                        } catch (IOException unused) {
+                        }
+                    }
+                    return length;
+                } catch (IOException unused2) {
+                    if (assetFileDescriptor != null) {
+                        try {
+                            assetFileDescriptor.close();
+                        } catch (IOException unused3) {
+                        }
+                    }
+                } catch (Throwable th) {
+                    if (assetFileDescriptor != null) {
+                        try {
+                            assetFileDescriptor.close();
+                        } catch (IOException unused4) {
+                        }
+                    }
+                    throw th;
                 }
-                throw new GdxRuntimeException("Could not find font region " + str3 + " in atlas " + aVar.g);
             }
-            int length = this.b.d().length;
-            h7 h7Var = new h7(length);
-            for (int i = 0; i < length; i++) {
-                h7Var.a(new j4((Texture) t1Var.j(this.b.c(i), Texture.class)));
-            }
-            return new b4(this.b, (h7<j4>) h7Var, true);
+            return super.f();
         }
-        return (b4) invokeLLLL.objValue;
+        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.tieba.t2
+    public t2 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            File parentFile = this.a.getParentFile();
+            if (parentFile == null) {
+                if (this.b == Files.FileType.Absolute) {
+                    parentFile = new File("/");
+                } else {
+                    parentFile = new File("");
+                }
+            }
+            return new w1(this.c, parentFile, this.b);
+        }
+        return (t2) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.t2
+    public File e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.b == Files.FileType.Local) {
+                return new File(o0.d.b(), this.a.getPath());
+            }
+            return super.e();
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public AssetFileDescriptor u() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            AssetManager assetManager = this.c;
+            if (assetManager != null) {
+                return assetManager.openFd(j());
+            }
+            return null;
+        }
+        return (AssetFileDescriptor) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.t2
+    public InputStream m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.b == Files.FileType.Internal) {
+                try {
+                    return this.c.open(this.a.getPath());
+                } catch (IOException e) {
+                    throw new GdxRuntimeException("Error reading file: " + this.a + " (" + this.b + SmallTailInfo.EMOTION_SUFFIX, e);
+                }
+            }
+            return super.m();
+        }
+        return (InputStream) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.t2
+    public t2 s(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            String replace = str.replace('\\', WebvttCueParser.CHAR_SLASH);
+            if (this.a.getPath().length() != 0) {
+                return o0.d.d(new File(this.a.getParent(), replace).getPath(), this.b);
+            }
+            throw new GdxRuntimeException("Cannot get the sibling of the root.");
+        }
+        return (t2) invokeL.objValue;
     }
 }

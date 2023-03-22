@@ -2,9 +2,9 @@ package com.baidu.lcp.sdk.connect;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.h90;
-import com.baidu.tieba.i90;
-import com.baidu.tieba.j90;
+import com.baidu.tieba.x70;
+import com.baidu.tieba.y70;
+import com.baidu.tieba.z70;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,11 +16,11 @@ import java.io.EOFException;
 import java.io.IOException;
 import java.io.InputStream;
 /* loaded from: classes2.dex */
-public class QuicMessageHandler extends i90 implements QuicEventCallbackListener {
+public class QuicMessageHandler extends y70 implements QuicEventCallbackListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.i90
+    @Override // com.baidu.tieba.y70
     public InputStream b() throws EOFException, IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -30,16 +30,16 @@ public class QuicMessageHandler extends i90 implements QuicEventCallbackListener
         return (InputStream) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.i90
-    public void c(j90 j90Var) {
+    @Override // com.baidu.tieba.y70
+    public void c(z70 z70Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j90Var) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z70Var) == null) {
         }
     }
 
     public native void closeStream(int i);
 
-    @Override // com.baidu.tieba.i90
+    @Override // com.baidu.tieba.y70
     public boolean d() throws IOException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -49,22 +49,22 @@ public class QuicMessageHandler extends i90 implements QuicEventCallbackListener
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.i90
-    public j90 e(String str, int i) {
+    @Override // com.baidu.tieba.y70
+    public z70 e(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, str, i)) == null) {
             return null;
         }
-        return (j90) invokeLI.objValue;
+        return (z70) invokeLI.objValue;
     }
 
     public native void enableQuicCache(boolean z, String str);
 
-    @Override // com.baidu.tieba.i90
-    public void f(h90 h90Var) throws IOException {
+    @Override // com.baidu.tieba.y70
+    public void f(x70 x70Var) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, h90Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, x70Var) == null) {
         }
     }
 

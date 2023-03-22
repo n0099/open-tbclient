@@ -1,313 +1,159 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Bundle;
-import android.widget.FrameLayout;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.auth.FeatureCodes;
-import com.baidu.swan.apps.res.ui.BdDatePicker;
-import com.baidu.tieba.r83;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.internal.bind.TypeAdapters;
-import java.util.Date;
 /* loaded from: classes5.dex */
-public class m83 extends r83 {
+public final class m83 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdDatePicker c;
-    public int d;
-    public int e;
-    public int f;
-    public String g;
-    public boolean h;
-    public Date i;
-    public Date j;
 
-    /* loaded from: classes5.dex */
-    public static class a extends r83.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Date e;
-        public Date f;
-        public Date g;
-        public String h;
-        public boolean i;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(Context context) {
-            super(context);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947926497, "Lcom/baidu/tieba/m83;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Context) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-        }
-
-        @Override // com.baidu.tieba.r83.a
-        public r83 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                m83 m83Var = (m83) super.a();
-                m83Var.n(this.h);
-                m83Var.l(this.i);
-                Date date = this.g;
-                if (date != null) {
-                    m83Var.q(date.getYear() + FeatureCodes.SKY_SEG);
-                    m83Var.o(this.g.getMonth() + 1);
-                    m83Var.k(this.g.getDate());
-                }
-                Date date2 = this.e;
-                if (date2 != null) {
-                    m83Var.p(date2);
-                }
-                Date date3 = this.f;
-                if (date3 != null) {
-                    m83Var.m(date3);
-                }
-                return m83Var;
-            }
-            return (r83) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.r83.a
-        public r83 b(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-                return new m83(context);
-            }
-            return (r83) invokeL.objValue;
-        }
-
-        public a l(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-                this.i = z;
-                return this;
-            }
-            return (a) invokeZ.objValue;
-        }
-
-        public a m(Date date) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, date)) == null) {
-                this.f = date;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a n(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-                this.h = str;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a o(Date date) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, date)) == null) {
-                this.g = date;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public a p(Date date) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, date)) == null) {
-                this.e = date;
-                return this;
-            }
-            return (a) invokeL.objValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m83(Context context) {
-        super(context, R.style.obfuscated_res_0x7f1001ab);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947926497, "Lcom/baidu/tieba/m83;");
                 return;
             }
         }
+        a = do1.a;
     }
 
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c = new BdDatePicker(getContext());
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-            layoutParams.gravity = 1;
-            this.c.setLayoutParams(layoutParams);
-            this.c.setScrollCycle(true);
-            this.c.setStartDate(this.i);
-            this.c.setEndDate(this.j);
-            this.c.setYear(this.d);
-            this.c.setMonth(this.e);
-            this.c.setDay(this.f);
-            this.c.n();
-            this.c.setFields(this.g);
-            this.c.setDisabled(this.h);
-        }
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c.getDay();
-        }
-        return invokeV.intValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c.getMonth();
-        }
-        return invokeV.intValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c.getYear();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.l83, android.app.Dialog
-    public void show() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            super.show();
-        }
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (j(TypeAdapters.AnonymousClass27.YEAR)) {
-                sb.append(String.format("%d-", Integer.valueOf(i())));
-            }
-            if (j(TypeAdapters.AnonymousClass27.MONTH)) {
-                sb.append(String.format("%02d-", Integer.valueOf(g())));
-            }
-            if (j("day")) {
-                sb.append(String.format("%02d", Integer.valueOf(f())));
-            }
-            String sb2 = sb.toString();
-            if (sb2.endsWith("-")) {
-                return sb2.substring(0, sb2.length() - 1);
-            }
-            return sb2;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final boolean j(String str) {
+    public static q83 a(UnitedSchemeMainDispatcher unitedSchemeMainDispatcher) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            return this.c.l(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, unitedSchemeMainDispatcher)) == null) {
+            q83 q83Var = new q83();
+            unitedSchemeMainDispatcher.setDynamicDispatcher("swanAPI", q83Var);
+            ar2.s().a(q83Var);
+            q83Var.b(new gb3(q83Var));
+            q83Var.b(new fb3(q83Var));
+            q83Var.b(new mb3(q83Var));
+            q83Var.b(new kb3(q83Var));
+            q83Var.b(new jb3(q83Var));
+            q83Var.b(new db3(q83Var));
+            q83Var.b(new wa3(q83Var));
+            q83Var.b(new va3(q83Var));
+            q83Var.b(new ua3(q83Var));
+            q83Var.b(new xa3(q83Var));
+            q83Var.b(new bb3(q83Var));
+            q83Var.b(new ab3(q83Var));
+            q83Var.b(new ob3(q83Var));
+            q83Var.b(new qb3(q83Var));
+            q83Var.b(new pb3(q83Var));
+            q83Var.b(new y83(q83Var));
+            q83Var.b(new ra3(q83Var));
+            q83Var.b(new t02(q83Var));
+            q83Var.b(new w02(q83Var));
+            q83Var.b(new y02(q83Var));
+            q83Var.b(new r02(q83Var));
+            q83Var.b(new u02(q83Var));
+            q83Var.b(new x02(q83Var));
+            q83Var.b(new yu2(q83Var));
+            q83Var.b(new xu2(q83Var));
+            q83Var.b(new uw2(q83Var));
+            q83Var.b(new n62(q83Var));
+            q83Var.b(new h52(q83Var));
+            q83Var.b(new of3(q83Var));
+            q83Var.b(new hf3(q83Var));
+            q83Var.b(new if3(q83Var));
+            q83Var.b(new lf3(q83Var));
+            q83Var.b(new bz2(q83Var));
+            q83Var.b(new iq2(q83Var));
+            q83Var.b(new fq2(q83Var));
+            q83Var.b(new jq2(q83Var));
+            q83Var.b(new xi3(q83Var));
+            q83Var.b(new yi3(q83Var));
+            q83Var.b(new zi3(q83Var));
+            q83Var.b(new aj3(q83Var));
+            q83Var.b(new bj3(q83Var));
+            q83Var.b(new cj3(q83Var));
+            q83Var.b(new dj3(q83Var));
+            q83Var.b(new ej3(q83Var));
+            q83Var.b(new bu2(q83Var));
+            q83Var.b(new e02(q83Var));
+            q83Var.b(new j02(q83Var));
+            q83Var.b(new f02(q83Var));
+            q83Var.b(new i02(q83Var));
+            q83Var.b(new g02(q83Var));
+            q83Var.b(new h02(q83Var));
+            q83Var.b(new v32(q83Var));
+            q83Var.b(new w32(q83Var));
+            q83Var.b(new mk2(q83Var));
+            q83Var.b(new lo1(q83Var));
+            q83Var.b(new io1(q83Var));
+            q83Var.b(new gi3(q83Var));
+            q83Var.b(new hi3(q83Var));
+            q83Var.b(new qh3(q83Var));
+            q83Var.b(new en3(q83Var));
+            q83Var.b(new xz1(q83Var));
+            q83Var.b(new cv2(q83Var));
+            q83Var.b(new dv2(q83Var));
+            q83Var.b(new bv2(q83Var));
+            q83Var.b(new gf3(q83Var));
+            q83Var.b(new c62(q83Var));
+            q83Var.b(new kj3(q83Var));
+            q83Var.b(new jj3(q83Var));
+            q83Var.b(new lj3(q83Var));
+            q83Var.b(new ai3(q83Var));
+            q83Var.b(new pa3(q83Var));
+            q83Var.b(new ma3(q83Var));
+            q83Var.b(new i93(q83Var));
+            if (a) {
+                q83Var.b(new nb3(q83Var));
+                q83Var.b(new r52(q83Var));
+            }
+            q83Var.b(new l93(q83Var));
+            q83Var.b(new c93(q83Var));
+            q83Var.b(new t83(q83Var));
+            q83Var.b(new e93(q83Var));
+            q83Var.b(new s02(q83Var));
+            q83Var.b(new v02(q83Var));
+            q83Var.b(new q32(q83Var));
+            q83Var.b(new w93(q83Var));
+            q83Var.b(new z93(q83Var));
+            q83Var.b(new aa3(q83Var));
+            q83Var.b(new y93(q83Var));
+            q83Var.b(new ba3(q83Var));
+            q83Var.b(new hb3(q83Var));
+            q83Var.b(new nu1(q83Var));
+            q83Var.b(new di2(q83Var));
+            q83Var.b(new u93(q83Var));
+            q83Var.b(new v93(q83Var));
+            q83Var.b(new ta3(q83Var));
+            q83Var.b(new ca3(q83Var));
+            q83Var.b(new p93(q83Var));
+            q83Var.b(new v83(q83Var));
+            q83Var.b(new lx2(q83Var));
+            q83Var.b(new d93(q83Var));
+            q83Var.b(new jo2(q83Var));
+            q83Var.b(new lo2(q83Var));
+            q83Var.b(new ha3(q83Var));
+            q83Var.b(new ia3(q83Var));
+            q83Var.b(new fx2(q83Var));
+            q83Var.b(new qo1(q83Var));
+            q83Var.b(new d03(q83Var));
+            q83Var.b(new uu1(q83Var));
+            q83Var.b(new yu1(q83Var));
+            q83Var.b(new wu1(q83Var));
+            q83Var.b(new zu1(q83Var));
+            q83Var.b(new xu1(q83Var));
+            q83Var.b(new ic3(q83Var));
+            q83Var.b(new lu1(q83Var));
+            q83Var.b(new mu1(q83Var));
+            q83Var.b(new su1(q83Var));
+            ar2.Y().a(q83Var);
+            return q83Var;
         }
-        return invokeL.booleanValue;
-    }
-
-    public void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            this.h = z;
-        }
-    }
-
-    public void m(Date date) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, date) == null) {
-            this.j = date;
-        }
-    }
-
-    public void n(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            this.g = str;
-        }
-    }
-
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    @Override // android.app.Dialog
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, bundle) == null) {
-            e();
-            b().j(this.c);
-        }
-    }
-
-    public void p(Date date) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, date) == null) {
-            this.i = date;
-        }
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            this.d = i;
-        }
+        return (q83) invokeL.objValue;
     }
 }

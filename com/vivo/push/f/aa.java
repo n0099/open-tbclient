@@ -6,6 +6,7 @@ import android.os.Build;
 import android.text.TextUtils;
 import android.util.Base64;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.cyberplayer.sdk.rtc.RTCConst;
 import com.baidu.searchbox.pms.constants.ErrorConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -120,7 +121,7 @@ public abstract class aa extends com.vivo.push.l {
             if (Build.VERSION.SDK_INT >= 24) {
                 NotificationManager notificationManager = (NotificationManager) this.a.getSystemService("notification");
                 if (notificationManager != null && !notificationManager.areNotificationsEnabled()) {
-                    return 2104;
+                    return RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL4;
                 }
                 if (Build.VERSION.SDK_INT >= 26 && notificationManager != null) {
                     try {

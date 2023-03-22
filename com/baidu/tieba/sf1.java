@@ -1,17 +1,48 @@
 package com.baidu.tieba;
 
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.widget.ImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class sf1 {
+public class sf1 extends Handler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(boolean z, String str, Object... objArr) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sf1() {
+        super(Looper.getMainLooper());
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65536, null, new Object[]{Boolean.valueOf(z), str, objArr}) != null) || z) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Looper) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        throw new IllegalArgumentException(String.format(str, objArr));
+    }
+
+    @Override // android.os.Handler
+    public void handleMessage(Message message) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+            super.handleMessage(message);
+            tf1 tf1Var = (tf1) message.obj;
+            ImageView imageView = tf1Var.a;
+            if (((String) imageView.getTag()).equals(tf1Var.b)) {
+                imageView.setImageBitmap(tf1Var.c);
+            } else {
+                ug1.g("不是最新数据");
+            }
+        }
     }
 }

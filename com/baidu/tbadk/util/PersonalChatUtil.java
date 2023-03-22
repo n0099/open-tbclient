@@ -6,9 +6,9 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.tbadk.core.atomData.PersonalChatActivityConfig;
 import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.cq5;
-import com.baidu.tieba.cr5;
-import com.baidu.tieba.yq5;
+import com.baidu.tieba.aq5;
+import com.baidu.tieba.wp5;
+import com.baidu.tieba.zo5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ public class PersonalChatUtil {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static class a extends yq5<Boolean> {
+    public static class a extends wp5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ long a;
@@ -45,7 +45,7 @@ public class PersonalChatUtil {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
-        @Override // com.baidu.tieba.yq5
+        @Override // com.baidu.tieba.wp5
         public Boolean doInBackground() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -60,7 +60,7 @@ public class PersonalChatUtil {
     }
 
     /* loaded from: classes3.dex */
-    public static class b implements cq5<Boolean> {
+    public static class b implements zo5<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
@@ -92,13 +92,14 @@ public class PersonalChatUtil {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.cq5
+        @Override // com.baidu.tieba.zo5
         /* renamed from: a */
         public void onReturnDataInUI(Boolean bool) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, bool) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(this.a, this.b, this.c, this.d, this.e)));
+            if ((interceptable != null && interceptable.invokeL(1048576, this, bool) != null) || this.a == null) {
+                return;
             }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(this.a, this.b, this.c, this.d, this.e)));
         }
     }
 
@@ -119,7 +120,7 @@ public class PersonalChatUtil {
     public static void a(Context context, long j, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, Long.valueOf(j), str, str2, str3}) == null) {
-            cr5.b(new a(j), new b(context, j, str, str2, str3));
+            aq5.b(new a(j), new b(context, j, str, str2, str3));
         }
     }
 

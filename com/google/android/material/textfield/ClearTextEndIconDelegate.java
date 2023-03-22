@@ -14,7 +14,7 @@ import androidx.appcompat.content.res.AppCompatResources;
 import com.baidu.tieba.R;
 import com.google.android.material.animation.AnimationUtils;
 import com.google.android.material.textfield.TextInputLayout;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ClearTextEndIconDelegate extends EndIconDelegate {
     public static final int ANIMATION_FADE_DURATION = 100;
     public static final int ANIMATION_SCALE_DURATION = 150;
@@ -174,9 +174,9 @@ public class ClearTextEndIconDelegate extends EndIconDelegate {
 
     @Override // com.google.android.material.textfield.EndIconDelegate
     public void initialize() {
-        this.textInputLayout.setEndIconDrawable(AppCompatResources.getDrawable(this.context, R.drawable.obfuscated_res_0x7f080df4));
+        this.textInputLayout.setEndIconDrawable(AppCompatResources.getDrawable(this.context, R.drawable.obfuscated_res_0x7f080e08));
         TextInputLayout textInputLayout = this.textInputLayout;
-        textInputLayout.setEndIconContentDescription(textInputLayout.getResources().getText(R.string.obfuscated_res_0x7f0f040c));
+        textInputLayout.setEndIconContentDescription(textInputLayout.getResources().getText(R.string.obfuscated_res_0x7f0f0410));
         this.textInputLayout.setEndIconOnClickListener(new View.OnClickListener() { // from class: com.google.android.material.textfield.ClearTextEndIconDelegate.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {

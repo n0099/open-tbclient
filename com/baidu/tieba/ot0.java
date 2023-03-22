@@ -1,8 +1,5 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,94 +7,61 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ot0 extends jt0 {
+public class ot0 extends ut0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public dz0 O;
 
-    @Override // com.baidu.tieba.it0, com.baidu.tieba.ht0
-    public int B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 23;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.it0
-    public void D1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.it0
-    public boolean s1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ot0(@NonNull ax0 ax0Var, @Nullable Context context) {
-        super(ax0Var, context);
+    public ot0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ax0Var, context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((ax0) objArr2[0], (Context) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.ut0, com.baidu.tieba.ht0
-    public void G0(@Nullable Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            dz0 dz0Var = new dz0();
-            this.O = dz0Var;
-            b(dz0Var);
-            vy0 vy0Var = this.b;
-            if (vy0Var != null) {
-                vy0Var.f0(Boolean.FALSE);
-            }
-            v().setClickable(false);
-            w0(true);
-        }
-    }
-
-    @Override // com.baidu.tieba.ht0
-    public boolean X() {
+    @Override // com.baidu.tieba.ut0
+    public boolean E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return V();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return q().V();
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ht0, com.baidu.tieba.jy0
-    public void onPrepared() {
+    @Override // com.baidu.tieba.ut0
+    public void L() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.onPrepared();
-            int i = this.a.d;
-            if (i > 0) {
-                o0(i);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            N(q().V());
+        }
+    }
+
+    @Override // com.baidu.tieba.ut0
+    public void J() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            boolean E = E();
+            if (E && e01.c(getContext()) == 0) {
+                e01.d(getContext(), (int) (e01.b(getContext()) * 0.35d));
             }
+            M(E);
+            boolean z = !E;
+            N(z);
+            Q(z);
+        }
+    }
+
+    public void Q(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            q().w0(z);
         }
     }
 }

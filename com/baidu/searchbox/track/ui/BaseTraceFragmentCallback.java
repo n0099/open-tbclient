@@ -1,7 +1,7 @@
 package com.baidu.searchbox.track.ui;
 
 import android.app.Activity;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public abstract class BaseTraceFragmentCallback implements ITraceFragmentCallback {
     public void doOnFragmentCreated(Object obj, boolean z, Activity activity) {
         if (!z) {

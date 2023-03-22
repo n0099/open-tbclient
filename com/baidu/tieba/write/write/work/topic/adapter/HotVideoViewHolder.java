@@ -15,9 +15,9 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b35;
+import com.baidu.tieba.en7;
+import com.baidu.tieba.n15;
 import com.baidu.tieba.write.write.work.topic.adapter.VideoHotTopicSearchAdapter;
-import com.baidu.tieba.xl7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -38,15 +38,15 @@ public class HotVideoViewHolder extends RecyclerView.ViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VideoHotTopicSearchAdapter.a a;
-        public final /* synthetic */ xl7 b;
+        public final /* synthetic */ en7 b;
         public final /* synthetic */ VideoHotTopicSearchAdapter c;
 
-        public a(HotVideoViewHolder hotVideoViewHolder, VideoHotTopicSearchAdapter.a aVar, xl7 xl7Var, VideoHotTopicSearchAdapter videoHotTopicSearchAdapter) {
+        public a(HotVideoViewHolder hotVideoViewHolder, VideoHotTopicSearchAdapter.a aVar, en7 en7Var, VideoHotTopicSearchAdapter videoHotTopicSearchAdapter) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hotVideoViewHolder, aVar, xl7Var, videoHotTopicSearchAdapter};
+                Object[] objArr = {hotVideoViewHolder, aVar, en7Var, videoHotTopicSearchAdapter};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -57,7 +57,7 @@ public class HotVideoViewHolder extends RecyclerView.ViewHolder {
                 }
             }
             this.a = aVar;
-            this.b = xl7Var;
+            this.b = en7Var;
             this.c = videoHotTopicSearchAdapter;
         }
 
@@ -94,49 +94,49 @@ public class HotVideoViewHolder extends RecyclerView.ViewHolder {
                 return;
             }
         }
-        this.a = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0924a6);
-        this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092468);
-        this.c = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092456);
-        this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092746);
-        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092745);
-        this.f = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f0910cc);
+        this.a = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f092501);
+        this.b = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0924c3);
+        this.c = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0924b1);
+        this.d = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f0927a4);
+        this.e = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0927a3);
+        this.f = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091101);
     }
 
-    public void a(@NonNull HotVideoViewHolder hotVideoViewHolder, int i, xl7 xl7Var, TbPageContext tbPageContext, long j, VideoHotTopicSearchAdapter.a aVar, VideoHotTopicSearchAdapter videoHotTopicSearchAdapter) {
+    public void a(@NonNull HotVideoViewHolder hotVideoViewHolder, int i, en7 en7Var, TbPageContext tbPageContext, long j, VideoHotTopicSearchAdapter.a aVar, VideoHotTopicSearchAdapter videoHotTopicSearchAdapter) {
         EMRichTextAnyIconSpan eMRichTextAnyIconSpan;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{hotVideoViewHolder, Integer.valueOf(i), xl7Var, tbPageContext, Long.valueOf(j), aVar, videoHotTopicSearchAdapter}) == null) {
-            if (xl7Var.i()) {
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{hotVideoViewHolder, Integer.valueOf(i), en7Var, tbPageContext, Long.valueOf(j), aVar, videoHotTopicSearchAdapter}) == null) {
+            if (en7Var.i()) {
                 this.d.setVisibility(0);
                 this.f.setVisibility(8);
-                b35 d = b35.d(this.d);
-                d.z(R.dimen.T_X09);
-                d.v(R.color.CAM_X0108);
+                n15 d = n15.d(this.d);
+                d.A(R.dimen.T_X09);
+                d.w(R.color.CAM_X0108);
                 return;
             }
             this.d.setVisibility(8);
             this.f.setVisibility(0);
-            if (xl7Var.a() > 0) {
+            if (en7Var.a() > 0) {
                 hotVideoViewHolder.b.setVisibility(0);
-                hotVideoViewHolder.b.setText(String.format(tbPageContext.getString(R.string.obfuscated_res_0x7f0f0940), StringHelper.numberUniformFormatExtra(xl7Var.a())));
+                hotVideoViewHolder.b.setText(String.format(tbPageContext.getString(R.string.obfuscated_res_0x7f0f094b), StringHelper.numberUniformFormatExtra(en7Var.a())));
             } else {
                 hotVideoViewHolder.b.setVisibility(8);
             }
-            if (!TextUtils.isEmpty(xl7Var.b())) {
+            if (!TextUtils.isEmpty(en7Var.b())) {
                 hotVideoViewHolder.c.setVisibility(0);
-                hotVideoViewHolder.c.setText(xl7Var.b());
+                hotVideoViewHolder.c.setText(en7Var.b());
             } else {
                 hotVideoViewHolder.c.setVisibility(8);
             }
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(HotSelectActivityConfig.HOT_TOPIC_SING + xl7Var.e() + HotSelectActivityConfig.HOT_TOPIC_SING);
-            if (xl7Var.j()) {
-                if (j == xl7Var.d().longValue()) {
+            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(HotSelectActivityConfig.HOT_TOPIC_SING + en7Var.e() + HotSelectActivityConfig.HOT_TOPIC_SING);
+            if (en7Var.j()) {
+                if (j == en7Var.d().longValue()) {
                     spannableStringBuilder.insert(1, (CharSequence) "v");
-                    b35.d(hotVideoViewHolder.a).v(R.color.CAM_X0304);
+                    n15.d(hotVideoViewHolder.a).w(R.color.CAM_X0304);
                     eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.icon_pure_videotopic31, R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
                 } else {
                     spannableStringBuilder.insert(1, (CharSequence) "v");
-                    b35.d(hotVideoViewHolder.a).v(R.color.CAM_X0105);
+                    n15.d(hotVideoViewHolder.a).w(R.color.CAM_X0105);
                     eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(R.drawable.icon_pure_videotopic31, R.color.CAM_X0105, EMRichTextAnyIconSpan.IconType.WEBP);
                 }
                 eMRichTextAnyIconSpan.f(VideoHotTopicSearchAdapter.h);
@@ -144,9 +144,9 @@ public class HotVideoViewHolder extends RecyclerView.ViewHolder {
                 spannableStringBuilder.setSpan(eMRichTextAnyIconSpan, 1, 2, 17);
             }
             hotVideoViewHolder.a.setText(spannableStringBuilder);
-            b35.d(hotVideoViewHolder.b).v(R.color.CAM_X0110);
-            b35.d(hotVideoViewHolder.c).v(R.color.CAM_X0108);
-            hotVideoViewHolder.e.setOnClickListener(new a(this, aVar, xl7Var, videoHotTopicSearchAdapter));
+            n15.d(hotVideoViewHolder.b).w(R.color.CAM_X0110);
+            n15.d(hotVideoViewHolder.c).w(R.color.CAM_X0108);
+            hotVideoViewHolder.e.setOnClickListener(new a(this, aVar, en7Var, videoHotTopicSearchAdapter));
         }
     }
 }

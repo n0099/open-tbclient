@@ -2,10 +2,8 @@ package com.baidu.tieba;
 
 import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
-import com.baidu.tieba.bl2;
-import com.baidu.tieba.yk2;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,20 +11,52 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Iterator;
+import java.util.concurrent.Semaphore;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes7.dex */
-public abstract class yj2<P extends yk2, R extends bl2> {
+public class yj2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean c;
+    public static volatile yj2 d;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public P a;
-    @NonNull
-    public R b;
+    public ArrayList<xj2> a;
+    public wj2 b;
 
-    public abstract String b(int i);
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Semaphore a;
 
-    @Nullable
-    public abstract ExtensionCore c();
+        public a(yj2 yj2Var, Semaphore semaphore) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yj2Var, semaphore};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = semaphore;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.release();
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -41,42 +71,13 @@ public abstract class yj2<P extends yk2, R extends bl2> {
                 return;
             }
         }
-        c = wp1.a;
+        c = do1.a;
     }
 
-    @NonNull
-    public P e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return (P) invokeV.objValue;
-    }
-
-    @NonNull
-    public R f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
-        }
-        return (R) invokeV.objValue;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.a.q();
-        }
-    }
-
-    public yj2(@NonNull P p, @NonNull R r) {
+    public yj2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {p, r};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -86,59 +87,172 @@ public abstract class yj2<P extends yk2, R extends bl2> {
                 return;
             }
         }
-        this.a = p;
-        this.b = r;
+        this.a = new ArrayList<>();
+        this.b = new wj2();
     }
 
-    public <T extends sk2> Exception a(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t)) == null) {
-            if (t == null) {
-                return new Exception("ExtCore-Manager doRemoteUpdate: null updateInfo");
-            }
-            return this.b.e(t);
-        }
-        return (Exception) invokeL.objValue;
-    }
-
-    public void g(@Nullable fo3<Exception> fo3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, fo3Var) == null) {
-            this.a.p(fo3Var);
-        }
-    }
-
-    @NonNull
-    public ExtensionCore d() {
+    public static yj2 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            int c2 = this.a.a.c();
-            if (dl2.f(c2)) {
-                ExtensionCore extensionCore = new ExtensionCore();
-                extensionCore.extensionCoreVersionCode = 0L;
-                extensionCore.extensionCoreVersionName = "0";
-                extensionCore.extensionCorePath = b(c2);
-                extensionCore.extensionCoreType = 2;
-                if (c) {
-                    Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: debug=>" + extensionCore.toString());
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (yj2.class) {
+                    if (d == null) {
+                        d = new yj2();
+                    }
                 }
-                return extensionCore;
             }
-            ExtensionCore h = this.a.h();
-            ExtensionCore f = this.b.f();
-            if (h.extensionCoreVersionCode < f.extensionCoreVersionCode && f.isAvailable()) {
-                if (c) {
-                    Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: remote=>" + f.toString());
-                }
-                return f;
-            }
-            if (c) {
-                Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: preset=>" + h.toString());
-            }
-            return h;
+            return d;
         }
-        return (ExtensionCore) invokeV.objValue;
+        return (yj2) invokeV.objValue;
+    }
+
+    public static synchronized void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            synchronized (yj2.class) {
+                if (d != null) {
+                    d.f();
+                    d = null;
+                }
+            }
+        }
+    }
+
+    public final void a(@NonNull xj2 xj2Var, @NonNull ArrayList<xj2> arrayList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, xj2Var, arrayList) == null) {
+            if (c) {
+                Log.i("FileSystemTaskManager", "addToWaitList: " + xj2Var + "," + arrayList.size() + "," + this.a.size());
+            }
+            Iterator<xj2> it = arrayList.iterator();
+            while (it.hasNext()) {
+                xj2 next = it.next();
+                next.i();
+                xj2Var.a(next);
+            }
+            this.a.add(xj2Var);
+        }
+    }
+
+    public final xj2 b(@NonNull Semaphore semaphore) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, semaphore)) == null) {
+            return new xj2(this, new a(this, semaphore), "JS_WAKE_UP_TASK", null);
+        }
+        return (xj2) invokeL.objValue;
+    }
+
+    public final boolean e(xj2 xj2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, xj2Var)) == null) {
+            if (xj2Var != null && "JS_WAKE_UP_TASK".equals(xj2Var.c())) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final synchronized boolean c(Semaphore semaphore, String... strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, semaphore, strArr)) == null) {
+            synchronized (this) {
+                ArrayList<xj2> c2 = this.b.c(strArr);
+                if (c2 != null && c2.size() != 0) {
+                    a(b(semaphore), c2);
+                    return true;
+                }
+                return false;
+            }
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final synchronized void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                this.b.b();
+                Iterator<xj2> it = this.a.iterator();
+                while (it.hasNext()) {
+                    xj2 next = it.next();
+                    if (e(next)) {
+                        next.h();
+                    }
+                }
+                this.a.clear();
+            }
+        }
+    }
+
+    public synchronized void g(xj2 xj2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, xj2Var) == null) {
+            synchronized (this) {
+                if (xj2Var == null) {
+                    return;
+                }
+                this.b.d(xj2Var, xj2Var.b());
+                if (!xj2Var.e()) {
+                    return;
+                }
+                if (c) {
+                    Log.i("FileSystemTaskManager", "onTaskComplete: " + xj2Var + "," + this.a.size());
+                }
+                for (int size = this.a.size() - 1; size >= 0; size--) {
+                    xj2 xj2Var2 = this.a.get(size);
+                    xj2Var2.g(xj2Var);
+                    if (xj2Var2.d()) {
+                        this.a.remove(size);
+                        xj2Var2.f();
+                    }
+                }
+            }
+        }
+    }
+
+    public synchronized void h(@NonNull Runnable runnable, String str, String... strArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048582, this, runnable, str, strArr) == null) {
+            synchronized (this) {
+                xj2 xj2Var = new xj2(this, runnable, str, strArr);
+                ArrayList<xj2> c2 = this.b.c(strArr);
+                this.b.a(xj2Var, strArr);
+                if (c2 != null && c2.size() != 0) {
+                    a(xj2Var, c2);
+                }
+                xj2Var.f();
+            }
+        }
+    }
+
+    public final void j(Semaphore semaphore) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, semaphore) == null) {
+            try {
+                semaphore.tryAcquire(10L, TimeUnit.SECONDS);
+            } catch (Exception e) {
+                if (c) {
+                    Log.e("FileSystemTaskManager", "semaphore.acquire: " + e);
+                }
+            }
+        }
+    }
+
+    public void k(String... strArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, strArr) == null) {
+            Semaphore semaphore = new Semaphore(0);
+            if (c(semaphore, strArr)) {
+                if (c) {
+                    Log.i("FileSystemTaskManager", "waitIfHasPathDependence: " + Arrays.toString(strArr));
+                }
+                j(semaphore);
+            }
+        }
     }
 }

@@ -1,29 +1,30 @@
 package com.baidu.tieba;
 
-import android.text.SpannableString;
-import androidx.annotation.ColorRes;
-import androidx.annotation.DrawableRes;
-import androidx.core.view.InputDeviceCompat;
+import android.app.Application;
+import android.app.KeyguardManager;
+import android.app.WallpaperManager;
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
+import android.os.PowerManager;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class uj9 {
+public class uj9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SpannableString a;
-    public int b;
-    public int c;
-    @ColorRes
-    public int d;
-    @DrawableRes
-    public int e;
-    public int f;
-    public String g;
+    public KeyguardManager a;
+    public PowerManager b;
+    public PowerManager.WakeLock c;
+    public KeyguardManager.KeyguardLock d;
+    public Context e;
 
     public uj9() {
         Interceptable interceptable = $ic;
@@ -38,123 +39,106 @@ public final class uj9 {
                 return;
             }
         }
-        this.a = new SpannableString("");
-        this.b = 1;
-        this.c = 3;
-        this.g = "";
+        try {
+            Application app = TbadkCoreApplication.getInst().getApp();
+            this.e = app;
+            PowerManager powerManager = (PowerManager) app.getSystemService("power");
+            this.b = powerManager;
+            PowerManager.WakeLock newWakeLock = powerManager.newWakeLock(268435462, "ScreenLockNotify");
+            this.c = newWakeLock;
+            newWakeLock.setReferenceCounted(false);
+            KeyguardManager keyguardManager = (KeyguardManager) this.e.getSystemService("keyguard");
+            this.a = keyguardManager;
+            this.d = keyguardManager.newKeyguardLock("ScreenLockUtils");
+        } catch (Throwable th) {
+            th.printStackTrace();
+        }
     }
 
-    public final String a() {
+    public static Drawable a() {
+        InterceptResult invokeV;
+        Bitmap bitmap;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            TbadkCoreApplication inst = TbadkCoreApplication.getInst();
+            try {
+                Drawable drawable = WallpaperManager.getInstance(inst).getDrawable();
+                if (drawable == null || (bitmap = ((BitmapDrawable) drawable).getBitmap()) == null) {
+                    return null;
+                }
+                int min = Math.min(hi.l(inst), bitmap.getWidth());
+                int min2 = Math.min(hi.j(inst), bitmap.getHeight());
+                try {
+                    try {
+                        return new BitmapDrawable(Bitmap.createBitmap(bitmap, 0, 0, min, min2));
+                    } catch (Throwable unused) {
+                        return new BitmapDrawable(Bitmap.createBitmap(bitmap, 0, 0, min, min2));
+                    }
+                } catch (Throwable th) {
+                    BdLog.e(th.getMessage());
+                    return null;
+                }
+            } catch (Exception unused2) {
+            }
+        } else {
+            return (Drawable) invokeV.objValue;
+        }
+    }
+
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.g;
+            try {
+                return ((Boolean) KeyguardManager.class.getMethod("isKeyguardSecure", new Class[0]).invoke(this.a, new Object[0])).booleanValue();
+            } catch (Throwable th) {
+                th.printStackTrace();
+                return false;
+            }
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final int b() {
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+            return this.b.isScreenOn();
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    public final int c() {
-        InterceptResult invokeV;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public final int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public final int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public final SpannableString f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
-        }
-        return (SpannableString) invokeV.objValue;
-    }
-
-    public final int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public final void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.g = str;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            try {
+                this.d.reenableKeyguard();
+                if (this.c != null) {
+                    this.c.release();
+                    this.c = null;
+                }
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
         }
     }
 
-    public final void i(int i) {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public final void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public final void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public final void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public final void m(SpannableString spannableString) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, spannableString) == null) {
-            Intrinsics.checkNotNullParameter(spannableString, "<set-?>");
-            this.a = spannableString;
-        }
-    }
-
-    public final void n(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            this.b = i;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            try {
+                if (this.c == null) {
+                    PowerManager.WakeLock newWakeLock = this.b.newWakeLock(268435462, "ScreenLockNotify");
+                    this.c = newWakeLock;
+                    newWakeLock.setReferenceCounted(false);
+                }
+                if (this.c != null) {
+                    this.c.acquire(10000L);
+                    this.d.disableKeyguard();
+                }
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
         }
     }
 }

@@ -1,112 +1,65 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Rect;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class jd7 {
+public class jd7 implements gn {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId f;
+    public static final BdUniqueId g;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public String b;
+    public boolean c;
+    public boolean d;
+    public BdUniqueId e;
 
-    public static boolean a(ThreadData threadData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, threadData)) == null) {
-            if (threadData == null || threadData.isShareThread) {
-                return false;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947879532, "Lcom/baidu/tieba/jd7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            int i = threadData.threadType;
-            if (i != 0 && i != 11 && i != 40 && !threadData.isUgcThreadType()) {
-                return false;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947879532, "Lcom/baidu/tieba/jd7;");
+                return;
             }
-            return true;
         }
-        return invokeL.booleanValue;
+        f = BdUniqueId.gen();
+        g = BdUniqueId.gen();
     }
 
-    public static void b(zx4 zx4Var, Context context, int i, boolean z, Rect rect) {
+    public jd7() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{zx4Var, context, Integer.valueOf(i), Boolean.valueOf(z), rect}) == null) && zx4Var != null && zx4Var.getThreadData() != null && context != null) {
-            ThreadData threadData = zx4Var.getThreadData();
-            PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(threadData, null, ImageViewerConfig.FROM_GAME_VIDEO, 18003, true, false, false);
-            createFromThreadCfg.setForumId(String.valueOf(threadData.getFid()));
-            createFromThreadCfg.setFrom("from_game_video");
-            createFromThreadCfg.setForumName(threadData.getForum_name());
-            createFromThreadCfg.setStartFrom(i);
-            createFromThreadCfg.setVideoOriginArea(rect);
-            if (zx4Var.getPbInputLocate() != null) {
-                createFromThreadCfg.addLocateParam(zx4Var.getPbInputLocate());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            if (TbSingleton.getInstance().isPbPreloadSwitchOn() && a(threadData)) {
-                createFromThreadCfg.setNeedPreLoad(true);
-                av6.update(threadData);
-            }
-            createFromThreadCfg.setVideo_source(ImageViewerConfig.FROM_GAME_VIDEO);
-            createFromThreadCfg.setJumpGodReply(z);
-            jf6.a(threadData.getTid());
-            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createFromThreadCfg));
         }
+        this.e = g;
     }
 
-    public static void c(eg6 eg6Var, int i) {
+    @Override // com.baidu.tieba.gn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65538, null, eg6Var, i) != null) || eg6Var == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
         }
-        int i2 = 1;
-        StatisticItem r = eg6Var.r("c13488", true);
-        if (r != null) {
-            if (eg6Var.getThreadData() != null) {
-                ThreadData threadData = eg6Var.getThreadData();
-                if (threadData.getTopAgreePost() == null || (threadData.getTopAgreePost().Z() == null && threadData.getTopAgreePost().q0() == null)) {
-                    i2 = 0;
-                }
-                r.param("obj_name", i2);
-                if (threadData.getAuthor() != null) {
-                    r.param(TiebaStatic.Params.AB_TYPE, threadData.getAuthor().hadConcerned() ? 1 : 0);
-                }
-            }
-            r.param("obj_type", i);
-            TiebaStatic.log(r);
-        }
-    }
-
-    public static void d(eg6 eg6Var, int i) {
-        StatisticItem r;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65539, null, eg6Var, i) == null) && eg6Var != null && eg6Var.getThreadData() != null && ng6.R(eg6Var.a) && (r = eg6Var.r("c13494", true)) != null) {
-            r.param("obj_type", i);
-            TbSingleton.getInstance().setCurrentClickTime(System.currentTimeMillis());
-            TiebaStatic.log(r);
-        }
-    }
-
-    public static void e(eg6 eg6Var, int i) {
-        StatisticItem r;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, eg6Var, i) == null) && eg6Var != null && ng6.R(eg6Var.a) && (r = eg6Var.r("c13495", true)) != null) {
-            r.param("obj_type", i);
-            TiebaStatic.log(r);
-        }
-    }
-
-    public static void f(eg6 eg6Var, int i) {
-        StatisticItem r;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65541, null, eg6Var, i) == null) && eg6Var != null && eg6Var.getThreadData() != null && (r = eg6Var.r("c13496", true)) != null) {
-            r.param("obj_type", i);
-            TiebaStatic.log(r);
-        }
+        return (BdUniqueId) invokeV.objValue;
     }
 }

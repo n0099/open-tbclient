@@ -39,12 +39,12 @@ public class a {
 
     /* renamed from: com.baidu.sapi2.views.logindialog.utils.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class C0142a extends HttpHandlerWrap {
+    public class C0141a extends HttpHandlerWrap {
         @Override // com.baidu.sapi2.httpwrap.HttpHandlerWrap
         public void onSuccess(int i, String str) {
         }
 
-        public C0142a(boolean z) {
+        public C0141a(boolean z) {
             super(z);
         }
     }
@@ -124,7 +124,7 @@ public class a {
                     httpHashMapWrap.put(str, c.get(str));
                 }
             }
-            new HttpClientWrap().get(SapiHost.getHost(SapiHost.DOMAIN_NSCLICK_URL), ReqPriority.LOW, httpHashMapWrap, null, null, new C0142a(true));
+            new HttpClientWrap().get(SapiHost.getHost(SapiHost.DOMAIN_NSCLICK_URL), ReqPriority.LOW, httpHashMapWrap, null, null, new C0141a(true));
             b();
         } catch (Exception e2) {
             Log.e(Log.TAG, e2.getMessage());

@@ -1,31 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.frs.ad.FrsADFragment;
+import com.baidu.tieba.frs.HorseRace.LiveHorseRaceData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
+import tbclient.GetHorseRaceLampList.DataRes;
+import tbclient.GetHorseRaceLampList.LiveList;
 /* loaded from: classes4.dex */
 public class hx6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsADFragment a;
-    public BdTypeRecyclerView b;
-    public kx6 c;
-    public gv6 d;
-    public List<qn> e;
+    public List<LiveHorseRaceData> a;
 
-    public hx6(FrsADFragment frsADFragment, BdTypeRecyclerView bdTypeRecyclerView) {
+    public hx6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frsADFragment, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,69 +30,30 @@ public class hx6 {
                 return;
             }
         }
-        this.e = new ArrayList();
-        this.a = frsADFragment;
-        this.b = bdTypeRecyclerView;
-        a();
+        this.a = new ArrayList();
     }
 
-    public final void a() {
+    public List<LiveHorseRaceData> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c = new kx6(this.a.getPageContext(), jx6.h, this.a.getUniqueId());
-            this.d = new gv6(this.a.getPageContext(), hv6.b);
-            this.e.add(this.c);
-            this.e.add(this.d);
-            e();
-            this.b.a(this.e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (List) invokeV.objValue;
     }
 
-    public void b() {
+    public void b(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b.getAdapter().notifyDataSetChanged();
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            for (qn qnVar : this.e) {
-                if (qnVar instanceof zu6) {
-                    ((zu6) qnVar).v();
-                }
-            }
-        }
-    }
-
-    public void d(ArrayList<Cdo> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, arrayList) == null) {
-            this.b.setData(arrayList);
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || ListUtils.isEmpty(this.e) || this.a == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) != null) || dataRes == null) {
             return;
         }
-        for (qn qnVar : this.e) {
-            if (qnVar instanceof zu6) {
-                ((zu6) qnVar).C(this.a.getTbPageTag());
-            }
-        }
-    }
-
-    public void f(no noVar) {
-        List<qn> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, noVar) == null) && (list = this.e) != null && list.size() != 0) {
-            for (qn qnVar : this.e) {
-                if (qnVar != null && (qnVar instanceof zu6)) {
-                    qnVar.setOnAdapterItemClickListener(noVar);
-                }
+        new LiveHorseRaceData();
+        List<LiveList> list = dataRes.live_list;
+        if (list != null) {
+            for (int i = 0; i < list.size(); i++) {
+                LiveHorseRaceData liveHorseRaceData = new LiveHorseRaceData();
+                liveHorseRaceData.parserProtobuf(list.get(i));
+                this.a.add(liveHorseRaceData);
             }
         }
     }

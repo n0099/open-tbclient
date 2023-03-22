@@ -1,24 +1,24 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.text.TextUtils;
+import android.content.SharedPreferences;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
-import com.baidu.tieba.ju2;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes3.dex */
-public class ag3 {
+public class ag3 extends bg3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static volatile boolean b;
-    public static volatile boolean c;
-    public static final boolean d;
+    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Set<String> f;
 
     static {
         InterceptResult invokeClinit;
@@ -33,183 +33,238 @@ public class ag3 {
                 return;
             }
         }
-        a = wp1.a;
-        b = false;
-        c = false;
-        ts2.g0().getSwitch("swan_app_use_route_statistic", false);
-        d = false;
+        g = do1.a;
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    public final void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a) {
-                Log.d("SwanAppRouteUbc", "mIsStartByApi = " + c);
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && g) {
+            IllegalAccessException illegalAccessException = new IllegalAccessException("read only allowed");
+            Log.i("IpcReadOnlySP", illegalAccessException.toString());
+            illegalAccessException.printStackTrace();
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ag3(String str) {
+        super(str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            boolean z = c;
-            k(false);
-            return z;
         }
-        return invokeV.booleanValue;
+        this.f = new HashSet();
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.bg3, com.baidu.tieba.gg3, android.content.SharedPreferences
+    public boolean getBoolean(String str, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a) {
-                Log.d("SwanAppRouteUbc", "mIsStartFirstPage = " + b);
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
+            if (k(str)) {
+                return super.getBoolean(str, z);
             }
-            boolean z = b;
-            l(false);
-            return z;
+            return d(str, z);
         }
-        return invokeV.booleanValue;
+        return invokeLZ.booleanValue;
     }
 
-    public static boolean c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.bg3, com.baidu.tieba.gg3, android.content.SharedPreferences
+    public float getFloat(String str, float f) {
+        InterceptResult invokeLF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, f)) == null) {
+            if (k(str)) {
+                return super.getFloat(str, f);
+            }
+            return e(str, f);
         }
-        return invokeV.booleanValue;
+        return invokeLF.floatValue;
     }
 
-    public static void d(mz2 mz2Var, String str, dw1 dw1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, mz2Var, str, dw1Var) == null) {
-            e(mz2Var, str, dw1Var, null);
-        }
-    }
-
-    public static void e(mz2 mz2Var, String str, dw1 dw1Var, String str2) {
-        m93 b0;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLL(65541, null, mz2Var, str, dw1Var, str2) != null) || !d || (b0 = m93.b0()) == null) {
-            return;
-        }
-        ju2.a W = b0.W();
-        pg3 pg3Var = new pg3();
-        pg3Var.a = fg3.n(W.G());
-        pg3Var.f = W.H();
-        if (d72.d()) {
-            pg3Var.c = "remote-debug";
-        } else if (l53.D()) {
-            pg3Var.c = "local-debug";
-        } else {
-            pg3Var.c = W.T();
-        }
-        pg3Var.b = "pageshow";
-        if (!TextUtils.isEmpty(str)) {
-            pg3Var.e = str;
-        }
-        if (mz2Var != null) {
-            pg3Var.a("path", mz2Var.a);
-            pg3Var.a("routeType", mz2Var.e);
-            pg3Var.a("routeid", mz2Var.f);
-        }
-        if (!TextUtils.isEmpty(str2)) {
-            pg3Var.a("errcode", str2);
-        }
-        if (dw1Var != null && dw1Var.c > 0) {
-            pg3Var.a("valuetype", dw1Var.g);
-        }
-        Bundle P = W.P();
-        if (P != null) {
-            pg3Var.d(P.getString(UBCCloudControlProcessor.UBC_KEY));
-        }
-        pg3Var.b(fg3.k(W.W()));
-        if (a) {
-            Log.d("SwanAppRouteUbc", "onRouteEvent - " + pg3Var.f());
-        }
-        fg3.onEvent(pg3Var);
-    }
-
-    public static mz2 f(String str, int i) {
+    @Override // com.baidu.tieba.bg3, com.baidu.tieba.gg3, android.content.SharedPreferences
+    public int getInt(String str, int i) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, str, i)) == null) {
-            v82 V = zu2.U().V();
-            mz2 mz2Var = null;
-            if (V == null) {
-                return null;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
+            if (k(str)) {
+                return super.getInt(str, i);
             }
-            s82 j = V.j((V.k() - i) - 1);
-            if (j instanceof u82) {
-                mz2Var = ((u82) j).m3();
-                mz2Var.e = "1";
-                mz2Var.f = str;
-            }
-            g(mz2Var);
-            return mz2Var;
+            return f(str, i);
         }
-        return (mz2) invokeLI.objValue;
+        return invokeLI.intValue;
     }
 
-    public static void g(mz2 mz2Var) {
+    @Override // com.baidu.tieba.bg3, com.baidu.tieba.gg3, android.content.SharedPreferences
+    public long getLong(String str, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, mz2Var) == null) {
-            if (a) {
-                Log.d("SwanAppRouteUbc", "recordRouteAllByApi");
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j)) == null) {
+            if (k(str)) {
+                return super.getLong(str, j);
             }
-            if (!c()) {
-                k(true);
-                d(mz2Var, null, null);
+            return g(str, j);
+        }
+        return invokeLJ.longValue;
+    }
+
+    @Override // com.baidu.tieba.bg3, com.baidu.tieba.gg3, android.content.SharedPreferences
+    public String getString(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
+            if (k(str)) {
+                return super.getString(str, str2);
+            }
+            return i(str, str2);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.bg3, com.baidu.tieba.gg3, android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putBoolean(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048583, this, str, z)) == null) {
+            if (!j() && !k(str)) {
+                l();
+            } else {
+                super.putBoolean(str, z);
+            }
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeLZ.objValue;
+    }
+
+    @Override // com.baidu.tieba.bg3, com.baidu.tieba.gg3, android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putFloat(String str, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, f)) == null) {
+            if (!j() && !k(str)) {
+                l();
+            } else {
+                super.putFloat(str, f);
+            }
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeLF.objValue;
+    }
+
+    @Override // com.baidu.tieba.bg3, com.baidu.tieba.gg3, android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putInt(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, str, i)) == null) {
+            if (!j() && !k(str)) {
+                l();
+            } else {
+                super.putInt(str, i);
+            }
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.bg3, com.baidu.tieba.gg3, android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putLong(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048586, this, str, j)) == null) {
+            if (!j() && !k(str)) {
+                l();
+            } else {
+                super.putLong(str, j);
+            }
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeLJ.objValue;
+    }
+
+    @Override // com.baidu.tieba.bg3, com.baidu.tieba.gg3, android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putString(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
+            if (!j() && !k(str)) {
+                l();
+            } else {
+                super.putString(str, str2);
+            }
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.gg3, android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor putStringSet(String str, Set<String> set) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, set)) == null) {
+            if (!j() && !k(str)) {
+                l();
+            } else {
+                super.putStringSet(str, set);
+            }
+            return this;
+        }
+        return (SharedPreferences.Editor) invokeLL.objValue;
+    }
+
+    public boolean k(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            return this.f.contains(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.gg3, com.baidu.tieba.vn4, android.content.SharedPreferences
+    public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, onSharedPreferenceChangeListener) == null) {
+            if (j()) {
+                super.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+            } else {
+                l();
             }
         }
     }
 
-    public static void h(mz2 mz2Var) {
+    @Override // com.baidu.tieba.bg3, com.baidu.tieba.gg3, android.content.SharedPreferences.Editor
+    public SharedPreferences.Editor remove(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, mz2Var) == null) {
-            if (a) {
-                Log.d("SwanAppRouteUbc", "recordRouteAllByResume");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+            if (!j() && !k(str)) {
+                l();
+            } else {
+                super.remove(str);
             }
-            d(mz2Var, null, null);
+            return this;
         }
+        return (SharedPreferences.Editor) invokeL.objValue;
     }
 
-    public static void i(mz2 mz2Var) {
+    @Override // com.baidu.tieba.gg3, com.baidu.tieba.vn4, android.content.SharedPreferences
+    public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, mz2Var) == null) {
-            j(mz2Var, null);
-        }
-    }
-
-    public static synchronized void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65547, null, z) == null) {
-            synchronized (ag3.class) {
-                c = z;
-            }
-        }
-    }
-
-    public static synchronized void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65548, null, z) == null) {
-            synchronized (ag3.class) {
-                b = z;
-            }
-        }
-    }
-
-    public static void j(mz2 mz2Var, fl3 fl3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, mz2Var, fl3Var) == null) {
-            if (a) {
-                Log.d("SwanAppRouteUbc", "recordRouteFailByApi - pageParam=" + mz2Var + " errCode=" + fl3Var);
-            }
-            if (c) {
-                if (fl3Var == null) {
-                    fl3Var = new fl3();
-                    fl3Var.k(5L);
-                    fl3Var.i(58L);
-                    fl3Var.d("route check fail");
-                }
-                e(mz2Var, com.baidu.pass.biometrics.face.liveness.b.a.g0, null, String.valueOf(fl3Var.a()));
+        if (interceptable == null || interceptable.invokeL(1048591, this, onSharedPreferenceChangeListener) == null) {
+            if (j()) {
+                super.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
+            } else {
+                l();
             }
         }
     }

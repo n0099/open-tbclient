@@ -1,84 +1,103 @@
 package com.baidu.tieba;
 
-import android.graphics.PointF;
-import android.view.animation.Interpolator;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.WorkerThread;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class qf4 implements Interpolator {
+import java.util.List;
+import java.util.Map;
+/* loaded from: classes6.dex */
+public abstract class qf4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile qf4 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final PointF b;
-    public final PointF c;
 
-    public final double a(double d, double d2, double d3, double d4, double d5) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4), Double.valueOf(d5)})) == null) {
-            double d6 = 1.0d - d;
-            double d7 = d * d;
-            double d8 = d6 * d6;
-            return (d8 * d6 * d2) + (d8 * 3.0d * d * d3) + (d6 * 3.0d * d7 * d4) + (d7 * d * d5);
-        }
-        return invokeCommon.doubleValue;
-    }
+    public abstract boolean a(sg4 sg4Var, PMSAppInfo pMSAppInfo);
 
-    public qf4(float f, float f2, float f3, float f4) {
+    public abstract boolean b(sg4 sg4Var, List<tg4> list, qg4 qg4Var, og4 og4Var, PMSAppInfo pMSAppInfo);
+
+    public abstract void c(String str);
+
+    public abstract void d(String str, String str2);
+
+    public abstract <T extends rg4> boolean e(Class<T> cls, String str);
+
+    public abstract boolean f(ug4 ug4Var);
+
+    public abstract boolean g(List<ug4> list);
+
+    public abstract boolean h(String str);
+
+    @WorkerThread
+    public abstract int j(@NonNull String str);
+
+    @NonNull
+    @WorkerThread
+    public abstract List<tg4> k(@NonNull String str, int i);
+
+    public abstract boolean l(PMSAppInfo pMSAppInfo);
+
+    public abstract <T extends rg4> boolean m(T t);
+
+    public abstract boolean n(String str, String str2, String str3);
+
+    public abstract <T extends rg4> T o(Class<T> cls, String str);
+
+    public abstract Map<String, sg4> p();
+
+    public abstract ug4 q(String str, long j, long j2);
+
+    public abstract List<ug4> r(String str, String[] strArr);
+
+    public abstract List<ug4> s(String str, long j, long j2);
+
+    @Nullable
+    public abstract vg4 t(String str);
+
+    public abstract PMSAppInfo u(String str);
+
+    public abstract Map<String, PMSAppInfo> v();
+
+    public abstract List<ug4> w(String str);
+
+    public abstract boolean x(ug4 ug4Var);
+
+    public abstract boolean y(PMSAppInfo pMSAppInfo);
+
+    public abstract boolean z(String str, int i);
+
+    public qf4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0;
-        this.b = new PointF();
-        PointF pointF = new PointF();
-        this.c = pointF;
-        PointF pointF2 = this.b;
-        pointF2.x = f;
-        pointF2.y = f2;
-        pointF.x = f3;
-        pointF.y = f4;
     }
 
-    @Override // android.animation.TimeInterpolator
-    public float getInterpolation(float f) {
-        InterceptResult invokeF;
+    public static qf4 i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f)) == null) {
-            int i = this.a;
-            float f2 = f;
-            while (true) {
-                if (i >= 4096) {
-                    break;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (qf4.class) {
+                    if (a == null) {
+                        a = new rf4();
+                    }
                 }
-                f2 = (i * 1.0f) / 4096.0f;
-                if (a(f2, 0.0d, this.b.x, this.c.x, 1.0d) >= f) {
-                    this.a = i;
-                    break;
-                }
-                i++;
             }
-            double a = a(f2, 0.0d, this.b.y, this.c.y, 1.0d);
-            if (a > 0.999d) {
-                a = 1.0d;
-                this.a = 0;
-            }
-            return (float) a;
+            return a;
         }
-        return invokeF.floatValue;
+        return (qf4) invokeV.objValue;
     }
 }

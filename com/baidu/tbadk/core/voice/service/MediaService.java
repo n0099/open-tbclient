@@ -11,10 +11,10 @@ import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 import com.baidu.adp.base.BdBaseService;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.m75;
-import com.baidu.tieba.o75;
-import com.baidu.tieba.p75;
-import com.baidu.tieba.q75;
+import com.baidu.tieba.a65;
+import com.baidu.tieba.b65;
+import com.baidu.tieba.x55;
+import com.baidu.tieba.z55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,9 +31,9 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
     public String mFilePath;
     public Handler mHandler;
     public Runnable mPlayTimeThread;
-    public o75 mPlayer;
+    public z55 mPlayer;
     public Runnable mRecordTimeThread;
-    public p75 mRecorder;
+    public a65 mRecorder;
     public long mSeekTime;
     public long mStartRecorderTime;
     public Voice mVoice;
@@ -196,7 +196,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
         this.mPlayTimeThread = new a(this);
         this.mRecordTimeThread = new b(this);
         this.mRecorder = null;
-        this.mPlayer = q75.h();
+        this.mPlayer = b65.h();
         this.mSeekTime = 0L;
     }
 
@@ -211,7 +211,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
 
     private void preparePlayer(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65556, this, intent) == null) {
+        if (interceptable == null || interceptable.invokeL(65555, this, intent) == null) {
             this.mVoice = (Voice) intent.getParcelableExtra("com.baidu.voices");
             int i = 0;
             int intExtra = intent.getIntExtra("com.baidu.msg.curr_time", 0);
@@ -228,7 +228,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
 
     public static void startPlay(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65562, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65560, null, context) == null) {
             Intent intent = new Intent();
             intent.setAction("playVoice");
             startMy(context, intent);
@@ -237,7 +237,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
 
     public static void stopAndReplayVoice(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65565, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65563, null, context) == null) {
             Intent intent = new Intent();
             intent.setAction("stopAndReplay");
             startMy(context, intent);
@@ -246,20 +246,21 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
 
     public static void stopMy(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65566, null, context) != null) || context == null) {
+        if ((interceptable != null && interceptable.invokeL(65564, null, context) != null) || context == null) {
             return;
         }
         Intent intent = new Intent();
         intent.setClass(context, MediaService.class);
         try {
             context.stopService(intent);
-        } catch (Exception unused) {
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
     public static void stopPlay(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65567, null, context) == null) {
+        if (interceptable == null || interceptable.invokeL(65565, null, context) == null) {
             Intent intent = new Intent();
             intent.setAction("stopVoice");
             startMy(context, intent);
@@ -278,19 +279,9 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
         }
     }
 
-    public static void seekVoice(Context context, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65558, null, context, j) == null) {
-            Intent intent = new Intent();
-            intent.putExtra("com.baidu.seekTime", j);
-            intent.setAction("seekVoice");
-            startMy(context, intent);
-        }
-    }
-
     public static void startMy(Context context, Intent intent) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65561, null, context, intent) != null) || context == null) {
+        if ((interceptable != null && interceptable.invokeLL(65559, null, context, intent) != null) || context == null) {
             return;
         }
         if (intent == null) {
@@ -305,13 +296,11 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
 
     public static void unregisterReceiver(Context context, BroadcastReceiver broadcastReceiver) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65571, null, context, broadcastReceiver) == null) && context != null && broadcastReceiver != null) {
+        if ((interceptable == null || interceptable.invokeLL(65569, null, context, broadcastReceiver) == null) && context != null && broadcastReceiver != null) {
             try {
                 LocalBroadcastManager.getInstance(context).unregisterReceiver(broadcastReceiver);
             } catch (Throwable unused) {
-                if (context != null && broadcastReceiver != null) {
-                    context.unregisterReceiver(broadcastReceiver);
-                }
+                context.unregisterReceiver(broadcastReceiver);
             }
         }
     }
@@ -334,9 +323,9 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
             }
             long duration = voice.getDuration();
             if (duration == 0) {
-                o75 o75Var = this.mPlayer;
-                if (o75Var instanceof q75) {
-                    duration = ((q75) o75Var).getDuration() / 1000;
+                z55 z55Var = this.mPlayer;
+                if (z55Var instanceof b65) {
+                    duration = ((b65) z55Var).getDuration() / 1000;
                 }
             }
             return (int) duration;
@@ -348,9 +337,9 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65548, this)) == null) {
-            o75 o75Var = this.mPlayer;
-            if (o75Var instanceof q75) {
-                return ((q75) o75Var).getDuration();
+            z55 z55Var = this.mPlayer;
+            if (z55Var instanceof b65) {
+                return ((b65) z55Var).getDuration();
             }
             return 0L;
         }
@@ -358,12 +347,12 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
     }
 
     private void setPlayerCompleteListener() {
-        o75 o75Var;
+        z55 z55Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65560, this) == null) && (o75Var = this.mPlayer) != null && (o75Var instanceof q75)) {
-            ((q75) o75Var).setOnErrorListener(this);
-            ((q75) this.mPlayer).setOnPreparedListener(this);
-            ((q75) this.mPlayer).setOnCompletionListener(new c(this));
+        if ((interceptable == null || interceptable.invokeV(65558, this) == null) && (z55Var = this.mPlayer) != null && (z55Var instanceof b65)) {
+            ((b65) z55Var).setOnErrorListener(this);
+            ((b65) this.mPlayer).setOnPreparedListener(this);
+            ((b65) this.mPlayer).setOnCompletionListener(new c(this));
         }
     }
 
@@ -407,9 +396,9 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
     }
 
     private void pauseRecord(Intent intent) {
-        p75 p75Var;
+        a65 a65Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65551, this, intent) == null) && (p75Var = this.mRecorder) != null && p75Var.c()) {
+        if ((interceptable == null || interceptable.invokeL(65551, this, intent) == null) && (a65Var = this.mRecorder) != null && a65Var.c()) {
             this.mRecorder.a();
             this.mHandler.removeCallbacks(this.mRecordTimeThread);
             Intent intent2 = new Intent("com.baidu.recordPaused");
@@ -434,9 +423,9 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
     }
 
     private void playVoice(Intent intent) {
-        o75 o75Var;
+        z55 z55Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65553, this, intent) != null) || (o75Var = this.mPlayer) == null || !o75Var.isPrepared()) {
+        if ((interceptable != null && interceptable.invokeL(65553, this, intent) != null) || (z55Var = this.mPlayer) == null || !z55Var.isPrepared()) {
             return;
         }
         this.mPlayer.g();
@@ -449,12 +438,12 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
     }
 
     private void startRecord(Intent intent) {
-        p75 p75Var;
+        a65 a65Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65563, this, intent) != null) || (p75Var = this.mRecorder) == null) {
+        if ((interceptable != null && interceptable.invokeL(65561, this, intent) != null) || (a65Var = this.mRecorder) == null) {
             return;
         }
-        p75Var.e();
+        a65Var.e();
         this.mStartRecorderTime = System.currentTimeMillis();
         this.mHandler.post(this.mRecordTimeThread);
         Intent intent2 = new Intent("com.baidu.mediaIsRecording");
@@ -465,13 +454,13 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
     /* JADX INFO: Access modifiers changed from: private */
     public void stopVoice(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65569, this, intent) == null) {
+        if (interceptable == null || interceptable.invokeL(65567, this, intent) == null) {
             this.mHandler.removeCallbacks(this.mPlayTimeThread);
             this.mElapsedTime = 0;
             this.mCurBeginSecond = 0;
-            o75 o75Var = this.mPlayer;
-            if (o75Var instanceof q75) {
-                ((q75) o75Var).setOnCompletionListener(null);
+            z55 z55Var = this.mPlayer;
+            if (z55Var instanceof b65) {
+                ((b65) z55Var).setOnCompletionListener(null);
             }
             int f = this.mPlayer.f();
             Intent intent2 = new Intent("com.baidu.isStoped");
@@ -481,16 +470,9 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
         }
     }
 
-    public static void preparePlay(Context context, String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65554, null, context, str, i) == null) {
-            preparePlay(context, str, i, 0);
-        }
-    }
-
     public static void preparePlay(Context context, String str, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLII(65555, null, context, str, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeLLII(65554, null, context, str, i, i2) == null) {
             Intent intent = new Intent();
             intent.setAction("preparePlayer");
             Voice voice = new Voice();
@@ -504,7 +486,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
 
     private void prepareRecorder(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65557, this, intent) == null) {
+        if (interceptable == null || interceptable.invokeL(65556, this, intent) == null) {
             String stringExtra = intent.getStringExtra("com.baidu.notePath");
             String stringExtra2 = intent.getStringExtra("filePath");
             if (!PermissionUtil.checkRecodeAudio(getApplicationContext())) {
@@ -513,7 +495,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
             if (stringExtra2.endsWith(".amr")) {
                 this.mRecorder = MyAudioRecorder.f(Boolean.TRUE);
             } else {
-                this.mRecorder = new m75();
+                this.mRecorder = new x55();
             }
             boolean z = false;
             File file = new File(stringExtra);
@@ -540,7 +522,7 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
 
     private void seekVoice(Intent intent) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65559, this, intent) != null) || this.mVoice == null) {
+        if ((interceptable != null && interceptable.invokeL(65557, this, intent) != null) || this.mVoice == null) {
             return;
         }
         this.mPlayer.e();
@@ -550,9 +532,9 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
         }
         long duration = this.mVoice.getDuration();
         if (duration > 0 && longExtra <= duration) {
-            o75 o75Var = this.mPlayer;
-            if (o75Var instanceof q75) {
-                ((q75) o75Var).setOnPreparedListener(null);
+            z55 z55Var = this.mPlayer;
+            if (z55Var instanceof b65) {
+                ((b65) z55Var).setOnPreparedListener(null);
             }
             if (this.mPlayer.b(this.mVoice.getName())) {
                 this.mPlayer.seek((int) longExtra);
@@ -562,10 +544,10 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
     }
 
     private void stopAndReplay(Intent intent) {
-        o75 o75Var;
+        z55 z55Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65564, this, intent) == null) && this.mVoice != null && (o75Var = this.mPlayer) != null) {
-            long f = o75Var.f();
+        if ((interceptable == null || interceptable.invokeL(65562, this, intent) == null) && this.mVoice != null && (z55Var = this.mPlayer) != null) {
+            long f = z55Var.f();
             if (f < 0) {
                 return;
             }
@@ -573,9 +555,9 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
             this.mPlayer.e();
             long duration = this.mVoice.getDuration();
             if (duration > 0 && f <= duration) {
-                o75 o75Var2 = this.mPlayer;
-                if (o75Var2 instanceof q75) {
-                    ((q75) o75Var2).setOnPreparedListener(null);
+                z55 z55Var2 = this.mPlayer;
+                if (z55Var2 instanceof b65) {
+                    ((b65) z55Var2).setOnPreparedListener(null);
                 }
                 if (this.mPlayer.b(this.mVoice.getName())) {
                     this.mPlayer.seek((int) f);
@@ -586,12 +568,12 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
     }
 
     private void stopRecord(Intent intent) {
-        p75 p75Var;
+        a65 a65Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65568, this, intent) != null) || (p75Var = this.mRecorder) == null) {
+        if ((interceptable != null && interceptable.invokeL(65566, this, intent) != null) || (a65Var = this.mRecorder) == null) {
             return;
         }
-        p75Var.a();
+        a65Var.a();
         this.mHandler.removeCallbacks(this.mRecordTimeThread);
         Intent intent2 = new Intent("com.baidu.recordStopped");
         intent2.putExtra("com.baidu.msg.recordElapsedTime", this.mElapsedTime);
@@ -606,10 +588,10 @@ public class MediaService extends BdBaseService implements MediaPlayer.OnErrorLi
 
     private void tryPreparePlayVoices(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65570, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(65568, this, j) == null) {
             this.mSeekTime = j;
             Voice voice = this.mVoice;
-            q75.h().e();
+            b65.h().e();
             if (!this.mPlayer.b(voice.getName()) && this.mPlayer.c() != -1) {
                 Intent intent = new Intent("com.baidu.playPrepared");
                 intent.putExtra("com.baidu.playPrepared_err_code", this.mPlayer.c());

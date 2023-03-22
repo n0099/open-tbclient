@@ -13,7 +13,7 @@ import androidx.core.view.ViewCompat;
 import com.google.android.material.expandable.ExpandableWidget;
 import java.util.List;
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class ExpandableBehavior extends CoordinatorLayout.Behavior<View> {
     public static final int STATE_COLLAPSED = 2;
     public static final int STATE_EXPANDED = 1;

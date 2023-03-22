@@ -34,6 +34,7 @@ import com.baidu.mapapi.map.MapViewLayoutParams;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.platform.comapi.map.MapSurfaceView;
+import com.google.android.exoplayer2.extractor.ogg.DefaultOggSeeker;
 import java.io.File;
 import java.lang.ref.WeakReference;
 import java.util.Timer;
@@ -145,7 +146,7 @@ public class WearMapView extends ViewGroup implements View.OnApplyWindowInsetsLi
         x.append(4, 1000000);
         x.append(5, 500000);
         x.append(6, 200000);
-        x.append(7, 100000);
+        x.append(7, Integer.valueOf((int) DefaultOggSeeker.MATCH_BYTE_RANGE));
         x.append(8, 50000);
         x.append(9, 25000);
         x.append(10, 20000);

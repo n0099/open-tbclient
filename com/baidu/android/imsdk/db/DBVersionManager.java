@@ -2942,6 +2942,75 @@ public class DBVersionManager {
         }
     }
 
+    /* loaded from: classes.dex */
+    public class Version78And79Handler implements VersionHandler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ DBVersionManager this$0;
+
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onDowngrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(1048576, this, sQLiteDatabase, i, i2) == null) {
+            }
+        }
+
+        public Version78And79Handler(DBVersionManager dBVersionManager) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dBVersionManager};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = dBVersionManager;
+        }
+
+        /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, IF] complete} */
+        @Override // com.baidu.android.imsdk.db.DBVersionManager.VersionHandler
+        public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sQLiteDatabase, i, i2) == null) {
+                try {
+                    try {
+                        sQLiteDatabase.beginTransaction();
+                        if (!this.this$0.checkColumnExists(sQLiteDatabase, "message", "auto_risk_control_status")) {
+                            sQLiteDatabase.execSQL("ALTER TABLE message ADD COLUMN auto_risk_control_status INTEGER DEFAULT 0 ");
+                        }
+                        if (!this.this$0.checkColumnExists(sQLiteDatabase, TableDefine.DB_TABLE_MESSAGE_WITH_TAG, "auto_risk_control_status")) {
+                            sQLiteDatabase.execSQL("ALTER TABLE message_tag ADD COLUMN auto_risk_control_status INTEGER DEFAULT 0 ");
+                        }
+                        if (!this.this$0.checkColumnExists(sQLiteDatabase, TableDefine.DB_TABLE_MEDIA_MESSAGE, "auto_risk_control_status")) {
+                            sQLiteDatabase.execSQL("ALTER TABLE media_message ADD COLUMN auto_risk_control_status INTEGER DEFAULT 0 ");
+                        }
+                        sQLiteDatabase.setTransactionSuccessful();
+                        if (!sQLiteDatabase.inTransaction()) {
+                            return;
+                        }
+                    } catch (Exception e) {
+                        LogUtils.e(DBVersionManager.TAG, "onUpgrade:78->79", e);
+                        if (!sQLiteDatabase.inTransaction()) {
+                            return;
+                        }
+                    }
+                    sQLiteDatabase.endTransaction();
+                } catch (Throwable th) {
+                    if (sQLiteDatabase.inTransaction()) {
+                        sQLiteDatabase.endTransaction();
+                    }
+                    throw th;
+                }
+            }
+        }
+    }
+
     public DBVersionManager(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -3415,6 +3484,10 @@ public class DBVersionManager {
             }
             if (i <= 77 && i2 >= 78) {
                 new Version77And78Handler(this).onUpgrade(sQLiteDatabase, i, i2);
+                i = 78;
+            }
+            if (i <= 78 && i2 >= 79) {
+                new Version78And79Handler(this).onUpgrade(sQLiteDatabase, i, i2);
             }
             Cursor cursor = null;
             try {
@@ -3426,28 +3499,28 @@ public class DBVersionManager {
                     if (cursor == null) {
                         return;
                     }
-                } catch (Throwable th) {
-                    if (cursor != null) {
-                        try {
-                            cursor.close();
-                        } catch (Exception unused) {
-                            LogUtils.e(TAG, "close curse exception");
-                        }
+                } catch (Exception unused) {
+                    LogUtils.e(TAG, "database exception, check table dialog_record exist");
+                    if (cursor == null) {
+                        return;
                     }
-                    throw th;
                 }
-            } catch (Exception unused2) {
-                LogUtils.e(TAG, "database exception, check table dialog_record exist");
-                if (cursor == null) {
+                try {
+                    cursor.close();
+                    return;
+                } catch (Exception unused2) {
+                    LogUtils.e(TAG, "close curse exception");
                     return;
                 }
-            }
-            try {
-                cursor.close();
-                return;
-            } catch (Exception unused3) {
-                LogUtils.e(TAG, "close curse exception");
-                return;
+            } catch (Throwable th) {
+                if (cursor != null) {
+                    try {
+                        cursor.close();
+                    } catch (Exception unused3) {
+                        LogUtils.e(TAG, "close curse exception");
+                    }
+                }
+                throw th;
             }
         }
         new DefaultHandler(this).onUpgrade(sQLiteDatabase, i, i2);

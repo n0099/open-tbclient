@@ -1,103 +1,178 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
+import android.graphics.Bitmap;
+import android.graphics.Rect;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class oy2 {
+public class oy2 extends ny2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract boolean a(ey2 ey2Var, gy2 gy2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m93 m93Var);
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948048513, "Lcom/baidu/tieba/oy2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948048513, "Lcom/baidu/tieba/oy2;");
-                return;
-            }
-        }
-        a = wp1.a;
-    }
-
-    public oy2(@NonNull String str) {
+    public oy2(double d) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {Double.valueOf(d)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = d;
     }
 
-    @Nullable
-    public ey2 b(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        kw2 f;
+    @Override // com.baidu.tieba.ny2
+    public boolean a(Bitmap bitmap, Rect rect) {
+        InterceptResult invokeLL;
+        Rect rect2;
+        int i;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3, jSONObject)) == null) {
-            if (TextUtils.isEmpty(str3) || (f = lw2.f(str, str2, str3)) == null || !(f.i() instanceof ey2)) {
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, rect)) == null) {
+            if (ny2.c) {
+                Log.d("ErrorPageParser", "GridErrorPageParser: start error page parse");
             }
-            return (ey2) f.i();
-        }
-        return (ey2) invokeLLLLL.objValue;
-    }
-
-    public boolean c(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m93 m93Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, m93Var)) == null) {
-            if (a) {
-                Log.d("VideoPlayerAction", "handle entity: " + unitedSchemeEntity.toString());
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                m62.c("video", "param is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+            if (bitmap == null) {
                 return false;
             }
-            ey2 b = b(context, optParamsAsJo.optString("slaveId"), optParamsAsJo.optString("componentId"), optParamsAsJo.optString("componentId"), optParamsAsJo);
-            if (b != null && context != null) {
-                gy2 h = gy2.h(optParamsAsJo, b.g());
-                if (!h.isValid()) {
-                    m62.c("video", "param is invalid");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
-                }
-                return a(b, h, context, unitedSchemeEntity, callbackHandler, m93Var);
+            if (!b(bitmap, rect)) {
+                rect2 = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+            } else {
+                rect2 = rect;
             }
-            m62.c("video", "player id is invalid or context is null");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            int width = rect2.width() - 2;
+            int height = rect2.height() - 2;
+            int i3 = width / 3;
+            int i4 = height / i3;
+            int ceil = (int) Math.ceil(i4 * 3 * this.a);
+            int i5 = 0;
+            int i6 = 0;
+            while (i6 < 3) {
+                int i7 = rect2.left;
+                int i8 = (i6 * i3) + 1 + i7;
+                if (i6 == 2) {
+                    i = width + 1;
+                } else {
+                    i = ((i6 + 1) * i3) + i7;
+                }
+                int i9 = i;
+                int i10 = i5;
+                int i11 = 0;
+                while (i11 < i4) {
+                    int i12 = rect2.top;
+                    int i13 = (i11 * i3) + 1 + i12;
+                    if (i11 == i4 - 1) {
+                        i2 = height + 1;
+                    } else {
+                        i2 = ((i11 + 1) * i3) + i12;
+                    }
+                    int i14 = i11;
+                    if (e(bitmap, i8, i13, i9, i2)) {
+                        int i15 = i10 + 1;
+                        if (i15 >= ceil) {
+                            return true;
+                        }
+                        i10 = i15;
+                    }
+                    i11 = i14 + 1;
+                }
+                i6++;
+                i5 = i10;
+            }
             return false;
         }
-        return invokeLLLL.booleanValue;
+        return invokeLL.booleanValue;
+    }
+
+    public double d(Bitmap bitmap, Rect rect) {
+        InterceptResult invokeLL;
+        Rect rect2;
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap, rect)) == null) {
+            if (ny2.c) {
+                Log.d("ErrorPageParser", "GridErrorPageParser: start error page parse");
+            }
+            if (bitmap == null) {
+                return 0.0d;
+            }
+            if (!b(bitmap, rect)) {
+                rect2 = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+            } else {
+                rect2 = rect;
+            }
+            int width = rect2.width() - 2;
+            int height = rect2.height() - 2;
+            int i3 = width / 3;
+            if (i3 == 0) {
+                return 0.0d;
+            }
+            int i4 = height / i3;
+            int i5 = 0;
+            int i6 = 0;
+            while (i5 < 3) {
+                int i7 = rect2.left;
+                int i8 = (i5 * i3) + 1 + i7;
+                if (i5 == 2) {
+                    i = width + 1;
+                } else {
+                    i = ((i5 + 1) * i3) + i7;
+                }
+                int i9 = i;
+                int i10 = i6;
+                int i11 = 0;
+                while (i11 < i4) {
+                    int i12 = rect2.top;
+                    int i13 = (i11 * i3) + 1 + i12;
+                    if (i11 == i4 - 1) {
+                        i2 = height + 1;
+                    } else {
+                        i2 = ((i11 + 1) * i3) + i12;
+                    }
+                    int i14 = i11;
+                    if (e(bitmap, i8, i13, i9, i2)) {
+                        i10++;
+                    }
+                    i11 = i14 + 1;
+                }
+                i5++;
+                i6 = i10;
+            }
+            return i6 / (i4 * 3);
+        }
+        return invokeLL.doubleValue;
+    }
+
+    public final boolean e(Bitmap bitmap, int i, int i2, int i3, int i4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bitmap, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
+            if (i < 0 || i3 < i || i2 < 0 || i4 < i2) {
+                return false;
+            }
+            int pixel = bitmap.getPixel(i, i2);
+            while (i <= i3) {
+                for (int i5 = i2; i5 <= i4; i5++) {
+                    if (pixel != bitmap.getPixel(i, i5)) {
+                        return false;
+                    }
+                }
+                i++;
+            }
+            return true;
+        }
+        return invokeCommon.booleanValue;
     }
 }

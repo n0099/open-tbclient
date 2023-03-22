@@ -1,11 +1,8 @@
 package com.baidu.tieba;
 
-import java.lang.reflect.Type;
+import java.util.List;
+import tbclient.GetRecommendTopic.TopicList;
 /* loaded from: classes5.dex */
 public interface oy9 {
-    String a(Object obj);
-
-    <T> T b(String str, Class<T> cls);
-
-    <T> T c(String str, Type type);
+    List<TopicList> getTopicList();
 }

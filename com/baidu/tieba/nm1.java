@@ -1,204 +1,89 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.coremedia.iso.boxes.FreeSpaceBox;
-import org.json.JSONObject;
+import java.security.SecureRandom;
+import javax.crypto.Cipher;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.SecretKeySpec;
 /* loaded from: classes5.dex */
-public class nm1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = 120;
+public final class nm1 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948007159, "Lcom/baidu/tieba/nm1;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948007159, "Lcom/baidu/tieba/nm1;");
-        }
-    }
-
-    public nm1() {
+    public static byte[] a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public final JSONObject a(String str, boolean z) {
-        InterceptResult invokeLZ;
-        char c;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
-            switch (str.hashCode()) {
-                case -1472943047:
-                    if (str.equals("click_float_lottie")) {
-                        c = 7;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1340273551:
-                    if (str.equals("wifi_tip")) {
-                        c = 5;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -1152479161:
-                    if (str.equals("ad_logo")) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -264975480:
-                    if (str.equals("bd_logo")) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 3327403:
-                    if (str.equals("logo")) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 3532159:
-                    if (str.equals(FreeSpaceBox.TYPE)) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 31392744:
-                    if (str.equals("download_desc")) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 102727412:
-                    if (str.equals("label")) {
-                        c = 6;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    if (z) {
-                        str2 = "{\"l_gravity\": 10,\"margin\": \"0_0_0_0\"}";
-                        break;
-                    } else {
-                        str2 = "{\"l_gravity\": 10,\"margin\": \"0_0_0_" + a + "\"}";
-                        break;
-                    }
-                case 1:
-                    if (z) {
-                        str2 = "{\"l_gravity\": 10,\"margin\": \"0_0_25_0\"}";
-                        break;
-                    } else {
-                        str2 = "{\"l_gravity\": 10,\"margin\": \"0_0_25_" + a + "\"}";
-                        break;
-                    }
-                case 2:
-                    str2 = "{\"l_gravity\": 9,\"margin\": \"0_20_15_0\"}";
-                    break;
-                case 3:
-                    str2 = "{\"l_gravity\": 5,\"margin\": \"15_20_0_0\"}";
-                    break;
-                case 4:
-                    if (z) {
-                        str2 = "{\"l_gravity\": 18,\"margin\": \"0_0_0_15\"}";
-                        break;
-                    } else {
-                        str2 = "{\"l_gravity\": 18,\"margin\": \"0_0_0_" + (a + 15) + "\"}";
-                        break;
-                    }
-                case 5:
-                    str2 = "{\"l_gravity\": 5,\"margin\": \"14_14_0_0\"}";
-                    break;
-                case 6:
-                    if (z) {
-                        str2 = "{\"l_gravity\": 6,\"margin\": \"0_0_0_65\"}";
-                        break;
-                    } else {
-                        str2 = "{\"l_gravity\": 6,\"margin\": \"0_0_0_" + a + "\"}";
-                        break;
-                    }
-                case 7:
-                    if (z) {
-                        str2 = "{\"l_gravity\": 18,\"margin\": \"0_0_0_37\"}";
-                        break;
-                    } else {
-                        str2 = "{\"is_equal_bottom_logo\":0,\"l_gravity\": 18,\"margin\": \"0_0_0_" + (a + 39) + "\"}";
-                        break;
-                    }
-                default:
-                    str2 = "";
-                    break;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            char[] cArr = new char[32];
             try {
-                return new JSONObject(str2);
-            } catch (Throwable unused) {
-                return null;
+                char[] charArray = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
+                for (int i = 0; i < 32; i++) {
+                    int nextInt = new SecureRandom().nextInt(62);
+                    if (nextInt >= 0 && nextInt < charArray.length) {
+                        cArr[i] = charArray[nextInt];
+                    }
+                }
+            } catch (Throwable th) {
+                cn1.d(th);
             }
+            return new String(cArr).getBytes();
         }
-        return (JSONObject) invokeLZ.objValue;
+        return (byte[]) invokeV.objValue;
     }
 
-    public JSONObject b(JSONObject jSONObject, String str, boolean z) {
-        InterceptResult invokeLLZ;
-        String str2;
+    public static byte[] b(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, str, z)) == null) {
-            JSONObject jSONObject2 = null;
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            if (jSONObject != null) {
-                if (z) {
-                    str2 = str + "_f";
-                } else {
-                    str2 = str;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, bArr2)) == null) {
+            if (bArr != null) {
+                try {
+                    if (bArr.length == 32 && bArr2 != null && bArr2.length != 0) {
+                        SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
+                        Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
+                        byte[] bArr3 = new byte[16];
+                        System.arraycopy(bArr, 8, bArr3, 0, 16);
+                        cipher.init(2, secretKeySpec, new IvParameterSpec(bArr3));
+                        byte[] bArr4 = new byte[bArr2.length - 16];
+                        System.arraycopy(bArr2, 0, bArr4, 0, bArr2.length - 16);
+                        return cipher.doFinal(bArr4);
+                    }
+                } catch (Throwable th) {
+                    cn1.d(th);
+                    return null;
                 }
-                jSONObject2 = jSONObject.optJSONObject(str2);
             }
-            if (jSONObject2 != null && !jSONObject2.isNull("l_gravity")) {
-                return jSONObject2;
-            }
-            return a(str, z);
+            return bArr2;
         }
-        return (JSONObject) invokeLLZ.objValue;
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static mm1 c(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, bArr2)) == null) {
+            if (bArr2 != null) {
+                try {
+                    if (bArr2.length != 0) {
+                        SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
+                        Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
+                        byte[] bArr3 = new byte[16];
+                        System.arraycopy(bArr, 8, bArr3, 0, 16);
+                        cipher.init(1, secretKeySpec, new IvParameterSpec(bArr3));
+                        byte[] doFinal = cipher.doFinal(bArr2);
+                        byte[] e = hn1.e(bArr2);
+                        byte[] bArr4 = new byte[doFinal.length + e.length];
+                        System.arraycopy(doFinal, 0, bArr4, 0, doFinal.length);
+                        System.arraycopy(e, 0, bArr4, doFinal.length, e.length);
+                        return new mm1(bArr, bArr4);
+                    }
+                } catch (Throwable th) {
+                    cn1.d(th);
+                }
+            }
+            return null;
+        }
+        return (mm1) invokeLL.objValue;
     }
 }

@@ -1,196 +1,174 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.stats.BdStatisticsManager;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.fluency.tracer.FpsTracer;
-import com.baidu.searchbox.fluency.utils.FpsConstants;
-import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.cy;
+import com.baidu.tieba.ny;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public class jm5 extends hm5 {
+public class jm5 extends gm5<mz4, ThreadCardViewHolder<mz4>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public lf6<mz4> g;
 
-    public jm5() {
+    /* loaded from: classes5.dex */
+    public class a extends lf6<mz4> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jm5 b;
+
+        public a(jm5 jm5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jm5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = jm5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.lf6
+        /* renamed from: d */
+        public void a(View view2, mz4 mz4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, mz4Var) == null) {
+                this.b.u(view2, mz4Var);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements qn {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ jm5 a;
+
+        public b(jm5 jm5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jm5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = jm5Var;
+        }
+
+        @Override // com.baidu.tieba.qn
+        public void b(View view2, gn gnVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, gnVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (gnVar instanceof mz4) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
+                mz4 mz4Var = (mz4) gnVar;
+                mz4Var.objType = 1;
+                if (this.a.g != null) {
+                    this.a.g.a(threadCardViewHolder.getView(), mz4Var);
+                }
+                ThreadCardUtils.jumpToPB((hw4) mz4Var, view2.getContext(), this.a.C(), false);
+                threadCardViewHolder.a().p(new ny.a(1));
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jm5(TbPageContext<?> tbPageContext) {
+        super(tbPageContext, ThreadData.TYPE_CONTENT_SINGLE_V_NORMAL);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public void b(fm5 fm5Var) {
-        String str;
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, fm5Var) != null) || !PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            return;
-        }
-        lh a = hm5.a();
-        a.b("action", "time");
-        String str2 = "0";
-        if (!fm5Var.s) {
-            str = "0";
-        } else {
-            str = "1";
-        }
-        a.b("ishttp", str);
-        if (fm5Var.b) {
-            str2 = "1";
-        }
-        a.b("issuccess", str2);
-        a.b(FpsTracer.UBC_KEY_NET_TYPE, PerformanceLoggerHelper.getInstance().getNetType());
-        a.b("wt", String.valueOf(fm5Var.p));
-        a.b("qt", String.valueOf(fm5Var.f));
-        a.b("connt", String.valueOf(fm5Var.g));
-        a.b("rwt", String.valueOf(fm5Var.h));
-        a.b("fbt", String.valueOf(fm5Var.i));
-        a.b("abt", String.valueOf(fm5Var.j));
-        a.b("dect", String.valueOf(fm5Var.k));
-        a.b("parset", String.valueOf(fm5Var.l));
-        a.b("tqt", String.valueOf(fm5Var.n));
-        a.b("rendert", String.valueOf(fm5Var.o));
-        a.b("ss", String.valueOf(fm5Var.q));
-        a.b("hs", String.valueOf(fm5Var.r));
-        if (fm5Var.s && (i = fm5Var.t) != 0) {
-            a.b("salno", String.valueOf(i));
-            long j = fm5Var.u;
-            if (j != 0) {
-                a.b("scosttime", String.valueOf(j));
-            }
-        }
-        if (fm5Var.s) {
-            a.b("hrtn", String.valueOf(fm5Var.w));
-            a.b("hrtt", String.valueOf(fm5Var.x));
-        }
-        int i2 = fm5Var.v;
-        if (i2 != 0) {
-            a.c("errcode", Integer.valueOf(i2));
-        }
-        if (fm5Var.y) {
-            a.b("pt", "1");
-        } else {
-            a.b("sysct", String.valueOf(fm5Var.c));
-            a.b(Config.EXCEPTION_CRASH_TYPE, String.valueOf(fm5Var.e));
-            a.b(WebvttCueParser.ENTITY_LESS_THAN, String.valueOf(fm5Var.d));
-            a.b("df", String.valueOf(fm5Var.m));
-        }
-        if (fm5Var.s) {
-            a.b("c_logid", String.valueOf(fm5Var.A));
-            long j2 = fm5Var.z;
-            if (j2 != 0) {
-                a.b(PushConstants.SEQ_ID, String.valueOf(j2 & 4294967295L));
-            }
-        } else {
-            a.b(PushConstants.SEQ_ID, String.valueOf(fm5Var.z & 4294967295L));
-        }
-        HashMap<String, String> hashMap = fm5Var.E;
-        if (hashMap != null && !hashMap.isEmpty()) {
-            for (Map.Entry<String, String> entry : fm5Var.E.entrySet()) {
-                a.b(entry.getKey(), entry.getValue());
-            }
-        }
-        BdStatisticsManager.getInstance().performance(this.a, a);
-    }
-
-    public void c(fm5 fm5Var, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fm5Var, i) != null) || !PerformanceLoggerHelper.getInstance().isSmallFlow() || fm5Var.D <= 0) {
-            return;
-        }
-        lh a = hm5.a();
-        a.b("action", "time");
-        a.b("pct", String.valueOf(fm5Var.D));
-        if (i != 0) {
-            if (i != 40) {
                 return;
             }
-            a.b("pct_type", String.valueOf(101));
-        } else {
-            a.b("pct_type", String.valueOf(100));
         }
-        BdStatisticsManager.getInstance().performance(this.a, a);
+        this.g = new a(this);
     }
 
-    public void d(fm5 fm5Var, boolean z) {
-        String str;
-        int i;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.tm
+    /* renamed from: P */
+    public ThreadCardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, fm5Var, z) != null) || !PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            cy.b bVar = new cy.b(this.c.getPageActivity(), false);
+            px pxVar = new px(this.c.getPageActivity());
+            pxVar.u(z());
+            pxVar.v(G());
+            bVar.n(pxVar);
+            cy k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.d);
+            k.s(C());
+            ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
+            threadCardViewHolder.i(this.mPageId);
+            setOnAdapterItemClickListener(new b(this));
+            return threadCardViewHolder;
         }
-        if (!z || fm5Var.B > 0) {
-            if (!z && fm5Var.C <= 0) {
-                return;
-            }
-            lh a = hm5.a();
-            a.b("action", "time");
-            if (z) {
-                a.b("put", String.valueOf(fm5Var.B));
-            } else {
-                a.b("pdt", String.valueOf(fm5Var.C));
-            }
-            String str2 = "1";
-            if (fm5Var.s) {
-                str = "1";
-            } else {
-                str = "0";
-            }
-            a.b("ishttp", str);
-            if (!fm5Var.b) {
-                str2 = "0";
-            }
-            a.b("issuccess", str2);
-            a.b(FpsTracer.UBC_KEY_NET_TYPE, PerformanceLoggerHelper.getInstance().getNetType());
-            a.b("qt", String.valueOf(fm5Var.f));
-            a.b("connt", String.valueOf(fm5Var.g));
-            a.b("rwt", String.valueOf(fm5Var.h));
-            a.b("dect", String.valueOf(fm5Var.k));
-            a.b("parset", String.valueOf(fm5Var.l));
-            a.b("rendert", String.valueOf(fm5Var.o));
-            a.b("ss", String.valueOf(fm5Var.q));
-            a.b("hs", String.valueOf(fm5Var.r));
-            if (fm5Var.s && (i = fm5Var.t) != 0) {
-                a.b("salno", String.valueOf(i));
-                long j = fm5Var.u;
-                if (j != 0) {
-                    a.b("scosttime", String.valueOf(j));
+        return (ThreadCardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.tm
+    /* renamed from: Q */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, mz4 mz4Var, ThreadCardViewHolder<mz4> threadCardViewHolder) {
+        InterceptResult invokeCommon;
+        ThreadData threadData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, mz4Var, threadCardViewHolder})) == null) {
+            if (mz4Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && (threadData = mz4Var.t) != null) {
+                threadData.statFloor = getPositionByType(i) + 1;
+                threadCardViewHolder.a().r(i);
+                threadCardViewHolder.e(mz4Var);
+                threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
+                threadCardViewHolder.a().q(this.g);
+                px pxVar = (px) threadCardViewHolder.a().g();
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) pxVar.f.d.getLayoutParams();
+                layoutParams.width = mz4Var.u;
+                layoutParams.height = mz4Var.v;
+                if (pxVar.f.d.getVisibility() != 8) {
+                    pxVar.f.d.setLayoutParams(layoutParams);
                 }
+                N(threadCardViewHolder.getView(), mz4Var, i, i);
+                return threadCardViewHolder.getView();
             }
-            int i2 = fm5Var.v;
-            if (i2 != 0) {
-                a.c("errcode", Integer.valueOf(i2));
-            }
-            BdStatisticsManager.getInstance().performance(this.a, a);
+            return null;
         }
-    }
-
-    public void e(zl5 zl5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, zl5Var) != null) || zl5Var == null || !PerformanceLoggerHelper.getInstance().isSmallFlow()) {
-            return;
-        }
-        lh a = hm5.a();
-        a.b("action", FpsTracer.UBC_KEY_FLUENCY);
-        a.b(FpsConstants.REPORT_FPS, String.valueOf(zl5Var.b()));
-        BdStatisticsManager.getInstance().performance(this.a, a);
-        lh a2 = hm5.a();
-        a2.b("action", "mem");
-        a2.b("memp", String.valueOf(PerformanceLoggerHelper.getInstance().getCurrentUsedMemory()));
-        BdStatisticsManager.getInstance().performance(this.a, a2);
+        return (View) invokeCommon.objValue;
     }
 }

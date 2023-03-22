@@ -1,83 +1,35 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.android.common.others.lang.StringUtil;
+import androidx.core.app.NotificationManagerCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
-import com.baidu.tieba.vx6;
+import com.baidu.tbadk.core.util.TimeHelper;
+import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public class wx6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rx6 a;
-    public TbPageContext b;
-    public ba5 c;
-    public BdUniqueId d;
-    public CustomMessageListener e;
+    public k95 a;
+    public FrsActivity b;
+    public Map<String, Date> c;
+    public boolean d;
 
-    /* loaded from: classes6.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wx6 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(wx6 wx6Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wx6Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = wx6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            UpdateAttentionMessage updateAttentionMessage;
-            UpdateAttentionMessage.a data;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || !(customResponsedMessage instanceof UpdateAttentionMessage) || this.a.a == null || (data = (updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage).getData()) == null) {
-                return;
-            }
-            if (!data.a) {
-                this.a.a.k(updateAttentionMessage.getData().b);
-            } else {
-                this.a.a.m(data.d);
-            }
-        }
-    }
-
-    public wx6(TbPageContext tbPageContext, rx6 rx6Var) {
+    public wx6(FrsActivity frsActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, rx6Var};
+            Object[] objArr = {frsActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -87,62 +39,86 @@ public class wx6 {
                 return;
             }
         }
-        this.d = BdUniqueId.gen();
-        this.e = new a(this, 2001115);
-        this.b = tbPageContext;
-        this.a = rx6Var;
-        this.c = new ba5(tbPageContext);
-        this.e.setSelfListener(true);
-        this.e.setTag(this.d);
-        MessageManager.getInstance().registerListener(this.e);
+        this.c = new HashMap();
+        this.d = false;
+        this.b = frsActivity;
     }
 
-    public void b() {
+    public void a() {
+        k95 k95Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            ba5 ba5Var = this.c;
-            if (ba5Var != null) {
-                ba5Var.e();
-            }
-            MessageManager.getInstance().unRegisterListener(this.e);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (k95Var = this.a) != null) {
+            k95Var.q();
         }
     }
 
-    public void c(vx6 vx6Var) {
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vx6Var) == null) {
-            if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                this.b.showToast(R.string.no_network);
-            } else if (vx6Var == null || vx6Var.m == null || this.c == null || !ViewHelper.checkUpIsLogin(this.b.getPageActivity())) {
-            } else {
-                ba5 ba5Var = this.c;
-                vx6.b bVar = vx6Var.m;
-                ba5Var.h(!bVar.e, bVar.d, bVar.a, this.d);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            k95 k95Var = this.a;
+            if (k95Var != null && k95Var.t()) {
+                return true;
             }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public void d(vx6 vx6Var) {
+    public Date c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vx6Var) == null) {
-            if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                this.b.showToast(R.string.no_network);
-            } else if (vx6Var == null || this.a == null || !ViewHelper.checkUpIsLogin(this.b.getPageActivity())) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (this.c == null) {
+                this.c = new HashMap();
             } else {
-                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_PB_FLOOR_AGREE);
-                httpMessage.addParam("thread_id", vx6Var.b);
-                httpMessage.addParam("op_type", Boolean.valueOf(vx6Var.h));
-                httpMessage.addParam("obj_type", 3);
-                httpMessage.addParam("agree_type", 2);
-                httpMessage.addParam("forum_id", vx6Var.a);
-                httpMessage.addParam("z_id", TbadkCoreApplication.getInst().getZid());
-                if (!StringUtil.isEmpty(vx6Var.i)) {
-                    httpMessage.addParam("obj_source", vx6Var.i);
+                this.c = TbSingleton.getInstance().getHasShowTip();
+            }
+            Date date = new Date(System.currentTimeMillis());
+            Map<String, Date> map = this.c;
+            if (map != null && map.containsKey(str)) {
+                if (TimeHelper.getDayDifference(this.c.get(str), date) >= 1) {
+                    this.d = true;
                 }
-                httpMessage.addHeader("needSig", "1");
-                MessageManager.getInstance().sendMessage(httpMessage);
-                this.a.l();
+            } else {
+                this.d = true;
             }
+            return date;
+        }
+        return (Date) invokeL.objValue;
+    }
+
+    public void d(String str) {
+        FrsActivity frsActivity;
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (frsActivity = this.b) != null && frsActivity.getPageContext() != null) {
+            Date c = c(str);
+            boolean z = false;
+            if (!UbsABTestHelper.isPushPermissionForumFollowTestA() && !UbsABTestHelper.isPushPermissionForumFollowTestB()) {
+                i = 0;
+            } else {
+                i = 11;
+            }
+            if ((!NotificationManagerCompat.from(TbadkCoreApplication.getInst()).areNotificationsEnabled() || !k85.d().n()) && this.d && l95.g(TbadkCoreApplication.getInst(), i)) {
+                FrsActivity frsActivity2 = this.b;
+                if (frsActivity2 != null && frsActivity2.v1() != null) {
+                    z = this.b.v1().B;
+                }
+                HashMap hashMap = new HashMap();
+                if (z) {
+                    hashMap.put("view_params_key_style", "short");
+                }
+                k95 k95Var = this.a;
+                if (k95Var != null) {
+                    k95Var.q();
+                }
+                this.a = l95.l(this.b.getPageContext(), "forum_follow", 2000L, hashMap);
+                this.c.put(str, c);
+                TbSingleton.getInstance().setHasShowTip(this.c);
+                return;
+            }
+            hi.S(TbadkCoreApplication.getInst(), R.string.push_like_tip_msg);
         }
     }
 }

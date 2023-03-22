@@ -1,11 +1,11 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.uma;
+import com.baidu.tieba.qra;
 /* loaded from: classes9.dex */
-public enum OnSubscribeDetach$TerminatedProducer implements uma {
+public enum OnSubscribeDetach$TerminatedProducer implements qra {
     INSTANCE;
 
-    @Override // com.baidu.tieba.uma
+    @Override // com.baidu.tieba.qra
     public void request(long j) {
     }
 }

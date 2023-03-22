@@ -33,7 +33,6 @@ import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.egl.EGLSurface;
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
-import org.webrtc.EglBase10;
 /* loaded from: classes2.dex */
 public class f implements ah {
     public static /* synthetic */ Interceptable $ic;
@@ -275,7 +274,7 @@ public class f implements ah {
                 }
             }
             this.a = fVar;
-            this.b = EglBase10.EGL_CONTEXT_CLIENT_VERSION;
+            this.b = 12440;
         }
 
         public /* synthetic */ c(f fVar, com.baidu.platform.comapi.map.g gVar) {

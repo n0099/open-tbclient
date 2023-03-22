@@ -1,214 +1,165 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.download.center.clearcache.DiskUpdateListener;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
-import tbclient.ActInfo;
+import tbclient.LinkThreadContent;
+import tbclient.LinkThreadInfo;
 /* loaded from: classes3.dex */
 public class ay4 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int g = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public String e;
-    public int f;
-    public boolean g;
-    public int h;
-    public int i;
-    public x05 j;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public int e;
+    public boolean f;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947631501, "Lcom/baidu/tieba/ay4;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947631501, "Lcom/baidu/tieba/ay4;");
+        }
+    }
 
     public ay4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.h = 1;
-        this.i = 1;
+        this.e = 0;
+        this.f = false;
     }
 
-    public int a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return this.c;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public int b() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+            return this.d;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
     public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+            return this.e;
         }
         return invokeV.intValue;
     }
 
-    public boolean d() {
+    public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.g;
+            return this.b;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public int e() {
+    public String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
+            return this.a;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public int f() {
+    public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.f;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    public String g() {
-        InterceptResult invokeV;
+    public void g(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void h(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048582, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        try {
-            this.a = jSONObject.optInt("activity_type");
-            this.b = jSONObject.optInt("status");
-            this.c = jSONObject.optInt(DiskUpdateListener.BEGIN_TIME);
-            this.d = jSONObject.optInt("end_time");
-            this.e = jSONObject.optString("url");
-            this.f = jSONObject.optInt("total_num");
-            jSONObject.optInt("activity_id");
-            jSONObject.optInt("award_act_id");
-            jSONObject.optInt("component_id");
-            this.g = jSONObject.optBoolean("is_senior");
-            jSONObject.optString("banner_img");
-            jSONObject.optInt("show_total_num");
-            String optString = jSONObject.optString("banner_img_size");
-            if (!dj.isEmpty(optString)) {
-                String[] split = optString.split(",");
-                this.h = dh.e(split[0], 1);
-                this.i = dh.e(split[1], 1);
-            }
-            if (this.h <= 0) {
-                this.h = 1;
-            }
-            if (this.i <= 0) {
-                this.i = 1;
-            }
-        } catch (Exception e) {
-            BdLog.e(e.toString());
-        }
-    }
-
-    public void i(ActInfo actInfo) {
-        int i;
-        int i2;
-        int i3;
-        int i4;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, actInfo) != null) || actInfo == null) {
-            return;
-        }
-        Integer num = actInfo.activity_type;
-        int i5 = -1;
-        if (num != null) {
-            i = num.intValue();
-        } else {
-            i = -1;
-        }
-        this.a = i;
-        Integer num2 = actInfo.status;
-        if (num2 != null) {
-            i2 = num2.intValue();
-        } else {
-            i2 = -1;
-        }
-        this.b = i2;
-        Integer num3 = actInfo.begin_time;
-        if (num3 != null) {
-            i3 = num3.intValue();
-        } else {
-            i3 = -1;
-        }
-        this.c = i3;
-        Integer num4 = actInfo.end_time;
-        if (num4 != null) {
-            i4 = num4.intValue();
-        } else {
-            i4 = -1;
-        }
-        this.d = i4;
-        this.e = actInfo.url;
-        Integer num5 = actInfo.total_num;
-        if (num5 != null) {
-            i5 = num5.intValue();
-        }
-        this.f = i5;
-        actInfo.activity_id.intValue();
-        actInfo.award_act_id.intValue();
-        actInfo.component_id.intValue();
-        this.g = actInfo.is_senior.booleanValue();
-        String str = actInfo.banner_img;
-        actInfo.show_total_num.intValue();
-        String str2 = actInfo.banner_img_size;
-        if (!dj.isEmpty(str2)) {
+        this.a = jSONObject.optString("link_url");
+        JSONArray optJSONArray = jSONObject.optJSONArray("link_content");
+        if (optJSONArray != null && optJSONArray.length() > 0) {
             try {
-                String[] split = str2.split(",");
-                this.h = dh.e(split[0], 1);
-                this.i = dh.e(split[1], 1);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+                JSONObject jSONObject2 = optJSONArray.getJSONObject(0);
+                if (jSONObject2 != null) {
+                    this.b = jSONObject2.optString("link_title");
+                    this.c = jSONObject2.optString("link_abstract");
+                    this.d = jSONObject2.optString("link_head_small_pic");
+                    this.e = jSONObject2.optInt("link_type");
+                    if (gi.isEmpty(this.b) && gi.isEmpty(this.c)) {
+                        this.f = true;
+                    }
+                } else {
+                    this.f = true;
+                }
+                return;
+            } catch (JSONException unused) {
+                this.f = true;
+                return;
             }
         }
-        if (this.h <= 0) {
-            this.h = 1;
+        this.f = true;
+    }
+
+    public void h(LinkThreadInfo linkThreadInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, linkThreadInfo) != null) || linkThreadInfo == null) {
+            return;
         }
-        if (this.i <= 0) {
-            this.i = 1;
+        this.a = linkThreadInfo.link_url;
+        LinkThreadContent linkThreadContent = (LinkThreadContent) ListUtils.getItem(linkThreadInfo.link_content, 0);
+        if (linkThreadContent != null) {
+            this.b = linkThreadContent.link_title;
+            this.c = linkThreadContent.link_abstract;
+            this.d = linkThreadContent.link_head_small_pic;
+            this.e = linkThreadContent.link_type.intValue();
+            if (gi.isEmpty(this.b) && gi.isEmpty(this.c)) {
+                this.f = true;
+                return;
+            }
+            return;
         }
-        x05 x05Var = new x05();
-        this.j = x05Var;
-        x05Var.a(actInfo.lottery_senior);
+        this.f = true;
     }
 }

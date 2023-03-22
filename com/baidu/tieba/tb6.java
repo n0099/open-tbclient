@@ -1,13 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import android.net.Uri;
+import androidx.annotation.Nullable;
+import androidx.core.util.Pair;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.InputStream;
+import okio.Okio;
 /* loaded from: classes6.dex */
-public class tb6 extends zk1<ce6> {
+public class tb6 implements sb6<String, Pair<InputStream, Long>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,15 +31,52 @@ public class tb6 extends zk1<ce6> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zk1
-    /* renamed from: a */
-    public ce6 createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    public final File c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new ub6();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            File file = new File(Uri.parse(str).getPath());
+            if (file.exists() && file.isFile()) {
+                return file;
+            }
+            return null;
         }
-        return (ce6) invokeV.objValue;
+        return (File) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sb6
+    @Nullable
+    /* renamed from: d */
+    public Pair<InputStream, Long> a(String str) throws Exception {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            File c = c(str);
+            if (c != null) {
+                return Pair.create(Okio.buffer(Okio.source(c)).inputStream(), Long.valueOf(c.length()));
+            }
+            return null;
+        }
+        return (Pair) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.sb6
+    /* renamed from: e */
+    public void b(String str, dsa<Pair<InputStream, Long>, Exception> dsaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, dsaVar) == null) {
+            try {
+                File c = c(str);
+                if (c != null) {
+                    dsaVar.call(Pair.create(Okio.buffer(Okio.source(c)).inputStream(), Long.valueOf(c.length())), null);
+                } else {
+                    dsaVar.call(null, new IllegalArgumentException(str + "file not exist !"));
+                }
+            } catch (Exception e) {
+                dsaVar.call(null, e);
+            }
+        }
     }
 }

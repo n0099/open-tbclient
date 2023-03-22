@@ -11,9 +11,9 @@ import com.baidu.nadcore.appframework.BaseActivity;
 import com.baidu.nadcore.connect.NetWorkUtils;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fl0;
-import com.baidu.tieba.rj0;
-import com.baidu.tieba.u21;
+import com.baidu.tieba.hi0;
+import com.baidu.tieba.k11;
+import com.baidu.tieba.vj0;
 /* loaded from: classes2.dex */
 public abstract class NadDialogActivity extends BaseActivity {
     public String A;
@@ -25,30 +25,30 @@ public abstract class NadDialogActivity extends BaseActivity {
     public LinearLayout y;
     public String z;
 
-    public void X1() {
+    public void a2() {
     }
-
-    public void Y1() {
-    }
-
-    public abstract int Z1();
 
     public void b2() {
     }
 
-    public boolean c2() {
+    public abstract int c2();
+
+    public void e2() {
+    }
+
+    public boolean f2() {
         return false;
     }
 
-    public boolean d2() {
+    public boolean g2() {
         return false;
     }
 
-    public String e2() {
+    public String h2() {
         return null;
     }
 
-    public String f2() {
+    public String i2() {
         return null;
     }
 
@@ -59,9 +59,9 @@ public abstract class NadDialogActivity extends BaseActivity {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            NadDialogActivity.this.Y1();
+            NadDialogActivity.this.b2();
             NadDialogActivity nadDialogActivity = NadDialogActivity.this;
-            nadDialogActivity.g2(nadDialogActivity.A, ClogBuilder.LogType.FREE_CLICK.type, ClogBuilder.Area.BTN_POSITIVE.type, NadDialogActivity.this.z);
+            nadDialogActivity.j2(nadDialogActivity.A, ClogBuilder.LogType.FREE_CLICK.type, ClogBuilder.Area.BTN_POSITIVE.type, NadDialogActivity.this.z);
         }
     }
 
@@ -72,55 +72,55 @@ public abstract class NadDialogActivity extends BaseActivity {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            NadDialogActivity.this.X1();
+            NadDialogActivity.this.a2();
             NadDialogActivity nadDialogActivity = NadDialogActivity.this;
-            nadDialogActivity.g2(nadDialogActivity.A, ClogBuilder.LogType.FREE_CLICK.type, ClogBuilder.Area.BTN_NAGITIVE.type, NadDialogActivity.this.z);
+            nadDialogActivity.j2(nadDialogActivity.A, ClogBuilder.LogType.FREE_CLICK.type, ClogBuilder.Area.BTN_NAGITIVE.type, NadDialogActivity.this.z);
         }
-    }
-
-    public final void a2() {
-        this.v = (TextView) findViewById(R.id.tv_nagitive);
-        this.u = (TextView) findViewById(R.id.tv_positive);
-        this.w = (LinearLayout) findViewById(R.id.ad_dialog_container);
-        this.x = (LinearLayout) findViewById(R.id.ll_dialog_content_container);
-        this.y = (LinearLayout) findViewById(R.id.ll_dialog_btn_container);
-        LayoutInflater.from(this).inflate(Z1(), (ViewGroup) this.x, true);
-        this.w.setBackground(rj0.b().getResources().getDrawable(R.drawable.nad_dialog_bg));
-        this.w.setDividerDrawable(rj0.b().getResources().getDrawable(R.drawable.nad_dialog_divider_horizon));
-        this.y.setDividerDrawable(rj0.b().getResources().getDrawable(R.drawable.nad_dialog_divider_vertical));
-        if (d2()) {
-            this.u.setText(f2());
-            this.u.setOnClickListener(new a());
-        } else {
-            this.u.setVisibility(8);
-        }
-        if (c2()) {
-            this.v.setText(e2());
-            this.v.setOnClickListener(new b());
-            return;
-        }
-        this.v.setVisibility(8);
-    }
-
-    public final void g2(String str, String str2, String str3, String str4) {
-        if (!NetWorkUtils.b(rj0.b())) {
-            return;
-        }
-        u21.b(new ClogBuilder().z(str2).v(str).j(str3).p(str4));
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void y1(Bundle bundle) {
-        super.y1(bundle);
-        setContentView(fl0.a().a());
+    public void B1(Bundle bundle) {
+        super.B1(bundle);
+        setContentView(vj0.a().a());
         Intent intent = getIntent();
         this.B = intent;
         if (intent != null) {
             this.z = intent.getStringExtra("ext");
             this.A = this.B.getStringExtra("alsPage");
         }
-        a2();
-        b2();
-        g2(this.A, ClogBuilder.LogType.FREE_SHOW.type, ClogBuilder.Area.AD_DIALOG_SHOW.type, this.z);
+        d2();
+        e2();
+        j2(this.A, ClogBuilder.LogType.FREE_SHOW.type, ClogBuilder.Area.AD_DIALOG_SHOW.type, this.z);
+    }
+
+    public final void d2() {
+        this.v = (TextView) findViewById(R.id.tv_nagitive);
+        this.u = (TextView) findViewById(R.id.tv_positive);
+        this.w = (LinearLayout) findViewById(R.id.ad_dialog_container);
+        this.x = (LinearLayout) findViewById(R.id.ll_dialog_content_container);
+        this.y = (LinearLayout) findViewById(R.id.ll_dialog_btn_container);
+        LayoutInflater.from(this).inflate(c2(), (ViewGroup) this.x, true);
+        this.w.setBackground(hi0.b().getResources().getDrawable(R.drawable.nad_dialog_bg));
+        this.w.setDividerDrawable(hi0.b().getResources().getDrawable(R.drawable.nad_dialog_divider_horizon));
+        this.y.setDividerDrawable(hi0.b().getResources().getDrawable(R.drawable.nad_dialog_divider_vertical));
+        if (g2()) {
+            this.u.setText(i2());
+            this.u.setOnClickListener(new a());
+        } else {
+            this.u.setVisibility(8);
+        }
+        if (f2()) {
+            this.v.setText(h2());
+            this.v.setOnClickListener(new b());
+            return;
+        }
+        this.v.setVisibility(8);
+    }
+
+    public final void j2(String str, String str2, String str3, String str4) {
+        if (!NetWorkUtils.b(hi0.b())) {
+            return;
+        }
+        k11.b(new ClogBuilder().z(str2).v(str).j(str3).p(str4));
     }
 }

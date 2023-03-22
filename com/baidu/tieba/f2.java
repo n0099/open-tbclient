@@ -1,152 +1,167 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.d8;
+import android.media.MediaPlayer;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.o1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
 /* loaded from: classes4.dex */
-public class f2 extends v1<s6, a> {
+public class f2 implements o1, MediaPlayer.OnCompletionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.v1
-    /* renamed from: g */
-    public void c(t1 t1Var, String str, q3 q3Var, a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048580, this, t1Var, str, q3Var, aVar) == null) {
-        }
-    }
+    public final t1 a;
+    public MediaPlayer b;
+    public boolean c;
+    public boolean d;
+    public o1.a e;
 
     /* loaded from: classes4.dex */
-    public static class a extends r1<s6> {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final String b;
-        public final d8<String, Object> c;
+        public final /* synthetic */ f2 a;
 
-        /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-        public a() {
-            this(null, null);
+        public a(f2 f2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {f2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    Object[] objArr = newInitContext.callArgs;
-                    this((String) objArr[0], (d8) objArr[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.a = f2Var;
         }
 
-        public a(String str, d8<String, Object> d8Var) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, d8Var};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                f2 f2Var = this.a;
+                f2Var.e.a(f2Var);
             }
-            this.b = str;
-            this.c = d8Var;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f2(y1 y1Var) {
-        super(y1Var);
+    public f2(t1 t1Var, MediaPlayer mediaPlayer) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {y1Var};
+            Object[] objArr = {t1Var, mediaPlayer};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((y1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.c = true;
+        this.d = false;
+        this.a = t1Var;
+        this.b = mediaPlayer;
+        this.e = null;
+        mediaPlayer.setOnCompletionListener(this);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.u1
-    /* renamed from: f */
-    public h7<p1> a(String str, q3 q3Var, a aVar) {
-        InterceptResult invokeLLL;
-        String str2;
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, str, q3Var, aVar)) == null) {
-            h7<p1> h7Var = new h7<>();
-            if (aVar != null && (str2 = aVar.b) != null) {
-                if (str2 != null) {
-                    h7Var.a(new p1(str2, i4.class));
-                }
-            } else {
-                h7Var.a(new p1(q3Var.k() + ".atlas", i4.class));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            MediaPlayer mediaPlayer = this.b;
+            if (mediaPlayer == null) {
+                return false;
             }
-            return h7Var;
+            try {
+                return mediaPlayer.isPlaying();
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
         }
-        return (h7) invokeLLL.objValue;
+        return invokeV.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.v1
-    /* renamed from: h */
-    public s6 d(t1 t1Var, String str, q3 q3Var, a aVar) {
-        InterceptResult invokeLLLL;
+    public void pause() {
+        MediaPlayer mediaPlayer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, t1Var, str, q3Var, aVar)) == null) {
-            String str2 = q3Var.k() + ".atlas";
-            d8<String, Object> d8Var = null;
-            if (aVar != null) {
-                String str3 = aVar.b;
-                if (str3 != null) {
-                    str2 = str3;
-                }
-                d8<String, Object> d8Var2 = aVar.c;
-                if (d8Var2 != null) {
-                    d8Var = d8Var2;
-                }
-            }
-            s6 i = i((i4) t1Var.j(str2, i4.class));
-            if (d8Var != null) {
-                d8.a<String, Object> b = d8Var.b();
-                b.c();
-                while (b.hasNext()) {
-                    d8.b next = b.next();
-                    i.a((String) next.a, next.b);
-                }
-            }
-            i.o(q3Var);
-            return i;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || (mediaPlayer = this.b) == null) {
+            return;
         }
-        return (s6) invokeLLLL.objValue;
+        try {
+            if (mediaPlayer.isPlaying()) {
+                this.b.pause();
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        this.d = false;
     }
 
-    public s6 i(i4 i4Var) {
-        InterceptResult invokeL;
+    /* JADX WARN: Type inference failed for: r1v0, types: [com.baidu.tieba.o1$a, android.media.MediaPlayer] */
+    @Override // com.baidu.tieba.r6
+    public void dispose() {
+        MediaPlayer mediaPlayer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, i4Var)) == null) {
-            return new s6(i4Var);
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (mediaPlayer = this.b) == null) {
+            return;
         }
-        return (s6) invokeL.objValue;
+        try {
+            try {
+                mediaPlayer.release();
+            } finally {
+                this.b = null;
+                this.e = null;
+                this.a.d(this);
+            }
+        } catch (Throwable unused) {
+            o0.a.log("AndroidMusic", "error while disposing AndroidMusic instance, non-fatal");
+        }
+    }
+
+    public void f() {
+        MediaPlayer mediaPlayer;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (mediaPlayer = this.b) == null) {
+            return;
+        }
+        try {
+            if (mediaPlayer.isPlaying()) {
+                return;
+            }
+            try {
+                if (!this.c) {
+                    this.b.prepare();
+                    this.c = true;
+                }
+                this.b.start();
+            } catch (IOException e) {
+                e.printStackTrace();
+            } catch (IllegalStateException e2) {
+                e2.printStackTrace();
+            }
+        } catch (Exception e3) {
+            e3.printStackTrace();
+        }
+    }
+
+    @Override // android.media.MediaPlayer.OnCompletionListener
+    public void onCompletion(MediaPlayer mediaPlayer) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, mediaPlayer) == null) && this.e != null) {
+            o0.a.postRunnable(new a(this));
+        }
     }
 }

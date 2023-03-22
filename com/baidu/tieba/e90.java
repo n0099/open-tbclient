@@ -1,14 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.lcp.sdk.client.bean.BLCPRequest;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffColorFilter;
+import com.baidu.tbadk.core.util.PullViewHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class e90 extends BLCPRequest {
+public class e90 {
     public static /* synthetic */ Interceptable $ic;
+    public static e90 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
 
     public e90() {
         Interceptable interceptable = $ic;
@@ -23,7 +28,30 @@ public class e90 extends BLCPRequest {
                 return;
             }
         }
-        this.c = null;
-        this.e = BLCPRequest.SendTimeoutSecond.TIMEOUT_120s;
+        this.a = true;
+        new PorterDuffColorFilter(PullViewHelper.IMAGE_COLORFILTER_NIGHT, PorterDuff.Mode.MULTIPLY);
+    }
+
+    public static e90 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (e90.class) {
+                if (b == null) {
+                    b = new e90();
+                }
+            }
+            return b;
+        }
+        return (e90) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
     }
 }

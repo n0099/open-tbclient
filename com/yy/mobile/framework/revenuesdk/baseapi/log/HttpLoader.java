@@ -13,7 +13,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.zip.GZIPInputStream;
 import org.apache.http.protocol.HTTP;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class HttpLoader {
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:18:0x0098 */
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:44:0x00e2 */

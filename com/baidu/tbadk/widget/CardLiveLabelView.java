@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.elementsMaven.Direction;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b35;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.hi;
+import com.baidu.tieba.n15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -331,18 +331,18 @@ public class CardLiveLabelView extends RelativeLayout {
             int i = this.a;
             if (i != 1) {
                 if (i == 2) {
-                    b35 d2 = b35.d(this.c);
-                    d2.n(R.string.J_X01);
+                    n15 d2 = n15.d(this.c);
+                    d2.o(R.string.J_X01);
                     d2.f(R.color.CAM_X0605);
-                    b35 d3 = b35.d(this.j);
-                    d3.n(R.string.J_X07);
+                    n15 d3 = n15.d(this.j);
+                    d3.o(R.string.J_X07);
                     d3.f(R.color.CAM_X0310);
                     SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0101);
                     return;
                 }
                 return;
             }
-            float g = ej.g(getContext(), R.dimen.tbds31);
+            float g = hi.g(getContext(), R.dimen.tbds31);
             SkinManager.setBackgroundEndColorToAutoColor(this.c, R.color.CAM_X0310, GradientDrawable.Orientation.LEFT_RIGHT, new float[]{g, g, g, g, g, g, g, g});
             SkinManager.setBackgroundColor(this.e, R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0101);
@@ -384,11 +384,11 @@ public class CardLiveLabelView extends RelativeLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            b35 d2 = b35.d(this.k);
-            d2.n(R.string.J_X01);
+            n15 d2 = n15.d(this.k);
+            d2.o(R.string.J_X01);
             d2.f(R.color.CAM_X0605);
-            b35 d3 = b35.d(this.o);
-            d3.n(R.string.J_X07);
+            n15 d3 = n15.d(this.o);
+            d3.o(R.string.J_X07);
             d3.f(R.color.CAM_X0310);
             SkinManager.setViewTextColor(this.m, (int) R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.n, (int) R.color.CAM_X0101);
@@ -402,9 +402,9 @@ public class CardLiveLabelView extends RelativeLayout {
             SkinManager.setViewTextColor(this.s, (int) R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.t, (int) R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.v, (int) R.color.CAM_X0101);
-            b35 d2 = b35.d(this.q);
-            d2.n(R.string.J_X01);
-            d2.p(new int[]{R.color.CAM_X0301, R.color.CAM_X0310}, Direction.LEFT);
+            n15 d2 = n15.d(this.q);
+            d2.o(R.string.J_X01);
+            d2.q(new int[]{R.color.CAM_X0301, R.color.CAM_X0310}, Direction.LEFT);
         }
     }
 
@@ -420,7 +420,7 @@ public class CardLiveLabelView extends RelativeLayout {
     public final void h() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.w = (RelativeLayout) LayoutInflater.from(this.b).inflate(R.layout.layout_ala_live_card_label, this).findViewById(R.id.obfuscated_res_0x7f091dfa);
+            this.w = (RelativeLayout) LayoutInflater.from(this.b).inflate(R.layout.layout_ala_live_card_label, this).findViewById(R.id.obfuscated_res_0x7f091e45);
         }
     }
 

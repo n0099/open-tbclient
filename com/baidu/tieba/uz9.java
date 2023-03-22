@@ -1,7 +1,15 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.os.SystemClock;
+import android.text.TextUtils;
+import android.util.Base64InputStream;
+import android.util.Base64OutputStream;
+import android.util.Log;
+import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.a1a;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,1654 +17,247 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
-import java.io.PrintStream;
-import java.lang.reflect.Array;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Random;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class uz9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int[] q;
-    public static final int[] r;
-    public static final int[] s;
-    public static final double[][] t;
+    public static final boolean y;
     public transient /* synthetic */ FieldHolder $fh;
-    public ByteOrder a;
-    public vz9 b;
-    public double c;
-    public double d;
-    public int e;
-    public double[][] f;
+    public int a;
+    public long b;
+    public boolean c;
+    public Context d;
+    public q0a e;
+    public tz9 f;
     public int g;
-    public int h;
-    public int i;
-    public int j;
-    public double[] k;
-    public int l;
-    public boolean m;
-    public int n;
-    public long o;
-    public long p;
+    public long h;
+    public List<f0a> i;
+    public long j;
+    public long k;
+    public long l;
+    public int m;
+    public SparseArray<ArrayList> n;
+    public HashMap<String, Long> o;
+    public m0a p;
+    public yz9 q;
+    public int r;
+    public int s;
+    public int t;
+    public a1a u;
+    public boolean v;
+    public int w;
+    public Runnable x;
 
-    public final int a(double d) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Double.valueOf(d)})) == null) {
-            return (int) (d >= 0.0d ? d + 0.5d : d - 0.5d);
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ uz9 a;
+
+        public a(uz9 uz9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uz9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = uz9Var;
         }
-        return invokeCommon.intValue;
-    }
 
-    public final int c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            int i2 = 1;
-            while (i2 < i) {
-                i2 *= 2;
-            }
-            return i2 * 2;
-        }
-        return invokeI.intValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:240:0x0784  */
-    /* JADX WARN: Removed duplicated region for block: B:250:0x07db  */
-    /* JADX WARN: Removed duplicated region for block: B:264:0x0848  */
-    /* JADX WARN: Removed duplicated region for block: B:267:0x084e A[LOOP:13: B:266:0x084c->B:267:0x084e, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:270:0x0874 A[LOOP:14: B:269:0x0872->B:270:0x0874, LOOP_END] */
-    /* JADX WARN: Removed duplicated region for block: B:273:0x0885  */
-    /* JADX WARN: Removed duplicated region for block: B:274:0x088f  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public double e(InputStream inputStream, OutputStream outputStream, int i, int i2, int i3, int i4, int i5, double d, int i6, boolean z, int i7) throws IOException {
-        InterceptResult invokeCommon;
-        int i8;
-        int i9;
-        double d2;
-        double d3;
-        double d4;
-        int i10;
-        int i11;
-        int i12;
-        int[] iArr;
-        int i13;
-        int[] iArr2;
-        int i14;
-        int i15;
-        int[] iArr3;
-        int i16;
-        double[][] dArr;
-        int i17;
-        int i18;
-        int i19;
-        int i20;
-        uz9 uz9Var;
-        double[] dArr2;
-        ByteBuffer byteBuffer;
-        int i21;
-        int i22;
-        int i23;
-        uz9 uz9Var2;
-        int i24;
-        int i25;
-        int i26;
-        ByteBuffer byteBuffer2;
-        int i27;
-        int i28;
-        int a;
-        char c;
-        int i29;
-        int i30;
-        int i31;
-        int i32;
-        ByteBuffer byteBuffer3;
-        int a2;
-        char c2;
-        int i33;
-        int i34;
-        int i35;
-        int a3;
-        char c3;
-        int i36;
-        int i37;
-        int i38;
-        int i39;
-        int i40;
-        int i41;
-        int i42;
-        int i43;
-        int i44;
-        int i45;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{inputStream, outputStream, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Double.valueOf(d), Integer.valueOf(i6), Boolean.valueOf(z), Integer.valueOf(i7)})) == null) {
-            int i46 = i5;
-            double[] dArr3 = {0.0d};
-            int i47 = this.e;
-            double d5 = this.c;
-            int f = f(i4, i46);
-            int i48 = i46 / f;
-            if (i48 == 1) {
-                i8 = 1;
-            } else if (i48 % 2 == 0) {
-                i8 = 2;
-            } else if (i48 % 3 != 0) {
-                throw new IllegalArgumentException(String.format("Resampling from %dHz to %dHz is not supported.\n%d/gcd(%d,%d)=%d must be divided by 2 or 3.", Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i5), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i48)));
-            } else {
-                i8 = 3;
-            }
-            int i49 = i4 * i8;
-            double d6 = d5 <= 21.0d ? 0.9222d : (d5 - 7.95d) / 14.36d;
-            int i50 = 1;
-            while (true) {
-                int i51 = i47 * i50;
-                if (i51 % 2 == 0) {
-                    i51--;
-                }
-                i9 = i51;
-                d2 = i49;
-                double d7 = (d2 * d6) / (i9 - 1);
-                d3 = i46;
-                d4 = (d3 - d7) / 2.0d;
-                i10 = i8;
-                if (d7 < this.d) {
-                    break;
-                }
-                i50 *= 2;
-                i46 = i5;
-                i49 = i49;
-                i8 = i10;
-            }
-            double b = b(d5);
-            double a4 = rz9.a(b);
-            int c4 = c(i9);
-            double[] dArr4 = new double[c4];
-            int i52 = i9 / 2;
-            int i53 = -i52;
-            while (i53 <= i52) {
-                int i54 = i53 + i52;
-                int i55 = i52;
-                int i56 = i53;
-                int i57 = i9;
-                double[] dArr5 = dArr4;
-                int i58 = i9;
-                int i59 = c4;
-                dArr5[i54] = ((((p(i53, i57, b, a4) * h(i56, d4, d2)) * d2) / i4) / i59) * 2.0d;
-                i53 = i56 + 1;
-                i10 = i10;
-                c4 = i59;
-                dArr3 = dArr3;
-                dArr4 = dArr5;
-                i52 = i55;
-                i9 = i58;
-                i49 = i49;
-            }
-            int i60 = i53;
-            double[] dArr6 = dArr4;
-            double[] dArr7 = dArr3;
-            int i61 = i49;
-            int i62 = i9;
-            int i63 = c4;
-            int i64 = i10;
-            int[] iArr4 = new int[(int) (Math.sqrt(i63) + 2.0d)];
-            iArr4[0] = 0;
-            int i65 = i63 / 2;
-            double[] dArr8 = new double[i65];
-            this.b.B(i63, 1, dArr6, iArr4, dArr8);
-            if (i64 == 1) {
-                int i66 = (i4 / f) * i46;
-                double[][] dArr9 = (double[][]) Array.newInstance(double.class, 1, 1);
-                dArr9[0][0] = 1.0d;
-                iArr = new int[]{i4 / i46};
-                iArr2 = iArr4;
-                i13 = i65;
-                i12 = i63;
-                i17 = 1;
-                i16 = 1;
-                dArr = dArr9;
-                i15 = i66;
-                iArr3 = new int[]{0};
-                i18 = i60;
-                i14 = 1;
-            } else {
-                double d8 = this.c;
-                int i67 = (i4 / f) * i46;
-                int i68 = i4 / 2;
-                int[] iArr5 = iArr4;
-                double d9 = (i11 * 2) / 2.0d;
-                i12 = i63;
-                double d10 = i68 + (((i61 / 2) - i68) / 2.0d);
-                double d11 = i67;
-                int i69 = (int) (((d11 / d9) * (d8 > 21.0d ? (d8 - 7.95d) / 14.36d : 0.9222d)) + 1.0d);
-                if (i69 % 2 == 0) {
-                    i69++;
-                }
-                int i70 = i69;
-                double b2 = b(d8);
-                double a5 = rz9.a(b2);
-                int i71 = i67 / i61;
-                int i72 = (i70 / i71) + 1;
-                int[] iArr6 = new int[i71];
-                for (int i73 = 0; i73 < i71; i73++) {
-                    iArr6[i73] = i71 - (((i67 / i46) * i73) % i71);
-                    if (iArr6[i73] == i71) {
-                        iArr6[i73] = 0;
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a.g == 1) {
+                    long uptimeMillis = SystemClock.uptimeMillis() - this.a.h;
+                    if (uptimeMillis >= 5000) {
+                        if (uz9.y) {
+                            Log.d("UBCBehaviorModel", String.format("***saveCache after %d ms***", Long.valueOf(uptimeMillis)));
+                        }
+                        this.a.z();
+                        this.a.g = 0;
+                        return;
                     }
-                }
-                int[] iArr7 = new int[i71];
-                int i74 = 0;
-                while (i74 < i71) {
-                    iArr7[i74] = (((i67 / i46) - iArr6[i74]) / i71) + 1;
-                    double d12 = d11;
-                    int i75 = i74 + 1;
-                    if (iArr6[i75 == i71 ? 0 : i75] == 0) {
-                        iArr7[i74] = iArr7[i74] - 1;
-                    }
-                    i74 = i75;
-                    d11 = d12;
-                }
-                double d13 = d11;
-                double[][] dArr10 = (double[][]) Array.newInstance(double.class, i71, i72);
-                int i76 = i70 / 2;
-                int i77 = -i76;
-                while (i77 <= i76) {
-                    int i78 = i77 + i76;
-                    int i79 = i77;
-                    dArr10[i78 % i71][i78 / i71] = ((p(i77, i70, b2, a5) * h(i79, d10, d13)) * d13) / d2;
-                    i77 = i79 + 1;
-                    i65 = i65;
-                    i67 = i67;
-                    iArr6 = iArr6;
-                    i71 = i71;
-                    iArr5 = iArr5;
-                    i76 = i76;
-                    iArr7 = iArr7;
-                }
-                iArr = iArr7;
-                i13 = i65;
-                iArr2 = iArr5;
-                int i80 = i71;
-                i14 = i70;
-                i15 = i67;
-                iArr3 = iArr6;
-                i16 = i72;
-                dArr = dArr10;
-                i17 = i80;
-                i18 = i77;
-            }
-            l();
-            int[] iArr8 = {r10, i12};
-            int i81 = i;
-            double[][] dArr11 = (double[][]) Array.newInstance(double.class, iArr8);
-            int i82 = i16 + 1;
-            int i83 = i82 + i13;
-            int i84 = i18;
-            double[][] dArr12 = (double[][]) Array.newInstance(double.class, i81, i83);
-            int i85 = ((i13 / i64) + i64 + 1) * i81;
-            int i86 = i2;
-            ByteBuffer allocate = ByteBuffer.allocate(i85 * i86);
-            int i87 = i82;
-            int[] iArr9 = iArr3;
-            int i88 = i16;
-            double d14 = i4;
-            double d15 = ((i13 * d3) / d14) + 1.0d;
-            int i89 = i3 * i81;
-            int i90 = i17;
-            double[][] dArr13 = dArr;
-            double d16 = i89;
-            ByteBuffer allocate2 = ByteBuffer.allocate((int) (d15 * d16));
-            double[] dArr14 = new double[i85];
-            double d17 = d16;
-            double[] dArr15 = new double[(int) (i81 * d15)];
-            int i91 = (int) (((i62 / 2.0d) / (d2 / d3)) + ((i14 / 2.0d) / (i15 / d3)));
-            int i92 = i84;
-            ByteBuffer byteBuffer4 = allocate;
-            int i93 = 0;
-            int i94 = 0;
-            int i95 = 0;
-            int i96 = 0;
-            int i97 = 0;
-            int i98 = 0;
-            boolean z2 = true;
-            int i99 = i6;
-            while (true) {
-                int i100 = (((i13 + 0) - 1) / i64) + 1;
-                int i101 = i92;
-                if (i100 + i94 > i99) {
-                    i100 = i99 - i94;
-                }
-                byteBuffer4.position(0);
-                int i102 = i86 * i81;
-                int i103 = i99;
-                byteBuffer4.limit(i102 * i100);
-                byte[] bArr = new byte[byteBuffer4.limit()];
-                int i104 = i96;
-                int read = inputStream.read(bArr);
-                int i105 = i93;
-                if (read < 0) {
-                    i20 = i95;
-                    i19 = 0;
+                    vz9.w().J(this, 5000 - uptimeMillis);
+                } else if (this.a.g != 2) {
                 } else {
-                    i19 = read;
-                    i20 = i95;
+                    this.a.g = 0;
                 }
-                int i106 = i19 < byteBuffer4.limit() ? ((i19 / i86) * i81) + i94 : i103;
-                byteBuffer4.limit(i19);
-                ByteBuffer wrap = ByteBuffer.wrap(bArr);
-                wrap.position(i19);
-                wrap.flip();
-                int i107 = i19 / i102;
-                if (i86 == 1) {
-                    uz9Var = this;
-                    dArr2 = dArr15;
-                    byteBuffer = allocate2;
-                    i21 = i91;
-                    int i108 = i15;
-                    i22 = 0;
-                    while (i22 < i107 * i81) {
-                        dArr14[(i81 * 0) + i22] = ((wrap.get(i22) & 255) - 128) * 0.007874015748031496d;
-                        i22++;
-                        i108 = i108;
-                    }
-                    i23 = i108;
-                } else if (i86 == 2) {
-                    uz9Var = this;
-                    dArr2 = dArr15;
-                    int i109 = i15;
-                    byteBuffer = allocate2;
-                    i21 = i91;
-                    i22 = 0;
-                    while (i22 < i107 * i81) {
-                        dArr14[(i81 * 0) + i22] = wrap.order(uz9Var.a).asShortBuffer().get(i22) * 3.051850947599719E-5d;
-                        i22++;
-                        i109 = i109;
-                    }
-                    i23 = i109;
-                } else if (i86 == 3) {
-                    uz9Var = this;
-                    i21 = i91;
-                    i22 = 0;
-                    while (i22 < i107 * i81) {
-                        int i110 = i22 * 3;
-                        dArr14[(i81 * 0) + i22] = (((wrap.get(i110 + 1) & 255) << 8) | ((wrap.get(i110) & 255) << 0) | ((wrap.get(i110 + 2) & 255) << 16)) * 1.1920930376163766E-7d;
-                        i22++;
-                        i15 = i15;
-                        allocate2 = allocate2;
-                        dArr15 = dArr15;
-                    }
-                    dArr2 = dArr15;
-                    byteBuffer = allocate2;
-                    i23 = i15;
-                } else if (i86 != 4) {
-                    uz9Var = this;
-                    i22 = i101;
-                    dArr2 = dArr15;
-                    i23 = i15;
-                    byteBuffer = allocate2;
-                    i21 = i91;
-                } else {
-                    i22 = 0;
-                    while (i22 < i107 * i81) {
-                        dArr14[(i81 * 0) + i22] = wrap.order(this.a).getInt(i22) * 4.656612875245797E-10d;
-                        i22++;
-                        i91 = i91;
-                    }
-                    uz9Var = this;
-                    i21 = i91;
-                    dArr2 = dArr15;
-                    i23 = i15;
-                    byteBuffer = allocate2;
-                }
-                while (i22 < i81 * i100) {
-                    dArr14[i22] = 0.0d;
-                    i22++;
-                }
-                int i111 = i94 + i107;
-                boolean z3 = inputStream.available() < 0 || i111 >= i106;
-                int i112 = i104;
-                int i113 = i105;
-                int i114 = 0;
-                while (i114 < i81) {
-                    int i115 = 0;
-                    int i116 = 0;
-                    while (i116 < i13) {
-                        dArr11[i114][i116] = dArr14[(i115 * i81) + i114];
-                        int i117 = i116 + 1;
-                        while (true) {
-                            i45 = i116 + i64;
-                            if (i117 < i45) {
-                                dArr11[i114][i117] = 0.0d;
-                                i117++;
-                            }
-                        }
-                        i115++;
-                        i116 = i45;
-                    }
-                    int i118 = i12;
-                    for (int i119 = i13; i119 < i118; i119++) {
-                        dArr11[i114][i119] = 0.0d;
-                    }
-                    uz9 uz9Var3 = uz9Var;
-                    ByteBuffer byteBuffer5 = wrap;
-                    int i120 = i87;
-                    int i121 = i106;
-                    double[] dArr16 = dArr14;
-                    int i122 = i90;
-                    double d18 = d17;
-                    uz9Var.b.B(i118, 1, dArr11[i114], iArr2, dArr8);
-                    dArr11[i114][0] = dArr6[0] * dArr11[i114][0];
-                    dArr11[i114][1] = dArr6[1] * dArr11[i114][1];
-                    for (int i123 = 1; i123 < i13; i123++) {
-                        int i124 = i123 * 2;
-                        int i125 = i124 + 1;
-                        dArr11[i114][i124] = (dArr6[i124] * dArr11[i114][i124]) - (dArr6[i125] * dArr11[i114][i125]);
-                        dArr11[i114][i125] = (dArr6[i125] * dArr11[i114][i124]) + (dArr6[i124] * dArr11[i114][i125]);
-                    }
-                    uz9Var3.b.B(i118, -1, dArr11[i114], iArr2, dArr8);
-                    int i126 = 0;
-                    while (i126 < i13) {
-                        double[] dArr17 = dArr12[i114];
-                        int i127 = i120 + i126;
-                        dArr17[i127] = dArr17[i127] + dArr11[i114][i126];
-                        i126++;
-                    }
-                    int i128 = i23 / i61;
-                    int i129 = i98 / i128;
-                    if (i98 % i128 != 0) {
-                        i129++;
-                    }
-                    char c5 = 0;
-                    int length = (dArr12[0].length * i114) + i129;
-                    int i130 = i104;
-                    int i131 = 0;
-                    while (length - (dArr12[c5].length * i114) < i13 + 1) {
-                        int i132 = iArr9[i130];
-                        int i133 = iArr[i130] + length;
-                        i130++;
-                        if (i130 == i122) {
-                            i130 = 0;
-                        }
-                        double d19 = 0.0d;
-                        int i134 = 0;
-                        int i135 = i88;
-                        int i136 = i122;
-                        while (i134 < i135) {
-                            d19 += dArr13[i132][i134] * dArr12[length / dArr12[0].length][length % dArr12[0].length];
-                            length++;
-                            i134++;
-                            i132 = i132;
-                            i130 = i130;
-                        }
-                        dArr2[0 + (i131 * i81) + i114] = d19;
-                        i131++;
-                        length = i133;
-                        i126 = i134;
-                        c5 = 0;
-                        i88 = i135;
-                        i122 = i136;
-                    }
-                    i114++;
-                    i22 = i126;
-                    i12 = i118;
-                    wrap = byteBuffer5;
-                    i106 = i121;
-                    i90 = i122;
-                    d17 = d18;
-                    i88 = i88;
-                    i87 = i120;
-                    dArr14 = dArr16;
-                    i112 = i130;
-                    i113 = i131;
-                    uz9Var = uz9Var3;
-                }
-                uz9Var2 = uz9Var;
-                ByteBuffer byteBuffer6 = wrap;
-                double[] dArr18 = dArr14;
-                double d20 = d17;
-                int i137 = i12;
-                int i138 = i88;
-                int i139 = i90;
-                int i140 = i87;
-                int i141 = i106;
-                int i142 = i140;
-                int i143 = i98 + ((i23 / i5) * i113);
-                byteBuffer.clear();
-                if (z) {
-                    int i144 = 0;
-                    while (i144 < i113 * i81) {
-                        double d21 = dArr2[i144] > 0.0d ? dArr2[i144] : -dArr2[i144];
-                        if (dArr7[0] >= d21) {
-                            d21 = dArr7[0];
-                        }
-                        dArr7[0] = d21;
-                        byteBuffer.asDoubleBuffer().put(i144, dArr2[i144]);
-                        i144++;
-                    }
-                    i29 = i144;
-                } else {
-                    if (i3 == 1) {
-                        i24 = i138;
-                        i25 = i112;
-                        i26 = i137;
-                        byteBuffer2 = byteBuffer;
-                        i27 = i142;
-                        double d22 = d * 127.0d;
-                        i28 = 0;
-                        int i145 = 0;
-                        while (i28 < i113 * i81) {
-                            if (i7 != 0) {
-                                a = d(dArr2[i28] * d22, dArr7, i7, i145);
-                            } else {
-                                a = uz9Var2.a(dArr2[i28] * d22);
-                                if (a < -128) {
-                                    double d23 = a / (-128.0d);
-                                    c = 0;
-                                    if (dArr7[0] >= d23) {
-                                        d23 = dArr7[0];
-                                    }
-                                    dArr7[0] = d23;
-                                    a = -128;
-                                } else {
-                                    c = 0;
-                                }
-                                if (127 < a) {
-                                    double d24 = a / 127.0d;
-                                    if (dArr7[c] >= d24) {
-                                        d24 = dArr7[c];
-                                    }
-                                    dArr7[c] = d24;
-                                    a = 127;
-                                }
-                            }
-                            byteBuffer2.put(i28, (byte) (a + 128));
-                            int i146 = i145 + 1;
-                            i145 = i146 == i81 ? 0 : i146;
-                            i28++;
-                        }
-                    } else if (i3 == 2) {
-                        i24 = i138;
-                        i27 = i142;
-                        ByteBuffer byteBuffer7 = byteBuffer;
-                        double d25 = d * 32767.0d;
-                        int i147 = 0;
-                        int i148 = 0;
-                        while (i147 < i113 * i81) {
-                            if (i7 != 0) {
-                                i30 = i112;
-                                i32 = i147;
-                                i31 = i137;
-                                byteBuffer3 = byteBuffer7;
-                                a2 = d(dArr2[i147] * d25, dArr7, i7, i148);
-                            } else {
-                                i30 = i112;
-                                i31 = i137;
-                                i32 = i147;
-                                byteBuffer3 = byteBuffer7;
-                                a2 = uz9Var2.a(dArr2[i32] * d25);
-                                if (a2 < -32768) {
-                                    double d26 = a2 / (-32768.0d);
-                                    c2 = 0;
-                                    if (dArr7[0] >= d26) {
-                                        d26 = dArr7[0];
-                                    }
-                                    dArr7[0] = d26;
-                                    a2 = -32768;
-                                } else {
-                                    c2 = 0;
-                                }
-                                if (32767 < a2) {
-                                    double d27 = a2 / 32767.0d;
-                                    if (dArr7[c2] >= d27) {
-                                        d27 = dArr7[c2];
-                                    }
-                                    dArr7[c2] = d27;
-                                    a2 = 32767;
-                                }
-                            }
-                            byteBuffer3.order(uz9Var2.a).asShortBuffer().put(i32, (short) a2);
-                            int i149 = i148 + 1;
-                            i148 = i149 == i81 ? 0 : i149;
-                            i147 = i32 + 1;
-                            i112 = i30;
-                            byteBuffer7 = byteBuffer3;
-                            i137 = i31;
-                        }
-                        i25 = i112;
-                        i26 = i137;
-                        i28 = i147;
-                        byteBuffer2 = byteBuffer7;
-                    } else if (i3 != 3) {
-                        i29 = i22;
-                    } else {
-                        double d28 = d * 8388607.0d;
-                        i29 = 0;
-                        int i150 = 0;
-                        while (i29 < i113 * i81) {
-                            if (i7 != 0) {
-                                i33 = i29;
-                                i34 = i138;
-                                i35 = i142;
-                                a3 = d(dArr2[i29] * d28, dArr7, i7, i150);
-                            } else {
-                                i33 = i29;
-                                i34 = i138;
-                                i35 = i142;
-                                a3 = uz9Var2.a(dArr2[i33] * d28);
-                                if (a3 < -8388608) {
-                                    double d29 = a3 / (-8388608.0d);
-                                    c3 = 0;
-                                    if (dArr7[0] >= d29) {
-                                        d29 = dArr7[0];
-                                    }
-                                    dArr7[0] = d29;
-                                    a3 = -8388608;
-                                } else {
-                                    c3 = 0;
-                                }
-                                if (8388607 < a3) {
-                                    double d30 = a3 / 8388607.0d;
-                                    if (dArr7[c3] >= d30) {
-                                        d30 = dArr7[c3];
-                                    }
-                                    dArr7[c3] = d30;
-                                    a3 = 8388607;
-                                }
-                            }
-                            int i151 = i33 * 3;
-                            ByteBuffer byteBuffer8 = byteBuffer;
-                            byteBuffer8.put(i151, (byte) (a3 & 255));
-                            int i152 = a3 >> 8;
-                            byteBuffer8.put(i151 + 1, (byte) (i152 & 255));
-                            byteBuffer8.put(i151 + 2, (byte) ((i152 >> 8) & 255));
-                            int i153 = i150 + 1;
-                            i150 = i153 == i81 ? 0 : i153;
-                            i29 = i33 + 1;
-                            byteBuffer = byteBuffer8;
-                            i142 = i35;
-                            i138 = i34;
-                        }
-                        i24 = i138;
-                        i27 = i142;
-                        i25 = i112;
-                        i26 = i137;
-                        byteBuffer2 = byteBuffer;
-                        if (z2) {
-                            i36 = i27;
-                            i37 = i20;
-                            i38 = i21;
-                            if (i113 < i38) {
-                                i38 -= i113;
-                            } else if (z3) {
-                                double d31 = (i111 * d3) / d14;
-                                if (d31 + 2.0d > (i37 + i113) - i38) {
-                                    byteBuffer2.position(i89 * i38);
-                                    int i154 = i113 - i38;
-                                    byteBuffer2.limit(i89 * i154);
-                                    uz9Var2.q(outputStream, byteBuffer2);
-                                    i37 += i154;
-                                } else {
-                                    byteBuffer2.position(i89 * i38);
-                                    byteBuffer2.limit((int) (d20 * ((((Math.floor(d31) + 2.0d) + i37) + i113) - i38)));
-                                    uz9Var2.q(outputStream, byteBuffer2);
-                                    break;
-                                }
-                            } else {
-                                byteBuffer2.position(i89 * i38);
-                                byteBuffer2.limit(i89 * i113);
-                                uz9Var2.q(outputStream, byteBuffer2);
-                                i37 += i113 - i38;
-                                z2 = false;
-                            }
-                        } else {
-                            if (z3) {
-                                double d32 = (i111 * d3) / d14;
-                                i44 = i20 + i113;
-                                i36 = i27;
-                                if (d32 + 2.0d > i44) {
-                                    byteBuffer2.position(0);
-                                    byteBuffer2.limit(i89 * i113);
-                                    uz9Var2.q(outputStream, byteBuffer2);
-                                } else {
-                                    byteBuffer2.position(0);
-                                    int floor = (int) (((Math.floor(d32) + 2.0d) - i20) * d20);
-                                    if (floor > 0) {
-                                        byteBuffer2.limit(floor);
-                                        uz9Var2.q(outputStream, byteBuffer2);
-                                    }
-                                }
-                            } else {
-                                i36 = i27;
-                                byteBuffer2.position(0);
-                                byteBuffer2.limit(i89 * i113);
-                                uz9Var2.q(outputStream, byteBuffer2);
-                                i44 = i20 + i113;
-                            }
-                            i37 = i44;
-                            i38 = i21;
-                        }
-                        int i155 = i23 / i61;
-                        i39 = (i143 - 1) / i155;
-                        if (i39 > i13) {
-                            i39 = i13;
-                        }
-                        i40 = 0;
-                        while (i40 < i) {
-                            System.arraycopy(dArr12[i40], i39, dArr12[i40], 0, i83 - i39);
-                            i40++;
-                            i38 = i38;
-                            i29 = i29;
-                            i37 = i37;
-                        }
-                        int i156 = i38;
-                        int i157 = i29;
-                        int i158 = i37;
-                        i98 = i143 - (i39 * i155);
-                        for (i41 = 0; i41 < i; i41++) {
-                            System.arraycopy(dArr11[i41], i13, dArr12[i41], i36, i13);
-                        }
-                        int i159 = i97 + 1;
-                        if ((i97 & 7) == 7) {
-                            i42 = i159;
-                            i43 = i141;
-                            uz9Var2.m(i111 / i43);
-                        } else {
-                            i42 = i159;
-                            i43 = i141;
-                        }
-                        i91 = i156;
-                        i99 = i43;
-                        i94 = i111;
-                        i97 = i42;
-                        i93 = i113;
-                        i81 = i;
-                        i87 = i36;
-                        allocate2 = byteBuffer2;
-                        byteBuffer4 = byteBuffer6;
-                        i92 = i157;
-                        i95 = i158;
-                        i12 = i26;
-                        dArr14 = dArr18;
-                        i90 = i139;
-                        i15 = i23;
-                        dArr15 = dArr2;
-                        d17 = d20;
-                        i88 = i24;
-                        i86 = i2;
-                        i96 = i25;
-                    }
-                    i29 = i28;
-                    if (z2) {
-                    }
-                    int i1552 = i23 / i61;
-                    i39 = (i143 - 1) / i1552;
-                    if (i39 > i13) {
-                    }
-                    i40 = 0;
-                    while (i40 < i) {
-                    }
-                    int i1562 = i38;
-                    int i1572 = i29;
-                    int i1582 = i37;
-                    i98 = i143 - (i39 * i1552);
-                    while (i41 < i) {
-                    }
-                    int i1592 = i97 + 1;
-                    if ((i97 & 7) == 7) {
-                    }
-                    i91 = i1562;
-                    i99 = i43;
-                    i94 = i111;
-                    i97 = i42;
-                    i93 = i113;
-                    i81 = i;
-                    i87 = i36;
-                    allocate2 = byteBuffer2;
-                    byteBuffer4 = byteBuffer6;
-                    i92 = i1572;
-                    i95 = i1582;
-                    i12 = i26;
-                    dArr14 = dArr18;
-                    i90 = i139;
-                    i15 = i23;
-                    dArr15 = dArr2;
-                    d17 = d20;
-                    i88 = i24;
-                    i86 = i2;
-                    i96 = i25;
-                }
-                i24 = i138;
-                i25 = i112;
-                i26 = i137;
-                byteBuffer2 = byteBuffer;
-                i27 = i142;
-                if (z2) {
-                }
-                int i15522 = i23 / i61;
-                i39 = (i143 - 1) / i15522;
-                if (i39 > i13) {
-                }
-                i40 = 0;
-                while (i40 < i) {
-                }
-                int i15622 = i38;
-                int i15722 = i29;
-                int i15822 = i37;
-                i98 = i143 - (i39 * i15522);
-                while (i41 < i) {
-                }
-                int i15922 = i97 + 1;
-                if ((i97 & 7) == 7) {
-                }
-                i91 = i15622;
-                i99 = i43;
-                i94 = i111;
-                i97 = i42;
-                i93 = i113;
-                i81 = i;
-                i87 = i36;
-                allocate2 = byteBuffer2;
-                byteBuffer4 = byteBuffer6;
-                i92 = i15722;
-                i95 = i15822;
-                i12 = i26;
-                dArr14 = dArr18;
-                i90 = i139;
-                i15 = i23;
-                dArr15 = dArr2;
-                d17 = d20;
-                i88 = i24;
-                i86 = i2;
-                i96 = i25;
             }
-            uz9Var2.m(1.0d);
-            return dArr7[0];
-        }
-        return invokeCommon.doubleValue;
-    }
-
-    public final void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:247:0x0854  */
-    /* JADX WARN: Removed duplicated region for block: B:256:0x08b8  */
-    /* JADX WARN: Removed duplicated region for block: B:271:0x0953  */
-    /* JADX WARN: Removed duplicated region for block: B:272:0x095c  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public double o(InputStream inputStream, OutputStream outputStream, int i, int i2, int i3, int i4, int i5, double d, int i6, boolean z, int i7) throws IOException {
-        InterceptResult invokeCommon;
-        int i8;
-        int i9;
-        double d2;
-        double d3;
-        int i10;
-        double d4;
-        int i11;
-        int i12;
-        ByteBuffer byteBuffer;
-        int i13;
-        ByteBuffer byteBuffer2;
-        int i14;
-        double[] dArr;
-        double[] dArr2;
-        double d5;
-        int i15;
-        int i16;
-        int i17;
-        ByteBuffer byteBuffer3;
-        int i18;
-        int i19;
-        int a;
-        char c;
-        int i20;
-        int i21;
-        int i22;
-        ByteBuffer byteBuffer4;
-        int a2;
-        char c2;
-        int i23;
-        double[] dArr3;
-        double[] dArr4;
-        double d6;
-        int i24;
-        int i25;
-        int i26;
-        int i27;
-        int a3;
-        char c3;
-        int i28;
-        int i29;
-        int i30;
-        int i31;
-        int i32;
-        int i33;
-        int i34;
-        int i35;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{inputStream, outputStream, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Double.valueOf(d), Integer.valueOf(i6), Boolean.valueOf(z), Integer.valueOf(i7)})) == null) {
-            uz9 uz9Var = this;
-            Class<double> cls = double.class;
-            double[] dArr5 = {0.0d};
-            int i36 = uz9Var.e;
-            double d7 = uz9Var.c;
-            int f = i4 / uz9Var.f(i4, i5);
-            int i37 = f * i5;
-            int i38 = i37 / i5;
-            if (i38 == 1) {
-                i8 = 1;
-            } else if (i38 % 2 == 0) {
-                i8 = 2;
-            } else if (i38 % 3 != 0) {
-                throw new IllegalArgumentException(String.format("Resampling from %dHz to %dHz is not supported.\n%d/gcd(%d,%d)=%d must be divided by 2 or 3.\n", Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i4), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i38)));
-            } else {
-                i8 = 3;
-            }
-            int i39 = i5 * i8;
-            int i40 = i4 / 2;
-            double d8 = (i9 * 2) / 2.0d;
-            double d9 = i40;
-            int i41 = i36;
-            double d10 = d9 + (((i39 / 2) - i40) / 2.0d);
-            if (d7 <= 21.0d) {
-                d3 = d9;
-                d2 = 0.9222d;
-            } else {
-                d2 = (d7 - 7.95d) / 14.36d;
-                d3 = d9;
-            }
-            double d11 = i37;
-            int i42 = (int) (((d11 / d8) * d2) + 1.0d);
-            if (i42 % 2 == 0) {
-                i42++;
-            }
-            int i43 = i42;
-            double b = uz9Var.b(d7);
-            double a4 = rz9.a(b);
-            int i44 = i37 / i4;
-            int i45 = (i43 / i44) + 1;
-            int i46 = i44 * i8;
-            int[] iArr = new int[i46];
-            for (int i47 = 0; i47 < i46; i47++) {
-                iArr[i47] = i44 - (((i37 / i39) * i47) % i44);
-                if (iArr[i47] == i44) {
-                    iArr[i47] = 0;
+    /* loaded from: classes6.dex */
+    public class b implements l0a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ uz9 a;
+
+        public b(uz9 uz9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uz9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            int[] iArr2 = new int[i46];
-            int i48 = 0;
-            while (i48 < i46) {
-                int i49 = i46;
-                double[] dArr6 = dArr5;
-                iArr2[i48] = iArr[i48] < i37 / i39 ? i : 0;
-                if (iArr[i48] == i44) {
-                    iArr[i48] = 0;
-                }
-                i48++;
-                i46 = i49;
-                dArr5 = dArr6;
-            }
-            int i50 = i46;
-            double[] dArr7 = dArr5;
-            double[][] dArr8 = (double[][]) Array.newInstance((Class<?>) cls, i44, i45);
-            int i51 = i43 / 2;
-            int i52 = -i51;
-            while (i52 <= i51) {
-                int i53 = i52 + i51;
-                int i54 = i50;
-                int i55 = i52;
-                dArr8[i53 % i44][i53 / i44] = ((p(i52, i43, b, a4) * h(i55, d10, d11)) * d11) / i4;
-                i52 = i55 + 1;
-                uz9Var = this;
-                i39 = i39;
-                i45 = i45;
-                iArr2 = iArr2;
-                i43 = i43;
-                i51 = i51;
-                i37 = i37;
-                iArr = iArr;
-                i50 = i54;
-                i41 = i41;
-            }
-            int[] iArr3 = iArr;
-            int i56 = i45;
-            int i57 = i37;
-            int i58 = i39;
-            int i59 = i51;
-            int[] iArr4 = iArr2;
-            uz9 uz9Var2 = uz9Var;
-            int i60 = i41;
-            int i61 = i50;
-            double d12 = uz9Var2.c;
-            double d13 = d12 > 21.0d ? (d12 - 7.95d) / 14.36d : 0.9222d;
-            int i62 = 1;
-            while (true) {
-                int i63 = i60 * i62;
-                if (i63 % 2 == 0) {
-                    i63--;
-                }
-                i10 = i63;
-                d4 = i58;
-                if ((d4 * d13) / (i10 - 1) < uz9Var2.d) {
-                    break;
-                }
-                i62 *= 2;
-                uz9Var2 = uz9Var2;
-                i61 = i61;
-                cls = cls;
-            }
-            double b2 = uz9Var2.b(d12);
-            double a5 = rz9.a(b2);
-            int i64 = 1;
-            while (i64 < i10) {
-                i64 *= 2;
-            }
-            int i65 = i64 * 2;
-            double[] dArr9 = new double[i65];
-            int i66 = i10 / 2;
-            int i67 = -i66;
-            while (i67 <= i66) {
-                double d14 = d4;
-                double[] dArr10 = dArr9;
-                int i68 = i67;
-                double d15 = b2;
-                double d16 = b2;
-                uz9 uz9Var3 = uz9Var2;
-                int i69 = i65;
-                double p = p(i67, i10, d15, a5);
-                d4 = d14;
-                dArr10[i67 + i66] = ((p * h(i68, d3, d4)) / i69) * 2.0d;
-                i67 = i68 + 1;
-                uz9Var2 = uz9Var3;
-                i65 = i69;
-                i66 = i66;
-                b2 = d16;
-                dArr9 = dArr10;
-            }
-            int i70 = i67;
-            double[] dArr11 = dArr9;
-            double d17 = d4;
-            uz9 uz9Var4 = uz9Var2;
-            int i71 = i65;
-            int[] iArr5 = new int[(int) (Math.sqrt(i71) + 2.0d)];
-            iArr5[0] = 0;
-            int i72 = i71 / 2;
-            double[] dArr12 = new double[i72];
-            uz9Var4.b.B(i71, 1, dArr11, iArr5, dArr12);
-            l();
-            int i73 = (i72 / i8) + 1;
-            int[] iArr6 = {r4, i73};
-            int i74 = i;
-            double[][] dArr13 = (double[][]) Array.newInstance((Class<?>) cls, iArr6);
-            double[][] dArr14 = (double[][]) Array.newInstance((Class<?>) cls, i74, i71);
-            int i75 = (i72 + i56 + 2) * i74;
-            int i76 = i2;
-            ByteBuffer allocate = ByteBuffer.allocate(i75 * i76);
-            int i77 = i73 * i74;
-            ByteBuffer allocate2 = ByteBuffer.allocate(i77 * i3);
-            double[] dArr15 = new double[i75];
-            double[] dArr16 = new double[i77];
-            int i78 = i56;
-            int i79 = (int) ((i10 / 2.0d) / (i58 / i5));
-            int i80 = (i59 / i44) + 1;
-            ByteBuffer byteBuffer5 = allocate;
-            int i81 = 0;
-            int i82 = 0;
-            int i83 = 0;
-            int i84 = 0;
-            int i85 = 0;
-            int i86 = 0;
-            boolean z2 = true;
-            int i87 = i6;
-            int i88 = 0;
-            while (true) {
-                double[] dArr17 = dArr16;
-                double[] dArr18 = dArr15;
-                double d18 = i4;
-                double d19 = d18;
-                int ceil = (int) (((Math.ceil((i72 * d18) / d17) + 1.0d) + i78) - i80);
-                int i89 = ceil + i81 > i87 ? i87 - i81 : ceil;
-                byteBuffer5.position(0);
-                int i90 = i76 * i74;
-                byteBuffer5.limit(i89 * i90);
-                byte[] bArr = new byte[byteBuffer5.limit()];
-                int read = inputStream.read(bArr);
-                int i91 = i87;
-                int i92 = read < 0 ? 0 : read;
-                int i93 = i92 < byteBuffer5.limit() ? ((i92 / i76) * i74) + i81 : i91;
-                byteBuffer5.limit(i92);
-                ByteBuffer wrap = ByteBuffer.wrap(bArr);
-                wrap.position(i92);
-                wrap.flip();
-                int i94 = i92 / i90;
-                if (i76 != 1) {
-                    if (i76 == 2) {
-                        i12 = i71;
-                        byteBuffer = allocate2;
-                        i13 = 0;
-                        while (i13 < i94 * i74) {
-                            dArr18[(i74 * i80) + i13] = wrap.order(uz9Var4.a).asShortBuffer().get(i13) * 3.051850947599719E-5d;
-                            i13++;
-                            uz9Var4 = this;
-                            i72 = i72;
-                        }
-                    } else if (i76 == 3) {
-                        byteBuffer = allocate2;
-                        i13 = 0;
-                        while (i13 < i94 * i74) {
-                            int i95 = i13 * 3;
-                            dArr18[(i74 * i80) + i13] = ((wrap.get(i95 + 1) << 8) | (wrap.get(i95) << 0) | (wrap.get(i95 + 2) << 16)) * 1.1920930376163766E-7d;
-                            i13++;
-                            i71 = i71;
-                        }
-                        i12 = i71;
-                    } else if (i76 != 4) {
-                        i11 = i72;
-                        i12 = i71;
-                        i13 = i70;
-                        byteBuffer = allocate2;
-                    } else {
-                        i13 = 0;
-                        while (i13 < i94 * i74) {
-                            dArr18[(i74 * i80) + i13] = wrap.order(uz9Var4.a).asIntBuffer().get(i13) * 4.656612875245797E-10d;
-                            i13++;
-                            allocate2 = allocate2;
-                        }
-                        byteBuffer = allocate2;
-                        i11 = i72;
-                        i12 = i71;
-                    }
-                    i11 = i72;
-                } else {
-                    i11 = i72;
-                    i12 = i71;
-                    byteBuffer = allocate2;
-                    i13 = 0;
-                    while (i13 < i94 * i74) {
-                        dArr18[(i74 * i80) + i13] = (wrap.get(i13) - 128.0d) * 0.007874015748031496d;
-                        i13++;
-                    }
-                }
-                while (i13 < i74 * ceil) {
-                    dArr18[(i74 * i80) + i13] = 0.0d;
-                    i13++;
-                }
-                int i96 = i80 + ceil;
-                i81 += i94;
-                boolean z3 = i81 >= i93;
-                int i97 = ((((i82 - 1) * i4) + i57) / i57) * i74;
-                int i98 = i83;
-                int i99 = i84;
-                int i100 = i85;
-                int i101 = 0;
-                while (i101 < i74) {
-                    int i102 = i97 + i101;
-                    if (i78 == 7) {
-                        i33 = i61;
-                        i34 = i11;
-                        i35 = i84;
-                        for (int i103 = 0; i103 < i34; i103++) {
-                            int i104 = iArr3[i35];
-                            dArr14[i101][i103] = (dArr8[i104][0] * dArr18[i102 + (i74 * 0)]) + (dArr8[i104][1] * dArr18[i102 + (i74 * 1)]) + (dArr8[i104][2] * dArr18[i102 + (i74 * 2)]) + (dArr8[i104][3] * dArr18[i102 + (i74 * 3)]) + (dArr8[i104][4] * dArr18[i102 + (i74 * 4)]) + (dArr8[i104][5] * dArr18[i102 + (i74 * 5)]) + (dArr8[i104][6] * dArr18[i102 + (i74 * 6)]);
-                            i102 += iArr4[i35];
-                            i35++;
-                            if (i35 == i33) {
-                                i35 = 0;
-                            }
-                        }
-                    } else if (i78 != 9) {
-                        i35 = i84;
-                        i34 = i11;
-                        int i105 = 0;
-                        while (i105 < i34) {
-                            int i106 = iArr3[i35];
-                            int i107 = i102;
-                            double d20 = 0.0d;
-                            for (int i108 = 0; i108 < i78; i108++) {
-                                d20 += dArr8[i106][i108] * dArr18[i107];
-                                i107 += i74;
-                            }
-                            dArr14[i101][i105] = d20;
-                            i102 += iArr4[i35];
-                            i35++;
-                            int i109 = i61;
-                            if (i35 == i109) {
-                                i35 = 0;
-                            }
-                            i105++;
-                            i61 = i109;
-                        }
-                        i33 = i61;
-                    } else {
-                        i33 = i61;
-                        i34 = i11;
-                        i35 = i84;
-                        for (int i110 = 0; i110 < i34; i110++) {
-                            int i111 = iArr3[i35];
-                            dArr14[i101][i110] = (dArr8[i111][0] * dArr18[i102 + (i74 * 0)]) + (dArr8[i111][1] * dArr18[i102 + (i74 * 1)]) + (dArr8[i111][2] * dArr18[i102 + (i74 * 2)]) + (dArr8[i111][3] * dArr18[i102 + (i74 * 3)]) + (dArr8[i111][4] * dArr18[i102 + (i74 * 4)]) + (dArr8[i111][5] * dArr18[i102 + (i74 * 5)]) + (dArr8[i111][6] * dArr18[i102 + (i74 * 6)]) + (dArr8[i111][7] * dArr18[i102 + (i74 * 7)]) + (dArr8[i111][8] * dArr18[i102 + (i74 * 8)]);
-                            i102 += iArr4[i35];
-                            i35++;
-                            if (i35 == i33) {
-                                i35 = 0;
-                            }
-                        }
-                    }
-                    int i112 = i12;
-                    for (int i113 = i34; i113 < i112; i113++) {
-                        dArr14[i101][i113] = 0.0d;
-                    }
-                    this.b.B(i112, 1, dArr14[i101], iArr5, dArr12);
-                    dArr14[i101][0] = dArr11[0] * dArr14[i101][0];
-                    dArr14[i101][1] = dArr11[1] * dArr14[i101][1];
-                    for (int i114 = 1; i114 < i34; i114++) {
-                        int i115 = i114 * 2;
-                        int i116 = i115 + 1;
-                        dArr14[i101][i115] = (dArr11[i115] * dArr14[i101][i115]) - (dArr11[i116] * dArr14[i101][i116]);
-                        dArr14[i101][i116] = (dArr11[i116] * dArr14[i101][i115]) + (dArr11[i115] * dArr14[i101][i116]);
-                    }
-                    this.b.B(i112, -1, dArr14[i101], iArr5, dArr12);
-                    int i117 = i97;
-                    int i118 = i85;
-                    int i119 = 0;
-                    while (i118 < i34) {
-                        dArr17[i101 + (i119 * i74)] = dArr13[i101][i119] + dArr14[i101][i118];
-                        i118 += i8;
-                        i119++;
-                    }
-                    int i120 = i118 - i34;
-                    int i121 = 0;
-                    while (i118 < i112) {
-                        dArr13[i101][i121] = dArr14[i101][i118];
-                        i118 += i8;
-                        i121++;
-                    }
-                    i101++;
-                    i13 = i118;
-                    i12 = i112;
-                    i11 = i34;
-                    i99 = i35;
-                    i61 = i33;
-                    i98 = i119;
-                    i97 = i117;
-                    i100 = i120;
-                }
-                int i122 = i61;
-                int i123 = i12;
-                int i124 = i11;
-                int i125 = i82 + ((i124 * f) / i8);
-                byteBuffer.clear();
-                if (z) {
-                    int i126 = 0;
-                    while (i126 < i98 * i74) {
-                        double d21 = dArr17[i126] > 0.0d ? dArr17[i126] : -dArr17[i126];
-                        if (dArr7[0] >= d21) {
-                            d21 = dArr7[0];
-                        }
-                        dArr7[0] = d21;
-                        byteBuffer.asDoubleBuffer().put(i126, dArr17[i126]);
-                        i126++;
-                        wrap = wrap;
-                    }
-                    byteBuffer2 = wrap;
-                    i14 = i99;
-                    dArr = dArr18;
-                    dArr2 = dArr17;
-                    d5 = d19;
-                    i15 = i74;
-                    i16 = i100;
-                    i17 = i78;
-                    byteBuffer3 = byteBuffer;
-                    i19 = i126;
-                } else {
-                    byteBuffer2 = wrap;
-                    if (i3 == 1) {
-                        i14 = i99;
-                        dArr = dArr18;
-                        dArr2 = dArr17;
-                        d5 = d19;
-                        i15 = i74;
-                        i16 = i100;
-                        i17 = i78;
-                        byteBuffer3 = byteBuffer;
-                        i18 = i123;
-                        double d22 = d * 127.0d;
-                        i19 = 0;
-                        int i127 = 0;
-                        while (i19 < i98 * i15) {
-                            if (i7 != 0) {
-                                a = d(dArr2[i19] * d22, dArr7, i7, i127);
-                            } else {
-                                a = a(dArr2[i19] * d22);
-                                if (a < -128) {
-                                    double d23 = a / (-128.0d);
-                                    c = 0;
-                                    if (dArr7[0] >= d23) {
-                                        d23 = dArr7[0];
-                                    }
-                                    dArr7[0] = d23;
-                                    a = -128;
-                                } else {
-                                    c = 0;
-                                }
-                                if (127 < a) {
-                                    double d24 = a / 127.0d;
-                                    if (dArr7[c] >= d24) {
-                                        d24 = dArr7[c];
-                                    }
-                                    dArr7[c] = d24;
-                                    a = 127;
-                                }
-                            }
-                            byteBuffer3.put(i19, (byte) (a + 128));
-                            int i128 = i127 + 1;
-                            i127 = i128 == i15 ? 0 : i128;
-                            i19++;
-                        }
-                    } else if (i3 == 2) {
-                        i14 = i99;
-                        dArr = dArr18;
-                        dArr2 = dArr17;
-                        d5 = d19;
-                        i15 = i74;
-                        i16 = i100;
-                        int i129 = i123;
-                        ByteBuffer byteBuffer6 = byteBuffer;
-                        double d25 = d * 32767.0d;
-                        int i130 = 0;
-                        int i131 = 0;
-                        while (i130 < i98 * i15) {
-                            if (i7 != 0) {
-                                i20 = i129;
-                                i22 = i130;
-                                i21 = i78;
-                                byteBuffer4 = byteBuffer6;
-                                a2 = d(dArr2[i130] * d25, dArr7, i7, i131);
-                            } else {
-                                i20 = i129;
-                                i21 = i78;
-                                i22 = i130;
-                                byteBuffer4 = byteBuffer6;
-                                a2 = a(dArr2[i22] * d25);
-                                if (a2 < -32768) {
-                                    double d26 = a2 / (-32768.0d);
-                                    c2 = 0;
-                                    if (dArr7[0] >= d26) {
-                                        d26 = dArr7[0];
-                                    }
-                                    dArr7[0] = d26;
-                                    a2 = -32768;
-                                } else {
-                                    c2 = 0;
-                                }
-                                if (32767 < a2) {
-                                    double d27 = a2 / 32767.0d;
-                                    if (dArr7[c2] >= d27) {
-                                        d27 = dArr7[c2];
-                                    }
-                                    dArr7[c2] = d27;
-                                    a2 = 32767;
-                                }
-                            }
-                            byteBuffer4.order(this.a).asShortBuffer().put(i22, (short) a2);
-                            int i132 = i131 + 1;
-                            i131 = i132 == i15 ? 0 : i132;
-                            i130 = i22 + 1;
-                            byteBuffer6 = byteBuffer4;
-                            i129 = i20;
-                            i78 = i21;
-                        }
-                        i18 = i129;
-                        i17 = i78;
-                        i19 = i130;
-                        byteBuffer3 = byteBuffer6;
-                    } else if (i3 != 3) {
-                        i14 = i99;
-                        dArr = dArr18;
-                        dArr2 = dArr17;
-                        d5 = d19;
-                        i15 = i74;
-                        i16 = i100;
-                        i17 = i78;
-                        byteBuffer3 = byteBuffer;
-                        i19 = i13;
-                    } else {
-                        double d28 = d * 8388607.0d;
-                        int i133 = 0;
-                        int i134 = 0;
-                        while (i133 < i98 * i74) {
-                            if (i7 != 0) {
-                                i23 = i99;
-                                dArr4 = dArr17;
-                                d6 = d19;
-                                i26 = i100;
-                                dArr3 = dArr18;
-                                i24 = i133;
-                                i25 = i74;
-                                i27 = i123;
-                                a3 = d(dArr17[i133] * d28, dArr7, i7, i134);
-                            } else {
-                                i23 = i99;
-                                dArr3 = dArr18;
-                                dArr4 = dArr17;
-                                d6 = d19;
-                                i24 = i133;
-                                i25 = i74;
-                                i26 = i100;
-                                i27 = i123;
-                                a3 = a(dArr4[i24] * d28);
-                                if (a3 < -8388608) {
-                                    double d29 = a3 / (-8388608.0d);
-                                    c3 = 0;
-                                    if (dArr7[0] >= d29) {
-                                        d29 = dArr7[0];
-                                    }
-                                    dArr7[0] = d29;
-                                    a3 = -8388608;
-                                } else {
-                                    c3 = 0;
-                                }
-                                if (8388607 < a3) {
-                                    double d30 = a3 / 8388607.0d;
-                                    if (dArr7[c3] >= d30) {
-                                        d30 = dArr7[c3];
-                                    }
-                                    dArr7[c3] = d30;
-                                    a3 = 8388607;
-                                }
-                            }
-                            int i135 = i24 * 3;
-                            ByteBuffer byteBuffer7 = byteBuffer;
-                            byteBuffer7.put(i135, (byte) (a3 & 255));
-                            int i136 = a3 >> 8;
-                            byteBuffer7.put(i135 + 1, (byte) (i136 & 255));
-                            byteBuffer7.put(i135 + 2, (byte) ((i136 >> 8) & 255));
-                            int i137 = i134 + 1;
-                            i134 = i137 == i25 ? 0 : i137;
-                            i133 = i24 + 1;
-                            byteBuffer = byteBuffer7;
-                            i74 = i25;
-                            i123 = i27;
-                            i99 = i23;
-                            i100 = i26;
-                            dArr18 = dArr3;
-                            d19 = d6;
-                            dArr17 = dArr4;
-                        }
-                        i14 = i99;
-                        dArr = dArr18;
-                        dArr2 = dArr17;
-                        d5 = d19;
-                        i15 = i74;
-                        i16 = i100;
-                        i19 = i133;
-                        i17 = i78;
-                        byteBuffer3 = byteBuffer;
-                    }
-                    if (z2) {
-                        if (z3) {
-                            double d31 = (i81 * i5) / d5;
-                            int i138 = i88 + i98;
-                            i28 = i93;
-                            if (d31 + 2.0d > i138) {
-                                byteBuffer3.position(0);
-                                byteBuffer3.limit(i3 * i15 * i98);
-                                q(outputStream, byteBuffer3);
-                                i31 = i138;
-                            } else {
-                                byteBuffer3.position(0);
-                                int floor = (int) (i3 * i15 * ((Math.floor(d31) + 2.0d) - i88));
-                                if (floor > 0) {
-                                    byteBuffer3.limit(floor);
-                                    q(outputStream, byteBuffer3);
-                                }
-                            }
-                        } else {
-                            i28 = i93;
-                            byteBuffer3.position(0);
-                            byteBuffer3.limit(i3 * i15 * i98);
-                            q(outputStream, byteBuffer3);
-                            i31 = i88 + i98;
-                        }
-                        i29 = i19;
-                        i30 = i96;
-                    } else {
-                        int i139 = i88;
-                        i28 = i93;
-                        int i140 = i79;
-                        if (i98 < i140) {
-                            i79 = i140 - i98;
-                            i31 = i139;
-                            i29 = i19;
-                            i30 = i96;
-                        } else if (z3) {
-                            double d32 = (i81 * i5) / d5;
-                            i29 = i19;
-                            i30 = i96;
-                            if (d32 + 2.0d > (i139 + i98) - i140) {
-                                int i141 = i3 * i15;
-                                byteBuffer3.position(i141 * i140);
-                                byteBuffer3.limit(i141 * i98);
-                                q(outputStream, byteBuffer3);
-                                i31 = (i98 - i140) + i139;
-                                i79 = i140;
-                            } else {
-                                int i142 = i3 * i15;
-                                byteBuffer3.position(i140 * i142);
-                                byteBuffer3.limit((int) (i142 * ((Math.floor(d32) + 2.0d) - i139)));
-                                q(outputStream, byteBuffer3);
-                                break;
-                            }
-                        } else {
-                            i29 = i19;
-                            i30 = i96;
-                            int i143 = i3 * i15;
-                            byteBuffer3.position(i143 * i140);
-                            byteBuffer3.limit(i143 * i98);
-                            q(outputStream, byteBuffer3);
-                            i31 = (i98 - i140) + i139;
-                            i79 = i140;
-                            z2 = false;
-                            int i144 = (i125 - 1) / i44;
-                            i80 = i30 - i144;
-                            double[] dArr19 = dArr;
-                            System.arraycopy(dArr19, i15 * i144, dArr19, 0, i15 * i80);
-                            i82 = i125 - (i144 * i44);
-                            int i145 = i86 + 1;
-                            if ((i86 & 7) == 7) {
-                                i32 = i28;
-                                m(i81 / i32);
-                            } else {
-                                i32 = i28;
-                            }
-                            i88 = i31;
-                            i86 = i145;
-                            dArr15 = dArr19;
-                            i74 = i15;
-                            i87 = i32;
-                            uz9Var4 = this;
-                            byteBuffer5 = byteBuffer2;
-                            i61 = i122;
-                            i72 = i124;
-                            i71 = i18;
-                            dArr16 = dArr2;
-                            i84 = i14;
-                            i85 = i16;
-                            i76 = i2;
-                            i83 = i98;
-                            i70 = i29;
-                            allocate2 = byteBuffer3;
-                            i78 = i17;
-                        }
-                    }
-                    int i1442 = (i125 - 1) / i44;
-                    i80 = i30 - i1442;
-                    double[] dArr192 = dArr;
-                    System.arraycopy(dArr192, i15 * i1442, dArr192, 0, i15 * i80);
-                    i82 = i125 - (i1442 * i44);
-                    int i1452 = i86 + 1;
-                    if ((i86 & 7) == 7) {
-                    }
-                    i88 = i31;
-                    i86 = i1452;
-                    dArr15 = dArr192;
-                    i74 = i15;
-                    i87 = i32;
-                    uz9Var4 = this;
-                    byteBuffer5 = byteBuffer2;
-                    i61 = i122;
-                    i72 = i124;
-                    i71 = i18;
-                    dArr16 = dArr2;
-                    i84 = i14;
-                    i85 = i16;
-                    i76 = i2;
-                    i83 = i98;
-                    i70 = i29;
-                    allocate2 = byteBuffer3;
-                    i78 = i17;
-                }
-                i18 = i123;
-                if (z2) {
-                }
-                int i14422 = (i125 - 1) / i44;
-                i80 = i30 - i14422;
-                double[] dArr1922 = dArr;
-                System.arraycopy(dArr1922, i15 * i14422, dArr1922, 0, i15 * i80);
-                i82 = i125 - (i14422 * i44);
-                int i14522 = i86 + 1;
-                if ((i86 & 7) == 7) {
-                }
-                i88 = i31;
-                i86 = i14522;
-                dArr15 = dArr1922;
-                i74 = i15;
-                i87 = i32;
-                uz9Var4 = this;
-                byteBuffer5 = byteBuffer2;
-                i61 = i122;
-                i72 = i124;
-                i71 = i18;
-                dArr16 = dArr2;
-                i84 = i14;
-                i85 = i16;
-                i76 = i2;
-                i83 = i98;
-                i70 = i29;
-                allocate2 = byteBuffer3;
-                i78 = i17;
-            }
-            m(1.0d);
-            return dArr7[0];
+            this.a = uz9Var;
         }
-        return invokeCommon.doubleValue;
+
+        @Override // com.baidu.tieba.l0a
+        public void a(boolean z, f0a f0aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZL(1048576, this, z, f0aVar) == null) {
+                if (!z) {
+                    this.a.e.z(f0aVar);
+                    return;
+                }
+                this.a.e.h();
+                p0a.f().a(f0aVar.l(), false);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public f0a b;
+        public File c;
+        public JSONObject d;
+        public String e;
+        public long f;
+        public boolean g;
+        public boolean h;
+        public l0a i;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = true;
+            this.b = null;
+            this.c = null;
+            this.d = null;
+            this.e = null;
+            this.f = -1L;
+            this.g = false;
+            this.h = false;
+            this.i = null;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements a1a.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d(uz9 uz9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {uz9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ d(uz9 uz9Var, a aVar) {
+            this(uz9Var);
+        }
+
+        @Override // com.baidu.tieba.a1a.e
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                vz9.w().P();
+                vz9.w().K();
+            }
+        }
+
+        @Override // com.baidu.tieba.a1a.e
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                vz9.w().P();
+                vz9.w().K();
+                vz9.w().E();
+            }
+        }
+
+        @Override // com.baidu.tieba.a1a.e
+        public void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                vz9.w().K();
+            }
+        }
+
+        @Override // com.baidu.tieba.a1a.e
+        public void d() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                vz9.w().P();
+                vz9.w().K();
+                vz9.w().E();
+            }
+        }
+
+        @Override // com.baidu.tieba.a1a.e
+        public void e() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                vz9.w().P();
+                vz9.w().K();
+                vz9.w().E();
+            }
+        }
     }
 
     static {
@@ -1672,745 +273,1496 @@ public class uz9 {
                 return;
             }
         }
-        q = new int[]{0, 48000, 44100, 37800, 32000, 22050, 48000, 44100};
-        r = new int[]{1, 16, 20, 16, 16, 15, 16, 15};
-        s = new int[]{8, 18, 27, 8, 8, 8, 10, 9};
-        t = new double[][]{new double[]{-1.0d}, new double[]{-2.87207293510437d, 5.041323184967041d, -6.244299411773682d, 5.848398685455322d, -3.706754207611084d, 1.0495119094848633d, 1.1830236911773682d, -2.1126792430877686d, 1.9094531536102295d, -0.9991308450698853d, 0.17090806365013123d, 0.32615602016448975d, -0.39127644896507263d, 0.2687646150588989d, -0.0976761057972908d, 0.023473845794796944d}, new double[]{-2.6773197650909424d, 4.830892562866211d, -6.570110321044922d, 7.4572014808654785d, -6.726327419281006d, 4.848165035247803d, -2.0412089824676514d, -0.7006359100341797d, 2.95375657081604d, -4.080038547515869d, 4.184521675109863d, -3.331181287765503d, 2.117992639541626d, -0.879302978515625d, 0.031759146600961685d, 0.4238278865814209d, -0.4788210391998291d, 0.35490813851356506d, -0.1749683916568756d, 0.06090816855430603d}, new double[]{-1.6335992813110352d, 2.261549234390259d, -2.407702922821045d, 2.634171724319458d, -2.144036293029785d, 1.8153258562088013d, -1.0816224813461304d, 0.703026533126831d, -0.15991993248462677d, -0.04154951870441437d, 0.2941657602787018d, -0.25183168053627014d, 0.27766478061676025d, -0.15785403549671173d, 0.10165894031524658d, -0.016833892092108727d}, new double[]{-0.8290129899978638d, 0.9892265796661377d, -0.5982571244239807d, 1.0028809309005737d, -0.5993821620941162d, 0.7950245141983032d, -0.42723315954208374d, 0.5449252724647522d, -0.3079260587692261d, 0.3687179982662201d, -0.187920480966568d, 0.2261127084493637d, -0.10573341697454453d, 0.11435490846633911d, -0.0388006791472435d, 0.040842197835445404d}, new double[]{-0.06522997468709946d, 0.5498126149177551d, 0.4027854800224304d, 0.3178376853466034d, 0.2820179760456085d, 0.16985194385051727d, 0.15433363616466522d, 0.12507140636444092d, 0.08903945237398148d, 0.06441012024879456d, 0.04714600369334221d, 0.03280523791909218d, 0.028495194390416145d, 0.011695005930960178d, 0.011831838637590408d}, new double[]{-2.3925774097442627d, 3.4350297451019287d, -3.185370922088623d, 1.8117271661758423d, 0.2012477070093155d, -1.4759907722473145d, 1.7210904359817505d, -0.9774670004844666d, 0.13790138065814972d, 0.38185903429985046d, -0.27421241998672485d, -0.06658421456813812d, 0.35223302245140076d, -0.37672343850135803d, 0.23964276909828186d, -0.06867482513189316d}, new double[]{-2.0833916664123535d, 3.0418450832366943d, -3.204789876937866d, 2.757192611694336d, -1.4978630542755127d, 0.34275946021080017d, 0.7173374891281128d, -1.073705792427063d, 1.0225815773010254d, -0.5664999485015869d, 0.20968692004680634d, 0.06537853181362152d, -0.10322438180446625d, 0.06744202226400375d, 0.00495197344571352d}};
+        y = t0a.m();
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:29:0x007b  */
-    /* JADX WARN: Removed duplicated region for block: B:31:0x007e  */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x008d  */
-    /* JADX WARN: Removed duplicated region for block: B:40:0x0095  */
-    /* JADX WARN: Removed duplicated region for block: B:45:0x0164  */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x0169  */
-    /* JADX WARN: Removed duplicated region for block: B:61:0x01b6  */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x01c8  */
-    /* JADX WARN: Removed duplicated region for block: B:66:0x01f9  */
-    /* JADX WARN: Removed duplicated region for block: B:72:0x0255  */
-    /* JADX WARN: Removed duplicated region for block: B:74:0x0260  */
-    /* JADX WARN: Removed duplicated region for block: B:77:0x026d  */
-    /* JADX WARN: Removed duplicated region for block: B:87:? A[ADDED_TO_REGION, RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public uz9(InputStream inputStream, OutputStream outputStream, int i, int i2, int i3, int i4, int i5, int i6, double d, int i7, boolean z) throws Exception {
-        int i8;
-        int i9;
-        int i10;
-        double[] dArr;
-        double d2;
-        int i11;
-        String str;
-        int i12;
-        double[] dArr2;
-        int i13;
-        int i14;
-        uz9 uz9Var;
-        int i15;
-        int i16;
-        int i17;
-        int i18;
-        int i19;
-        int i20;
+    public void H() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.e.C();
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
+            G(true);
+            G(false);
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
+            try {
+                z();
+            } catch (RuntimeException unused) {
+                if (y) {
+                    Log.d("UBCBehaviorModel", "save cache error!");
+                }
+            }
+        }
+    }
+
+    public q0a n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            return this.e;
+        }
+        return (q0a) invokeV.objValue;
+    }
+
+    public final void y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048619, this) == null) {
+            this.m++;
+            c1a.a().d("ubc_real_time_count", this.m);
+        }
+    }
+
+    public final void z() {
+        List<f0a> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048620, this) == null) && (list = this.i) != null && list.size() != 0) {
+            this.e.A(this.i);
+            this.i.clear();
+            if (this.g == 1) {
+                this.g = 2;
+            }
+        }
+    }
+
+    public uz9(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r4;
-            Object[] objArr = {inputStream, outputStream, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Double.valueOf(d), Integer.valueOf(i7), Boolean.valueOf(z)};
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i21 = newInitContext.flag;
-            if ((i21 & 1) != 0) {
-                int i22 = i21 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = ByteOrder.LITTLE_ENDIAN;
-        this.b = new vz9();
-        this.c = 150.0d;
-        this.d = 200.0d;
-        this.e = 1;
-        this.m = false;
-        double[] dArr3 = {0.0d};
-        if (i7 >= 0 && i7 <= 4) {
-            this.m = z;
-            if (!z) {
-                System.err.printf("Shibatch sampling rate converter version 1.30(high precision/nio)\n\n", new Object[0]);
+        this.c = false;
+        this.g = 0;
+        this.h = 0L;
+        this.x = new a(this);
+        this.d = context;
+        c1a a2 = c1a.a();
+        this.e = new q0a(context);
+        this.f = new tz9(context);
+        this.p = t0a.j();
+        this.i = new ArrayList(20);
+        this.j = a2.c("ubc_last_upload_non_real", 0L);
+        this.k = a2.c("ubc_reset_real_time_count_time", 0L);
+        this.l = a2.c("ubc_last_upload_failed_data_time", 0L);
+        this.m = a2.b("ubc_real_time_count", 0);
+        yz9 o = yz9.o();
+        this.q = o;
+        o.D(this, context);
+        this.b = System.currentTimeMillis();
+        this.a = new Random().nextInt(31) + 60;
+        this.v = yz9.o().I();
+        this.w = yz9.o().x();
+        p0a.f().g(this.e);
+        a1a m = a1a.m();
+        this.u = m;
+        m.n(this.d, this.e, new d(this, null));
+    }
+
+    public final void J(d1a d1aVar) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, d1aVar) == null) {
+            d1aVar.k();
+            if (d1aVar.y()) {
+                return;
             }
-            if (i3 != 1 && i3 != 2 && i3 != 3 && i3 != 4) {
-                throw new IllegalStateException("Error : Only 8bit, 16bit, 24bit and 32bit PCM are supported.");
-            }
-            int i23 = i4;
-            if (i23 == -1) {
-                if (i3 != 1) {
-                    i23 = i3;
-                } else {
-                    i23 = 2;
-                }
-                if (i23 == 4) {
-                    i8 = i2;
-                    i23 = 3;
-                    i8 = i8 == -1 ? i : i8;
-                    if (i7 != -1) {
-                        if (i23 < i3) {
-                            if (i23 == 1) {
-                                i9 = 4;
-                            } else {
-                                i9 = 3;
-                            }
-                        } else {
-                            i9 = 1;
-                        }
-                    } else {
-                        i9 = i7;
+            if (d1aVar.x()) {
+                str = d1aVar.p();
+            } else {
+                try {
+                    JSONObject u = d1aVar.u();
+                    String c2 = b1a.c(u.toString().getBytes(), true);
+                    D(u.toString(), c2);
+                    if (y) {
+                        s0a.a(d1aVar);
+                        Log.d("UBCBehaviorModel", "save send data to file " + c2);
                     }
-                    String str2 = "\n";
-                    if (this.m) {
-                        String[] strArr = {"none", "no noise shaping", "triangular spectral shape", "ATH based noise shaping", "ATH based noise shaping(less amplitude)"};
-                        String[] strArr2 = {"rectangular", "triangular", "gaussian"};
-                        dArr = dArr3;
-                        System.err.printf("frequency : %d -> %d\n", Integer.valueOf(i), Integer.valueOf(i8));
-                        System.err.printf("attenuation : %gdB\n", Double.valueOf(d));
-                        System.err.printf("bits per sample : %d -> %d\n", Integer.valueOf(i3 * 8), Integer.valueOf(i23 * 8));
-                        System.err.printf("nchannels : %d\n", Integer.valueOf(i5));
-                        i10 = i23;
-                        System.err.printf("length : %d bytes, %g secs\n", Integer.valueOf(i6), Double.valueOf(((i6 / i3) / i5) / i));
-                        if (i9 == 0) {
-                            i20 = 0;
-                            System.err.printf("dither type : none\n", new Object[0]);
-                        } else {
-                            i20 = 0;
-                            System.err.printf("dither type : %s, %s p.d.f, amp = %g\n", strArr[i9], strArr2[0], Double.valueOf(0.18d));
-                        }
-                        str2 = "\n";
-                        System.err.printf(str2, new Object[i20]);
-                    } else {
-                        i10 = i23;
-                        dArr = dArr3;
-                    }
-                    if (i9 == 0) {
-                        int i24 = i10;
-                        if (i24 == 1) {
-                            i17 = -128;
-                            i15 = 127;
-                            i16 = 2;
-                        } else {
-                            i15 = 0;
-                            i16 = 2;
-                            i17 = 0;
-                        }
-                        if (i24 == i16) {
-                            i17 = -32768;
-                            i15 = 32767;
-                        }
-                        if (i24 == 3) {
-                            i17 = -8388608;
-                            i15 = 8388607;
-                        }
-                        if (i24 == 4) {
-                            i19 = Integer.MIN_VALUE;
-                            i18 = Integer.MAX_VALUE;
-                        } else {
-                            i18 = i15;
-                            i19 = i17;
-                        }
-                        str = str2;
-                        i12 = i24;
-                        dArr2 = dArr;
-                        d2 = d;
-                        i11 = i8;
-                        i(i8, i5, i19, i18, i9, 0, 0.18d);
-                    } else {
-                        d2 = d;
-                        i11 = i8;
-                        str = str2;
-                        i12 = i10;
-                        dArr2 = dArr;
-                    }
-                    if (i >= i11) {
-                        int i25 = i11;
-                        i13 = i5;
-                        dArr2[0] = o(inputStream, outputStream, i5, i3, i12, i, i25, Math.pow(10.0d, (-d2) / 20.0d), (i6 / i3) / i13, false, i9);
-                    } else {
-                        int i26 = i11;
-                        i13 = i5;
-                        if (i > i26) {
-                            dArr2[0] = e(inputStream, outputStream, i5, i3, i12, i, i26, Math.pow(10.0d, (-d2) / 20.0d), (i6 / i3) / i13, false, i9);
-                        } else {
-                            i14 = 0;
-                            dArr2[0] = j(inputStream, outputStream, i5, i3, i12, Math.pow(10.0d, (-d2) / 20.0d), (i6 / i3) / i13, false, i9);
-                            uz9Var = this;
-                            if (!uz9Var.m) {
-                                System.err.printf(str, new Object[i14]);
-                            }
-                            if (i9 != 0) {
-                                uz9Var.k(i13);
-                            }
-                            if (dArr2[i14] > 1.0d && !uz9Var.m) {
-                                PrintStream printStream = System.err;
-                                Object[] objArr2 = new Object[1];
-                                objArr2[i14] = Double.valueOf(Math.log10(dArr2[i14]) * 20.0d);
-                                printStream.printf("clipping detected : %gdB\n", objArr2);
-                                return;
-                            }
-                            return;
-                        }
-                    }
-                    uz9Var = this;
-                    i14 = 0;
-                    if (!uz9Var.m) {
-                    }
-                    if (i9 != 0) {
-                    }
-                    if (dArr2[i14] > 1.0d) {
-                        return;
-                    }
+                    str = c2;
+                } catch (OutOfMemoryError unused) {
+                    d1aVar.e();
                     return;
                 }
             }
-            i8 = i2;
-            if (i8 == -1) {
+            if (!this.e.g(d1aVar, str)) {
+                d1aVar.e();
+                File file = new File(this.d.getFilesDir() + File.separator + "ubcsenddir", str);
+                if (file.exists() && file.delete()) {
+                    Log.d("UBCBehaviorModel", "db fail deleteUploadFile file suc");
+                }
+                this.e.l(str);
+                return;
             }
-            if (i7 != -1) {
+            v0a.a().m(d1aVar.B(), d1aVar.v());
+            vz9.w().Q(d1aVar, str);
+            d1aVar.e();
+            long currentTimeMillis = System.currentTimeMillis();
+            if (Math.abs(currentTimeMillis - this.l) < 7200000) {
+                return;
             }
-            String str22 = "\n";
-            if (this.m) {
-            }
-            if (i9 == 0) {
-            }
-            if (i >= i11) {
-            }
-            uz9Var = this;
-            i14 = 0;
-            if (!uz9Var.m) {
-            }
-            if (i9 != 0) {
-            }
-            if (dArr2[i14] > 1.0d) {
-            }
-        } else {
-            throw new IllegalArgumentException("unrecognized dither type : " + i7);
+            this.l = currentTimeMillis;
+            c1a.a().e("ubc_last_upload_failed_data_time", this.l);
+            vz9.w().E();
+            vz9.w().K();
         }
     }
 
-    public final double b(double d) {
-        InterceptResult invokeCommon;
+    public void O(g0a g0aVar) {
+        InputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Double.valueOf(d)})) == null) {
-            if (d <= 21.0d) {
-                return 0.0d;
-            }
-            if (d <= 50.0d) {
-                double d2 = d - 21.0d;
-                return (Math.pow(d2, 0.4d) * 0.5842d) + (d2 * 0.07886d);
-            }
-            return (d - 8.7d) * 0.1102d;
+        if ((interceptable != null && interceptable.invokeL(1048590, this, g0aVar) != null) || g0aVar == null) {
+            return;
         }
-        return invokeCommon.doubleValue;
-    }
-
-    public int d(double d, double[] dArr, int i, int i2) {
-        InterceptResult invokeCommon;
-        int i3;
-        double a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Double.valueOf(d), dArr, Integer.valueOf(i), Integer.valueOf(i2)})) == null) {
-            if (i == 1) {
-                double[] dArr2 = this.k;
-                int i4 = this.l;
-                this.l = i4 + 1;
-                double d2 = d + dArr2[i4 & 65535];
-                int i5 = this.i;
-                if (d2 < i5) {
-                    double d3 = d2 / i5;
-                    if (dArr[0] >= d3) {
-                        d3 = dArr[0];
-                    }
-                    dArr[0] = d3;
-                    d2 = this.i;
-                }
-                int i6 = this.j;
-                if (d2 > i6) {
-                    double d4 = d2 / i6;
-                    if (dArr[0] >= d4) {
-                        d4 = dArr[0];
-                    }
-                    dArr[0] = d4;
-                    d2 = this.j;
-                }
-                return a(d2);
-            }
-            double d5 = 0.0d;
-            int i7 = 0;
-            while (true) {
-                i3 = this.h;
-                if (i7 >= i3) {
-                    break;
-                }
-                d5 += t[this.g][i7] * this.f[i2][i7];
-                i7++;
-            }
-            double d6 = d + d5;
-            double[] dArr3 = this.k;
-            int i8 = this.l;
-            this.l = i8 + 1;
-            double d7 = dArr3[65535 & i8] + d6;
-            for (int i9 = i3 - 2; i9 >= 0; i9--) {
-                double[][] dArr4 = this.f;
-                dArr4[i2][i9 + 1] = dArr4[i2][i9];
-            }
-            int i10 = this.i;
-            if (d7 < i10) {
-                double d8 = d7 / i10;
-                if (dArr[0] >= d8) {
-                    d8 = dArr[0];
-                }
-                dArr[0] = d8;
-                a = this.i;
-                double[][] dArr5 = this.f;
-                dArr5[i2][0] = a - d6;
-                if (dArr5[i2][0] > 1.0d) {
-                    dArr5[i2][0] = 1.0d;
-                }
-                double[][] dArr6 = this.f;
-                if (dArr6[i2][0] < -1.0d) {
-                    dArr6[i2][0] = -1.0d;
-                }
-            } else {
-                int i11 = this.j;
-                if (d7 > i11) {
-                    double d9 = d7 / i11;
-                    if (dArr[0] >= d9) {
-                        d9 = dArr[0];
-                    }
-                    dArr[0] = d9;
-                    a = this.j;
-                    double[][] dArr7 = this.f;
-                    dArr7[i2][0] = a - d6;
-                    if (dArr7[i2][0] > 1.0d) {
-                        dArr7[i2][0] = 1.0d;
-                    }
-                    double[][] dArr8 = this.f;
-                    if (dArr8[i2][0] < -1.0d) {
-                        dArr8[i2][0] = -1.0d;
-                    }
-                } else {
-                    a = a(d7);
-                    this.f[i2][0] = a - d6;
-                }
-            }
-            return (int) a;
+        String a2 = g0aVar.a();
+        File file = new File(this.d.getFilesDir() + File.separator + "ubcsenddir", a2);
+        if (!file.exists()) {
+            return;
         }
-        return invokeCommon.intValue;
-    }
-
-    public final int f(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeII = interceptable.invokeII(1048581, this, i, i2)) != null) {
-            return invokeII.intValue;
+        if (g0aVar.c()) {
+            vz9.w().Q(d1a.g(file, (int) file.length()), a2);
+            return;
         }
-        while (true) {
-            int i3 = i2;
-            int i4 = i;
-            i = i3;
-            if (i != 0) {
-                i2 = i4 % i;
-            } else {
-                return i4;
-            }
-        }
-    }
-
-    public void q(OutputStream outputStream, ByteBuffer byteBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048592, this, outputStream, byteBuffer) == null) {
+        InputStream inputStream = null;
+        try {
             try {
-                outputStream.write(g(byteBuffer));
-            } catch (IOException unused) {
+                if (y) {
+                    Log.d("UBCBehaviorModel", "uploadFile fileName:" + a2);
+                }
+                fileInputStream = new FileInputStream(file);
+            } catch (Throwable th) {
+                th = th;
             }
+        } catch (Exception e) {
+            e = e;
+        } catch (OutOfMemoryError e2) {
+            e = e2;
+        }
+        try {
+            if (fileInputStream.available() > 0) {
+                inputStream = new Base64InputStream(fileInputStream, 0);
+                JSONObject jSONObject = new JSONObject(y1a.b(inputStream));
+                JSONObject jSONObject2 = jSONObject.getJSONObject(TtmlNode.TAG_METADATA);
+                jSONObject2.put("uploadtime", Long.toString(System.currentTimeMillis()));
+                jSONObject.put(TtmlNode.TAG_METADATA, jSONObject2);
+                vz9.w().S(jSONObject, a2);
+                fileInputStream = inputStream;
+            }
+            try {
+                fileInputStream.close();
+            } catch (IOException e3) {
+                e = e3;
+                if (!y) {
+                    return;
+                }
+                e.printStackTrace();
+            }
+        } catch (Exception e4) {
+            e = e4;
+            inputStream = fileInputStream;
+            if (y) {
+                Log.d("UBCBehaviorModel", "error:" + e.getMessage());
+            }
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (IOException e5) {
+                    e = e5;
+                    if (!y) {
+                        return;
+                    }
+                    e.printStackTrace();
+                }
+            }
+        } catch (OutOfMemoryError e6) {
+            e = e6;
+            inputStream = fileInputStream;
+            if (y) {
+                Log.d("UBCBehaviorModel", "OutOfMemoryError:" + e.getMessage());
+            }
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (IOException e7) {
+                    e = e7;
+                    if (!y) {
+                        return;
+                    }
+                    e.printStackTrace();
+                }
+            }
+        } catch (Throwable th2) {
+            th = th2;
+            inputStream = fileInputStream;
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (IOException e8) {
+                    if (y) {
+                        e8.printStackTrace();
+                    }
+                }
+            }
+            throw th;
         }
     }
 
-    public byte[] g(ByteBuffer byteBuffer) {
-        InterceptResult invokeL;
+    public void t(f0a f0aVar) {
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, byteBuffer)) == null) {
-            int limit = byteBuffer.limit() - byteBuffer.position();
-            byte[] bArr = new byte[limit];
-            byteBuffer.get(bArr, 0, limit);
-            return bArr;
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public final double n(double d) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048589, this, new Object[]{Double.valueOf(d)})) == null) {
-            if (d == 0.0d) {
-                return 1.0d;
+        if (interceptable == null || interceptable.invokeL(1048614, this, f0aVar) == null) {
+            boolean equals = TextUtils.equals(f0aVar.l(), f0aVar.k());
+            boolean z3 = false;
+            if (this.q.e(f0aVar.l()) && (f0aVar.n() & 64) == 0) {
+                z = true;
+            } else {
+                z = false;
             }
-            return Math.sin(d) / d;
-        }
-        return invokeCommon.doubleValue;
-    }
-
-    public final double h(int i, double d, double d2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Double.valueOf(d), Double.valueOf(d2)})) == null) {
-            double d3 = 1.0d / d2;
-            return d * 2.0d * d3 * n(i * 6.283185307179586d * d * d3);
-        }
-        return invokeCommon.doubleValue;
-    }
-
-    public int i(int i, int i2, int i3, int i4, int i5, int i6, double d) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Double.valueOf(d)})) == null) {
-            int[] iArr = new int[97];
-            int i7 = 1;
-            while (i7 < 6 && i != q[i7]) {
-                i7++;
+            if ((f0aVar.n() & 128) != 0) {
+                z2 = true;
+            } else {
+                z2 = false;
             }
-            if ((i5 == 3 || i5 == 4) && i7 == 6) {
-                System.err.printf("Warning: ATH based noise shaping for destination frequency %dHz is not available, using triangular dither\n", Integer.valueOf(i));
+            if ((equals && z) || (equals && z2)) {
+                z3 = true;
             }
-            i7 = (i5 == 2 || i7 == 6) ? 0 : 0;
-            if (i5 == 4 && (i7 == 1 || i7 == 2)) {
-                i7 += 5;
-            }
-            this.g = i7;
-            this.f = new double[i2];
-            this.h = r[i7];
-            for (int i8 = 0; i8 < i2; i8++) {
-                this.f[i8] = new double[this.h];
-            }
-            this.i = i3;
-            this.j = i4;
-            this.k = new double[65536];
-            Random random = new Random(System.currentTimeMillis());
-            for (int i9 = 0; i9 < 97; i9++) {
-                iArr[i9] = random.nextInt();
-            }
-            if (i6 != 0) {
-                if (i6 != 1) {
-                    if (i6 == 2) {
-                        boolean z = false;
-                        double d2 = 0.0d;
-                        double d3 = 0.0d;
-                        for (int i10 = 0; i10 < 65536; i10++) {
-                            if (!z) {
-                                int nextInt = random.nextInt() % 97;
-                                double d4 = iArr[nextInt] / 2.147483647E9d;
-                                iArr[nextInt] = random.nextInt();
-                                if (d4 == 1.0d) {
-                                    d4 = 0.0d;
-                                }
-                                d2 = Math.sqrt(Math.log(1.0d - d4) * (-2.0d));
-                                int nextInt2 = random.nextInt() % 97;
-                                iArr[nextInt2] = random.nextInt();
-                                d3 = 6.283185307179586d * (iArr[nextInt2] / 2.147483647E9d);
-                                this.k[i10] = d * d2 * Math.cos(d3);
-                                z = true;
-                            } else {
-                                this.k[i10] = d * d2 * Math.sin(d3);
-                                z = false;
-                            }
+            if (t0a.i().isPeakTime()) {
+                if (!z3) {
+                    this.e.z(f0aVar);
+                    return;
+                }
+                List<String> i = t0a.i().i();
+                if (i != null && i.contains(f0aVar.l())) {
+                    if (!this.c) {
+                        if ((System.currentTimeMillis() - this.b) / 1000 >= this.a) {
+                            this.c = true;
+                        } else {
+                            this.e.z(f0aVar);
+                            return;
                         }
                     }
                 } else {
-                    for (int i11 = 0; i11 < 65536; i11++) {
-                        int nextInt3 = random.nextInt() % 97;
-                        int i12 = iArr[nextInt3];
-                        iArr[nextInt3] = random.nextInt();
-                        int nextInt4 = random.nextInt() % 97;
-                        int i13 = iArr[nextInt4];
-                        iArr[nextInt4] = random.nextInt();
-                        this.k[i11] = d * ((i12 / 2.147483647E9d) - (i13 / 2.147483647E9d));
-                    }
-                }
-            } else {
-                for (int i14 = 0; i14 < 65536; i14++) {
-                    int nextInt5 = random.nextInt() % 97;
-                    int i15 = iArr[nextInt5];
-                    iArr[nextInt5] = random.nextInt();
-                    this.k[i14] = ((i15 / 2.147483647E9d) - 0.5d) * d;
+                    this.e.z(f0aVar);
+                    return;
                 }
             }
-            this.l = 0;
-            if (i5 == 0 || i5 == 1) {
-                return 1;
+            if (z3) {
+                this.e.z(f0aVar);
+            } else if ((f0aVar.n() & 1) == 0) {
+                if (this.q.K(f0aVar.l())) {
+                    g(f0aVar);
+                }
+                if (this.i.size() >= 20) {
+                    z();
+                }
+            } else if (this.q.K(f0aVar.l())) {
+                this.e.z(f0aVar);
             }
-            return s[this.g];
+            vz9.w().I(f0aVar, z3);
         }
-        return invokeCommon.intValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:25:0x013e  */
-    /* JADX WARN: Removed duplicated region for block: B:75:0x0260 A[EDGE_INSN: B:75:0x0260->B:68:0x0260 ?: BREAK  , SYNTHETIC] */
+    public void B(f0a f0aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f0aVar) == null) {
+            this.f.g(f0aVar, this.q.e(f0aVar.l()));
+        }
+    }
+
+    public void C(f0a f0aVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, f0aVar) != null) || !ej1.g()) {
+            return;
+        }
+        this.f.i(f0aVar);
+    }
+
+    public void I(h0a h0aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, h0aVar) == null) {
+            this.e.B(h0aVar);
+        }
+    }
+
+    public int q(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, str)) == null) {
+            yz9 yz9Var = this.q;
+            if (yz9Var != null) {
+                return yz9Var.C(str);
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public void A(f0a f0aVar) {
+        boolean z;
+        boolean z2;
+        boolean z3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, f0aVar) == null) {
+            boolean equals = TextUtils.equals(f0aVar.l(), f0aVar.k());
+            if (this.q.e(f0aVar.l()) && (f0aVar.n() & 64) == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if ((f0aVar.n() & 128) != 0) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            if ((equals && z) || (equals && z2)) {
+                z3 = true;
+            } else {
+                z3 = false;
+            }
+            if (t0a.i().isPeakTime()) {
+                if (!z3) {
+                    this.e.z(f0aVar);
+                    return;
+                }
+                List<String> i = t0a.i().i();
+                if (i != null && i.contains(f0aVar.l())) {
+                    if (!this.c) {
+                        if ((System.currentTimeMillis() - this.b) / 1000 >= this.a) {
+                            this.c = true;
+                        } else {
+                            this.e.z(f0aVar);
+                            return;
+                        }
+                    }
+                } else {
+                    this.e.z(f0aVar);
+                    return;
+                }
+            }
+            if (z3 && !V(f0aVar)) {
+                if (this.q.K(f0aVar.l())) {
+                    this.e.z(f0aVar);
+                    return;
+                }
+                return;
+            }
+            if (z3) {
+                p0a.f().a(f0aVar.l(), false);
+            }
+            if (t0a.i().isPeakTime()) {
+                this.e.e();
+            } else if (Math.abs(System.currentTimeMillis() - this.j) >= yz9.o().t()) {
+                if (!z3 && this.q.K(f0aVar.l())) {
+                    g(f0aVar);
+                }
+                U();
+            } else if ((f0aVar.n() & 1) == 0) {
+                if (!z3 && this.q.K(f0aVar.l())) {
+                    g(f0aVar);
+                }
+                if (this.i.size() >= 20) {
+                    z();
+                }
+            } else if (!z3 && this.q.K(f0aVar.l())) {
+                this.e.z(f0aVar);
+            }
+        }
+    }
+
+    public final void D(String str, String str2) {
+        OutputStream fileOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
+            String str3 = this.d.getFilesDir() + File.separator + "ubcsenddir";
+            File file = new File(str3);
+            if (!file.exists()) {
+                file.mkdir();
+            }
+            File file2 = new File(str3, str2);
+            if (!file2.exists()) {
+                OutputStream outputStream = null;
+                try {
+                    try {
+                        fileOutputStream = new FileOutputStream(file2);
+                    } catch (Exception e) {
+                        e = e;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                }
+                try {
+                    outputStream = new Base64OutputStream(fileOutputStream, 0);
+                    outputStream.write(str.getBytes());
+                    outputStream.flush();
+                    s0a.b("save to file suc");
+                    try {
+                        outputStream.close();
+                    } catch (Exception e2) {
+                        e = e2;
+                        if (!y) {
+                            return;
+                        }
+                        e.printStackTrace();
+                    }
+                } catch (Exception e3) {
+                    e = e3;
+                    outputStream = fileOutputStream;
+                    if (y) {
+                        e.printStackTrace();
+                    }
+                    if (outputStream != null) {
+                        try {
+                            outputStream.close();
+                        } catch (Exception e4) {
+                            e = e4;
+                            if (!y) {
+                                return;
+                            }
+                            e.printStackTrace();
+                        }
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    outputStream = fileOutputStream;
+                    if (outputStream != null) {
+                        try {
+                            outputStream.close();
+                        } catch (Exception e5) {
+                            if (y) {
+                                e5.printStackTrace();
+                            }
+                        }
+                    }
+                    throw th;
+                }
+            }
+        }
+    }
+
+    public void E() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || !b1a.a(this.d)) {
+            return;
+        }
+        if (this.n == null) {
+            r();
+        }
+        d1a h = d1a.h(this.d);
+        if (p0a.f().d(h) && h != null && !h.y()) {
+            h.L(true);
+            J(h);
+        }
+    }
+
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            d1a i = d1a.i();
+            if (this.f.e(i)) {
+                JSONObject u = i.u();
+                if (y) {
+                    Log.d("UBCBehaviorModel", "sendQualityData:" + u.toString());
+                }
+                vz9.w().R(u);
+            }
+        }
+    }
+
+    public final void W() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048598, this) != null) || !b1a.a(this.d) || !j()) {
+            return;
+        }
+        d1a h = d1a.h(this.d);
+        h.L(true);
+        if (this.n == null) {
+            r();
+        }
+        if (Y(h, "1")) {
+            return;
+        }
+        T(this.n, h);
+        J(h);
+        y();
+    }
+
+    public final void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048618, this) == null) {
+            if (t0a.i().isPeakTime()) {
+                this.e.e();
+            } else if (Math.abs(System.currentTimeMillis() - this.j) >= yz9.o().t()) {
+                U();
+            }
+        }
+    }
+
+    public final void G(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            d1a i = d1a.i();
+            i.L(z);
+            if (this.f.f(i, z)) {
+                JSONObject u = i.u();
+                if (y) {
+                    Log.d("UBCBehaviorModel", "checkFileData:" + u.toString());
+                }
+                this.f.c(z);
+                vz9.w().R(u);
+            }
+        }
+    }
+
+    public boolean X(f0a f0aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, f0aVar)) == null) {
+            if (!b1a.a(this.d)) {
+                return false;
+            }
+            f0aVar.A("1");
+            d1a p = p(f0aVar, true);
+            if (p == null || p.y()) {
+                return false;
+            }
+            this.e.u(p);
+            vz9.w().U(p.u(), true, f0aVar, new b(this));
+            p.e();
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void K(o0a o0aVar, boolean z, k0a k0aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{o0aVar, Boolean.valueOf(z), k0aVar}) == null) {
+            JSONArray jSONArray = new JSONArray();
+            this.r = 0;
+            this.s = 0;
+            this.t = 0;
+            k(o0aVar, z, jSONArray);
+            s(o0aVar, z, jSONArray);
+            if (k0aVar != null && jSONArray.length() > 0) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("items", jSONArray);
+                    int i = this.r + this.s + this.t;
+                    jSONObject.put("count", i + "," + this.r + "," + this.t);
+                    k0aVar.setUBCConfigStatisticData(jSONObject);
+                } catch (JSONException e) {
+                    if (y) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            this.q.Y(o0aVar.b());
+            this.q.P(o0aVar.i() * 86400000);
+            this.q.Q(o0aVar.h());
+            this.q.R(o0aVar.c());
+            this.q.U(o0aVar.f());
+            this.q.T(o0aVar.e());
+            this.q.S(o0aVar.d());
+            this.q.W(o0aVar.j());
+            this.q.X(o0aVar.k());
+            SparseArray<ArrayList> sparseArray = this.n;
+            if (sparseArray == null) {
+                this.n = new SparseArray<>();
+            } else {
+                sparseArray.clear();
+            }
+            HashMap<String, Long> hashMap = this.o;
+            if (hashMap == null) {
+                this.o = new HashMap<>();
+            } else {
+                hashMap.clear();
+            }
+            this.e.x(this.n);
+            if (y) {
+                Log.d("UBCBehaviorModel", "mIdArray: " + this.n.toString());
+            }
+            int i2 = 0;
+            for (int i3 = 0; i3 < this.n.size(); i3++) {
+                int keyAt = this.n.keyAt(i3);
+                if (keyAt != 0 && i2 == 0) {
+                    i2 = keyAt;
+                }
+                HashMap<String, Long> hashMap2 = this.o;
+                hashMap2.put("ubc_last_upload_time_level_" + keyAt, 0L);
+            }
+            this.q.V(i2);
+            o0aVar.b().clear();
+        }
+    }
+
+    public void L(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048587, this, str, i, str2) == null) {
+            this.e.E(str, i, str2);
+        }
+    }
+
+    public void M() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || !b1a.a(this.d)) {
+            return;
+        }
+        d1a h = d1a.h(this.d);
+        int p = this.q.p();
+        h.L(false);
+        if (this.v) {
+            h.M(this.w);
+            this.e.b(h);
+        } else {
+            h.M(p);
+            this.e.a(h);
+        }
+        int v = h.v();
+        if (v > 0) {
+            if (y) {
+                Log.d("UBCBehaviorModel", "uploadBackLog size=" + v);
+            }
+            J(h);
+        }
+    }
+
+    public final void N(c cVar) {
+        boolean a2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048589, this, cVar) != null) || cVar == null) {
+            return;
+        }
+        if (a1a.m().p() && !b1a.a(this.d)) {
+            vz9.w().V(cVar.e, false);
+            return;
+        }
+        if (cVar.a) {
+            a2 = this.p.b(cVar.c, cVar.f, cVar.g, cVar.h);
+        } else {
+            a2 = this.p.a(cVar.d, cVar.g, cVar.h);
+        }
+        l0a l0aVar = cVar.i;
+        if (l0aVar != null) {
+            l0aVar.a(a2, cVar.b);
+        }
+        if (TextUtils.isEmpty(cVar.e)) {
+            return;
+        }
+        vz9.w().V(cVar.e, a2);
+    }
+
+    public void Q(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            File file = new File(this.d.getFilesDir() + File.separator + "ubcsenddir", str);
+            if (y) {
+                Log.d("UBCBehaviorModel", "deleteUploadFile file:" + file.getAbsolutePath());
+            }
+            s0a.b("delete file");
+            if (file.exists() && file.delete()) {
+                Log.d("UBCBehaviorModel", "deleteUploadFile file suc");
+                s0a.b("delete file suc");
+            }
+            this.e.l(str);
+        }
+    }
+
+    public final boolean V(f0a f0aVar) {
+        InterceptResult invokeL;
+        SparseArray<ArrayList> sparseArray;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, f0aVar)) == null) {
+            if (!b1a.a(this.d) || !j()) {
+                return false;
+            }
+            z();
+            d1a p = p(f0aVar, false);
+            if (p == null || p.y()) {
+                return false;
+            }
+            if ((f0aVar.n() & 128) != 0) {
+                ArrayList arrayList = new ArrayList(1);
+                arrayList.add(f0aVar.l());
+                sparseArray = new SparseArray<>(1);
+                sparseArray.put(0, arrayList);
+            } else {
+                if (this.n == null) {
+                    r();
+                }
+                if (Y(p, "0")) {
+                    return true;
+                }
+                sparseArray = this.n;
+            }
+            T(sparseArray, p);
+            J(p);
+            y();
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void P(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            if (y) {
+                Log.d("UBCBehaviorModel", "upload file fail:" + str);
+            }
+            s0a.b("upload file fail");
+            this.e.F(str);
+        }
+    }
+
+    public final void R(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048593, this, str) != null) || !b1a.a(this.d) || !j()) {
+            return;
+        }
+        d1a h = d1a.h(this.d);
+        h.L(true);
+        h.C();
+        ArrayList<String> arrayList = new ArrayList<>(1);
+        arrayList.add(str);
+        this.e.r(arrayList, true, h);
+        J(h);
+        y();
+    }
+
+    public final void g(f0a f0aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, f0aVar) == null) {
+            this.i.add(f0aVar);
+            int i = this.g;
+            if (i == 0) {
+                this.h = SystemClock.uptimeMillis();
+                vz9.w().J(this.x, 5000L);
+                this.g = 1;
+            } else if (i == 2) {
+                this.h = SystemClock.uptimeMillis();
+                this.g = 1;
+            }
+        }
+    }
+
+    public void S() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048594, this) != null) || !b1a.a(this.d)) {
+            return;
+        }
+        this.e.e();
+        d1a h = d1a.h(this.d);
+        int p = this.q.p();
+        h.M(p);
+        h.L(true);
+        d1a h2 = d1a.h(this.d);
+        h2.M(p);
+        h2.L(false);
+        this.e.n(h, h2);
+        int v = h.v();
+        int v2 = h2.v();
+        if (y) {
+            Log.d("UBCBehaviorModel", "real size = " + v + "   no real  = " + v2);
+        }
+        if (v > 0) {
+            if (h.z()) {
+                v0a.a().l("uploadAll", String.valueOf(p), String.valueOf(v));
+            }
+            J(h);
+        }
+        if (v2 > 0) {
+            if (h2.z()) {
+                v0a.a().l("uploadAll", String.valueOf(p), String.valueOf(v2));
+            }
+            J(h2);
+        }
+    }
+
+    public void v() {
+        File[] listFiles;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048616, this) != null) || !b1a.a(this.d)) {
+            return;
+        }
+        File file = new File(this.d.getFilesDir() + File.separator + "ubcsenddir");
+        if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
+            for (int i = 0; i < listFiles.length; i++) {
+                g0a w = this.e.w(listFiles[i].getName());
+                if (w != null && TextUtils.equals("1", w.b())) {
+                    if (y) {
+                        Log.d("UBCBehaviorModel", "processOneFailedData send " + listFiles[i].getAbsolutePath());
+                    }
+                    s0a.b("processOneFailedData file, send");
+                    this.e.G(listFiles[i].getName(), "0");
+                    O(w);
+                    return;
+                }
+            }
+        }
+    }
+
+    public final void T(SparseArray<ArrayList> sparseArray, d1a d1aVar) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048595, this, sparseArray, d1aVar) != null) || sparseArray == null) {
+            return;
+        }
+        boolean H = this.q.H();
+        boolean G = this.q.G();
+        int m = this.q.m();
+        if (H && !G && sparseArray.get(m, null) == null) {
+            sparseArray.put(m, new ArrayList(0));
+            z = true;
+        } else {
+            z = false;
+        }
+        for (int i = 0; i < sparseArray.size() && !d1aVar.d(51200); i++) {
+            int keyAt = sparseArray.keyAt(i);
+            if (keyAt == 0) {
+                if (H && G) {
+                    this.e.r(new ArrayList<>(this.q.u()), false, d1aVar);
+                } else {
+                    this.e.r(sparseArray.valueAt(i), true, d1aVar);
+                }
+            } else if (this.v) {
+                d1aVar.M(this.w);
+                if (H && !G && keyAt == m) {
+                    ArrayList<String> o = o(sparseArray, keyAt);
+                    if (o != null) {
+                        this.e.t(o, false, d1aVar);
+                    }
+                } else {
+                    this.e.t(sparseArray.valueAt(i), true, d1aVar);
+                }
+            } else if (H && !G && keyAt == m) {
+                ArrayList<String> o2 = o(sparseArray, keyAt);
+                if (o2 != null) {
+                    this.e.r(o2, false, d1aVar);
+                }
+            } else {
+                this.e.r(sparseArray.valueAt(i), true, d1aVar);
+            }
+            if (d1aVar.w()) {
+                break;
+            }
+        }
+        if (z) {
+            sparseArray.remove(m);
+        }
+    }
+
+    public final void U() {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048596, this) != null) || !b1a.a(this.d)) {
+            return;
+        }
+        if (y) {
+            Log.d("UBCBehaviorModel", " upload no real data");
+        }
+        this.j = System.currentTimeMillis();
+        c1a.a().e("ubc_last_upload_non_real", this.j);
+        i();
+        z();
+        this.e.e();
+        HashSet hashSet = new HashSet();
+        if (this.n == null) {
+            r();
+        }
+        d1a h = d1a.h(this.d);
+        h.L(false);
+        for (int i = 0; i < this.n.size(); i++) {
+            int keyAt = this.n.keyAt(i);
+            if (keyAt != 0) {
+                HashMap<String, Long> hashMap = this.o;
+                long longValue = hashMap.get("ubc_last_upload_time_level_" + keyAt).longValue();
+                long j = (long) keyAt;
+                long j2 = 60000 * j;
+                if (this.v) {
+                    j2 = 1000 * j;
+                }
+                if (longValue == 0 || (longValue + j2) - System.currentTimeMillis() < this.q.t()) {
+                    if (this.v) {
+                        h.M(this.w);
+                        this.e.t(this.n.valueAt(i), true, h);
+                    } else {
+                        this.e.r(this.n.valueAt(i), true, h);
+                    }
+                    if (h.w()) {
+                        break;
+                    }
+                    HashMap<String, Long> hashMap2 = this.o;
+                    hashMap2.put("ubc_last_upload_time_level_" + keyAt, Long.valueOf(System.currentTimeMillis()));
+                    hashSet.add(Integer.valueOf(keyAt));
+                }
+            }
+        }
+        if (h.y()) {
+            return;
+        }
+        boolean H = this.q.H();
+        boolean G = this.q.G();
+        int m = this.q.m();
+        if (H && !G && this.n.get(m, null) == null) {
+            this.n.put(m, new ArrayList(0));
+            z = true;
+        } else {
+            z = false;
+        }
+        if (!this.v) {
+            for (int i2 = 0; i2 < this.n.size(); i2++) {
+                int keyAt2 = this.n.keyAt(i2);
+                if (keyAt2 != 0 && !hashSet.contains(Integer.valueOf(keyAt2))) {
+                    if (h.d(51200)) {
+                        break;
+                    }
+                    if (H && !G && keyAt2 == m) {
+                        ArrayList<String> o = o(this.n, keyAt2);
+                        if (o != null) {
+                            this.e.r(o, false, h);
+                        }
+                    } else {
+                        this.e.r(this.n.valueAt(i2), true, h);
+                    }
+                    if (h.w()) {
+                        break;
+                    }
+                }
+            }
+        }
+        if (z) {
+            this.n.remove(m);
+        }
+        if (y) {
+            Log.d("UBCBehaviorModel", "UBC non real time:");
+        }
+        J(h);
+    }
+
+    public final boolean Y(d1a d1aVar, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048600, this, d1aVar, str)) == null) {
+            if (t0a.i().isPeakTime()) {
+                List<String> i = t0a.i().i();
+                if (i != null && i.size() != 0) {
+                    ArrayList<String> arrayList = new ArrayList<>();
+                    arrayList.addAll(i);
+                    if (arrayList.size() == 0) {
+                        return true;
+                    }
+                    this.e.r(arrayList, true, d1aVar);
+                    J(d1aVar);
+                    y();
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public void h(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048602, this, str, i) == null) {
+            z();
+            this.e.d(str, i);
+            if (!t0a.i().isPeakTime() && Math.abs(System.currentTimeMillis() - this.j) >= yz9.o().t()) {
+                if (y) {
+                    Log.d("UBCBehaviorModel", "cancel flow " + str + " invoke ->uploadNonRealTimeData ");
+                }
+                U();
+            }
+        }
+    }
+
+    public final ArrayList o(SparseArray<ArrayList> sparseArray, int i) {
+        InterceptResult invokeLI;
+        ArrayList valueAt;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048609, this, sparseArray, i)) == null) {
+            if (sparseArray != null && sparseArray.size() != 0) {
+                ArrayList arrayList = new ArrayList();
+                for (int i2 = 0; i2 < sparseArray.size(); i2++) {
+                    if (sparseArray.keyAt(i2) != i && (valueAt = sparseArray.valueAt(i2)) != null && valueAt.size() != 0) {
+                        arrayList.addAll(valueAt);
+                    }
+                }
+                return arrayList;
+            }
+            return null;
+        }
+        return (ArrayList) invokeLI.objValue;
+    }
+
+    public final d1a p(f0a f0aVar, boolean z) {
+        InterceptResult invokeLZ;
+        d1a h;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048610, this, f0aVar, z)) == null) {
+            if (z) {
+                h = d1a.i();
+            } else {
+                h = d1a.h(this.d);
+            }
+            if (!h.c(f0aVar, f0aVar.g())) {
+                return null;
+            }
+            h.L(true);
+            if ((f0aVar.n() & 128) != 0) {
+                h.C();
+            }
+            if (!TextUtils.isEmpty(f0aVar.h())) {
+                h.K("1");
+            }
+            return h;
+        }
+        return (d1a) invokeLZ.objValue;
+    }
+
+    public final boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            if (y) {
+                return true;
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            if (Math.abs(currentTimeMillis - this.k) > 86400000) {
+                this.m = 0;
+                this.k = currentTimeMillis;
+                c1a.a().e("ubc_reset_real_time_count_time", this.k);
+                c1a.a().d("ubc_real_time_count", this.m);
+            }
+            if (this.m < 10000) {
+                return true;
+            }
+            if (y) {
+                Log.d("UBCBehaviorModel", "real time upload total count check fail");
+            }
+            int i = this.m;
+            if (i == 10000) {
+                this.m = i + 1;
+                if (!y) {
+                    v0a.a().f(String.valueOf(10000));
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void r() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048612, this) != null) || this.n != null) {
+            return;
+        }
+        if (y) {
+            Log.d("UBCBehaviorModel", "BehaviorModel initCache");
+        }
+        SparseArray<ArrayList> sparseArray = new SparseArray<>();
+        this.n = sparseArray;
+        this.e.x(sparseArray);
+        if (y) {
+            Log.d("UBCBehaviorModel", "mIdArray: " + this.n.toString());
+        }
+        this.o = new HashMap<>();
+        int i = 0;
+        for (int i2 = 0; i2 < this.n.size(); i2++) {
+            int keyAt = this.n.keyAt(i2);
+            if (keyAt != 0 && i == 0) {
+                i = keyAt;
+            }
+            HashMap<String, Long> hashMap = this.o;
+            hashMap.put("ubc_last_upload_time_level_" + keyAt, 0L);
+        }
+        this.q.V(i);
+    }
+
+    public void k(o0a o0aVar, boolean z, JSONArray jSONArray) {
+        JSONObject a2;
+        String str;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048605, this, new Object[]{o0aVar, Boolean.valueOf(z), jSONArray}) != null) || (a2 = o0aVar.a()) == null) {
+            return;
+        }
+        Iterator<String> keys = a2.keys();
+        while (keys.hasNext()) {
+            String next = keys.next();
+            try {
+                JSONObject jSONObject = new JSONObject();
+                b0a p = this.e.p(next);
+                String optString = a2.optString(next, "0");
+                if (p == null) {
+                    str = "0";
+                } else {
+                    str = p.j();
+                }
+                if (Integer.parseInt(str) >= Integer.parseInt(optString)) {
+                    z2 = true;
+                } else {
+                    z2 = false;
+                }
+                if (z && str != null && z2) {
+                    jSONObject.put("product", String.format("del/%s", next));
+                    jSONObject.put("valid", "2");
+                    jSONObject.put("version", optString);
+                    jSONArray.put(jSONObject);
+                    this.t++;
+                } else {
+                    jSONObject.put("product", String.format("del/%s", next));
+                    jSONObject.put("version", optString);
+                    jSONObject.put("valid", "1");
+                    if (!this.e.j(next)) {
+                        jSONObject.put("valid", "0");
+                        this.s++;
+                    } else {
+                        this.r++;
+                    }
+                    jSONArray.put(jSONObject);
+                }
+            } catch (Exception e) {
+                if (y) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public void l(String str, int i, int i2, long j, JSONArray jSONArray) {
+        List<String> i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), jSONArray}) == null) {
+            z();
+            this.e.m(str, i, j, jSONArray);
+            if ((i2 & 128) != 0) {
+                R(str);
+                return;
+            }
+            boolean e = this.q.e(str);
+            if (t0a.i().isPeakTime()) {
+                if (e && (i3 = t0a.i().i()) != null && i3.contains(str)) {
+                    if (!this.c) {
+                        if ((System.currentTimeMillis() - this.b) / 1000 < this.a) {
+                            return;
+                        }
+                        this.c = true;
+                    }
+                } else {
+                    return;
+                }
+            }
+            if (e) {
+                if (y) {
+                    Log.d("UBCBehaviorModel", "endFlow flow " + str + " invoke ->uploadRealTimeFlow ");
+                }
+                W();
+            }
+            if (!t0a.i().isPeakTime() && Math.abs(System.currentTimeMillis() - this.j) >= yz9.o().t()) {
+                if (y) {
+                    Log.d("UBCBehaviorModel", "endFlow flow " + str + " invoke ->uploadNonRealTimeData ");
+                }
+                U();
+            }
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:53:0x0102  */
+    /* JADX WARN: Removed duplicated region for block: B:60:0x0119  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public double j(InputStream inputStream, OutputStream outputStream, int i, int i2, int i3, double d, int i4, boolean z, int i5) throws IOException {
-        InterceptResult invokeCommon;
-        ByteBuffer byteBuffer;
-        double[] dArr;
-        int i6;
-        int i7;
-        ByteBuffer wrap;
-        double d2;
-        ByteBuffer byteBuffer2;
-        double d3;
-        int i8;
-        double d4;
-        ByteBuffer byteBuffer3;
-        ByteBuffer byteBuffer4;
-        int a;
-        int a2;
-        int i9;
-        int a3;
+    public void s(o0a o0aVar, boolean z, JSONArray jSONArray) {
+        List<b0a> b2;
+        HashMap<String, String> hashMap;
+        ArrayList arrayList;
+        String str;
+        String str2;
+        String str3;
+        String str4;
+        JSONObject jSONObject;
+        String optString;
+        String j;
+        JSONObject jSONObject2;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{inputStream, outputStream, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Double.valueOf(d), Integer.valueOf(i4), Boolean.valueOf(z), Integer.valueOf(i5)})) == null) {
-            int i10 = 1;
-            int i11 = 0;
-            double[] dArr2 = {0.0d};
-            l();
-            if (z) {
-                byteBuffer = ByteBuffer.allocate(8);
-            } else {
-                byteBuffer = null;
-            }
-            ByteBuffer byteBuffer5 = byteBuffer;
-            int i12 = 4;
-            ByteBuffer allocate = ByteBuffer.allocate(4);
-            int i13 = 0;
-            int i14 = 0;
-            while (true) {
-                int i15 = i4 * i;
-                if (i13 < i15) {
-                    if (i2 != i10) {
-                        if (i2 != 2) {
-                            if (i2 != 3) {
-                                if (i2 != i12) {
-                                    byteBuffer2 = allocate;
-                                    i6 = i15;
-                                    i7 = i13;
-                                    dArr = dArr2;
-                                    d3 = 0.0d;
-                                } else {
-                                    allocate.position(i11);
-                                    allocate.limit(i12);
-                                    byte[] bArr = new byte[allocate.limit()];
-                                    inputStream.read(bArr);
-                                    wrap = ByteBuffer.wrap(bArr);
-                                    wrap.position(wrap.limit());
-                                    wrap.flip();
-                                    dArr = dArr2;
-                                    d2 = wrap.order(this.a).asIntBuffer().get(i11) * 4.656612875245797E-10d;
-                                    i6 = i15;
-                                    i7 = i13;
+        if ((interceptable == null || interceptable.invokeCommon(1048613, this, new Object[]{o0aVar, Boolean.valueOf(z), jSONArray}) == null) && (b2 = o0aVar.b()) != null && b2.size() != 0) {
+            ArrayList arrayList2 = new ArrayList(b2);
+            String str5 = "Json格式转化失败";
+            String str6 = "1";
+            String str7 = "UBCBehaviorModel";
+            if (this.e.q() > 0) {
+                ArrayList<String> arrayList3 = new ArrayList<>();
+                Iterator it = arrayList2.iterator();
+                while (it.hasNext()) {
+                    arrayList3.add(((b0a) it.next()).c());
+                }
+                HashMap<String, String> o = this.e.o(arrayList3);
+                Iterator it2 = arrayList2.iterator();
+                while (it2.hasNext()) {
+                    b0a b0aVar = (b0a) it2.next();
+                    String c2 = b0aVar.c();
+                    String str8 = o.get(c2);
+                    if (!TextUtils.isEmpty(str8)) {
+                        try {
+                            jSONObject = new JSONObject(str8);
+                            optString = jSONObject.optString("version");
+                            hashMap = o;
+                            try {
+                                j = b0aVar.j();
+                                arrayList = arrayList2;
+                            } catch (NumberFormatException unused) {
+                                arrayList = arrayList2;
+                                str2 = str5;
+                                str3 = str7;
+                                if (y) {
+                                    Log.d(str3, "数据转换失败");
                                 }
-                            } else {
-                                dArr = dArr2;
-                                allocate.position(i11);
-                                allocate.limit(3);
-                                byte[] bArr2 = new byte[allocate.limit()];
-                                inputStream.read(bArr2);
-                                ByteBuffer wrap2 = ByteBuffer.wrap(bArr2);
-                                wrap2.position(wrap2.limit());
-                                wrap2.flip();
-                                i6 = i15;
-                                d3 = 1.1920930376163766E-7d * (((wrap2.get(1) & 255) << 8) | ((wrap2.get(i11) & 255) << i11) | ((wrap2.get(2) & 255) << 16));
-                                byteBuffer2 = wrap2;
-                                i7 = i13;
-                            }
-                            if (inputStream.available() != 0) {
-                                break;
-                            }
-                            double d5 = d3 * d;
-                            if (!z) {
-                                if (i3 != 1) {
-                                    if (i3 != 2) {
-                                        if (i3 != 3) {
-                                            i8 = i6;
-                                            byteBuffer4 = byteBuffer5;
-                                        } else {
-                                            double d6 = d5 * 8388607.0d;
-                                            if (i5 != 0) {
-                                                i8 = i6;
-                                                i9 = 3;
-                                                byteBuffer4 = byteBuffer5;
-                                                a3 = d(d6, dArr, i5, i14);
-                                            } else {
-                                                i8 = i6;
-                                                byteBuffer4 = byteBuffer5;
-                                                i9 = 3;
-                                                a3 = a(d6);
-                                            }
-                                            byteBuffer2.position(0);
-                                            byteBuffer2.limit(i9);
-                                            byteBuffer2.put(0, (byte) (a3 & 255));
-                                            int i16 = a3 >> 8;
-                                            byteBuffer2.put(1, (byte) (i16 & 255));
-                                            byteBuffer2.put(2, (byte) ((i16 >> 8) & 255));
-                                            byteBuffer2.flip();
-                                            q(outputStream, byteBuffer2);
-                                        }
-                                    } else {
-                                        i8 = i6;
-                                        byteBuffer4 = byteBuffer5;
-                                        double d7 = d5 * 32767.0d;
-                                        if (i5 != 0) {
-                                            a2 = d(d7, dArr, i5, i14);
-                                        } else {
-                                            a2 = a(d7);
-                                        }
-                                        byteBuffer2.position(0);
-                                        byteBuffer2.limit(2);
-                                        byteBuffer2.asShortBuffer().put(0, (short) a2);
-                                        byteBuffer2.flip();
-                                        q(outputStream, byteBuffer2);
-                                    }
-                                } else {
-                                    i8 = i6;
-                                    byteBuffer4 = byteBuffer5;
-                                    double d8 = d5 * 127.0d;
-                                    if (i5 != 0) {
-                                        a = d(d8, dArr, i5, i14);
-                                    } else {
-                                        a = a(d8);
-                                    }
-                                    byteBuffer2.position(0);
-                                    byteBuffer2.limit(1);
-                                    byteBuffer2.put(0, (byte) (a + 128));
-                                    byteBuffer2.flip();
-                                    q(outputStream, byteBuffer2);
+                                str5 = str2;
+                                str7 = str3;
+                                o = hashMap;
+                                arrayList2 = arrayList;
+                            } catch (JSONException unused2) {
+                                arrayList = arrayList2;
+                                str = str5;
+                                str4 = str7;
+                                if (y) {
+                                    str2 = str;
+                                    str3 = str4;
+                                    Log.d(str3, str2);
+                                    str5 = str2;
+                                    str7 = str3;
+                                    o = hashMap;
+                                    arrayList2 = arrayList;
                                 }
-                                byteBuffer3 = byteBuffer4;
-                            } else {
-                                i8 = i6;
-                                ByteBuffer byteBuffer6 = byteBuffer5;
-                                if (d5 > 0.0d) {
-                                    d4 = d5;
-                                } else {
-                                    d4 = -d5;
-                                }
-                                if (dArr[0] >= d4) {
-                                    d4 = dArr[0];
-                                }
-                                dArr[0] = d4;
-                                byteBuffer3 = byteBuffer6;
-                                byteBuffer3.position(0);
-                                byteBuffer3.putDouble(d5);
-                                byteBuffer3.flip();
-                                q(outputStream, byteBuffer3);
+                                str2 = str;
+                                str3 = str4;
+                                str5 = str2;
+                                str7 = str3;
+                                o = hashMap;
+                                arrayList2 = arrayList;
                             }
-                            int i17 = i14 + 1;
-                            if (i17 == i) {
-                                i14 = 0;
-                            } else {
-                                i14 = i17;
-                            }
-                            int i18 = i7 + 1;
-                            if ((262143 & i18) == 0) {
-                                m(i18 / i8);
-                            }
-                            byteBuffer5 = byteBuffer3;
-                            dArr2 = dArr;
-                            i12 = 4;
-                            i11 = 0;
-                            i13 = i18;
-                            allocate = byteBuffer2;
-                            i10 = 1;
-                        } else {
-                            i6 = i15;
-                            dArr = dArr2;
-                            allocate.position(0);
-                            allocate.limit(2);
-                            byte[] bArr3 = new byte[allocate.limit()];
-                            inputStream.read(bArr3);
-                            wrap = ByteBuffer.wrap(bArr3);
-                            wrap.position(wrap.limit());
-                            wrap.flip();
-                            i7 = i13;
-                            d2 = 3.051850947599719E-5d * wrap.order(this.a).asShortBuffer().get(0);
+                        } catch (NumberFormatException unused3) {
+                            hashMap = o;
+                        } catch (JSONException unused4) {
+                            hashMap = o;
                         }
-                    } else {
-                        i6 = i15;
-                        i7 = i13;
-                        dArr = dArr2;
-                        allocate.position(0);
-                        allocate.limit(1);
-                        byte[] bArr4 = new byte[allocate.limit()];
-                        inputStream.read(bArr4);
-                        wrap = ByteBuffer.wrap(bArr4);
-                        wrap.position(wrap.limit());
-                        wrap.flip();
-                        d2 = (wrap.get(0) - 128) * 0.007874015748031496d;
+                        try {
+                            jSONObject2 = new JSONObject();
+                            str = str5;
+                            try {
+                                str4 = str7;
+                            } catch (NumberFormatException unused5) {
+                                str3 = str7;
+                                str2 = str;
+                            } catch (JSONException unused6) {
+                                str4 = str7;
+                                if (y) {
+                                }
+                                str2 = str;
+                                str3 = str4;
+                                str5 = str2;
+                                str7 = str3;
+                                o = hashMap;
+                                arrayList2 = arrayList;
+                            }
+                        } catch (NumberFormatException unused7) {
+                            str2 = str5;
+                            str3 = str7;
+                            if (y) {
+                            }
+                            str5 = str2;
+                            str7 = str3;
+                            o = hashMap;
+                            arrayList2 = arrayList;
+                        } catch (JSONException unused8) {
+                            str = str5;
+                            str4 = str7;
+                            if (y) {
+                            }
+                            str2 = str;
+                            str3 = str4;
+                            str5 = str2;
+                            str7 = str3;
+                            o = hashMap;
+                            arrayList2 = arrayList;
+                        }
+                        try {
+                            if (Integer.parseInt(optString) >= Integer.parseInt(j)) {
+                                z2 = true;
+                            } else {
+                                z2 = false;
+                            }
+                        } catch (NumberFormatException unused9) {
+                            str2 = str;
+                            str3 = str4;
+                            if (y) {
+                            }
+                            str5 = str2;
+                            str7 = str3;
+                            o = hashMap;
+                            arrayList2 = arrayList;
+                        } catch (JSONException unused10) {
+                            if (y) {
+                            }
+                            str2 = str;
+                            str3 = str4;
+                            str5 = str2;
+                            str7 = str3;
+                            o = hashMap;
+                            arrayList2 = arrayList;
+                        }
+                        if (z && optString != null && j != null && z2) {
+                            it2.remove();
+                            jSONObject2.put("product", "set/" + c2);
+                            jSONObject2.put("valid", "2");
+                            jSONObject2.put("version", j);
+                            jSONArray.put(jSONObject2);
+                            this.t++;
+                            o = hashMap;
+                            arrayList2 = arrayList;
+                            str5 = str;
+                            str7 = str4;
+                        } else {
+                            if (!TextUtils.equals(jSONObject.optString("dfc"), "1") && b0aVar.l()) {
+                                it2.remove();
+                            }
+                            str2 = str;
+                            str3 = str4;
+                            str5 = str2;
+                            str7 = str3;
+                            o = hashMap;
+                            arrayList2 = arrayList;
+                        }
                     }
-                    double d9 = d2;
-                    byteBuffer2 = wrap;
-                    d3 = d9;
-                    if (inputStream.available() != 0) {
-                    }
-                } else {
-                    dArr = dArr2;
-                    break;
                 }
             }
-            m(1.0d);
-            return dArr[0];
+            ArrayList arrayList4 = arrayList2;
+            String str9 = str5;
+            String str10 = str7;
+            boolean D = this.e.D(arrayList4);
+            int size = arrayList4.size();
+            if (D) {
+                this.r += size;
+            } else {
+                this.s += size;
+                str6 = "0";
+            }
+            Iterator it3 = arrayList4.iterator();
+            while (it3.hasNext()) {
+                b0a b0aVar2 = (b0a) it3.next();
+                JSONObject jSONObject3 = new JSONObject();
+                String c3 = b0aVar2.c();
+                String j2 = b0aVar2.j();
+                try {
+                    jSONObject3.put("product", "set/" + c3);
+                    jSONObject3.put("version", j2);
+                    jSONObject3.put("valid", str6);
+                } catch (JSONException unused11) {
+                    if (y) {
+                        Log.d(str10, str9);
+                    }
+                }
+                jSONArray.put(jSONObject3);
+            }
+            o0aVar.m(arrayList4);
         }
-        return invokeCommon.doubleValue;
     }
 
-    public final void l() {
+    public void u() {
+        File[] listFiles;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.o = System.currentTimeMillis();
-            this.p = 0L;
-            this.n = -1;
-        }
-    }
-
-    public final void m(double d) {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048588, this, new Object[]{Double.valueOf(d)}) != null) || this.m) {
+        if ((interceptable != null && interceptable.invokeV(1048615, this) != null) || !b1a.a(this.d)) {
             return;
         }
-        long currentTimeMillis = System.currentTimeMillis() - this.o;
-        if (d == 0.0d) {
-            i = 0;
-        } else {
-            i = (int) ((currentTimeMillis * (1.0d - d)) / d);
+        if (yz9.o().M() && System.currentTimeMillis() < yz9.o().v()) {
+            return;
         }
-        int i2 = (int) (d * 100.0d);
-        if (i2 != this.n || currentTimeMillis != this.p) {
-            System.err.printf(" %3d%% processed", Integer.valueOf(i2));
-            this.n = i2;
+        File file = new File(this.d.getFilesDir() + File.separator + "ubcsenddir");
+        if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
+            if (listFiles.length > 1000) {
+                if (!y) {
+                    v0a.a().d(String.valueOf(1000), listFiles.length);
+                }
+                for (File file2 : listFiles) {
+                    file2.delete();
+                }
+                this.e.i();
+            }
+            for (int i = 0; i < listFiles.length; i++) {
+                if (y) {
+                    Log.d("UBCBehaviorModel", "uploadFailedData fileName:" + listFiles[i].getAbsolutePath());
+                }
+                g0a w = this.e.w(listFiles[i].getName());
+                if (w != null && TextUtils.equals("0", w.b())) {
+                    if (y) {
+                        Log.d("UBCBehaviorModel", "processFailedData sending, not send again");
+                    }
+                    s0a.b("processFailedData file, no need to send");
+                } else if (w != null && TextUtils.equals("1", w.b())) {
+                    s0a.b("processFailedData file, send");
+                    this.e.G(listFiles[i].getName(), "0");
+                    O(w);
+                } else {
+                    if (y) {
+                        Log.d("UBCBehaviorModel", "processFailedData data in db");
+                    }
+                    s0a.b("processFailedData file, data in db, delete file");
+                    listFiles[i].delete();
+                }
+            }
         }
-        if (currentTimeMillis != this.p) {
-            System.err.printf(", ETA =%4dmsec", Integer.valueOf(i));
-            this.p = currentTimeMillis;
-        }
-        System.err.printf("\r", new Object[0]);
-        System.err.flush();
     }
 
-    public final double p(double d, int i, double d2, double d3) {
-        InterceptResult invokeCommon;
+    public void w(f0a f0aVar, boolean z) {
+        SparseArray<ArrayList> sparseArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048591, this, new Object[]{Double.valueOf(d), Integer.valueOf(i), Double.valueOf(d2), Double.valueOf(d3)})) == null) {
-            double d4 = 4.0d * d * d;
-            double d5 = i - 1.0d;
-            return rz9.a(d2 * Math.sqrt(1.0d - (d4 / (d5 * d5)))) / d3;
+        if (interceptable == null || interceptable.invokeLZ(1048617, this, f0aVar, z) == null) {
+            if (z) {
+                if (!b1a.a(this.d) || !j()) {
+                    return;
+                }
+                z();
+                d1a h = d1a.h(this.d);
+                h.L(true);
+                if ((f0aVar.n() & 128) != 0) {
+                    h.C();
+                    ArrayList arrayList = new ArrayList(1);
+                    arrayList.add(f0aVar.l());
+                    sparseArray = new SparseArray<>(1);
+                    sparseArray.put(0, arrayList);
+                } else {
+                    if (this.n == null) {
+                        r();
+                    }
+                    if (Y(h, "0")) {
+                        return;
+                    }
+                    sparseArray = this.n;
+                }
+                T(sparseArray, h);
+                if (h.y()) {
+                    return;
+                }
+                J(h);
+                y();
+            }
+            x();
         }
-        return invokeCommon.doubleValue;
     }
 }

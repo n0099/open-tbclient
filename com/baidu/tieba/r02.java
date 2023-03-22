@@ -1,11 +1,12 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
-import android.util.Pair;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.canvas.view.CanvasView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,30 +14,23 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class r02 extends l02 {
+public class r02 extends q02 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.px1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "GetPerformanceLevelApi" : (String) invokeV.objValue;
-    }
-
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public class a implements CanvasView.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
-        public final /* synthetic */ r02 b;
+        public final /* synthetic */ CallbackHandler b;
 
-        public a(r02 r02Var, String str) {
+        public a(r02 r02Var, String str, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {r02Var, str};
+                Object[] objArr = {r02Var, str, callbackHandler};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,84 +40,88 @@ public class r02 extends l02 {
                     return;
                 }
             }
-            this.b = r02Var;
             this.a = str;
+            this.b = callbackHandler;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.swan.apps.canvas.view.CanvasView.c
+        public void a() {
+            String str;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.d(this.a, new m12(0, this.b.y()));
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (str = this.a) != null) {
+                this.b.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(0, "draw complete").toString());
             }
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948067733, "Lcom/baidu/tieba/r02;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948067733, "Lcom/baidu/tieba/r02;");
-                return;
-            }
-        }
-        boolean z = wp1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r02(@NonNull nx1 nx1Var) {
-        super(nx1Var);
+    public r02(q83 q83Var) {
+        super(q83Var, "/swanAPI/canvas/drawCanvas");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {nx1Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {q83Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((nx1) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((q83) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
     }
 
-    public m12 x(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.q93
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, t73 t73Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#getPerformanceLevel", false);
-            Pair<m12, JSONObject> s = s(str);
-            if (!((m12) s.first).isSuccess()) {
-                return (m12) s.first;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, t73Var)) == null) {
+            r22 m = m(unitedSchemeEntity);
+            if (m == null) {
+                t42.c("SwanAppCanvas", "draw model is null");
+                unitedSchemeEntity.result = l(201);
+                return false;
             }
-            String optString = ((JSONObject) s.second).optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                return new m12(202, "cb is empty");
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "the params is empty");
+                return false;
             }
-            gm3.k(new a(this, optString), "SWAN_DEVICE_PERFORMANCE_CHECK");
-            return new m12(0);
+            String optString = optParamsAsJo.optString("cb");
+            if (TextUtils.isEmpty(m.b)) {
+                m42.a("SwanAppAction", "canvasId is empty ");
+                unitedSchemeEntity.result = l(201);
+                return false;
+            }
+            if (TextUtils.isEmpty(m.c)) {
+                m42.a("SwanAppAction", "drawCanvas slaveId is empty");
+                b72 H = gt2.U().H();
+                if (H != null) {
+                    m.c = H.w3();
+                }
+            }
+            t32 t32Var = (t32) g42.a(m);
+            if (t32Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the component is null");
+                return false;
+            }
+            boolean F = t32Var.F(m, new a(this, optString, callbackHandler));
+            j(unitedSchemeEntity, callbackHandler, F);
+            return F;
         }
-        return (m12) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
 
-    public JSONObject y() {
-        InterceptResult invokeV;
+    public r22 m(UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String b = ts2.u0().b();
-            m62.k("GetPerformanceLevelApi", "getPerformanceLevel: " + b);
-            JSONObject jSONObject = new JSONObject();
-            mm3.f(jSONObject, "performanceLevel", b);
-            return jSONObject;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity)) == null) {
+            return new r22(unitedSchemeEntity.getParams().get("params"));
         }
-        return (JSONObject) invokeV.objValue;
+        return (r22) invokeL.objValue;
     }
 }

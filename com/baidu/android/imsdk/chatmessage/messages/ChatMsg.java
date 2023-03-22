@@ -47,6 +47,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public int mArrayIndex;
     public List<IChatRoomEnterListener.AtUserInfo> mAtUsers;
     public List<Long> mAtuks;
+    public int mAutoRiskControlStatus;
     public String mBizExt;
     public int mBlockType;
     public int mBusinessType;
@@ -85,9 +86,11 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public IChatRoomEnterListener.ReMsgInfo mReMsgInfo;
     public int mReSend;
     public int mRemainNum;
+    public String mRepliedName;
     public String mResourceId;
     public long mRowId;
     public long mSdkSendTime;
+    public int mSendMsgType;
     public int mSendNum;
     public int mSendScene;
     public long mSendTime;
@@ -140,7 +143,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public final int getVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048654, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048657, this)) == null) {
             return 1;
         }
         return invokeV.intValue;
@@ -192,10 +195,19 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         return (List) invokeV.objValue;
     }
 
-    public String getBizExt() {
+    public int getAutoRiskControlStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.mAutoRiskControlStatus;
+        }
+        return invokeV.intValue;
+    }
+
+    public String getBizExt() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.mBizExt;
         }
         return (String) invokeV.objValue;
@@ -204,7 +216,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public int getBlockType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.mBlockType;
         }
         return invokeV.intValue;
@@ -213,7 +225,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public int getBusinessType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.mBusinessType;
         }
         return invokeV.intValue;
@@ -222,7 +234,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public List<Long> getCastids() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return this.mCastids;
         }
         return (List) invokeV.objValue;
@@ -231,7 +243,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public int getCategory() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return this.mCategory;
         }
         return invokeV.intValue;
@@ -240,7 +252,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public String getChatRoomContentExt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return this.mChatRoomContentExt;
         }
         return (String) invokeV.objValue;
@@ -249,7 +261,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public int getChatType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             return this.mChatType;
         }
         return invokeV.intValue;
@@ -258,7 +270,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public int getClickedState() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             return this.mIsClicked ? 1 : 0;
         }
         return invokeV.intValue;
@@ -267,7 +279,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public long getContacter() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             return this.mContacter;
         }
         return invokeV.longValue;
@@ -276,7 +288,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public String getContacterId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
             if (this.mCategory == 0) {
                 return this.senderUid;
             }
@@ -288,7 +300,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public int getContacterIsRead() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             return this.mContacterIsRead;
         }
         return invokeV.intValue;
@@ -297,7 +309,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public long getContacterUk() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             return this.contacterUk;
         }
         return invokeV.longValue;
@@ -306,7 +318,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public String getContentExtra() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
             return this.mjsonContentExtra;
         }
         return (String) invokeV.objValue;
@@ -315,7 +327,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public final int getDeviceFlag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
             return this.mDeviceFlag;
         }
         return invokeV.intValue;
@@ -324,7 +336,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public long getDialogueId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
             return this.mDialogueId;
         }
         return invokeV.longValue;
@@ -333,7 +345,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public String getEventList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
             return this.mEventList;
         }
         return (String) invokeV.objValue;
@@ -342,7 +354,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public long getExpiresTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
             return this.expiresTime;
         }
         return invokeV.longValue;
@@ -351,7 +363,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public String getExtLog() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
             return this.mExtLog;
         }
         return (String) invokeV.objValue;
@@ -360,7 +372,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public String getExtTransInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
             return this.mExtTransInfo;
         }
         return (String) invokeV.objValue;
@@ -369,7 +381,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public String getExtraContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
             return this.mExtraContent;
         }
         return (String) invokeV.objValue;
@@ -378,7 +390,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public int getFetchTriggerReason() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
             return this.mFetchTriggerReason;
         }
         return invokeV.intValue;
@@ -387,7 +399,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public long getFromUser() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
             return this.mFromUser;
         }
         return invokeV.longValue;
@@ -396,7 +408,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public String getInterActiveAction() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
             return this.interActiveAction;
         }
         return (String) invokeV.objValue;
@@ -405,7 +417,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public int getInterActiveSource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
             return this.interActiveSource;
         }
         return invokeV.intValue;
@@ -414,7 +426,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public String getJsonContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
             return this.mjsonContent;
         }
         return (String) invokeV.objValue;
@@ -423,7 +435,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public String getLocalUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
             return this.mLocalUrl;
         }
         return (String) invokeV.objValue;
@@ -432,7 +444,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public int getLogicDel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
             return this.mLogicDel;
         }
         return invokeV.intValue;
@@ -441,7 +453,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public long getMinSdkVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
             return this.mMinSdkVersion;
         }
         return invokeV.longValue;
@@ -450,7 +462,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public String getMsgContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
             return this.mjsonContent;
         }
         return (String) invokeV.objValue;
@@ -459,7 +471,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public long getMsgId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
             return this.mMsgId;
         }
         return invokeV.longValue;
@@ -468,7 +480,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public String getMsgKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048615, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
             return this.mMsgKey;
         }
         return (String) invokeV.objValue;
@@ -477,7 +489,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public long getMsgTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
             return this.mTime;
         }
         return invokeV.longValue;
@@ -486,7 +498,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public int getMsgType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
             return this.mType;
         }
         return invokeV.intValue;
@@ -495,7 +507,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public String getNickName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
             return this.mNickName;
         }
         return (String) invokeV.objValue;
@@ -504,7 +516,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public int getNotifyCmd() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
             return this.mNotifyCmd;
         }
         return invokeV.intValue;
@@ -513,7 +525,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public long getNotifyId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
             return this.mNotifyId;
         }
         return invokeV.longValue;
@@ -522,7 +534,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public String getOriginPa() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
             return this.mOriginPa;
         }
         return (String) invokeV.objValue;
@@ -531,7 +543,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public int getOriginPaType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
             return this.mOriginPaType;
         }
         return invokeV.intValue;
@@ -540,7 +552,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public long getPaid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
             return this.mPaid;
         }
         return invokeV.longValue;
@@ -549,7 +561,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public String getPortrait() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048625, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
             return this.mPortrait;
         }
         return (String) invokeV.objValue;
@@ -558,7 +570,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public String getPreviewDesc() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) {
             return this.mPreviewDesc;
         }
         return (String) invokeV.objValue;
@@ -567,7 +579,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public IChatRoomEnterListener.ReMsgInfo getReMsgInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048627, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) {
             return this.mReMsgInfo;
         }
         return (IChatRoomEnterListener.ReMsgInfo) invokeV.objValue;
@@ -576,7 +588,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public final int getRealMsgType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048629, this)) == null) {
             return this.mType;
         }
         return invokeV.intValue;
@@ -585,16 +597,25 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public int getRemainNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) {
             return this.mRemainNum;
         }
         return invokeV.intValue;
     }
 
+    public String getRepliedName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
+            return this.mRepliedName;
+        }
+        return (String) invokeV.objValue;
+    }
+
     public String getResourceId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048631, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) {
             return this.mResourceId;
         }
         return (String) invokeV.objValue;
@@ -603,7 +624,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public long getRowId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) {
             return this.mRowId;
         }
         return invokeV.longValue;
@@ -612,7 +633,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public long getSdkSendMsgTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) {
             return this.mSdkSendTime;
         }
         return invokeV.longValue;
@@ -621,7 +642,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public String getSendMsgId() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048635, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) {
             return this.sendMsgId;
         }
         return (String) invokeV.objValue;
@@ -630,16 +651,25 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public long getSendMsgTime() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) {
             return this.mSendTime;
         }
         return invokeV.longValue;
     }
 
+    public int getSendMsgType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) {
+            return this.mSendMsgType;
+        }
+        return invokeV.intValue;
+    }
+
     public int getSendNum() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048637, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) {
             return this.mSendNum;
         }
         return invokeV.intValue;
@@ -648,7 +678,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public int getSendScene() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048638, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) {
             return this.mSendScene;
         }
         return invokeV.intValue;
@@ -657,7 +687,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public int getSendType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048642, this)) == null) {
             return this.mSendType;
         }
         return invokeV.intValue;
@@ -666,7 +696,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public String getSenderUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048640, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048643, this)) == null) {
             return this.senderUid;
         }
         return (String) invokeV.objValue;
@@ -675,7 +705,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public String getServiceType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) {
             return this.mServiceType;
         }
         return (String) invokeV.objValue;
@@ -684,7 +714,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public int getSessionType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048642, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048645, this)) == null) {
             return this.mSessionType;
         }
         return invokeV.intValue;
@@ -693,7 +723,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public String getSource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048643, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048646, this)) == null) {
             return this.mSource;
         }
         return (String) invokeV.objValue;
@@ -702,7 +732,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public String getStarContentExtra() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048644, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048647, this)) == null) {
             return this.mjsonStarExtra;
         }
         return (String) invokeV.objValue;
@@ -711,7 +741,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public int getStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048645, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048648, this)) == null) {
             return this.mStatus;
         }
         return invokeV.intValue;
@@ -720,7 +750,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public int getSubChatType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048646, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048649, this)) == null) {
             return this.mSubChatType;
         }
         return invokeV.intValue;
@@ -729,7 +759,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public IChatRoomEnterListener.TaskInfo getTaskInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048647, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048650, this)) == null) {
             return this.mTaskInfo;
         }
         return (IChatRoomEnterListener.TaskInfo) invokeV.objValue;
@@ -738,7 +768,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public int getTemplateType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048648, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048651, this)) == null) {
             return this.mTemplateType;
         }
         return invokeV.intValue;
@@ -747,7 +777,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public int getTemplateVersion() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048649, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048652, this)) == null) {
             return this.mTemplateVersion;
         }
         return invokeV.intValue;
@@ -756,7 +786,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public String getTips() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048650, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048653, this)) == null) {
             return this.mTips;
         }
         return (String) invokeV.objValue;
@@ -765,7 +795,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public int getTipsCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048651, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048654, this)) == null) {
             return this.mTipsCode;
         }
         return invokeV.intValue;
@@ -774,7 +804,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public String getToBduid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048652, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048655, this)) == null) {
             return this.toBduid;
         }
         return (String) invokeV.objValue;
@@ -783,7 +813,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public long getTriggerReasonn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048653, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048656, this)) == null) {
             return this.mTriggerReasonn;
         }
         return invokeV.longValue;
@@ -792,7 +822,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public String getZone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048655, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048658, this)) == null) {
             return this.mZone;
         }
         return (String) invokeV.objValue;
@@ -801,7 +831,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public String getmExtJson() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048656, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048659, this)) == null) {
             return this.mExtJson;
         }
         return (String) invokeV.objValue;
@@ -810,7 +840,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public boolean isClicked() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048657, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048660, this)) == null) {
             return this.mIsClicked;
         }
         return invokeV.booleanValue;
@@ -819,7 +849,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public boolean isContacterRead() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048658, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048661, this)) == null) {
             if (this.mContacterIsRead == 1) {
                 return true;
             }
@@ -831,7 +861,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public boolean isMediaRoleMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048661, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048664, this)) == null) {
             return this.isMediaRoleMsg;
         }
         return invokeV.booleanValue;
@@ -840,7 +870,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public boolean isMsgRead() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048662, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048665, this)) == null) {
             if (this.mIsRead == 1) {
                 return true;
             }
@@ -852,7 +882,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public boolean isMsgSendSuccess() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048663, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048666, this)) == null) {
             if (this.mStatus == 0) {
                 return true;
             }
@@ -864,7 +894,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public boolean isNotifyMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048664, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048667, this)) == null) {
             int i = this.mType;
             if (i >= 1001 && i <= 1017) {
                 return true;
@@ -877,7 +907,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public boolean isReSend() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048665, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048668, this)) == null) {
             if (this.mReSend == 1) {
                 return true;
             }
@@ -889,7 +919,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public final boolean isSameDevice() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048666, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048669, this)) == null) {
             if (this.mDeviceFlag == 1) {
                 return true;
             }
@@ -901,7 +931,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public boolean isStarMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048668, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048671, this)) == null) {
             if (!TextUtils.isEmpty(this.mExtJson)) {
                 try {
                     if (new JSONObject(this.mExtJson).optInt("sub_app_identity", -1) == 4) {
@@ -921,7 +951,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public boolean isZhida() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048669, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048672, this)) == null) {
             return this.mIsZhida;
         }
         return invokeV.booleanValue;
@@ -929,7 +959,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
 
     public void setReSend() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048721, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048725, this) == null) {
             this.mReSend = 1;
         }
     }
@@ -999,6 +1029,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         this.mZone = "";
         this.mSource = "";
         this.mFetchTriggerReason = 0;
+        this.mSendMsgType = 0;
         this.mChatRoomContentExt = "";
         this.mTaskInfo = null;
         this.sendMsgId = generateSendMsgId();
@@ -1008,7 +1039,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         InterceptResult invokeV;
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048671, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048674, this)) == null) {
             LogUtils.d(TAG, "parseCommon " + this.mContacter + " ---->: " + this.mjsonContent);
             if (!TextUtils.isEmpty(this.mjsonContent)) {
                 try {
@@ -1047,7 +1078,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         InterceptResult invokeV;
         JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048672, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048675, this)) == null) {
             LogUtils.d(TAG, "parseExt");
             if (!TextUtils.isEmpty(this.mjsonContent)) {
                 try {
@@ -1158,6 +1189,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         this.mZone = "";
         this.mSource = "";
         this.mFetchTriggerReason = 0;
+        this.mSendMsgType = 0;
         this.mChatRoomContentExt = "";
         this.mTaskInfo = null;
         this.mMsgId = parcel.readLong();
@@ -1225,13 +1257,38 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         this.mOriginPaType = parcel.readInt();
         this.mPreviewDesc = parcel.readString();
         this.mBizExt = parcel.readString();
+        this.mRepliedName = parcel.readString();
         this.mSource = parcel.readString();
         this.mBlockType = parcel.readInt();
+        this.mAutoRiskControlStatus = parcel.readInt();
+    }
+
+    private boolean abandonByCuid(String str, Context context) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, this, str, context)) == null) {
+            if (!TextUtils.isEmpty(str) && context != null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    if (jSONObject.has("to_cuid")) {
+                        String optString = jSONObject.optString("to_cuid");
+                        if (!TextUtils.equals(optString.substring(0, optString.lastIndexOf("|")), Utility.getDeviceId(context).substring(0, optString.lastIndexOf("|")))) {
+                            LogUtils.d(TAG, "CUID is not equal, will abandon this message!");
+                            return true;
+                        }
+                    }
+                } catch (Exception e) {
+                    LogUtils.e(TAG, "msgExt exception ", e);
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 
     private void contentAddBizExt() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65539, this) == null) && !TextUtils.isEmpty(this.mBizExt) && !TextUtils.isEmpty(this.mjsonContent)) {
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) && !TextUtils.isEmpty(this.mBizExt) && !TextUtils.isEmpty(this.mjsonContent)) {
             try {
                 JSONObject jSONObject = new JSONObject(this.mjsonContent);
                 jSONObject.put("biz_ext", new JSONObject(this.mBizExt));
@@ -1245,7 +1302,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public String getExt() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
             if (TextUtils.isEmpty(this.mExtJson)) {
                 try {
                     JSONObject jSONObject = new JSONObject();
@@ -1272,7 +1329,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public String toJsonString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048748, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048754, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("content", getJsonContent());
@@ -1293,7 +1350,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         InterceptResult invokeV;
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, this)) == null) {
             synchronized (this) {
                 str = System.currentTimeMillis() + "" + mOpenCounter.incrementAndGet();
             }
@@ -1304,7 +1361,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
 
     private void parsePreviewDesc() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65543, this) == null) && !TextUtils.isEmpty(this.mExtJson)) {
+        if ((interceptable == null || interceptable.invokeV(65544, this) == null) && !TextUtils.isEmpty(this.mExtJson)) {
             try {
                 JSONObject optJSONObject = new JSONObject(this.mExtJson).optJSONObject("session_exts");
                 if (optJSONObject != null) {
@@ -1319,7 +1376,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public int getGroupType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
             if (!TextUtils.isEmpty(this.mExtJson)) {
                 try {
                     JSONObject jSONObject = new JSONObject(this.mExtJson);
@@ -1342,7 +1399,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public boolean isDumiMessage() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048659, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048662, this)) == null) {
             if (!TextUtils.isEmpty(this.mExtJson)) {
                 try {
                     if (new JSONObject(this.mExtJson).optInt("sub_app_identity", -1) == 100) {
@@ -1362,7 +1419,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public boolean isGalleryMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048660, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048663, this)) == null) {
             if (!TextUtils.isEmpty(this.mExtJson)) {
                 try {
                     JSONObject jSONObject = new JSONObject(this.mExtJson);
@@ -1386,7 +1443,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public String toJsonStringForChatRoom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048749, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048755, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("content", getContentExtra());
@@ -1403,7 +1460,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public static byte[] long2bytes(long j, int i) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) {
             byte[] bArr = new byte[i];
             for (int i2 = i - 1; i2 >= 0; i2--) {
                 bArr[i2] = (byte) (255 & j);
@@ -1417,7 +1474,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     private void notifyMsgStatus(int i) {
         ISendMessageStatusListener iSendMessageStatusListener;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(65542, this, i) != null) || this.mListenerKey == null) {
+        if ((interceptable != null && interceptable.invokeI(65543, this, i) != null) || this.mListenerKey == null) {
             return;
         }
         if ((i == 0 || i == 2) && (iSendMessageStatusListener = (ISendMessageStatusListener) ListenerManager.getInstance().removeListener(this.mListenerKey)) != null) {
@@ -1428,7 +1485,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public boolean isSelf(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048667, this, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048670, this, context)) == null) {
             if (this.mFromUser == Utility.getUK(context)) {
                 return true;
             }
@@ -1439,7 +1496,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
 
     public void markClicked(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048670, this, context) == null) {
+        if (interceptable == null || interceptable.invokeL(1048673, this, context) == null) {
             setIsClicked(true);
             TaskManager.getInstance(context).submitForLocalOperation(new Runnable(this, context) { // from class: com.baidu.android.imsdk.chatmessage.messages.ChatMsg.1
                 public static /* synthetic */ Interceptable $ic;
@@ -1479,21 +1536,21 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
 
     public void setAppId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048675, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048678, this, j) == null) {
             this.mAppId = j;
         }
     }
 
     public void setAtUserList(List<IChatRoomEnterListener.AtUserInfo> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048676, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048679, this, list) == null) {
             this.mAtUsers = list;
         }
     }
 
     public void setAtUsers(List<Long> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048677, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048680, this, list) == null) {
             this.mAtuks = list;
             if (list != null && list.size() > 0) {
                 LogUtils.d(TAG, " setAtUsers " + this.mAtuks);
@@ -1501,9 +1558,16 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         }
     }
 
+    public void setAutoRiskControlStatus(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048681, this, i) == null) {
+            this.mAutoRiskControlStatus = i;
+        }
+    }
+
     public void setBizExt(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048678, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048682, this, str) == null) {
             this.mBizExt = str;
             contentAddBizExt();
         }
@@ -1511,189 +1575,189 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
 
     public void setBusinessType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048679, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048683, this, i) == null) {
             this.mBusinessType = i;
         }
     }
 
     public void setCastid(List<Long> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048680, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048684, this, list) == null) {
             this.mCastids = list;
         }
     }
 
     public void setCategory(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048681, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048685, this, i) == null) {
             this.mCategory = i;
         }
     }
 
     public void setChatRoomContentExt(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048682, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048686, this, str) == null) {
             this.mChatRoomContentExt = str;
         }
     }
 
     public void setChatType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048683, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048687, this, i) == null) {
             this.mChatType = i;
         }
     }
 
     public void setContacter(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048684, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048688, this, j) == null) {
             this.mContacter = j;
         }
     }
 
     public void setContacterBduid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048685, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048689, this, str) == null) {
             this.toBduid = str;
         }
     }
 
     public void setContacterIsRead(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048686, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048690, this, i) == null) {
             this.mContacterIsRead = i;
         }
     }
 
     public void setContacterUk(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048687, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048691, this, j) == null) {
             this.contacterUk = j;
         }
     }
 
     public void setContentExtra(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048688, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048692, this, str) == null) {
             this.mjsonContentExtra = str;
         }
     }
 
     public final void setDeviceFlag(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048689, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048693, this, i) == null) {
             this.mDeviceFlag = i;
         }
     }
 
     public void setDialogueId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048690, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048694, this, j) == null) {
             this.mDialogueId = j;
         }
     }
 
     public void setEventList(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048691, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048695, this, str) == null) {
             this.mEventList = str;
         }
     }
 
     public void setExpiresTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048692, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048696, this, j) == null) {
             this.expiresTime = j;
         }
     }
 
     public void setExtLog(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048693, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048697, this, str) == null) {
             this.mExtLog = str;
         }
     }
 
     public void setExtraContent(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048694, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048698, this, str) == null) {
             this.mExtraContent = str;
         }
     }
 
     public void setFetchTriggerReason(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048695, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048699, this, i) == null) {
             this.mFetchTriggerReason = i;
         }
     }
 
     public void setFromUser(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048696, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048700, this, j) == null) {
             this.mFromUser = j;
         }
     }
 
     public void setInterActiveAction(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048697, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048701, this, str) == null) {
             this.interActiveAction = str;
         }
     }
 
     public void setInterActiveSource(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048698, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048702, this, i) == null) {
             this.interActiveSource = i;
         }
     }
 
     public void setIsClicked(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048699, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048703, this, z) == null) {
             this.mIsClicked = z;
         }
     }
 
     public void setIsZhida(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048700, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048704, this, z) == null) {
             this.mIsZhida = z;
         }
     }
 
     public void setListenerKey(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048701, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048705, this, str) == null) {
             this.mListenerKey = str;
         }
     }
 
     public void setLocalUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048702, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048706, this, str) == null) {
             this.mLocalUrl = str;
         }
     }
 
     public void setLogicDel(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048703, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048707, this, i) == null) {
             this.mLogicDel = i;
         }
     }
 
     public void setMediaRoleMsg(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048704, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048708, this, z) == null) {
             this.isMediaRoleMsg = z;
         }
     }
 
     public void setMinSdkVersion(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048705, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048709, this, j) == null) {
             this.mMinSdkVersion = j;
         }
     }
@@ -1701,7 +1765,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public boolean setMsgContent(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048706, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048710, this, str)) == null) {
             this.mjsonContent = str;
             contentAddBizExt();
             if (parseJsonString() && parseExt()) {
@@ -1715,7 +1779,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public boolean setMsgContentFromServer(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048707, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048711, this, str)) == null) {
             this.mjsonContent = str;
             if (parseJsonString() && parseCommon()) {
                 return true;
@@ -1727,63 +1791,63 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
 
     public void setMsgId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048708, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048712, this, j) == null) {
             this.mMsgId = j;
         }
     }
 
     public void setMsgKey(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048709, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048713, this, str) == null) {
             this.mMsgKey = str;
         }
     }
 
     public void setMsgReaded(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048710, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048714, this, i) == null) {
             this.mIsRead = i;
         }
     }
 
     public void setMsgTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048711, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048715, this, j) == null) {
             this.mTime = j;
         }
     }
 
     public void setMsgType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048712, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048716, this, i) == null) {
             this.mType = i;
         }
     }
 
     public void setNickName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048713, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048717, this, str) == null) {
             this.mNickName = str;
         }
     }
 
     public void setNotifyCmd(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048714, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048718, this, i) == null) {
             this.mNotifyCmd = i;
         }
     }
 
     public void setNotifyId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048715, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048719, this, j) == null) {
             this.mNotifyId = j;
         }
     }
 
     public void setOriginPa(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048716, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048720, this, str) == null) {
             this.mOriginPa = str;
             if (!TextUtils.isEmpty(str)) {
                 try {
@@ -1797,133 +1861,147 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
 
     public void setPaid(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048717, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048721, this, j) == null) {
             this.mPaid = j;
         }
     }
 
     public void setPortrait(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048718, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048722, this, str) == null) {
             this.mPortrait = str;
         }
     }
 
     public void setPreviewDesc(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048719, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048723, this, str) == null) {
             this.mPreviewDesc = str;
         }
     }
 
     public void setReMsgInfo(IChatRoomEnterListener.ReMsgInfo reMsgInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048720, this, reMsgInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048724, this, reMsgInfo) == null) {
             this.mReMsgInfo = reMsgInfo;
         }
     }
 
     public void setRemainNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048722, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048726, this, i) == null) {
             this.mRemainNum = i;
+        }
+    }
+
+    public void setRepliedName(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048727, this, str) == null) {
+            this.mRepliedName = str;
         }
     }
 
     public void setResourceId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048723, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048728, this, str) == null) {
             this.mResourceId = str;
         }
     }
 
     public void setRowId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048724, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048729, this, j) == null) {
             this.mRowId = j;
         }
     }
 
     public void setSdkSendMsgTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048725, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048730, this, j) == null) {
             this.mSdkSendTime = j;
         }
     }
 
     public void setSendMessageStatusListener(ISendMessageStatusListener iSendMessageStatusListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048726, this, iSendMessageStatusListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048731, this, iSendMessageStatusListener) == null) {
             this.mListenerKey = ListenerManager.getInstance().addListener(iSendMessageStatusListener);
         }
     }
 
     public void setSendMsgId(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048727, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048732, this, str) == null) {
             this.sendMsgId = str;
         }
     }
 
     public void setSendMsgTime(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048728, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048733, this, j) == null) {
             this.mSendTime = j;
+        }
+    }
+
+    public void setSendMsgType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048734, this, i) == null) {
+            this.mSendMsgType = i;
         }
     }
 
     public void setSendNum(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048729, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048735, this, i) == null) {
             this.mSendNum = i;
         }
     }
 
     public void setSendScene(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048730, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048736, this, i) == null) {
             this.mSendScene = i;
         }
     }
 
     public void setSendType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048731, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048737, this, i) == null) {
             this.mSendType = i;
         }
     }
 
     public void setServiceType(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048733, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048739, this, str) == null) {
             this.mServiceType = str;
         }
     }
 
     public void setSessionType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048734, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048740, this, i) == null) {
             this.mSessionType = i;
         }
     }
 
     public void setSource(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048735, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048741, this, str) == null) {
             this.mSource = str;
         }
     }
 
     public void setStarContentExtra(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048736, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048742, this, str) == null) {
             this.mjsonStarExtra = str;
         }
     }
 
     public void setStatus(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048737, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048743, this, i) == null) {
             this.mStatus = i;
             notifyMsgStatus(i);
         }
@@ -1931,63 +2009,63 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
 
     public void setSubChatType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048738, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048744, this, i) == null) {
             this.mSubChatType = i;
         }
     }
 
     public void setTaskInfo(IChatRoomEnterListener.TaskInfo taskInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048739, this, taskInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048745, this, taskInfo) == null) {
             this.mTaskInfo = taskInfo;
         }
     }
 
     public void setTemplateType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048740, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048746, this, i) == null) {
             this.mTemplateType = i;
         }
     }
 
     public void setTemplateVersion(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048741, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048747, this, i) == null) {
             this.mTemplateVersion = i;
         }
     }
 
     public void setTips(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048742, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048748, this, str) == null) {
             this.mTips = str;
         }
     }
 
     public void setTipsCode(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048743, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048749, this, i) == null) {
             this.mTipsCode = i;
         }
     }
 
     public void setTriggerReasonn(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048744, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048750, this, j) == null) {
             this.mTriggerReasonn = j;
         }
     }
 
     public void setZone(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048745, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048751, this, str) == null) {
             this.mZone = str;
         }
     }
 
     public void setmExtJson(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048746, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048752, this, str) == null) {
             this.mExtJson = str;
         }
     }
@@ -1996,7 +2074,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         InterceptResult invokeL;
         int lastIndexOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
             if (str == null || str.length() == 0 || (lastIndexOf = str.lastIndexOf(48)) == str.length() - 1) {
                 return "";
             }
@@ -2007,7 +2085,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
 
     public void setSenderUid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048732, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048738, this, str) == null) {
             try {
                 Long.valueOf(str);
                 this.senderUid = str;
@@ -2016,6 +2094,36 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
                 this.senderUid = "0";
             }
         }
+    }
+
+    public boolean shouldAbandonMsg(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048753, this, context)) == null) {
+            String ext = getExt();
+            boolean abandonByCuid = abandonByCuid(ext, context);
+            if (abandonByCuid) {
+                return abandonByCuid;
+            }
+            int i = this.mType;
+            if ((i == 0 || i == 20) && !TextUtils.isEmpty(ext)) {
+                try {
+                    JSONObject jSONObject = new JSONObject(ext);
+                    if (jSONObject.has("sub_app_identity")) {
+                        if (jSONObject.optInt("sub_app_identity") == 6) {
+                            return true;
+                        }
+                        return false;
+                    }
+                    return false;
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return false;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 
     public void createMsgKey(Context context) {
@@ -2036,7 +2144,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     public JSONObject getMsgString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("category", this.mCategory);
@@ -2074,7 +2182,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         JSONObject jSONObject;
         JSONObject jSONObject2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) {
             try {
                 if ((this.mChatType == 7 || this.mChatType == 16 || this.mChatType == 25 || this.mType == 18) && !TextUtils.isEmpty(this.mExtraContent)) {
                     jSONObject2 = new JSONObject(this.mExtraContent);
@@ -2128,7 +2236,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
 
     public void parseForwardmessage(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048673, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048676, this, i) == null) {
             if (this.mjsonContent != null) {
                 try {
                     JSONObject jSONObject = new JSONObject(this.mjsonContent);
@@ -2164,40 +2272,10 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
         }
     }
 
-    public boolean shouldAbandonMsg(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048747, this, context)) == null) {
-            int i = this.mType;
-            if (i == 0 || i == 20) {
-                String ext = getExt();
-                if (!TextUtils.isEmpty(ext)) {
-                    try {
-                        JSONObject jSONObject = new JSONObject(ext);
-                        if (jSONObject.has("to_cuid")) {
-                            String optString = jSONObject.optString("to_cuid");
-                            if (!TextUtils.equals(optString.substring(0, optString.lastIndexOf("|")), Utility.getDeviceId(context).substring(0, optString.lastIndexOf("|")))) {
-                                LogUtils.d(TAG, "CUID is not equal, will abandon this message!");
-                                return true;
-                            }
-                        }
-                        if (jSONObject.has("sub_app_identity") && jSONObject.optInt("sub_app_identity") == 6) {
-                            return true;
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048750, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048756, this)) == null) {
             return "ChatMsg{mjsonContent='" + this.mjsonContent + "', mjsonContentExtra='" + this.mjsonContentExtra + "', mExtraContent='" + this.mExtraContent + "', mIsRead=" + this.mIsRead + ", mMsgId=" + this.mMsgId + ", mTime=" + this.mTime + ", mFromUser=" + this.mFromUser + ", mType=" + this.mType + ", mAppId=" + this.mAppId + ", mStatus=" + this.mStatus + ", mRowId=" + this.mRowId + ", mArrayIndex=" + this.mArrayIndex + ", mCategory=" + this.mCategory + ", mContacter=" + this.mContacter + ", mMinSdkVersion=" + this.mMinSdkVersion + ", mTriggerReasonn=" + this.mTriggerReasonn + ", mNotifyCmd=" + this.mNotifyCmd + ", mReSend=" + this.mReSend + ", mLocalUrl='" + this.mLocalUrl + "', mMsgKey='" + this.mMsgKey + "', mIsZhida=" + this.mIsZhida + ", mIsClicked=" + this.mIsClicked + ", mPaid=" + this.mPaid + ", mExtJson='" + this.mExtJson + "', mExtLog='" + this.mExtLog + "', mChatType=" + this.mChatType + ", mSubChatType=" + this.mSubChatType + ", mDeviceFlag=" + this.mDeviceFlag + ", mListenerKey='" + this.mListenerKey + "', sendMsgId='" + this.sendMsgId + "', senderUid='" + this.senderUid + "', toBduid='" + this.toBduid + "', mAtuks=" + this.mAtuks + ", mCastids=" + this.mCastids + ", mjsonStarExtra='" + this.mjsonStarExtra + "', expiresTime=" + this.expiresTime + ", interActiveAction='" + this.interActiveAction + "', interActiveSource=" + this.interActiveSource + ", mServiceType='" + this.mServiceType + "', isMediaRoleMsg=" + this.isMediaRoleMsg + ", mTipsCode=" + this.mTipsCode + ", mTips='" + this.mTips + "', mTemplateType=" + this.mTemplateType + ", mContacterIsRead=" + this.mContacterIsRead + ", mDialogueId=" + this.mDialogueId + ", mBusinessType=" + this.mBusinessType + ", mResourceId='" + this.mResourceId + "', mRemainNum=" + this.mRemainNum + ", mSendNum=" + this.mSendNum + ", mSessionType=" + this.mSessionType + ", mSendType=" + this.mSendType + ", mSendScene=" + this.mSendScene + ", mLogicDel=" + this.mLogicDel + ", mNickName='" + this.mNickName + "', mPortrait='" + this.mPortrait + "', contacterUk=" + this.contacterUk + ", eventList=" + this.mEventList + ", mBizExt=" + this.mBizExt + ", mSource=" + this.mSource + ", mChatRoomContentExt=" + this.mChatRoomContentExt + '}';
         }
         return (String) invokeV.objValue;
@@ -2206,7 +2284,7 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048751, this, parcel, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048757, this, parcel, i) == null) {
             parcel.writeLong(this.mMsgId);
             parcel.writeLong(this.mTime);
             parcel.writeLong(this.mFromUser);
@@ -2263,8 +2341,10 @@ public abstract class ChatMsg implements Parcelable, NoProGuard {
             parcel.writeInt(this.mOriginPaType);
             parcel.writeString(this.mPreviewDesc);
             parcel.writeString(this.mBizExt);
+            parcel.writeString(this.mRepliedName);
             parcel.writeString(this.mSource);
             parcel.writeInt(this.mBlockType);
+            parcel.writeInt(this.mAutoRiskControlStatus);
         }
     }
 }

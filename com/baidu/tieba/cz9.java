@@ -1,25 +1,45 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.download.exception.DownloadException;
-/* loaded from: classes3.dex */
-public class cz9 implements vy9 {
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
+/* loaded from: classes4.dex */
+public class cz9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xy9 a;
-    public wy9 b;
+    public List<a> a;
 
-    public cz9(xy9 xy9Var, uy9 uy9Var) {
+    /* loaded from: classes4.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public cz9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {xy9Var, uy9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,107 +49,37 @@ public class cz9 implements vy9 {
                 return;
             }
         }
-        this.a = xy9Var;
-        wy9 wy9Var = new wy9();
-        this.b = wy9Var;
-        wy9Var.k(uy9Var);
+        this.a = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.vy9
-    public void a(DownloadException downloadException) {
+    public final void a(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, downloadException) == null) {
-            this.b.m(downloadException);
-            this.b.r(108);
-            this.a.a(this.b);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) && jSONArray != null) {
+            try {
+                if (jSONArray.length() > 0) {
+                    if (this.a == null) {
+                        this.a = new ArrayList();
+                    }
+                    int length = jSONArray.length();
+                    for (int i = 0; i < length; i++) {
+                        a aVar = new a();
+                        JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                        optJSONObject.optInt(TiebaStatic.Params.TAB_ID);
+                        optJSONObject.optString("tab_name");
+                        optJSONObject.optInt("obj_type");
+                        this.a.add(aVar);
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
-    @Override // com.baidu.tieba.vy9
-    public void b(DownloadException downloadException) {
+    public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadException) == null) {
-            this.b.m(downloadException);
-            this.b.r(108);
-            this.a.a(this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.vy9
-    public void onDownloadCompleted(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.b.r(105);
-            this.b.q(str);
-            this.a.a(this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.vy9
-    public void onConnectCanceled() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b.r(107);
-            this.a.a(this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.vy9
-    public void onConnecting() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.b.r(102);
-            this.a.a(this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.vy9
-    public void onDownloadCanceled() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.b.r(107);
-            this.a.a(this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.vy9
-    public void onDownloadPaused() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.b.r(106);
-            this.a.a(this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.vy9
-    public void onStarted() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.b.r(101);
-            this.b.a().h();
-        }
-    }
-
-    @Override // com.baidu.tieba.vy9
-    public void onConnected(long j, long j2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Boolean.valueOf(z)}) == null) {
-            this.b.s(j);
-            this.b.j(z);
-            this.b.r(103);
-            this.a.a(this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.vy9
-    public void onDownloadProgress(long j, long j2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
-            this.b.n(j);
-            this.b.o(j2);
-            this.b.p(i);
-            this.b.r(104);
-            this.a.a(this.b);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray != null) {
+            a(jSONArray);
         }
     }
 }

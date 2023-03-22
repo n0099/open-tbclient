@@ -1,13 +1,21 @@
 package com.baidu.tieba;
 
 import androidx.annotation.Nullable;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.Closeable;
 /* loaded from: classes7.dex */
-public interface yk4 {
-    @Nullable
-    JSONObject a(@Nullable wk4<JSONObject> wk4Var);
+public class yk4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    @Nullable
-    JSONArray b(@Nullable wk4<JSONArray> wk4Var);
+    public static void a(@Nullable Closeable closeable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65536, null, closeable) == null) && closeable != null) {
+            try {
+                closeable.close();
+            } catch (Exception unused) {
+            }
+        }
+    }
 }

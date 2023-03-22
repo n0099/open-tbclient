@@ -42,7 +42,7 @@ public class BdSwitchView extends View implements View.OnTouchListener {
 
     /* loaded from: classes.dex */
     public interface b {
-        void d0(View view2, SwitchState switchState);
+        void g0(View view2, SwitchState switchState);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -405,7 +405,7 @@ public class BdSwitchView extends View implements View.OnTouchListener {
             this.c = 0.0f;
         }
         if (z && switchState != this.a && (bVar = this.n) != null) {
-            bVar.d0(this, switchState);
+            bVar.g0(this, switchState);
         }
         this.a = switchState;
         this.i = false;
@@ -515,7 +515,7 @@ public class BdSwitchView extends View implements View.OnTouchListener {
                             this.a = SwitchState.OFF;
                         }
                         if (this.h && switchState3 != (switchState2 = this.a) && (bVar2 = this.n) != null) {
-                            bVar2.d0(this, switchState2);
+                            bVar2.g0(this, switchState2);
                         }
                         this.i = false;
                         invalidate();
@@ -545,7 +545,7 @@ public class BdSwitchView extends View implements View.OnTouchListener {
                     this.a = SwitchState.OFF;
                 }
                 if (this.h && switchState4 != (switchState = this.a) && (bVar = this.n) != null) {
-                    bVar.d0(this, switchState);
+                    bVar.g0(this, switchState);
                 }
                 this.i = false;
                 invalidate();

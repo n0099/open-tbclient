@@ -1,86 +1,77 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URLConnection;
-import java.util.zip.GZIPInputStream;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ir4 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static String a(@NonNull File file) throws IOException {
-        InterceptResult invokeL;
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, file)) == null) {
-            String canonicalPath = file.getCanonicalPath();
-            if (!canonicalPath.endsWith("/")) {
-                return canonicalPath + "/";
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            StatisticItem addParam = new StatisticItem("c14570").addParam("obj_type", 2).addParam("obj_source", 1).addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            if (!StringUtils.isNull(str)) {
+                addParam.addParam("obj_locate", str);
             }
-            return canonicalPath;
+            addParam.eventStat();
         }
-        return (String) invokeL.objValue;
     }
 
-    @NonNull
-    public static String c(@NonNull String str) {
-        InterceptResult invokeL;
+    public static void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            String guessContentTypeFromName = URLConnection.guessContentTypeFromName(str);
-            if (guessContentTypeFromName == null) {
-                return "text/plain";
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            StatisticItem addParam = new StatisticItem("c14570").addParam("obj_type", 1).addParam("obj_source", 1).addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            if (!StringUtils.isNull(str)) {
+                addParam.addParam("obj_locate", str);
             }
-            return guessContentTypeFromName;
+            a = str;
+            addParam.eventStat();
         }
-        return (String) invokeL.objValue;
     }
 
-    @NonNull
-    public static InputStream e(@NonNull File file) throws FileNotFoundException, IOException {
-        InterceptResult invokeL;
+    public static void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
-            return d(file.getPath(), new FileInputStream(file));
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+            StatisticItem addParam = new StatisticItem("c14570").addParam("obj_type", 2).addParam("obj_source", 2).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam(TiebaStatic.Params.OBJ_PARAM3, str2);
+            if (!StringUtils.isNull(str)) {
+                addParam.addParam("obj_locate", str);
+            }
+            addParam.eventStat();
         }
-        return (InputStream) invokeL.objValue;
     }
 
-    @Nullable
-    public static File b(@NonNull File file, @NonNull String str) throws IOException {
-        InterceptResult invokeLL;
+    public static void c(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, file, str)) == null) {
-            String a = a(file);
-            String canonicalPath = new File(file, str).getCanonicalPath();
-            if (canonicalPath.startsWith(a)) {
-                return new File(canonicalPath);
+        if (interceptable == null || interceptable.invokeII(65538, null, i, i2) == null) {
+            StatisticItem addParam = new StatisticItem("c14570").addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", 1).addParam("obj_source", 3).addParam("obj_param1", i).addParam(TiebaStatic.Params.OBJ_PARAM2, i2);
+            if (!StringUtils.isNull(b)) {
+                addParam.addParam(TiebaStatic.Params.OBJ_PARAM3, b);
             }
-            return null;
+            if (!StringUtils.isNull(a)) {
+                addParam.addParam("obj_locate", a);
+            }
+            addParam.eventStat();
+            b = null;
         }
-        return (File) invokeLL.objValue;
     }
 
-    @NonNull
-    public static InputStream d(@NonNull String str, @NonNull InputStream inputStream) throws IOException {
-        InterceptResult invokeLL;
+    public static void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, inputStream)) == null) {
-            if (str.endsWith(".svgz")) {
-                return new GZIPInputStream(inputStream);
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            StatisticItem addParam = new StatisticItem("c14570").addParam("obj_type", 1).addParam("obj_source", 2).addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            if (!StringUtils.isNull(a)) {
+                addParam.addParam("obj_locate", a);
             }
-            return inputStream;
+            a = null;
+            addParam.eventStat();
         }
-        return (InputStream) invokeLL.objValue;
     }
 }

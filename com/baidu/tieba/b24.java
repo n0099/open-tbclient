@@ -1,137 +1,115 @@
 package com.baidu.tieba;
 
-import android.app.AppOpsManager;
-import android.app.usage.UsageStats;
-import android.app.usage.UsageStatsManager;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.os.Process;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.bdtask.model.response.TaskProcessData;
+import com.baidu.searchbox.v8engine.JsFunction;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Calendar;
-import java.util.List;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class b24 extends s14 {
+public final class b24 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+    public JsFunction a;
+    public JsFunction b;
+    public JsFunction c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947593061, "Lcom/baidu/tieba/b24;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947593061, "Lcom/baidu/tieba/b24;");
-                return;
-            }
-        }
-        c = wp1.a;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public b24() {
-        super("GetAppUseDuration");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.s14
-    public m12 a(@NonNull JSONObject jSONObject, @NonNull qm2 qm2Var) {
-        InterceptResult invokeLL;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, qm2Var)) == null) {
-            if (jSONObject == null) {
-                qm2Var.onFail(202, "params may be error");
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            JsFunction jsFunction = this.b;
+            if (jsFunction != null) {
+                jsFunction.call();
+            }
+            JsFunction jsFunction2 = this.c;
+            if (jsFunction2 != null) {
+                jsFunction2.call();
+            }
+            f(this.a);
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            JsFunction jsFunction = this.a;
+            if (jsFunction != null) {
+                jsFunction.call();
+            }
+            JsFunction jsFunction2 = this.c;
+            if (jsFunction2 != null) {
+                jsFunction2.call();
+            }
+            f(this.b);
+        }
+    }
+
+    public static b24 e(a02 a02Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, a02Var)) == null) {
+            if (a02Var == null) {
                 return null;
             }
-            if (c) {
-                Log.e("GetAppUseDuration", "params is " + jSONObject.toString());
-            }
-            String optString = jSONObject.optString("packageName");
-            if (TextUtils.isEmpty(optString)) {
-                qm2Var.onFail(202, "params may be error");
-            } else {
-                b(optString, qm2Var);
-            }
-            return null;
+            b24 b24Var = new b24();
+            b24Var.a = a02Var.u("success");
+            b24Var.b = a02Var.u(com.baidu.pass.biometrics.face.liveness.b.a.g0);
+            b24Var.c = a02Var.u(TaskProcessData.keyComplete);
+            return b24Var;
         }
-        return (m12) invokeLL.objValue;
+        return (b24) invokeL.objValue;
     }
 
-    public final void b(String str, @NonNull qm2 qm2Var) {
+    public void b(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, qm2Var) == null) {
-            try {
-                if (c()) {
-                    PackageInfo packageInfo = AppRuntime.getAppContext().getPackageManager().getPackageInfo(str, 0);
-                    if (packageInfo != null) {
-                        List<UsageStats> queryUsageStats = ((UsageStatsManager) AppRuntime.getAppContext().getSystemService("usagestats")).queryUsageStats(3, packageInfo.firstInstallTime, Calendar.getInstance().getTimeInMillis());
-                        if (queryUsageStats.size() == 0) {
-                            qm2Var.onFail(101, "noPermission");
-                            return;
-                        }
-                        for (UsageStats usageStats : queryUsageStats) {
-                            if (TextUtils.equals(usageStats.getPackageName(), str)) {
-                                JSONObject jSONObject = new JSONObject();
-                                JSONObject jSONObject2 = new JSONObject();
-                                jSONObject2.put("appUseDuration", usageStats.getTotalTimeInForeground());
-                                jSONObject.put("data", jSONObject2);
-                                qm2Var.a(jSONObject);
-                                return;
-                            }
-                        }
-                        qm2Var.onFail(31016, "no package info");
-                        return;
-                    }
-                    qm2Var.onFail(31016, "no package info");
-                    return;
-                }
-                qm2Var.onFail(101, "noPermission");
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                qm2Var.onFail(31011, "app is not installed");
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            JsFunction jsFunction = this.b;
+            if (jsFunction != null) {
+                jsFunction.call(obj);
             }
+            JsFunction jsFunction2 = this.c;
+            if (jsFunction2 != null) {
+                jsFunction2.call(obj);
+            }
+            f(this.a);
         }
     }
 
-    public final boolean c() {
-        InterceptResult invokeV;
+    public void d(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (((AppOpsManager) AppRuntime.getAppContext().getSystemService("appops")).checkOpNoThrow("android:get_usage_stats", Process.myUid(), AppRuntime.getAppContext().getPackageName()) == 0) {
-                return true;
+        if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
+            JsFunction jsFunction = this.a;
+            if (jsFunction != null) {
+                jsFunction.call(obj);
             }
-            return false;
+            JsFunction jsFunction2 = this.c;
+            if (jsFunction2 != null) {
+                jsFunction2.call(obj);
+            }
+            f(this.b);
         }
-        return invokeV.booleanValue;
+    }
+
+    public final void f(JsFunction jsFunction) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, jsFunction) == null) && jsFunction != null) {
+            jsFunction.release();
+        }
     }
 }

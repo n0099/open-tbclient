@@ -1,104 +1,289 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Rect;
+import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Log;
+import androidx.annotation.Nullable;
+import androidx.annotation.UiThread;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.canvas.view.CanvasView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes4.dex */
-public class j12 implements i12 {
+import com.facebook.common.executors.UiThreadImmediateExecutorService;
+import com.facebook.common.references.CloseableReference;
+import com.facebook.datasource.DataSource;
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber;
+import com.facebook.imagepipeline.image.CloseableImage;
+import com.facebook.imagepipeline.request.ImageRequestBuilder;
+import java.io.File;
+import java.net.URI;
+import java.util.HashMap;
+import org.json.JSONArray;
+/* loaded from: classes5.dex */
+public class j12 extends z02 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, u23> a;
+    public String a;
+    public int b;
+    public int c;
+    public Rect d;
+    public Rect e;
+    public Bitmap f;
+    public int g;
+    public Uri h;
+    public String i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947830366, "Lcom/baidu/tieba/j12;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a extends BaseBitmapDataSubscriber {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ DataSource a;
+        public final /* synthetic */ a12 b;
+        public final /* synthetic */ j12 c;
+
+        public a(j12 j12Var, DataSource dataSource, a12 a12Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j12Var, dataSource, a12Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947830366, "Lcom/baidu/tieba/j12;");
-                return;
+            this.c = j12Var;
+            this.a = dataSource;
+            this.b = a12Var;
+        }
+
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.facebook.datasource.DataSource] */
+        @Override // com.facebook.datasource.BaseDataSubscriber
+        public void onFailureImpl(DataSource<CloseableReference<CloseableImage>> dataSource) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dataSource) == null) {
+                if (dataSource != null) {
+                    dataSource.close();
+                }
+                this.c.g = 3;
             }
         }
-        b = wp1.a;
+
+        @Override // com.facebook.imagepipeline.datasource.BaseBitmapDataSubscriber
+        public void onNewResultImpl(@Nullable Bitmap bitmap) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bitmap) == null) {
+                if (this.a.isFinished() && bitmap != null) {
+                    this.c.f = Bitmap.createBitmap(bitmap);
+                    this.a.close();
+                    CanvasView canvasView = this.b.h;
+                    if (canvasView != null) {
+                        canvasView.postInvalidate();
+                    }
+                }
+                this.c.g = 2;
+            }
+        }
     }
 
     public j12() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ConcurrentHashMap();
+        this.g = 0;
     }
 
-    @Override // com.baidu.tieba.i12
-    public void a(String str) {
+    public final int i(JSONArray jSONArray, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || this.a.containsKey(str)) {
-            return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, jSONArray, i)) == null) {
+            return kl3.g((float) jSONArray.optDouble(i));
         }
-        if (b) {
-            Log.d("Api-FirstRecorder", "markStart: " + str);
-        }
-        u23 u23Var = new u23();
-        this.a.put(str, u23Var);
-        u23Var.i(System.currentTimeMillis());
-        u23Var.f(str);
+        return invokeLI.intValue;
     }
 
-    @Override // com.baidu.tieba.i12
-    @SuppressLint({"BDThrowableCheck"})
-    public void b(String str) {
+    @Override // com.baidu.tieba.z02
+    public void a(a12 a12Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            u23 u23Var = this.a.get(str);
-            if (u23Var == null) {
-                if (!b) {
-                    return;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, a12Var, canvas) == null) {
+            if (h(a12Var)) {
+                int alpha = a12Var.d.getAlpha();
+                a12Var.c(a12Var.d);
+                Rect rect = this.e;
+                if (rect != null) {
+                    canvas.drawBitmap(this.f, this.d, rect, a12Var.d);
+                } else {
+                    canvas.drawBitmap(this.f, this.b, this.c, a12Var.d);
                 }
-                throw new RuntimeException(str + " markEnd before markStart");
-            } else if (u23Var.d() > 0) {
-            } else {
-                u23Var.h(System.currentTimeMillis());
-                if (b) {
-                    Log.d("Api-FirstRecorder", str + " first called cost " + u23Var.c());
-                }
-                if (TextUtils.equals(str, "request")) {
-                    if (b) {
-                        Log.d("Api-FirstRecorder", "record first request api called " + u23Var.toString());
-                    }
-                    HybridUbcFlow p = r23.p("startup");
-                    UbcFlowEvent ubcFlowEvent = new UbcFlowEvent("first_request_api_call_start");
-                    ubcFlowEvent.h(u23Var.e());
-                    p.F(ubcFlowEvent);
-                    UbcFlowEvent ubcFlowEvent2 = new UbcFlowEvent("first_request_api_call_end");
-                    ubcFlowEvent2.h(u23Var.d());
-                    p.F(ubcFlowEvent2);
+                a12Var.d.setAlpha(alpha);
+                return;
+            }
+            try {
+                j(a12Var);
+            } catch (Exception e) {
+                if (do1.a) {
+                    e.printStackTrace();
                 }
             }
+        }
+    }
+
+    public final String g(String str, t73 t73Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, t73Var)) == null) {
+            if (!TextUtils.isEmpty(str) && t73Var != null) {
+                try {
+                    if ("bdfile".equalsIgnoreCase(URI.create(str).getScheme())) {
+                        str = bf3.M(str, t73Var.b);
+                    }
+                    if (TextUtils.isEmpty(str)) {
+                        return null;
+                    }
+                    File file = new File(str);
+                    if (file.exists() && file.isFile()) {
+                        return file.getAbsolutePath();
+                    }
+                } catch (Exception unused) {
+                }
+            }
+            return null;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.z02
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            t73 b0 = t73.b0();
+            try {
+                int length = jSONArray.length();
+                if (length > 0) {
+                    this.i = this.a;
+                    String optString = jSONArray.optString(0);
+                    this.a = optString;
+                    this.a = f(b0, optString);
+                }
+                if (length > 2) {
+                    this.b = i(jSONArray, 1);
+                    this.c = i(jSONArray, 2);
+                }
+                if (length > 4) {
+                    int i = this.b;
+                    int i2 = this.c;
+                    int i3 = i(jSONArray, 3);
+                    int i4 = i(jSONArray, 4);
+                    if (i3 > 0 && i4 > 0) {
+                        this.e = new Rect(i, i2, i3 + i, i4 + i2);
+                    }
+                }
+                if (length > 8) {
+                    int optInt = jSONArray.optInt(5);
+                    int optInt2 = jSONArray.optInt(6);
+                    int optInt3 = jSONArray.optInt(7);
+                    int optInt4 = jSONArray.optInt(8);
+                    if (optInt3 > 0 && optInt4 > 0) {
+                        this.d = new Rect(optInt, optInt2, optInt3 + optInt, optInt4 + optInt2);
+                    }
+                }
+                if (b0 != null) {
+                    String g = g(this.a, b0);
+                    if (!TextUtils.isEmpty(g)) {
+                        this.f = BitmapFactory.decodeFile(g);
+                    } else if (!TextUtils.isEmpty(this.a)) {
+                        if (this.h == null || !TextUtils.equals(this.a, this.i)) {
+                            this.h = Uri.parse(this.a);
+                        }
+                    }
+                }
+            } catch (Exception e) {
+                if (do1.a) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public void e(HashMap<String, Bitmap> hashMap) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hashMap) == null) && hashMap != null && !TextUtils.isEmpty(this.a) && this.f != null && !hashMap.containsKey(this.a)) {
+            hashMap.put(this.a, this.f);
+        }
+    }
+
+    public final String f(t73 t73Var, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, t73Var, str)) == null) {
+            if (!TextUtils.isEmpty(str) && t73Var != null) {
+                try {
+                    if (!"bdfile".equalsIgnoreCase(URI.create(str).getScheme()) && !str.startsWith(nl3.x(t73Var).getPath())) {
+                        return nl3.w(t73Var, str);
+                    }
+                    return str;
+                } catch (Exception unused) {
+                }
+            }
+            return "";
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public final boolean h(a12 a12Var) {
+        InterceptResult invokeL;
+        CanvasView canvasView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, a12Var)) == null) {
+            if (this.f != null) {
+                return true;
+            }
+            if (this.h == null || a12Var == null || (canvasView = a12Var.h) == null) {
+                return false;
+            }
+            Bitmap e = canvasView.e(this.a);
+            this.f = e;
+            if (e != null) {
+                return true;
+            }
+            Bitmap c = qk3.c(this.h, a12Var.h.getContext());
+            this.f = c;
+            if (c != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @UiThread
+    public final void j(a12 a12Var) {
+        CanvasView canvasView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, a12Var) == null) && this.g == 0 && (canvasView = a12Var.h) != null && canvasView.getContext() != null && !TextUtils.isEmpty(this.a)) {
+            this.g = 1;
+            DataSource<CloseableReference<CloseableImage>> fetchDecodedImage = Fresco.getImagePipeline().fetchDecodedImage(ImageRequestBuilder.newBuilderWithSource(Uri.parse(this.a)).build(), a12Var.h.getContext());
+            fetchDecodedImage.subscribe(new a(this, fetchDecodedImage, a12Var), UiThreadImmediateExecutorService.getInstance());
         }
     }
 }

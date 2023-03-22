@@ -1,191 +1,73 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class pe2 implements oe2 {
+public class pe2 extends q93 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile pe2 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, ne2> a;
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ pe2 b;
-
-        public a(pe2 pe2Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pe2Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = pe2Var;
-            this.a = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.h(this.a);
-            }
-        }
-    }
-
-    public pe2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pe2(q83 q83Var) {
+        super(q83Var, "/swanAPI/getRegionData");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {q83Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap();
     }
 
-    public static pe2 d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.q93
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, t73 t73Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (pe2.class) {
-                    if (b == null) {
-                        b = new pe2();
-                    }
-                }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, t73Var)) == null) {
+            if (t73Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+                return false;
             }
-            return b;
-        }
-        return (pe2) invokeV.objValue;
-    }
-
-    public synchronized pe2 b(String str, UbcFlowEvent ubcFlowEvent) {
-        InterceptResult invokeLL;
-        ne2 ne2Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, ubcFlowEvent)) == null) {
-            synchronized (this) {
-                if (c(str) && (ne2Var = this.a.get(str)) != null) {
-                    ne2Var.a(str, ubcFlowEvent);
-                    return this;
+            String b = ek3.b(context, "aiapps/pickerRegion.js");
+            if (TextUtils.isEmpty(b)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty regionData");
+                return false;
+            }
+            try {
+                JSONArray jSONArray = new JSONArray(b);
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("content", jSONArray);
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+                return true;
+            } catch (JSONException e) {
+                if (q93.b) {
+                    e.printStackTrace();
                 }
-                return this;
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "exec fail");
+                return false;
             }
         }
-        return (pe2) invokeLL.objValue;
-    }
-
-    public synchronized pe2 f(String str, qe2 qe2Var) {
-        InterceptResult invokeLL;
-        ne2 ne2Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, qe2Var)) == null) {
-            synchronized (this) {
-                if (c(str) && (ne2Var = this.a.get(str)) != null) {
-                    ne2Var.e(str, qe2Var);
-                    return this;
-                }
-                return this;
-            }
-        }
-        return (pe2) invokeLL.objValue;
-    }
-
-    public void j(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048583, this, str, j) == null) {
-            ExecutorUtilsExt.delayPostOnElastic(new a(this, str), "PrefetchStageRecorder", 3, j);
-        }
-    }
-
-    public final boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return !TextUtils.isEmpty(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final synchronized void h(String str) {
-        ne2 ne2Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            synchronized (this) {
-                if (c(str) && (ne2Var = this.a.get(str)) != null) {
-                    this.a.remove(str);
-                    ne2Var.h(str);
-                }
-            }
-        }
-    }
-
-    public void i(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            j(str, 0L);
-        }
-    }
-
-    public synchronized pe2 e(String str, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        ne2 ne2Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            synchronized (this) {
-                if (c(str) && (ne2Var = this.a.get(str)) != null) {
-                    ne2Var.d(str, z);
-                    if (z2) {
-                        i(str);
-                    }
-                    return this;
-                }
-                return this;
-            }
-        }
-        return (pe2) invokeCommon.objValue;
-    }
-
-    public synchronized pe2 g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            synchronized (this) {
-                if (c(str) && !this.a.containsKey(str)) {
-                    ne2 ne2Var = new ne2();
-                    this.a.put(str, ne2Var);
-                    ne2Var.f(str);
-                    return this;
-                }
-                return this;
-            }
-        }
-        return (pe2) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

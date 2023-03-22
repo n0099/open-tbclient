@@ -4,8 +4,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.ctrl.model.TaskStatus;
 import com.baidu.bdtask.framework.ui.buoy.BuoyViewData;
 import com.baidu.bdtask.model.response.TaskProcessData;
-import com.baidu.tieba.bq;
-import com.baidu.tieba.dq;
+import com.baidu.tieba.ep;
+import com.baidu.tieba.gp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,20 +18,20 @@ import kotlin.jvm.internal.DefaultConstructorMarker;
 public final class TaskBuoyViewData extends BuoyViewData {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final dq curProcess;
+    public final gp curProcess;
     public final String extra;
     public final TaskStatus taskStatus;
     public final TaskProcessData totalProcess;
-    public final bq uiConfig;
+    public final ep uiConfig;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public TaskBuoyViewData(TaskStatus taskStatus, bq bqVar, dq dqVar, TaskProcessData taskProcessData, String str) {
-        super(bqVar.c(), bqVar.g(), bqVar.a(), bqVar.e(), bqVar.d(), bqVar.f(), dqVar.a(), dqVar.b(), bqVar.b());
+    public TaskBuoyViewData(TaskStatus taskStatus, ep epVar, gp gpVar, TaskProcessData taskProcessData, String str) {
+        super(epVar.c(), epVar.g(), epVar.a(), epVar.e(), epVar.d(), epVar.f(), gpVar.a(), gpVar.b(), epVar.b());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r3;
-            Object[] objArr = {taskStatus, bqVar, dqVar, taskProcessData, str};
+            Object[] objArr = {taskStatus, epVar, gpVar, taskProcessData, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -44,23 +44,23 @@ public final class TaskBuoyViewData extends BuoyViewData {
             }
         }
         this.taskStatus = taskStatus;
-        this.uiConfig = bqVar;
-        this.curProcess = dqVar;
+        this.uiConfig = epVar;
+        this.curProcess = gpVar;
         this.totalProcess = taskProcessData;
         this.extra = str;
     }
 
-    public /* synthetic */ TaskBuoyViewData(TaskStatus taskStatus, bq bqVar, dq dqVar, TaskProcessData taskProcessData, String str, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(taskStatus, bqVar, dqVar, taskProcessData, (i & 16) != 0 ? "" : str);
+    public /* synthetic */ TaskBuoyViewData(TaskStatus taskStatus, ep epVar, gp gpVar, TaskProcessData taskProcessData, String str, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(taskStatus, epVar, gpVar, taskProcessData, (i & 16) != 0 ? "" : str);
     }
 
-    public final dq getCurProcess() {
+    public final gp getCurProcess() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.curProcess;
         }
-        return (dq) invokeV.objValue;
+        return (gp) invokeV.objValue;
     }
 
     public final String getExtra() {
@@ -90,13 +90,13 @@ public final class TaskBuoyViewData extends BuoyViewData {
         return (TaskProcessData) invokeV.objValue;
     }
 
-    public final bq getUiConfig() {
+    public final ep getUiConfig() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.uiConfig;
         }
-        return (bq) invokeV.objValue;
+        return (ep) invokeV.objValue;
     }
 
     public String toString() {

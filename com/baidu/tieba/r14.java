@@ -1,48 +1,89 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class r14 extends s14 {
+public class r14 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r14() {
-        super("echoSync");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948068756, "Lcom/baidu/tieba/r14;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948068756, "Lcom/baidu/tieba/r14;");
                 return;
             }
         }
+        a = do1.a;
     }
 
-    @Override // com.baidu.tieba.s14
-    public m12 a(@NonNull JSONObject jSONObject, @NonNull qm2 qm2Var) {
-        InterceptResult invokeLL;
+    public r14(JsObject jsObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, qm2Var)) == null) {
-            int optInt = jSONObject.optInt("status", 0);
-            String optString = jSONObject.optString("message");
-            JSONObject optJSONObject = jSONObject.optJSONObject("data");
-            if (optInt == 0) {
-                return new m12(optInt, optJSONObject);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jsObject};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return new m12(optInt, optString);
         }
-        return (m12) invokeLL.objValue;
+        a02 F = a02.F(jsObject);
+        if (F == null) {
+            return;
+        }
+        t73 M = t73.M();
+        if (M == null) {
+            a(F, false, b("internal error"));
+            return;
+        }
+        try {
+            boolean m = F.m("mixWithOther", false);
+            M.U().h("key_audio_is_mix_with_other", Boolean.valueOf(m));
+            if (a) {
+                Log.d("InnerAudioOptionApi", "Audio Mix Changed to " + m);
+            }
+            a(F, true, "setInnerAudioOption:ok");
+        } catch (Exception unused) {
+            t42.c("InnerAudioOptionApi", "set swanApp global var error");
+            a(F, false, b("internal error"));
+        }
+    }
+
+    public final void a(a02 a02Var, boolean z, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{a02Var, Boolean.valueOf(z), str}) == null) {
+            c24 c24Var = new c24();
+            c24Var.errMsg = str;
+            fa4.call(a02Var, z, c24Var);
+        }
+    }
+
+    public final String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return String.format("setInnerAudioOption:fail %s", str);
+        }
+        return (String) invokeL.objValue;
     }
 }

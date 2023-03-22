@@ -4,32 +4,154 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
-import com.baidu.nadcore.exp.ADConfigError;
+import com.baidu.bdtask.BDPTask;
+import com.baidu.bdtask.model.response.TaskResponseData;
 import com.baidu.nadcore.net.request.Headers;
-import com.baidu.tbadk.util.AdExtParam;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tieba.qn0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.InputStream;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gn0 implements Runnable {
+public class gn0 extends pj1<qn0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public boolean c;
-    public int d;
-    public ADConfigError e;
-    public nn0 f;
 
     /* loaded from: classes4.dex */
-    public class a extends ss0<String> {
+    public class a implements qn0 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gn0 a;
+
+        /* renamed from: com.baidu.tieba.gn0$a$a  reason: collision with other inner class name */
+        /* loaded from: classes4.dex */
+        public class C0274a implements hr0<JSONObject> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ rp0 a;
+            public final /* synthetic */ qn0.b b;
+            public final /* synthetic */ hq0 c;
+            public final /* synthetic */ a d;
+
+            @Override // com.baidu.tieba.gr0
+            public void c(Headers headers, InputStream inputStream, int i) throws Exception {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, headers, inputStream, i) == null) {
+                }
+            }
+
+            public C0274a(a aVar, rp0 rp0Var, qn0.b bVar, hq0 hq0Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, rp0Var, bVar, hq0Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.d = aVar;
+                this.a = rp0Var;
+                this.b = bVar;
+                this.c = hq0Var;
+            }
+
+            @Override // com.baidu.tieba.gr0
+            public void a(Exception exc, int i) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
+                    k11.b(new ClogBuilder().y(ClogBuilder.LogType.REWARD_TOKEN_FAIL).u(ClogBuilder.Page.WELFAREMAXLP).p(this.a.f.d));
+                    this.b.onFail(exc);
+                }
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.hr0
+            /* renamed from: f */
+            public JSONObject d(Headers headers, String str, int i) throws Exception {
+                InterceptResult invokeLLI;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048581, this, headers, str, i)) == null) {
+                    return new JSONObject(str);
+                }
+                return (JSONObject) invokeLLI.objValue;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.hr0
+            /* renamed from: e */
+            public void b(Headers headers, JSONObject jSONObject, int i) {
+                JSONObject optJSONObject;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLLI(1048580, this, headers, jSONObject, i) == null) {
+                    if (jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
+                        this.d.e(optJSONObject.optString("token"), this.a, this.c, this.b);
+                        return;
+                    }
+                    k11.b(new ClogBuilder().y(ClogBuilder.LogType.REWARD_TOKEN_FAIL).u(ClogBuilder.Page.WELFAREMAXLP).p(this.a.f.d));
+                    this.b.onFail(new IllegalArgumentException("data: null"));
+                }
+            }
+        }
+
+        /* loaded from: classes4.dex */
+        public class b implements jq {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ qn0.b a;
+            public final /* synthetic */ rp0 b;
+
+            public b(a aVar, qn0.b bVar, rp0 rp0Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, bVar, rp0Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+                this.b = rp0Var;
+            }
+
+            @Override // com.baidu.tieba.jq
+            public void a(@NonNull TaskResponseData taskResponseData) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, taskResponseData) == null) {
+                    try {
+                        this.a.a(jn0.b(new JSONObject(taskResponseData.getUi().getExtra())));
+                    } catch (Exception e) {
+                        k11.b(new ClogBuilder().y(ClogBuilder.LogType.REWARD_COIN_FAIL).u(ClogBuilder.Page.WELFAREMAXLP).p(this.b.f.d).k("1").l("2"));
+                        this.a.onFail(e);
+                    }
+                }
+            }
+
+            @Override // com.baidu.tieba.jq
+            public void onError(int i, @NonNull String str) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
+                    k11.b(new ClogBuilder().y(ClogBuilder.LogType.REWARD_COIN_FAIL).u(ClogBuilder.Page.WELFAREMAXLP).p(this.b.f.d).k("1").l("1").m(String.valueOf(i)));
+                    this.a.onFail(new RuntimeException(str));
+                }
+            }
+        }
 
         public a(gn0 gn0Var) {
             Interceptable interceptable = $ic;
@@ -43,218 +165,96 @@ public class gn0 implements Runnable {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final String d(@Nullable iq0 iq0Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iq0Var)) == null) {
+                if (iq0Var != null && !TextUtils.isEmpty(iq0Var.a())) {
+                    return iq0Var.a();
+                }
+                return fn0.a().b();
+            }
+            return (String) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.qn0
+        public void a(@NonNull rp0 rp0Var, @NonNull hq0 hq0Var, @NonNull qn0.b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, rp0Var, hq0Var, bVar) == null) {
+                String A = rp0Var.g().A();
+                if (!TextUtils.isEmpty(A)) {
+                    e(A, rp0Var, hq0Var, bVar);
                     return;
                 }
+                ar0 a = wq0.b().a();
+                pr0 pr0Var = new pr0();
+                pr0Var.l(d(rp0Var.g()));
+                pr0Var.h(kr0.c);
+                pr0Var.d("User-Agent", hi0.c().a().h());
+                a.a(pr0Var, new C0274a(this, rp0Var, bVar, hq0Var));
             }
-            this.a = gn0Var;
         }
 
-        @Override // com.baidu.tieba.qs0
-        public void a(Exception exc, int i) {
+        @Nullable
+        public final JSONObject c(rp0 rp0Var, hq0 hq0Var) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rp0Var, hq0Var)) == null) {
                 try {
-                    e(exc);
-                } finally {
-                    this.a.k();
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rs0
-        /* renamed from: g */
-        public void b(Headers headers, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048581, this, headers, str, i) == null) {
-                try {
-                    f(str);
-                } finally {
-                    this.a.k();
-                }
-            }
-        }
-
-        public final void e(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, exc) == null) {
-                this.a.e = ADConfigError.error("1", exc.toString());
-                if (this.a.f != null) {
-                    this.a.f.a(this.a.e);
-                }
-            }
-        }
-
-        public final void f(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                if (!TextUtils.isEmpty(str)) {
-                    try {
-                        this.a.a = true;
-                        fn0.d().c();
-                        fn0.d().e(str);
-                        return;
-                    } catch (ADConfigError e) {
-                        this.a.e = e;
-                        this.a.l();
-                        return;
-                    }
-                }
-                this.a.e = ADConfigError.error("1", ADConfigError.REASON_NULL_RESPONSE);
-                this.a.l();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.rs0
-        /* renamed from: h */
-        public String d(Headers headers, String str, int i) {
-            InterceptResult invokeLLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048582, this, headers, str, i)) == null) {
-                if (i != 200) {
-                    String str2 = i + "";
-                    if (str != null) {
-                        str2 = f21.c(str).optString("error_message");
-                    }
-                    this.a.e = ADConfigError.error("8", str2);
-                    this.a.l();
-                    this.a.k();
+                    iq0 g = rp0Var.g();
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("id_from", g.t());
+                    jSONObject.put("logid", g.B());
+                    jSONObject.put("session_rewards", hq0Var.a());
+                    jSONObject.put("task_policy", g.v());
+                    return jSONObject;
+                } catch (JSONException unused) {
                     return null;
                 }
-                return str;
             }
-            return (String) invokeLLI.objValue;
+            return (JSONObject) invokeLL.objValue;
+        }
+
+        public final void e(String str, @NonNull rp0 rp0Var, @NonNull hq0 hq0Var, @NonNull qn0.b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLLL(1048579, this, str, rp0Var, hq0Var, bVar) == null) {
+                String u = rp0Var.g().u();
+                if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(u)) {
+                    BDPTask.m.G(str, u, 0, c(rp0Var, hq0Var), new b(this, bVar, rp0Var));
+                    return;
+                }
+                bVar.onFail(new IllegalArgumentException("token: " + str + " taskId: " + u));
+            }
         }
     }
 
-    public gn0(int i, boolean z, int i2) {
+    public gn0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = i;
-        this.c = z;
-        this.d = i2;
     }
 
-    public void m(nn0 nn0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, nn0Var) == null) {
-            this.f = nn0Var;
-        }
-    }
-
-    @NonNull
-    public final JSONObject g() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.pj1
+    /* renamed from: a */
+    public qn0 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
-        String p;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            zj0 a2 = rj0.a();
-            f21.f(jSONObject, "cuid", a2.g());
-            f21.f(jSONObject, "baiduid", a2.o());
-            f21.f(jSONObject, "product", a2.z());
-            f21.f(jSONObject, "bundle_id", a2.packageName());
-            f21.f(jSONObject, AdExtParam.KEY_NAD_CORE_VERSION, "5.11.0.5");
-            f21.f(jSONObject, "ot", "2");
-            String h = jk0.c().h(false);
-            if (!TextUtils.isEmpty(h)) {
-                f21.f(jSONObject, "ov", h);
-            }
-            f21.f(jSONObject, "ua", rj0.e());
-            if (TextUtils.isEmpty(a2.p())) {
-                p = a2.w();
-            } else {
-                p = a2.p();
-            }
-            f21.f(jSONObject, "ver", p);
-            f21.f(jSONObject, "sid", a2.i());
-            f21.f(jSONObject, HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, String.valueOf(System.currentTimeMillis()));
-            f21.f(jSONObject, "ext", "");
-            return jSONObject;
+            return new a(this);
         }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    @Nullable
-    public final zs0 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ys0 f = ys0.f(f61.a(g().toString().getBytes()));
-            zs0 zs0Var = new zs0();
-            zs0Var.a("Content-Encoding", "gzip");
-            zs0Var.a("Content-Type", "application/json");
-            zs0Var.l(i() + "?" + rj0.a().l());
-            zs0Var.g(this.b * 1000);
-            zs0Var.j(this.b * 1000);
-            zs0Var.k(this.b * 1000);
-            zs0Var.f(f);
-            return zs0Var;
-        }
-        return (zs0) invokeV.objValue;
-    }
-
-    public final String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (ch0.a && !TextUtils.isEmpty(rj0.d().k())) {
-                return rj0.d().k();
-            }
-            return "https://afdconf.baidu.com/afd/platform";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            in0.c().d();
-        }
-    }
-
-    public final void l() {
-        ADConfigError aDConfigError;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (aDConfigError = this.e) != null && !TextUtils.equals(aDConfigError.reason, ADConfigError.REASON_REQUEST_SUCCESS)) {
-            hn0.c(this.e, this.d, this.c);
-        }
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            zs0 h = h();
-            if (h == null) {
-                this.e = ADConfigError.error("10", ADConfigError.REASON_BUILD_REQUEST_FAILED);
-                l();
-                k();
-                return;
-            }
-            gs0.b().a().a(h, new a(this));
-        }
+        return (qn0) invokeV.objValue;
     }
 }

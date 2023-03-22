@@ -1,17 +1,14 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
-import com.yy.mobile.framework.revenuesdk.baseapi.PurchaseStatus;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import tv.athena.revenue.payui.view.IYYPayWayView;
-/* loaded from: classes6.dex */
-public interface xsa {
-    void h(int i, String str, Activity activity, Dialog dialog, IYYPayWayView iYYPayWayView, IYYPayWayView.b bVar, lua luaVar, oua ouaVar, PayCallBackBean payCallBackBean, IPayCallback<CurrencyChargeMessage> iPayCallback);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import rx.internal.operators.OperatorPublish$InnerProducer;
+/* loaded from: classes7.dex */
+public final class xsa<T> extends ura<T> implements vra {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void i(Activity activity, oua ouaVar, Dialog dialog, IYYPayWayView iYYPayWayView);
+    public abstract void g();
 
-    void r(Activity activity, Dialog dialog, IYYPayWayView iYYPayWayView, PurchaseStatus purchaseStatus);
+    public abstract void h(OperatorPublish$InnerProducer<T> operatorPublish$InnerProducer);
 }

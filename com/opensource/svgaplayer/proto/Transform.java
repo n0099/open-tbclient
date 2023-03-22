@@ -1,9 +1,9 @@
 package com.opensource.svgaplayer.proto;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.qia;
-import com.baidu.tieba.ria;
-import com.baidu.tieba.via;
+import com.baidu.tieba.apa;
+import com.baidu.tieba.epa;
+import com.baidu.tieba.zoa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -167,41 +167,41 @@ public final class Transform extends Message<Transform, Builder> {
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Can't rename method to resolve collision */
         @Override // com.squareup.wire2.ProtoAdapter
-        public Transform decode(qia qiaVar) throws IOException {
+        public Transform decode(zoa zoaVar) throws IOException {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, qiaVar)) == null) {
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, zoaVar)) == null) {
                 Builder builder = new Builder();
-                long c = qiaVar.c();
+                long c = zoaVar.c();
                 while (true) {
-                    int f = qiaVar.f();
+                    int f = zoaVar.f();
                     if (f != -1) {
                         switch (f) {
                             case 1:
-                                builder.a(ProtoAdapter.FLOAT.decode(qiaVar));
+                                builder.a(ProtoAdapter.FLOAT.decode(zoaVar));
                                 break;
                             case 2:
-                                builder.b(ProtoAdapter.FLOAT.decode(qiaVar));
+                                builder.b(ProtoAdapter.FLOAT.decode(zoaVar));
                                 break;
                             case 3:
-                                builder.c(ProtoAdapter.FLOAT.decode(qiaVar));
+                                builder.c(ProtoAdapter.FLOAT.decode(zoaVar));
                                 break;
                             case 4:
-                                builder.d(ProtoAdapter.FLOAT.decode(qiaVar));
+                                builder.d(ProtoAdapter.FLOAT.decode(zoaVar));
                                 break;
                             case 5:
-                                builder.tx(ProtoAdapter.FLOAT.decode(qiaVar));
+                                builder.tx(ProtoAdapter.FLOAT.decode(zoaVar));
                                 break;
                             case 6:
-                                builder.ty(ProtoAdapter.FLOAT.decode(qiaVar));
+                                builder.ty(ProtoAdapter.FLOAT.decode(zoaVar));
                                 break;
                             default:
-                                FieldEncoding g = qiaVar.g();
-                                builder.addUnknownField(f, g, g.rawProtoAdapter().decode(qiaVar));
+                                FieldEncoding g = zoaVar.g();
+                                builder.addUnknownField(f, g, g.rawProtoAdapter().decode(zoaVar));
                                 break;
                         }
                     } else {
-                        qiaVar.d(c);
+                        zoaVar.d(c);
                         return builder.build();
                     }
                 }
@@ -280,34 +280,34 @@ public final class Transform extends Message<Transform, Builder> {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.squareup.wire2.ProtoAdapter
-        public void encode(ria riaVar, Transform transform) throws IOException {
+        public void encode(apa apaVar, Transform transform) throws IOException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, riaVar, transform) == null) {
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, apaVar, transform) == null) {
                 Float f = transform.a;
                 if (f != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(riaVar, 1, f);
+                    ProtoAdapter.FLOAT.encodeWithTag(apaVar, 1, f);
                 }
                 Float f2 = transform.b;
                 if (f2 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(riaVar, 2, f2);
+                    ProtoAdapter.FLOAT.encodeWithTag(apaVar, 2, f2);
                 }
                 Float f3 = transform.c;
                 if (f3 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(riaVar, 3, f3);
+                    ProtoAdapter.FLOAT.encodeWithTag(apaVar, 3, f3);
                 }
                 Float f4 = transform.d;
                 if (f4 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(riaVar, 4, f4);
+                    ProtoAdapter.FLOAT.encodeWithTag(apaVar, 4, f4);
                 }
                 Float f5 = transform.tx;
                 if (f5 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(riaVar, 5, f5);
+                    ProtoAdapter.FLOAT.encodeWithTag(apaVar, 5, f5);
                 }
                 Float f6 = transform.ty;
                 if (f6 != null) {
-                    ProtoAdapter.FLOAT.encodeWithTag(riaVar, 6, f6);
+                    ProtoAdapter.FLOAT.encodeWithTag(apaVar, 6, f6);
                 }
-                riaVar.k(transform.unknownFields());
+                apaVar.k(transform.unknownFields());
             }
         }
     }
@@ -415,7 +415,7 @@ public final class Transform extends Message<Transform, Builder> {
                 return false;
             }
             Transform transform = (Transform) obj;
-            if (unknownFields().equals(transform.unknownFields()) && via.f(this.a, transform.a) && via.f(this.b, transform.b) && via.f(this.c, transform.c) && via.f(this.d, transform.d) && via.f(this.tx, transform.tx) && via.f(this.ty, transform.ty)) {
+            if (unknownFields().equals(transform.unknownFields()) && epa.f(this.a, transform.a) && epa.f(this.b, transform.b) && epa.f(this.c, transform.c) && epa.f(this.d, transform.d) && epa.f(this.tx, transform.tx) && epa.f(this.ty, transform.ty)) {
                 return true;
             }
             return false;

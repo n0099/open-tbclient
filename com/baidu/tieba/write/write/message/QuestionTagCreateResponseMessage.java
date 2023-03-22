@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dh;
+import com.baidu.tieba.gg;
 import com.baidu.tieba.write.data.CreateTagResponseData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -45,11 +45,11 @@ public class QuestionTagCreateResponseMessage extends JsonHttpResponsedMessage {
             if (jSONObject == null) {
                 return;
             }
-            setError(dh.e(jSONObject.optString("errno"), 0));
+            setError(gg.e(jSONObject.optString("errno"), 0));
             if (getError() == 230049) {
                 setErrorString(jSONObject.optString("errmsg"));
             } else if (getError() != 0) {
-                setErrorString(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04a6));
+                setErrorString(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04a9));
             }
             if (getError() != 0) {
                 return;

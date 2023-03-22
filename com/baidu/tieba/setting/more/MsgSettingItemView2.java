@@ -74,8 +74,8 @@ public class MsgSettingItemView2 extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05dd, (ViewGroup) this, true);
-            this.a = (CheckBox) findViewById(R.id.obfuscated_res_0x7f091fe7);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d05eb, (ViewGroup) this, true);
+            this.a = (CheckBox) findViewById(R.id.obfuscated_res_0x7f092032);
         }
     }
 

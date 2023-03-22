@@ -1,83 +1,82 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Collection;
-import java.util.List;
-import kotlin.comparisons.ComparisonsKt__ComparisonsKt;
-import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
 public final class lj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: T, ? super T */
-    public static final <T, K extends Comparable<? super K>> int a(List<? extends T> list, K key, Function1<? super T, ? extends K> selector) {
-        InterceptResult invokeLLL;
+    public static final <T extends ji6> T a(ki6 ki6Var, Class<T> type, y entity, ci6 item) {
+        InterceptResult invokeLLLL;
+        T t;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, list, key, selector)) == null) {
-            Intrinsics.checkNotNullParameter(list, "<this>");
-            Intrinsics.checkNotNullParameter(key, "key");
-            Intrinsics.checkNotNullParameter(selector, "selector");
-            int size = list.size() - 1;
-            if (list.isEmpty()) {
-                return -1;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, ki6Var, type, entity, item)) == null) {
+            Intrinsics.checkNotNullParameter(ki6Var, "<this>");
+            Intrinsics.checkNotNullParameter(type, "type");
+            Intrinsics.checkNotNullParameter(entity, "entity");
+            Intrinsics.checkNotNullParameter(item, "item");
+            x f = ki6Var.f();
+            if (f != null && (t = (T) f.h(type)) != null) {
+                entity.a(t);
+                t.b(item);
+                return t;
             }
-            int i = 0;
-            while (i < size) {
-                int i2 = (i + size) >>> 1;
-                int compareValues = ComparisonsKt__ComparisonsKt.compareValues(selector.invoke((T) list.get(i2)), key);
-                if (compareValues < 0) {
-                    i = i2 + 1;
-                } else if (compareValues > 0) {
-                    size = i2;
-                } else {
-                    return i2 - 1;
-                }
-            }
-            return i;
+            return null;
         }
-        return invokeLLL.intValue;
+        return (T) invokeLLLL.objValue;
     }
 
-    /* JADX DEBUG: Type inference failed for r3v1. Raw type applied. Possible types: T, ? super T */
-    public static final <T, K extends Comparable<? super K>> int b(List<? extends T> list, K key, Function1<? super T, ? extends K> selector) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, list, key, selector)) == null) {
-            Intrinsics.checkNotNullParameter(list, "<this>");
-            Intrinsics.checkNotNullParameter(key, "key");
-            Intrinsics.checkNotNullParameter(selector, "selector");
-            int size = list.size() - 1;
-            if (list.isEmpty()) {
-                return -1;
-            }
-            int i = 0;
-            while (i < size) {
-                int i2 = (i + size) >>> 1;
-                int compareValues = ComparisonsKt__ComparisonsKt.compareValues(selector.invoke((T) list.get(i2)), key);
-                if (compareValues < 0) {
-                    i = i2 + 1;
-                } else if (compareValues > 0) {
-                    size = i2;
-                } else {
-                    return i2 - 1;
-                }
-            }
-            return size;
-        }
-        return invokeLLL.intValue;
-    }
-
-    public static final <T extends Comparable<? super T>> di6<T> c(Collection<? extends T> collection) {
+    public static final long b(ki6 ki6Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, collection)) == null) {
-            Intrinsics.checkNotNullParameter(collection, "<this>");
-            return new di6<>(collection);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, ki6Var)) == null) {
+            Intrinsics.checkNotNullParameter(ki6Var, "<this>");
+            return d(ki6Var).a();
         }
-        return (di6) invokeL.objValue;
+        return invokeL.longValue;
+    }
+
+    public static final ck6 c(ki6 ki6Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, ki6Var)) == null) {
+            Intrinsics.checkNotNullParameter(ki6Var, "<this>");
+            return ki6Var.i().d();
+        }
+        return (ck6) invokeL.objValue;
+    }
+
+    public static final fk6 d(ki6 ki6Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, ki6Var)) == null) {
+            Intrinsics.checkNotNullParameter(ki6Var, "<this>");
+            return ki6Var.i().f();
+        }
+        return (fk6) invokeL.objValue;
+    }
+
+    public static final boolean e(ki6 ki6Var) {
+        InterceptResult invokeL;
+        ii6 ii6Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, ki6Var)) == null) {
+            Intrinsics.checkNotNullParameter(ki6Var, "<this>");
+            x f = ki6Var.f();
+            if (f instanceof ii6) {
+                ii6Var = (ii6) f;
+            } else {
+                ii6Var = null;
+            }
+            if (ii6Var != null) {
+                return ii6Var.x();
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

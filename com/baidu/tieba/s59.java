@@ -1,27 +1,27 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class s59 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile r59 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public boolean b;
 
-    public s59() {
+    public static synchronized r59 a() {
+        InterceptResult invokeV;
+        r59 r59Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (s59.class) {
+                if (a == null) {
+                    a = new r59();
+                }
+                r59Var = a;
             }
+            return r59Var;
         }
+        return (r59) invokeV.objValue;
     }
 }

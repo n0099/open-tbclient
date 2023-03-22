@@ -1,7 +1,11 @@
 package com.baidu.tieba;
-
-import android.view.View;
 /* loaded from: classes7.dex */
-public interface yf {
-    void N(View view2, int i, int i2, long j);
+public interface yf<T> {
+    T a(T t);
+
+    void b(T t);
+
+    T c(T t);
+
+    T d();
 }

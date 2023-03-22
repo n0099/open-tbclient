@@ -1,20 +1,15 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.FrsPage.NavTabInfo;
-import tbclient.FrsTabInfo;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class n49 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<FrsTabInfo> a;
-    public List<FrsTabInfo> b;
-    public List<FrsTabInfo> c;
 
     public n49() {
         Interceptable interceptable = $ic;
@@ -26,21 +21,15 @@ public class n49 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new ArrayList();
-        this.b = new ArrayList();
-        this.c = new ArrayList();
     }
 
-    public void a(NavTabInfo navTabInfo) {
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, navTabInfo) != null) || navTabInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        this.a = new ArrayList(navTabInfo.tab);
-        this.b = new ArrayList(navTabInfo.menu);
-        this.c = new ArrayList(navTabInfo.head);
+        DnsModel.MSG_OK.equals(jSONObject.optString("status"));
     }
 }

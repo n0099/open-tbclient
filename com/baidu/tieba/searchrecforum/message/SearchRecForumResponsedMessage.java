@@ -2,7 +2,7 @@ package com.baidu.tieba.searchrecforum.message;
 
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.my8;
+import com.baidu.tieba.s39;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -12,7 +12,7 @@ import org.json.JSONObject;
 public class SearchRecForumResponsedMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public my8 data;
+    public s39 data;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SearchRecForumResponsedMessage() {
@@ -38,7 +38,7 @@ public class SearchRecForumResponsedMessage extends JsonHttpResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(1048576, this, i, jSONObject) == null) {
             super.decodeLogicInBackGround(i, jSONObject);
             if (jSONObject != null && jSONObject.optInt("error_code", -1) == 0) {
-                this.data = my8.a(jSONObject);
+                this.data = s39.a(jSONObject);
             }
         }
     }

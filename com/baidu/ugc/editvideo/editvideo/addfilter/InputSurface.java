@@ -8,9 +8,8 @@ import android.opengl.EGLDisplay;
 import android.opengl.EGLExt;
 import android.opengl.EGLSurface;
 import android.view.Surface;
-import com.baidu.tieba.d1a;
+import com.baidu.tieba.m7a;
 import com.baidu.webkit.internal.monitor.MonitorType;
-import org.webrtc.EglBase10;
 @TargetApi(18)
 /* loaded from: classes7.dex */
 public class InputSurface {
@@ -43,7 +42,7 @@ public class InputSurface {
             if (eglGetError == 12288) {
                 break;
             }
-            d1a.e("InputSurface", str + ": EGL error: 0x" + Integer.toHexString(eglGetError));
+            m7a.e("InputSurface", str + ": EGL error: 0x" + Integer.toHexString(eglGetError));
             z = true;
         }
         if (!z) {
@@ -60,7 +59,7 @@ public class InputSurface {
             if (EGL14.eglInitialize(eglGetDisplay, iArr, 0, iArr, 1)) {
                 EGLConfig[] eGLConfigArr = new EGLConfig[1];
                 if (EGL14.eglChooseConfig(this.mEGLDisplay, new int[]{MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 8, MonitorType.MONITOR_TYPE_INIT_WEBKIT, 8, 12322, 8, 12352, 4, 12610, 1, 12344}, 0, eGLConfigArr, 0, 1, new int[1], 0)) {
-                    this.mEGLContext = EGL14.eglCreateContext(this.mEGLDisplay, eGLConfigArr[0], EGL14.EGL_NO_CONTEXT, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, 12344}, 0);
+                    this.mEGLContext = EGL14.eglCreateContext(this.mEGLDisplay, eGLConfigArr[0], EGL14.EGL_NO_CONTEXT, new int[]{12440, 2, 12344}, 0);
                     checkEglError("eglCreateContext");
                     if (this.mEGLContext != null) {
                         this.mEGLSurface = EGL14.eglCreateWindowSurface(this.mEGLDisplay, eGLConfigArr[0], this.mSurface, new int[]{12344}, 0);

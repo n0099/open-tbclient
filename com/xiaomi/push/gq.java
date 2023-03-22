@@ -135,7 +135,7 @@ public class gq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public String m450a() {
+    public String m452a() {
         StringBuilder sb = new StringBuilder();
         sb.append("<error code=\"");
         sb.append(this.a);
@@ -161,7 +161,7 @@ public class gq {
             sb.append(this.d);
             sb.append("</text>");
         }
-        for (gj gjVar : m451a()) {
+        for (gj gjVar : m453a()) {
             sb.append(gjVar.d());
         }
         sb.append("</error>");
@@ -169,7 +169,7 @@ public class gq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized List<gj> m451a() {
+    public synchronized List<gj> m453a() {
         if (this.f451a == null) {
             return Collections.emptyList();
         }

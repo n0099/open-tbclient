@@ -2,6 +2,7 @@ package com.baidu.tieba.edgefloat;
 
 import android.app.Activity;
 import android.view.MotionEvent;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
 import com.baidu.tbadk.core.atomData.WriteMulitImageActivityConfig;
@@ -107,7 +108,7 @@ public final class EdgeFloatLifecycle {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             for (EdgeFloat edgeFloat : this.a) {
-                edgeFloat.D();
+                edgeFloat.s();
             }
         }
     }
@@ -117,7 +118,7 @@ public final class EdgeFloatLifecycle {
         if (interceptable == null || interceptable.invokeL(1048576, this, ev) == null) {
             Intrinsics.checkNotNullParameter(ev, "ev");
             for (EdgeFloat edgeFloat : this.a) {
-                edgeFloat.r(ev);
+                edgeFloat.f(ev);
             }
         }
     }
@@ -135,7 +136,7 @@ public final class EdgeFloatLifecycle {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
             for (EdgeFloat edgeFloat : this.a) {
-                edgeFloat.G(z);
+                edgeFloat.v(z);
             }
         }
     }
@@ -156,16 +157,29 @@ public final class EdgeFloatLifecycle {
         if (interceptable == null || interceptable.invokeL(1048583, this, activity) == null) {
             Intrinsics.checkNotNullParameter(activity, "activity");
             for (EdgeFloat edgeFloat : this.a) {
-                edgeFloat.K(activity);
+                edgeFloat.z(activity);
             }
         }
+    }
+
+    public final boolean k(EdgeFloat edgeFloat) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, edgeFloat)) == null) {
+            Intrinsics.checkNotNullParameter(edgeFloat, "edgeFloat");
+            if (!this.a.contains(edgeFloat)) {
+                return false;
+            }
+            return this.a.remove(edgeFloat);
+        }
+        return invokeL.booleanValue;
     }
 
     public final void f(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             for (EdgeFloat edgeFloat : this.a) {
-                edgeFloat.E(z, i);
+                edgeFloat.t(z, i);
             }
         }
     }
@@ -178,7 +192,7 @@ public final class EdgeFloatLifecycle {
             while (it.hasNext()) {
                 EdgeFloat next = it.next();
                 Intrinsics.checkNotNullExpressionValue(next, "iterator.next()");
-                next.H();
+                next.w();
                 it.remove();
             }
         }

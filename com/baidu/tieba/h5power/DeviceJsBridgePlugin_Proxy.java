@@ -3,10 +3,10 @@ package com.baidu.tieba.h5power;
 import android.text.TextUtils;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.l69;
-import com.baidu.tieba.n69;
-import com.baidu.tieba.nv4;
-import com.baidu.tieba.p69;
+import com.baidu.tieba.rc9;
+import com.baidu.tieba.tc9;
+import com.baidu.tieba.ut4;
+import com.baidu.tieba.vc9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,17 +19,17 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class DeviceJsBridgePlugin_Proxy extends l69 {
+public class DeviceJsBridgePlugin_Proxy extends rc9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public nv4 mJsBridge;
+    public ut4 mJsBridge;
 
-    public DeviceJsBridgePlugin_Proxy(nv4 nv4Var) {
+    public DeviceJsBridgePlugin_Proxy(ut4 ut4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {nv4Var};
+            Object[] objArr = {ut4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,79 +39,79 @@ public class DeviceJsBridgePlugin_Proxy extends l69 {
                 return;
             }
         }
-        this.mJsBridge = nv4Var;
+        this.mJsBridge = ut4Var;
         this.mAsyncCallBackMethodList = new LinkedHashMap();
         this.mNotificationNameList = new HashSet<>();
     }
 
-    @Override // com.baidu.tieba.l69
-    public n69 dispatch(WebView webView, p69 p69Var, n69 n69Var) {
+    @Override // com.baidu.tieba.rc9
+    public tc9 dispatch(WebView webView, vc9 vc9Var, tc9 tc9Var) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, p69Var, n69Var)) == null) {
-            if (n69Var == null) {
-                n69Var = new n69();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, vc9Var, tc9Var)) == null) {
+            if (tc9Var == null) {
+                tc9Var = new tc9();
             }
-            String b = p69Var.b();
-            JSONObject e = p69Var.e();
+            String b = vc9Var.b();
+            JSONObject e = vc9Var.e();
             if (b.equals("device/getZid")) {
-                n69Var.r(true);
-                n69 g = this.mJsBridge.g(webView);
+                tc9Var.r(true);
+                tc9 g = this.mJsBridge.g(webView);
                 if (g != null) {
-                    n69Var.x(g.f());
-                    n69Var.t(g.b());
-                    n69Var.o(g.a());
-                    n69Var.w(g.e());
+                    tc9Var.x(g.f());
+                    tc9Var.t(g.b());
+                    tc9Var.o(g.a());
+                    tc9Var.w(g.e());
                 }
-                n69Var.y(0);
+                tc9Var.y(0);
             } else if (b.equals("device/getHdid")) {
-                n69Var.r(true);
-                n69 e2 = this.mJsBridge.e(webView);
+                tc9Var.r(true);
+                tc9 e2 = this.mJsBridge.e(webView);
                 if (e2 != null) {
-                    n69Var.x(e2.f());
-                    n69Var.t(e2.b());
-                    n69Var.o(e2.a());
-                    n69Var.w(e2.e());
+                    tc9Var.x(e2.f());
+                    tc9Var.t(e2.b());
+                    tc9Var.o(e2.a());
+                    tc9Var.w(e2.e());
                 }
-                n69Var.y(0);
+                tc9Var.y(0);
             } else if (b.equals("device/getSupplementInfo")) {
-                n69Var.r(true);
-                n69 f = this.mJsBridge.f(webView);
+                tc9Var.r(true);
+                tc9 f = this.mJsBridge.f(webView);
                 if (f != null) {
-                    n69Var.x(f.f());
-                    n69Var.t(f.b());
-                    n69Var.o(f.a());
-                    n69Var.w(f.e());
+                    tc9Var.x(f.f());
+                    tc9Var.t(f.b());
+                    tc9Var.o(f.a());
+                    tc9Var.w(f.e());
                 }
-                n69Var.y(0);
+                tc9Var.y(0);
             } else if (b.equals("device/getDeviceInfo")) {
-                n69Var.r(true);
-                n69 d = this.mJsBridge.d(webView);
+                tc9Var.r(true);
+                tc9 d = this.mJsBridge.d(webView);
                 if (d != null) {
-                    n69Var.x(d.f());
-                    n69Var.t(d.b());
-                    n69Var.o(d.a());
-                    n69Var.w(d.e());
+                    tc9Var.x(d.f());
+                    tc9Var.t(d.b());
+                    tc9Var.o(d.a());
+                    tc9Var.w(d.e());
                 }
-                n69Var.y(0);
+                tc9Var.y(0);
             } else if (b.equals("device/setBlockPopInfo")) {
-                n69Var.r(true);
-                n69 h = this.mJsBridge.h(webView, e.optInt("canPost"), e.optString("blockInfo"), e.optString("aheadInfo"), e.optString("aheadUrl"), e.optString("okInfo"), e.optInt("aheadType"));
+                tc9Var.r(true);
+                tc9 h = this.mJsBridge.h(webView, e.optInt("canPost"), e.optString("blockInfo"), e.optString("aheadInfo"), e.optString("aheadUrl"), e.optString("okInfo"), e.optInt("aheadType"));
                 if (h != null) {
-                    n69Var.x(h.f());
-                    n69Var.t(h.b());
-                    n69Var.o(h.a());
-                    n69Var.w(h.e());
+                    tc9Var.x(h.f());
+                    tc9Var.t(h.b());
+                    tc9Var.o(h.a());
+                    tc9Var.w(h.e());
                 }
-                n69Var.y(0);
+                tc9Var.y(0);
             }
-            return n69Var;
+            return tc9Var;
         }
-        return (n69) invokeLLL.objValue;
+        return (tc9) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.l69
-    public List<n69> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.rc9
+    public List<tc9> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, hashMap)) == null) {

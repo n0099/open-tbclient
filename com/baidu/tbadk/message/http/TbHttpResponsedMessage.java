@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.data.BdToastData;
 import com.baidu.tbadk.core.util.BdToastHelper;
 import com.baidu.tbadk.core.util.NetWorkState;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.gg;
-import com.baidu.tieba.hg;
+import com.baidu.tieba.jf;
+import com.baidu.tieba.kf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -88,18 +88,18 @@ public class TbHttpResponsedMessage extends HttpResponsedMessage {
     }
 
     @Override // com.baidu.adp.framework.message.HttpResponsedMessage
-    public void logStatInBackground(int i, hg hgVar) {
+    public void logStatInBackground(int i, kf kfVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, hgVar) == null) && hgVar.d().size() > 0) {
+        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, kfVar) == null) && kfVar.d().size() > 0) {
             int i2 = 1;
-            gg ggVar = hgVar.d().get(hgVar.d().size() - 1);
-            NetWorkState.mErrorNums.addAndGet(hgVar.d().size() - 1);
+            jf jfVar = kfVar.d().get(kfVar.d().size() - 1);
+            NetWorkState.mErrorNums.addAndGet(kfVar.d().size() - 1);
             NetWorkState.StatisticsData statisticsData = new NetWorkState.StatisticsData();
             statisticsData.mMode = getMode(BdNetTypeUtil.netType());
-            statisticsData.mSize = ggVar.b;
-            statisticsData.mTime = ggVar.f;
-            statisticsData.mTimesNum = ggVar.e;
-            if (hgVar.b().h() != HttpMessageTask.HTTP_METHOD.POST) {
+            statisticsData.mSize = jfVar.b;
+            statisticsData.mTime = jfVar.f;
+            statisticsData.mTimesNum = jfVar.e;
+            if (kfVar.b().h() != HttpMessageTask.HTTP_METHOD.POST) {
                 i2 = 2;
             }
             statisticsData.mMethod = i2;

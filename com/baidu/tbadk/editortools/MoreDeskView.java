@@ -17,10 +17,10 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.editortools.view.CommonTabHost;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dh;
-import com.baidu.tieba.fd5;
-import com.baidu.tieba.gd5;
-import com.baidu.tieba.yc5;
+import com.baidu.tieba.gg;
+import com.baidu.tieba.lb5;
+import com.baidu.tieba.sb5;
+import com.baidu.tieba.tb5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -31,7 +31,7 @@ import java.util.LinkedList;
 public class MoreDeskView extends CommonTabHost {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LinkedList<fd5> m;
+    public LinkedList<sb5> m;
     public SparseIntArray n;
     public CustomMessageListener o;
     public CustomMessageListener p;
@@ -141,18 +141,18 @@ public class MoreDeskView extends CommonTabHost {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void r(yc5 yc5Var) {
+    public final void r(lb5 lb5Var) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, yc5Var) == null) {
-            Integer valueOf = Integer.valueOf(this.n.get(yc5Var.b));
+        if (interceptable == null || interceptable.invokeL(1048585, this, lb5Var) == null) {
+            Integer valueOf = Integer.valueOf(this.n.get(lb5Var.b));
             int i2 = 0;
             if (valueOf != null) {
                 i = valueOf.intValue();
             } else {
                 i = 0;
             }
-            Object obj = yc5Var.c;
+            Object obj = lb5Var.c;
             if (obj != null) {
                 if (obj instanceof String) {
                     String str = (String) obj;
@@ -160,19 +160,19 @@ public class MoreDeskView extends CommonTabHost {
                         if (TextUtils.isEmpty(str.trim())) {
                             i = 1;
                         } else {
-                            i = dh.e(str, 1);
+                            i = gg.e(str, 1);
                         }
                     }
                 }
                 if (i >= 0) {
                     i2 = i;
                 }
-                this.n.put(yc5Var.b, i2);
+                this.n.put(lb5Var.b, i2);
             }
             i = 0;
             if (i >= 0) {
             }
-            this.n.put(yc5Var.b, i2);
+            this.n.put(lb5Var.b, i2);
         }
     }
 
@@ -201,19 +201,19 @@ public class MoreDeskView extends CommonTabHost {
         setToolId(2);
     }
 
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tieba.zc5
-    public void A(yc5 yc5Var) {
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tieba.mb5
+    public void C(lb5 lb5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, yc5Var) == null) {
-            super.A(yc5Var);
-            if (yc5Var != null && yc5Var.a == 2 && yc5Var.b != 5) {
-                r(yc5Var);
+        if (interceptable == null || interceptable.invokeL(1048576, this, lb5Var) == null) {
+            super.C(lb5Var);
+            if (lb5Var != null && lb5Var.a == 2 && lb5Var.b != 5) {
+                r(lb5Var);
                 o();
             }
         }
     }
 
-    public void n(LinkedList<fd5> linkedList) {
+    public void n(LinkedList<sb5> linkedList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, linkedList) == null) {
             this.m = linkedList;
@@ -228,7 +228,7 @@ public class MoreDeskView extends CommonTabHost {
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tieba.kd5
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tieba.xb5
     public void display() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -237,14 +237,14 @@ public class MoreDeskView extends CommonTabHost {
         }
     }
 
-    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tieba.kd5
+    @Override // com.baidu.tbadk.editortools.view.CommonTabHost, com.baidu.tieba.xb5
     public void init() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             setShowDelete(false);
-            gd5 gd5Var = new gd5();
-            gd5Var.C(this.m);
-            h(gd5Var);
+            tb5 tb5Var = new tb5();
+            tb5Var.B(this.m);
+            h(tb5Var);
             s();
         }
     }
@@ -278,9 +278,9 @@ public class MoreDeskView extends CommonTabHost {
                 i += this.n.valueAt(i2);
             }
             if (i > 0) {
-                J(new yc5(2, 2, " "));
+                L(new lb5(2, 2, " "));
             } else {
-                J(new yc5(2, 2, null));
+                L(new lb5(2, 2, null));
             }
         }
     }
@@ -290,9 +290,9 @@ public class MoreDeskView extends CommonTabHost {
         if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || ListUtils.isEmpty(this.m)) {
             return;
         }
-        Iterator<fd5> it = this.m.iterator();
+        Iterator<sb5> it = this.m.iterator();
         while (it.hasNext()) {
-            fd5 next = it.next();
+            sb5 next = it.next();
             if (next != null) {
                 if (next.getToolId() == 12) {
                     TiebaStatic.log(new StatisticItem(CommonStatisticKey.BUBBLE_TOOL_SHOW).param("uid", TbadkCoreApplication.getCurrentAccount()));
@@ -314,14 +314,14 @@ public class MoreDeskView extends CommonTabHost {
             }
             if (currentAccountObj.getIsSelectTail()) {
                 z = true;
-                J(new yc5(2, 2, " "));
-                J(new yc5(2, 16, " "));
+                L(new lb5(2, 2, " "));
+                L(new lb5(2, 16, " "));
             } else {
                 if (!StringUtils.isNull(defaultBubble)) {
-                    J(new yc5(2, 12, " "));
-                    J(new yc5(2, 2, " "));
+                    L(new lb5(2, 12, " "));
+                    L(new lb5(2, 2, " "));
                 } else {
-                    J(new yc5(2, 2, null));
+                    L(new lb5(2, 2, null));
                 }
                 z = false;
             }

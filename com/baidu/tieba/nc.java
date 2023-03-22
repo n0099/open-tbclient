@@ -1,25 +1,28 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.taskmanager.IdleTaskRegister;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class nc {
+public class nc implements lc {
     public static /* synthetic */ Interceptable $ic;
-    public static nc d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final IdleTaskRegister a;
-    public boolean b;
-    public boolean c;
+    public List<?> a;
 
-    public nc() {
+    public nc(List<?> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,57 +32,110 @@ public class nc {
                 return;
             }
         }
-        this.a = new IdleTaskRegister();
-        this.b = false;
-        this.c = false;
+        this.a = list;
     }
 
-    public static nc b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.lc
+    public Object a(ud udVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (d == null) {
-                d = new nc();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, udVar)) == null) {
+            Object f = f(udVar);
+            if (f != null) {
+                if (f instanceof JSONObject) {
+                    return f.toString();
+                }
+                if (f instanceof JSONArray) {
+                    return f.toString();
+                }
+                return f;
             }
-            return d;
+            return null;
         }
-        return (nc) invokeV.objValue;
+        return invokeL.objValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.lc
+    public Object b(ud udVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, udVar)) == null) {
+            return this.a;
         }
-        return invokeV.booleanValue;
+        return invokeL.objValue;
     }
 
-    public void d() {
+    @Override // com.baidu.tieba.lc
+    public Object c(ud udVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b = true;
-            this.a.scheduleIdleTask(true);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, udVar)) == null) {
+            return this.a;
         }
+        return invokeL.objValue;
     }
 
-    public void e() {
+    @Override // com.baidu.tieba.lc
+    public Object e(ud udVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = true;
-            this.c = true;
-            this.a.scheduleIdleTask(false);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, udVar)) == null) {
+            return d(udVar);
         }
+        return invokeL.objValue;
     }
 
-    public void a(String str, Runnable runnable) {
+    @Override // com.baidu.tieba.lc
+    public Object d(ud udVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, runnable) == null) {
-            if (!this.b) {
-                this.a.registerIdleTask(str, runnable);
-            } else {
-                runnable.run();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, udVar)) == null) {
+            Type[] b = udVar.b();
+            ArrayList arrayList = new ArrayList();
+            for (Object obj : this.a) {
+                if (obj != null) {
+                    if (b != null && b.length >= 1) {
+                        Object f = xd.a(obj).f(new ud(b[0]));
+                        if (f != null) {
+                            arrayList.add(f.toString());
+                        }
+                    } else {
+                        Object f2 = xd.a(obj).f(new ud(udVar.a()));
+                        if (f2 != null) {
+                            arrayList.add(f2.toString());
+                        }
+                    }
+                }
             }
+            return arrayList;
         }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.lc
+    public Object f(ud udVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, udVar)) == null) {
+            Type[] b = udVar.b();
+            JSONArray jSONArray = new JSONArray();
+            for (Object obj : this.a) {
+                if (obj != null) {
+                    if (b != null && b.length >= 1) {
+                        Object f = xd.a(obj).f(new ud(b[0]));
+                        if (f != null) {
+                            jSONArray.put(f);
+                        }
+                    } else {
+                        Object f2 = xd.a(obj).f(new ud(udVar.a()));
+                        if (f2 != null) {
+                            jSONArray.put(f2);
+                        }
+                    }
+                }
+            }
+            return jSONArray;
+        }
+        return invokeL.objValue;
     }
 }

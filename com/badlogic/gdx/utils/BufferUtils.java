@@ -1,7 +1,7 @@
 package com.badlogic.gdx.utils;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.h7;
+import com.baidu.tieba.k6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,7 +17,7 @@ import java.nio.IntBuffer;
 /* loaded from: classes.dex */
 public final class BufferUtils {
     public static /* synthetic */ Interceptable $ic;
-    public static h7<ByteBuffer> a;
+    public static k6<ByteBuffer> a;
     public static int b;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -96,7 +96,7 @@ public final class BufferUtils {
                 return;
             }
         }
-        a = new h7<>();
+        a = new k6<>();
         b = 0;
     }
 

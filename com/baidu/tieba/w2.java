@@ -1,67 +1,91 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.opengl.GLES30;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.nio.Buffer;
+import java.nio.FloatBuffer;
 import java.nio.IntBuffer;
-@TargetApi(18)
 /* loaded from: classes6.dex */
-public class w2 extends v2 implements u3 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface w2 {
+    void B(int i, int i2, int i3, int i4, int i5);
 
-    public w2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void C(int i, IntBuffer intBuffer);
 
-    @Override // com.baidu.tieba.u3
-    public void A(int i, IntBuffer intBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, intBuffer) == null) {
-            GLES30.glDeleteVertexArrays(i, intBuffer);
-        }
-    }
+    String D(int i, int i2, IntBuffer intBuffer, IntBuffer intBuffer2);
 
-    @Override // com.baidu.tieba.u3
-    public void c(int i, IntBuffer intBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, intBuffer) == null) {
-            GLES30.glDrawBuffers(i, intBuffer);
-        }
-    }
+    void E(int i, int i2);
 
-    @Override // com.baidu.tieba.u3
-    public void v(int i, IntBuffer intBuffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048579, this, i, intBuffer) == null) {
-            GLES30.glGenVertexArrays(i, intBuffer);
-        }
-    }
+    void F(int i);
 
-    @Override // com.baidu.tieba.u3
-    public void O(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, int i9, Buffer buffer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8), Integer.valueOf(i9), buffer}) == null) {
-            if (buffer == null) {
-                GLES30.glTexImage3D(i, i2, i3, i4, i5, i6, i7, i8, i9, 0);
-            } else {
-                GLES30.glTexImage3D(i, i2, i3, i4, i5, i6, i7, i8, i9, buffer);
-            }
-        }
-    }
+    void G(int i);
+
+    void H(int i);
+
+    void I(int i, int i2, IntBuffer intBuffer);
+
+    String J(int i);
+
+    void K(int i);
+
+    void L(int i, int i2);
+
+    int M();
+
+    void N(int i, int i2);
+
+    int P();
+
+    int Q();
+
+    int R(int i, String str);
+
+    void S(int i);
+
+    int T(int i);
+
+    int a();
+
+    void b(int i);
+
+    void d(int i);
+
+    void e(int i, int i2, int i3, int i4);
+
+    void f(int i, int i2);
+
+    void g(int i, int i2);
+
+    void h(int i, int i2, int i3, int i4, int i5, int i6, int i7, Buffer buffer);
+
+    void i(int i, FloatBuffer floatBuffer);
+
+    void j(int i, int i2, int i3);
+
+    void k(int i, int i2, int i3, int i4);
+
+    void l(int i, int i2, IntBuffer intBuffer);
+
+    void m(int i, int i2);
+
+    int n();
+
+    String o(int i);
+
+    void p(int i);
+
+    void q(int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8, Buffer buffer);
+
+    void r(int i);
+
+    void s(int i);
+
+    int t(int i);
+
+    void u(int i, int i2, float f);
+
+    int w(int i, String str);
+
+    String x(int i);
+
+    void y(int i, String str);
+
+    String z(int i, int i2, IntBuffer intBuffer, IntBuffer intBuffer2);
 }

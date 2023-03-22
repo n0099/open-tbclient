@@ -20,7 +20,6 @@ import javax.microedition.khronos.egl.EGLDisplay;
 import javax.microedition.khronos.egl.EGLSurface;
 import javax.microedition.khronos.opengles.GL;
 import javax.microedition.khronos.opengles.GL10;
-import org.webrtc.EglBase10;
 /* loaded from: classes2.dex */
 public class GLTextureView extends TextureView implements TextureView.SurfaceTextureListener, View.OnLayoutChangeListener {
     public static final boolean DEBUG = false;
@@ -185,7 +184,7 @@ public class GLTextureView extends TextureView implements TextureView.SurfaceTex
         public int EGL_CONTEXT_CLIENT_VERSION;
 
         public DefaultContextFactory() {
-            this.EGL_CONTEXT_CLIENT_VERSION = EglBase10.EGL_CONTEXT_CLIENT_VERSION;
+            this.EGL_CONTEXT_CLIENT_VERSION = 12440;
         }
 
         @Override // com.baidu.searchbox.afx.gl.GLTextureView.EGLContextFactory

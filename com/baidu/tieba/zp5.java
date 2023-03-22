@@ -1,404 +1,109 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
+import android.graphics.PointF;
+import android.view.MotionEvent;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.lib.service.AsyncService;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.performance.speed.SpeedStats;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import com.baidu.tbadk.core.util.EnterForePvThread;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.core.util.PvThread;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.TiebaStaticHelper;
-import com.baidu.tbadk.mutiprocess.event.AppBackgroundSwitchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
 public class zp5 {
     public static /* synthetic */ Interceptable $ic;
-    public static zp5 j;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
-    public long c;
-    public long d;
-    public int e;
-    public AtomicBoolean f;
-    public boolean g;
-    public Handler h;
-    public Runnable i;
 
-    /* loaded from: classes7.dex */
-    public class a implements Handler.Callback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zp5 a;
-
-        public a(zp5 zp5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zp5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zp5Var;
-        }
-
-        @Override // android.os.Handler.Callback
-        public boolean handleMessage(Message message) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-                if (message.what == 5) {
-                    if (!Boolean.TRUE.equals(message.obj)) {
-                        this.a.n();
-                        return false;
-                    }
-                    this.a.q();
-                    this.a.m();
-                    return false;
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zp5 a;
-
-        public b(zp5 zp5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zp5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zp5Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                zp5 zp5Var = this.a;
-                if (zp5Var.f == null) {
-                    zp5Var.f = new AtomicBoolean(false);
-                }
-                if (this.a.f.get()) {
-                    return;
-                }
-                this.a.f.set(true);
-                if (this.a.l(true)) {
-                    TbadkCoreApplication.getInst().fixOppoTimeout();
-                    MessageManager.getInstance().dispatchResponsedMessage(new BackgroundSwitchMessage(Boolean.TRUE));
-                    yi5.i(new AppBackgroundSwitchEvent(true));
-                    TiebaStaticHelper.setCurrentActivity(null);
-                    TiebaStatic.save();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c(zp5 zp5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zp5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                yx4.c().b();
-            }
-        }
-    }
-
-    public zp5() {
+    public static float a(float f, float f2, float f3, float f4) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+            return (float) Math.sqrt(Math.pow(f - f3, 2.0d) + Math.pow(f2 - f4, 2.0d));
         }
-        this.a = 0;
-        this.b = 0L;
-        this.c = 0L;
-        this.d = 0L;
-        this.e = 0;
-        this.f = null;
-        this.g = false;
-        this.h = new Handler(Looper.getMainLooper(), new a(this));
-        this.i = new b(this);
+        return invokeCommon.floatValue;
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    public static PointF b(MotionEvent motionEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (l(false)) {
-                if (!this.g) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, motionEvent)) == null) {
+            if (motionEvent == null) {
+                return null;
+            }
+            PointF pointF = new PointF();
+            pointF.set((motionEvent.getX(0) + motionEvent.getX(1)) / 2.0f, (motionEvent.getY(0) + motionEvent.getY(1)) / 2.0f);
+            return pointF;
+        }
+        return (PointF) invokeL.objValue;
+    }
+
+    public static float c(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, motionEvent)) == null) {
+            if (motionEvent == null) {
+                return 0.0f;
+            }
+            return (float) Math.toDegrees(Math.atan2(motionEvent.getY(0) - motionEvent.getY(1), motionEvent.getX(0) - motionEvent.getX(1)));
+        }
+        return invokeL.floatValue;
+    }
+
+    public static float d(MotionEvent motionEvent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, motionEvent)) == null) {
+            if (motionEvent == null) {
+                return 0.0f;
+            }
+            float x = motionEvent.getX(0) - motionEvent.getX(1);
+            float y = motionEvent.getY(0) - motionEvent.getY(1);
+            return (float) Math.sqrt((x * x) + (y * y));
+        }
+        return invokeL.floatValue;
+    }
+
+    public static boolean e(float[] fArr, float f, float f2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{fArr, Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            if (fArr != null && fArr.length == 8) {
+                float f3 = fArr[0];
+                float f4 = fArr[1];
+                float f5 = fArr[2];
+                float f6 = fArr[3];
+                float f7 = fArr[4];
+                float f8 = fArr[5];
+                float f9 = fArr[6];
+                float f10 = fArr[7];
+                float a = a(f3, f4, f5, f6);
+                float f11 = f(f3, f4, f5, f6, f, f2);
+                float a2 = a(f5, f6, f9, f10);
+                float f12 = f(f5, f6, f9, f10, f, f2);
+                float f13 = f(f9, f10, f7, f8, f, f2);
+                float f14 = f(f7, f8, f3, f4, f, f2);
+                if (a > 0.0f && a2 > 0.0f && f11 <= a2 && f13 <= a2 && f12 <= a && f14 <= a) {
                     return true;
                 }
-                Intent intent = new Intent("com.tieba.baidu.notifyprocess");
-                intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
-                intent.putExtra("message", true);
-                TbadkCoreApplication.getInst().sendBroadcast(intent);
-                return false;
             }
-            Intent intent2 = new Intent("com.tieba.baidu.notifyprocess");
-            intent2.setPackage(TbadkCoreApplication.getInst().getPackageName());
-            intent2.putExtra("message", false);
-            TbadkCoreApplication.getInst().sendBroadcast(intent2);
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeCommon.booleanValue;
     }
 
-    public boolean l(boolean z) {
-        InterceptResult invokeZ;
+    public static float f(float f, float f2, float f3, float f4, float f5, float f6) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
-            return TbadkCoreApplication.getInst().isMainProcess(z);
-        }
-        return invokeZ.booleanValue;
-    }
-
-    public void o(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            this.g = !z;
-        }
-    }
-
-    public static zp5 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (j == null) {
-                synchronized (zp5.class) {
-                    if (j == null) {
-                        j = new zp5();
-                    }
-                }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Float.valueOf(f6)})) == null) {
+            float a = a(f, f2, f3, f4);
+            float a2 = a(f, f2, f5, f6);
+            float a3 = a(f3, f4, f5, f6);
+            if (a == 0.0f) {
+                return a2;
             }
-            return j;
-        }
-        return (zp5) invokeV.objValue;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.e++;
-            p();
-            nc.b().a("CornerManager", new c(this));
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e--;
-            p();
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a = 0;
-        }
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public long i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.d;
-        }
-        return invokeV.longValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            AtomicBoolean atomicBoolean = this.f;
-            if (atomicBoolean == null) {
-                return true;
+            if (a2 == 0.0f || a3 == 0.0f) {
+                return 0.0f;
             }
-            return atomicBoolean.get();
+            float f7 = ((a + a2) + a3) / 2.0f;
+            return (((float) Math.sqrt((((f7 - a) * f7) * (f7 - a2)) * (f7 - a3))) * 2.0f) / a;
         }
-        return invokeV.booleanValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            AtomicBoolean atomicBoolean = this.f;
-            if (atomicBoolean == null) {
-                return false;
-            }
-            return atomicBoolean.get();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            AsyncService.INSTANCE.sendRunnable(this.i);
-        }
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            Handler handler = this.h;
-            handler.sendMessageDelayed(handler.obtainMessage(5, Boolean.TRUE), 1000L);
-        }
-    }
-
-    public void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.b = System.currentTimeMillis();
-            new EnterForePvThread().start();
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            AsyncService.INSTANCE.removeRunnable(this.i);
-            if (this.f == null) {
-                this.f = new AtomicBoolean(true);
-            }
-            if (!this.f.get()) {
-                return;
-            }
-            this.f.set(false);
-            this.a++;
-            if (l(true)) {
-                long currentTimeMillis = System.currentTimeMillis();
-                long j2 = this.b;
-                if ((currentTimeMillis - j2 > 3600000 || j2 == 0) && PermissionUtil.isAgreePrivacyPolicy()) {
-                    s();
-                }
-                MessageManager.getInstance().dispatchResponsedMessage(new BackgroundSwitchMessage(Boolean.FALSE));
-                yi5.i(new AppBackgroundSwitchEvent(false));
-            }
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            if (this.e < 0) {
-                this.e = 0;
-            }
-            if (l(true) && this.c == 0 && this.e > 0) {
-                this.c = System.nanoTime();
-                this.d = System.currentTimeMillis();
-            }
-            this.h.removeMessages(5);
-            if (this.e == 0) {
-                SpeedStats.getInstance().onAppBackground();
-                r();
-                return;
-            }
-            AtomicBoolean atomicBoolean = this.f;
-            if (atomicBoolean == null || atomicBoolean.get()) {
-                SpeedStats.getInstance().onAppForeground();
-                Handler handler = this.h;
-                handler.sendMessageDelayed(handler.obtainMessage(5, Boolean.FALSE), 1000L);
-            }
-        }
-    }
-
-    public final void q() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && this.e == 0 && this.c > 0) {
-            long nanoTime = ((System.nanoTime() - this.c) / 1000000) / 1000;
-            if (nanoTime >= TbadkCoreApplication.getInst().getUseTimeInterval()) {
-                if (PermissionUtil.isAgreePrivacyPolicy()) {
-                    new PvThread("use", String.valueOf(nanoTime)).start();
-                }
-                TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), "use", null, 1, "st_param", String.valueOf(nanoTime));
-            }
-            this.c = 0L;
-            this.d = 0L;
-        }
+        return invokeCommon.floatValue;
     }
 }

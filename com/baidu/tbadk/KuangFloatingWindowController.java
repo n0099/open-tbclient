@@ -19,8 +19,8 @@ import com.baidu.tbadk.core.message.ConfigChangeMessage;
 import com.baidu.tbadk.core.message.KeyBoardSwitchMessage;
 import com.baidu.tbadk.core.message.WindowSwitchMessage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.nd9;
+import com.baidu.tieba.hi;
+import com.baidu.tieba.wj9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -257,7 +257,7 @@ public class KuangFloatingWindowController {
             DisplayMetrics displayMetrics = new DisplayMetrics();
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             if (currentActivity == null) {
-                return ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds800);
+                return hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds800);
             }
             WindowManager windowManager = (WindowManager) currentActivity.getSystemService("window");
             windowManager.getDefaultDisplay().getMetrics(displayMetrics);
@@ -310,13 +310,13 @@ public class KuangFloatingWindowController {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-            layoutParams.type = nd9.a(2002);
+            layoutParams.type = wj9.a(2002);
             layoutParams.flags = 65800;
             layoutParams.format = -3;
             layoutParams.x = 0;
             layoutParams.y = (int) (getHeightPx() * 0.75d);
             layoutParams.width = -2;
-            layoutParams.height = ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds84);
+            layoutParams.height = hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds84);
             layoutParams.gravity = 51;
             if (this.manager == null) {
                 this.manager = (WindowManager) TbadkCoreApplication.getInst().getSystemService("window");

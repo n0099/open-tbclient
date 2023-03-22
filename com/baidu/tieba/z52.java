@@ -1,134 +1,172 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.bddownload.core.Util;
+import com.baidu.tieba.y52;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.NoSuchAlgorithmException;
+import java.util.HashMap;
+import java.util.Map;
+import okhttp3.internal.http2.Http2Codec;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes7.dex */
 public class z52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948310866, "Lcom/baidu/tieba/z52;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948310866, "Lcom/baidu/tieba/z52;");
-                return;
-            }
-        }
-        boolean z = wp1.a;
-    }
+    /* loaded from: classes7.dex */
+    public static class a extends y52.b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final boolean b;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    @Nullable
-    public static <C extends b52> C a(c52 c52Var) {
-        InterceptResult invokeL;
-        C c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, c52Var)) == null) {
-            if (c52Var == null) {
-                f62.a("Component-Finder", "find a null component: null model");
-                return null;
-            }
-            String d = c52Var.d();
-            String str = c52Var.c;
-            if (TextUtils.isEmpty(str)) {
-                m62.c("Component-Finder", "find a null " + d + " : slaveId is empty");
-                return null;
-            }
-            c62 d2 = d(str);
-            if (d2 == null) {
-                m62.c("Component-Finder", "find a null " + d + " : null component context");
-                return null;
-            }
-            String str2 = c52Var.b;
-            if (TextUtils.isEmpty(str2)) {
-                m62.o("Component-Finder", "find " + d + " with a empty componentId");
-                List<b52> list = d2.a().c.get(c52Var.a);
-                if (list == null) {
-                    m62.c("Component-Finder", "find a null " + d + " with a empty componentId: fallbackComponents are null ");
-                    return null;
-                } else if (list.size() <= 0) {
-                    m62.c("Component-Finder", "find a null " + d + " with a empty componentId: fallbackComponents are empty ");
-                    return null;
-                } else {
-                    m62.o("Component-Finder", "find " + d + " with a empty componentId: fina a fallback component");
-                    c = (C) list.get(0);
+        @Override // com.baidu.tieba.y52.b
+        public String c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "101 Switching Protocols" : (String) invokeV.objValue;
+        }
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-279017867, "Lcom/baidu/tieba/z52$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
                 }
-            } else {
-                c = (C) d2.a().b.get(str2);
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-279017867, "Lcom/baidu/tieba/z52$a;");
+                    return;
+                }
             }
-            if (c == null) {
-                m62.c("Component-Finder", "find a null " + d + " : not exist");
-                return null;
-            }
-            return c;
+            b = do1.a;
         }
-        return (C) invokeL.objValue;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(y52.a aVar) {
+            super(aVar);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((y52.a) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.y52.b
+        public Map<String, String> b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("Upgrade", "websocket");
+                hashMap.put(HTTP.CONN_DIRECTIVE, "Upgrade");
+                try {
+                    hashMap.put("Sec-WebSocket-Accept", a62.g(this.a.a.get("sec-websocket-key")));
+                } catch (NoSuchAlgorithmException e) {
+                    if (b) {
+                        Log.e("HandShakeResponse", "make accept key fail for error invalid algorithm", e);
+                    }
+                }
+                return hashMap;
+            }
+            return (Map) invokeV.objValue;
+        }
     }
 
-    @Nullable
-    public static <C extends b52> C b(@Nullable String str, @Nullable String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return null;
-            }
-            c62 d = d(str);
-            if (d == null) {
-                m62.c("Component-Finder", "find a null " + str2 + " : null component context");
-                return null;
-            }
-            C c = (C) d.a().b.get(str2);
-            if (c == null) {
-                m62.c("Component-Finder", "find a null " + str2 + " : not exist");
-                return null;
-            }
-            return c;
+    /* loaded from: classes7.dex */
+    public static class b extends y52.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String b;
+
+        @Override // com.baidu.tieba.y52.b
+        public String c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "200 OK" : (String) invokeV.objValue;
         }
-        return (C) invokeLL.objValue;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(y52.a aVar) {
+            super(aVar);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((y52.a) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.y52.b
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.b == null) {
+                    this.b = new v52().toString();
+                }
+                return this.b;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.y52.b
+        public Map<String, String> b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                HashMap hashMap = new HashMap();
+                hashMap.put("Content-Type", "application/json; charset=UTF-8");
+                hashMap.put(Util.ACCEPT_RANGES, "bytes");
+                hashMap.put(HTTP.CONN_DIRECTIVE, Http2Codec.KEEP_ALIVE);
+                return hashMap;
+            }
+            return (Map) invokeV.objValue;
+        }
     }
 
-    @Nullable
-    public static c62 c(c52 c52Var) {
+    public static y52.b a(y52.a aVar) {
         InterceptResult invokeL;
+        Map<String, String> map;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, c52Var)) == null) {
-            if (c52Var == null) {
-                f62.a("Component-Finder", "find component context with a null model");
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, aVar)) == null) {
+            if (aVar != null && (map = aVar.a) != null && map.size() >= 1) {
+                if (a62.f(aVar.a)) {
+                    aVar.e = true;
+                    return new a(aVar);
+                }
+                aVar.e = false;
+                return new b(aVar);
             }
-            return d(c52Var.c);
+            return null;
         }
-        return (c62) invokeL.objValue;
-    }
-
-    @Nullable
-    public static c62 d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                m62.c("Component-Finder", "find component context with a null slave id");
-                return null;
-            }
-            uv1 A = zu2.U().A(str);
-            if (!(A instanceof sv1)) {
-                return null;
-            }
-            return ((sv1) A).c0();
-        }
-        return (c62) invokeL.objValue;
+        return (y52.b) invokeL.objValue;
     }
 }

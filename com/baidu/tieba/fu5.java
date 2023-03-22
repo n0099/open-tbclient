@@ -1,48 +1,57 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.tbadk.core.data.ItemData;
-import com.baidu.tbadk.util.TiePlusHelper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tbclient.TiebaPlusInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class fu5 {
+public class fu5 implements vu5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
 
-    public static boolean a(Context context, x49 x49Var) {
-        InterceptResult invokeLL;
+    public fu5(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, x49Var)) == null) {
-            if (context == null || x49Var == null || !x49Var.b()) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            TiePlusHelper tiePlusHelper = new TiePlusHelper(context);
-            TiebaPlusInfo a = x49Var.a();
-            if (a == null) {
-                return false;
-            }
-            tiePlusHelper.D(a.app_id);
-            tiePlusHelper.E(a.title);
-            tiePlusHelper.K(true);
-            tiePlusHelper.J(a.download_url);
-            tiePlusHelper.M(a.app_package);
-            tiePlusHelper.N(a.app_power);
-            tiePlusHelper.O(a.app_privacy);
-            vu5 vu5Var = new vu5(context, tiePlusHelper, true);
-            tiePlusHelper.H(vu5Var);
-            ItemData itemData = new ItemData();
-            itemData.parseProto(a);
-            tiePlusHelper.L(itemData);
-            vu5Var.f(a.app_company);
-            vu5Var.g(a.app_icon);
-            vu5Var.h(a.title);
-            vu5Var.i(a.app_version);
-            vu5Var.show();
-            return true;
         }
-        return invokeLL.booleanValue;
+        this.a = i;
+        this.b = i2;
+    }
+
+    @Override // com.baidu.tieba.vu5
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return (this.b - this.a) + 1;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.vu5
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i >= 0 && i < a()) {
+                return Integer.valueOf(this.a + i);
+            }
+            return 0;
+        }
+        return invokeI.objValue;
     }
 }

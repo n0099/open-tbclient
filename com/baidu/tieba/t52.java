@@ -1,139 +1,433 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.GradientDrawable;
+import android.app.ActivityManager;
+import android.os.Bundle;
+import android.os.Debug;
+import android.os.Process;
 import android.text.TextUtils;
 import android.util.Log;
-import android.view.View;
-import android.view.ViewParent;
-import android.widget.TextView;
 import androidx.annotation.NonNull;
-import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.text.DecimalFormat;
+import java.util.Random;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class t52 extends x42<TextView, u52> {
+public class t52 {
     public static /* synthetic */ Interceptable $ic;
+    public static ActivityManager c;
+    public static float d;
+    public static int e;
+    public static int f;
     public transient /* synthetic */ FieldHolder $fh;
-    public SwanAppComponentContainerView i;
-    public TextView j;
+    public DecimalFormat a;
+    public volatile d b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t52(@NonNull Context context, @NonNull u52 u52Var) {
-        super(context, u52Var);
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b extends ProviderDelegation {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+        public Bundle execCall(Bundle bundle) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+                Bundle bundle2 = new Bundle();
+                bundle2.putLong("key_get_host_pss", Debug.getPss());
+                return bundle2;
+            }
+            return (Bundle) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public float a;
+        public float b;
+        public float c;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = 0.0f;
+            this.b = 0.0f;
+            this.c = 0.0f;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static volatile String e = "0";
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+        public String d;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-450792680, "Lcom/baidu/tieba/t52$d;")) == null) {
+                return;
+            }
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-450792680, "Lcom/baidu/tieba/t52$d;");
+            }
+        }
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                    return;
+                }
+            }
+            this.a = "0";
+            this.b = "0";
+            this.c = "0";
+            this.d = "0";
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class e {
+        public static /* synthetic */ Interceptable $ic;
+        public static final t52 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-450792649, "Lcom/baidu/tieba/t52$e;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-450792649, "Lcom/baidu/tieba/t52$e;");
+                    return;
+                }
+            }
+            a = new t52(null);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948132120, "Lcom/baidu/tieba/t52;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948132120, "Lcom/baidu/tieba/t52;");
+                return;
+            }
+        }
+        boolean z = do1.a;
+        c = (ActivityManager) ar2.c().getSystemService("activity");
+        d = -1.0f;
+        ar2.g0().getSwitch("swan_memory_sample", 0);
+        e = 0;
+        f = new Random().nextInt(100);
+    }
+
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (!m()) {
+                return "";
+            }
+            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
+            c.getMemoryInfo(memoryInfo);
+            String b2 = b(((float) memoryInfo.totalMem) / 1048576.0f);
+            t42.k("SwanMemoryProperty", "getMemoryInfo sysTotalMemory=" + b2);
+            return b2;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public t52() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, u52Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (y42) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        g(4);
-        this.i = new SwanAppComponentContainerView(context);
-        this.j = new TextView(context);
+        this.a = new DecimalFormat("#.###");
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.x42, com.baidu.tieba.z42, com.baidu.tieba.b52
+    public static t52 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return e.a;
+        }
+        return (t52) invokeV.objValue;
+    }
+
+    public static float d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (d < 0.0f) {
+                d = e().floatValue();
+            }
+            return d;
+        }
+        return invokeV.floatValue;
+    }
+
+    public static Float e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
+            c.getMemoryInfo(memoryInfo);
+            return Float.valueOf(((float) memoryInfo.totalMem) / 1048576.0f);
+        }
+        return (Float) invokeV.objValue;
+    }
+
+    public static long f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return g43.c(b.class, null).a.getLong("key_get_host_pss");
+        }
+        return invokeV.longValue;
+    }
+
     @NonNull
-    /* renamed from: Z */
-    public e62 k(@NonNull u52 u52Var, @NonNull u52 u52Var2) {
-        InterceptResult invokeLL;
+    public d g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, u52Var, u52Var2)) == null) {
-            e62 k = super.k(u52Var, u52Var2);
-            if (!TextUtils.equals(u52Var.E, u52Var2.E) && (TextUtils.equals(u52Var.E, "scroll") || TextUtils.equals(u52Var2.E, "scroll"))) {
-                k.b(7);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.b != null) {
+                return this.b;
             }
-            if (!TextUtils.equals(u52Var.E, u52Var2.E) || (TextUtils.equals(u52Var2.E, "scroll") && u52Var.D != u52Var2.D)) {
-                k.b(8);
-            }
-            return k;
+            return new d();
         }
-        return (e62) invokeLL.objValue;
+        return (d) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.z42
-    /* renamed from: c0 */
-    public void Q(@NonNull TextView textView, @NonNull u52 u52Var) {
+    public void l() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, textView, u52Var) == null) {
-            if (b52.h) {
-                Log.d("Component-CoverView", "renderBackground");
-            }
-            if (u52Var.j == null) {
-                return;
-            }
-            SwanAppComponentContainerView m = m();
-            if (m != null) {
-                m.setModel(u52Var);
-            }
-            ViewParent parent = textView.getParent();
-            if (!(parent instanceof View)) {
-                return;
-            }
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setColor(u52Var.k);
-            gradientDrawable.setCornerRadius(u52Var.n);
-            gradientDrawable.setStroke(u52Var.l, u52Var.m);
-            ((View) parent).setBackground(gradientDrawable);
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.b == null) {
+            this.b = j();
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.z42
-    /* renamed from: b0 */
-    public void P(@NonNull View view2, @NonNull u52 u52Var) {
+    public void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, view2, u52Var) == null) {
-            if (b52.h) {
-                Log.d("Component-CoverView", "renderAlpha");
-            }
-            if (u52Var.j == null) {
-                return;
-            }
-            ViewParent parent = view2.getParent();
-            if (!(parent instanceof View)) {
-                return;
-            }
-            super.P((View) parent, u52Var);
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.b = null;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.b52
+    public /* synthetic */ t52(a aVar) {
+        this();
+    }
+
+    public final String b(float f2) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f2)) == null) {
+            return this.a.format(f2);
+        }
+        return (String) invokeF.objValue;
+    }
+
     @NonNull
-    /* renamed from: a0 */
-    public TextView v(@NonNull Context context) {
-        InterceptResult invokeL;
+    public static c i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-            return this.j;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            c cVar = new c();
+            Debug.MemoryInfo[] processMemoryInfo = c.getProcessMemoryInfo(new int[]{Process.myPid(), s73.K().q().W().j("main_pid", -1)});
+            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
+            c.getMemoryInfo(memoryInfo);
+            cVar.c = ((float) (memoryInfo.totalMem - memoryInfo.availMem)) / 1048576.0f;
+            if (processMemoryInfo != null && processMemoryInfo.length == 2) {
+                Debug.MemoryInfo memoryInfo2 = processMemoryInfo[0];
+                Debug.MemoryInfo memoryInfo3 = processMemoryInfo[1];
+                if (memoryInfo2 != null) {
+                    cVar.b = ((float) Debug.getPss()) / 1024.0f;
+                }
+                if (memoryInfo3 != null) {
+                    cVar.a = ((float) f()) / 1024.0f;
+                }
+            }
+            return cVar;
         }
-        return (TextView) invokeL.objValue;
+        return (c) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.b52
-    @NonNull
-    public SwanAppComponentContainerView u(@NonNull Context context) {
-        InterceptResult invokeL;
+    public final void a(JSONObject jSONObject, ActivityManager.MemoryInfo memoryInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) {
-            return this.i;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, memoryInfo) == null) && jSONObject != null && memoryInfo != null) {
+            this.b = new d();
+            this.b.b = jSONObject.optString("host_used_mem");
+            this.b.a = jSONObject.optString("smart_app_used_mem");
+            this.b.d = jSONObject.optString("sys_free_mem");
+            this.b.c = b(((float) memoryInfo.totalMem) / 1048576.0f);
         }
-        return (SwanAppComponentContainerView) invokeL.objValue;
+    }
+
+    public String h(int i) {
+        InterceptResult invokeI;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            if (!m()) {
+                return "";
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                t42.k("SwanMemoryProperty", "getMemoryInfo mainPid: " + i);
+                Debug.MemoryInfo[] processMemoryInfo = c.getProcessMemoryInfo(new int[]{Process.myPid(), i});
+                if (processMemoryInfo != null && processMemoryInfo.length == 2) {
+                    Debug.MemoryInfo memoryInfo = processMemoryInfo[0];
+                    if (memoryInfo != null) {
+                        jSONObject.put("smart_app_used_mem", b(((float) Debug.getPss()) / 1024.0f));
+                        jSONObject.put("total_rss", b((((memoryInfo.getTotalPrivateClean() + memoryInfo.getTotalPrivateDirty()) + memoryInfo.getTotalSharedClean()) + memoryInfo.getTotalSharedDirty()) / 1024.0f));
+                        jSONObject.put("private_clean", b(memoryInfo.getTotalPrivateClean() / 1024.0f));
+                        jSONObject.put("private_dirty", b(memoryInfo.getTotalPrivateDirty() / 1024.0f));
+                        jSONObject.put("shared_clean", b(memoryInfo.getTotalSharedClean() / 1024.0f));
+                        jSONObject.put("shared_dirty", b(memoryInfo.getTotalSharedDirty() / 1024.0f));
+                    }
+                    Debug.MemoryInfo memoryInfo2 = processMemoryInfo[1];
+                    if (memoryInfo2 != null) {
+                        jSONObject.put("host_used_mem", b((((memoryInfo2.getTotalPrivateClean() + memoryInfo2.getTotalPrivateDirty()) + memoryInfo2.getTotalSharedClean()) + memoryInfo2.getTotalSharedDirty()) / 1024.0f));
+                    }
+                }
+                ActivityManager.MemoryInfo memoryInfo3 = new ActivityManager.MemoryInfo();
+                c.getMemoryInfo(memoryInfo3);
+                jSONObject.put("sys_free_mem", b(((float) memoryInfo3.availMem) / 1048576.0f));
+                if (memoryInfo3.lowMemory) {
+                    str = "1";
+                } else {
+                    str = "0";
+                }
+                jSONObject.put("sys_low_mem", str);
+                jSONObject.put("native_heap", b(((float) Debug.getNativeHeapSize()) / 1048576.0f));
+                jSONObject.put("native_heap_alloc", b(((float) Debug.getNativeHeapAllocatedSize()) / 1048576.0f));
+                jSONObject.put("vm_max_mem", b(((float) Runtime.getRuntime().maxMemory()) / 1048576.0f));
+                jSONObject.put("vm_total_mem", b(((float) Runtime.getRuntime().totalMemory()) / 1048576.0f));
+                jSONObject.put("vm_free_mem", b(((float) Runtime.getRuntime().freeMemory()) / 1048576.0f));
+                jSONObject.put("thread_count", Thread.activeCount());
+                a(jSONObject, memoryInfo3);
+            } catch (Exception e2) {
+                t42.k("SwanMemoryProperty", "getMemoryInfo: " + Log.getStackTraceString(e2));
+            }
+            t42.k("SwanMemoryProperty", "getMemoryInfo result=" + jSONObject);
+            return jSONObject.toString();
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public d j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            d dVar = new d();
+            Debug.MemoryInfo[] processMemoryInfo = c.getProcessMemoryInfo(new int[]{Process.myPid(), s73.K().q().W().j("main_pid", -1)});
+            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
+            c.getMemoryInfo(memoryInfo);
+            if (processMemoryInfo != null && processMemoryInfo.length == 2) {
+                Debug.MemoryInfo memoryInfo2 = processMemoryInfo[0];
+                Debug.MemoryInfo memoryInfo3 = processMemoryInfo[1];
+                if (memoryInfo2 != null) {
+                    if (TextUtils.equals("0", d.e)) {
+                        String unused = d.e = b(((float) memoryInfo.totalMem) / 1048576.0f);
+                    }
+                    dVar.c = d.e;
+                    dVar.d = b(((float) memoryInfo.availMem) / 1048576.0f);
+                    dVar.a = b(((float) Debug.getPss()) / 1024.0f);
+                }
+                if (memoryInfo3 != null) {
+                    dVar.b = b((((memoryInfo3.getTotalPrivateClean() + memoryInfo3.getTotalPrivateDirty()) + memoryInfo3.getTotalSharedClean()) + memoryInfo3.getTotalSharedDirty()) / 1024.0f);
+                }
+            }
+            return dVar;
+        }
+        return (d) invokeV.objValue;
+    }
+
+    public final boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            t42.k("SwanMemoryProperty", "getMemoryInfo mMemSample =" + e + "; mRandomNum =" + f);
+            int i = e;
+            if (i <= 0) {
+                return false;
+            }
+            if (i < 100 && f > i) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

@@ -4,9 +4,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.RemoteException;
 import android.util.Log;
-import com.baidu.tieba.dea;
-import com.baidu.tieba.oea;
-import com.baidu.tieba.rea;
+import com.baidu.tieba.ala;
+import com.baidu.tieba.mka;
+import com.baidu.tieba.xka;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,14 +23,14 @@ public class r extends IPushCallback.Stub {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Object a;
-    public final rea b;
+    public final ala b;
 
-    public r(Object obj, rea reaVar) {
+    public r(Object obj, ala alaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {obj, reaVar};
+            Object[] objArr = {obj, alaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,7 +41,7 @@ public class r extends IPushCallback.Stub {
             }
         }
         this.a = obj;
-        this.b = reaVar;
+        this.b = alaVar;
     }
 
     @Override // com.hihonor.push.framework.aidl.IPushCallback
@@ -57,17 +57,17 @@ public class r extends IPushCallback.Stub {
             if (obj instanceof IMessageEntity) {
                 MessageCodec.parseMessageEntity(body, (IMessageEntity) obj);
             }
-            rea reaVar = this.b;
+            ala alaVar = this.b;
             ApiException apiException = new ApiException(responseHeader.getStatusCode(), responseHeader.getStatusMessage());
             Object obj2 = this.a;
-            dea.b bVar = (dea.b) reaVar;
+            mka.b bVar = (mka.b) alaVar;
             bVar.getClass();
-            dea deaVar = dea.c;
-            oea<?> oeaVar = bVar.a;
-            deaVar.getClass();
+            mka mkaVar = mka.c;
+            xka<?> xkaVar = bVar.a;
+            mkaVar.getClass();
             Log.i("HonorApiManager", "sendResolveResult start");
-            Handler handler = deaVar.a;
-            handler.sendMessage(handler.obtainMessage(2, oeaVar));
+            Handler handler = mkaVar.a;
+            handler.sendMessage(handler.obtainMessage(2, xkaVar));
             bVar.a.b(apiException, obj2);
             Log.i(IPCCallback.TAG, "onResult parse end.");
         }

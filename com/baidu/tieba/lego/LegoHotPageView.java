@@ -20,20 +20,20 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.PbListView;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.az7;
-import com.baidu.tieba.da;
-import com.baidu.tieba.dy7;
-import com.baidu.tieba.gz7;
-import com.baidu.tieba.iz7;
-import com.baidu.tieba.jz7;
-import com.baidu.tieba.k55;
-import com.baidu.tieba.l55;
+import com.baidu.tieba.a9;
+import com.baidu.tieba.e48;
+import com.baidu.tieba.g9;
+import com.baidu.tieba.h38;
+import com.baidu.tieba.k48;
+import com.baidu.tieba.kf5;
 import com.baidu.tieba.lego.card.model.ICardInfo;
-import com.baidu.tieba.ox7;
-import com.baidu.tieba.tx7;
-import com.baidu.tieba.x9;
-import com.baidu.tieba.xg5;
-import com.baidu.tieba.yg5;
+import com.baidu.tieba.lf5;
+import com.baidu.tieba.m48;
+import com.baidu.tieba.n48;
+import com.baidu.tieba.s28;
+import com.baidu.tieba.v35;
+import com.baidu.tieba.w35;
+import com.baidu.tieba.x28;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,23 +45,23 @@ import tbclient.Lego.DataRes;
 public class LegoHotPageView extends FrameLayout implements AbsListView.OnScrollListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jz7 a;
-    public l55 b;
+    public n48 a;
+    public w35 b;
     public PbListView c;
     public BdListView d;
-    public dy7 e;
+    public h38 e;
     public TbPageContext<?> f;
-    public ox7 g;
-    public tx7 h;
-    public xg5 i;
-    public yg5 j;
+    public s28 g;
+    public x28 h;
+    public kf5 i;
+    public lf5 j;
     public long k;
     public String l;
     public boolean m;
     public CustomMessageListener n;
     public CustomMessageListener o;
     public CustomMessageListener p;
-    public tx7.c q;
+    public x28.c q;
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScroll(AbsListView absListView, int i, int i2, int i3) {
@@ -141,10 +141,10 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
-                gz7 gz7Var = new gz7();
-                gz7Var.a = String.valueOf(customResponsedMessage.getData());
-                gz7Var.b = true;
-                this.a.p(gz7Var);
+                k48 k48Var = new k48();
+                k48Var.a = String.valueOf(customResponsedMessage.getData());
+                k48Var.b = true;
+                this.a.p(k48Var);
             }
         }
     }
@@ -181,16 +181,16 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Long)) {
-                gz7 gz7Var = new gz7();
-                gz7Var.a = String.valueOf(customResponsedMessage.getData());
-                gz7Var.b = false;
-                this.a.p(gz7Var);
+                k48 k48Var = new k48();
+                k48Var.a = String.valueOf(customResponsedMessage.getData());
+                k48Var.b = false;
+                this.a.p(k48Var);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class d implements tx7.c {
+    public class d implements x28.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LegoHotPageView a;
@@ -213,15 +213,15 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
             this.a = legoHotPageView;
         }
 
-        @Override // com.baidu.tieba.tx7.c
-        public void a(List<iz7> list) {
+        @Override // com.baidu.tieba.x28.c
+        public void a(List<m48> list) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, list) == null) && this.a.g != null) {
                 this.a.g.a(list);
             }
         }
 
-        @Override // com.baidu.tieba.tx7.c
+        @Override // com.baidu.tieba.x28.c
         public void b(long j, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeJL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j, str) != null) {
@@ -238,7 +238,7 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
             }
         }
 
-        @Override // com.baidu.tieba.tx7.c
+        @Override // com.baidu.tieba.x28.c
         public void c(int i, String str) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, str) == null) && this.a.g != null && this.a.a != null) {
@@ -246,7 +246,7 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
             }
         }
 
-        @Override // com.baidu.tieba.tx7.c
+        @Override // com.baidu.tieba.x28.c
         public void onError(int i, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeIL(1048580, this, i, str) != null) {
@@ -265,15 +265,15 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
             legoHotPageView.y(legoHotPageView, str, true);
         }
 
-        @Override // com.baidu.tieba.tx7.c
-        public void d(String str, String str2, String str3, List<jz7> list) {
+        @Override // com.baidu.tieba.x28.c
+        public void d(String str, String str2, String str3, List<n48> list) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeLLLL(1048579, this, str, str2, str3, list) == null) && this.a.g != null) {
                 this.a.g.d(str, str2, str3, list);
             }
         }
 
-        @Override // com.baidu.tieba.tx7.c
+        @Override // com.baidu.tieba.x28.c
         public void onSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable != null && interceptable.invokeV(1048581, this) != null) {
@@ -286,7 +286,7 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
     }
 
     /* loaded from: classes5.dex */
-    public class e implements k55.g {
+    public class e implements v35.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ LegoHotPageView a;
@@ -309,7 +309,7 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
             this.a = legoHotPageView;
         }
 
-        @Override // com.baidu.tieba.k55.g
+        @Override // com.baidu.tieba.v35.g
         public void f(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
@@ -506,32 +506,32 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
         if (interceptable == null || interceptable.invokeJL(1048596, this, j, str) == null) {
             this.k = j;
             this.l = str;
-            tx7 tx7Var = this.h;
-            if (tx7Var != null) {
-                tx7Var.update(j, str);
+            x28 x28Var = this.h;
+            if (x28Var != null) {
+                x28Var.update(j, str);
             }
         }
     }
 
-    public void setCallback(ox7 ox7Var) {
+    public void setCallback(s28 s28Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, ox7Var) == null) {
-            this.g = ox7Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, s28Var) == null) {
+            this.g = s28Var;
         }
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {
-        l55 l55Var;
+        w35 w35Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, bdUniqueId) == null) && (l55Var = this.b) != null) {
-            l55Var.a0(bdUniqueId);
+        if ((interceptable == null || interceptable.invokeL(1048586, this, bdUniqueId) == null) && (w35Var = this.b) != null) {
+            w35Var.a0(bdUniqueId);
         }
     }
 
-    public void setTagInfo(jz7 jz7Var) {
+    public void setTagInfo(n48 n48Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, jz7Var) == null) {
-            this.a = jz7Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, n48Var) == null) {
+            this.a = n48Var;
         }
     }
 
@@ -554,9 +554,9 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
     }
 
     public final void p(Object obj) {
-        tx7 tx7Var;
+        x28 x28Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, obj) == null) && this.e != null && (tx7Var = this.h) != null && tx7Var.b() != null) {
+        if ((interceptable == null || interceptable.invokeL(1048581, this, obj) == null) && this.e != null && (x28Var = this.h) != null && x28Var.b() != null) {
             boolean z = false;
             for (ICardInfo iCardInfo : this.h.b()) {
                 if (iCardInfo.responseAttention(obj)) {
@@ -576,11 +576,11 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
         }
         for (int i = 0; i < this.d.getChildCount(); i++) {
             View childAt = this.d.getChildAt(i);
-            if (childAt instanceof az7) {
+            if (childAt instanceof e48) {
                 if (z) {
-                    ((az7) childAt).e();
+                    ((e48) childAt).e();
                 } else {
-                    ((az7) childAt).h();
+                    ((e48) childAt).h();
                 }
             }
         }
@@ -589,17 +589,17 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
     public void w(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
-            xg5 xg5Var = this.i;
-            if (xg5Var != null) {
-                xg5Var.onChangeSkinType();
+            kf5 kf5Var = this.i;
+            if (kf5Var != null) {
+                kf5Var.onChangeSkinType();
             }
-            yg5 yg5Var = this.j;
-            if (yg5Var != null) {
-                yg5Var.onChangeSkinType();
+            lf5 lf5Var = this.j;
+            if (lf5Var != null) {
+                lf5Var.onChangeSkinType();
             }
-            l55 l55Var = this.b;
-            if (l55Var != null) {
-                l55Var.H(i);
+            w35 w35Var = this.b;
+            if (w35Var != null) {
+                w35Var.H(i);
             }
             BdListView bdListView = this.d;
             if (bdListView != null) {
@@ -617,11 +617,11 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            jz7 jz7Var = this.a;
-            if (jz7Var == null) {
+            n48 n48Var = this.a;
+            if (n48Var == null) {
                 return 0L;
             }
-            return jz7Var.a;
+            return n48Var.a;
         }
         return invokeV.longValue;
     }
@@ -629,23 +629,23 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
     public final void q() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            xg5 xg5Var = this.i;
-            if (xg5Var != null) {
-                xg5Var.dettachView(this);
+            kf5 kf5Var = this.i;
+            if (kf5Var != null) {
+                kf5Var.dettachView(this);
                 this.i = null;
             }
-            ox7 ox7Var = this.g;
-            if (ox7Var != null) {
-                ox7Var.b();
+            s28 s28Var = this.g;
+            if (s28Var != null) {
+                s28Var.b();
             }
         }
     }
 
     public final void r() {
-        yg5 yg5Var;
+        lf5 lf5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (yg5Var = this.j) != null) {
-            yg5Var.dettachView(this);
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (lf5Var = this.j) != null) {
+            lf5Var.dettachView(this);
             this.j = null;
         }
     }
@@ -668,8 +668,8 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            yg5 yg5Var = this.j;
-            if (yg5Var != null && yg5Var.isViewAttached()) {
+            lf5 lf5Var = this.j;
+            if (lf5Var != null && lf5Var.isViewAttached()) {
                 return true;
             }
             return false;
@@ -684,8 +684,8 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
         }
         for (int i = 0; i < this.d.getChildCount(); i++) {
             View childAt = this.d.getChildAt(i);
-            if (childAt instanceof az7) {
-                ((az7) childAt).g();
+            if (childAt instanceof e48) {
+                ((e48) childAt).g();
             }
         }
     }
@@ -693,7 +693,7 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
     public final void s(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
-            x9<?> a2 = da.a(context);
+            a9<?> a2 = g9.a(context);
             a2.registerListener(this.n);
             a2.registerListener(this.o);
             a2.registerListener(this.p);
@@ -704,25 +704,25 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
             this.d = bdListView;
             bdListView.setDividerHeight(0);
             this.d.setSelector(17170445);
-            dy7 dy7Var = new dy7(this.f);
-            this.e = dy7Var;
-            this.d.setAdapter((ListAdapter) dy7Var);
+            h38 h38Var = new h38(this.f);
+            this.e = h38Var;
+            this.d.setAdapter((ListAdapter) h38Var);
             PbListView pbListView = new PbListView(context);
             this.c = pbListView;
             pbListView.a();
             this.c.r(R.color.CAM_X0204);
             this.c.H(SkinManager.getColor(R.color.CAM_X0109));
             this.c.e(TbadkCoreApplication.getInst().getSkinType());
-            l55 l55Var = new l55(this.f);
-            this.b = l55Var;
-            this.d.setPullRefresh(l55Var);
+            w35 w35Var = new w35(this.f);
+            this.b = w35Var;
+            this.d.setPullRefresh(w35Var);
             this.b.A(true);
             this.b.f(new e(this));
             this.d.setOnSrollToBottomListener(new f(this));
             this.d.setOnScrollListener(this);
-            tx7 tx7Var = new tx7(this.d, this.e);
-            this.h = tx7Var;
-            tx7Var.l(this.q);
+            x28 x28Var = new x28(this.d, this.e);
+            this.h = x28Var;
+            x28Var.l(this.q);
             addView(this.d);
         }
     }
@@ -732,9 +732,9 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
         if (interceptable == null || interceptable.invokeCommon(1048594, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             if (this.i == null) {
                 if (i < 0) {
-                    this.i = new xg5(getContext());
+                    this.i = new kf5(getContext());
                 } else {
-                    this.i = new xg5(getContext(), i);
+                    this.i = new kf5(getContext(), i);
                 }
                 this.i.onChangeSkinType();
             }
@@ -746,7 +746,7 @@ public class LegoHotPageView extends FrameLayout implements AbsListView.OnScroll
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048595, this, view2, str, z) == null) {
             if (this.j == null) {
-                this.j = new yg5(getContext(), new g(this));
+                this.j = new lf5(getContext(), new g(this));
             }
             this.j.k(getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070254));
             this.j.m(str);

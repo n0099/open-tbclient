@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b35;
+import com.baidu.tieba.n15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -102,9 +102,9 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
             this.c = (ImageView) findViewById(R.id.video_play);
             this.d = (EMTextView) findViewById(R.id.fake_video_info);
             this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
-            b35 d = b35.d(this.d);
-            d.v(R.color.CAM_X0101);
-            d.A(R.string.F_X01);
+            n15 d = n15.d(this.d);
+            d.w(R.color.CAM_X0101);
+            d.B(R.string.F_X01);
             this.a.s();
             this.a.setDrawCorner(false);
             this.a.setPlaceHolder(3);
@@ -128,9 +128,9 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
             threadData.getThreadVideoInfo().is_vertical.intValue();
             this.a.setPlaceHolder(3);
             if (!threadData.getThreadVideoInfo().thumbnail_url.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) && !threadData.getThreadVideoInfo().thumbnail_url.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS)) {
-                this.a.K(threadData.getThreadVideoInfo().thumbnail_url, 32, false);
+                this.a.M(threadData.getThreadVideoInfo().thumbnail_url, 32, false);
             } else {
-                this.a.K(threadData.getThreadVideoInfo().thumbnail_url, 10, false);
+                this.a.M(threadData.getThreadVideoInfo().thumbnail_url, 10, false);
             }
         }
     }

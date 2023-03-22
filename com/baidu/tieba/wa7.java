@@ -1,132 +1,129 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.TiebaStaticHelper;
-import com.baidu.tbadk.core.util.YYLiveUtil;
-import com.baidu.tbadk.widget.TbImageView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import tbclient.DiscoverHotForum;
-import tbclient.DiscoverTabCard;
-import tbclient.RecommendForumInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.EsportRank;
+import tbclient.EsportUser;
 /* loaded from: classes6.dex */
 public class wa7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
 
-    public static void a(ThreadData threadData, int i) {
-        StatisticItem k;
+    public wa7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65536, null, threadData, i) == null) {
-            if (i != 1) {
-                k = null;
-            } else {
-                k = w39.k("c13692", threadData, 3);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            TiebaStatic.log(k);
         }
     }
 
-    public static void b(View view2, zx4 zx4Var, int i) {
-        int i2;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(65537, null, view2, zx4Var, i) == null) && view2 != null && zx4Var != null && zx4Var.getThreadData() != null && !StringUtils.isNull(zx4Var.getThreadData().getTid())) {
-            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.CONCERN_TAB_THREAD_CLICK);
-            ThreadData threadData = zx4Var.getThreadData();
-            int i3 = 2;
-            if (threadData.isLinkThread()) {
-                statisticItem.param("obj_type", 4);
-            } else if (threadData.isShareThread) {
-                statisticItem.param("obj_type", 5);
-            } else if (threadData.isBJHArticleThreadType()) {
-                statisticItem.param("obj_type", 6);
-            } else if (threadData.isBJHNormalThreadType()) {
-                statisticItem.param("obj_type", 7);
-            } else if (threadData.isBJHVideoThreadType()) {
-                statisticItem.param("obj_type", 8);
-            } else if (threadData.isBJHVideoDynamicThreadType()) {
-                statisticItem.param("obj_type", 9);
-            } else if (threadData.getType() == ThreadData.TYPE_NORMAL) {
-                statisticItem.param("obj_type", 1);
-            } else if (threadData.isVideoThreadType()) {
-                statisticItem.param("obj_type", 2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void h(EsportRank esportRank) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, esportRank) == null) && esportRank != null) {
+            this.a = esportRank.title;
+            this.b = String.valueOf(esportRank.rank);
+            this.c = esportRank.text;
+            this.g = esportRank.url;
+            EsportUser esportUser = esportRank.user;
+            if (esportUser != null) {
+                this.d = esportUser.steam_name;
+                this.e = esportUser.steam_portrait;
             }
-            statisticItem.param("obj_locate", i);
-            if (i == 3 || (i == 6 && (view2 instanceof TbImageView))) {
-                if (UbsABTestHelper.isImgClickToPb()) {
-                    i2 = 1;
-                } else {
-                    i2 = 2;
-                }
-                statisticItem.param(TiebaStatic.Params.OBJ_TO, i2);
-            }
-            statisticItem.param("tid", zx4Var.getThreadData().getTid());
-            statisticItem.param("fid", zx4Var.getThreadData().getFid());
-            statisticItem.param("fname", zx4Var.getThreadData().getForum_name());
-            statisticItem.param("obj_source", 1);
-            if (zx4Var instanceof eg6) {
-                if (!((eg6) zx4Var).y()) {
-                    i3 = 1;
-                }
-                statisticItem.param("obj_param1", i3);
-            }
-            if (zx4Var.getThreadData().getAuthor() != null) {
-                statisticItem.param("uid", zx4Var.getThreadData().getAuthor().getUserId());
-            }
-            if (threadData.getBaijiahaoData() != null) {
-                statisticItem.param("obj_id", threadData.getBaijiahaoData().oriUgcNid);
-            } else {
-                statisticItem.param("obj_id", threadData.getTid());
-            }
-            if (zx4Var.getThreadData().getThreadAlaInfo() != null) {
-                int calculateLiveType = YYLiveUtil.calculateLiveType(zx4Var.getThreadData().getThreadAlaInfo());
-                if (zx4Var.getThreadData().getThreadAlaInfo().mYyExtData != null) {
-                    TiebaStaticHelper.addYYParam(statisticItem, zx4Var.getThreadData().getThreadAlaInfo().mYyExtData);
-                }
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, calculateLiveType);
-            }
-            TiebaStatic.log(statisticItem);
-            a(threadData, i);
         }
     }
 
-    public static boolean c(DiscoverHotForum.Builder builder, long j, boolean z) {
-        InterceptResult invokeCommon;
+    public void i(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{builder, Long.valueOf(j), Boolean.valueOf(z)})) == null) {
-            if (j != 0 && builder != null) {
-                List<DiscoverTabCard> list = builder.tab_list;
-                if (ListUtils.isEmpty(list)) {
-                    return false;
-                }
-                for (int i = 0; i < list.size(); i++) {
-                    DiscoverTabCard.Builder builder2 = new DiscoverTabCard.Builder(list.get(i));
-                    List<RecommendForumInfo> list2 = builder2.forum_list;
-                    if (!ListUtils.isEmpty(list2)) {
-                        for (int i2 = 0; i2 < list2.size(); i2++) {
-                            RecommendForumInfo.Builder builder3 = new RecommendForumInfo.Builder(list2.get(i2));
-                            if (builder3.forum_id.longValue() == j && builder3.is_like.intValue() != z) {
-                                builder3.is_like = Integer.valueOf(z ? 1 : 0);
-                                list2.set(i2, builder3.build(true));
-                                list.set(i, builder2.build(true));
-                                return true;
-                            }
-                        }
-                        continue;
-                    }
-                }
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            this.f = str;
         }
-        return invokeCommon.booleanValue;
+    }
+
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            this.g = str;
+        }
     }
 }

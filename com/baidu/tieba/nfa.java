@@ -1,33 +1,46 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import com.baidu.tieba.jfa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.security.GeneralSecurityException;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import javax.crypto.SecretKey;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.PxUtils;
+import com.fun.ad.sdk.internal.api.utils.ViewUtils;
+import com.qq.e.ads.splash.SplashAD;
 /* loaded from: classes5.dex */
-public class nfa implements pfa {
+public class nfa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final mfa a;
-    public SecretKey b;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public SplashAD g;
+    public View h;
+    public int i;
+    public int j;
+    public int[] k;
+    public int l;
+    public int m;
 
-    public nfa(mfa mfaVar) {
+    /* loaded from: classes5.dex */
+    public interface a {
+    }
+
+    public nfa(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mfaVar};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,72 +50,38 @@ public class nfa implements pfa {
                 return;
             }
         }
-        this.a = mfaVar;
-        b();
+        this.k = new int[2];
+        int round = Math.round(Math.min(PxUtils.getDeviceHeightInPixel(context), PxUtils.getDeviceWidthInPixel(context)) * 0.3f);
+        this.a = round;
+        this.b = Math.round((round * 16) / 9);
+        this.c = PxUtils.dpToPx(context, 6);
+        this.d = PxUtils.dpToPx(context, 100);
+        this.e = 1;
+        this.f = 300;
     }
 
-    public static boolean c(String str) {
-        InterceptResult invokeL;
+    public final void a(View view2, ViewGroup viewGroup, float f, float f2, int[] iArr, ViewGroup viewGroup2, a aVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? !TextUtils.isEmpty(str) && Pattern.matches("^\\[!([A-Fa-f0-9]*)]", str) : invokeL.booleanValue;
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            try {
-                Matcher matcher = Pattern.compile("^\\[!([A-Fa-f0-9]*)]").matcher(str);
-                return matcher.find() ? matcher.group(1) : "";
-            } catch (IllegalStateException | IndexOutOfBoundsException unused) {
-                Log.e("ExclamationMark", "getRawString exception");
-                return "";
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, viewGroup, Float.valueOf(f), Float.valueOf(f2), iArr, viewGroup2, aVar}) == null) {
+            LogPrinter.d("zoomOut onAnimationEnd", new Object[0]);
+            ViewUtils.removeFromParent(view2);
+            view2.setScaleX(1.0f);
+            view2.setScaleY(1.0f);
+            view2.setX(0.0f);
+            view2.setY(0.0f);
+            int[] iArr2 = new int[2];
+            viewGroup.getLocationOnScreen(iArr2);
+            float f3 = (f - iArr2[0]) + iArr[0];
+            float f4 = (f2 - iArr2[1]) + iArr[1];
+            LogPrinter.d("zoomOut distX:" + f3 + " distY:" + f4, new Object[0]);
+            LogPrinter.d("zoomOut containerScreenX:" + iArr2[0] + " containerScreenY:" + iArr2[1], new Object[0]);
+            viewGroup2.addView(view2, -1, -1);
+            viewGroup.addView(viewGroup2, new FrameLayout.LayoutParams(this.a, this.b));
+            viewGroup2.setTranslationX(f3);
+            viewGroup2.setTranslationY(f4);
+            if (aVar != null) {
+                ((jfa.b.a) aVar).a.b.zoomOutAnimationFinish();
             }
         }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.pfa
-    public String a(String str, String str2) {
-        InterceptResult invokeLL;
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (this.b == null) {
-                str3 = "mKey is null, return default value";
-            } else if (!c(str)) {
-                return str2;
-            } else {
-                try {
-                    return new String(rfa.b(this.b, hfa.b(d(str))), "UTF-8");
-                } catch (UnsupportedEncodingException | IllegalArgumentException | GeneralSecurityException unused) {
-                    str3 = "UnsupportedEncodingException||GeneralSecurityException||IllegalArgumentException";
-                }
-            }
-            Log.e("ExclamationMark", str3);
-            return str2;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final SecretKey b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            try {
-                String a = this.a.a("/code/code1", null);
-                String a2 = this.a.a("/code/code2", null);
-                String a3 = this.a.a("/code/code3", null);
-                String a4 = this.a.a("/code/code4", null);
-                if (a != null && a2 != null && a3 != null && a4 != null) {
-                    this.b = rfa.a(hfa.b(a), hfa.b(a2), hfa.b(a3), hfa.b(a4), 10000);
-                }
-            } catch (IllegalArgumentException | NoSuchAlgorithmException | InvalidKeySpecException unused) {
-                Log.e("ExclamationMark", "Exception when reading the 'K&I' for 'Config'.");
-                this.b = null;
-            }
-            return this.b;
-        }
-        return (SecretKey) invokeV.objValue;
     }
 }

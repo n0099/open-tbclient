@@ -1,26 +1,111 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
+import android.app.Activity;
 import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.apache.commons.codec.net.RFC1522Codec;
-/* loaded from: classes3.dex */
-public class d06 {
+/* loaded from: classes4.dex */
+public class d06 extends pj1<tj0> {
     public static /* synthetic */ Interceptable $ic;
-    public static d06 a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes4.dex */
+    public class a implements tj0 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.tj0
+        public boolean a(Activity activity) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, activity)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.tj0
+        public ViewGroup b(Activity activity) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity)) == null) {
+                return null;
+            }
+            return (ViewGroup) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.tj0
+        public void d(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.tj0
+        public void e(Activity activity, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLJ(1048580, this, activity, j) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.tj0
+        public int f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? R.drawable.tb_launcher_icon : invokeV.intValue;
+        }
+
+        public a(d06 d06Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d06Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.tj0
+        public xk0 c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                xk0 xk0Var = new xk0();
+                xk0Var.a = R.layout.obfuscated_res_0x7f0d006e;
+                xk0Var.b = R.id.obfuscated_res_0x7f0900e9;
+                xk0Var.c = R.id.obfuscated_res_0x7f0900e7;
+                xk0Var.d = R.id.obfuscated_res_0x7f0900ea;
+                xk0Var.e = R.id.obfuscated_res_0x7f0900e8;
+                return xk0Var;
+            }
+            return (xk0) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.tj0
+        public boolean isMainActivity(Activity activity) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, activity)) == null) {
+                if (activity == null || TextUtils.isEmpty(activity.getClass().getSimpleName()) || !"MainTabActivity".equals(activity.getClass().getSimpleName())) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+    }
 
     public d06() {
         Interceptable interceptable = $ic;
@@ -36,239 +121,15 @@ public class d06 {
         }
     }
 
-    public static d06 f() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.pj1
+    /* renamed from: a */
+    public tj0 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (d06.class) {
-                if (a == null) {
-                    a = new d06();
-                }
-            }
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
         }
-        return (d06) invokeV.objValue;
-    }
-
-    public boolean a(ja5 ja5Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ja5Var)) == null) {
-            SQLiteDatabase b = f06.b();
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (b != null && ja5Var != null && !TextUtils.isEmpty(currentAccount)) {
-                try {
-                    ContentValues c = c(ja5Var);
-                    if (b.update("table_" + currentAccount, c, "id = ?", new String[]{String.valueOf(ja5Var.d())}) == 0) {
-                        b.insert("table_" + currentAccount, null, c);
-                    }
-                    return true;
-                } catch (Exception e) {
-                    TiebaStatic.printDBExceptionLog(e, "RelationshipDao.addContactItem", new Object[0]);
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final ContentValues c(ja5 ja5Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ja5Var)) == null) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("name", ja5Var.e());
-            contentValues.put("id", Long.valueOf(ja5Var.d()));
-            contentValues.put("user_type", Integer.valueOf(ja5Var.h()));
-            contentValues.put("portrait", ja5Var.g());
-            contentValues.put("quanpin", ja5Var.c());
-            contentValues.put("first_letter", ja5Var.a());
-            contentValues.put("name_show", ja5Var.f());
-            if (ja5Var.b() != null) {
-                contentValues.put("location_hide", Integer.valueOf(ja5Var.b().b()));
-                contentValues.put("location_distance", ja5Var.b().a());
-                contentValues.put("location_time", Long.valueOf(ja5Var.b().c()));
-            }
-            return contentValues;
-        }
-        return (ContentValues) invokeL.objValue;
-    }
-
-    public synchronized boolean b(yz5 yz5Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yz5Var)) == null) {
-            synchronized (this) {
-                SQLiteDatabase b = f06.b();
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                if (b != null && yz5Var != null && !TextUtils.isEmpty(currentAccount)) {
-                    b.execSQL("DROP TABLE IF EXISTS table_" + currentAccount);
-                    b.execSQL("CREATE TABLE IF NOT EXISTS table_" + currentAccount + "(name TEXT NOT NULL UNIQUE, id LONG, name_show TEXT, portrait TEXT, quanpin TEXT, first_letter TEXT, location_hide INT, location_distance TEXT ,location_time LONG, user_type INT);");
-                    b.beginTransaction();
-                    try {
-                        for (c06 c06Var : yz5Var.a()) {
-                            for (ja5 ja5Var : c06Var.a()) {
-                                ContentValues c = c(ja5Var);
-                                b.insert("table_" + currentAccount, null, c);
-                            }
-                        }
-                        b.setTransactionSuccessful();
-                        b.endTransaction();
-                        return true;
-                    } catch (Exception e) {
-                        BdLog.e(e.toString());
-                        TiebaStatic.printDBExceptionLog(e, "RelationshipDao.addContactItems", new Object[0]);
-                        b.endTransaction();
-                        return false;
-                    }
-                }
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean d(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
-            SQLiteDatabase b = f06.b();
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (b != null && j >= 0 && !TextUtils.isEmpty(currentAccount)) {
-                try {
-                    b.delete("table_" + currentAccount, "id = ?", new String[]{String.valueOf(j)});
-                    return true;
-                } catch (Exception e) {
-                    TiebaStatic.printDBExceptionLog(e, "RelationshipDao.deleteContactItem", new Object[0]);
-                }
-            }
-            return false;
-        }
-        return invokeJ.booleanValue;
-    }
-
-    public synchronized List<ja5> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                SQLiteDatabase b = f06.b();
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                Cursor cursor = null;
-                ArrayList arrayList = new ArrayList();
-                if (b != null && !TextUtils.isEmpty(currentAccount)) {
-                    b.beginTransaction();
-                    char c = 0;
-                    try {
-                        String[] strArr = la5.a;
-                        int length = strArr.length;
-                        int i = 0;
-                        while (i < length) {
-                            String str = strArr[i];
-                            ArrayList arrayList2 = new ArrayList();
-                            ja5 ja5Var = new ja5();
-                            ja5Var.j(str);
-                            arrayList2.add(ja5Var);
-                            String[] strArr2 = new String[1];
-                            strArr2[c] = str;
-                            cursor = b.rawQuery("SELECT * FROM table_" + currentAccount + " WHERE first_letter" + RFC1522Codec.PREFIX, strArr2);
-                            if (cursor != null) {
-                                while (cursor.moveToNext()) {
-                                    ja5 ja5Var2 = new ja5();
-                                    ja5Var2.j(str);
-                                    ja5Var2.n(cursor.getString(cursor.getColumnIndex("name")));
-                                    ja5Var2.o(cursor.getString(cursor.getColumnIndex("name_show")));
-                                    ja5Var2.m(cursor.getLong(cursor.getColumnIndex("id")));
-                                    ja5Var2.q(cursor.getInt(cursor.getColumnIndex("user_type")));
-                                    ja5Var2.p(cursor.getString(cursor.getColumnIndex("portrait")));
-                                    ja5Var2.l(cursor.getString(cursor.getColumnIndex("quanpin")));
-                                    ja5Var2.k(new ka5(cursor.getString(cursor.getColumnIndex("location_distance")), cursor.getLong(cursor.getColumnIndex("location_time")), cursor.getInt(cursor.getColumnIndex("location_hide"))));
-                                    arrayList2.add(ja5Var2);
-                                }
-                            }
-                            if (arrayList2.size() > 1) {
-                                arrayList.addAll(arrayList2);
-                            }
-                            fj.a(cursor);
-                            i++;
-                            c = 0;
-                        }
-                        b.setTransactionSuccessful();
-                        fj.a(cursor);
-                    } catch (Exception e) {
-                        BdLog.e(e.toString());
-                        TiebaStatic.printDBExceptionLog(e, "RelationshipDao.getContactList", new Object[0]);
-                        fj.a(cursor);
-                    }
-                    b.endTransaction();
-                    return arrayList;
-                }
-                return arrayList;
-            }
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public synchronized ArrayList<ja5> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this) {
-                SQLiteDatabase b = f06.b();
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                Cursor cursor = null;
-                ArrayList<ja5> arrayList = new ArrayList<>();
-                if (b != null && !TextUtils.isEmpty(currentAccount)) {
-                    b.beginTransaction();
-                    char c = 0;
-                    try {
-                        String[] strArr = la5.a;
-                        int length = strArr.length;
-                        int i = 0;
-                        while (i < length) {
-                            String str = strArr[i];
-                            ArrayList arrayList2 = new ArrayList();
-                            ja5 ja5Var = new ja5();
-                            ja5Var.j(str);
-                            arrayList2.add(ja5Var);
-                            String[] strArr2 = new String[2];
-                            strArr2[c] = str;
-                            strArr2[1] = "1";
-                            cursor = b.rawQuery("SELECT * FROM table_" + currentAccount + " WHERE first_letter = ? AND user_type = ? ", strArr2);
-                            if (cursor != null) {
-                                while (cursor.moveToNext()) {
-                                    ja5 ja5Var2 = new ja5();
-                                    ja5Var2.j(str);
-                                    ja5Var2.n(cursor.getString(cursor.getColumnIndex("name")));
-                                    ja5Var2.o(cursor.getString(cursor.getColumnIndex("name_show")));
-                                    ja5Var2.m(cursor.getLong(cursor.getColumnIndex("id")));
-                                    ja5Var2.q(cursor.getInt(cursor.getColumnIndex("user_type")));
-                                    ja5Var2.p(cursor.getString(cursor.getColumnIndex("portrait")));
-                                    ja5Var2.l(cursor.getString(cursor.getColumnIndex("quanpin")));
-                                    ja5Var2.k(new ka5(cursor.getString(cursor.getColumnIndex("location_distance")), cursor.getLong(cursor.getColumnIndex("location_time")), cursor.getInt(cursor.getColumnIndex("location_hide"))));
-                                    arrayList2.add(ja5Var2);
-                                }
-                            }
-                            if (arrayList2.size() > 1) {
-                                arrayList.addAll(arrayList2);
-                            }
-                            fj.a(cursor);
-                            i++;
-                            c = 0;
-                        }
-                        b.setTransactionSuccessful();
-                        fj.a(cursor);
-                    } catch (Exception e) {
-                        BdLog.e(e.toString());
-                        TiebaStatic.printDBExceptionLog(e, "RelationshipDao.getOfficialAccountList", new Object[0]);
-                        fj.a(cursor);
-                    }
-                    b.endTransaction();
-                    return arrayList;
-                }
-                return arrayList;
-            }
-        }
-        return (ArrayList) invokeV.objValue;
+        return (tj0) invokeV.objValue;
     }
 }

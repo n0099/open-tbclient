@@ -6,9 +6,9 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.hi;
+import com.baidu.tieba.k45;
 import com.baidu.tieba.view.DynamicUserLikeButton;
-import com.baidu.tieba.z55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -80,14 +80,14 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
         }
     }
 
-    @Override // com.baidu.tieba.view.DynamicUserLikeButton, com.baidu.tieba.b75
+    @Override // com.baidu.tieba.view.DynamicUserLikeButton, com.baidu.tieba.m55
     public void d(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             if (z) {
-                z55 z55Var = new z55();
-                z55Var.v(R.color.CAM_X0109);
-                setConfig(z55Var);
+                k45 k45Var = new k45();
+                k45Var.v(R.color.CAM_X0109);
+                setConfig(k45Var);
                 setClickable(true);
                 if (i == 1) {
                     setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
@@ -95,22 +95,22 @@ public class HotUserRankLikeButton extends DynamicUserLikeButton {
                     setText(TbadkCoreApplication.getInst().getString(R.string.each_concerned));
                 }
             } else {
-                z55 z55Var2 = new z55();
-                z55Var2.t(R.color.CAM_X0302);
-                setConfig(z55Var2);
+                k45 k45Var2 = new k45();
+                k45Var2.t(R.color.CAM_X0302);
+                setConfig(k45Var2);
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ba));
             }
             if (i == 2) {
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();
                 if (layoutParams != null) {
-                    layoutParams.width = ej.g(getContext(), R.dimen.tbds196);
+                    layoutParams.width = hi.g(getContext(), R.dimen.tbds196);
                     setLayoutParams(layoutParams);
                 }
             } else {
                 ViewGroup.LayoutParams layoutParams2 = getLayoutParams();
                 if (layoutParams2 != null) {
-                    layoutParams2.width = ej.g(getContext(), R.dimen.tbds156);
+                    layoutParams2.width = hi.g(getContext(), R.dimen.tbds156);
                     setLayoutParams(layoutParams2);
                 }
             }

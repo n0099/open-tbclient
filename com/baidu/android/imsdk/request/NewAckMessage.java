@@ -13,7 +13,7 @@ import com.baidu.android.imsdk.ubc.MessageUbc;
 import com.baidu.android.imsdk.ubc.UBCConstants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tieba.e80;
+import com.baidu.tieba.u60;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,6 +52,9 @@ public class NewAckMessage extends Message {
         public int isParseFailed;
         public boolean isReliable;
         public int mCategory;
+        public String mFromSelf;
+        public String mFromType;
+        public String mToType;
         public long mcastId;
         public long msgReceiveTime;
         public long msgid;
@@ -110,113 +113,143 @@ public class NewAckMessage extends Message {
 
         public void setChatMsg(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
                 this.mCategory = i;
+            }
+        }
+
+        public void setFromSelf(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+                this.mFromSelf = str;
+            }
+        }
+
+        public void setFromType(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+                this.mFromType = str;
             }
         }
 
         public void setGroupId(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+            if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
                 this.groupId = j;
             }
         }
 
         public void setInterActiveAction(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
                 this.interActiveAction = str;
             }
         }
 
         public void setInterActiveSource(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
                 this.interActiveSource = i;
             }
         }
 
         public void setIsParseFailed(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
                 this.isParseFailed = i;
             }
         }
 
         public void setMcastId(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
                 this.mcastId = j;
             }
         }
 
         public void setOriginPa(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
                 this.originPa = str;
             }
         }
 
         public void setSdkVersion(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
                 this.sdkVersion = i;
             }
         }
 
         public void setSendScene(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
                 this.sendScene = i;
             }
         }
 
         public void setSendType(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
                 this.sendType = i;
             }
         }
 
         public void setStudioIsReliable(boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            if (interceptable == null || interceptable.invokeZ(1048590, this, z) == null) {
                 this.isReliable = z;
             }
         }
 
         public void setTemplateType(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
                 this.templateType = i;
             }
         }
 
         public void setTemplateVersion(int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
                 this.templateVersion = i;
+            }
+        }
+
+        public void setToType(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
+                this.mToType = str;
             }
         }
 
         public void setTopicId(long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
+            if (interceptable == null || interceptable.invokeJ(1048594, this, j) == null) {
                 this.topicId = j;
             }
         }
 
         public void setTopicSource(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
                 this.topicSource = str;
             }
+        }
+
+        public int getCategory() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.mCategory;
+            }
+            return invokeV.intValue;
         }
 
         public String getEventList() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
                 return this.eventList;
             }
             return (String) invokeV.objValue;
@@ -226,7 +259,7 @@ public class NewAckMessage extends Message {
             InterceptResult invokeV;
             JSONArray jSONArray;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("from_user", this.ukFromUser);
@@ -262,6 +295,11 @@ public class NewAckMessage extends Message {
                     }
                     if (this.groupId > 0) {
                         jSONObject.put("group_id", this.groupId);
+                    }
+                    if (this.mCategory == 0 && this.businesType != 27) {
+                        jSONObject.put("from_type", this.mFromType);
+                        jSONObject.put("to_type", this.mToType);
+                        jSONObject.put("from_self", this.mFromSelf);
                     }
                     try {
                         if (this.notifyMsgId <= this.msgid && this.notifyId > 0) {
@@ -421,82 +459,6 @@ public class NewAckMessage extends Message {
     }
 
     @Override // com.baidu.android.imsdk.request.Message
-    public void buildBody() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                TextMsg textMsg = new TextMsg();
-                textMsg.setFromUser(this.mUk);
-                jSONObject.put("method", 95);
-                jSONObject.put(Constants.KEY_TRIGGER_ID, this.mTriggerId);
-                if (this.mUk <= 0) {
-                    this.mUk = AccountManager.getUK(this.mContext);
-                    textMsg.setSenderUid("" + this.mUk);
-                    textMsg.setStatus(AccountManager.getLoginState(this.mContext));
-                }
-                jSONObject.put("uk", this.mUk);
-                if (this.mAppid <= 0) {
-                    this.mAppid = AccountManager.getAppid(this.mContext);
-                }
-                jSONObject.put("appid", this.mAppid);
-                jSONObject.put("device_id", Utility.getIMDeviceId(this.mContext));
-                jSONObject.put("msgs", this.mJsonArray);
-                JSONObject jSONObject2 = new JSONObject();
-                try {
-                    JSONArray jSONArray = new JSONArray();
-                    jSONObject2.put("event", "CIMAckBegin");
-                    jSONObject2.put("timestamp_ms", System.currentTimeMillis());
-                    jSONArray.put(jSONObject2);
-                    jSONObject.put("event_list", jSONArray);
-                } catch (JSONException e) {
-                    LogUtils.i(TAG, "buildBody ackJson JSONException:" + e.getMessage());
-                }
-                this.mBody = jSONObject.toString();
-                LogUtils.d(TAG, "buildBody :" + this.mBody);
-                textMsg.setTriggerReasonn(this.mTriggerId);
-                textMsg.setMsgContent(this.mBody);
-                this.mUbcData = new MessageUbc(this.mContext, textMsg);
-                this.mDebugInfo.methodId = 95L;
-                if (this.tripules != null && this.tripules.size() > 0) {
-                    this.mDebugInfo.msgId = this.tripules.get(0).msgid;
-                    this.mDebugInfo.msgSize = this.tripules.size();
-                    this.mDebugInfo.notifyId = this.tripules.get(0).notifyId;
-                    this.mDebugInfo.eventList = this.tripules.get(0).getEventList();
-                    JSONObject jSONObject3 = new JSONObject();
-                    try {
-                        JSONArray optJSONArray = new JSONObject(this.tripules.get(0).getEventList()).optJSONArray("event_list");
-                        if (optJSONArray == null) {
-                            optJSONArray = new JSONArray();
-                        }
-                        optJSONArray.put(jSONObject2);
-                        jSONObject3.put("event_list", optJSONArray);
-                    } catch (JSONException e2) {
-                        LogUtils.i(TAG, "buildBody JSONException:" + e2.getMessage());
-                    }
-                    this.mDebugInfo.eventList = jSONObject3.toString();
-                    this.mDebugInfo.ackMsgs.clear();
-                    for (Tripule tripule : this.tripules) {
-                        this.mDebugInfo.ackMsgs.add(String.valueOf(tripule.msgid));
-                    }
-                }
-                this.mUbcData.setDebugInfo(this.mDebugInfo);
-            } catch (JSONException e3) {
-                LogUtils.e(TAG, "buildBody", e3);
-            }
-        }
-    }
-
-    public JSONArray getJsonArray() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.mJsonArray;
-        }
-        return (JSONArray) invokeV.objValue;
-    }
-
-    @Override // com.baidu.android.imsdk.request.Message
     public void handleMessageResult(Context context, JSONObject jSONObject, int i, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(1048579, this, context, jSONObject, i, str) == null) {
@@ -548,22 +510,110 @@ public class NewAckMessage extends Message {
                 });
                 return;
             }
-            e80.d().f(this.mUbcData.generateUBCData(String.valueOf(i), str), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+            try {
+                u60.d().f(this.mUbcData.generateUBCData(String.valueOf(i), str), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+            } catch (Throwable th) {
+                LogUtils.e(TAG, "upload ackMsg :", th);
+            }
         }
+    }
+
+    @Override // com.baidu.android.imsdk.request.Message
+    public void buildBody() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject();
+            TextMsg textMsg = new TextMsg();
+            try {
+                jSONObject.put("method", 95);
+                jSONObject.put(Constants.KEY_TRIGGER_ID, this.mTriggerId);
+                if (this.mUk <= 0) {
+                    this.mUk = AccountManager.getUK(this.mContext);
+                    textMsg.setSenderUid("" + this.mUk);
+                    textMsg.setStatus(AccountManager.getLoginState(this.mContext));
+                }
+                jSONObject.put("uk", this.mUk);
+                if (this.mAppid <= 0) {
+                    this.mAppid = AccountManager.getAppid(this.mContext);
+                }
+                jSONObject.put("appid", this.mAppid);
+                jSONObject.put("device_id", Utility.getIMDeviceId(this.mContext));
+                jSONObject.put("msgs", this.mJsonArray);
+                try {
+                    JSONArray jSONArray = new JSONArray();
+                    jSONObject2.put("event", "CIMAckBegin");
+                    jSONObject2.put("timestamp_ms", System.currentTimeMillis());
+                    jSONArray.put(jSONObject2);
+                    jSONObject.put("event_list", jSONArray);
+                } catch (JSONException e) {
+                    LogUtils.i(TAG, "buildBody ackJson JSONException:" + e.getMessage());
+                }
+                String jSONObject3 = jSONObject.toString();
+                this.mBody = jSONObject3;
+                textMsg.setMsgContent(jSONObject3);
+                LogUtils.d(TAG, "buildBody :" + this.mBody);
+            } catch (Throwable th) {
+                LogUtils.e(TAG, "buildBody", th);
+                textMsg.setMsgContent("build body crash");
+            }
+            try {
+                textMsg.setFromUser(this.mUk);
+                textMsg.setTriggerReasonn(this.mTriggerId);
+                this.mUbcData = new MessageUbc(this.mContext, textMsg);
+                this.mDebugInfo.methodId = 95L;
+                if (this.tripules != null && this.tripules.size() > 0) {
+                    this.mDebugInfo.msgId = this.tripules.get(0).msgid;
+                    this.mDebugInfo.msgSize = this.tripules.size();
+                    this.mDebugInfo.notifyId = this.tripules.get(0).notifyId;
+                    this.mDebugInfo.eventList = this.tripules.get(0).getEventList();
+                    JSONObject jSONObject4 = new JSONObject();
+                    try {
+                        JSONArray optJSONArray = new JSONObject(this.tripules.get(0).getEventList()).optJSONArray("event_list");
+                        if (optJSONArray == null) {
+                            optJSONArray = new JSONArray();
+                        }
+                        optJSONArray.put(jSONObject2);
+                        jSONObject4.put("event_list", optJSONArray);
+                    } catch (JSONException e2) {
+                        LogUtils.i(TAG, "buildBody JSONException:" + e2.getMessage());
+                    }
+                    this.mDebugInfo.eventList = jSONObject4.toString();
+                    this.mDebugInfo.ackMsgs.clear();
+                    for (Tripule tripule : this.tripules) {
+                        this.mDebugInfo.ackMsgs.add(String.valueOf(tripule.msgid));
+                    }
+                }
+                this.mUbcData.setDebugInfo(this.mDebugInfo);
+            } catch (Exception e3) {
+                LogUtils.e(TAG, "mDebugInfo", e3);
+            }
+        }
+    }
+
+    public JSONArray getJsonArray() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.mJsonArray;
+        }
+        return (JSONArray) invokeV.objValue;
     }
 
     public void toJsonArray(List<Tripule> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048582, this, list) == null) && list != null && list.size() != 0) {
             JSONArray jSONArray = new JSONArray();
+            int i = 0;
             for (Tripule tripule : list) {
                 JSONObject jsonObject = tripule.toJsonObject();
                 if (jsonObject != null) {
                     jSONArray.put(jsonObject);
                 }
+                i = tripule.mCategory;
             }
             this.mJsonArray = jSONArray;
-            if (jSONArray.length() != 0 && !this.mIsReliable) {
+            if (jSONArray.length() != 0 && !this.mIsReliable && i != 4) {
                 TaskManager.getInstance(this.mContext).submitForNetWork(new Runnable(this) { // from class: com.baidu.android.imsdk.request.NewAckMessage.1
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
@@ -576,9 +626,9 @@ public class NewAckMessage extends Message {
                             newInitContext.initArgs = r2;
                             Object[] objArr = {this};
                             interceptable2.invokeUnInit(65536, newInitContext);
-                            int i = newInitContext.flag;
-                            if ((i & 1) != 0) {
-                                int i2 = i & 2;
+                            int i2 = newInitContext.flag;
+                            if ((i2 & 1) != 0) {
+                                int i3 = i2 & 2;
                                 newInitContext.thisArg = this;
                                 interceptable2.invokeInitBody(65536, newInitContext);
                                 return;
@@ -596,7 +646,7 @@ public class NewAckMessage extends Message {
                         Context context = this.this$0.mContext;
                         NewAckMessage newAckMessage = this.this$0;
                         Message.saveCmdMessage(context, newAckMessage, null, newAckMessage.mPriority);
-                        LogUtils.w(NewAckMessage.TAG, "msg :" + this.this$0.mBody + "， uuid :" + this.this$0.getUUID());
+                        LogUtils.w(NewAckMessage.TAG, "saveCmdMessage msg :" + this.this$0.mBody + "， uuid :" + this.this$0.getUUID());
                     }
                 });
             }

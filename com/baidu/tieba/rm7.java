@@ -1,49 +1,63 @@
 package com.baidu.tieba;
 
-import android.animation.TypeEvaluator;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.Hottopic.UserInfo;
 /* loaded from: classes6.dex */
-public class rm7 implements TypeEvaluator<tm7> {
+public class rm7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tm7 a;
+    public long a;
 
-    public rm7(tm7 tm7Var) {
+    public rm7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tm7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = tm7Var;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.animation.TypeEvaluator
-    /* renamed from: a */
-    public tm7 evaluate(float f, tm7 tm7Var, tm7 tm7Var2) {
-        InterceptResult invokeCommon;
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), tm7Var, tm7Var2})) == null) {
-            float f2 = 1.0f - f;
-            float f3 = f2 * f2;
-            float f4 = 2.0f * f * f2;
-            tm7 tm7Var3 = this.a;
-            float f5 = f * f;
-            return new tm7((int) ((tm7Var.a * f3) + (tm7Var3.a * f4) + (tm7Var2.a * f5)), (int) ((f3 * tm7Var.b) + (f4 * tm7Var3.b) + (f5 * tm7Var2.b)));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            long j = this.a;
+            return (int) (j ^ (j >>> 32));
         }
-        return (tm7) invokeCommon.objValue;
+        return invokeV.intValue;
+    }
+
+    public void a(UserInfo userInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, userInfo) == null) {
+            this.a = userInfo.user_id.longValue();
+            String str = userInfo.user_name;
+            String str2 = userInfo.portrait;
+        }
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj != null && rm7.class == obj.getClass() && this.a == ((rm7) obj).a) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

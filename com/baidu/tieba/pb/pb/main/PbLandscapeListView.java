@@ -12,9 +12,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.go;
-import com.baidu.tieba.wv5;
+import com.baidu.tieba.cv5;
+import com.baidu.tieba.hi;
+import com.baidu.tieba.jn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,11 +36,11 @@ public class PbLandscapeListView extends BdTypeListView {
     public boolean S;
     public boolean T;
     @NonNull
-    public wv5 U;
+    public cv5 U;
     public boolean V;
     public boolean W;
     public boolean a0;
-    public go b0;
+    public jn b0;
 
     /* loaded from: classes5.dex */
     public interface b {
@@ -143,22 +143,22 @@ public class PbLandscapeListView extends BdTypeListView {
                 return;
             }
         }
-        this.J = ej.l(TbadkCoreApplication.getInst().getContext()) / 8;
+        this.J = hi.l(TbadkCoreApplication.getInst().getContext()) / 8;
         this.K = false;
         this.P = new a(this);
         this.Q = new Handler(this.P);
         this.R = false;
         this.S = false;
         this.T = false;
-        this.U = new wv5(this);
-        H();
+        this.U = new cv5(this);
+        G();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
             if (motionEvent.getAction() != 1) {
                 this.V = this.U.a(motionEvent);
             }
@@ -213,15 +213,15 @@ public class PbLandscapeListView extends BdTypeListView {
                 return;
             }
         }
-        this.J = ej.l(TbadkCoreApplication.getInst().getContext()) / 8;
+        this.J = hi.l(TbadkCoreApplication.getInst().getContext()) / 8;
         this.K = false;
         this.P = new a(this);
         this.Q = new Handler(this.P);
         this.R = false;
         this.S = false;
         this.T = false;
-        this.U = new wv5(this);
-        H();
+        this.U = new cv5(this);
+        G();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -243,25 +243,25 @@ public class PbLandscapeListView extends BdTypeListView {
                 return;
             }
         }
-        this.J = ej.l(TbadkCoreApplication.getInst().getContext()) / 8;
+        this.J = hi.l(TbadkCoreApplication.getInst().getContext()) / 8;
         this.K = false;
         this.P = new a(this);
         this.Q = new Handler(this.P);
         this.R = false;
         this.S = false;
         this.T = false;
-        this.U = new wv5(this);
-        H();
+        this.U = new cv5(this);
+        G();
     }
 
-    private void H() {
+    private void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             this.U.d(false);
         }
     }
 
-    public boolean J() {
+    public boolean I() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -270,16 +270,27 @@ public class PbLandscapeListView extends BdTypeListView {
         return invokeV.booleanValue;
     }
 
+    public void J() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.O = null;
+            Handler handler = this.Q;
+            if (handler != null) {
+                handler.removeCallbacksAndMessages(null);
+            }
+        }
+    }
+
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.ListView, android.widget.AbsListView, android.view.ViewGroup, android.view.View
     public void dispatchDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, canvas) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, canvas) == null) {
             super.dispatchDraw(canvas);
             if (this.W && !this.a0) {
                 this.a0 = true;
-                go goVar = this.b0;
-                if (goVar != null) {
-                    goVar.a();
+                jn jnVar = this.b0;
+                if (jnVar != null) {
+                    jnVar.a();
                 }
             }
         }
@@ -289,7 +300,7 @@ public class PbLandscapeListView extends BdTypeListView {
     public boolean onInterceptTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, motionEvent)) == null) {
             if (this.K) {
                 return false;
             }
@@ -302,7 +313,7 @@ public class PbLandscapeListView extends BdTypeListView {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, motionEvent)) == null) {
             if (this.K) {
                 return false;
             }
@@ -313,43 +324,43 @@ public class PbLandscapeListView extends BdTypeListView {
 
     public void setForbidDragListener(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             this.S = z;
         }
     }
 
     public void setIsLandscape(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             this.K = z;
         }
     }
 
     public void setListViewDragListener(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, cVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, cVar) == null) {
             this.O = cVar;
         }
     }
 
     public void setOnLayoutListener(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, bVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) {
             this.L = bVar;
         }
     }
 
     public void setTextViewAdded(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
             this.R = z;
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView
-    public void y(View view2) {
+    public void x(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, view2) == null) {
             if (this.R) {
                 getAdapter2().h(view2, null, false, 1);
             } else {
@@ -360,7 +371,7 @@ public class PbLandscapeListView extends BdTypeListView {
 
     public final void K(int i, int i2, float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
             this.Q.removeMessages(0);
             if (!this.Q.hasMessages(0)) {
                 Message message = new Message();
@@ -381,7 +392,7 @@ public class PbLandscapeListView extends BdTypeListView {
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AbsListView, android.widget.AdapterView, android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             super.onLayout(z, i, i2, i3, i4);
             b bVar = this.L;
             if (bVar != null) {

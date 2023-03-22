@@ -52,17 +52,17 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.richText.TbRichTextTiebaPlusInfo;
 import com.baidu.tbadk.widget.tiejia.TiePlusStat;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cl6;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.eu5;
-import com.baidu.tieba.ic5;
-import com.baidu.tieba.id9;
-import com.baidu.tieba.jr5;
-import com.baidu.tieba.rc5;
+import com.baidu.tieba.bu5;
+import com.baidu.tieba.eb5;
+import com.baidu.tieba.gt4;
+import com.baidu.tieba.hi;
+import com.baidu.tieba.hq5;
+import com.baidu.tieba.kt5;
+import com.baidu.tieba.rj9;
+import com.baidu.tieba.va5;
 import com.baidu.tieba.view.BdTopToast;
 import com.baidu.tieba.view.ScreenTopToast;
-import com.baidu.tieba.vu5;
-import com.baidu.tieba.zu4;
+import com.baidu.tieba.zk6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -83,7 +83,7 @@ import tbclient.TiebaPlusInfo;
 /* loaded from: classes3.dex */
 public class TiePlusHelper extends CustomMessageListener implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
-    public static List<ic5> t;
+    public static List<va5> t;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
     public final TbPageContext<?> b;
@@ -95,7 +95,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
     public String h;
     public ItemData i;
     public AlertDialog j;
-    public vu5 k;
+    public bu5 k;
     public final List<ProgressButton> l;
     public final PermissionJudgePolicy m;
     public final SharedPreferences n;
@@ -157,7 +157,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
         public void onPermissionsGranted() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !StringUtils.isNull(this.a.h) && !StringUtils.isNull(this.a.c) && !StringUtils.isNull(this.a.d)) {
-                rc5.q().A(this.a.c, this.a.h, this.a.d, -1, -1, null, true, false, false);
+                eb5.q().A(this.a.c, this.a.h, this.a.d, -1, -1, null, true, false, false);
             }
         }
     }
@@ -318,11 +318,11 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
                     this.d.j.dismiss();
                 }
                 TiePlusHelper tiePlusHelper = this.d;
-                if (!tiePlusHelper.w(tiePlusHelper.a, "com.tencent.mm")) {
+                if (!tiePlusHelper.y(tiePlusHelper.a, "com.tencent.mm")) {
                     BdToast.b(this.d.a.getApplicationContext(), this.d.a.getText(R.string.tie_plus_wechat_not_install)).k();
                     return;
                 }
-                jr5.d(this.a, this.d.a.getString(R.string.tie_plus_wechat_dialog_tip));
+                hq5.d(this.a, this.d.a.getString(R.string.tie_plus_wechat_dialog_tip));
                 TiePlusStat.f(TiePlusStat.StatType.WECHAT_DIALOG_CLICK, this.b, TiePlusStat.WechatDialogType.DIRECT, this.c);
             }
         }
@@ -397,11 +397,11 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
                     this.c.j.dismiss();
                 }
                 TiePlusHelper tiePlusHelper = this.c;
-                if (!tiePlusHelper.w(tiePlusHelper.a, "com.tencent.mm")) {
+                if (!tiePlusHelper.y(tiePlusHelper.a, "com.tencent.mm")) {
                     BdToast.b(this.c.a.getApplicationContext(), this.c.a.getText(R.string.tie_plus_wechat_not_install)).k();
                     return;
                 }
-                jr5.c(this.c.a);
+                hq5.c(this.c.a);
                 TiePlusStat.f(TiePlusStat.StatType.WECHAT_DIALOG_CLICK, this.a, TiePlusStat.WechatDialogType.COPY, this.b);
             }
         }
@@ -423,9 +423,9 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
         t = new ArrayList();
     }
 
-    public void B() {
+    public void D() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.k = null;
             AlertDialog alertDialog = this.j;
             if (alertDialog != null) {
@@ -438,15 +438,15 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
 
     public final void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            eu5.c().a(this.c, this.f);
+        if (interceptable == null || interceptable.invokeV(1048603, this) == null) {
+            kt5.c().a(this.c, this.f);
         }
     }
 
     public String p() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
             return this.d;
         }
         return (String) invokeV.objValue;
@@ -455,7 +455,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
     public final HttpMessageListener q() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
             HttpMessageListener httpMessageListener = this.q;
             if (httpMessageListener != null) {
                 return httpMessageListener;
@@ -470,7 +470,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
     public String s() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
             return this.c;
         }
         return (String) invokeV.objValue;
@@ -545,140 +545,140 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, tbRichTextTiebaPlusInfo)) == null) {
             if (tbRichTextTiebaPlusInfo != null) {
-                return m(tbRichTextTiebaPlusInfo.P());
+                return m(tbRichTextTiebaPlusInfo.T());
             }
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    public void A(ProgressButton progressButton) {
+    public void C(ProgressButton progressButton) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, progressButton) == null) && progressButton != null) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, progressButton) == null) && progressButton != null) {
             this.l.remove(progressButton);
         }
     }
 
-    public TiePlusHelper D(String str) {
+    public TiePlusHelper F(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
             this.d = str;
             return this;
         }
         return (TiePlusHelper) invokeL.objValue;
     }
 
-    public TiePlusHelper E(String str) {
+    public TiePlusHelper G(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
             this.f = str;
             return this;
         }
         return (TiePlusHelper) invokeL.objValue;
     }
 
-    public void F(ItemCardHelper.c cVar) {
+    public void H(ItemCardHelper.c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, cVar) == null) {
             this.r = cVar;
         }
     }
 
-    public void G(String str) {
+    public void I(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
             this.s = str;
         }
     }
 
-    public void H(vu5 vu5Var) {
+    public void J(bu5 bu5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, vu5Var) == null) {
-            this.k = vu5Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, bu5Var) == null) {
+            this.k = bu5Var;
         }
     }
 
-    public TiePlusHelper J(String str) {
+    public TiePlusHelper L(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
             this.h = str;
             return this;
         }
         return (TiePlusHelper) invokeL.objValue;
     }
 
-    public TiePlusHelper K(boolean z) {
+    public TiePlusHelper M(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048585, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048587, this, z)) == null) {
             this.o = z;
             return this;
         }
         return (TiePlusHelper) invokeZ.objValue;
     }
 
-    public void L(ItemData itemData) {
+    public void N(ItemData itemData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, itemData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, itemData) == null) {
             this.i = itemData;
         }
-    }
-
-    public TiePlusHelper M(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            this.c = str;
-            return this;
-        }
-        return (TiePlusHelper) invokeL.objValue;
-    }
-
-    public TiePlusHelper N(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
-            this.e = str;
-            return this;
-        }
-        return (TiePlusHelper) invokeL.objValue;
     }
 
     public TiePlusHelper O(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            this.c = str;
+            return this;
+        }
+        return (TiePlusHelper) invokeL.objValue;
+    }
+
+    public TiePlusHelper P(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+            this.e = str;
+            return this;
+        }
+        return (TiePlusHelper) invokeL.objValue;
+    }
+
+    public TiePlusHelper Q(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
             this.g = str;
             return this;
         }
         return (TiePlusHelper) invokeL.objValue;
     }
 
-    public final void Q(Activity activity) {
+    public final void S(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, activity) == null) {
-            if (v(activity)) {
-                rc5.q().A(this.c, this.h, this.d, -1, -1, null, true, false, false);
+        if (interceptable == null || interceptable.invokeL(1048593, this, activity) == null) {
+            if (x(activity)) {
+                eb5.q().A(this.c, this.h, this.d, -1, -1, null, true, false, false);
             } else {
-                V(activity);
+                X(activity);
             }
         }
     }
 
     public void i(ProgressButton progressButton) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048602, this, progressButton) == null) && progressButton != null && !this.l.contains(progressButton)) {
+        if ((interceptable == null || interceptable.invokeL(1048604, this, progressButton) == null) && progressButton != null && !this.l.contains(progressButton)) {
             this.l.add(progressButton);
         }
     }
 
-    public final boolean v(Activity activity) {
+    public final boolean x(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, activity)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048616, this, activity)) == null) {
             if (activity == null) {
                 return true;
             }
@@ -690,10 +690,10 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
         return invokeL.booleanValue;
     }
 
-    public void X(@NonNull String str, @NonNull Context context, @NonNull TextView textView) {
+    public void Z(@NonNull String str, @NonNull Context context, @NonNull TextView textView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048598, this, str, context, textView) == null) {
-            if (!w(context, str) && !rc5.q().s(str)) {
+        if (interceptable == null || interceptable.invokeLLL(1048600, this, str, context, textView) == null) {
+            if (!y(context, str) && !eb5.q().s(str)) {
                 textView.setVisibility(0);
             } else {
                 textView.setVisibility(8);
@@ -742,12 +742,12 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
         return (List) invokeL.objValue;
     }
 
-    public final void S(Activity activity) {
+    public final void U(Activity activity) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048593, this, activity) == null) && activity != null && v(activity)) {
-            vu5 vu5Var = this.k;
-            if (vu5Var != null) {
-                vu5Var.dismiss();
+        if ((interceptable == null || interceptable.invokeL(1048595, this, activity) == null) && activity != null && x(activity)) {
+            bu5 bu5Var = this.k;
+            if (bu5Var != null) {
+                bu5Var.dismiss();
             }
             ScreenTopToast screenTopToast = new ScreenTopToast(activity);
             screenTopToast.m(activity.getResources().getString(R.string.tie_plus_jump_download_manager_toast));
@@ -757,9 +757,9 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
         }
     }
 
-    public final void Z(int i) {
+    public final void b0(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
             SharedPreferences sharedPreferences = this.n;
             if (i != sharedPreferences.getInt(this.c + this.d, -1)) {
                 SharedPreferences.Editor edit = this.n.edit();
@@ -769,7 +769,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
         }
     }
 
-    public static void x(Activity activity, PluginUser pluginUser) {
+    public static void z(Activity activity, PluginUser pluginUser) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(65549, null, activity, pluginUser) != null) || pluginUser == null || activity == null || !ViewHelper.checkUpIsLogin(activity)) {
             return;
@@ -784,11 +784,11 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
         MessageManager.getInstance().sendMessage(new CustomMessage(2002005, new PersonalChatActivityConfig(activity, pluginUser.user_id.longValue(), pluginUser.user_name_show, pluginUser.user_photo, pluginUser.user_type.intValue())));
     }
 
-    public final boolean y(Context context, String str) {
+    public final boolean A(Context context, String str) {
         InterceptResult invokeLL;
         ResolveInfo next;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048616, this, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
             if (TextUtils.isEmpty(str) || context == null) {
                 return false;
             }
@@ -814,48 +814,9 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
         return invokeLL.booleanValue;
     }
 
-    public void C(long j, String str, ItemCardHelper.c cVar) {
+    public void B() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), str, cVar}) == null) && j != 0 && !StringUtils.isNull(str)) {
-            if (cVar != null) {
-                this.r = cVar;
-            }
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_TIEBA_PLUS_GAME_ITEM_ORDER);
-            httpMessage.addParam("item_id", j);
-            httpMessage.addParam("item_name", str);
-            MessageManager.getInstance().sendMessage(httpMessage);
-        }
-    }
-
-    public final void P() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && !StringUtils.isNull(this.d)) {
-            for (ProgressButton progressButton : this.l) {
-                progressButton.setCurProgress(-1);
-                Y(this.c, this.d, this.a, progressButton);
-            }
-        }
-    }
-
-    public final TbHttpMessageTask k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            TbHttpMessageTask tbHttpMessageTask = this.p;
-            if (tbHttpMessageTask != null) {
-                return tbHttpMessageTask;
-            }
-            TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_TIEBA_PLUS_GAME_ITEM_ORDER, TbConfig.SERVER_ADDRESS + "c/c/item/subscribeitem");
-            this.p = tbHttpMessageTask2;
-            tbHttpMessageTask2.setResponsedClass(TiebaPlusAppointResponsedMsg.class);
-            return this.p;
-        }
-        return (TbHttpMessageTask) invokeV.objValue;
-    }
-
-    public void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048617, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             TbHttpMessageTask k = k();
             if (k != null && MessageManager.getInstance().findTask(k.getCmd()) == null) {
                 MessageManager.getInstance().registerTask(k);
@@ -870,7 +831,46 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
 
     public final void R() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+        if ((interceptable == null || interceptable.invokeV(1048592, this) == null) && !StringUtils.isNull(this.d)) {
+            for (ProgressButton progressButton : this.l) {
+                progressButton.setCurProgress(-1);
+                a0(this.c, this.d, this.a, progressButton);
+            }
+        }
+    }
+
+    public final TbHttpMessageTask k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            TbHttpMessageTask tbHttpMessageTask = this.p;
+            if (tbHttpMessageTask != null) {
+                return tbHttpMessageTask;
+            }
+            TbHttpMessageTask tbHttpMessageTask2 = new TbHttpMessageTask(CmdConfigHttp.CMD_TIEBA_PLUS_GAME_ITEM_ORDER, TbConfig.SERVER_ADDRESS + "c/c/item/subscribeitem");
+            this.p = tbHttpMessageTask2;
+            tbHttpMessageTask2.setResponsedClass(TiebaPlusAppointResponsedMsg.class);
+            return this.p;
+        }
+        return (TbHttpMessageTask) invokeV.objValue;
+    }
+
+    public void E(long j, String str, ItemCardHelper.c cVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), str, cVar}) == null) && j != 0 && !StringUtils.isNull(str)) {
+            if (cVar != null) {
+                this.r = cVar;
+            }
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_TIEBA_PLUS_GAME_ITEM_ORDER);
+            httpMessage.addParam("item_id", j);
+            httpMessage.addParam("item_name", str);
+            MessageManager.getInstance().sendMessage(httpMessage);
+        }
+    }
+
+    public final void T() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             SharedPreferences sharedPreferences = this.n;
             int i = sharedPreferences.getInt(this.c + this.d, 0);
             for (ProgressButton progressButton : this.l) {
@@ -881,15 +881,15 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
             downloadData.setExtra(Integer.valueOf(i));
             downloadData.setName(this.d);
             downloadData.setStatus(5);
-            rc5.q().w(downloadData);
+            eb5.q().w(downloadData);
         }
     }
 
-    public void T(TiebaPlusInfo tiebaPlusInfo, TiePlusStat.RichTextType richTextType, String str) {
+    public void V(TiebaPlusInfo tiebaPlusInfo, TiePlusStat.RichTextType richTextType, String str) {
         String string;
         String string2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048594, this, tiebaPlusInfo, richTextType, str) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048596, this, tiebaPlusInfo, richTextType, str) == null) {
             int intValue = tiebaPlusInfo.jump_type.intValue();
             String str2 = tiebaPlusInfo.h5_jump_number;
             UtilHelper.copyToClipBoard(str2);
@@ -911,12 +911,12 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
         }
     }
 
-    public void U(TiebaPlusInfo tiebaPlusInfo, TiePlusStat.RichTextType richTextType, String str) {
+    public void W(TiebaPlusInfo tiebaPlusInfo, TiePlusStat.RichTextType richTextType, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048595, this, tiebaPlusInfo, richTextType, str) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048597, this, tiebaPlusInfo, richTextType, str) == null) {
             LinearLayout linearLayout = new LinearLayout(this.a);
             TbImageView tbImageView = new TbImageView(this.a);
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(ej.g(this.a, R.dimen.tbds562), ej.g(this.a, R.dimen.tbds562));
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(hi.g(this.a, R.dimen.tbds562), hi.g(this.a, R.dimen.tbds562));
             if (TbadkCoreApplication.getInst().getSkinType() == 4) {
                 SkinManager.setImageResource(tbImageView, R.drawable.pic_wechatguide_dark);
             } else {
@@ -924,7 +924,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
             }
             tbImageView.setLayoutParams(layoutParams);
             linearLayout.setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-            linearLayout.setPadding(ej.g(this.a, R.dimen.M_W_X017), 0, ej.g(this.a, R.dimen.M_W_X017), ej.g(this.a, R.dimen.M_W_X007));
+            linearLayout.setPadding(hi.g(this.a, R.dimen.M_W_X017), 0, hi.g(this.a, R.dimen.M_W_X017), hi.g(this.a, R.dimen.M_W_X007));
             linearLayout.setGravity(17);
             linearLayout.addView(tbImageView);
             TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.b.getPageActivity());
@@ -937,9 +937,9 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
         }
     }
 
-    public final void V(Activity activity) {
+    public final void X(Activity activity) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048596, this, activity) != null) || activity == null) {
+        if ((interceptable != null && interceptable.invokeL(1048598, this, activity) != null) || activity == null) {
             return;
         }
         this.m.clearRequestPermissionList();
@@ -952,23 +952,23 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void j(ic5 ic5Var) {
+    public void j(va5 va5Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048603, this, ic5Var) == null) && ic5Var != null) {
-            for (ic5 ic5Var2 : t) {
-                if (TextUtils.isEmpty(ic5Var.f) || ic5Var.f.equals(ic5Var2.f)) {
+        if ((interceptable == null || interceptable.invokeL(1048605, this, va5Var) == null) && va5Var != null) {
+            for (va5 va5Var2 : t) {
+                if (TextUtils.isEmpty(va5Var.f) || va5Var.f.equals(va5Var2.f)) {
                     return;
                 }
                 while (r0.hasNext()) {
                 }
             }
-            t.add(ic5Var);
+            t.add(va5Var);
         }
     }
 
-    public void W() {
+    public void Y() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             TbHttpMessageTask k = k();
             if (k != null && MessageManager.getInstance().findTask(k.getCmd()) != null) {
                 MessageManager.getInstance().unRegisterTask(k.getCmd());
@@ -982,7 +982,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
 
     public final void n() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
             SharedPreferences sharedPreferences = this.n;
             if (sharedPreferences.getInt(this.c + this.d, -1) != -1) {
                 SharedPreferences.Editor edit = this.n.edit();
@@ -992,14 +992,14 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
         }
     }
 
-    public void Y(@NonNull String str, @NonNull String str2, @NonNull Context context, @NonNull ProgressButton progressButton) {
+    public void a0(@NonNull String str, @NonNull String str2, @NonNull Context context, @NonNull ProgressButton progressButton) {
         int i;
         int i2;
         int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048599, this, str, str2, context, progressButton) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(1048601, this, str, str2, context, progressButton) == null) {
             boolean h = progressButton.h();
-            if (w(context, str)) {
+            if (y(context, str)) {
                 progressButton.setTag((byte) 4);
                 if (h) {
                     i3 = R.string.immediately_open;
@@ -1007,16 +1007,16 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
                     i3 = R.string.pb_video_promotion_mount_open;
                 }
                 progressButton.setText(context.getString(i3));
-            } else if (rc5.q().s(str)) {
+            } else if (eb5.q().s(str)) {
                 progressButton.setTag((byte) 2);
                 if (h) {
                     i2 = R.string.immediately_install;
                 } else {
-                    i2 = R.string.obfuscated_res_0x7f0f09b5;
+                    i2 = R.string.obfuscated_res_0x7f0f09c1;
                 }
                 progressButton.setText(context.getString(i2));
-            } else if (!rc5.q().t(str) && !rc5.q().r(str)) {
-                File m = rc5.q().m(str, str2);
+            } else if (!eb5.q().t(str) && !eb5.q().r(str)) {
+                File m = eb5.q().m(str, str2);
                 if (m != null && m.exists()) {
                     SharedPreferences sharedPreferences = this.n;
                     int i4 = sharedPreferences.getInt(str + str2, -1);
@@ -1025,7 +1025,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
                     if (h) {
                         i = R.string.go_on_download;
                     } else {
-                        i = R.string.obfuscated_res_0x7f0f0832;
+                        i = R.string.obfuscated_res_0x7f0f0835;
                     }
                     progressButton.setText(context.getString(i));
                     if (this.o) {
@@ -1041,7 +1041,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
                 } else if (!StringUtils.isNull(this.s)) {
                     progressButton.setText(this.s);
                 } else {
-                    progressButton.setText(context.getString(R.string.obfuscated_res_0x7f0f0533));
+                    progressButton.setText(context.getString(R.string.obfuscated_res_0x7f0f0536));
                 }
             } else {
                 SharedPreferences sharedPreferences2 = this.n;
@@ -1057,10 +1057,10 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
 
     public void o(String str, int i, String str2, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048606, this, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2)}) == null) && !StringUtils.isNull(str) && this.b != null) {
+        if ((interceptable == null || interceptable.invokeCommon(1048608, this, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2)}) == null) && !StringUtils.isNull(str) && this.b != null) {
             if (i != 1) {
                 if (i == 4) {
-                    if (!w(this.a, "com.tencent.mm")) {
+                    if (!y(this.a, "com.tencent.mm")) {
                         BdToast.b(this.a.getApplicationContext(), this.a.getText(R.string.tie_plus_wechat_not_install)).k();
                     } else if (!TextUtils.isEmpty(str)) {
                         IWXAPI createWXAPI = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), TbConfig.WEIXIN_APP_ID);
@@ -1074,12 +1074,12 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
                 }
             } else if (i2 != 0 && i2 != 1) {
                 if (i2 == 2) {
-                    zu4.p(this.a, str, false);
+                    gt4.p(this.a, str, false);
                 }
             } else {
                 Bundle bundle = new Bundle();
                 bundle.putBoolean("need_scheme_blacklist", true);
-                id9.b(this.b, str, bundle);
+                rj9.b(this.b, str, bundle);
             }
         }
     }
@@ -1089,7 +1089,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
         File m;
         TbPageContext<?> tbPageContext;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048607, this, view2) == null) && view2 != null && (view2.getTag() instanceof Byte)) {
+        if ((interceptable == null || interceptable.invokeL(1048609, this, view2) == null) && view2 != null && (view2.getTag() instanceof Byte)) {
             if ((view2 instanceof ProgressButton) && (tbPageContext = this.b) != null) {
                 u((ProgressButton) view2, tbPageContext.getPageActivity());
                 return;
@@ -1103,24 +1103,24 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
                     return;
                 case 18:
                     if (!StringUtils.isNull(this.c) && !StringUtils.isNull(this.h)) {
-                        rc5.q().h(this.h, this.c, true);
-                        File j = rc5.q().j(this.c);
+                        eb5.q().h(this.h, this.c, true);
+                        File j = eb5.q().j(this.c);
                         if (j != null && j.exists()) {
                             j.delete();
                         }
-                        if (!StringUtils.isNull(this.d) && (m = rc5.q().m(this.c, this.d)) != null && m.exists()) {
+                        if (!StringUtils.isNull(this.d) && (m = eb5.q().m(this.c, this.d)) != null && m.exists()) {
                             m.delete();
                         }
                         n();
                         DownloadData downloadData = new DownloadData(this.c);
                         downloadData.setStatus(4);
-                        rc5.q().w(downloadData);
+                        eb5.q().w(downloadData);
                         MessageManager.getInstance().sendMessage(new CustomMessage(2921626, this.c));
                     }
-                    eu5.c().h(this.c);
-                    vu5 vu5Var = this.k;
-                    if (vu5Var != null) {
-                        vu5Var.dismiss();
+                    kt5.c().h(this.c);
+                    bu5 bu5Var = this.k;
+                    if (bu5Var != null) {
+                        bu5Var.dismiss();
                         return;
                     }
                     return;
@@ -1134,7 +1134,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
     @Override // com.baidu.adp.framework.listener.MessageListener
     public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048608, this, customResponsedMessage) != null) || !(customResponsedMessage instanceof DownloadMessage)) {
+        if ((interceptable != null && interceptable.invokeL(1048610, this, customResponsedMessage) != null) || !(customResponsedMessage instanceof DownloadMessage)) {
             return;
         }
         DownloadMessage downloadMessage = (DownloadMessage) customResponsedMessage;
@@ -1145,7 +1145,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
             if (downloadData != null) {
                 if (downloadData.getStatus() == 21 && !StringUtils.isNull(this.d)) {
                     for (ProgressButton progressButton : this.l) {
-                        Y(this.c, this.d, this.a, progressButton);
+                        a0(this.c, this.d, this.a, progressButton);
                     }
                 } else if (this.c.equals(downloadData.getId())) {
                     int status = downloadData.getStatus();
@@ -1158,7 +1158,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
                                             int i = 0;
                                             if (downloadData.getExtra() != null && (downloadData.getExtra() instanceof Integer)) {
                                                 i = ((Integer) downloadData.getExtra()).intValue();
-                                                Z(i);
+                                                b0(i);
                                             }
                                             for (ProgressButton progressButton2 : this.l) {
                                                 progressButton2.setTag((byte) 1);
@@ -1168,7 +1168,7 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
                                         }
                                         return;
                                     }
-                                    P();
+                                    R();
                                     return;
                                 }
                                 n();
@@ -1178,11 +1178,11 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
                             if (tbPageContext != null) {
                                 tbPageContext.showToast((int) R.string.download_error_info);
                             }
-                            P();
+                            R();
                             return;
                         }
-                        int k = (int) (rc5.q().k(this.c) * 100.0f);
-                        Z(k);
+                        int k = (int) (eb5.q().k(this.c) * 100.0f);
+                        b0(k);
                         for (ProgressButton progressButton3 : this.l) {
                             progressButton3.setTag((byte) 1);
                             progressButton3.j(k);
@@ -1203,61 +1203,61 @@ public class TiePlusHelper extends CustomMessageListener implements View.OnClick
 
     public final void u(ProgressButton progressButton, @NonNull Activity activity) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048613, this, progressButton, activity) == null) && progressButton != null && progressButton.getVisibility() == 0 && (progressButton.getTag() instanceof Byte) && !StringUtils.isNull(this.c) && !StringUtils.isNull(this.d) && !StringUtils.isNull(this.h)) {
+        if ((interceptable == null || interceptable.invokeLL(1048615, this, progressButton, activity) == null) && progressButton != null && progressButton.getVisibility() == 0 && (progressButton.getTag() instanceof Byte) && !StringUtils.isNull(this.c) && !StringUtils.isNull(this.d) && !StringUtils.isNull(this.h)) {
             byte byteValue = ((Byte) progressButton.getTag()).byteValue();
             if (byteValue != 0) {
                 if (byteValue != 1) {
                     if (byteValue != 2) {
                         if (byteValue != 3) {
                             if (byteValue == 4) {
-                                y(this.a, this.c);
+                                A(this.a, this.c);
                                 return;
                             }
                             return;
                         }
-                        R();
-                        Q(activity);
+                        T();
+                        S(activity);
                         return;
                     }
-                    Q(activity);
+                    S(activity);
                     return;
-                } else if (v(activity)) {
-                    if (!rc5.q().r(this.c) && !rc5.q().t(this.c)) {
+                } else if (x(activity)) {
+                    if (!eb5.q().r(this.c) && !eb5.q().t(this.c)) {
                         DownloadData downloadData = new DownloadData(this.c);
                         downloadData.setStatus(4);
-                        rc5.q().w(downloadData);
+                        eb5.q().w(downloadData);
                         return;
                     }
-                    rc5.q().g(this.h, this.c);
+                    eb5.q().g(this.h, this.c);
                     return;
                 } else {
-                    V(activity);
+                    X(activity);
                     return;
                 }
             }
             if (this.i != null) {
-                cl6 cl6Var = new cl6();
-                cl6Var.a = this.i;
-                cl6Var.b = 2;
+                zk6 zk6Var = new zk6();
+                zk6Var.a = this.i;
+                zk6Var.b = 2;
                 Context context = this.a;
                 if ((context instanceof Activity) && !"DownloadManagerActivity".equals(((Activity) context).getClass().getSimpleName())) {
-                    cl6Var.c = 1;
+                    zk6Var.c = 1;
                 }
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921627, cl6Var));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2921627, zk6Var));
             }
-            R();
-            Q(activity);
+            T();
+            S(activity);
             if (this.o) {
                 h();
-                S(activity);
+                U(activity);
             }
         }
     }
 
-    public final boolean w(Context context, String str) {
+    public final boolean y(Context context, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048615, this, context, str)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048617, this, context, str)) == null) {
             if (context == null) {
                 return false;
             }

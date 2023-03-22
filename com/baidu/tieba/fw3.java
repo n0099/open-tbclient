@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.swan.game.ad.entity.AdElementInfo;
 /* loaded from: classes4.dex */
-public /* synthetic */ class fw3 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface fw3 {
+    void a(String str);
+
+    void c(AdElementInfo adElementInfo);
 }

@@ -1,49 +1,63 @@
 package com.baidu.tieba;
 
-import androidx.core.content.FileProvider;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class zp2 {
+public class zp2 extends dq2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public int c;
+    public final xp2 a;
 
-    public zp2() {
+    public zp2(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = new xp2();
+    }
+
+    @Override // com.baidu.tieba.dq2, com.baidu.tieba.cq2
+    public void b(boolean z, HybridUbcFlow hybridUbcFlow) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048576, this, z, hybridUbcFlow) == null) {
+            if (this.a.f()) {
+                this.a.k();
+                yp2.e();
+                return;
+            }
+            xp2 xp2Var = this.a;
+            if (z) {
+                str = "1";
+            } else {
+                str = "0";
+            }
+            xp2Var.g("fmpArrived", str);
         }
     }
 
-    public JSONObject a() {
-        InterceptResult invokeV;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("userId", this.a);
-                jSONObject.put(FileProvider.DISPLAYNAME_FIELD, this.b);
-                jSONObject.put("volumeLevel", this.c);
-                return jSONObject;
-            } catch (JSONException unused) {
-                return null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.c();
+            if (this.a.e("fmpArrived")) {
+                this.a.k();
+                yp2.e();
             }
         }
-        return (JSONObject) invokeV.objValue;
     }
 }

@@ -1,26 +1,27 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.pms.db.PackageTable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes7.dex */
-public class ym2 {
+public class ym2 extends nl2<eo2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public long e;
-    public int f;
-    public String g;
-    public int h;
-    public String i;
-    public String j;
+
+    @Override // com.baidu.tieba.nl2
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "enableLocalMirror" : (String) invokeV.objValue;
+    }
 
     public ym2() {
         Interceptable interceptable = $ic;
@@ -36,49 +37,25 @@ public class ym2 {
         }
     }
 
-    @NonNull
-    public static ym2 a(@NonNull ju2 ju2Var) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.nl2
+    /* renamed from: e */
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull eo2 eo2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, ju2Var)) == null) {
-            ym2 ym2Var = new ym2();
-            ym2Var.a = ju2Var.H();
-            ym2Var.c = ju2Var.K();
-            ym2Var.d = ju2Var.Q();
-            ym2Var.f = ju2Var.G();
-            ym2Var.i = ju2Var.T();
-            ym2Var.h = ju2Var.p1();
-            ym2Var.e = System.currentTimeMillis();
-            ym2Var.g = String.valueOf(ju2Var.getType());
-            ym2Var.b = ju2Var.I();
-            ym2Var.j = ju2Var.v1();
-            return ym2Var;
-        }
-        return (ym2) invokeL.objValue;
-    }
-
-    public static ym2 b(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, eo2Var) == null) {
+            String str = command.what;
+            d(eo2Var, str, "" + command.obj, true);
+            Object obj = command.obj;
+            if (obj instanceof String) {
+                String str2 = (String) obj;
+                if (TextUtils.equals("auto", str2)) {
+                    eo2Var.h0(str2);
+                } else if (TextUtils.equals("enable", str2)) {
+                    eo2Var.h0(str2);
+                } else if (TextUtils.equals(PackageTable.DISABLE, str2)) {
+                    eo2Var.h0(str2);
+                }
             }
-            ym2 ym2Var = new ym2();
-            ym2Var.a = jSONObject.optString("bundle_id");
-            ym2Var.e = jSONObject.optLong("time");
-            JSONObject optJSONObject = jSONObject.optJSONObject("data");
-            if (optJSONObject != null) {
-                ym2Var.b = optJSONObject.optString("appkey");
-                ym2Var.g = optJSONObject.optString("pkg_type");
-                ym2Var.c = optJSONObject.optString("app_name");
-                ym2Var.d = optJSONObject.optString("app_icon");
-                ym2Var.j = optJSONObject.optString("version_code");
-                ym2Var.f = optJSONObject.optInt("frame_type");
-                ym2Var.h = optJSONObject.optInt("pay_protected");
-            }
-            return ym2Var;
         }
-        return (ym2) invokeL.objValue;
     }
 }

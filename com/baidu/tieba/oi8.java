@@ -1,58 +1,18 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.face.SearchEmotionModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.PbPage.ForumHeadlineImgInfo;
 /* loaded from: classes5.dex */
 public class oi8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Handler a;
-    public SearchEmotionModel b;
-    public String c;
-    public SearchEmotionModel.b d;
-    public Runnable e;
-
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ oi8 a;
-
-        public a(oi8 oi8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {oi8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = oi8Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !TextUtils.isEmpty(this.a.c) && this.a.d != null) {
-                if (this.a.b == null) {
-                    this.a.b = new SearchEmotionModel();
-                }
-                this.a.b.O(this.a.c, 0, 30, this.a.d);
-            }
-        }
-    }
+    public String a;
+    public String b;
 
     public oi8() {
         Interceptable interceptable = $ic;
@@ -67,38 +27,38 @@ public class oi8 {
                 return;
             }
         }
-        this.e = new a(this);
-        this.a = new Handler();
+        this.a = "";
+        this.b = "";
     }
 
-    public void e() {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SearchEmotionModel searchEmotionModel = this.b;
-            if (searchEmotionModel != null) {
-                searchEmotionModel.cancelLoadData();
-            }
-            this.a.removeCallbacks(this.e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void f(String str) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                this.c = "";
-                return;
-            }
-            this.a.removeCallbacks(this.e);
-            this.a.postDelayed(this.e, 300L);
-            this.c = str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void g(SearchEmotionModel.b bVar) {
+    public void c(ForumHeadlineImgInfo forumHeadlineImgInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.d = bVar;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, forumHeadlineImgInfo) != null) || forumHeadlineImgInfo == null) {
+            return;
         }
+        forumHeadlineImgInfo.img_user_id.longValue();
+        String str = forumHeadlineImgInfo.img_user_name;
+        this.a = forumHeadlineImgInfo.img_url;
+        forumHeadlineImgInfo.rank_num.intValue();
+        String str2 = forumHeadlineImgInfo.rank_up_info;
+        this.b = forumHeadlineImgInfo.rank_url;
     }
 }

@@ -1,27 +1,44 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.ad.asyncpv.NadAsyncRequester;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
+import com.baidu.tieba.recapp.constants.PlaceId;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.lang.ref.WeakReference;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public class yx5 {
+public class yx5 implements NadAsyncRequester.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, zx5> a;
-    public ArrayList<Integer> b;
-    public ay5 c;
+    public PlaceId a;
+    public String b;
+    public int c;
+    public boolean d;
+    public NadAsyncRequester e;
+    public long f;
+    public final WeakReference<IAdBaseAsyncController.a> g;
 
-    public yx5(ay5 ay5Var, ArrayList<Integer> arrayList) {
+    public void c(List<AdvertAppInfo> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+        }
+    }
+
+    public yx5(@NonNull PlaceId placeId, @NonNull String str, @Nullable IAdBaseAsyncController.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ay5Var, arrayList};
+            Object[] objArr = {placeId, str, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,43 +48,71 @@ public class yx5 {
                 return;
             }
         }
-        this.b = arrayList;
-        this.c = ay5Var;
-        this.a = new HashMap<>();
+        this.d = false;
+        this.f = 0L;
+        this.a = placeId;
+        this.b = str;
+        this.g = new WeakReference<>(aVar);
+        this.e = new NadAsyncRequester(this, this.a);
     }
 
-    public int a(String str, int i) {
-        InterceptResult invokeLI;
-        ArrayList<Integer> arrayList;
+    @Override // com.baidu.tieba.ad.asyncpv.NadAsyncRequester.b
+    public final void a(boolean z, List<AdvertAppInfo> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            if (this.a == null || dj.isEmpty(str) || (arrayList = this.b) == null || !arrayList.contains(Integer.valueOf(i))) {
-                return 0;
+        if (interceptable == null || interceptable.invokeZL(1048576, this, z, list) == null) {
+            IAdBaseAsyncController.a aVar = this.g.get();
+            if (z && !v38.e(list)) {
+                f(list);
+                c(list);
+                if (aVar != null) {
+                    aVar.b(list);
+                }
+            } else if (aVar != null) {
+                aVar.b(null);
             }
-            if (!this.a.containsKey(str)) {
-                b(str);
-            }
-            zx5 zx5Var = this.a.get(str);
-            if (zx5Var == null) {
-                return 0;
-            }
-            return zx5Var.a(i);
         }
-        return invokeLI.intValue;
     }
 
-    public void b(String str) {
+    public void d(int i, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && this.a != null && !dj.isEmpty(str) && this.c != null) {
-            if (this.a.containsKey(str)) {
-                zx5 zx5Var = this.a.get(str);
-                this.c.b(this.b, zx5Var);
-                this.a.put(str, zx5Var);
-                return;
+        if ((interceptable != null && interceptable.invokeIL(1048579, this, i, map) != null) || System.currentTimeMillis() - this.f < this.c * m09.a) {
+            return;
+        }
+        this.e.i(map, i);
+        this.f = System.currentTimeMillis();
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.e.h();
+        }
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.d = z;
+        }
+    }
+
+    public void f(List<AdvertAppInfo> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
+            Iterator<AdvertAppInfo> it = list.iterator();
+            while (it.hasNext()) {
+                AdvertAppInfo next = it.next();
+                next.j = this.b;
+                if (j09.l(next) && this.d) {
+                    it.remove();
+                } else {
+                    int k = next.k();
+                    if (k != 0) {
+                        s29.h(next, 0, k);
+                        it.remove();
+                    }
+                }
             }
-            zx5 zx5Var2 = new zx5();
-            this.c.b(this.b, zx5Var2);
-            this.a.put(str, zx5Var2);
         }
     }
 }

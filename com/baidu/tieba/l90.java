@@ -1,243 +1,108 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.Context;
-import android.net.SSLCertificateSocketFactory;
-import android.net.SSLSessionCache;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.live.business.model.data.LiveRoomEntity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.DataInputStream;
-import java.io.EOFException;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.lang.reflect.InvocationTargetException;
-import java.net.Inet4Address;
-import java.net.InetAddress;
-import java.net.Socket;
-import java.net.UnknownHostException;
-import java.security.KeyManagementException;
-import java.security.KeyStoreException;
-import java.security.NoSuchAlgorithmException;
-import java.security.cert.CertificateException;
-import java.util.concurrent.TimeoutException;
-import javax.net.ssl.SSLHandshakeException;
-import javax.net.ssl.SSLSocket;
-import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
+import java.net.URLDecoder;
+import java.net.URLEncoder;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class l90 extends i90 {
+public final class l90 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Socket c;
-    public InputStream d;
-    public OutputStream e;
-    public String f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l90(Context context, String str) {
-        super(context);
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947897574, "Lcom/baidu/tieba/l90;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.f = str;
-    }
-
-    @Override // com.baidu.tieba.i90
-    public InputStream b() throws EOFException, IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new DataInputStream(this.d);
-        }
-        return (InputStream) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.i90
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return k(this.b);
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.i90
-    public void c(j90 j90Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j90Var) == null) {
-            this.b = j90Var;
-            if (j90Var != null) {
-                this.d = j90Var.d;
-                this.e = j90Var.e;
-                return;
-            }
-            this.d = null;
-            this.e = null;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947897574, "Lcom/baidu/tieba/l90;");
         }
     }
 
-    @Override // com.baidu.tieba.i90
-    public void f(h90 h90Var) throws IOException {
-        OutputStream outputStream;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, h90Var) == null) && this.c != null && (outputStream = this.e) != null) {
-            outputStream.write(h90Var.a);
-            this.e.flush();
-        }
-    }
-
-    @Override // com.baidu.tieba.i90
-    public j90 e(String str, int i) throws KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, AssertionError {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, str, i)) == null) {
-            return g(str, i);
-        }
-        return (j90) invokeLI.objValue;
-    }
-
-    public final Socket h(String str, int i) throws UnknownHostException, IOException, KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, AssertionError {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, str, i)) == null) {
-            if (this.f.equals("tcp")) {
-                return j(str, i);
-            }
-            return i(str, i);
-        }
-        return (Socket) invokeLI.objValue;
-    }
-
-    public final Socket j(String str, int i) throws UnknownHostException, IOException {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, i)) == null) {
-            return new Socket(str, i);
-        }
-        return (Socket) invokeLI.objValue;
-    }
-
-    public final j90 g(String str, int i) throws KeyManagementException, CertificateException, KeyStoreException, NoSuchAlgorithmException, IOException, IllegalArgumentException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, TimeoutException, AssertionError {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) {
-            aa0.d("TcpMessageHandler", "---------------ip:" + str + "  port:" + i + "-----------------");
-            this.c = h(str, i);
-            j90 j90Var = new j90();
-            Socket socket = this.c;
-            if (socket == null) {
-                return j90Var;
-            }
-            j90Var.c = socket;
-            j90Var.d = socket.getInputStream();
-            j90Var.e = this.c.getOutputStream();
-            Boolean bool = Boolean.TRUE;
-            j90Var.a = bool;
-            j90Var.b = bool;
-            return j90Var;
-        }
-        return (j90) invokeLI.objValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:15:0x003c, code lost:
-        r9 = r6.getHostAddress();
-     */
-    @SuppressLint({"NewApi"})
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final Socket i(String str, int i) throws UnknownHostException, IOException, CertificateException, KeyStoreException, NoSuchAlgorithmException, NoSuchMethodException, IllegalArgumentException, IllegalAccessException, InvocationTargetException, KeyManagementException, TimeoutException, SSLHandshakeException, AssertionError {
-        InterceptResult invokeLI;
-        SSLSocket sSLSocket;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048583, this, str, i)) == null) {
-            SSLSessionCache sSLSessionCache = new SSLSessionCache(this.a);
-            if (str.contains(PublicSuffixDatabase.BAIDU_TLD_PLUS_ONE)) {
-                aa0.a("TcpMessageHandler", "localdns begin...,domain:" + str);
-                try {
-                    InetAddress[] allByName = InetAddress.getAllByName(str);
-                    if (allByName != null && allByName.length > 0) {
-                        int length = allByName.length;
-                        int i2 = 0;
-                        while (true) {
-                            if (i2 >= length) {
-                                break;
-                            }
-                            InetAddress inetAddress = allByName[i2];
-                            if (inetAddress instanceof Inet4Address) {
-                                break;
-                            }
-                            i2++;
-                        }
-                    }
-                } catch (Exception e) {
-                    aa0.c("TcpMessageHandler", "createSocketOnLine", e);
-                }
-            }
-            SSLCertificateSocketFactory sSLCertificateSocketFactory = (SSLCertificateSocketFactory) SSLCertificateSocketFactory.getDefault(10000, sSLSessionCache);
-            if (sSLCertificateSocketFactory == null) {
-                return null;
-            }
-            if (str.contains(PublicSuffixDatabase.BAIDU_TLD_PLUS_ONE)) {
-                sSLSocket = (SSLSocket) sSLCertificateSocketFactory.createSocket(str, i);
-            } else {
-                sSLSocket = (SSLSocket) sSLCertificateSocketFactory.createSocket(InetAddress.getByName(str), i);
-            }
-            SSLSocket sSLSocket2 = sSLSocket;
-            sSLSocket2.setEnabledCipherSuites(sSLSocket2.getEnabledCipherSuites());
-            sSLSocket2.setEnabledProtocols(sSLSocket2.getEnabledProtocols());
-            sSLCertificateSocketFactory.setUseSessionTickets(sSLSocket2, true);
-            sSLSocket2.startHandshake();
-            return sSLSocket2;
-        }
-        return (Socket) invokeLI.objValue;
-    }
-
-    public boolean k(j90 j90Var) {
+    @JvmStatic
+    public static final String a(LiveRoomEntity liveRoomEntity) {
         InterceptResult invokeL;
+        String str;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, j90Var)) == null) {
-            if (j90Var == null || !j90Var.a.booleanValue()) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, liveRoomEntity)) == null) {
+            String str2 = "";
+            String str3 = (liveRoomEntity == null || (str3 = liveRoomEntity.cmd) == null) ? "" : "";
+            String str4 = null;
+            if (liveRoomEntity != null) {
+                str = liveRoomEntity.beginTime;
+            } else {
+                str = null;
             }
-            try {
-                if (j90Var.c != null) {
-                    j90Var.c.close();
-                    j90Var.c = null;
+            if (!TextUtils.isEmpty(str)) {
+                String b = new p90(str3).b("params");
+                boolean z2 = false;
+                if (b != null && b.length() != 0) {
+                    z = false;
+                } else {
+                    z = true;
                 }
-                if (j90Var.d != null) {
-                    j90Var.d.close();
-                    j90Var.d = null;
+                if (!z) {
+                    try {
+                        JSONObject jSONObject = new JSONObject(URLDecoder.decode(b, "UTF-8"));
+                        JSONObject optJSONObject = jSONObject.optJSONObject("extLog");
+                        if (optJSONObject == null) {
+                            optJSONObject = new JSONObject();
+                        }
+                        if (liveRoomEntity != null) {
+                            str4 = liveRoomEntity.beginTime;
+                        }
+                        optJSONObject.put("live_union_id", str4);
+                        optJSONObject.put("auto_play", "1");
+                        jSONObject.put("extLog", optJSONObject);
+                        String removedUrl = i90.j(str3, "params");
+                        Intrinsics.checkExpressionValueIsNotNull(removedUrl, "removedUrl");
+                        int indexOf$default = StringsKt__StringsKt.indexOf$default((CharSequence) removedUrl, "?", 0, false, 6, (Object) null);
+                        if (removedUrl != null) {
+                            String substring = removedUrl.substring(0, indexOf$default);
+                            Intrinsics.checkNotNullExpressionValue(substring, "(this as java.lang.Strin…ing(startIndex, endIndex)");
+                            if (StringsKt__StringsKt.indexOf$default((CharSequence) removedUrl, "?", 0, false, 6, (Object) null) + 1 < removedUrl.length()) {
+                                str2 = removedUrl.substring(StringsKt__StringsKt.indexOf$default((CharSequence) removedUrl, "?", 0, false, 6, (Object) null) + 1, removedUrl.length());
+                                Intrinsics.checkNotNullExpressionValue(str2, "(this as java.lang.Strin…ing(startIndex, endIndex)");
+                            }
+                            String encode = URLEncoder.encode(jSONObject.toString());
+                            StringBuilder sb = new StringBuilder();
+                            sb.append(substring);
+                            sb.append("?params=" + encode);
+                            if (str2.length() > 0) {
+                                z2 = true;
+                            }
+                            if (z2) {
+                                sb.append(str2);
+                            }
+                            String sb2 = sb.toString();
+                            Intrinsics.checkExpressionValueIsNotNull(sb2, "newScheme.toString()");
+                            return sb2;
+                        }
+                        throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
+                    } catch (Throwable th) {
+                        th.printStackTrace();
+                        return str3;
+                    }
                 }
-                if (j90Var.e == null) {
-                    return true;
-                }
-                j90Var.e.close();
-                j90Var.e = null;
-                return true;
-            } catch (IOException e) {
-                aa0.c("TcpMessageHandler", "destroy:", e);
-                return false;
+                return str3;
             }
+            return str3;
         }
-        return invokeL.booleanValue;
+        return (String) invokeL.objValue;
     }
 }

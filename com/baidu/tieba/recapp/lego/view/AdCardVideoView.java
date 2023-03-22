@@ -2,19 +2,21 @@ package com.baidu.tieba.recapp.lego.view;
 
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ex8;
-import com.baidu.tieba.ey4;
-import com.baidu.tieba.gx8;
+import com.baidu.tieba.h29;
+import com.baidu.tieba.j29;
+import com.baidu.tieba.mw4;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.tieba.recapp.view.IHomeAdVideoView;
-import com.baidu.tieba.sv8;
-import com.baidu.tieba.wv8;
+import com.baidu.tieba.v09;
+import com.baidu.tieba.z09;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,22 +24,22 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class AdCardVideoView extends AdCardBaseView implements wv8 {
+public class AdCardVideoView extends AdCardBaseView implements z09 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public IHomeAdVideoView b0;
-    public TbPageContext c0;
-    public int d0;
-    public int e0;
-    public int f0;
-    public int g0;
-    public int h0;
+    public IHomeAdVideoView i0;
+    public TbPageContext j0;
+    public int r0;
+    public int s0;
+    public int t0;
+    public int u0;
+    public int v0;
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     public int getLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d0185 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? R.layout.obfuscated_res_0x7f0d0189 : invokeV.intValue;
     }
 
     /* loaded from: classes6.dex */
@@ -68,10 +70,10 @@ public class AdCardVideoView extends AdCardBaseView implements wv8 {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                int jump2DownloadDetailPage = this.a.b0.jump2DownloadDetailPage();
-                HashMap<String, Object> M = this.a.M("video");
+                int jump2DownloadDetailPage = this.a.i0.jump2DownloadDetailPage();
+                HashMap<String, Object> R = this.a.R("video");
                 if (this.a.k != null) {
-                    this.a.k.a(jump2DownloadDetailPage, M);
+                    this.a.k.a(jump2DownloadDetailPage, R);
                 }
             }
         }
@@ -95,8 +97,8 @@ public class AdCardVideoView extends AdCardBaseView implements wv8 {
                 return;
             }
         }
-        this.c0 = tbPageContext;
-        this.h0 = i;
+        this.j0 = tbPageContext;
+        this.v0 = i;
     }
 
     private String getPageTypeByBusiness() {
@@ -122,31 +124,31 @@ public class AdCardVideoView extends AdCardBaseView implements wv8 {
     public int getCustomLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.h0 == 2) {
-                return R.layout.obfuscated_res_0x7f0d0065;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.v0 == 2) {
+                return R.layout.obfuscated_res_0x7f0d0067;
             }
-            return R.layout.obfuscated_res_0x7f0d0066;
+            return R.layout.obfuscated_res_0x7f0d0068;
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.wv8
-    public sv8 getVideoOrVrView() {
+    @Override // com.baidu.tieba.z09
+    public v09 getVideoOrVrView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.i0;
         }
-        return (sv8) invokeV.objValue;
+        return (v09) invokeV.objValue;
     }
 
-    public boolean q0(AdCard adCard) {
+    public boolean A0(AdCard adCard) {
         InterceptResult invokeL;
-        ex8 ex8Var;
+        h29 h29Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, adCard)) == null) {
-            if (adCard == null || adCard.goodsStyle != 14 || (ex8Var = adCard.verticalVideoStyle) == null || !ex8Var.a()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, adCard)) == null) {
+            if (adCard == null || adCard.goodsStyle != 14 || (h29Var = adCard.verticalVideoStyle) == null || !h29Var.a()) {
                 return false;
             }
             return true;
@@ -155,19 +157,64 @@ public class AdCardVideoView extends AdCardBaseView implements wv8 {
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
-    public void O(AdCard adCard) {
+    public void setCustomViewRadius(@NonNull float[] fArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, fArr) == null) {
+            View view2 = this.o;
+            if (view2 instanceof XfremodeRoundLayout) {
+                ((XfremodeRoundLayout) view2).setRoundLayoutRadius(fArr);
+            }
+            this.i0.setMaskViewRadius(fArr);
+            this.o.postInvalidate();
+        }
+    }
+
+    public final void B0(AdCard adCard) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, adCard) == null) {
+            if (adCard.goodsStyle == 14) {
+                int i = this.B / 2;
+                this.r0 = i;
+                this.s0 = j29.b(i);
+            } else {
+                int i2 = this.B;
+                this.r0 = i2;
+                this.s0 = j29.a(i2);
+            }
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.i0.getLayoutParams();
+            layoutParams.height = this.s0;
+            layoutParams.width = this.r0;
+            if (adCard.goodsStyle == 14 && !A0(adCard)) {
+                int i3 = this.B / 2;
+                this.t0 = i3;
+                this.u0 = j29.b(i3);
+            } else {
+                int i4 = this.B;
+                this.t0 = i4;
+                this.u0 = j29.a(i4);
+            }
+            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091755);
+            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) frameLayout.getLayoutParams();
+            layoutParams2.width = this.t0;
+            layoutParams2.height = this.u0;
+            frameLayout.requestLayout();
+        }
+    }
+
+    @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
+    public void U(AdCard adCard) {
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, adCard) == null) && adCard != null && adCard.videoInfo != null) {
-            r0(adCard);
-            this.b0.setPageContext(this.c0);
-            this.b0.setVideoTailFrameData(adCard.tailFrame);
-            this.b0.setData(adCard.videoInfo, adCard.verticalVideoStyle, this.d0, this.e0, this.f0, this.g0);
-            this.b0.setScheme(adCard.getScheme());
-            this.b0.setAdInfo(adCard);
-            this.b0.setVideoScalingMode(0);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, adCard) == null) && adCard != null && adCard.videoInfo != null) {
+            B0(adCard);
+            this.i0.setAdInfo(adCard);
+            this.i0.setPageContext(this.j0);
+            this.i0.setVideoTailFrameData(adCard.tailFrame);
+            this.i0.setData(adCard.videoInfo, adCard.verticalVideoStyle, this.r0, this.s0, this.t0, this.u0);
+            this.i0.setScheme(adCard.getScheme());
+            this.i0.setVideoScalingMode(0);
             AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
-            this.b0.updateTailFrameView(advertAppInfo);
+            this.i0.updateTailFrameView(advertAppInfo);
             if (advertAppInfo != null) {
                 int i = -1;
                 if (TextUtils.isEmpty(advertAppInfo.j)) {
@@ -175,58 +222,29 @@ public class AdCardVideoView extends AdCardBaseView implements wv8 {
                 } else {
                     str = advertAppInfo.j;
                 }
-                ey4 ey4Var = advertAppInfo.i;
-                if (ey4Var != null) {
-                    i = ey4Var.b;
-                    str = ey4Var.a;
+                mw4 mw4Var = advertAppInfo.i;
+                if (mw4Var != null) {
+                    i = mw4Var.b;
+                    str = mw4Var.a;
                 }
-                this.b0.setStatisticInfo(advertAppInfo, i, str);
+                this.i0.setStatisticInfo(advertAppInfo, i, str);
             }
-            this.b0.setOnClickListener(new a(this));
-        }
-    }
-
-    public final void r0(AdCard adCard) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, adCard) == null) {
-            if (adCard.goodsStyle == 14) {
-                int i = this.B / 2;
-                this.d0 = i;
-                this.e0 = gx8.b(i);
-            } else {
-                int i2 = this.B;
-                this.d0 = i2;
-                this.e0 = gx8.a(i2);
-            }
-            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.b0.getLayoutParams();
-            layoutParams.height = this.e0;
-            layoutParams.width = this.d0;
-            if (adCard.goodsStyle == 14 && !q0(adCard)) {
-                int i3 = this.B / 2;
-                this.f0 = i3;
-                this.g0 = gx8.b(i3);
-            } else {
-                int i4 = this.B;
-                this.f0 = i4;
-                this.g0 = gx8.a(i4);
-            }
-            LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) this.o.getLayoutParams();
-            layoutParams2.width = this.f0;
-            layoutParams2.height = this.g0;
-            this.o.requestLayout();
+            this.i0.setOnClickListener(new a(this));
         }
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
-    public void U(View view2) {
+    public void c0(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) != null) || view2 == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, view2) != null) || view2 == null) {
             return;
         }
-        float P = P(R.string.J_X05);
-        XfremodeRoundLayout xfremodeRoundLayout = (XfremodeRoundLayout) view2;
-        xfremodeRoundLayout.setRoundLayoutRadius(new float[]{P, P, P, P, P, P, P, P});
-        xfremodeRoundLayout.setLayerType(2, null);
-        this.b0 = (IHomeAdVideoView) view2.findViewById(R.id.obfuscated_res_0x7f090148);
+        float[] W = W(R.string.J_X05);
+        if (view2 instanceof XfremodeRoundLayout) {
+            XfremodeRoundLayout xfremodeRoundLayout = (XfremodeRoundLayout) view2;
+            xfremodeRoundLayout.setRoundLayoutRadius(W);
+            xfremodeRoundLayout.setLayerType(2, null);
+            this.i0 = (IHomeAdVideoView) view2.findViewById(R.id.obfuscated_res_0x7f09014d);
+        }
     }
 }

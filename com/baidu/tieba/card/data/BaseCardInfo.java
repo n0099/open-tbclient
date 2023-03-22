@@ -3,8 +3,8 @@ package com.baidu.tieba.card.data;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.Cdo;
-import com.baidu.tieba.xo;
+import com.baidu.tieba.ao;
+import com.baidu.tieba.gn;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
 /* loaded from: classes3.dex */
-public abstract class BaseCardInfo implements Cdo {
+public abstract class BaseCardInfo implements gn {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean forceNoTest;
@@ -22,9 +22,9 @@ public abstract class BaseCardInfo implements Cdo {
     public SupportType mSupportType;
     public boolean needTopMargin;
     public int position;
-    public xo trigger;
+    public ao trigger;
 
-    @Override // com.baidu.tieba.Cdo
+    @Override // com.baidu.tieba.gn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -135,13 +135,13 @@ public abstract class BaseCardInfo implements Cdo {
         this.mSupportType = SupportType.NONE;
     }
 
-    public xo getTrigger() {
+    public ao getTrigger() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.trigger;
         }
-        return (xo) invokeV.objValue;
+        return (ao) invokeV.objValue;
     }
 
     public boolean isSupportBottom() {
@@ -223,10 +223,10 @@ public abstract class BaseCardInfo implements Cdo {
         }
     }
 
-    public void setTrigger(xo xoVar) {
+    public void setTrigger(ao aoVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, xoVar) == null) {
-            this.trigger = xoVar;
+        if (interceptable == null || interceptable.invokeL(1048586, this, aoVar) == null) {
+            this.trigger = aoVar;
         }
     }
 }

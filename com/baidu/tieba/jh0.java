@@ -1,52 +1,45 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
-@Service
 /* loaded from: classes5.dex */
-public class jh0 extends bj0 {
+public class jh0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.bj0
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "download" : (String) invokeV.objValue;
-    }
-
-    public jh0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.bj0
-    public boolean b(@NonNull Context context, @NonNull fj0 fj0Var, @Nullable Map<String, Object> map, @Nullable jj0 jj0Var) {
+    public static String a(String str, Map<String, String> map, Map<String, String> map2, String str2) {
         InterceptResult invokeLLLL;
+        String str3;
+        String str4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, fj0Var, map, jj0Var)) == null) {
-            super.b(context, fj0Var, map, jj0Var);
-            wk0.k().b(fj0Var, jj0Var);
-            return true;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, str, map, map2, str2)) == null) {
+            if (map != null) {
+                str3 = map.get(str);
+                if (TextUtils.isEmpty(str3)) {
+                    str3 = map.get("default");
+                }
+            } else {
+                str3 = null;
+            }
+            if (!TextUtils.isEmpty(str3)) {
+                str = str3;
+            }
+            if (map2 != null) {
+                str4 = map2.get(str);
+            } else {
+                str4 = null;
+            }
+            if (TextUtils.equals(str4, "__CMD_NONE__")) {
+                return null;
+            }
+            if (!TextUtils.isEmpty(str4)) {
+                return str4;
+            }
+            return str2;
         }
-        return invokeLLLL.booleanValue;
+        return (String) invokeLLLL.objValue;
     }
 }

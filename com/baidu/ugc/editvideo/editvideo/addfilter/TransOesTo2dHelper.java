@@ -2,7 +2,7 @@ package com.baidu.ugc.editvideo.editvideo.addfilter;
 
 import android.opengl.GLES20;
 import android.opengl.Matrix;
-import com.baidu.tieba.d1a;
+import com.baidu.tieba.m7a;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
 import com.baidu.ugc.editvideo.faceunity.gles.Texture2dProgram;
 import com.faceunity.gles.GeneratedTexture;
@@ -59,7 +59,7 @@ public class TransOesTo2dHelper {
             Matrix.setIdentityM(fArr, 0);
         } catch (Exception e) {
             release();
-            d1a.g(e);
+            m7a.g(e);
         }
         return this.mTexture2DId;
     }

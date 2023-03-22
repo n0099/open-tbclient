@@ -4,8 +4,8 @@ import android.content.Context;
 import android.os.Bundle;
 import android.text.TextUtils;
 import com.baidu.mobstat.bu;
-import com.baidu.tieba.e30;
-import com.baidu.tieba.g30;
+import com.baidu.tieba.u10;
+import com.baidu.tieba.w10;
 /* loaded from: classes2.dex */
 public class CuidUtil {
     public static String getCuid3(Context context) {
@@ -14,16 +14,16 @@ public class CuidUtil {
             return "";
         }
         try {
-            str = e30.f(context).c();
+            str = u10.f(context).c();
             try {
                 if (TextUtils.isEmpty(str)) {
-                    e30.f(context).j(new g30<String>() { // from class: com.baidu.mobstat.util.CuidUtil.2
-                        @Override // com.baidu.tieba.g30
+                    u10.f(context).j(new w10<String>() { // from class: com.baidu.mobstat.util.CuidUtil.2
+                        @Override // com.baidu.tieba.w10
                         public void onError(int i, Throwable th, Bundle bundle) {
                         }
 
                         /* JADX DEBUG: Method merged with bridge method */
-                        @Override // com.baidu.tieba.g30
+                        @Override // com.baidu.tieba.w10
                         public void onResult(String str2, Bundle bundle) {
                         }
                     });
@@ -45,13 +45,13 @@ public class CuidUtil {
             str = bu.a().b();
             try {
                 if (TextUtils.isEmpty(str)) {
-                    e30.f(context).m(new g30<String>() { // from class: com.baidu.mobstat.util.CuidUtil.3
-                        @Override // com.baidu.tieba.g30
+                    u10.f(context).m(new w10<String>() { // from class: com.baidu.mobstat.util.CuidUtil.3
+                        @Override // com.baidu.tieba.w10
                         public void onError(int i, Throwable th, Bundle bundle) {
                         }
 
                         /* JADX DEBUG: Method merged with bridge method */
-                        @Override // com.baidu.tieba.g30
+                        @Override // com.baidu.tieba.w10
                         public void onResult(String str2, Bundle bundle) {
                             if (!TextUtils.isEmpty(str2)) {
                                 bu.a().a(str2);
@@ -73,7 +73,7 @@ public class CuidUtil {
     public static String getIid(Context context) {
         String str;
         try {
-            str = e30.f(context).e();
+            str = u10.f(context).e();
         } catch (Throwable unused) {
             str = "";
         }
@@ -86,16 +86,16 @@ public class CuidUtil {
     public static String getOaid(Context context) {
         String str;
         try {
-            str = e30.f(context).g();
+            str = u10.f(context).g();
             try {
                 if (TextUtils.isEmpty(str)) {
-                    e30.f(context).o(new g30<String>() { // from class: com.baidu.mobstat.util.CuidUtil.1
-                        @Override // com.baidu.tieba.g30
+                    u10.f(context).o(new w10<String>() { // from class: com.baidu.mobstat.util.CuidUtil.1
+                        @Override // com.baidu.tieba.w10
                         public void onError(int i, Throwable th, Bundle bundle) {
                         }
 
                         /* JADX DEBUG: Method merged with bridge method */
-                        @Override // com.baidu.tieba.g30
+                        @Override // com.baidu.tieba.w10
                         public void onResult(String str2, Bundle bundle) {
                         }
                     });
@@ -114,7 +114,7 @@ public class CuidUtil {
     public static String getSsaid(Context context) {
         String str;
         try {
-            str = e30.f(context).h();
+            str = u10.f(context).h();
         } catch (Throwable unused) {
             str = "";
         }

@@ -1,92 +1,29 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
+import android.view.Surface;
+import androidx.annotation.NonNull;
 /* loaded from: classes4.dex */
-public class do2 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile do2 b;
-    public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, xp2> a;
+public interface do2 extends fo2 {
 
-    public do2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new HashMap();
+    /* loaded from: classes4.dex */
+    public interface a {
     }
 
-    public static do2 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (do2.class) {
-                    if (b == null) {
-                        b = new do2();
-                    }
-                }
-            }
-            return b;
-        }
-        return (do2) invokeV.objValue;
-    }
+    void W(long j);
 
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            if (b != null) {
-                b.b();
-            }
-            b = null;
-        }
-    }
+    int getVideoHeight();
 
-    public final synchronized void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this) {
-                m62.i("RtcRoomWidgetManager", "release");
-                Iterator it = new ArrayList(this.a.values()).iterator();
-                while (it.hasNext()) {
-                    ((xp2) it.next()).onRelease();
-                }
-                this.a.clear();
-            }
-        }
-    }
+    int getVideoWidth();
 
-    public synchronized void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            synchronized (this) {
-                m62.i("RtcRoomWidgetManager", "onWebViewDetach slaveId=" + str);
-                Iterator it = new ArrayList(this.a.values()).iterator();
-                while (it.hasNext()) {
-                    xp2 xp2Var = (xp2) it.next();
-                    if (TextUtils.equals(xp2Var.b(), str)) {
-                        xp2Var.onRelease();
-                    }
-                }
-            }
-        }
-    }
+    void m(String str);
+
+    void o(@NonNull a aVar);
+
+    void onSurfaceChanged(int i, int i2);
+
+    void s(int i, int i2, int i3, int i4);
+
+    void setSurface(Surface surface);
+
+    void z(int i);
 }

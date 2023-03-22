@@ -1,30 +1,44 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.util.Map;
 /* loaded from: classes3.dex */
-public class c23 extends a92 {
-    public static /* synthetic */ Interceptable $ic;
+public class c23 implements mm3<HybridUbcFlow> {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean b = true;
+    public static int c = -1;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947622821, "Lcom/baidu/tieba/c23;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947622821, "Lcom/baidu/tieba/c23;");
+        }
+    }
 
     /* loaded from: classes3.dex */
-    public class a extends xa2 {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c23 c;
 
         public a(c23 c23Var) {
             Interceptable interceptable = $ic;
@@ -38,91 +52,90 @@ public class c23 extends a92 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.c = c23Var;
         }
 
-        @Override // com.baidu.tieba.xa2, com.baidu.tieba.ab2
-        public boolean a(String str) {
-            InterceptResult invokeL;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                if (str != null && str.startsWith("https://etrade.baidu.com/cashier/create-qrcode/close")) {
-                    Map<String, String> t = en3.t(en3.o(str));
-                    if (t != null && t.get(HiAnalyticsConstant.HaKey.BI_KEY_RESULT) != null) {
-                        try {
-                            e23.a().onPayResult(Integer.valueOf(t.get(HiAnalyticsConstant.HaKey.BI_KEY_RESULT)).intValue(), URLDecoder.decode(t.get("result"), "UTF-8"));
-                        } catch (UnsupportedEncodingException e) {
-                            e.printStackTrace();
-                            e23.a().onPayResult(Integer.valueOf(t.get(HiAnalyticsConstant.HaKey.BI_KEY_RESULT)).intValue(), null);
-                        }
-                    } else {
-                        e23.a().onPayResult(6, null);
-                    }
-                    a92.Y2();
-                    return true;
-                }
-                return super.a(str);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                nl3.Y();
             }
-            return invokeL.booleanValue;
         }
     }
 
-    public c23() {
+    public c23(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = str;
+    }
+
+    public final void b(@NonNull HybridUbcFlow hybridUbcFlow) {
+        UbcFlowEvent g;
+        UbcFlowEvent a2;
+        UbcFlowEvent a3;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) != null) || (g = hybridUbcFlow.g("na_first_meaningful_paint")) == null) {
+            return;
+        }
+        ge2 ge2Var = (ge2) hybridUbcFlow.k("fmp_data_record");
+        if ("fmp_callback".equals(this.a)) {
+            String name = c23.class.getName();
+            Log.d(name, "Current Record FMP - " + g.a + ":" + g.g());
+            if (ge2Var != null && (a3 = ge2Var.a()) != null) {
+                String name2 = c23.class.getName();
+                Log.d(name2, "First Page Record FMP - " + a3.a + ":" + a3.g());
+            }
+        } else if ("callback_on_submit".equals(this.a)) {
+            String name3 = c23.class.getName();
+            Log.d(name3, "Real Report FMP - " + g.a + ":" + g.g());
+            if (ge2Var != null && (a2 = ge2Var.a()) != null) {
+                String name4 = c23.class.getName();
+                Log.d(name4, "First Page Report FMP - " + a2.a + ":" + a2.g());
             }
         }
     }
 
-    @Override // com.baidu.tieba.a92
-    public ab2 Z2() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.mm3
+    /* renamed from: c */
+    public synchronized void a(HybridUbcFlow hybridUbcFlow) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
-        }
-        return (ab2) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.a92
-    public vv1 k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return gg2.U().f0().i(getContext());
-        }
-        return (vv1) invokeV.objValue;
-    }
-
-    /* JADX WARN: Type inference failed for: r6v5, types: [com.baidu.tieba.tv1] */
-    @Override // com.baidu.tieba.a92, com.baidu.swan.support.v4.app.Fragment
-    public View x0(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00df, viewGroup, false);
-            inflate.findViewById(R.id.obfuscated_res_0x7f09017f).setVisibility(8);
-            vv1 k = k();
-            this.G0 = k;
-            k.Y(Z2());
-            this.H0 = this.G0.r();
-            this.G0.loadUrl(this.I0);
-            this.G0.j((FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0901aa), this.H0.covertToView());
-            if (T1()) {
-                inflate = W1(inflate);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hybridUbcFlow) == null) {
+            synchronized (this) {
+                if (b) {
+                    if (c == -1) {
+                        ar2.g0().getSwitch("swan_next_env_delay", 600);
+                        c = 600;
+                    }
+                    nl3.b0(new a(this), c);
+                }
+                if (do1.a) {
+                    String name = getClass().getName();
+                    Log.d(name, "enable=" + b + ", delay=" + c);
+                }
+                if ("fmp_callback".equals(this.a)) {
+                    b = false;
+                } else if ("callback_on_submit".equals(this.a)) {
+                    b = true;
+                }
+                if (do1.a && hybridUbcFlow != null) {
+                    b(hybridUbcFlow);
+                }
             }
-            return D1(inflate, this);
         }
-        return (View) invokeLLL.objValue;
     }
 }

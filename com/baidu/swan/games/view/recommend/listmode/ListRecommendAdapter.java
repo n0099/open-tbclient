@@ -8,13 +8,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bd4;
+import com.baidu.tieba.ib4;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendViewHolder> implements View.OnClickListener {
     public LayoutInflater a;
     public a b;
-    public bd4 c;
+    public ib4 c;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -29,8 +29,8 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
         this.b = aVar;
     }
 
-    public void g(bd4 bd4Var) {
-        this.c = bd4Var;
+    public void g(ib4 ib4Var) {
+        this.c = ib4Var;
         notifyDataSetChanged();
     }
 
@@ -62,14 +62,14 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: e */
     public ListRecommendViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        return new ListRecommendViewHolder(this.a.inflate(R.layout.obfuscated_res_0x7f0d0898, viewGroup, false));
+        return new ListRecommendViewHolder(this.a.inflate(R.layout.obfuscated_res_0x7f0d08b2, viewGroup, false));
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         List<RecommendItemModel> list;
-        bd4 bd4Var = this.c;
-        if (bd4Var != null && (list = bd4Var.b) != null) {
+        ib4 ib4Var = this.c;
+        if (ib4Var != null && (list = ib4Var.b) != null) {
             return list.size();
         }
         return 0;

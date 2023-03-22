@@ -6,21 +6,21 @@ import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.im1;
-import com.baidu.tieba.jm1;
+import com.baidu.tieba.pk1;
+import com.baidu.tieba.qk1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callback, jm1 {
+public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callback, qk1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public int b;
     public int c;
-    public im1 d;
+    public pk1 d;
 
     public void setEndSurface() {
         Interceptable interceptable = $ic;
@@ -36,13 +36,13 @@ public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callba
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BaseSurfaceView(Context context, im1 im1Var) {
+    public BaseSurfaceView(Context context, pk1 pk1Var) {
         super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, im1Var};
+            Object[] objArr = {context, pk1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -54,7 +54,7 @@ public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callba
             }
         }
         this.a = 1;
-        this.d = im1Var;
+        this.d = pk1Var;
         getHolder().addCallback(this);
     }
 
@@ -137,7 +137,7 @@ public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         }
     }
 
-    @Override // com.baidu.tieba.jm1
+    @Override // com.baidu.tieba.qk1
     public void onVideoSizeChanged(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
@@ -149,7 +149,7 @@ public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callba
         }
     }
 
-    @Override // com.baidu.tieba.jm1
+    @Override // com.baidu.tieba.qk1
     public void setDisplayMode(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
@@ -159,19 +159,19 @@ public class BaseSurfaceView extends SurfaceView implements SurfaceHolder.Callba
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
-        im1 im1Var;
+        pk1 pk1Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, surfaceHolder) == null) && (im1Var = this.d) != null) {
-            im1Var.surfaceCreated(surfaceHolder);
+        if ((interceptable == null || interceptable.invokeL(1048583, this, surfaceHolder) == null) && (pk1Var = this.d) != null) {
+            pk1Var.surfaceCreated(surfaceHolder);
         }
     }
 
     @Override // android.view.SurfaceHolder.Callback
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
-        im1 im1Var;
+        pk1 pk1Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, surfaceHolder) == null) && (im1Var = this.d) != null) {
-            im1Var.a();
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, surfaceHolder) == null) && (pk1Var = this.d) != null) {
+            pk1Var.a();
         }
     }
 }

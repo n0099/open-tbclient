@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.lt5;
+import com.baidu.tieba.rs5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ObservedChangeRelativeLayout extends RelativeLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lt5 a;
+    public rs5 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ObservedChangeRelativeLayout(Context context) {
@@ -57,13 +57,13 @@ public class ObservedChangeRelativeLayout extends RelativeLayout {
         }
     }
 
-    public lt5 getOnSizeChangeListener() {
+    public rs5 getOnSizeChangeListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (lt5) invokeV.objValue;
+        return (rs5) invokeV.objValue;
     }
 
     @Override // android.view.View
@@ -71,9 +71,9 @@ public class ObservedChangeRelativeLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4) == null) {
             super.onSizeChanged(i, i2, i3, i4);
-            lt5 lt5Var = this.a;
-            if (lt5Var != null) {
-                lt5Var.a(this, i, i2, i3, i4);
+            rs5 rs5Var = this.a;
+            if (rs5Var != null) {
+                rs5Var.a(this, i, i2, i3, i4);
             }
         }
     }
@@ -86,10 +86,10 @@ public class ObservedChangeRelativeLayout extends RelativeLayout {
         }
     }
 
-    public void setOnSizeChangeListener(lt5 lt5Var) {
+    public void setOnSizeChangeListener(rs5 rs5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, lt5Var) == null) {
-            this.a = lt5Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, rs5Var) == null) {
+            this.a = rs5Var;
         }
     }
 }

@@ -1,51 +1,13 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.graphics.drawable.Drawable;
+import androidx.annotation.Nullable;
 /* loaded from: classes3.dex */
 public interface cb1 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "webViewInit");
-    public static final cb1 b = new a();
+    @Nullable
+    Drawable a(Context context);
 
-    /* loaded from: classes3.dex */
-    public interface b {
-        void a();
-    }
-
-    int a(Context context, b bVar);
-
-    /* loaded from: classes3.dex */
-    public static class a implements cb1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.cb1
-        public int a(Context context, b bVar) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, bVar)) == null) {
-                return 0;
-            }
-            return invokeLL.intValue;
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
+    @Nullable
+    Drawable b(Context context);
 }

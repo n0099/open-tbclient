@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes3.dex */
-public class cp2 extends gn2<xp2> {
+public class cp2 extends nl2<eq2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.gn2
+    @Override // com.baidu.tieba.nl2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "goForeground" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "getDuration" : (String) invokeV.objValue;
     }
 
     public cp2() {
@@ -36,13 +36,14 @@ public class cp2 extends gn2<xp2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gn2
+    @Override // com.baidu.tieba.nl2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull xp2 xp2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull eq2 eq2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, xp2Var) == null) {
-            d(xp2Var, command.what, null, true);
-            xp2Var.Z();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, eq2Var) == null) {
+            command.ret = eq2Var.getDuration();
+            String str = command.what;
+            d(eq2Var, str, "Duration: " + command.ret, false);
         }
     }
 }

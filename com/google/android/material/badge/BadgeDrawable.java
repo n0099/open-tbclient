@@ -44,7 +44,7 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
     public static final String DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX = "+";
     public static final int DEFAULT_MAX_BADGE_CHARACTER_COUNT = 4;
     @StyleRes
-    public static final int DEFAULT_STYLE = 2131755849;
+    public static final int DEFAULT_STYLE = 2131755853;
     @AttrRes
     public static final int DEFAULT_THEME_ATTR = 2130968769;
     public static final int MAX_CIRCULAR_BADGE_NUMBER_COUNT = 9;
@@ -106,7 +106,7 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
         this.textDrawableHelper = textDrawableHelper;
         textDrawableHelper.getTextPaint().setTextAlign(Paint.Align.CENTER);
         this.savedState = new SavedState(context);
-        setTextAppearanceResource(R.style.obfuscated_res_0x7f100209);
+        setTextAppearanceResource(R.style.obfuscated_res_0x7f10020d);
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
@@ -156,10 +156,10 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
         public SavedState(@NonNull Context context) {
             this.alpha = 255;
             this.number = -1;
-            this.badgeTextColor = new TextAppearance(context, R.style.obfuscated_res_0x7f100209).textColor.getDefaultColor();
-            this.contentDescriptionNumberless = context.getString(R.string.obfuscated_res_0x7f0f0bbf);
+            this.badgeTextColor = new TextAppearance(context, R.style.obfuscated_res_0x7f10020d).textColor.getDefaultColor();
+            this.contentDescriptionNumberless = context.getString(R.string.obfuscated_res_0x7f0f0bcc);
             this.contentDescriptionQuantityStrings = R.plurals.obfuscated;
-            this.contentDescriptionExceedsMaxBadgeNumberRes = R.string.obfuscated_res_0x7f0f0bc1;
+            this.contentDescriptionExceedsMaxBadgeNumberRes = R.string.obfuscated_res_0x7f0f0bce;
         }
 
         public SavedState(@NonNull Parcel parcel) {
@@ -418,7 +418,7 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
         if (context == null) {
             return "";
         }
-        return context.getString(R.string.obfuscated_res_0x7f0f0bc2, Integer.valueOf(this.maxBadgeNumber), DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
+        return context.getString(R.string.obfuscated_res_0x7f0f0bcf, Integer.valueOf(this.maxBadgeNumber), DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
     }
 
     private void loadDefaultStateFromAttributes(Context context, AttributeSet attributeSet, @AttrRes int i, @StyleRes int i2) {

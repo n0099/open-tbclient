@@ -1,19 +1,16 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.live.interfaces.service.YYPayService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class l88 {
+public class l88 extends pj1<YYPayService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<dc5> a;
-    public boolean b;
 
     public l88() {
         Interceptable interceptable = $ic;
@@ -29,24 +26,15 @@ public class l88 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.pj1
+    /* renamed from: a */
+    public YYPayService createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new m88();
         }
-        JSONArray optJSONArray = jSONObject.optJSONArray("user_info_list");
-        boolean z = false;
-        if (optJSONArray != null && optJSONArray.length() != 0) {
-            this.a = new ArrayList();
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                dc5 dc5Var = new dc5();
-                dc5Var.a(optJSONArray.optJSONObject(i));
-                this.a.add(dc5Var);
-            }
-        }
-        if (jSONObject.optInt("has_more", 0) == 1) {
-            z = true;
-        }
-        this.b = z;
+        return (YYPayService) invokeV.objValue;
     }
 }

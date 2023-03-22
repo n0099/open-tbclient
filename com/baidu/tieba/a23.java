@@ -1,34 +1,15 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class a23 {
+public class a23 implements mm3<HybridUbcFlow> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile a23 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public ag1 d;
-
-    public static int a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            if (i != -2) {
-                return i != 0 ? 6 : 0;
-            }
-            return 2;
-        }
-        return invokeI.intValue;
-    }
 
     public a23() {
         Interceptable interceptable = $ic;
@@ -44,34 +25,15 @@ public class a23 {
         }
     }
 
-    public static a23 b() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.mm3
+    /* renamed from: b */
+    public void a(HybridUbcFlow hybridUbcFlow) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (e == null) {
-                synchronized (a23.class) {
-                    if (e == null) {
-                        e = new a23();
-                    }
-                }
-            }
-            return e;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
+            hybridUbcFlow.J("3864");
+            hybridUbcFlow.I(HybridUbcFlow.SubmitStrategy.SWAN_WEB);
+            hybridUbcFlow.E("from", "swan");
         }
-        return (a23) invokeV.objValue;
-    }
-
-    @NonNull
-    public static JSONObject c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("finalUrl", str);
-            } catch (JSONException unused) {
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
     }
 }

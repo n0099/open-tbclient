@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import java.util.List;
 /* loaded from: classes6.dex */
 public interface ws5 {
-    void a(View view2);
+    void a();
 
-    void b(View view2);
-
-    View getView();
+    void b(List<String> list);
 }

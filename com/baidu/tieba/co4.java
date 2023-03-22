@@ -1,101 +1,112 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.AttributeSet;
-import android.util.Log;
-import android.view.LayoutInflater;
-import android.view.View;
-import androidx.core.view.LayoutInflaterCompat;
-import com.baidu.tieba.bo4;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Field;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes3.dex */
 public class co4 {
     public static /* synthetic */ Interceptable $ic;
-    public static Field a;
-    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public static class a extends bo4.a implements LayoutInflater.Factory2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(eo4 eo4Var) {
-            super(eo4Var);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eo4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((eo4) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    @Deprecated
+    public static String a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        StringBuilder sb;
+        StringBuilder sb2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, str3)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
+            }
+            String str4 = str2 + "=";
+            int indexOf = str.indexOf("?");
+            String str5 = null;
+            if (indexOf < 0) {
+                int indexOf2 = str.indexOf("#");
+                if (indexOf2 < 0) {
+                    sb2 = new StringBuilder(str);
+                } else {
+                    str5 = str.substring(indexOf2);
+                    sb2 = new StringBuilder(str.substring(0, indexOf2));
                 }
+                sb2.append("?");
+                sb2.append(str4);
+                sb2.append(str3);
+                if (str5 != null) {
+                    sb2.append(str5);
+                }
+                return sb2.toString();
             }
-        }
-
-        @Override // android.view.LayoutInflater.Factory2
-        public View onCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
-            InterceptResult invokeLLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, view2, str, context, attributeSet)) == null) {
-                return this.a.onCreateView(view2, str, context, attributeSet);
+            if (str.indexOf("&" + str4, indexOf) < 0) {
+                if (str.indexOf("?" + str4, indexOf) < 0) {
+                    int indexOf3 = str.indexOf("#");
+                    if (indexOf3 < 0) {
+                        sb = new StringBuilder(str);
+                    } else {
+                        str5 = str.substring(indexOf3);
+                        str = str.substring(0, indexOf3);
+                        sb = new StringBuilder(str);
+                    }
+                    if (!str.endsWith("&") && !str.endsWith("?")) {
+                        sb.append("&");
+                    }
+                    sb.append(str4);
+                    sb.append(str3);
+                    if (str5 != null) {
+                        sb.append(str5);
+                    }
+                    return sb.toString();
+                }
+                return str;
             }
-            return (View) invokeLLLL.objValue;
+            return str;
         }
+        return (String) invokeLLL.objValue;
     }
 
-    public static void a(LayoutInflater layoutInflater, LayoutInflater.Factory2 factory2) {
+    public static String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, layoutInflater, factory2) == null) {
-            if (!b) {
-                try {
-                    Field declaredField = LayoutInflater.class.getDeclaredField("mFactory2");
-                    a = declaredField;
-                    declaredField.setAccessible(true);
-                } catch (NoSuchFieldException e) {
-                    Log.e(LayoutInflaterCompat.TAG, "forceSetFactory2 Could not find field 'mFactory2' on class " + LayoutInflater.class.getName() + "; inflation may have unexpected results.", e);
-                }
-                b = true;
-            }
-            Field field = a;
-            if (field != null) {
-                try {
-                    field.set(layoutInflater, factory2);
-                } catch (IllegalAccessException e2) {
-                    Log.e(LayoutInflaterCompat.TAG, "forceSetFactory2 could not set the Factory2 on LayoutInflater " + layoutInflater + "; inflation may have unexpected results.", e2);
-                }
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            int d = un4.d();
+            int b = un4.b();
+            int a = un4.a();
+            String f = un4.f();
+            StringBuffer stringBuffer = new StringBuffer();
+            stringBuffer.append(d);
+            stringBuffer.append("_");
+            stringBuffer.append(b);
+            stringBuffer.append("_");
+            stringBuffer.append(f);
+            stringBuffer.append("_");
+            stringBuffer.append(str);
+            stringBuffer.append("_");
+            stringBuffer.append(a);
+            return stringBuffer.toString();
         }
+        return (String) invokeL.objValue;
     }
 
-    public static void b(LayoutInflater layoutInflater, eo4 eo4Var) {
-        a aVar;
+    @NonNull
+    public static Map<String, String> c(@NonNull String str) {
+        InterceptResult invokeL;
+        String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, layoutInflater, eo4Var) == null) {
-            if (eo4Var != null) {
-                aVar = new a(eo4Var);
-            } else {
-                aVar = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            HashMap hashMap = new HashMap();
+            for (String str2 : str.split(ParamableElem.DIVIDE_PARAM)) {
+                if (str2 != null && str2.contains("=")) {
+                    int indexOf = str2.indexOf("=");
+                    hashMap.put(str2.substring(0, indexOf).trim().toUpperCase(), str2.substring(indexOf + 1));
+                }
             }
-            layoutInflater.setFactory2(aVar);
-            LayoutInflater.Factory factory = layoutInflater.getFactory();
-            if (factory instanceof LayoutInflater.Factory2) {
-                a(layoutInflater, (LayoutInflater.Factory2) factory);
-            } else {
-                a(layoutInflater, aVar);
-            }
+            return hashMap;
         }
+        return (Map) invokeL.objValue;
     }
 }

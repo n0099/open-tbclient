@@ -1,194 +1,182 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.annotation.TargetApi;
-import android.os.Build;
-import android.os.Process;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.lang.reflect.AccessibleObject;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.lang.reflect.Modifier;
 /* loaded from: classes4.dex */
 public class fe1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Class a;
-    public Class b;
-    public Method c;
-    public Method d;
-    public Method e;
-    public Method f;
-    public boolean g;
 
-    public fe1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        e();
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            int i = Build.VERSION.SDK_INT;
-            if (i >= 23) {
-                return Process.is64Bit();
-            }
-            if (i < 21) {
-                return false;
-            }
-            String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
-            if (strArr.length <= 0) {
-                return false;
-            }
-            return Build.CPU_ABI.equals(strArr[0]);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void a(Object obj) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-            try {
-                this.f.invoke(obj, new Object[0]);
-            } catch (Throwable th) {
-                th.printStackTrace();
-            }
-        }
-    }
-
-    @SuppressLint({"PrivateApi"})
-    public final Object c(File file) {
+    public static Class<?> a(String str) throws ClassNotFoundException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file)) == null) {
-            try {
-                return this.c.invoke(null, file);
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return null;
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            return Class.forName(str);
         }
-        return invokeL.objValue;
+        return (Class) invokeL.objValue;
     }
 
-    @TargetApi(21)
-    public boolean b(Object obj, String str, File file) {
+    public static Field b(Class<?> cls, String str) {
+        InterceptResult invokeLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, cls, str)) == null) {
+            for (Class<?> cls2 = cls; cls2 != null; cls2 = cls2.getSuperclass()) {
+                try {
+                    Field declaredField = cls2.getDeclaredField(str);
+                    i(declaredField, true);
+                    return declaredField;
+                } catch (NoSuchFieldException unused) {
+                }
+            }
+            Field field = null;
+            for (Class<?> cls3 : cls.getInterfaces()) {
+                try {
+                    Field field2 = cls3.getField(str);
+                    if (field == null) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    ie1.a(z, "Reference to field %s is ambiguous relative to %s; a matching field exists on two or more implemented interfaces.", str, cls);
+                    field = field2;
+                } catch (NoSuchFieldException unused2) {
+                }
+            }
+            return field;
+        }
+        return (Field) invokeLL.objValue;
+    }
+
+    public static Method c(Class<?> cls, String str, Class<?>... clsArr) {
+        InterceptResult invokeLLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, cls, str, clsArr)) == null) {
+            for (Class<?> cls2 = cls; cls2 != null; cls2 = cls2.getSuperclass()) {
+                try {
+                    Method declaredMethod = cls2.getDeclaredMethod(str, clsArr);
+                    i(declaredMethod, true);
+                    return declaredMethod;
+                } catch (NoSuchMethodException unused) {
+                }
+            }
+            Method method = null;
+            for (Class<?> cls3 : cls.getInterfaces()) {
+                try {
+                    Method method2 = cls3.getMethod(str, clsArr);
+                    if (method == null) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    ie1.a(z, "Reference to field %s is ambiguous relative to %s; a matching field exists on two or more implemented interfaces.", str, cls);
+                    method = method2;
+                } catch (NoSuchMethodException unused2) {
+                }
+            }
+            return method;
+        }
+        return (Method) invokeLLL.objValue;
+    }
+
+    public static Object d(Object obj, String str, Class<?>[] clsArr, Object... objArr) throws NoSuchMethodException, IllegalAccessException, InvocationTargetException {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65539, null, obj, str, clsArr, objArr)) == null) {
+            Method c = c(obj.getClass(), str, clsArr);
+            c.setAccessible(true);
+            return c.invoke(obj, objArr);
+        }
+        return invokeLLLL.objValue;
+    }
+
+    public static void j(Class<?> cls, Object obj, String str, Object obj2) throws NoSuchFieldException, IllegalAccessException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65545, null, cls, obj, str, obj2) == null) {
+            l(b(cls, str), obj, obj2);
+        }
+    }
+
+    public static Object e(Class<?> cls, Object obj, String str) throws IllegalAccessException, NoSuchFieldException {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, str, file)) == null) {
-            try {
-                if (((Integer) this.e.invoke(null, obj, file, str)).intValue() != 1) {
-                    return false;
-                }
-                return true;
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return false;
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, cls, obj, str)) == null) {
+            return g(b(cls, str), obj);
         }
-        return invokeLLL.booleanValue;
+        return invokeLLL.objValue;
     }
 
-    public int d(Object obj, String[] strArr) {
+    public static void k(Object obj, String str, Object obj2) throws NoSuchFieldException, IllegalAccessException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65546, null, obj, str, obj2) == null) {
+            j(obj.getClass(), obj, str, obj2);
+        }
+    }
+
+    public static void l(Field field, Object obj, Object obj2) throws IllegalAccessException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65547, null, field, obj, obj2) == null) {
+            field.set(obj, obj2);
+        }
+    }
+
+    public static Object f(Object obj, String str) throws IllegalAccessException, NoSuchFieldException {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, obj, strArr)) == null) {
-            try {
-                System.currentTimeMillis();
-                return ((Integer) this.d.invoke(null, obj, strArr)).intValue();
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return -1;
-            }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, obj, str)) == null) {
+            return e(obj.getClass(), obj, str);
         }
-        return invokeLL.intValue;
+        return invokeLL.objValue;
     }
 
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || !ke1.d()) {
-            return;
-        }
-        try {
-            Class<?> a = ke1.a("com.android.internal.content.NativeLibraryHelper$Handle");
-            this.a = a;
-            Method b = ke1.b(a, "create", File.class);
-            this.c = b;
-            b.setAccessible(true);
-            Method b2 = ke1.b(this.a, "close", new Class[0]);
-            this.f = b2;
-            b2.setAccessible(true);
-            Class<?> a2 = ke1.a("com.android.internal.content.NativeLibraryHelper");
-            this.b = a2;
-            Method b3 = ke1.b(a2, "copyNativeBinaries", this.a, File.class, String.class);
-            this.e = b3;
-            b3.setAccessible(true);
-            Method b4 = ke1.b(this.b, "findSupportedAbi", this.a, String[].class);
-            this.d = b4;
-            b4.setAccessible(true);
-            this.g = true;
-        } catch (Throwable th) {
-            th.printStackTrace();
-        }
-    }
-
-    public boolean f(String str, File file) {
+    public static Object g(Field field, Object obj) throws IllegalAccessException {
         InterceptResult invokeLL;
-        String[] strArr;
-        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, file)) == null) {
-            Object c = c(new File(str));
-            if (c == null) {
-                return false;
-            }
-            if (Build.VERSION.SDK_INT >= 21) {
-                if (g()) {
-                    strArr = Build.SUPPORTED_64_BIT_ABIS;
-                } else {
-                    strArr = Build.SUPPORTED_32_BIT_ABIS;
-                }
-            } else {
-                strArr = new String[]{Build.CPU_ABI, Build.CPU_ABI2};
-            }
-            int d = d(c, strArr);
-            if (d == -114) {
-                a(c);
-                return true;
-            }
-            if (d >= 0 && d < strArr.length) {
-                str2 = strArr[d];
-            } else {
-                str2 = null;
-            }
-            boolean b = b(c, str2, file);
-            a(c);
-            return b;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, field, obj)) == null) {
+            return field.get(obj);
         }
-        return invokeLL.booleanValue;
+        return invokeLL.objValue;
+    }
+
+    public static void i(AccessibleObject accessibleObject, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(65544, null, accessibleObject, z) == null) && accessibleObject.isAccessible() != z) {
+            accessibleObject.setAccessible(z);
+        }
+    }
+
+    public static void h(Field field) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, field) == null) {
+            if (field != null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            ie1.a(z, "The field must not be null", new Object[0]);
+            try {
+                if (Modifier.isFinal(field.getModifiers())) {
+                    Field declaredField = Field.class.getDeclaredField("modifiers");
+                    boolean z2 = !declaredField.isAccessible();
+                    if (z2) {
+                        declaredField.setAccessible(true);
+                    }
+                    declaredField.setInt(field, field.getModifiers() & (-17));
+                    if (z2) {
+                        declaredField.setAccessible(false);
+                    }
+                }
+            } catch (IllegalAccessException | NoSuchFieldException unused) {
+            }
+        }
     }
 }

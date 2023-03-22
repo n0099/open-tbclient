@@ -1,54 +1,79 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import org.json.JSONObject;
+import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class eo2 extends gn2<wp2> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface eo2 extends fo2 {
 
-    @Override // com.baidu.tieba.gn2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "onFocus" : (String) invokeV.objValue;
+    /* loaded from: classes4.dex */
+    public interface a {
     }
 
-    public eo2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void D(int i);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gn2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull wp2 wp2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, wp2Var) == null) {
-            String str = command.what;
-            d(wp2Var, str, "" + command.obj, true);
-            Object obj = command.obj;
-            if (obj instanceof JSONObject) {
-                JSONObject jSONObject = (JSONObject) obj;
-                wp2Var.s(jSONObject.optInt("focusWidth"), jSONObject.optInt("focusHeight"), jSONObject.optInt("focusX"), jSONObject.optInt("focusY"));
-            }
-        }
-    }
+    void E();
+
+    void F(long j);
+
+    void I(int i);
+
+    void J(int i);
+
+    void K(int i);
+
+    void M(boolean z);
+
+    void R();
+
+    void U(int i);
+
+    void X(int i);
+
+    void Y(@NonNull a aVar);
+
+    void Z();
+
+    void c0(boolean z);
+
+    void d();
+
+    void d0(long j, boolean z);
+
+    void e(int i);
+
+    void exitRoom();
+
+    void f();
+
+    void g(boolean z);
+
+    ArrayList<io2> h();
+
+    void h0(String str);
+
+    void i(boolean z);
+
+    void j(long j);
+
+    void k0(long j);
+
+    void l0(boolean z);
+
+    void n();
+
+    void p(long j, boolean z);
+
+    void r(String str);
+
+    void setCameraFace(boolean z);
+
+    void t(boolean z);
+
+    void u(ho2 ho2Var);
+
+    ArrayList<go2> v();
+
+    void x(boolean z);
+
+    void y(boolean z);
 }

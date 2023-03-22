@@ -1,84 +1,216 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import javax.crypto.ShortBufferException;
+import java.io.UnsupportedEncodingException;
+import java.util.Iterator;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class l00 implements m00 {
+public class l00 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public String a;
+    public String b;
+    public int c;
+    public int d;
 
-    public l00(int i) {
+    public l00() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
+        this.c = 2;
+        this.d = 0;
     }
 
-    @Override // com.baidu.tieba.m00
-    public int a(int i) {
+    public static l00 a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            l00 l00Var = new l00();
+            l00Var.a = str;
+            int length = TextUtils.isEmpty(str2) ? 0 : str2.length();
+            l00Var.d = length;
+            if (length < 14) {
+                if (TextUtils.isEmpty(str2)) {
+                    str2 = "0";
+                }
+                l00Var.b = str2;
+            }
+            return l00Var;
+        }
+        return (l00) invokeLL.objValue;
+    }
+
+    public static boolean c(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            int i2 = this.a;
-            return i2 - (i % i2);
-        }
-        return invokeI.intValue;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) ? i >= 14 : invokeI.booleanValue;
     }
 
-    @Override // com.baidu.tieba.m00
-    public void a(byte[] bArr, int i, int i2) {
+    public static boolean d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i, i2) == null) || bArr == null) {
-            return;
-        }
-        if (i + i2 > bArr.length) {
-            throw new ShortBufferException("Buffer too small to hold padding");
-        }
-        byte b = (byte) (i2 & 255);
-        for (int i3 = 0; i3 < i2; i3++) {
-            bArr[i3 + i] = b;
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) ? TextUtils.isEmpty(str) : invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.m00
-    public int b(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
-        int i3;
+    public static l00 e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_SEND_USER_MSG, this, bArr, i, i2)) == null) {
-            if (bArr == null || i2 == 0) {
-                return 0;
+        return (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) ? g(j(str)) : (l00) invokeL.objValue;
+    }
+
+    public static l00 g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            int i4 = i2 + i;
-            int i5 = bArr[i4 - 1];
-            int i6 = i5 & 255;
-            if (i6 < 1 || i6 > this.a || (i3 = i4 - i6) < i) {
-                return -1;
-            }
-            for (int i7 = 0; i7 < i6; i7++) {
-                if (bArr[i3 + i7] != i5) {
-                    return -1;
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                Iterator<String> keys = jSONObject.keys();
+                String str2 = "0";
+                String str3 = "0";
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    if (!i("ZGV2aWNlaWQ=").equals(next) && !i("dmVy").equals(next)) {
+                        str3 = jSONObject.optString(next, "0");
+                    }
                 }
+                String string = jSONObject.getString(i("ZGV2aWNlaWQ="));
+                int i = jSONObject.getInt(i("dmVy"));
+                int length = TextUtils.isEmpty(str3) ? 0 : str3.length();
+                if (!TextUtils.isEmpty(string)) {
+                    l00 l00Var = new l00();
+                    l00Var.a = string;
+                    l00Var.c = i;
+                    l00Var.d = length;
+                    if (length < 14) {
+                        if (!TextUtils.isEmpty(str3)) {
+                            str2 = str3;
+                        }
+                        l00Var.b = str2;
+                    }
+                    l00Var.k();
+                    return l00Var;
+                }
+            } catch (JSONException e) {
+                k00.c(e);
             }
-            return i3;
+            return null;
         }
-        return invokeLII.intValue;
+        return (l00) invokeL.objValue;
+    }
+
+    public static String i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) ? new String(d00.b(str.getBytes())) : (String) invokeL.objValue;
+    }
+
+    public static String j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                byte[] a = nz.a();
+                return new String(jz.d(a, a, d00.b(str.getBytes())));
+            } catch (Exception e) {
+                k00.c(e);
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                byte[] a = nz.a();
+                return d00.a(jz.c(a, a, str.getBytes()), IMAudioTransRequest.CHARSET);
+            } catch (UnsupportedEncodingException | Exception e) {
+                k00.c(e);
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? d(this.b) : invokeV.booleanValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? c(this.d) : invokeV.booleanValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? m(l()) : (String) invokeV.objValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (f()) {
+                str = "O";
+            } else if (!b()) {
+                return false;
+            } else {
+                str = "0";
+            }
+            this.b = str;
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            try {
+                return new JSONObject().put(i("ZGV2aWNlaWQ="), this.a).put(i("aW1laQ=="), this.b).put(i("dmVy"), this.c).toString();
+            } catch (JSONException e) {
+                k00.c(e);
+                return null;
+            }
+        }
+        return (String) invokeV.objValue;
     }
 }

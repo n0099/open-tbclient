@@ -24,7 +24,7 @@ public final class a extends Presenter {
             public final void onClick(View view2) {
                 if (com.kwad.sdk.core.response.a.a.am(com.kwad.sdk.core.response.a.d.bQ(eVar.adTemplate))) {
                     if (eVar.DV != null) {
-                        eVar.DV.m(new a.C0588a(a.this.getActivity()).aj(false).ak(false).L(eVar.adTemplate).am(false));
+                        eVar.DV.m(new a.C0593a(a.this.getActivity()).aj(false).ak(false).L(eVar.adTemplate).am(false));
                         return;
                     }
                     return;

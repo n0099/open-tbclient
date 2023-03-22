@@ -79,7 +79,7 @@ public class IMSetFansGroupAdminRequest extends FansGroupBaseHttpRequest {
             int i;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String str = Constants.ERROR_MSG_SUCCESS;
+                String str = "";
                 try {
                     JSONObject jSONObject = new JSONObject(this.mJson);
                     i = jSONObject.getInt("error_code");

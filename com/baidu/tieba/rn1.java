@@ -1,103 +1,34 @@
 package com.baidu.tieba;
 
+import android.content.ComponentName;
 import android.content.Context;
+import android.content.Intent;
+import android.content.ServiceConnection;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sso.r.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes6.dex */
-public class rn1 extends qn1 {
+public class rn1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public com.baidu.sso.r.a a;
+    public Context b;
+    public String c;
+    public String d;
+    public on1 e;
+    public ServiceConnection f;
 
-    /* loaded from: classes6.dex */
-    public class a extends qo1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ rn1 c;
-
-        public a(rn1 rn1Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rn1Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = rn1Var;
-            this.b = i;
-        }
-
-        @Override // com.baidu.tieba.qo1
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.c.b(this.b);
-                } catch (Throwable th) {
-                    vo1.d(th);
-                    rn1 rn1Var = this.c;
-                    rn1Var.d(this.b, 3, 2009, rn1Var.c, "cu on getToken unknown error.");
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends qo1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ rn1 c;
-
-        public b(rn1 rn1Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rn1Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = rn1Var;
-            this.b = i;
-        }
-
-        @Override // com.baidu.tieba.qo1
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.c.g(this.b, this.c.c, this.c.h);
-                } catch (Throwable th) {
-                    vo1.d(th);
-                    rn1 rn1Var = this.c;
-                    rn1Var.n(this.b, 3, 2009, rn1Var.c, "cu on getToken unknown error.");
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public rn1(Context context) {
-        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -107,69 +38,85 @@ public class rn1 extends qn1 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = null;
+        this.c = null;
+        this.d = null;
+        this.f = new tn1(this);
+        this.b = context;
     }
 
-    @Override // com.baidu.tieba.qn1
-    public void j(Context context, int i, long j) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            super.j(context, i, j);
-            c(i, 2);
-            so1.c().b(new a(this, i));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Intent intent = new Intent();
+            intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
+            intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
+            this.b.bindService(intent, this.f, 1);
         }
     }
 
-    @Override // com.baidu.tieba.qn1
-    public void p(Context context, int i, long j) {
+    /* JADX WARN: Removed duplicated region for block: B:25:0x0055 A[Catch: NoSuchAlgorithmException -> 0x006f, all -> 0x007e, LOOP:0: B:24:0x0053->B:25:0x0055, LOOP_END, TryCatch #1 {NoSuchAlgorithmException -> 0x006f, blocks: (B:23:0x0045, B:25:0x0055, B:26:0x006b), top: B:45:0x0045 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public String a(String str) {
+        InterceptResult invokeL;
+        String str2;
+        Signature[] signatureArr;
+        PackageInfo packageInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            super.p(context, i, j);
-            c(i, 4);
-            so1.c().b(new b(this, i));
-        }
-    }
-
-    @Override // com.baidu.tieba.qn1
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (TextUtils.isEmpty(this.e)) {
-                this.g = null;
-                this.f = 0L;
-                return true;
-            } else if (this.f - System.currentTimeMillis() < uo1.a) {
-                this.g = null;
-                this.f = 0L;
-                return true;
-            } else {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (this.a != null) {
+                String str3 = null;
+                try {
+                    if (TextUtils.isEmpty(this.c)) {
+                        this.c = this.b.getPackageName();
+                    }
+                    if (TextUtils.isEmpty(this.d)) {
+                        try {
+                            packageInfo = this.b.getPackageManager().getPackageInfo(this.c, 64);
+                        } catch (PackageManager.NameNotFoundException unused) {
+                        }
+                        if (packageInfo != null) {
+                            signatureArr = packageInfo.signatures;
+                            if (signatureArr != null && signatureArr.length > 0) {
+                                try {
+                                    byte[] digest = MessageDigest.getInstance("SHA1").digest(signatureArr[0].toByteArray());
+                                    StringBuilder sb = new StringBuilder();
+                                    for (byte b : digest) {
+                                        sb.append(Integer.toHexString((b & 255) | 256).substring(1, 3));
+                                    }
+                                    str3 = sb.toString();
+                                } catch (NoSuchAlgorithmException unused2) {
+                                }
+                            }
+                            this.d = str3;
+                        }
+                        signatureArr = null;
+                        if (signatureArr != null) {
+                            byte[] digest2 = MessageDigest.getInstance("SHA1").digest(signatureArr[0].toByteArray());
+                            StringBuilder sb2 = new StringBuilder();
+                            while (r3 < r4) {
+                            }
+                            str3 = sb2.toString();
+                        }
+                        this.d = str3;
+                    }
+                    str2 = ((a.AbstractBinderC0178a.C0179a) this.a).a(this.c, this.d, str);
+                } catch (Throwable unused3) {
+                    str2 = str3;
+                }
+                if (!TextUtils.isEmpty(str2)) {
+                    return str2;
+                }
             }
+            return "";
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.qn1
-    public boolean q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(this.h)) {
-                this.i = 0L;
-                return true;
-            } else if (this.i - System.currentTimeMillis() < uo1.a) {
-                this.i = 0L;
-                return true;
-            } else {
-                return false;
-            }
-        }
-        return invokeV.booleanValue;
+        return (String) invokeL.objValue;
     }
 }

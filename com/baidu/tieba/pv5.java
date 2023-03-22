@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
-public interface pv5<T> {
-    int a();
+public interface pv5 extends vl5 {
+    void onDestroy();
 
-    T getItem(int i);
+    void onResume();
 }

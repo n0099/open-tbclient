@@ -1,72 +1,60 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.network.http.IHttpNet;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Handler;
+import android.os.Looper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public class jg {
+public class jg extends Handler {
     public static /* synthetic */ Interceptable $ic;
+    public static final jg a;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile boolean a;
-    public int b;
-    public int c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public Map<String, List<String>> h;
-    public byte[] i;
-    public int j;
 
-    public jg() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448308240, "Lcom/baidu/tieba/jg;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448308240, "Lcom/baidu/tieba/jg;");
                 return;
             }
         }
-        this.a = false;
-        this.b = -1;
-        this.c = -1;
-        this.d = "";
-        this.e = "";
-        this.f = "";
-        this.g = "net error";
+        a = new jg();
     }
 
-    public void a(IHttpNet iHttpNet) throws Exception {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jg() {
+        super(Looper.getMainLooper());
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, iHttpNet) != null) || iHttpNet == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Looper) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        this.b = iHttpNet.getResponseCode();
-        this.d = iHttpNet.getContentEncoding();
-        this.e = iHttpNet.getContentType();
-        this.f = iHttpNet.getContentLength() + "";
-        this.h = iHttpNet.b();
     }
 
-    public boolean b() {
+    public static final jg a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.b == 200) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
         }
-        return invokeV.booleanValue;
+        return (jg) invokeV.objValue;
     }
 }

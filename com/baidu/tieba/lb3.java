@@ -1,136 +1,53 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-@Deprecated
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class lb3 extends jb3 {
+public class lb3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lb3(ja3 ja3Var) {
-        super(ja3Var, "/swanAPI/ubcFlowJar");
+    public static void a(String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ja3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, str, map) == null) && !TextUtils.isEmpty(str) && map != null) {
+            String f = ll3.f(str);
+            String o = ll3.o(str);
+            String b = b(f);
+            if (!TextUtils.equals(f, b)) {
+                if (!TextUtils.isEmpty(o)) {
+                    b = b + "?" + o;
+                }
+                map.put("pageRoutePath", b);
             }
         }
     }
 
-    @Override // com.baidu.tieba.jb3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m93 m93Var) {
-        InterceptResult invokeLLLL;
+    public static String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, m93Var)) == null) {
-            if (jb3.b) {
-                Log.d("SwanAppAction", "start ubc flor jar");
-            }
-            if (m93Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
-                return false;
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
-                return false;
-            }
-            String optString = optParamsAsJo.optString("flowId");
-            if (TextUtils.isEmpty(optString)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty flowId");
-                return false;
-            }
-            char c = 65535;
-            switch (optString.hashCode()) {
-                case 53647:
-                    if (optString.equals("670")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case 53648:
-                    if (optString.equals("671")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 55357:
-                    if (optString.equals("805")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case 56506:
-                    if (optString.equals("967")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 1508542:
-                    if (optString.equals("1153")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case 1529139648:
-                    if (optString.equals("renderMonitorLog")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (c != 3) {
-                            if (c != 4) {
-                                if (c != 5) {
-                                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "unknown flowId");
-                                    return false;
-                                }
-                                x02.C(optParamsAsJo);
-                            } else if (m93Var.W().p0()) {
-                                v62.g(optParamsAsJo.optJSONArray("data"));
-                            } else {
-                                c72.i(optParamsAsJo.optJSONArray("data"));
-                            }
-                        } else {
-                            x02.D(optParamsAsJo);
-                        }
-                    } else {
-                        x02.E(optParamsAsJo.optJSONArray("data"));
-                    }
-                } else {
-                    x02.F(optParamsAsJo.optJSONArray("data"));
-                }
-            } else {
-                x02.B(optParamsAsJo, m93Var);
-            }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return c(str, s73.K().q().Q());
         }
-        return invokeLLLL.booleanValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(String str, SwanAppConfigData swanAppConfigData) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, swanAppConfigData)) == null) {
+            if (swanAppConfigData == null) {
+                return str;
+            }
+            String f = a33.f(str);
+            if (!TextUtils.isEmpty(f)) {
+                return f;
+            }
+            return swanAppConfigData.j(str);
+        }
+        return (String) invokeLL.objValue;
     }
 }

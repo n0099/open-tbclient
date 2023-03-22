@@ -21,10 +21,10 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tieba.R;
 import com.baidu.tieba.adapter.SelectForumItemAdapter;
-import com.baidu.tieba.kw5;
-import com.baidu.tieba.tx5;
-import com.baidu.tieba.xg5;
-import com.baidu.tieba.yg5;
+import com.baidu.tieba.kf5;
+import com.baidu.tieba.lf5;
+import com.baidu.tieba.qv5;
+import com.baidu.tieba.zw5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,15 +33,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class AttentionView extends FrameLayout implements kw5<String> {
+public class AttentionView extends FrameLayout implements qv5<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public RecyclerView b;
     public SelectForumItemAdapter c;
     public LinearLayoutManager d;
-    public xg5 e;
-    public yg5 f;
+    public kf5 e;
+    public lf5 f;
     public List<SelectForumData> g;
     public List<SelectForumData> h;
     public boolean i;
@@ -54,7 +54,7 @@ public class AttentionView extends FrameLayout implements kw5<String> {
         void a();
     }
 
-    @Override // com.baidu.tieba.kw5
+    @Override // com.baidu.tieba.qv5
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -373,7 +373,7 @@ public class AttentionView extends FrameLayout implements kw5<String> {
         }
     }
 
-    public void setForumSelectStateChangedListener(tx5.e eVar) {
+    public void setForumSelectStateChangedListener(zw5.e eVar) {
         SelectForumItemAdapter selectForumItemAdapter;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048589, this, eVar) == null) && (selectForumItemAdapter = this.c) != null) {
@@ -402,9 +402,9 @@ public class AttentionView extends FrameLayout implements kw5<String> {
             return;
         }
         if (this.e == null) {
-            xg5 xg5Var = new xg5(getContext());
-            this.e = xg5Var;
-            xg5Var.onChangeSkinType();
+            kf5 kf5Var = new kf5(getContext());
+            this.e = kf5Var;
+            kf5Var.onChangeSkinType();
         }
         this.e.attachView(this, z);
     }
@@ -426,7 +426,7 @@ public class AttentionView extends FrameLayout implements kw5<String> {
         throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.attention.AttentionView.i(com.baidu.tieba.attention.AttentionView, java.util.List):java.util.List");
     }
 
-    @Override // com.baidu.tieba.kw5
+    @Override // com.baidu.tieba.qv5
     public void a() {
         int skinType;
         Interceptable interceptable = $ic;
@@ -434,18 +434,18 @@ public class AttentionView extends FrameLayout implements kw5<String> {
             return;
         }
         this.a = skinType;
-        xg5 xg5Var = this.e;
-        if (xg5Var != null) {
-            xg5Var.onChangeSkinType();
+        kf5 kf5Var = this.e;
+        if (kf5Var != null) {
+            kf5Var.onChangeSkinType();
         }
-        yg5 yg5Var = this.f;
-        if (yg5Var != null) {
-            yg5Var.onChangeSkinType();
+        lf5 lf5Var = this.f;
+        if (lf5Var != null) {
+            lf5Var.onChangeSkinType();
         }
         this.c.notifyDataSetChanged();
     }
 
-    @Override // com.baidu.tieba.kw5
+    @Override // com.baidu.tieba.qv5
     public String getTitle() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -456,10 +456,10 @@ public class AttentionView extends FrameLayout implements kw5<String> {
     }
 
     public void l() {
-        xg5 xg5Var;
+        kf5 kf5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (xg5Var = this.e) != null) {
-            xg5Var.dettachView(this);
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (kf5Var = this.e) != null) {
+            kf5Var.dettachView(this);
             this.e = null;
         }
     }
@@ -467,16 +467,16 @@ public class AttentionView extends FrameLayout implements kw5<String> {
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            yg5 yg5Var = this.f;
-            if (yg5Var != null) {
-                yg5Var.dettachView(this);
+            lf5 lf5Var = this.f;
+            if (lf5Var != null) {
+                lf5Var.dettachView(this);
                 this.f = null;
             }
             this.b.setVisibility(0);
         }
     }
 
-    @Override // com.baidu.tieba.kw5
+    @Override // com.baidu.tieba.qv5
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
@@ -493,9 +493,9 @@ public class AttentionView extends FrameLayout implements kw5<String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            xg5 xg5Var = this.e;
-            if (xg5Var != null) {
-                return xg5Var.isViewAttached();
+            kf5 kf5Var = this.e;
+            if (kf5Var != null) {
+                return kf5Var.isViewAttached();
             }
             return false;
         }
@@ -506,9 +506,9 @@ public class AttentionView extends FrameLayout implements kw5<String> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            yg5 yg5Var = this.f;
-            if (yg5Var != null) {
-                return yg5Var.isViewAttached();
+            lf5 lf5Var = this.f;
+            if (lf5Var != null) {
+                return lf5Var.isViewAttached();
             }
             return false;
         }
@@ -518,8 +518,8 @@ public class AttentionView extends FrameLayout implements kw5<String> {
     public final void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0801, (ViewGroup) this, true);
-            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f091fb9);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0813, (ViewGroup) this, true);
+            this.b = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f092004);
             SelectForumItemAdapter selectForumItemAdapter = new SelectForumItemAdapter(this);
             this.c = selectForumItemAdapter;
             selectForumItemAdapter.k(2);
@@ -533,7 +533,7 @@ public class AttentionView extends FrameLayout implements kw5<String> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.kw5
+    @Override // com.baidu.tieba.qv5
     /* renamed from: u */
     public void c(String str) {
         Interceptable interceptable = $ic;
@@ -562,7 +562,7 @@ public class AttentionView extends FrameLayout implements kw5<String> {
             return;
         }
         if (this.f == null) {
-            this.f = new yg5(getContext(), new c(this));
+            this.f = new lf5(getContext(), new c(this));
         }
         this.f.k(getResources().getDimensionPixelSize(R.dimen.tbds380));
         this.f.attachView(this, z);

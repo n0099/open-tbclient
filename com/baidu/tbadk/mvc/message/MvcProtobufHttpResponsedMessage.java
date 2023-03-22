@@ -3,12 +3,12 @@ package com.baidu.tbadk.mvc.message;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.dk5;
-import com.baidu.tieba.hj;
-import com.baidu.tieba.hk5;
-import com.baidu.tieba.jf;
-import com.baidu.tieba.p15;
-import com.baidu.tieba.vi;
+import com.baidu.tieba.aj5;
+import com.baidu.tieba.ej5;
+import com.baidu.tieba.ki;
+import com.baidu.tieba.me;
+import com.baidu.tieba.yh;
+import com.baidu.tieba.yz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -19,7 +19,7 @@ import java.lang.reflect.Field;
 import java.util.List;
 import protobuf.Error;
 /* loaded from: classes3.dex */
-public abstract class MvcProtobufHttpResponsedMessage<D extends hk5, M extends Message> extends MvcHttpResponsedMessage<D> {
+public abstract class MvcProtobufHttpResponsedMessage<D extends ej5, M extends Message> extends MvcHttpResponsedMessage<D> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -48,7 +48,7 @@ public abstract class MvcProtobufHttpResponsedMessage<D extends hk5, M extends M
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
     public void afterDispatchInBackGround(int i, byte[] bArr) {
-        dk5 dk5Var;
+        aj5 aj5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             super.afterDispatchInBackGround(i, (int) bArr);
@@ -56,28 +56,28 @@ public abstract class MvcProtobufHttpResponsedMessage<D extends hk5, M extends M
                 String str = null;
                 if (getOrginalMessage() instanceof MvcSocketMessage) {
                     MvcSocketMessage mvcSocketMessage = (MvcSocketMessage) getOrginalMessage();
-                    if (mvcSocketMessage.isNeedCache() && (mvcSocketMessage.getData() instanceof dk5)) {
-                        dk5Var = (dk5) mvcSocketMessage.getData();
+                    if (mvcSocketMessage.isNeedCache() && (mvcSocketMessage.getData() instanceof aj5)) {
+                        aj5Var = (aj5) mvcSocketMessage.getData();
                     }
-                    dk5Var = null;
+                    aj5Var = null;
                 } else {
                     if (getOrginalMessage() != null && (getOrginalMessage().getExtra() instanceof MvcNetMessage)) {
                         MvcNetMessage mvcNetMessage = (MvcNetMessage) getOrginalMessage().getExtra();
-                        if (mvcNetMessage.isNeedCache() && (mvcNetMessage.getRequestData() instanceof dk5)) {
-                            dk5Var = (dk5) mvcNetMessage.getRequestData();
+                        if (mvcNetMessage.isNeedCache() && (mvcNetMessage.getRequestData() instanceof aj5)) {
+                            aj5Var = (aj5) mvcNetMessage.getRequestData();
                         }
                     }
-                    dk5Var = null;
+                    aj5Var = null;
                 }
-                if (dk5Var != null) {
-                    String cacheKey = dk5Var.getCacheKey();
-                    String M = dk5Var.M();
-                    if (dk5Var.isNeedUid()) {
+                if (aj5Var != null) {
+                    String cacheKey = aj5Var.getCacheKey();
+                    String Q = aj5Var.Q();
+                    if (aj5Var.isNeedUid()) {
                         str = TbadkCoreApplication.getCurrentAccount();
                     }
-                    if (cacheKey != null && !TextUtils.isEmpty(M) && bArr != null) {
-                        p15.d();
-                        jf<byte[]> c = p15.c(M, str);
+                    if (cacheKey != null && !TextUtils.isEmpty(Q) && bArr != null) {
+                        yz4.d();
+                        me<byte[]> c = yz4.c(Q, str);
                         if (c == null) {
                             return;
                         }
@@ -97,10 +97,10 @@ public abstract class MvcProtobufHttpResponsedMessage<D extends hk5, M extends M
         if (interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) {
             super.decodeInBackGround(i, bArr);
             Message parseFrom = new Wire(new Class[0]).parseFrom(bArr, getProtobufResponseIdlClass());
-            List<Field> c2 = vi.c(parseFrom, Error.class);
+            List<Field> c2 = yh.c(parseFrom, Error.class);
             if (c2 != null && c2.size() > 0) {
                 z = true;
-                Object a = hj.a(parseFrom, c2.get(0));
+                Object a = ki.a(parseFrom, c2.get(0));
                 if (a instanceof Error) {
                     Error error = (Error) a;
                     setError(error.errorno.intValue());
@@ -109,8 +109,8 @@ public abstract class MvcProtobufHttpResponsedMessage<D extends hk5, M extends M
             } else {
                 z = false;
             }
-            if (!z && (c = vi.c(parseFrom, tbclient.Error.class)) != null && c.size() > 0) {
-                Object a2 = hj.a(parseFrom, c.get(0));
+            if (!z && (c = yh.c(parseFrom, tbclient.Error.class)) != null && c.size() > 0) {
+                Object a2 = ki.a(parseFrom, c.get(0));
                 if (a2 instanceof tbclient.Error) {
                     tbclient.Error error2 = (tbclient.Error) a2;
                     setError(error2.errorno.intValue());
@@ -126,7 +126,7 @@ public abstract class MvcProtobufHttpResponsedMessage<D extends hk5, M extends M
             } else if (getOrginalMessage() != null && (getOrginalMessage().getExtra() instanceof MvcNetMessage)) {
                 obj = createData(((MvcNetMessage) getOrginalMessage().getExtra()).getResponseDataClass());
             }
-            if (obj instanceof hk5) {
+            if (obj instanceof ej5) {
                 D d = (D) obj;
                 this.data = d;
                 d.initByProtobuf(parseFrom);

@@ -1,136 +1,85 @@
 package com.baidu.tieba;
 
-import com.badlogic.gdx.utils.GdxRuntimeException;
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import android.content.pm.ActivityInfo;
+import android.content.res.TypedArray;
+import android.os.Build;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.TimeUnit;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
-public class v8 implements o7 {
+public class v8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ExecutorService a;
 
-    /* loaded from: classes6.dex */
-    public class a implements ThreadFactory {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-
-        public a(v8 v8Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v8Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-        }
-
-        @Override // java.util.concurrent.ThreadFactory
-        public Thread newThread(Runnable runnable) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                Thread thread = new Thread(runnable, this.a);
-                thread.setDaemon(true);
-                return thread;
-            }
-            return (Thread) invokeL.objValue;
-        }
-    }
-
-    /* JADX INFO: Add missing generic type declarations: [T] */
-    /* loaded from: classes6.dex */
-    public class b<T> implements Callable<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x8 a;
-
-        public b(v8 v8Var, x8 x8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v8Var, x8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = x8Var;
-        }
-
-        @Override // java.util.concurrent.Callable
-        public T call() throws Exception {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return (T) this.a.call();
-            }
-            return (T) invokeV.objValue;
-        }
-    }
-
-    public v8(int i, String str) {
+    public static boolean a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (i != 0 && i != 1 && i != 11 && i != 12) {
+                switch (i) {
+                    case 6:
+                    case 7:
+                    case 8:
+                    case 9:
+                        break;
+                    default:
+                        return false;
+                }
             }
+            return true;
         }
-        this.a = Executors.newFixedThreadPool(i, new a(this, str));
+        return invokeI.booleanValue;
     }
 
-    public <T> w8<T> a(x8<T> x8Var) {
+    public static void b(@NonNull Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65537, null, activity) != null) || !d(activity)) {
+            return;
+        }
+        try {
+            Field declaredField = Activity.class.getDeclaredField("mActivityInfo");
+            declaredField.setAccessible(true);
+            ActivityInfo activityInfo = (ActivityInfo) declaredField.get(activity);
+            if (a(activityInfo.screenOrientation)) {
+                activityInfo.screenOrientation = -1;
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static boolean c(Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, x8Var)) == null) {
-            if (!this.a.isShutdown()) {
-                return new w8<>(this.a.submit(new b(this, x8Var)));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
+            try {
+                Field declaredField = Class.forName("com.android.internal.R$styleable").getDeclaredField("Window");
+                declaredField.setAccessible(true);
+                TypedArray obtainStyledAttributes = activity.obtainStyledAttributes((int[]) declaredField.get(null));
+                Method declaredMethod = ActivityInfo.class.getDeclaredMethod("isTranslucentOrFloating", TypedArray.class);
+                declaredMethod.setAccessible(true);
+                return ((Boolean) declaredMethod.invoke(null, obtainStyledAttributes)).booleanValue();
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
             }
-            throw new GdxRuntimeException("Cannot run tasks on an executor that has been shutdown (disposed)");
         }
-        return (w8) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.o7
-    public void dispose() {
+    public static boolean d(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.shutdown();
-            try {
-                this.a.awaitTermination(Long.MAX_VALUE, TimeUnit.SECONDS);
-            } catch (InterruptedException e) {
-                throw new GdxRuntimeException("Couldn't shutdown loading thread", e);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) {
+            if (Build.VERSION.SDK_INT == 26 && c(activity)) {
+                return true;
             }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 }

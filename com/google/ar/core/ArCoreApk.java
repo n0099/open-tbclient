@@ -1,8 +1,8 @@
 package com.google.ar.core;
 
 import android.content.Context;
-import com.baidu.tieba.kca;
-import com.baidu.tieba.lca;
+import com.baidu.tieba.tia;
+import com.baidu.tieba.uia;
 import com.google.ar.core.exceptions.FatalException;
 /* loaded from: classes8.dex */
 public class ArCoreApk {
@@ -54,7 +54,7 @@ public class ArCoreApk {
             this.nativeCode = i2;
         }
 
-        public /* synthetic */ Availability(String str, int i, int i2, kca kcaVar) {
+        public /* synthetic */ Availability(String str, int i, int i2, tia tiaVar) {
             this(str, i, i2);
         }
 
@@ -81,7 +81,7 @@ public class ArCoreApk {
     }
 
     public static ArCoreApk b() {
-        return lca.d();
+        return uia.d();
     }
 
     /* loaded from: classes8.dex */

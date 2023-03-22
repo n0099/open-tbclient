@@ -1,55 +1,78 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes7.dex */
-public class z92 extends w92 {
+public class z92 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static AtomicInteger b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bitmap d;
 
-    public z92() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948314710, "Lcom/baidu/tieba/z92;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948314710, "Lcom/baidu/tieba/z92;");
+                return;
             }
         }
+        a = do1.a;
+        b = new AtomicInteger(0);
     }
 
-    public static z92 a(String str, Bitmap bitmap) {
-        InterceptResult invokeLL;
+    public static boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, bitmap)) == null) {
-            z92 z92Var = new z92();
-            z92Var.a = 1;
-            z92Var.b = str;
-            z92Var.c = 0L;
-            z92Var.d = bitmap;
-            return z92Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str != null && str.startsWith("master")) {
+                return true;
+            }
+            return false;
         }
-        return (z92) invokeLL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static z92 b(String str, long j) {
-        InterceptResult invokeLJ;
+    public static String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65538, null, str, j)) == null) {
-            z92 z92Var = new z92();
-            z92Var.a = 1;
-            z92Var.b = str;
-            z92Var.c = j;
-            return z92Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String str = "master";
+            if (!tb2.h()) {
+                return "master";
+            }
+            int andIncrement = b.getAndIncrement();
+            if (andIncrement >= 1) {
+                str = "master" + andIncrement;
+            }
+            if (a) {
+                Log.i("MasterIdGenerator", "next master id - " + str);
+            }
+            return str;
         }
-        return (z92) invokeLJ.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public static int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            int andSet = b.getAndSet(0);
+            if (a) {
+                Log.i("MasterIdGenerator", "last master id - " + andSet);
+            }
+            return andSet;
+        }
+        return invokeV.intValue;
     }
 }

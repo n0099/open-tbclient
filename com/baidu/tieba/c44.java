@@ -1,113 +1,78 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.view.MotionEvent;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class c44 extends nj2 {
+public final class c44 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String d;
-    public String e;
-    public String f;
+    public bf2 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c44(@NonNull String str, String str2, String str3, String str4) {
-        super(str);
+    public c44() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, str4};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = str2;
-        this.e = str3;
-        this.f = str4;
     }
 
-    public static nj2 t(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            return new c44("sconsole_console", "%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, str2);
-        }
-        return (nj2) invokeLL.objValue;
-    }
-
-    public static nj2 v(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            return new c44("sconsole_system", "%s.message = { type:'log',logType:'%s',logs:[%s] };", str, str2);
-        }
-        return (nj2) invokeLL.objValue;
-    }
-
-    public static nj2 u(boolean z) {
-        InterceptResult invokeZ;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            if (z) {
-                str = "show";
-            } else {
-                str = "hide";
-            }
-            return new c44("sconsole_entirety", "%s.message = { type:'act',act:'%s' };", null, str);
-        }
-        return (nj2) invokeZ.objValue;
-    }
-
-    @Override // com.baidu.tieba.mj2
-    public String o(String str) {
+    public boolean a(MotionEvent motionEvent) {
         InterceptResult invokeL;
-        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            String str2 = this.d;
-            int hashCode = str2.hashCode();
-            if (hashCode != -2011830027) {
-                if (hashCode != -774049378) {
-                    if (hashCode == 2080164540 && str2.equals("%s.message = { type:'log',logType:'%s',logs:[%s] };")) {
-                        c = 1;
-                    }
-                    c = 65535;
-                } else {
-                    if (str2.equals("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };")) {
-                        c = 0;
-                    }
-                    c = 65535;
-                }
-            } else {
-                if (str2.equals("%s.message = { type:'act',act:'%s' };")) {
-                    c = 2;
-                }
-                c = 65535;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
+            bf2 bf2Var = this.a;
+            boolean z = false;
+            if (bf2Var == null) {
+                return false;
             }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        return "";
-                    }
-                    return String.format("%s.message = { type:'act',act:'%s' };", str, this.f);
-                }
-                return String.format("%s.message = { type:'log',logType:'%s',logs:[%s] };", str, this.e, JSONObject.quote(this.f));
+            boolean f = d44.f(bf2Var.n());
+            boolean f2 = d44.f(this.a.v());
+            JSEvent jSEvent = null;
+            if (f || f2) {
+                jSEvent = d44.j(motionEvent);
             }
-            return String.format("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, this.e, JSONObject.quote(am3.b(am3.a(), "yyyy-MM-dd HH:mm:ss")), JSONObject.quote(this.f));
+            if (f) {
+                z = this.a.dispatchEvent(jSEvent);
+            }
+            if (f2 && this.a.u0()) {
+                this.a.v().dispatchEvent(jSEvent);
+            }
+            d44.g(true);
+            return z;
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public void b(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            d44.m(i, i2);
+        }
+    }
+
+    public void d(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            d44.l(i, i2);
+        }
+    }
+
+    public void c(bf2 bf2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bf2Var) == null) {
+            this.a = bf2Var;
+        }
     }
 }

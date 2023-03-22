@@ -1,34 +1,34 @@
 package rx.subjects;
 
-import com.baidu.tieba.fna;
-import com.baidu.tieba.gna;
+import com.baidu.tieba.bsa;
+import com.baidu.tieba.csa;
+import com.baidu.tieba.lwa;
+import com.baidu.tieba.ora;
 import com.baidu.tieba.pra;
-import com.baidu.tieba.sma;
-import com.baidu.tieba.tma;
-import com.baidu.tieba.yma;
+import com.baidu.tieba.ura;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicReference;
 import rx.functions.Actions;
 import rx.internal.operators.NotificationLite;
 /* loaded from: classes9.dex */
-public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> implements sma.a<T> {
+public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> implements ora.a<T> {
     public static final long serialVersionUID = 6035251036011671568L;
     public boolean active;
     public volatile Object latest;
-    public gna<c<T>> onAdded;
-    public gna<c<T>> onStart;
-    public gna<c<T>> onTerminated;
+    public csa<c<T>> onAdded;
+    public csa<c<T>> onStart;
+    public csa<c<T>> onTerminated;
 
     /* loaded from: classes9.dex */
-    public class a implements fna {
+    public class a implements bsa {
         public final /* synthetic */ c a;
 
         public a(c cVar) {
             this.a = cVar;
         }
 
-        @Override // com.baidu.tieba.fna
+        @Override // com.baidu.tieba.bsa
         public void call() {
             SubjectSubscriptionManager.this.remove(this.a);
         }
@@ -97,15 +97,15 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
     }
 
     /* loaded from: classes9.dex */
-    public static final class c<T> implements tma<T> {
-        public final yma<? super T> a;
+    public static final class c<T> implements pra<T> {
+        public final ura<? super T> a;
         public boolean b = true;
         public boolean c;
         public List<Object> d;
         public boolean e;
 
-        public c(yma<? super T> ymaVar) {
-            this.a = ymaVar;
+        public c(ura<? super T> uraVar) {
+            this.a = uraVar;
         }
 
         public void a(Object obj) {
@@ -147,12 +147,12 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
             NotificationLite.a(this.a, obj);
         }
 
-        @Override // com.baidu.tieba.tma
+        @Override // com.baidu.tieba.pra
         public void onError(Throwable th) {
             this.a.onError(th);
         }
 
-        @Override // com.baidu.tieba.tma
+        @Override // com.baidu.tieba.pra
         public void onNext(T t) {
             this.a.onNext(t);
         }
@@ -213,7 +213,7 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
             }
         }
 
-        @Override // com.baidu.tieba.tma
+        @Override // com.baidu.tieba.pra
         public void onCompleted() {
             this.a.onCompleted();
         }
@@ -248,11 +248,11 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
         return true;
     }
 
-    public void call(yma<? super T> ymaVar) {
-        c<T> cVar = new c<>(ymaVar);
-        addUnsubscriber(ymaVar, cVar);
+    public void call(ura<? super T> uraVar) {
+        c<T> cVar = new c<>(uraVar);
+        addUnsubscriber(uraVar, cVar);
         this.onStart.call(cVar);
-        if (!ymaVar.isUnsubscribed() && add(cVar) && ymaVar.isUnsubscribed()) {
+        if (!uraVar.isUnsubscribed() && add(cVar) && uraVar.isUnsubscribed()) {
             remove(cVar);
         }
     }
@@ -286,12 +286,12 @@ public final class SubjectSubscriptionManager<T> extends AtomicReference<b<T>> i
         return getAndSet(b.d).b;
     }
 
-    public void addUnsubscriber(yma<? super T> ymaVar, c<T> cVar) {
-        ymaVar.b(pra.a(new a(cVar)));
+    public void addUnsubscriber(ura<? super T> uraVar, c<T> cVar) {
+        uraVar.b(lwa.a(new a(cVar)));
     }
 
-    @Override // com.baidu.tieba.sma.a, com.baidu.tieba.gna
+    @Override // com.baidu.tieba.ora.a, com.baidu.tieba.csa
     public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((yma) ((yma) obj));
+        call((ura) ((ura) obj));
     }
 }

@@ -1,32 +1,30 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
-import android.widget.Toast;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.res.ui.FloatButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ka3 extends jb3 {
+public class ka3 extends q93 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ka3(ja3 ja3Var) {
-        super(ja3Var, "/swanAPI/abTestConfig");
+    public ka3(q83 q83Var) {
+        super(q83Var, "/swanAPI/hideOpenAppGuide");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ja3Var};
+            Object[] objArr = {q83Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,81 +38,25 @@ public class ka3 extends jb3 {
         }
     }
 
-    public static String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            File a = bm3.a();
-            if (a == null) {
-                return null;
-            }
-            String path = a.getPath();
-            if (TextUtils.isEmpty(path)) {
-                return null;
-            }
-            return path + "/debug_abtest_config.json";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.jb3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m93 m93Var) {
+    @Override // com.baidu.tieba.q93
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, t73 t73Var) {
         InterceptResult invokeLLLL;
-        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, m93Var)) == null) {
-            if (!jb3.b) {
-                return false;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, t73Var)) == null) {
+            if (q93.b) {
+                Log.i("HideFloatButtonGuide", unitedSchemeEntity.toString());
             }
-            JSONObject a = jb3.a(unitedSchemeEntity, "params");
-            if (a != null && context != null) {
-                JSONObject optJSONObject = a.optJSONObject("abtest");
-                if (optJSONObject != null) {
-                    if (l(optJSONObject)) {
-                        i = R.string.obfuscated_res_0x7f0f138b;
-                    } else {
-                        i = R.string.obfuscated_res_0x7f0f1389;
-                    }
-                    Toast.makeText(context, i, 1).show();
-                } else {
-                    j();
-                    Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f138c, 1).show();
-                }
+            ja3 d = ja3.d();
+            FloatButton c = d.c();
+            if (c == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
                 return true;
             }
-            Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f138a, 1).show();
-            return false;
+            c.setVisibility(8);
+            d.j(null);
+            unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            return true;
         }
         return invokeLLLL.booleanValue;
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            String k = k();
-            if (TextUtils.isEmpty(k)) {
-                return;
-            }
-            File file = new File(k);
-            if (file.exists()) {
-                file.delete();
-            }
-        }
-    }
-
-    public final boolean l(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return false;
-            }
-            String k = k();
-            if (TextUtils.isEmpty(k)) {
-                return false;
-            }
-            return ps2.b(k, jSONObject.toString(), false);
-        }
-        return invokeL.booleanValue;
     }
 }

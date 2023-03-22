@@ -1,15 +1,8 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.unitedscheme.SchemeRouter;
-import com.baidu.searchbox.v8engine.InspectorNativeChannel;
-import com.baidu.searchbox.v8engine.InspectorNativeClient;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.n72;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,297 +10,88 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.util.concurrent.LinkedBlockingQueue;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.File;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+import java.util.TreeMap;
 /* loaded from: classes5.dex */
-public class q72 implements n72.c {
+public class q72 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final n72.b a;
-    public bka b;
-    public InspectorNativeClient c;
-    public ug2 d;
-    public LinkedBlockingQueue<String> e;
-    public String f;
 
     /* loaded from: classes5.dex */
-    public class b extends bka {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q72 a;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ File b;
 
-        /* loaded from: classes5.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    String str = (String) this.a.a.e.poll();
-                    while (str != null) {
-                        this.a.a.c.dispatchProtocolMessage(str);
-                        this.a.c(str);
-                        this.a.d(str);
-                        str = (String) this.a.a.e.poll();
-                    }
-                }
-            }
-        }
-
-        /* renamed from: com.baidu.tieba.q72$b$b  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class RunnableC0397b implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public RunnableC0397b(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.a.onConnected();
-                }
-            }
-        }
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(q72 q72Var, URI uri) {
-            super(uri);
+        public a(String str, File file) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {q72Var, uri};
+                Object[] objArr = {str, file};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((URI) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = q72Var;
+            this.a = str;
+            this.b = file;
         }
 
-        public final void c(String str) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !TextUtils.isEmpty(str) && this.a.a != null) {
-                try {
-                    if (TextUtils.equals(new JSONObject(str).optString("method"), "Debugger.enable")) {
-                        l93 K = l93.K();
-                        SwanAppActivity w = K.w();
-                        if (K.E() && w != null) {
-                            w.runOnUiThread(new RunnableC0397b(this));
-                        }
-                    }
-                } catch (JSONException e) {
-                    if (q72.g) {
-                        Log.e("V8InspectorClient", "message is not a Json object", e);
-                    }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                synchronized (q72.class) {
+                    xn4.S(this.a, this.b, true);
                 }
-            }
-        }
-
-        @Override // com.baidu.tieba.bka
-        public void onOpen(vka vkaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, vkaVar) == null) {
-                m62.i("V8InspectorClient", "V8 inspector opened");
-                ib2 W = gg2.U().W();
-                if (W instanceof mb2) {
-                    this.a.d = (ug2) W.f();
-                }
-                if (this.a.d == null) {
-                    m62.i("V8InspectorClient", "inner error, V8 mEngine is null");
-                    close();
-                    return;
-                }
-                q72 q72Var = this.a;
-                q72Var.c = q72Var.d.r0(new a(this.a));
-            }
-        }
-
-        /* JADX WARN: Code restructure failed: missing block: B:22:0x0045, code lost:
-            if (r2 == 1) goto L20;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:23:0x0047, code lost:
-            com.baidu.tieba.m62.c("V8InspectorClient", "Undefined command");
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:24:0x004d, code lost:
-            com.baidu.tieba.m62.i("V8InspectorClient", "v8 inspector close");
-            com.baidu.tieba.h72.d();
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:41:?, code lost:
-            return;
-         */
-        /* JADX WARN: Code restructure failed: missing block: B:42:?, code lost:
-            return;
-         */
-        /*
-            Code decompiled incorrectly, please refer to instructions dump.
-        */
-        public final void d(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || TextUtils.isEmpty(str)) {
-                return;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                String optString = jSONObject.optString("command");
-                if (TextUtils.isEmpty(optString)) {
-                    return;
-                }
-                char c = 65535;
-                int hashCode = optString.hashCode();
-                if (hashCode != -934641255) {
-                    if (hashCode == 94756344 && optString.equals("close")) {
-                        c = 1;
-                    }
-                } else if (optString.equals("reload")) {
-                    c = 0;
-                }
-                m62.i("V8InspectorClient", "v8 inspector reload");
-                String optString2 = jSONObject.optString("value");
-                if (!TextUtils.isEmpty(optString2) && TextUtils.equals(Uri.parse(optString2).getHost(), "swanAPI")) {
-                    SchemeRouter.invoke(AppRuntime.getAppContext(), optString2);
-                }
-            } catch (JSONException e) {
-                if (q72.g) {
-                    Log.e("V8InspectorClient", "message is not a json object", e);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.bka
-        public void onClose(int i, String str, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
-                m62.i("V8InspectorClient", "V8 inspector closed");
-            }
-        }
-
-        @Override // com.baidu.tieba.bka
-        public void onError(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, exc) == null) {
-                m62.d("V8InspectorClient", "V8 inspector error", exc);
-            }
-        }
-
-        @Override // com.baidu.tieba.bka
-        public void onMessage(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                this.a.e.offer(str);
-                this.a.d.postOnJSThread(new a(this));
+                q72.c();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class a extends InspectorNativeChannel {
+    public static class b implements Comparator<Long> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ q72 a;
 
-        public a(q72 q72Var) {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q72Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = q72Var;
-        }
-
-        @Override // com.baidu.searchbox.v8engine.InspectorNativeChannel
-        public void sendMessage(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                try {
-                    if (this.a.b != null) {
-                        this.a.b.send(str);
-                    }
-                } catch (Exception unused) {
-                    if (q72.g) {
-                        Log.d("V8InspectorClient", "V8 send message fail, try to check if websocket has opened");
-                    }
                 }
             }
         }
 
-        @Override // com.baidu.searchbox.v8engine.InspectorNativeChannel
-        public String awaitMessage() {
-            InterceptResult invokeV;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(Long l, Long l2) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (q72.g) {
-                    Log.d("V8InspectorClient", "getInspectorMessage");
-                }
-                try {
-                    return (String) this.a.e.take();
-                } catch (InterruptedException e) {
-                    if (q72.g) {
-                        Log.e("V8InspectorClient", "awaitMessage on Debugger", e);
-                        return "";
-                    }
-                    return "";
-                }
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, l, l2)) == null) {
+                return l2.compareTo(l);
             }
-            return (String) invokeV.objValue;
+            return invokeLL.intValue;
         }
     }
 
@@ -324,50 +108,198 @@ public class q72 implements n72.c {
                 return;
             }
         }
-        g = wp1.a;
+        a = do1.a;
     }
 
-    @Override // com.baidu.tieba.n72.c
-    public void start() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                b bVar = new b(this, new URI(this.f));
-                this.b = bVar;
-                bVar.connect();
-            } catch (URISyntaxException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.n72.c
-    public void stop() {
-        bka bkaVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (bkaVar = this.b) != null) {
-            bkaVar.close();
-            this.b = null;
-        }
-    }
-
-    public q72(String str, n72.b bVar) {
+    public q72() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, bVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.e = new LinkedBlockingQueue<>();
-        this.f = str;
-        this.a = bVar;
+    }
+
+    public static File b(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) {
+            String f = f();
+            if (f == null) {
+                return null;
+            }
+            File file = new File(f + File.separator + j);
+            if (file.exists()) {
+                xn4.L(file);
+            }
+            xn4.h(file);
+            return file;
+        }
+        return (File) invokeJ.objValue;
+    }
+
+    public static long i(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65546, null, j)) == null) {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+            try {
+                Date parse = simpleDateFormat.parse(simpleDateFormat.format(new Date(j)));
+                if (parse == null) {
+                    return -1L;
+                }
+                return parse.getTime();
+            } catch (ParseException e) {
+                if (do1.a) {
+                    e.printStackTrace();
+                }
+                return -1L;
+            }
+        }
+        return invokeJ.longValue;
+    }
+
+    public static void c() {
+        t73 b0;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) != null) || (b0 = t73.b0()) == null || TextUtils.isEmpty(b0.getAppId())) {
+            return;
+        }
+        File file = new File(pq2.g().getPath() + File.separator + "launch_tips");
+        if (file.exists() && file.isDirectory()) {
+            xn4.j(file);
+        }
+    }
+
+    public static String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            t73 b0 = t73.b0();
+            if (b0 == null) {
+                return null;
+            }
+            String appId = b0.getAppId();
+            if (TextUtils.isEmpty(appId)) {
+                return null;
+            }
+            return pq2.g().getPath() + File.separator + "launch_tips_v2" + File.separator + appId;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static File d(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65541, null, j)) == null) {
+            File[] g = g();
+            if (g != null && g.length != 0) {
+                File file = null;
+                for (File file2 : g) {
+                    try {
+                        long parseLong = Long.parseLong(file2.getName());
+                        if (parseLong == j) {
+                            file = file2;
+                        } else if (j - parseLong >= 259200000) {
+                            xn4.j(file2);
+                        }
+                    } catch (NumberFormatException unused) {
+                        xn4.j(file2);
+                    }
+                }
+                if (file == null) {
+                    return b(j);
+                }
+                return file;
+            }
+            return b(j);
+        }
+        return (File) invokeJ.objValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            File[] g = g();
+            if (g == null) {
+                return null;
+            }
+            TreeMap treeMap = new TreeMap(new b());
+            long i = i(System.currentTimeMillis());
+            for (File file : g) {
+                try {
+                    long parseLong = Long.parseLong(file.getName());
+                    if (i - parseLong >= 259200000) {
+                        xn4.j(file);
+                    } else {
+                        List<String> F = xn4.F(file);
+                        if (F != null && F.size() > 0) {
+                            treeMap.put(Long.valueOf(parseLong), F);
+                        }
+                    }
+                } catch (NumberFormatException unused) {
+                    xn4.j(file);
+                }
+            }
+            if (treeMap.size() == 0) {
+                return null;
+            }
+            StringBuilder sb = new StringBuilder("\n（二）历史日志");
+            for (Map.Entry entry : treeMap.entrySet()) {
+                sb.append("\n----------【");
+                sb.append(new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(new Date(((Long) entry.getKey()).longValue())));
+                sb.append("】----------");
+                for (String str : (List) entry.getValue()) {
+                    if (!TextUtils.isEmpty(str)) {
+                        sb.append("\n");
+                        sb.append(str);
+                    }
+                }
+            }
+            sb.append("\n");
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static File[] g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            String f = f();
+            if (f == null) {
+                return null;
+            }
+            File file = new File(f);
+            if (!file.exists() || !file.isDirectory()) {
+                return null;
+            }
+            return file.listFiles();
+        }
+        return (File[]) invokeV.objValue;
+    }
+
+    public static void h(long j, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJL(65545, null, j, str) == null) {
+            long i = i(j);
+            if (i == -1) {
+                if (a) {
+                    Log.e("LaunchTipsFileHelper", "get timestampByDay failed");
+                    return;
+                }
+                return;
+            }
+            File d = d(i);
+            if (d != null && d.exists()) {
+                nk3.k(new a(str, d), "saveLaunchTipsLog");
+            }
+        }
     }
 }

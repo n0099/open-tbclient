@@ -1,17 +1,23 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public class qq7 extends jq7 {
+import com.squareup.wire.Wire;
+import tbclient.Bigvip.BigvipResIdl;
+import tbclient.Bigvip.UserInfoBigVip;
+/* loaded from: classes6.dex */
+public class qq7 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public qq7() {
-        super(fo7.w(), 2001147);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -19,12 +25,38 @@ public class qq7 extends jq7 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((un7) objArr[0], ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
+    }
+
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            UserInfoBigVip userInfoBigVip = null;
+            if (customMessage != null && (customMessage.getData() instanceof Long)) {
+                long longValue = ((Long) customMessage.getData()).longValue();
+                yz4.d();
+                me<byte[]> b = yz4.b("tb.im_recommend_detail");
+                if (b == null) {
+                    return new CustomResponsedMessage<>(2001306, null);
+                }
+                byte[] bArr = b.get(longValue + "");
+                if (bArr == null) {
+                    return new CustomResponsedMessage<>(2001306, null);
+                }
+                try {
+                    userInfoBigVip = ((BigvipResIdl) new Wire(new Class[0]).parseFrom(bArr, BigvipResIdl.class)).data.user_info;
+                } catch (Exception e) {
+                    BdLog.e(e);
+                }
+                return new CustomResponsedMessage<>(2001306, userInfoBigVip);
+            }
+            return new CustomResponsedMessage<>(2001306, null);
+        }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

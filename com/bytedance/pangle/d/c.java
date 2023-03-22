@@ -17,8 +17,8 @@ public final class c implements Closeable {
     public final FileInputStream a;
     public a b;
     public b[] c;
-    public C0510c[] d;
-    public final Map<String, C0510c> e = new HashMap();
+    public C0515c[] d;
+    public final Map<String, C0515c> e = new HashMap();
 
     /* loaded from: classes7.dex */
     public static class a {
@@ -141,7 +141,7 @@ public final class c implements Closeable {
 
     /* renamed from: com.bytedance.pangle.d.c$c  reason: collision with other inner class name */
     /* loaded from: classes7.dex */
-    public static class C0510c {
+    public static class C0515c {
         public final int a;
         public final int b;
         public final long c;
@@ -154,7 +154,7 @@ public final class c implements Closeable {
         public final long j;
         public String k;
 
-        public C0510c(ByteBuffer byteBuffer, int i) {
+        public C0515c(ByteBuffer byteBuffer, int i) {
             if (i != 1) {
                 if (i == 2) {
                     this.a = byteBuffer.getInt();
@@ -185,15 +185,15 @@ public final class c implements Closeable {
             this.k = null;
         }
 
-        public /* synthetic */ C0510c(ByteBuffer byteBuffer, int i, byte b) {
+        public /* synthetic */ C0515c(ByteBuffer byteBuffer, int i, byte b) {
             this(byteBuffer, i);
         }
     }
 
     public c(File file) {
         ByteOrder byteOrder;
-        C0510c[] c0510cArr;
-        C0510c[] c0510cArr2;
+        C0515c[] c0515cArr;
+        C0515c[] c0515cArr2;
         this.b = null;
         this.c = null;
         this.d = null;
@@ -217,28 +217,28 @@ public final class c implements Closeable {
         }
         channel.position(this.b.g);
         allocate.limit(this.b.l);
-        this.d = new C0510c[this.b.m];
+        this.d = new C0515c[this.b.m];
         int i2 = 0;
         while (true) {
-            c0510cArr = this.d;
-            if (i2 >= c0510cArr.length) {
+            c0515cArr = this.d;
+            if (i2 >= c0515cArr.length) {
                 break;
             }
             b(channel, allocate, "failed to read shdr.");
-            this.d[i2] = new C0510c(allocate, this.b.a[4], (byte) 0);
+            this.d[i2] = new C0515c(allocate, this.b.a[4], (byte) 0);
             i2++;
         }
         short s = this.b.n;
         if (s > 0) {
-            C0510c c0510c = c0510cArr[s];
-            ByteBuffer allocate2 = ByteBuffer.allocate((int) c0510c.f);
-            this.a.getChannel().position(c0510c.e);
-            b(this.a.getChannel(), allocate2, "failed to read section: " + c0510c.k);
-            for (C0510c c0510c2 : this.d) {
-                allocate2.position(c0510c2.a);
+            C0515c c0515c = c0515cArr[s];
+            ByteBuffer allocate2 = ByteBuffer.allocate((int) c0515c.f);
+            this.a.getChannel().position(c0515c.e);
+            b(this.a.getChannel(), allocate2, "failed to read section: " + c0515c.k);
+            for (C0515c c0515c2 : this.d) {
+                allocate2.position(c0515c2.a);
                 String a2 = a(allocate2);
-                c0510c2.k = a2;
-                this.e.put(a2, c0510c2);
+                c0515c2.k = a2;
+                this.e.put(a2, c0515c2);
             }
         }
     }

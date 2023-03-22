@@ -1,121 +1,39 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
-import androidx.lifecycle.SavedStateHandle;
-import com.badlogic.gdx.utils.JsonValue;
-import com.badlogic.gdx.utils.JsonWriter$OutputType;
-import com.badlogic.gdx.utils.SerializationException;
-import com.badlogic.gdx.utils.reflect.ReflectionException;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.tieba.d8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.AccessControlException;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Map;
+import java.util.Comparator;
 /* loaded from: classes6.dex */
-public class v7 {
+public class v7<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public boolean b;
-    public boolean c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
-    public d g;
-    public final d8<Class, f8<String, a>> h;
-    public final d8<String, Class> i;
-    public final d8<Class, String> j;
-    public final d8<Class, d> k;
-    public final Object[] l;
-    public final Object[] m;
+    public T[] a;
+    public Comparator<? super T> b;
+    public int c;
+    public T[] d;
+    public int e;
+    public int f;
+    public final int[] g;
+    public final int[] h;
 
-    /* loaded from: classes6.dex */
-    public interface c {
-        void a(v7 v7Var, JsonValue jsonValue);
-    }
-
-    /* loaded from: classes6.dex */
-    public interface d<T> {
-        T a(v7 v7Var, JsonValue jsonValue, Class cls);
-    }
-
-    public boolean g(Class cls, String str) {
-        InterceptResult invokeLL;
+    public static int l(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, cls, str)) == null) {
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public void q(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final c9 a;
-        public Class b;
-        public boolean c;
-
-        public a(c9 c9Var) {
-            int i;
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            int i2 = 0;
+            while (i >= 32) {
+                i2 |= i & 1;
+                i >>= 1;
             }
-            this.a = c9Var;
-            if (!a9.f(d8.class, c9Var.getType()) && !a9.f(Map.class, c9Var.getType())) {
-                i = 0;
-            } else {
-                i = 1;
-            }
-            this.b = c9Var.c(i);
-            this.c = c9Var.f(Deprecated.class);
+            return i + i2;
         }
-    }
-
-    /* loaded from: classes6.dex */
-    public static abstract class b<T> implements d<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+        return invokeI.intValue;
     }
 
     public v7() {
@@ -131,566 +49,872 @@ public class v7 {
                 return;
             }
         }
-        this.a = DealIntentService.KEY_CLASS;
-        this.e = true;
-        this.h = new d8<>();
-        this.i = new d8<>();
-        this.j = new d8<>();
-        this.k = new d8<>();
-        new d8();
-        this.l = new Object[]{null};
-        this.m = new Object[]{null};
-        JsonWriter$OutputType jsonWriter$OutputType = JsonWriter$OutputType.minimal;
+        this.c = 7;
+        this.f = 0;
+        this.d = (T[]) new Object[256];
+        this.g = new int[40];
+        this.h = new int[40];
     }
 
-    public void a(String str, Class cls) {
+    /* JADX DEBUG: Duplicate block to fix multi-entry loop: BACK_EDGE: B:21:0x003d -> B:5:0x0006 */
+    public static <T> void a(T[] tArr, int i, int i2, int i3, Comparator<? super T> comparator) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, cls) == null) {
-            this.i.i(str, cls);
-            this.j.i(cls, str);
-        }
-    }
-
-    public <T> T j(Class<T> cls, JsonValue jsonValue) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, cls, jsonValue)) == null) {
-            return (T) k(cls, null, jsonValue);
-        }
-        return (T) invokeLL.objValue;
-    }
-
-    public <T> void o(Class<T> cls, d<T> dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048590, this, cls, dVar) == null) {
-            this.k.i(cls, dVar);
-        }
-    }
-
-    public final String b(Enum r5) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, r5)) == null) {
-            if (this.e) {
-                return r5.name();
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{tArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), comparator}) == null) {
+            if (i3 == i) {
+                i3++;
             }
-            return r5.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public Class e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            return this.i.c(str);
-        }
-        return (Class) invokeL.objValue;
-    }
-
-    public void p(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void c(Object obj, Object obj2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, obj, obj2) == null) {
-            f8<String, a> f = f(obj2.getClass());
-            d8.a<String, a> it = f(obj.getClass()).iterator();
-            while (it.hasNext()) {
-                d8.b next = it.next();
-                a c2 = f.c(next.a);
-                c9 c9Var = ((a) next.b).a;
-                if (c2 != null) {
-                    try {
-                        c2.a.j(obj2, c9Var.a(obj));
-                    } catch (ReflectionException e) {
-                        throw new SerializationException("Error copying field: " + c9Var.d(), e);
-                    }
-                } else {
-                    throw new SerializationException("To object is missing field: " + ((String) next.a));
-                }
-            }
-        }
-    }
-
-    public <T> T d(Class<T> cls, q3 q3Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, cls, q3Var)) == null) {
-            try {
-                return (T) k(cls, null, new w7().a(q3Var));
-            } catch (Exception e) {
-                throw new SerializationException("Error reading file: " + q3Var, e);
-            }
-        }
-        return (T) invokeLL.objValue;
-    }
-
-    public final f8<String, a> f(Class cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, cls)) == null) {
-            f8<String, a> c2 = this.h.c(cls);
-            if (c2 != null) {
-                return c2;
-            }
-            h7 h7Var = new h7();
-            for (Class cls2 = cls; cls2 != Object.class; cls2 = cls2.getSuperclass()) {
-                h7Var.a(cls2);
-            }
-            ArrayList arrayList = new ArrayList();
-            for (int i = h7Var.b - 1; i >= 0; i--) {
-                Collections.addAll(arrayList, a9.d((Class) h7Var.get(i)));
-            }
-            f8<String, a> f8Var = new f8<>(arrayList.size());
-            int size = arrayList.size();
-            for (int i2 = 0; i2 < size; i2++) {
-                c9 c9Var = (c9) arrayList.get(i2);
-                if (!c9Var.i() && !c9Var.g() && !c9Var.h()) {
-                    if (!c9Var.e()) {
-                        try {
-                            c9Var.k(true);
-                        } catch (AccessControlException unused) {
-                        }
-                    }
-                    f8Var.i(c9Var.d(), new a(c9Var));
-                }
-            }
-            if (this.f) {
-                f8Var.o.l();
-            }
-            this.h.i(cls, f8Var);
-            return f8Var;
-        }
-        return (f8) invokeL.objValue;
-    }
-
-    public Object h(Class cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, cls)) == null) {
-            try {
-                return a9.i(cls);
-            } catch (Exception e) {
-                e = e;
-                try {
-                    b9 c2 = a9.c(cls, new Class[0]);
-                    c2.c(true);
-                    return c2.b(new Object[0]);
-                } catch (ReflectionException unused) {
-                    if (a9.f(Enum.class, cls)) {
-                        if (cls.getEnumConstants() == null) {
-                            cls = cls.getSuperclass();
-                        }
-                        return cls.getEnumConstants()[0];
-                    } else if (!cls.isArray()) {
-                        if (a9.g(cls) && !a9.h(cls)) {
-                            throw new SerializationException("Class cannot be created (non-static member class): " + cls.getName(), e);
-                        }
-                        throw new SerializationException("Class cannot be created (missing no-arg constructor): " + cls.getName(), e);
+            while (i3 < i2) {
+                T t = tArr[i3];
+                int i4 = i;
+                int i5 = i3;
+                while (i4 < i5) {
+                    int i6 = (i4 + i5) >>> 1;
+                    if (comparator.compare(t, tArr[i6]) < 0) {
+                        i5 = i6;
                     } else {
-                        throw new SerializationException("Encountered JSON object when expected array of type: " + cls.getName(), e);
+                        i4 = i6 + 1;
                     }
-                } catch (SecurityException unused2) {
-                    throw new SerializationException("Error constructing instance of class: " + cls.getName(), e);
-                } catch (Exception e2) {
-                    e = e2;
-                    throw new SerializationException("Error constructing instance of class: " + cls.getName(), e);
                 }
+                int i7 = i3 - i4;
+                if (i7 != 1) {
+                    if (i7 != 2) {
+                        System.arraycopy(tArr, i4, tArr, i4 + 1, i7);
+                        tArr[i4] = t;
+                        i3++;
+                    } else {
+                        tArr[i4 + 2] = tArr[i4 + 1];
+                    }
+                }
+                tArr[i4 + 1] = tArr[i4];
+                tArr[i4] = t;
+                i3++;
             }
         }
-        return invokeL.objValue;
     }
 
-    public void i(Object obj, JsonValue jsonValue) {
+    public static <T> int b(T[] tArr, int i, int i2, Comparator<? super T> comparator) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, obj, jsonValue) == null) {
-            Class<?> cls = obj.getClass();
-            f8<String, a> f = f(cls);
-            for (JsonValue jsonValue2 = jsonValue.f; jsonValue2 != null; jsonValue2 = jsonValue2.h) {
-                a c2 = f.c(jsonValue2.G().replace(" ", "_"));
-                if (c2 == null) {
-                    if (!jsonValue2.e.equals(this.a) && !this.b && !g(cls, jsonValue2.e)) {
-                        SerializationException serializationException = new SerializationException("Field not found: " + jsonValue2.e + " (" + cls.getName() + SmallTailInfo.EMOTION_SUFFIX);
-                        serializationException.addTrace(jsonValue2.Q());
-                        throw serializationException;
-                    }
-                } else if (!this.c || this.d || !c2.c) {
-                    c9 c9Var = c2.a;
-                    try {
-                        c9Var.j(obj, k(c9Var.getType(), c2.b, jsonValue2));
-                    } catch (SerializationException e) {
-                        e.addTrace(c9Var.d() + " (" + cls.getName() + SmallTailInfo.EMOTION_SUFFIX);
-                        throw e;
-                    } catch (ReflectionException e2) {
-                        throw new SerializationException("Error accessing field: " + c9Var.d() + " (" + cls.getName() + SmallTailInfo.EMOTION_SUFFIX, e2);
-                    } catch (RuntimeException e3) {
-                        SerializationException serializationException2 = new SerializationException(e3);
-                        serializationException2.addTrace(jsonValue2.Q());
-                        serializationException2.addTrace(c9Var.d() + " (" + cls.getName() + SmallTailInfo.EMOTION_SUFFIX);
-                        throw serializationException2;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{tArr, Integer.valueOf(i), Integer.valueOf(i2), comparator})) == null) {
+            int i3 = i + 1;
+            if (i3 == i2) {
+                return 1;
+            }
+            int i4 = i3 + 1;
+            if (comparator.compare(tArr[i3], tArr[i]) < 0) {
+                while (i4 < i2 && comparator.compare(tArr[i4], tArr[i4 - 1]) < 0) {
+                    i4++;
+                }
+                o(tArr, i, i4);
+            } else {
+                while (i4 < i2 && comparator.compare(tArr[i4], tArr[i4 - 1]) >= 0) {
+                    i4++;
+                }
+            }
+            return i4 - i;
+        }
+        return invokeCommon.intValue;
+    }
+
+    public static <T> int e(T t, T[] tArr, int i, int i2, int i3, Comparator<? super T> comparator) {
+        InterceptResult invokeCommon;
+        int i4;
+        int i5;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{t, tArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), comparator})) == null) {
+            int i6 = i + i3;
+            if (comparator.compare(t, tArr[i6]) > 0) {
+                int i7 = i2 - i3;
+                int i8 = 0;
+                int i9 = 1;
+                while (i9 < i7 && comparator.compare(t, tArr[i6 + i9]) > 0) {
+                    int i10 = (i9 << 1) + 1;
+                    if (i10 <= 0) {
+                        i8 = i9;
+                        i9 = i7;
+                    } else {
+                        int i11 = i9;
+                        i9 = i10;
+                        i8 = i11;
                     }
                 }
+                if (i9 <= i7) {
+                    i7 = i9;
+                }
+                i4 = i8 + i3;
+                i5 = i7 + i3;
+            } else {
+                int i12 = i3 + 1;
+                int i13 = 0;
+                int i14 = 1;
+                while (i14 < i12 && comparator.compare(t, tArr[i6 - i14]) <= 0) {
+                    int i15 = (i14 << 1) + 1;
+                    if (i15 <= 0) {
+                        i13 = i14;
+                        i14 = i12;
+                    } else {
+                        int i16 = i14;
+                        i14 = i15;
+                        i13 = i16;
+                    }
+                }
+                if (i14 <= i12) {
+                    i12 = i14;
+                }
+                int i17 = i3 - i12;
+                int i18 = i3 - i13;
+                i4 = i17;
+                i5 = i18;
+            }
+            int i19 = i4 + 1;
+            while (i19 < i5) {
+                int i20 = ((i5 - i19) >>> 1) + i19;
+                if (comparator.compare(t, tArr[i + i20]) > 0) {
+                    i19 = i20 + 1;
+                } else {
+                    i5 = i20;
+                }
+            }
+            return i5;
+        }
+        return invokeCommon.intValue;
+    }
+
+    public static <T> int f(T t, T[] tArr, int i, int i2, int i3, Comparator<? super T> comparator) {
+        InterceptResult invokeCommon;
+        int i4;
+        int i5;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{t, tArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), comparator})) == null) {
+            int i6 = i + i3;
+            if (comparator.compare(t, tArr[i6]) < 0) {
+                int i7 = i3 + 1;
+                int i8 = 0;
+                int i9 = 1;
+                while (i9 < i7 && comparator.compare(t, tArr[i6 - i9]) < 0) {
+                    int i10 = (i9 << 1) + 1;
+                    if (i10 <= 0) {
+                        i8 = i9;
+                        i9 = i7;
+                    } else {
+                        int i11 = i9;
+                        i9 = i10;
+                        i8 = i11;
+                    }
+                }
+                if (i9 <= i7) {
+                    i7 = i9;
+                }
+                i5 = i3 - i7;
+                i4 = i3 - i8;
+            } else {
+                int i12 = i2 - i3;
+                int i13 = 0;
+                int i14 = 1;
+                while (i14 < i12 && comparator.compare(t, tArr[i6 + i14]) >= 0) {
+                    int i15 = (i14 << 1) + 1;
+                    if (i15 <= 0) {
+                        i13 = i14;
+                        i14 = i12;
+                    } else {
+                        int i16 = i14;
+                        i14 = i15;
+                        i13 = i16;
+                    }
+                }
+                if (i14 <= i12) {
+                    i12 = i14;
+                }
+                int i17 = i13 + i3;
+                i4 = i3 + i12;
+                i5 = i17;
+            }
+            int i18 = i5 + 1;
+            while (i18 < i4) {
+                int i19 = ((i4 - i18) >>> 1) + i18;
+                if (comparator.compare(t, tArr[i + i19]) < 0) {
+                    i4 = i19;
+                } else {
+                    i18 = i19 + 1;
+                }
+            }
+            return i4;
+        }
+        return invokeCommon.intValue;
+    }
+
+    public static void n(int i, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIII(65542, null, i, i2, i3) == null) {
+            if (i2 <= i3) {
+                if (i2 >= 0) {
+                    if (i3 <= i) {
+                        return;
+                    }
+                    throw new ArrayIndexOutOfBoundsException(i3);
+                }
+                throw new ArrayIndexOutOfBoundsException(i2);
+            }
+            throw new IllegalArgumentException("fromIndex(" + i2 + ") > toIndex(" + i3 + SmallTailInfo.EMOTION_SUFFIX);
+        }
+    }
+
+    public static void o(Object[] objArr, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(65543, null, objArr, i, i2) == null) {
+            int i3 = i2 - 1;
+            while (i < i3) {
+                Object obj = objArr[i];
+                objArr[i] = objArr[i3];
+                objArr[i3] = obj;
+                i3--;
+                i++;
             }
         }
     }
 
-    /* JADX DEBUG: Type inference failed for r13v3. Raw type applied. Possible types: java.lang.Class<com.baidu.tieba.h7> */
-    /* JADX WARN: Code restructure failed: missing block: B:134:0x0208, code lost:
-        if (r13 == java.lang.Object.class) goto L89;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:225:0x0354, code lost:
-        if (r13 == r0) goto L138;
-     */
+    /* JADX DEBUG: Multi-variable search result rejected for r8v0, resolved type: java.util.Comparator<T> */
     /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:235:0x0378  */
-    /* JADX WARN: Removed duplicated region for block: B:302:0x0431 A[RETURN] */
-    /* JADX WARN: Type inference failed for: r0v68, types: [com.baidu.tieba.v7$c] */
-    /* JADX WARN: Type inference failed for: r0v71, types: [com.baidu.tieba.v7$d] */
-    /* JADX WARN: Type inference failed for: r12v14, types: [com.baidu.tieba.v7$d] */
-    /* JADX WARN: Type inference failed for: r12v3, types: [T, java.lang.String] */
-    /* JADX WARN: Type inference failed for: r21v0, types: [com.baidu.tieba.v7, java.lang.Object] */
-    /* JADX WARN: Type inference failed for: r2v0, types: [com.badlogic.gdx.utils.JsonValue, T] */
-    /* JADX WARN: Type inference failed for: r2v45, types: [com.badlogic.gdx.utils.JsonValue, java.lang.Object] */
-    /* JADX WARN: Type inference failed for: r3v24, types: [T, java.util.Map] */
-    /* JADX WARN: Type inference failed for: r3v25, types: [T, com.baidu.tieba.i7] */
-    /* JADX WARN: Type inference failed for: r3v26, types: [T, com.baidu.tieba.u7] */
-    /* JADX WARN: Type inference failed for: r3v27, types: [com.baidu.tieba.z7, T] */
-    /* JADX WARN: Type inference failed for: r3v28, types: [T, com.baidu.tieba.t7] */
-    /* JADX WARN: Type inference failed for: r3v29, types: [T, com.baidu.tieba.e8] */
-    /* JADX WARN: Type inference failed for: r3v30, types: [T, com.baidu.tieba.b8] */
-    /* JADX WARN: Type inference failed for: r3v31, types: [T, com.baidu.tieba.c8] */
-    /* JADX WARN: Type inference failed for: r3v32, types: [T, com.baidu.tieba.d8] */
-    /* JADX WARN: Type inference failed for: r3v33, types: [java.lang.StringBuilder] */
-    /* JADX WARN: Type inference failed for: r3v41, types: [com.baidu.tieba.j8] */
-    /* JADX WARN: Type inference failed for: r3v45, types: [com.baidu.tieba.h7] */
-    /* JADX WARN: Type inference failed for: r5v1, types: [java.lang.Enum, T] */
+    public void c(T[] tArr, Comparator<T> comparator, int i, int i2) {
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(1048576, this, tArr, comparator, i, i2) == null) {
+            this.f = 0;
+            n(tArr.length, i, i2);
+            int i4 = i2 - i;
+            if (i4 < 2) {
+                return;
+            }
+            if (i4 < 32) {
+                a(tArr, i, i2, b(tArr, i, i2, comparator) + i, comparator);
+                return;
+            }
+            this.a = tArr;
+            this.b = comparator;
+            this.e = 0;
+            int l = l(i4);
+            do {
+                int b = b(tArr, i, i2, comparator);
+                if (b < l) {
+                    if (i4 <= l) {
+                        i3 = i4;
+                    } else {
+                        i3 = l;
+                    }
+                    a(tArr, i, i + i3, b + i, comparator);
+                    b = i3;
+                }
+                m(i, b);
+                h();
+                i += b;
+                i4 -= b;
+            } while (i4 != 0);
+            i();
+            this.a = null;
+            this.b = null;
+            T[] tArr2 = this.d;
+            int i5 = this.e;
+            for (int i6 = 0; i6 < i5; i6++) {
+                tArr2[i6] = null;
+            }
+        }
+    }
+
+    public final T[] d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            this.e = Math.max(this.e, i);
+            if (this.d.length < i) {
+                int i2 = (i >> 1) | i;
+                int i3 = i2 | (i2 >> 2);
+                int i4 = i3 | (i3 >> 4);
+                int i5 = i4 | (i4 >> 8);
+                int i6 = (i5 | (i5 >> 16)) + 1;
+                if (i6 >= 0) {
+                    i = Math.min(i6, this.a.length >>> 1);
+                }
+                this.d = (T[]) new Object[i];
+            }
+            return this.d;
+        }
+        return (T[]) ((Object[]) invokeI.objValue);
+    }
+
+    public final void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            int[] iArr = this.g;
+            int i2 = iArr[i];
+            int[] iArr2 = this.h;
+            int i3 = iArr2[i];
+            int i4 = i + 1;
+            int i5 = iArr[i4];
+            int i6 = iArr2[i4];
+            iArr2[i] = i3 + i6;
+            if (i == this.f - 3) {
+                int i7 = i + 2;
+                iArr[i4] = iArr[i7];
+                iArr2[i4] = iArr2[i7];
+            }
+            this.f--;
+            T[] tArr = this.a;
+            int f = f(tArr[i5], tArr, i2, i3, 0, this.b);
+            int i8 = i2 + f;
+            int i9 = i3 - f;
+            if (i9 == 0) {
+                return;
+            }
+            T[] tArr2 = this.a;
+            int e = e(tArr2[(i8 + i9) - 1], tArr2, i5, i6, i6 - 1, this.b);
+            if (e == 0) {
+                return;
+            }
+            if (i9 <= e) {
+                k(i8, i9, i5, e);
+            } else {
+                j(i8, i9, i5, e);
+            }
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:13:0x002c, code lost:
+        if (r1[r0 - 2] <= (r1[r0] + r1[r0 - 1])) goto L14;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:14:0x002e, code lost:
+        r1 = r5.h;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x0038, code lost:
+        if (r1[r0 - 1] >= r1[r0 + 1]) goto L19;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:16:0x003a, code lost:
+        r0 = r0 - 1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:9:0x001a, code lost:
+        if (r1[r0 - 1] > (r1[r0] + r1[r0 + 1])) goto L20;
+     */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public <T> T k(Class<T> cls, Class cls2, JsonValue jsonValue) {
-        InterceptResult invokeLLL;
-        Class cls3;
-        JsonValue jsonValue2;
-        Class cls4;
-        JsonValue jsonValue3;
-        T t;
-        T t2;
-        T t3;
-        String r;
-        Class cls5;
+    public final void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048586, this, cls, cls2, jsonValue)) == null) {
-            Class cls6 = cls2;
-            ?? r2 = (T) jsonValue;
-            if (r2 == 0) {
-                return null;
+        if (interceptable != null && interceptable.invokeV(1048579, this) != null) {
+            return;
+        }
+        while (true) {
+            int i = this.f;
+            if (i > 1) {
+                int i2 = i - 2;
+                if (i2 >= 1) {
+                    int[] iArr = this.h;
+                }
+                if (i2 >= 2) {
+                    int[] iArr2 = this.h;
+                }
+                int[] iArr3 = this.h;
+                if (iArr3[i2] <= iArr3[i2 + 1]) {
+                    g(i2);
+                } else {
+                    return;
+                }
+            } else {
+                return;
             }
-            if (jsonValue.C()) {
-                String str = this.a;
-                if (str == null) {
-                    r = null;
-                } else {
-                    r = r2.r(str, null);
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(1048580, this) != null) {
+            return;
+        }
+        while (true) {
+            int i = this.f;
+            if (i > 1) {
+                int i2 = i - 2;
+                if (i2 > 0) {
+                    int[] iArr = this.h;
+                    if (iArr[i2 - 1] < iArr[i2 + 1]) {
+                        i2--;
+                    }
                 }
-                if (r != null) {
-                    Class e = e(r);
-                    if (e == null) {
-                        try {
-                            cls5 = a9.a(r);
-                        } catch (ReflectionException e2) {
-                            throw new SerializationException(e2);
-                        }
-                    } else {
-                        cls5 = e;
-                    }
-                } else {
-                    cls5 = cls;
-                }
-                if (cls5 == null) {
-                    ?? r0 = this.g;
-                    if (r0 != 0) {
-                        return (T) r0.a(this, r2, cls5);
-                    }
-                    return r2;
-                } else if (this.a != null && a9.f(Collection.class, cls5)) {
-                    ?? r22 = (T) r2.l("items");
-                    jsonValue2 = r22;
-                    cls3 = cls5;
-                    if (r22 == 0) {
-                        throw new SerializationException("Unable to convert object to collection: " + r22 + " (" + cls5.getName() + SmallTailInfo.EMOTION_SUFFIX);
-                    }
-                } else {
-                    d c2 = this.k.c(cls5);
-                    if (c2 != 0) {
-                        return (T) c2.a(this, r2, cls5);
-                    }
-                    if (cls5 != String.class && cls5 != Integer.class && cls5 != Boolean.class && cls5 != Float.class && cls5 != Long.class && cls5 != Double.class && cls5 != Short.class && cls5 != Byte.class && cls5 != Character.class && !a9.f(Enum.class, cls5)) {
-                        T t4 = (T) h(cls5);
-                        if (t4 instanceof c) {
-                            ((c) t4).a(this, r2);
-                            return t4;
-                        } else if (t4 instanceof d8) {
-                            ?? r3 = (T) ((d8) t4);
-                            for (JsonValue jsonValue4 = r2.f; jsonValue4 != null; jsonValue4 = jsonValue4.h) {
-                                r3.i(jsonValue4.e, k(cls6, null, jsonValue4));
+                g(i2);
+            } else {
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x0078, code lost:
+        r12 = r1;
+        r13 = r2;
+        r14 = r3;
+        r15 = r4;
+        r16 = r5;
+        r17 = r6;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x0080, code lost:
+        r6 = r12 - f(r8[r15], r7, r21, r12, r12 - 1, r11);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x008f, code lost:
+        if (r6 == 0) goto L40;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x0091, code lost:
+        r1 = r16 - r6;
+        r2 = r17 - r6;
+        r3 = r12 - r6;
+        java.lang.System.arraycopy(r7, r2 + 1, r7, r1 + 1, r6);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x009e, code lost:
+        if (r3 != 0) goto L26;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x00a0, code lost:
+        r12 = r1;
+        r6 = r2;
+        r1 = r3;
+        r2 = r13;
+        r3 = r14;
+        r4 = r15;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x00a8, code lost:
+        r16 = r1;
+        r17 = r2;
+        r12 = r3;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x00ad, code lost:
+        r18 = r16 - 1;
+        r19 = r15 - 1;
+        r7[r16] = r8[r15];
+        r13 = r13 - 1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x00b7, code lost:
+        if (r13 != 1) goto L42;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x00b9, code lost:
+        r1 = r12;
+        r2 = r13;
+        r3 = r14;
+        r6 = r17;
+        r12 = r18;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:36:0x00c3, code lost:
+        r1 = r13 - e(r7[r17], r8, 0, r13, r13 - 1, r11);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:37:0x00d2, code lost:
+        if (r1 == 0) goto L49;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:38:0x00d4, code lost:
+        r2 = r18 - r1;
+        r4 = r19 - r1;
+        r3 = r13 - r1;
+        java.lang.System.arraycopy(r8, r4 + 1, r7, r2 + 1, r1);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:39:0x00e1, code lost:
+        if (r3 > 1) goto L46;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:40:0x00e3, code lost:
+        r1 = r12;
+        r6 = r17;
+        r12 = r2;
+        r2 = r3;
+        r3 = r14;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x00ea, code lost:
+        r18 = r2;
+        r13 = r3;
+        r19 = r4;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:42:0x00ef, code lost:
+        r16 = r18 - 1;
+        r2 = r17 - 1;
+        r7[r18] = r7[r17];
+        r12 = r12 - 1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:43:0x00f9, code lost:
+        if (r12 != 0) goto L51;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:44:0x00fb, code lost:
+        r6 = r2;
+        r1 = r12;
+        r2 = r13;
+        r3 = r14;
+        r12 = r16;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:55:0x0127, code lost:
+        r14 = r14 - 1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:56:0x012a, code lost:
+        if (r6 < 7) goto L66;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:57:0x012c, code lost:
+        r4 = true;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:58:0x012e, code lost:
+        r4 = false;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:59:0x012f, code lost:
+        if (r1 < 7) goto L65;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:60:0x0131, code lost:
+        r1 = true;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:61:0x0133, code lost:
+        r1 = false;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:63:0x0135, code lost:
+        if ((r1 | r4) != false) goto L58;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:64:0x0137, code lost:
+        if (r14 >= 0) goto L64;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:65:0x0139, code lost:
+        r14 = 0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:67:0x0145, code lost:
+        r17 = r2;
+        r15 = r19;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:79:0x0078 A[EDGE_INSN: B:79:0x0078->B:25:0x0078 ?: BREAK  , SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void j(int i, int i2, int i3, int i4) {
+        int i5;
+        int i6;
+        int i7;
+        int i8;
+        int i9;
+        int i10;
+        int i11;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048581, this, i, i2, i3, i4) == null) {
+            int i12 = i4;
+            T[] tArr = this.a;
+            T[] d = d(i12);
+            System.arraycopy(tArr, i3, d, 0, i12);
+            int i13 = (i + i2) - 1;
+            int i14 = i12 - 1;
+            int i15 = (i3 + i12) - 1;
+            int i16 = i15 - 1;
+            int i17 = i13 - 1;
+            tArr[i15] = tArr[i13];
+            int i18 = i2 - 1;
+            if (i18 == 0) {
+                System.arraycopy(d, 0, tArr, i16 - i14, i12);
+            } else if (i12 == 1) {
+                int i19 = i16 - i18;
+                System.arraycopy(tArr, (i17 - i18) + 1, tArr, i19 + 1, i18);
+                tArr[i19] = d[i14];
+            } else {
+                Comparator<? super T> comparator = this.b;
+                int i20 = this.c;
+                loop0: while (true) {
+                    int i21 = 0;
+                    int i22 = 0;
+                    while (true) {
+                        if (comparator.compare(d[i14], tArr[i17]) < 0) {
+                            i5 = i16 - 1;
+                            int i23 = i17 - 1;
+                            tArr[i16] = tArr[i17];
+                            i22++;
+                            i18--;
+                            if (i18 == 0) {
+                                i17 = i23;
+                                break loop0;
                             }
-                            return r3;
-                        } else if (t4 instanceof c8) {
-                            ?? r32 = (T) ((c8) t4);
-                            for (JsonValue jsonValue5 = r2.f; jsonValue5 != null; jsonValue5 = jsonValue5.h) {
-                                r32.h(jsonValue5.e, ((Integer) k(Integer.class, null, jsonValue5)).intValue());
+                            i16 = i5;
+                            i17 = i23;
+                            i21 = 0;
+                            if ((i22 | i21) >= i20) {
+                                break;
                             }
-                            return r32;
-                        } else if (t4 instanceof b8) {
-                            ?? r33 = (T) ((b8) t4);
-                            for (JsonValue jsonValue6 = r2.f; jsonValue6 != null; jsonValue6 = jsonValue6.h) {
-                                r33.g(jsonValue6.e, ((Float) k(Float.class, null, jsonValue6)).floatValue());
-                            }
-                            return r33;
-                        } else if (t4 instanceof e8) {
-                            ?? r34 = (T) ((e8) t4);
-                            for (JsonValue m = r2.m(SavedStateHandle.VALUES); m != null; m = m.h) {
-                                r34.add(k(cls6, null, m));
-                            }
-                            return r34;
-                        } else if (t4 instanceof t7) {
-                            ?? r35 = (T) ((t7) t4);
-                            for (JsonValue jsonValue7 = r2.f; jsonValue7 != null; jsonValue7 = jsonValue7.h) {
-                                r35.e(Integer.parseInt(jsonValue7.e), k(cls6, null, jsonValue7));
-                            }
-                            return r35;
-                        } else if (t4 instanceof z7) {
-                            ?? r36 = (T) ((z7) t4);
-                            for (JsonValue jsonValue8 = r2.f; jsonValue8 != null; jsonValue8 = jsonValue8.h) {
-                                r36.f(Long.parseLong(jsonValue8.e), k(cls6, null, jsonValue8));
-                            }
-                            return r36;
-                        } else if (t4 instanceof u7) {
-                            ?? r37 = (T) ((u7) t4);
-                            for (JsonValue m2 = r2.m(SavedStateHandle.VALUES); m2 != null; m2 = m2.h) {
-                                r37.a(m2.f());
-                            }
-                            return r37;
-                        } else if (t4 instanceof i7) {
-                            ?? r38 = (T) ((i7) t4);
-                            for (JsonValue jsonValue9 = r2.f; jsonValue9 != null; jsonValue9 = jsonValue9.h) {
-                                r38.e(jsonValue9.e, k(cls6, null, jsonValue9));
-                            }
-                            return r38;
-                        } else if (t4 instanceof Map) {
-                            ?? r39 = (T) ((Map) t4);
-                            for (JsonValue jsonValue10 = r2.f; jsonValue10 != null; jsonValue10 = jsonValue10.h) {
-                                if (!jsonValue10.e.equals(this.a)) {
-                                    r39.put(jsonValue10.e, k(cls6, null, jsonValue10));
-                                }
-                            }
-                            return r39;
                         } else {
-                            i(t4, r2);
-                            return t4;
+                            int i24 = i16 - 1;
+                            int i25 = i14 - 1;
+                            tArr[i16] = d[i14];
+                            i21++;
+                            i12--;
+                            if (i12 == 1) {
+                                i5 = i24;
+                                i14 = i25;
+                                break loop0;
+                            }
+                            i16 = i24;
+                            i14 = i25;
+                            i22 = 0;
+                            if ((i22 | i21) >= i20) {
+                            }
                         }
                     }
-                    return (T) l("value", cls5, r2);
+                    i20 = i8 + 2;
+                    i17 = i11;
+                    i18 = i6;
+                    i12 = i7;
+                    i16 = i9;
+                    i14 = i10;
                 }
-            } else {
-                cls3 = cls;
-                jsonValue2 = r2;
-            }
-            if (cls3 != null) {
-                d c3 = this.k.c(cls3);
-                if (c3 != null) {
-                    return (T) c3.a(this, jsonValue2, cls3);
+                i14 = i10;
+                if (i20 < 1) {
+                    i20 = 1;
                 }
-                if (a9.f(c.class, cls3)) {
-                    T t5 = (T) h(cls3);
-                    ((c) t5).a(this, jsonValue2);
-                    return t5;
-                }
-            }
-            int i = 0;
-            if (jsonValue2.u()) {
-                Class cls7 = cls3 != null ? cls3 : h7.class;
-                if (a9.f(h7.class, cls7)) {
-                    if (cls7 == h7.class) {
-                        t3 = (T) new h7();
-                    } else {
-                        t3 = (T) ((h7) h(cls7));
-                    }
-                    for (JsonValue jsonValue11 = jsonValue2.f; jsonValue11 != null; jsonValue11 = jsonValue11.h) {
-                        ((h7) t3).a(k(cls6, null, jsonValue11));
-                    }
-                    return t3;
-                } else if (a9.f(j8.class, cls7)) {
-                    if (cls7 == j8.class) {
-                        t2 = (T) new j8();
-                    } else {
-                        t2 = (T) ((j8) h(cls7));
-                    }
-                    for (JsonValue jsonValue12 = jsonValue2.f; jsonValue12 != null; jsonValue12 = jsonValue12.h) {
-                        ((j8) t2).addLast(k(cls6, null, jsonValue12));
-                    }
-                    return t2;
-                } else if (a9.f(Collection.class, cls7)) {
-                    if (cls7.isInterface()) {
-                        t = (T) new ArrayList();
-                    } else {
-                        t = (T) ((Collection) h(cls7));
-                    }
-                    for (JsonValue jsonValue13 = jsonValue2.f; jsonValue13 != null; jsonValue13 = jsonValue13.h) {
-                        ((Collection) t).add(k(cls6, null, jsonValue13));
-                    }
-                    return t;
-                } else if (cls7.isArray()) {
-                    Class<?> componentType = cls7.getComponentType();
-                    Class<?> cls8 = cls6;
-                    if (cls6 == null) {
-                        cls8 = componentType;
-                    }
-                    T t6 = (T) z8.a(componentType, jsonValue2.j);
-                    JsonValue jsonValue14 = jsonValue2.f;
-                    while (jsonValue14 != null) {
-                        z8.b(t6, i, k(cls8, null, jsonValue14));
-                        jsonValue14 = jsonValue14.h;
-                        i++;
-                    }
-                    return t6;
+                this.c = i20;
+                if (i12 == 1) {
+                    int i26 = i5 - i18;
+                    System.arraycopy(tArr, (i17 - i18) + 1, tArr, i26 + 1, i18);
+                    tArr[i26] = d[i14];
+                } else if (i12 != 0) {
+                    System.arraycopy(d, 0, tArr, i5 - (i12 - 1), i12);
                 } else {
-                    throw new SerializationException("Unable to convert value to required type: " + jsonValue2 + " (" + cls7.getName() + SmallTailInfo.EMOTION_SUFFIX);
+                    throw new IllegalArgumentException("Comparison method violates its general contract!");
                 }
             }
-            boolean A = jsonValue2.A();
-            JsonValue jsonValue15 = jsonValue2;
-            if (A) {
-                if (cls3 != null) {
-                    if (cls3 != Float.TYPE && cls3 != Float.class) {
-                        if (cls3 != Integer.TYPE && cls3 != Integer.class) {
-                            if (cls3 != Long.TYPE && cls3 != Long.class) {
-                                if (cls3 != Double.TYPE && cls3 != Double.class) {
-                                    if (cls3 == String.class) {
-                                        return (T) jsonValue2.j();
-                                    }
-                                    if (cls3 != Short.TYPE && cls3 != Short.class) {
-                                        if (cls3 == Byte.TYPE || cls3 == Byte.class) {
-                                            return (T) Byte.valueOf(jsonValue2.b());
-                                        }
-                                        jsonValue15 = new JsonValue(jsonValue2.j());
-                                    }
-                                    return (T) Short.valueOf(jsonValue2.h());
-                                }
-                                return (T) Double.valueOf(jsonValue2.c());
-                            }
-                            return (T) Long.valueOf(jsonValue2.g());
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:23:0x0063, code lost:
+        r9 = 1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:27:0x006d, code lost:
+        r12 = r1;
+        r13 = r2;
+        r14 = r3;
+        r15 = r4;
+        r16 = r5;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:28:0x0073, code lost:
+        r9 = r6;
+        r6 = f(r7[r15], r8, r6, r13, 0, r11);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:29:0x007f, code lost:
+        if (r6 == 0) goto L42;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:30:0x0081, code lost:
+        java.lang.System.arraycopy(r8, r9, r7, r14, r6);
+        r1 = r14 + r6;
+        r2 = r9 + r6;
+        r3 = r13 - r6;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:31:0x008a, code lost:
+        if (r3 > r10) goto L28;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:32:0x008c, code lost:
+        r6 = r2;
+        r2 = r3;
+        r4 = r15;
+        r5 = r16;
+        r9 = 1;
+        r17 = r12;
+        r12 = r1;
+        r1 = r17;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:33:0x0099, code lost:
+        r14 = r1;
+        r9 = r2;
+        r13 = r3;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:34:0x009c, code lost:
+        r5 = r14 + 1;
+        r4 = r15 + 1;
+        r7[r14] = r7[r15];
+        r12 = r12 - 1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x00a6, code lost:
+        if (r12 != 0) goto L44;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:36:0x00a8, code lost:
+        r6 = r9;
+        r1 = r12;
+        r2 = r13;
+        r9 = 1;
+        r12 = r5;
+        r5 = r16;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:37:0x00b0, code lost:
+        r15 = r4;
+        r1 = e(r8[r9], r7, r4, r12, 0, r11);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:38:0x00bf, code lost:
+        if (r1 == 0) goto L72;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:39:0x00c1, code lost:
+        java.lang.System.arraycopy(r7, r15, r7, r5, r1);
+        r2 = r5 + r1;
+        r4 = r15 + r1;
+        r3 = r12 - r1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:40:0x00ca, code lost:
+        if (r3 != 0) goto L48;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x00cc, code lost:
+        r12 = r2;
+        r1 = r3;
+        r6 = r9;
+        r2 = r13;
+        r5 = r16;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:42:0x00d3, code lost:
+        r5 = r2;
+        r12 = r3;
+        r15 = r4;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:43:0x00d7, code lost:
+        r5 = r5;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:44:0x00d8, code lost:
+        r2 = r5 + 1;
+        r6 = r9 + 1;
+        r7[r5] = r8[r9];
+        r13 = r13 - 1;
+        r9 = 1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:45:0x00e3, code lost:
+        if (r13 != 1) goto L51;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:46:0x00e5, code lost:
+        r1 = r12;
+        r4 = r15;
+        r5 = r16;
+        r12 = r2;
+        r2 = r13;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:57:0x0109, code lost:
+        r16 = r16 - 1;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:58:0x010c, code lost:
+        if (r6 < 7) goto L66;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:59:0x010e, code lost:
+        r4 = true;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:60:0x0110, code lost:
+        r4 = false;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:61:0x0111, code lost:
+        if (r1 < 7) goto L65;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:62:0x0113, code lost:
+        r1 = true;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:63:0x0115, code lost:
+        r1 = false;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:65:0x0117, code lost:
+        if ((r1 | r4) != false) goto L58;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:66:0x0119, code lost:
+        if (r16 >= 0) goto L64;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:67:0x011b, code lost:
+        r16 = 0;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:69:0x0127, code lost:
+        r14 = r2;
+        r10 = 1;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:70:0x012c A[LOOP:1: B:14:0x0037->B:70:0x012c, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:82:0x006d A[EDGE_INSN: B:82:0x006d->B:27:0x006d ?: BREAK  , SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void k(int i, int i2, int i3, int i4) {
+        int i5;
+        int i6;
+        int i7;
+        int i8;
+        int i9;
+        int i10;
+        int i11;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIIII(1048582, this, i, i2, i3, i4) == null) {
+            int i12 = i2;
+            T[] tArr = this.a;
+            T[] d = d(i12);
+            System.arraycopy(tArr, i, d, 0, i12);
+            int i13 = i + 1;
+            int i14 = i3 + 1;
+            tArr[i] = tArr[i3];
+            int i15 = i4 - 1;
+            if (i15 == 0) {
+                System.arraycopy(d, 0, tArr, i13, i12);
+                return;
+            }
+            int i16 = 1;
+            if (i12 == 1) {
+                System.arraycopy(tArr, i14, tArr, i13, i15);
+                tArr[i13 + i15] = d[0];
+                return;
+            }
+            Comparator<? super T> comparator = this.b;
+            int i17 = this.c;
+            int i18 = 0;
+            loop0: while (true) {
+                int i19 = 0;
+                int i20 = 0;
+                while (true) {
+                    if (comparator.compare(tArr[i14], d[i18]) < 0) {
+                        i5 = i13 + 1;
+                        int i21 = i14 + 1;
+                        tArr[i13] = tArr[i14];
+                        i20 += i16;
+                        i15--;
+                        if (i15 == 0) {
+                            i14 = i21;
+                            break loop0;
                         }
-                        return (T) Integer.valueOf(jsonValue2.f());
+                        i13 = i5;
+                        i14 = i21;
+                        i19 = 0;
+                        if ((i19 | i20) < i17) {
+                            break;
+                        }
+                    } else {
+                        int i22 = i13 + 1;
+                        int i23 = i18 + 1;
+                        tArr[i13] = d[i18];
+                        i19 += i16;
+                        i12--;
+                        if (i12 == i16) {
+                            i5 = i22;
+                            i18 = i23;
+                            break loop0;
+                        }
+                        i13 = i22;
+                        i18 = i23;
+                        i20 = 0;
+                        if ((i19 | i20) < i17) {
+                        }
                     }
                 }
-                return (T) Float.valueOf(jsonValue2.d());
+                i17 = i10 + 2;
+                i13 = i11;
+                i15 = i7;
+                i12 = i8;
+                i14 = i9;
+                i16 = 1;
             }
-            if (!jsonValue15.v()) {
-                cls4 = Boolean.class;
-                jsonValue3 = jsonValue15;
+            if (i17 < i6) {
+                i17 = 1;
+            }
+            this.c = i17;
+            if (i12 == i6) {
+                System.arraycopy(tArr, i14, tArr, i5, i15);
+                tArr[i5 + i15] = d[i18];
+            } else if (i12 != 0) {
+                System.arraycopy(d, i18, tArr, i5, i12);
             } else {
-                if (cls3 != null) {
-                    try {
-                        if (cls3 != Boolean.TYPE) {
-                            cls4 = Boolean.class;
-                        }
-                    } catch (NumberFormatException unused) {
-                        cls4 = Boolean.class;
-                    }
-                }
-                cls4 = Boolean.class;
-                try {
-                    return (T) Boolean.valueOf(jsonValue15.a());
-                } catch (NumberFormatException unused2) {
-                    jsonValue3 = new JsonValue(jsonValue15.j());
-                    if (!jsonValue3.D()) {
-                    }
-                }
+                throw new IllegalArgumentException("Comparison method violates its general contract!");
             }
-            if (!jsonValue3.D()) {
-                ?? r12 = (T) jsonValue3.j();
-                if (cls3 != null && cls3 != String.class) {
-                    if (cls3 != Integer.TYPE && cls3 != Integer.class) {
-                        if (cls3 != Float.TYPE && cls3 != Float.class) {
-                            if (cls3 != Long.TYPE && cls3 != Long.class) {
-                                if (cls3 != Double.TYPE && cls3 != Double.class) {
-                                    if (cls3 != Short.TYPE && cls3 != Short.class) {
-                                        if (cls3 == Byte.TYPE || cls3 == Byte.class) {
-                                            return (T) Byte.valueOf((String) r12);
-                                        }
-                                        if (cls3 != Boolean.TYPE && cls3 != cls4) {
-                                            if (cls3 != Character.TYPE && cls3 != Character.class) {
-                                                if (a9.f(Enum.class, cls3)) {
-                                                    Enum[] enumArr = (Enum[]) cls3.getEnumConstants();
-                                                    int length = enumArr.length;
-                                                    while (i < length) {
-                                                        ?? r5 = (T) enumArr[i];
-                                                        if (r12.equals(b(r5))) {
-                                                            return r5;
-                                                        }
-                                                        i++;
-                                                    }
-                                                }
-                                                if (cls3 == CharSequence.class) {
-                                                    return r12;
-                                                }
-                                                throw new SerializationException("Unable to convert value to required type: " + jsonValue3 + " (" + cls3.getName() + SmallTailInfo.EMOTION_SUFFIX);
-                                            }
-                                            return (T) Character.valueOf(r12.charAt(0));
-                                        }
-                                        return (T) Boolean.valueOf((String) r12);
-                                    }
-                                    return (T) Short.valueOf((String) r12);
-                                }
-                                return (T) Double.valueOf((String) r12);
-                            }
-                            return (T) Long.valueOf((String) r12);
-                        }
-                        return (T) Float.valueOf((String) r12);
-                    }
-                    return (T) Integer.valueOf((String) r12);
-                }
-                return r12;
-            }
-            return null;
         }
-        return (T) invokeLLL.objValue;
     }
 
-    public <T> T l(String str, Class<T> cls, JsonValue jsonValue) {
-        InterceptResult invokeLLL;
+    public final void m(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048587, this, str, cls, jsonValue)) == null) {
-            return (T) k(cls, null, jsonValue.l(str));
+        if (interceptable == null || interceptable.invokeII(1048583, this, i, i2) == null) {
+            int[] iArr = this.g;
+            int i3 = this.f;
+            iArr[i3] = i;
+            this.h[i3] = i2;
+            this.f = i3 + 1;
         }
-        return (T) invokeLLL.objValue;
-    }
-
-    public <T> T m(String str, Class<T> cls, Class cls2, JsonValue jsonValue) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048588, this, str, cls, cls2, jsonValue)) == null) {
-            return (T) k(cls, cls2, jsonValue.l(str));
-        }
-        return (T) invokeLLLL.objValue;
-    }
-
-    public <T> T n(String str, Class<T> cls, T t, JsonValue jsonValue) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048589, this, str, cls, t, jsonValue)) == null) {
-            JsonValue l = jsonValue.l(str);
-            if (l == null) {
-                return t;
-            }
-            return (T) k(cls, null, l);
-        }
-        return (T) invokeLLLL.objValue;
     }
 }

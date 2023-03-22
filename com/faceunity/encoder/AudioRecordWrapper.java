@@ -10,6 +10,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.extractor.ogg.OpusReader;
 import java.nio.ByteBuffer;
 /* loaded from: classes7.dex */
 public class AudioRecordWrapper {
@@ -37,7 +38,7 @@ public class AudioRecordWrapper {
             }
         }
         AUDIO_SOURCES = new int[]{1, 0, 5, 7, 6};
-        SAMPLE_RATE = 48000;
+        SAMPLE_RATE = OpusReader.SAMPLE_RATE;
         SAMPLES_PER_FRAME = 2048;
         FRAMES_PER_BUFFER = 24;
     }

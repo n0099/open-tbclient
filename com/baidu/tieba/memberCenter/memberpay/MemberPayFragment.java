@@ -8,7 +8,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.n58;
+import com.baidu.tieba.qa8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ public class MemberPayFragment extends BaseFragment {
     public int f;
     public int g;
     public String h;
-    public n58 i;
+    public qa8 i;
     public MemberPayResult j;
     public View k;
 
@@ -55,21 +55,21 @@ public class MemberPayFragment extends BaseFragment {
         return invokeV.intValue;
     }
 
-    public void C1(Boolean bool) {
-        n58 n58Var;
+    public void E1(Boolean bool) {
+        qa8 qa8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, bool) == null) && (n58Var = this.i) != null) {
-            n58Var.s(bool.booleanValue());
+        if ((interceptable == null || interceptable.invokeL(1048576, this, bool) == null) && (qa8Var = this.i) != null) {
+            qa8Var.s(bool.booleanValue());
         }
     }
 
-    public void D1(MemberPayResult memberPayResult) {
+    public void F1(MemberPayResult memberPayResult) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, memberPayResult) == null) {
             this.j = memberPayResult;
-            n58 n58Var = this.i;
-            if (n58Var != null) {
-                n58Var.u(memberPayResult);
+            qa8 qa8Var = this.i;
+            if (qa8Var != null) {
+                qa8Var.u(memberPayResult);
             }
         }
     }
@@ -87,9 +87,9 @@ public class MemberPayFragment extends BaseFragment {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             super.onChangeSkinType(i);
-            n58 n58Var = this.i;
-            if (n58Var != null) {
-                n58Var.r(i);
+            qa8 qa8Var = this.i;
+            if (qa8Var != null) {
+                qa8Var.r(i);
             }
         }
     }
@@ -118,10 +118,10 @@ public class MemberPayFragment extends BaseFragment {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.k = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d05b3, viewGroup, false);
-            n58 n58Var = new n58(getPageContext(), this.k, this.a, this.b, this.d, this.e, this.f, this.g, this.h, this.c);
-            this.i = n58Var;
-            n58Var.u(this.j);
+            this.k = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d05c1, viewGroup, false);
+            qa8 qa8Var = new qa8(getPageContext(), this.k, this.a, this.b, this.d, this.e, this.f, this.g, this.h, this.c);
+            this.i = qa8Var;
+            qa8Var.u(this.j);
             return this.k;
         }
         return (View) invokeLLL.objValue;

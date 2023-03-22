@@ -1,55 +1,48 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-/* loaded from: classes5.dex */
-public class qr1 implements ut1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+/* loaded from: classes6.dex */
+public interface qr1 {
 
-    public qr1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    /* loaded from: classes6.dex */
+    public interface a {
+        void onFinish();
     }
 
-    @Override // com.baidu.tieba.ut1
-    public long a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            return h62.b().a;
-        }
-        return invokeL.longValue;
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(boolean z);
+
+        void b(Exception exc);
     }
 
-    @Override // com.baidu.tieba.ut1
-    public void b(Context context, String str, fo3<String> fo3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, fo3Var) == null) {
-            mw1.d(str, fo3Var);
-        }
+    /* loaded from: classes6.dex */
+    public interface c {
+        void a(boolean z);
+
+        void b();
     }
 
-    @Override // com.baidu.tieba.ut1
-    public void c(Context context, JSONArray jSONArray, fo3<String> fo3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, jSONArray, fo3Var) == null) {
-            mw1.e(jSONArray, fo3Var);
-        }
-    }
+    void a(a aVar);
+
+    void b(Activity activity, Bundle bundle, fo1 fo1Var);
+
+    void c(ho1 ho1Var);
+
+    String d(@NonNull Context context);
+
+    boolean e(Context context);
+
+    String f(@NonNull Context context);
+
+    void g(c cVar);
+
+    String h(Context context);
+
+    String i(@NonNull Context context);
+
+    void j(fo1 fo1Var);
 }

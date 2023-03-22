@@ -7,8 +7,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ItemData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.gj;
+import com.baidu.tieba.hi;
+import com.baidu.tieba.ji;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,9 +41,9 @@ public class ItemFetchUrlHttpMsg extends HttpMessage {
                 return;
             }
         }
-        addParam("screen_width", ej.l(TbadkCoreApplication.getInst().getContext()));
-        addParam("screen_length", ej.j(TbadkCoreApplication.getInst().getContext()));
-        addParam("os_ver", gj.k());
+        addParam("screen_width", hi.l(TbadkCoreApplication.getInst().getContext()));
+        addParam("screen_length", hi.j(TbadkCoreApplication.getInst().getContext()));
+        addParam("os_ver", ji.k());
         addParam("package", itemData.pkgName);
         addParam("query", str);
         if (downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData)) {

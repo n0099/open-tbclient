@@ -19,9 +19,9 @@ import com.baidu.searchbox.v8engine.FontParser;
 import com.baidu.spswitch.utils.BDEmotionPanelManager;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.tieba.q4a;
-import com.baidu.tieba.r4a;
+import com.baidu.tieba.aba;
 import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
+import com.baidu.tieba.zaa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -1440,7 +1440,7 @@ public class SVGParser {
         public String a;
         public int b;
         public int c;
-        public r4a d;
+        public aba d;
 
         public boolean j(int i) {
             InterceptResult invokeI;
@@ -1471,7 +1471,7 @@ public class SVGParser {
             }
             this.b = 0;
             this.c = 0;
-            this.d = new r4a();
+            this.d = new aba();
             String trim = str.trim();
             this.a = trim;
             this.c = trim.length();
@@ -4061,7 +4061,7 @@ public class SVGParser {
         if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
             int i = 5;
             if (str.charAt(0) == '#') {
-                q4a b2 = q4a.b(str, 1, str.length());
+                zaa b2 = zaa.b(str, 1, str.length());
                 if (b2 != null) {
                     int a2 = b2.a();
                     if (a2 != 4) {
@@ -4584,7 +4584,7 @@ public class SVGParser {
         InterceptResult invokeLII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(65562, null, str, i, i2)) == null) {
-            float b2 = new r4a().b(str, i, i2);
+            float b2 = new aba().b(str, i, i2);
             if (!Float.isNaN(b2)) {
                 return b2;
             }

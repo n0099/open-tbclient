@@ -1,20 +1,76 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.tbadk.newFriends.RequestPassFriendMessage;
+import android.os.Build;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class wk5 {
+public class wk5 extends bl5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public vk5 b;
+    public boolean c;
+    public boolean d;
 
-    public static void a(long j, String str) {
+    public wk5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(65536, null, j, str) == null) {
-            RequestPassFriendMessage requestPassFriendMessage = new RequestPassFriendMessage();
-            requestPassFriendMessage.setFriendId(j, str);
-            MessageManager.getInstance().sendMessage(requestPassFriendMessage);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            vk5 vk5Var = this.b;
+            if (vk5Var != null) {
+                return vk5Var.b();
+            }
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public void c() {
+        vk5 vk5Var;
+        gl5 gl5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.d && (vk5Var = this.b) != null && vk5Var.b() >= 0 && (gl5Var = (gl5) PerformanceLoggerHelper.getInstance().getLoggerWithType(this.a)) != null) {
+            gl5Var.e(this);
+            this.d = true;
+        }
+    }
+
+    public void e() {
+        vk5 vk5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && Build.VERSION.SDK_INT >= 16 && (vk5Var = this.b) != null) {
+            vk5Var.d();
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && !this.c && PerformanceLoggerHelper.getInstance().isSmallFlow()) {
+            this.c = true;
+            if (Build.VERSION.SDK_INT >= 16) {
+                if (this.b == null) {
+                    this.b = new vk5();
+                }
+                this.b.c();
+            }
         }
     }
 }

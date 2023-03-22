@@ -3,7 +3,7 @@ package com.huawei.hms.push.task;
 import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.fga;
+import com.baidu.tieba.oma;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -84,19 +84,19 @@ public class SendUpStreamTask extends TaskApiCall<PushClient, BaseVoidTask> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.huawei.hms.common.internal.TaskApiCall
-    public void doExecute(PushClient pushClient, ResponseErrorCode responseErrorCode, String str, fga<BaseVoidTask> fgaVar) {
+    public void doExecute(PushClient pushClient, ResponseErrorCode responseErrorCode, String str, oma<BaseVoidTask> omaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pushClient, responseErrorCode, str, fgaVar) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pushClient, responseErrorCode, str, omaVar) == null) {
             if (responseErrorCode.getErrorCode() == 0) {
                 HMSLog.i("SendUpStreamTask", "send up stream task,Operate succeed");
-                fgaVar.setResult(null);
+                omaVar.setResult(null);
             } else {
                 HMSLog.e("SendUpStreamTask", "send up stream task,Operate failed with ret=" + responseErrorCode.getErrorCode());
                 ErrorEnum fromCode = ErrorEnum.fromCode(responseErrorCode.getErrorCode());
                 if (fromCode != ErrorEnum.ERROR_UNKNOWN) {
-                    fgaVar.c(fromCode.toApiException());
+                    omaVar.c(fromCode.toApiException());
                 } else {
-                    fgaVar.c(new ApiException(new Status(responseErrorCode.getErrorCode(), responseErrorCode.getErrorReason())));
+                    omaVar.c(new ApiException(new Status(responseErrorCode.getErrorCode(), responseErrorCode.getErrorReason())));
                 }
             }
             a(pushClient, responseErrorCode);

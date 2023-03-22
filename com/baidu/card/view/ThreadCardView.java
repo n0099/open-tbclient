@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.card.CardLinkageManager;
-import com.baidu.tieba.jo;
+import com.baidu.tieba.mn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ThreadCardView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jo a;
+    public mn a;
     public ViewGroup b;
     public int c;
     public boolean d;
@@ -57,11 +57,11 @@ public class ThreadCardView extends FrameLayout {
             }
             if (this.a.a != null) {
                 CardLinkageManager.INSTANCE.pressLinkage(this.a.a, this.a.c, true);
-            } else if (this.a.b instanceof jo) {
-                CardLinkageManager.INSTANCE.pressLinkage((jo) this.a.b, this.a.c, true);
+            } else if (this.a.b instanceof mn) {
+                CardLinkageManager.INSTANCE.pressLinkage((mn) this.a.b, this.a.c, true);
             }
             if (this.a.d) {
-                CardLinkageManager.INSTANCE.pressLinkage((jo) this.a.b, this.a.c, false);
+                CardLinkageManager.INSTANCE.pressLinkage((mn) this.a.b, this.a.c, false);
             }
         }
     }
@@ -96,8 +96,8 @@ public class ThreadCardView extends FrameLayout {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 if (this.a.a != null) {
                     CardLinkageManager.INSTANCE.pressLinkage(this.a.a, this.a.c, false);
-                } else if (this.a.b instanceof jo) {
-                    CardLinkageManager.INSTANCE.pressLinkage((jo) this.a.b, this.a.c, false);
+                } else if (this.a.b instanceof mn) {
+                    CardLinkageManager.INSTANCE.pressLinkage((mn) this.a.b, this.a.c, false);
                 }
             }
         }
@@ -171,10 +171,10 @@ public class ThreadCardView extends FrameLayout {
         this.f = new b(this);
     }
 
-    public void setITypeListView(jo joVar) {
+    public void setITypeListView(mn mnVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, joVar) == null) {
-            this.a = joVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, mnVar) == null) {
+            this.a = mnVar;
         }
     }
 
@@ -214,13 +214,13 @@ public class ThreadCardView extends FrameLayout {
                         this.d = true;
                         removeCallbacks(this.e);
                         removeCallbacks(this.f);
-                        jo joVar = this.a;
-                        if (joVar != null) {
-                            CardLinkageManager.INSTANCE.pressLinkage(joVar, this.c, false);
+                        mn mnVar = this.a;
+                        if (mnVar != null) {
+                            CardLinkageManager.INSTANCE.pressLinkage(mnVar, this.c, false);
                         } else {
                             ViewGroup viewGroup = this.b;
-                            if (viewGroup instanceof jo) {
-                                CardLinkageManager.INSTANCE.pressLinkage((jo) viewGroup, this.c, false);
+                            if (viewGroup instanceof mn) {
+                                CardLinkageManager.INSTANCE.pressLinkage((mn) viewGroup, this.c, false);
                             }
                         }
                     }

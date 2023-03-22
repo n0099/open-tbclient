@@ -1,23 +1,74 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.view.View;
+import androidx.annotation.RequiresApi;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.IOException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
 import java.util.List;
-import org.json.JSONObject;
+import java.util.Set;
 /* loaded from: classes6.dex */
 public class sm4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final om4 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public Set<String> a;
+    public tm4<List<rm4>> b;
+
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    public void a(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+        }
+    }
+
+    @RequiresApi(api = 21)
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final sm4 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-427645135, "Lcom/baidu/tieba/sm4$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-427645135, "Lcom/baidu/tieba/sm4$b;");
+                    return;
+                }
+            }
+            a = new sm4(null);
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -32,132 +83,60 @@ public class sm4 {
                 return;
             }
         }
-        a = om4.d();
+        String str = ProcessUtils.getCurProcessName() + ".trace";
+        AppRuntime.getAppContext().getExternalFilesDir(null);
     }
 
-    public static String a(String... strArr) {
-        InterceptResult invokeL;
+    public sm4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, strArr)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (strArr != null) {
-                try {
-                    if (strArr.length > 0 && strArr.length % 2 == 0) {
-                        for (int i = 0; i < strArr.length; i += 2) {
-                            String str = strArr[i];
-                            String str2 = strArr[i + 1];
-                            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                                jSONObject.put(str, str2);
-                            }
-                        }
-                    }
-                } catch (Exception e) {
-                    xg4.b().G("PMSFileUtil", "#createErrorJson put异常", e);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return "errmsg:" + jSONObject.toString();
         }
-        return (String) invokeL.objValue;
     }
 
-    @Nullable
-    public static ni4 b(String str, long j, long j2, @Nullable List<ni4> list) {
-        InterceptResult invokeCommon;
+    public static sm4 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Long.valueOf(j), Long.valueOf(j2), list})) == null) {
-            List<ni4> s = jh4.i().s(str, j, j2);
-            if (s != null) {
-                while (!s.isEmpty()) {
-                    ni4 remove = s.remove(0);
-                    if (xg4.b().r(remove)) {
-                        return remove;
-                    }
-                    if (list != null) {
-                        list.add(remove);
-                    }
-                }
-                return null;
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
         }
-        return (ni4) invokeCommon.objValue;
+        return (sm4) invokeV.objValue;
     }
 
-    public static File c(String str, String str2) {
-        InterceptResult invokeLL;
+    public tm4<List<rm4>> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                a.i("PMSFileUtil", "#generateFilePath parentDir为空 fileName=" + str2);
-                return null;
-            }
-            File file = new File(str);
-            if (!file.exists() && !file.mkdirs()) {
-                xg4.b().y("PMSFileUtil", "cannot mkdir in : " + file);
-                return null;
-            }
-            String e = e(str, str2);
-            String str3 = e;
-            for (int i = 0; i < 1000; i++) {
-                File file2 = new File(str3);
-                try {
-                    if (!file2.exists() && file2.createNewFile()) {
-                        return file2;
-                    }
-                } catch (IOException e2) {
-                    a.g("PMSFileUtil", "#generateFilePath 失败", e2);
-                }
-                str3 = e + "_" + i;
-            }
-            a.i("PMSFileUtil", "#generateFilePath 创建临时路径失败");
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return (File) invokeLL.objValue;
+        return (tm4) invokeV.objValue;
     }
 
-    public static File d(Context context) {
-        InterceptResult invokeL;
+    public Set<String> d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            File dir = context.getDir("pms_dir", 0);
-            if (!dir.exists()) {
-                dir.mkdir();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            Set<String> set = this.a;
+            if (set != null) {
+                return set;
             }
-            return dir;
+            HashSet hashSet = new HashSet();
+            this.a = hashSet;
+            hashSet.add("V8JavaScriptContext");
+            this.a.add("main");
+            return this.a;
         }
-        return (File) invokeL.objValue;
+        return (Set) invokeV.objValue;
     }
 
-    public static String e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            return f(str, str2, File.separator);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String f(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65542, null, str, str2, str3)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str2;
-            }
-            if (TextUtils.isEmpty(str2)) {
-                return str;
-            }
-            if (str.endsWith(str3)) {
-                if (str2.startsWith(str3)) {
-                    return str.concat(str2.substring(str3.length()));
-                }
-                return str.concat(str2);
-            } else if (str2.startsWith(str3)) {
-                return str.concat(str2);
-            } else {
-                return str.concat(str3).concat(str2);
-            }
-        }
-        return (String) invokeLLL.objValue;
+    public /* synthetic */ sm4(a aVar) {
+        this();
     }
 }

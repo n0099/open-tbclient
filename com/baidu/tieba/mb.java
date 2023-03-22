@@ -1,38 +1,94 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.FrameHelper;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.adp.gif.NSGif;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidParameterException;
 /* loaded from: classes5.dex */
-public abstract class mb extends qb<CustomMessage<?>, CustomMessageTask> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface mb {
+    rm a(byte[] bArr, int i, int i2);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mb(int i) {
-        super(i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    rm get(String str);
+
+    /* loaded from: classes5.dex */
+    public static class a implements mb {
+        public static /* synthetic */ Interceptable $ic;
+        public static mb c;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public final pb b;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = 0;
+            this.b = new pb();
+            if (NSGif.f) {
+                this.a = 0;
+            } else {
+                this.a = 1;
             }
         }
-        if (i != 0 && FrameHelper.e(i) != FrameHelper.TYPE.CUSTOM) {
-            throw new InvalidParameterException("cmd invalid");
+
+        public static synchronized mb b() {
+            InterceptResult invokeV;
+            mb mbVar;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                synchronized (a.class) {
+                    if (c == null) {
+                        c = new a();
+                    }
+                    mbVar = c;
+                }
+                return mbVar;
+            }
+            return (mb) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.mb
+        public rm a(byte[] bArr, int i, int i2) {
+            InterceptResult invokeLII;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
+                if (this.a == 0) {
+                    try {
+                        return this.b.a(bArr, i, i2);
+                    } catch (Exception unused) {
+                    }
+                }
+                return null;
+            }
+            return (rm) invokeLII.objValue;
+        }
+
+        @Override // com.baidu.tieba.mb
+        public rm get(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+                if (this.a == 0) {
+                    try {
+                        return this.b.get(str);
+                    } catch (Exception unused) {
+                    }
+                }
+                return null;
+            }
+            return (rm) invokeL.objValue;
         }
     }
 }

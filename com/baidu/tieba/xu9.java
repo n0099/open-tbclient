@@ -1,29 +1,11 @@
 package com.baidu.tieba;
-
-import android.content.Context;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public interface xu9 {
-    void a(int i);
+    void i(String str);
 
-    String b(boolean z);
+    void k(String str);
 
-    String c(String str);
+    void u(String str);
 
-    int d();
-
-    String e(String str);
-
-    Context getAppContext();
-
-    int getInt(String str, int i);
-
-    long getLong(String str, long j);
-
-    boolean isDebug();
-
-    void putInt(String str, int i);
-
-    void putLong(String str, long j);
-
-    void putString(String str, String str2);
+    void v(String str);
 }

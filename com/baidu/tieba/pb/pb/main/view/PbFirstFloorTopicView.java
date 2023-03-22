@@ -9,7 +9,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.hi;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -134,9 +134,9 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             setOrientation(1);
             this.a = context;
-            this.c = ej.g(context, R.dimen.obfuscated_res_0x7f070303);
-            this.d = ej.l(this.a);
-            this.b = ej.l(this.a) / 2;
+            this.c = hi.g(context, R.dimen.obfuscated_res_0x7f070303);
+            this.d = hi.l(this.a);
+            this.b = hi.l(this.a) / 2;
         }
     }
 

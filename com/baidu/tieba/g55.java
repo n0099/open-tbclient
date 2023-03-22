@@ -1,76 +1,36 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Handler;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.text.Selection;
+import android.text.SpanWatcher;
+import android.text.Spannable;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.GreyUtil;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class g55 {
+public class g55 implements SpanWatcher {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public Context b;
-    public View c;
-    public TextView d;
-    public ImageView e;
-    public Toast f;
-    public Handler g;
-    public Runnable h;
+    public SpanGroupManager a;
+    public int b;
+    public int c;
 
-    /* loaded from: classes4.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ g55 a;
-
-        public a(g55 g55Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g55Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = g55Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.f != null) {
-                    this.a.f.cancel();
-                }
-                if (this.a.c != null && (this.a.c.getParent() instanceof ViewGroup)) {
-                    ((ViewGroup) this.a.c.getParent()).removeView(this.a.c);
-                }
-            }
+    @Override // android.text.SpanWatcher
+    public void onSpanAdded(Spannable spannable, Object obj, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLII(1048576, this, spannable, obj, i, i2) == null) {
         }
     }
 
-    public g55() {
+    public g55(@NonNull SpanGroupManager spanGroupManager) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {spanGroupManager};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -80,59 +40,62 @@ public class g55 {
                 return;
             }
         }
-        this.a = 3000L;
-        this.b = null;
-        this.c = null;
-        this.d = null;
-        this.e = null;
-        this.h = new a(this);
-        this.b = TbadkCoreApplication.getInst().getContext();
-        this.g = new Handler();
+        this.a = spanGroupManager;
     }
 
-    public void c(CharSequence charSequence) {
+    @Override // android.text.SpanWatcher
+    public void onSpanChanged(Spannable spannable, Object obj, int i, int i2, int i3, int i4) {
+        SpanGroupManager spanGroupManager;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, charSequence) == null) {
-            View inflate = LayoutInflater.from(this.b).inflate(R.layout.image_toast_view, (ViewGroup) null);
-            this.c = inflate;
-            this.d = (TextView) inflate.findViewById(R.id.tip_text);
-            this.e = (ImageView) this.c.findViewById(R.id.tip_iamge);
-            this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(ej.g(this.b, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
-            this.d.setText(charSequence);
-            this.e.setImageResource(R.drawable.icon_toast_game_error);
-            e(this.c);
+        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{spannable, obj, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) != null) || (spanGroupManager = this.a) == null) {
+            return;
         }
-    }
-
-    public void d(CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, charSequence) == null) {
-            View inflate = LayoutInflater.from(this.b).inflate(R.layout.image_toast_view, (ViewGroup) null);
-            this.c = inflate;
-            this.d = (TextView) inflate.findViewById(R.id.tip_text);
-            this.e = (ImageView) this.c.findViewById(R.id.tip_iamge);
-            this.c.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(ej.g(this.b, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
-            SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0101);
-            this.d.setText(charSequence);
-            this.e.setImageResource(R.drawable.icon_toast_game_ok);
-            e(this.c);
-        }
-    }
-
-    public void e(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
-            this.g.removeCallbacks(this.h);
-            if (this.f == null) {
-                this.f = new Toast(this.b);
+        if (obj == Selection.SELECTION_END && this.c != i3) {
+            this.c = i3;
+            e55 D = spanGroupManager.D(i3);
+            if (D != null) {
+                int f = D.f();
+                int c = D.c();
+                if (Math.abs(this.c - c) <= Math.abs(this.c - f)) {
+                    f = c;
+                }
+                int selectionStart = Selection.getSelectionStart(spannable);
+                if (selectionStart > spannable.length()) {
+                    selectionStart = spannable.length();
+                }
+                if (f > spannable.length()) {
+                    f = spannable.length();
+                }
+                Selection.setSelection(spannable, selectionStart, f);
             }
-            this.g.postDelayed(this.h, this.a);
-            this.f.setView(view2);
-            this.f.setDuration(1);
-            this.f.setGravity(17, 0, 0);
-            GreyUtil.grey(this.f);
-            this.f.show();
+        }
+        if (obj == Selection.SELECTION_START && this.b != i3) {
+            this.b = i3;
+            e55 D2 = this.a.D(i3);
+            if (D2 != null) {
+                int f2 = D2.f();
+                int c2 = D2.c();
+                if (Math.abs(this.b - c2) <= Math.abs(this.b - f2)) {
+                    f2 = c2;
+                }
+                int selectionEnd = Selection.getSelectionEnd(spannable);
+                if (selectionEnd > spannable.length()) {
+                    selectionEnd = spannable.length();
+                }
+                if (f2 > spannable.length()) {
+                    f2 = spannable.length();
+                }
+                Selection.setSelection(spannable, f2, selectionEnd);
+            }
+        }
+    }
+
+    @Override // android.text.SpanWatcher
+    public void onSpanRemoved(Spannable spannable, Object obj, int i, int i2) {
+        SpanGroupManager spanGroupManager;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, spannable, obj, i, i2) == null) && (spanGroupManager = this.a) != null && this.b != this.c) {
+            spanGroupManager.r();
         }
     }
 }

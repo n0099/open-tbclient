@@ -1,185 +1,109 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.ByteBuffer;
+import java.util.LinkedList;
 /* loaded from: classes3.dex */
-public class cb {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static byte g = 4;
-    public static byte h = Byte.MIN_VALUE;
-    public static byte i = 64;
-    public static byte j = 8;
-    public static byte k = 4;
+public class cb extends eb<CustomMessage<?>, CustomMessageTask, pa, CustomResponsedMessage<?>> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public boolean c;
-    public int d;
-    public int e;
-    public boolean f;
+    public v9 i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448301358, "Lcom/baidu/tieba/cb;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1448301358, "Lcom/baidu/tieba/cb;");
-        }
-    }
-
-    public static int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return 9;
-        }
-        return invokeV.intValue;
-    }
-
-    public cb() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cb(MessageManager messageManager) {
+        super(messageManager);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {messageManager};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((MessageManager) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = false;
-        this.b = false;
-        this.c = false;
-        this.f = false;
+        this.i = null;
+        this.i = new v9(messageManager);
+        this.e = hb.c();
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    public <T> CustomResponsedMessage<T> A(CustomMessage<?> customMessage, CustomMessageTask customMessageTask, Class<T> cls) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, customMessage, customMessageTask, cls)) == null) {
+            return this.i.k(customMessage, customMessageTask, cls);
         }
-        return invokeV.intValue;
+        return (CustomResponsedMessage) invokeLLL.objValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.r9
+    /* renamed from: B */
+    public void f(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customMessage, customMessageTask) == null) {
+            this.i.f(customMessage, customMessageTask);
         }
-        return invokeV.booleanValue;
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.r9
+    public LinkedList<CustomMessage<?>> e(int i, BdUniqueId bdUniqueId) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, bdUniqueId)) == null) {
+            return this.i.e(i, bdUniqueId);
         }
-        return invokeV.booleanValue;
+        return (LinkedList) invokeIL.objValue;
     }
 
-    public boolean e() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.r9
+    public void h(int i, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f;
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, bdUniqueId) == null) {
+            this.i.h(i, bdUniqueId);
         }
-        return invokeV.booleanValue;
     }
 
-    public boolean g() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.eb
+    /* renamed from: y */
+    public CustomMessage<?> m(CustomMessage<?> customMessage, CustomMessageTask customMessageTask) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, customMessage, customMessageTask)) == null) {
+            return this.a.getController().e(customMessage, customMessageTask);
         }
-        return invokeV.booleanValue;
+        return (CustomMessage) invokeLL.objValue;
     }
 
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public static cb a(byte[] bArr) {
+    public LinkedList<CustomMessage<?>> x(BdUniqueId bdUniqueId) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) {
-            ByteBuffer wrap = ByteBuffer.wrap(bArr, 0, f());
-            cb cbVar = new cb();
-            byte b = wrap.get();
-            if ((h & b) != 0) {
-                cbVar.a = true;
-            }
-            if ((i & b) != 0) {
-                cbVar.b = true;
-            }
-            if ((j & b) != 0) {
-                cbVar.c = true;
-            }
-            if ((b & k) != 0) {
-                cbVar.f = true;
-            }
-            cbVar.d = wrap.getInt();
-            cbVar.e = wrap.getInt();
-            return cbVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bdUniqueId)) == null) {
+            return this.i.i(bdUniqueId);
         }
-        return (cb) invokeL.objValue;
+        return (LinkedList) invokeL.objValue;
     }
 
-    public static byte[] i(boolean z, boolean z2, int i2, int i3, byte[] bArr, boolean z3) {
-        InterceptResult invokeCommon;
-        int i4;
+    public void z(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2), Integer.valueOf(i3), bArr, Boolean.valueOf(z3)})) == null) {
-            byte b = 0;
-            if (bArr != null) {
-                i4 = bArr.length;
-            } else {
-                i4 = 0;
-            }
-            ByteBuffer allocate = ByteBuffer.allocate(f() + i4);
-            if (z) {
-                b = (byte) (h | 0);
-            }
-            if (z2) {
-                b = (byte) (i | b);
-            }
-            byte b2 = (byte) (j | b);
-            if (z3) {
-                b2 = (byte) (b2 | k);
-            }
-            allocate.put(b2);
-            allocate.putInt(i2);
-            allocate.putInt(i3);
-            if (bArr != null) {
-                allocate.put(bArr);
-            }
-            allocate.flip();
-            return allocate.array();
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId) == null) {
+            this.i.j(bdUniqueId);
         }
-        return (byte[]) invokeCommon.objValue;
     }
 }

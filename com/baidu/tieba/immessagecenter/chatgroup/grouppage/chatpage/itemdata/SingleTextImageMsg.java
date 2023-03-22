@@ -1,0 +1,192 @@
+package com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata;
+
+import android.text.SpannableStringBuilder;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.chatmessage.messages.TextImageMsg;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.R;
+import com.baidu.tieba.aq6;
+import com.baidu.tieba.vo5;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes4.dex */
+public class SingleTextImageMsg extends BaseImageMsg<TextImageMsg> {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final BdUniqueId ADAPTER_TYPE;
+    public static final int MSG_TYPE = 102;
+    public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    @vo5(serialize = false)
+    public CharSequence cacheText;
+    @vo5(serialize = false)
+    public String text;
+    @vo5(serialize = false)
+    public SpannableStringBuilder thumbnailText;
+
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg
+    public int getMsgType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return 102;
+        }
+        return invokeV.intValue;
+    }
+
+    /* loaded from: classes4.dex */
+    public class a implements aq6.i {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SingleTextImageMsg a;
+
+        public a(SingleTextImageMsg singleTextImageMsg) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {singleTextImageMsg};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = singleTextImageMsg;
+        }
+
+        @Override // com.baidu.tieba.aq6.i
+        public void a(SpannableStringBuilder spannableStringBuilder) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) && this.a.thumbnailText.length() <= 0) {
+                this.a.thumbnailText.append((CharSequence) spannableStringBuilder);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-496846488, "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/itemdata/SingleTextImageMsg;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-496846488, "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/itemdata/SingleTextImageMsg;");
+                return;
+            }
+        }
+        ADAPTER_TYPE = BdUniqueId.gen();
+    }
+
+    public SingleTextImageMsg() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @Nullable
+    public CharSequence getCacheText() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.cacheText;
+        }
+        return (CharSequence) invokeV.objValue;
+    }
+
+    public String getText() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            String str = this.text;
+            if (str != null) {
+                this.text = str.replaceAll("\r", "\n");
+            }
+            return this.text;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.BaseImageMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg, com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.gn
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return ADAPTER_TYPE;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void setCacheText(@Nullable CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, charSequence) == null) {
+            this.cacheText = charSequence;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.BaseImageMsg
+    public TextImageMsg createSdkMsgByChildClass() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new TextImageMsg();
+        }
+        return (TextImageMsg) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.BaseImageMsg
+    public void fromSdkMsgToChildClass(@NonNull TextImageMsg textImageMsg) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, textImageMsg) == null) {
+            this.text = textImageMsg.getText();
+        }
+    }
+
+    @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg
+    @NonNull
+    public CharSequence getThumbnailText() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            SpannableStringBuilder spannableStringBuilder = this.thumbnailText;
+            if (spannableStringBuilder != null) {
+                return spannableStringBuilder;
+            }
+            this.thumbnailText = new SpannableStringBuilder();
+            aq6.d(TbadkApplication.getInst(), this.text, UtilHelper.getDimenPixelSize(R.dimen.T_X03), new a(this));
+            if (this.thumbnailText.length() <= 0) {
+                this.thumbnailText.append((CharSequence) this.text);
+            }
+            if (!StringUtils.isNull(this.thumbUrl)) {
+                this.thumbnailText.append((CharSequence) this.IMG_THUMBNAIL_TEXT);
+            }
+            return this.thumbnailText;
+        }
+        return (CharSequence) invokeV.objValue;
+    }
+}

@@ -1,150 +1,208 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
+import android.app.Activity;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
+import android.net.Uri;
+import android.os.Build;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.PopupWindow;
+import android.widget.TextView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.GreyUtil;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import java.lang.reflect.Field;
 /* loaded from: classes5.dex */
-public class p06 extends zk1<ij0> {
+public final class p06 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a implements ij0 {
+    public static class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cq4 a;
+        public final /* synthetic */ PopupWindow b;
 
-        @Override // com.baidu.tieba.ij0
-        public String[] c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return null;
-            }
-            return (String[]) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.ij0
-        public boolean d(Context context, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, str)) == null) {
-                return true;
-            }
-            return invokeLL.booleanValue;
-        }
-
-        /* renamed from: com.baidu.tieba.p06$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C0369a implements lj0 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ boolean[] a;
-            public final /* synthetic */ jj0 b;
-
-            public C0369a(a aVar, boolean[] zArr, jj0 jj0Var) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, zArr, jj0Var};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = zArr;
-                this.b = jj0Var;
-            }
-
-            @Override // com.baidu.tieba.lj0
-            public void onResult(boolean z) {
-                jj0 jj0Var;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                    this.a[0] = z;
-                    if (z && (jj0Var = this.b) != null) {
-                        jj0Var.a(true, null);
-                    }
-                }
-            }
-        }
-
-        public a(p06 p06Var) {
+        public a(cq4 cq4Var, PopupWindow popupWindow) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {p06Var};
+                Object[] objArr = {cq4Var, popupWindow};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = cq4Var;
+            this.b = popupWindow;
         }
 
-        @Override // com.baidu.tieba.ij0
-        public boolean a(Context context, String str, @Nullable Map<String, Object> map, @Nullable jj0 jj0Var) {
-            InterceptResult invokeLLLL;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, str, map, jj0Var)) == null) {
-                Log.e("CMDConfig", "host invoke command = " + str);
-                if (UrlSchemaJumpHelper.isHitBlackList(str)) {
-                    return true;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f090de0) {
+                    if (w8.f().b() != null && !StringUtils.isNull(this.a.f())) {
+                        Uri parse = Uri.parse(this.a.f());
+                        if (parse != null && parse.getQueryParameters("obj_type") != null && parse.getQueryParameters("obj_source") != null) {
+                            TiebaStatic.log(new StatisticItem("c13391").param("obj_type", parse.getQueryParameter("obj_type")).param("obj_source", parse.getQueryParameter("obj_source")));
+                        }
+                        if (this.a.f().startsWith(BdUniDispatchSchemeController.SCHEME)) {
+                            Uri.Builder buildUpon = Uri.parse(this.a.f()).buildUpon();
+                            buildUpon.appendQueryParameter(BdUniDispatchSchemeController.PARAM_SCHEME_FROM, BdUniDispatchSchemeController.SCHEME_FROM_TB_TOKEN);
+                            parse = buildUpon.build();
+                        }
+                        UtilHelper.dealOneScheme(w8.f().b(), parse.toString());
+                    }
+                    try {
+                        this.b.dismiss();
+                    } catch (Throwable th) {
+                        BdLog.e(th);
+                    }
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f090ddf) {
+                    try {
+                        this.b.dismiss();
+                    } catch (Throwable th2) {
+                        BdLog.e(th2);
+                    }
                 }
-                nj0.a(context, str, null, new C0369a(this, new boolean[1], jj0Var), false);
-                return true;
-            }
-            return invokeLLLL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.ij0
-        public void b(String str, String str2, lj0 lj0Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, lj0Var) == null) && lj0Var != null) {
-                lj0Var.onResult(true);
             }
         }
     }
 
-    public p06() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public static class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ cq4 b;
+        public final /* synthetic */ PopupWindow c;
+
+        public b(String str, cq4 cq4Var, PopupWindow popupWindow) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, cq4Var, popupWindow};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = cq4Var;
+            this.c = popupWindow;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f090de0) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2921361, this.a));
+                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FE_FITE_PROGRAM_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_id", this.b.j).param("obj_source", "tb_password").param("obj_name", this.b.h).param("obj_param1", this.b.k.intValue()));
+                    try {
+                        this.c.dismiss();
+                    } catch (Throwable th) {
+                        BdLog.e(th);
+                    }
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f090ddf) {
+                    try {
+                        this.c.dismiss();
+                    } catch (Throwable th2) {
+                        BdLog.e(th2);
+                    }
+                }
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zk1
-    /* renamed from: a */
-    public ij0 createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    public static PopupWindow a(cq4 cq4Var) {
+        InterceptResult invokeL;
+        View.OnClickListener aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, cq4Var)) == null) {
+            Activity b2 = w8.f().b();
+            if (b2 == null || cq4Var == null) {
+                return null;
+            }
+            String f = cq4Var.f();
+            if (StringUtils.isNull(f)) {
+                return null;
+            }
+            View inflate = LayoutInflater.from(b2).inflate(R.layout.obfuscated_res_0x7f0d00dd, (ViewGroup) null, true);
+            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090de0);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090ddf);
+            TextView textView3 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092469);
+            TextView textView4 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092468);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09246a);
+            tbImageView.setDefaultResource(R.drawable.obfuscated_res_0x7f0812c3);
+            tbImageView.setAutoChangeStyle(false);
+            PopupWindow popupWindow = new PopupWindow(b2);
+            if (cq4Var.g() != 3) {
+                aVar = new b(f, cq4Var, popupWindow);
+                if (!StringUtils.isNull(cq4Var.c())) {
+                    tbImageView.M(cq4Var.c(), 10, false);
+                } else {
+                    tbImageView.setImageResource(R.drawable.obfuscated_res_0x7f0812c3);
+                }
+            } else {
+                tbImageView.setImageResource(R.drawable.obfuscated_res_0x7f0812c4);
+                aVar = new a(cq4Var, popupWindow);
+            }
+            textView.setOnClickListener(aVar);
+            textView2.setOnClickListener(aVar);
+            textView.setText(cq4Var.b());
+            textView2.setText(cq4Var.a());
+            textView3.setText(cq4Var.e());
+            textView4.setText(cq4Var.d());
+            ColorDrawable colorDrawable = new ColorDrawable();
+            colorDrawable.setColor(Color.argb(178, 0, 0, 0));
+            popupWindow.setBackgroundDrawable(colorDrawable);
+            popupWindow.setWidth(hi.l(b2));
+            popupWindow.setHeight(hi.j(b2));
+            popupWindow.setContentView(inflate);
+            popupWindow.setOutsideTouchable(true);
+            GreyUtil.grey(popupWindow);
+            if (Build.VERSION.SDK_INT >= 21) {
+                try {
+                    Field declaredField = PopupWindow.class.getDeclaredField("mLayoutInScreen");
+                    declaredField.setAccessible(true);
+                    declaredField.set(popupWindow, Boolean.TRUE);
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                } catch (NoSuchFieldException e2) {
+                    e2.printStackTrace();
+                }
+            }
+            return popupWindow;
         }
-        return (ij0) invokeV.objValue;
+        return (PopupWindow) invokeL.objValue;
     }
 }

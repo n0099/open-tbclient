@@ -1,42 +1,40 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
+import com.baidu.tbadk.data.LiveRemindRecommendData;
+import com.baidu.tieba.f85;
+import com.baidu.tieba.p05;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class eh9 extends ad5 {
+public class eh9 extends p05 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
+    public final MainTabActivity c;
+    public LiveRemindRecommendData d;
+    public Map<String, Object> e;
+    public f85 f;
 
     /* loaded from: classes4.dex */
-    public interface b {
-        void a(String str);
-    }
-
-    /* loaded from: classes4.dex */
-    public class a implements zc5 {
+    public class a implements f85.h {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dh9 a;
-        public final /* synthetic */ eh9 b;
+        public final /* synthetic */ eh9 a;
 
-        public a(eh9 eh9Var, dh9 dh9Var) {
+        public a(eh9 eh9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {eh9Var, dh9Var};
+                Object[] objArr = {eh9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,124 +44,103 @@ public class eh9 extends ad5 {
                     return;
                 }
             }
-            this.b = eh9Var;
-            this.a = dh9Var;
+            this.a = eh9Var;
         }
 
-        @Override // com.baidu.tieba.zc5
-        public void A(yc5 yc5Var) {
-            dh9 dh9Var;
+        @Override // com.baidu.tieba.f85.h
+        public void dismiss() {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, yc5Var) != null) || (dh9Var = this.a) == null || dh9Var.b() == null || yc5Var == null) {
-                return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.c();
             }
-            int i = yc5Var.a;
-            if (i != 4) {
-                if (i != 7) {
-                    if (i == 8) {
-                        this.a.z();
-                        if (!this.b.h(this.a.getContext(), 25066)) {
-                            return;
-                        }
-                        this.a.p();
-                        if (this.b.a != null) {
-                            this.b.a.a(this.a.m());
-                            return;
-                        }
-                        return;
-                    }
-                    return;
-                }
-                this.a.getContext().showToast((int) R.string.over_limit_tip);
-                return;
-            }
-            this.a.v((String) yc5Var.c);
         }
     }
 
-    public eh9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public eh9(MainTabActivity mainTabActivity, se9 se9Var) {
+        super(mainTabActivity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, se9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = mainTabActivity;
     }
 
-    @Override // com.baidu.tieba.ad5
-    public cd5 b(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.p05
+    public void b() {
+        f85 f85Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            EditorTools editorTools = new EditorTools(context);
-            editorTools.setHideBigEmotion(true);
-            editorTools.setBarLauncherType(4);
-            editorTools.setBackgroundColorId(R.color.CAM_X0207);
-            return new dh9(editorTools);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (f85Var = this.f) != null) {
+            f85Var.t();
         }
-        return (cd5) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ad5
-    public void c(cd5 cd5Var) {
+    @Override // com.baidu.tieba.p05
+    public void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cd5Var) != null) || !(cd5Var instanceof dh9)) {
-            return;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.f = g85.d(null, this.c.getPageContext(), this.e, 0L, 4000L, new a(this));
+            a35.b().f(LiveRemindConfig.Scene.LIVE_FLOAT);
         }
-        EditorTools b2 = cd5Var.b();
-        a aVar = new a(this, (dh9) cd5Var);
-        b2.setActionListener(4, aVar);
-        b2.setActionListener(7, aVar);
-        b2.setActionListener(8, aVar);
     }
 
-    @Override // com.baidu.tieba.ad5
-    public void d(cd5 cd5Var) {
+    @Override // com.baidu.tieba.p05
+    public void d(p05.a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cd5Var) != null) || cd5Var == null) {
-            return;
-        }
-        EditorTools b2 = cd5Var.b();
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(5);
-        b2.h(arrayList);
-        jd5 p = b2.p(5);
-        if (p != null) {
-            p.e(false);
-            p.d = 0;
-        }
-        b2.d(new fh9(b2.getContext()));
-        b2.f();
-        b2.C(new yc5(35, 5, Boolean.FALSE));
-        b2.q();
-    }
-
-    public cd5 g(Context context, b bVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, bVar)) == null) {
-            this.a = bVar;
-            return super.a(context);
-        }
-        return (cd5) invokeLL.objValue;
-    }
-
-    public final boolean h(TbPageContext<?> tbPageContext, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, tbPageContext, i)) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount != null && currentAccount.length() > 0) {
-                return true;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            if (w05.i()) {
+                aVar.a(false);
+                return;
             }
-            TbadkCoreApplication.getInst().login(tbPageContext, new CustomMessage<>(2002001, new LoginActivityConfig(tbPageContext.getPageActivity(), true, i)));
-            return false;
+            LiveRemindRecommendData c = z25.a().c(0);
+            this.d = c;
+            if (c != null && a35.b().j(LiveRemindConfig.Scene.LIVE_FLOAT)) {
+                this.e = new HashMap();
+                int i = 3;
+                if (this.d.getRemindType() != 1) {
+                    if (this.d.getRemindType() == 2) {
+                        i = 4;
+                    } else if (this.d.getRemindType() == 3) {
+                        i = 2;
+                    } else {
+                        i = 0;
+                    }
+                }
+                this.e.put("view_top_params_key_image_url", this.d.getLiveIconSrc());
+                this.e.put("view_top_params_key_schema", this.d.getLiveIconScheme());
+                this.e.put("view_top_params_user_name", this.d.getUserName());
+                this.e.put("view_top_params_key_desc", this.d.getDesc());
+                this.e.put("view_top_params_room_id", this.d.getRoomId());
+                this.e.put("view_top_params_btn_text", this.d.getBtnText());
+                this.e.put("view_top_params_key_title", this.d.getTitle());
+                this.e.put("view_top_params_key_nid", this.d.getFeedId());
+                this.e.put("view_top_params_key_yyext", this.d.getYyExtData());
+                this.e.put("view_top_params_key_type", Integer.valueOf(i));
+                this.e.put("view_top_params_is_breathe", Boolean.FALSE);
+                if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && !h95.e()) {
+                    if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && !h95.e()) {
+                        aVar.a(true);
+                        return;
+                    } else {
+                        aVar.a(false);
+                        return;
+                    }
+                }
+                aVar.a(false);
+                return;
+            }
+            aVar.a(false);
         }
-        return invokeLI.booleanValue;
     }
 }

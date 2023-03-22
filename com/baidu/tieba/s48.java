@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,19 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetVipInfo.VipBasicList;
-import tbclient.GetVipInfo.VipSpecialItem;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes6.dex */
-public class s48 implements Cdo {
+public class s48 implements r48 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
+    public static final AtomicReference<r48> a;
+    public static final r48 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public t48 a;
-    public List<VipSpecialItem> b;
-    public int c;
-    public String d;
 
     static {
         InterceptResult invokeClinit;
@@ -36,58 +32,67 @@ public class s48 implements Cdo {
                 return;
             }
         }
-        e = BdUniqueId.gen();
+        a = new AtomicReference<>(null);
+        b = new s48();
     }
 
-    public List<VipSpecialItem> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return e;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public s48(VipBasicList vipBasicList) {
+    public s48() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vipBasicList};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.c = 0;
-        this.d = "";
-        if (vipBasicList != null && vipBasicList.item.size() > 0) {
-            this.d = vipBasicList.card_id;
-            this.c = vipBasicList.card_type.intValue();
-            t48 t48Var = new t48();
-            this.a = t48Var;
-            t48Var.e(5);
-            this.a.d(vipBasicList.class_name);
-            this.a.f(vipBasicList.class_url_name);
-            this.a.g(vipBasicList.class_url);
-            this.b = new ArrayList();
-            for (VipSpecialItem vipSpecialItem : vipBasicList.item) {
-                this.b.add(vipSpecialItem);
+    }
+
+    public static r48 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            r48 r48Var = a.get();
+            if (r48Var == null) {
+                return b;
             }
+            return r48Var;
         }
+        return (r48) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.r48
+    public j48 a(n48 n48Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, n48Var)) == null) {
+            BdLog.e("Card project loaded failed.");
+            return null;
+        }
+        return (j48) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.r48
+    public n38 b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, bdUniqueId, i)) == null) {
+            BdLog.e("Card project loaded failed.");
+            return null;
+        }
+        return (n38) invokeLLI.objValue;
+    }
+
+    @Override // com.baidu.tieba.r48
+    public t48 c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, bdUniqueId)) == null) {
+            BdLog.e("Card project loaded failed.");
+            return null;
+        }
+        return (t48) invokeLL.objValue;
     }
 }

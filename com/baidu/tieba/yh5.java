@@ -1,31 +1,46 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import android.content.Intent;
+import com.baidu.tbadk.mutiprocess.DataType;
+import com.baidu.tbadk.mutiprocess.ParcelableEvent;
+import com.baidu.tbadk.mutiprocess.SerializableEvent;
+import com.baidu.tbadk.mutiprocess.StickyEvent;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface yh5 {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("AlaSquare", "SecondFloorService");
+public class yh5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(boolean z, boolean z2);
-
-        void b(boolean z);
+    public yh5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    void c();
-
-    void d(@Nullable a aVar);
-
-    void e();
-
-    @NonNull
-    Fragment f(@NonNull String str);
-
-    void hide();
-
-    void show();
+    public void a(Intent intent, oh5 oh5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, intent, oh5Var) == null) {
+            if (oh5Var instanceof StickyEvent) {
+                intent.putExtra("value_type", DataType.ORM.ordinal());
+                intent.putExtra("value", (StickyEvent) oh5Var);
+            } else if (oh5Var instanceof ParcelableEvent) {
+                intent.putExtra("value_type", DataType.PARCELABLE.ordinal());
+                intent.putExtra("value", (ParcelableEvent) oh5Var);
+            } else if (oh5Var instanceof SerializableEvent) {
+                intent.putExtra("value_type", DataType.SERIALIZABLE.ordinal());
+                intent.putExtra("value", (SerializableEvent) oh5Var);
+            }
+        }
+    }
 }

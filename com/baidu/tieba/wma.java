@@ -1,40 +1,34 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeUnit;
-import rx.functions.Actions;
-import rx.schedulers.Schedulers;
+import java.util.concurrent.Callable;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.Executor;
 /* loaded from: classes6.dex */
-public class wma<T> {
+public final class wma {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final c<T> a;
 
     /* loaded from: classes6.dex */
-    public interface c<T> extends gna<xma<? super T>> {
-        @Override // com.baidu.tieba.gna
-        /* synthetic */ void call(T t);
-    }
-
-    /* loaded from: classes6.dex */
-    public class a extends xma<T> {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gna b;
-        public final /* synthetic */ gna c;
+        public final /* synthetic */ oma a;
+        public final /* synthetic */ Callable b;
 
-        public a(wma wmaVar, gna gnaVar, gna gnaVar2) {
+        public a(wma wmaVar, oma omaVar, Callable callable) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {wmaVar, gnaVar, gnaVar2};
+                Object[] objArr = {wmaVar, omaVar, callable};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,47 +38,33 @@ public class wma<T> {
                     return;
                 }
             }
-            this.b = gnaVar;
-            this.c = gnaVar2;
+            this.a = omaVar;
+            this.b = callable;
         }
 
-        @Override // com.baidu.tieba.xma
-        public final void b(Throwable th) {
+        @Override // java.lang.Runnable
+        public final void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
-                    this.b.call(th);
-                } finally {
-                    unsubscribe();
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.xma
-        public final void c(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
-                try {
-                    this.c.call(t);
-                } finally {
-                    unsubscribe();
+                    this.a.setResult(this.b.call());
+                } catch (Exception e) {
+                    this.a.c(e);
                 }
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements gna<Throwable> {
+    public static class b<TResult> implements Object, lma {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gna a;
+        public final CountDownLatch a;
 
-        public b(wma wmaVar, gna gnaVar) {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wmaVar, gnaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -94,177 +74,70 @@ public class wma<T> {
                     return;
                 }
             }
-            this.a = gnaVar;
+            this.a = new CountDownLatch(1);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.gna
-        public void call(Throwable th) {
+        @Override // com.baidu.tieba.lma
+        public final void onFailure(Exception exc) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                this.a.call(th);
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                this.a.countDown();
+            }
+        }
+
+        public final void onSuccess(TResult tresult) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tresult) == null) {
+                this.a.countDown();
             }
         }
     }
 
-    public wma(c<T> cVar) {
+    public wma() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = zqa.i(cVar);
     }
 
-    public final wma<T> h(vma vmaVar) {
+    public static <TResult> TResult b(nma<TResult> nmaVar) throws ExecutionException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, vmaVar)) == null) {
-            if (this instanceof cpa) {
-                return ((cpa) this).n(vmaVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, nmaVar)) == null) {
+            if (nmaVar.h()) {
+                return nmaVar.e();
             }
-            if (vmaVar != null) {
-                return b(new joa(this.a, vmaVar));
-            }
-            throw new NullPointerException("scheduler is null");
+            throw new ExecutionException(nmaVar.d());
         }
-        return (wma) invokeL.objValue;
+        return (TResult) invokeL.objValue;
     }
 
-    public static <T> sma<T> a(wma<T> wmaVar) {
-        InterceptResult invokeL;
+    public static void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, wmaVar)) == null) {
-            return sma.a(new koa(wmaVar.a));
+        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && Looper.myLooper() == Looper.getMainLooper()) {
+            throw new IllegalStateException(str);
         }
-        return (sma) invokeL.objValue;
     }
 
-    public static <T> wma<T> b(c<T> cVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cVar)) == null) {
-            return new wma<>(cVar);
-        }
-        return (wma) invokeL.objValue;
-    }
-
-    public static <T> wma<T> g(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, t)) == null) {
-            return cpa.m(t);
-        }
-        return (wma) invokeL.objValue;
-    }
-
-    public final wma<T> e(gna<Throwable> gnaVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gnaVar)) == null) {
-            if (gnaVar != null) {
-                return b(new goa(this, Actions.a(), new b(this, gnaVar)));
-            }
-            throw new IllegalArgumentException("onError is null");
-        }
-        return (wma) invokeL.objValue;
-    }
-
-    public final wma<T> f(gna<? super T> gnaVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, gnaVar)) == null) {
-            if (gnaVar != null) {
-                return b(new goa(this, gnaVar, Actions.a()));
-            }
-            throw new IllegalArgumentException("onSuccess is null");
-        }
-        return (wma) invokeL.objValue;
-    }
-
-    public final wma<T> c(long j, TimeUnit timeUnit) {
-        InterceptResult invokeJL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(1048576, this, j, timeUnit)) == null) {
-            return d(j, timeUnit, Schedulers.computation());
-        }
-        return (wma) invokeJL.objValue;
-    }
-
-    public final zma k(gna<? super T> gnaVar, gna<Throwable> gnaVar2) {
+    public final <TResult> nma<TResult> a(Executor executor, Callable<TResult> callable) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, gnaVar, gnaVar2)) == null) {
-            if (gnaVar != null) {
-                if (gnaVar2 != null) {
-                    return j(new a(this, gnaVar2, gnaVar));
-                }
-                throw new IllegalArgumentException("onError can not be null");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, executor, callable)) == null) {
+            oma omaVar = new oma();
+            try {
+                executor.execute(new a(this, omaVar, callable));
+            } catch (Exception e) {
+                omaVar.c(e);
             }
-            throw new IllegalArgumentException("onSuccess can not be null");
+            return omaVar.b();
         }
-        return (zma) invokeLL.objValue;
-    }
-
-    public final wma<T> d(long j, TimeUnit timeUnit, vma vmaVar) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), timeUnit, vmaVar})) == null) {
-            return b(new foa(this.a, j, timeUnit, vmaVar));
-        }
-        return (wma) invokeCommon.objValue;
-    }
-
-    public final zma i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return k(Actions.a(), Actions.b());
-        }
-        return (zma) invokeV.objValue;
-    }
-
-    public final sma<T> l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return a(this);
-        }
-        return (sma) invokeV.objValue;
-    }
-
-    public final zma j(xma<? super T> xmaVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, xmaVar)) == null) {
-            if (xmaVar != null) {
-                try {
-                    zqa.t(this, this.a).call(xmaVar);
-                    return zqa.s(xmaVar);
-                } catch (Throwable th) {
-                    ena.e(th);
-                    try {
-                        xmaVar.b(zqa.r(th));
-                        return pra.b();
-                    } catch (Throwable th2) {
-                        ena.e(th2);
-                        RuntimeException runtimeException = new RuntimeException("Error occurred attempting to subscribe [" + th.getMessage() + "] and then again while trying to pass to onError.", th2);
-                        zqa.r(runtimeException);
-                        throw runtimeException;
-                    }
-                }
-            }
-            throw new IllegalArgumentException("te is null");
-        }
-        return (zma) invokeL.objValue;
+        return (nma) invokeLL.objValue;
     }
 }

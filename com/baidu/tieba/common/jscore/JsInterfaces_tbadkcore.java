@@ -1,8 +1,8 @@
 package com.baidu.tieba.common.jscore;
 
 import androidx.annotation.Keep;
-import com.baidu.tieba.ge6;
-import com.baidu.tieba.zv4;
+import com.baidu.tieba.gu4;
+import com.baidu.tieba.ld6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -30,7 +30,7 @@ public final class JsInterfaces_tbadkcore {
     public static void register() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            ge6.a().c("local_obj", zv4.class);
+            ld6.a().c("local_obj", gu4.class);
         }
     }
 }

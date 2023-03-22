@@ -1,116 +1,132 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.ITaskModelData;
-import com.baidu.bdtask.model.guide.TaskGuideData;
+import com.baidu.bdtask.ctrl.SubTaskState;
 import com.baidu.bdtask.model.info.TaskInfo;
-import com.baidu.bdtask.model.meter.TaskMeterData;
-import com.baidu.bdtask.model.response.TaskResponseData;
-import com.baidu.bdtask.model.rule.TaskRuleData;
+import com.baidu.tieba.lu;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONObject;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes5.dex */
-public final class ku extends eu<TaskInfo> {
+public final class ku implements lu {
     public static /* synthetic */ Interceptable $ic;
+    public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final gu a;
+    public final mu a;
+    public final com.baidu.bdtask.strategy.e b;
 
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "info" : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ku(gu guVar) {
-        super(guVar);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {guVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((gu) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448309635, "Lcom/baidu/tieba/ku;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448309635, "Lcom/baidu/tieba/ku;");
                 return;
             }
         }
-        this.a = guVar;
+        c = new a(null);
     }
 
-    public final <T extends ITaskModelData> T b(gu guVar, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, guVar, str, str2)) == null) {
-            return guVar.a(str).a(str2);
-        }
-        return (T) invokeLLL.objValue;
-    }
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.eu
-    /* renamed from: d */
-    public TaskInfo a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                String id = jSONObject.optString("id");
-                String aid = jSONObject.optString("aid");
-                int optInt = jSONObject.optInt("type");
-                String token = jSONObject.optString("token");
-                int optInt2 = jSONObject.optInt(TaskInfo.keyBehavior, 0);
-                String actTaskId = jSONObject.optString(TaskInfo.keyActTaskId);
-                String fingerprint = jSONObject.optString(TaskInfo.keyFingerprint);
-                gu guVar = this.a;
-                String optString = jSONObject.optString("rule");
-                Intrinsics.checkExpressionValueIsNotNull(optString, "infoObj.optString(TaskRuleData.key)");
-                TaskRuleData taskRuleData = (TaskRuleData) b(guVar, "rule", optString);
-                if (taskRuleData != null) {
-                    gu guVar2 = this.a;
-                    String optString2 = jSONObject.optString("guide");
-                    Intrinsics.checkExpressionValueIsNotNull(optString2, "infoObj.optString(TaskGuideData.key)");
-                    TaskGuideData taskGuideData = (TaskGuideData) b(guVar2, "guide", optString2);
-                    if (taskGuideData != null) {
-                        gu guVar3 = this.a;
-                        String optString3 = jSONObject.optString(TaskMeterData.key);
-                        Intrinsics.checkExpressionValueIsNotNull(optString3, "infoObj.optString(TaskMeterData.key)");
-                        TaskMeterData taskMeterData = (TaskMeterData) b(guVar3, TaskMeterData.key, optString3);
-                        if (taskMeterData != null) {
-                            gu guVar4 = this.a;
-                            String optString4 = jSONObject.optString("response");
-                            Intrinsics.checkExpressionValueIsNotNull(optString4, "infoObj.optString(TaskResponseData.key)");
-                            TaskResponseData taskResponseData = (TaskResponseData) b(guVar4, "response", optString4);
-                            if (taskResponseData != null) {
-                                Intrinsics.checkExpressionValueIsNotNull(id, "id");
-                                Intrinsics.checkExpressionValueIsNotNull(aid, "aid");
-                                Intrinsics.checkExpressionValueIsNotNull(token, "token");
-                                Intrinsics.checkExpressionValueIsNotNull(actTaskId, "actTaskId");
-                                Intrinsics.checkExpressionValueIsNotNull(fingerprint, "fingerprint");
-                                return new TaskInfo(id, aid, optInt, token, optInt2, actTaskId, fingerprint, taskRuleData, taskGuideData, taskMeterData, taskResponseData);
-                            }
-                            return null;
-                        }
-                        return null;
-                    }
-                    return null;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                return null;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
             }
         }
-        return (TaskInfo) invokeL.objValue;
+
+        public final ku a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new ku(null);
+            }
+            return (ku) invokeV.objValue;
+        }
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+    }
+
+    public ku() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new mu();
+        this.b = new com.baidu.bdtask.strategy.e();
+    }
+
+    public /* synthetic */ ku(DefaultConstructorMarker defaultConstructorMarker) {
+        this();
+    }
+
+    @Override // com.baidu.tieba.lu
+    public void a(SubTaskState subTaskState) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, subTaskState) == null) {
+            lu.a.c(this, subTaskState);
+            if (subTaskState.getTaskInfo().isInitiActiveTask()) {
+                this.a.a(subTaskState);
+            } else if (subTaskState.getTaskInfo().isPassiveTask()) {
+                this.b.a(subTaskState);
+            }
+        }
+    }
+
+    public void c(SubTaskState subTaskState) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, subTaskState) == null) {
+            if (subTaskState.getTaskInfo().isInitiActiveTask()) {
+                this.a.c(subTaskState);
+            } else if (subTaskState.getTaskInfo().isPassiveTask()) {
+                this.b.c(subTaskState);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.lu
+    public boolean b(TaskInfo taskInfo, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, taskInfo, i)) == null) {
+            if (taskInfo.isInitiActiveTask()) {
+                return this.a.b(taskInfo, i);
+            }
+            if (taskInfo.isPassiveTask()) {
+                return this.b.b(taskInfo, i);
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
     }
 }

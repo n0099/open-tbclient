@@ -2,10 +2,13 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Comparator;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public final class fj6 extends li6 {
+public final class fj6 implements Comparator<ci6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -21,5 +24,19 @@ public final class fj6 extends li6 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.util.Comparator
+    /* renamed from: a */
+    public int compare(ci6 o1, ci6 o2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, o1, o2)) == null) {
+            Intrinsics.checkNotNullParameter(o1, "o1");
+            Intrinsics.checkNotNullParameter(o2, "o2");
+            return o1.compareTo(o2);
+        }
+        return invokeLL.intValue;
     }
 }

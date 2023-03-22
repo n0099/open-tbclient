@@ -1,17 +1,14 @@
 package com.baidu.tieba;
+
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 /* loaded from: classes5.dex */
-public interface pk0 {
-    void setBackgroundColor(int i);
+public interface pk0<VIEW extends View> {
+    void b(@NonNull ViewGroup viewGroup);
 
-    void setBorderRadius(float f);
+    @NonNull
+    VIEW getRealView();
 
-    void setProgressColor(int i);
-
-    void setStrokeColor(int i);
-
-    void setStrokeWidth(float f);
-
-    void setTextColor(int i);
-
-    void setTextSize(float f);
+    void update(String str, @NonNull wj0 wj0Var);
 }

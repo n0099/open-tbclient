@@ -74,10 +74,10 @@ public final class i extends h implements com.kwad.components.ad.splashscreen.g,
 
     @Override // com.kwad.components.ad.splashscreen.b.h
     public final void initView() {
-        this.yO = ((ViewStub) findViewById(R.id.obfuscated_res_0x7f09130d)).inflate();
-        this.yQ = (TextView) findViewById(R.id.obfuscated_res_0x7f09130e);
-        this.yR = (TextView) findViewById(R.id.obfuscated_res_0x7f09130c);
-        this.yP = (KsRotateView) findViewById(R.id.obfuscated_res_0x7f09130f);
+        this.yO = ((ViewStub) findViewById(R.id.obfuscated_res_0x7f09133f)).inflate();
+        this.yQ = (TextView) findViewById(R.id.obfuscated_res_0x7f091340);
+        this.yR = (TextView) findViewById(R.id.obfuscated_res_0x7f09133e);
+        this.yP = (KsRotateView) findViewById(R.id.obfuscated_res_0x7f091341);
     }
 
     @Override // com.kwad.components.ad.splashscreen.g
@@ -151,7 +151,7 @@ public final class i extends h implements com.kwad.components.ad.splashscreen.g,
     @Override // com.kwad.components.ad.splashscreen.b.h
     public final void kl() {
         if (com.kwad.components.ad.splashscreen.d.c.b(this.yF)) {
-            com.kwad.components.ad.splashscreen.d.c.a(findViewById(R.id.obfuscated_res_0x7f09130c), -1, 60, -1, -1);
+            com.kwad.components.ad.splashscreen.d.c.a(findViewById(R.id.obfuscated_res_0x7f09133e), -1, 60, -1, -1);
         }
     }
 

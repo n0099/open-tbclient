@@ -1,80 +1,43 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.ISignatureVerifier;
-import com.baidu.nps.interfa.ISignatureVerifier_SignatureVerifier_Provider;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Bundle;
+import com.baidu.payment.PaymentManager;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
 /* loaded from: classes5.dex */
 public class ne1 {
     public static /* synthetic */ Interceptable $ic;
-    public static ne1 b;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject
-    public mk1<ISignatureVerifier> a;
 
-    public void c() {
+    public static void a(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            kk1 b2 = kk1.b();
-            this.a = b2;
-            b2.a(new ISignatureVerifier_SignatureVerifier_Provider());
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947999471, "Lcom/baidu/tieba/ne1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947999471, "Lcom/baidu/tieba/ne1;");
+        if (interceptable == null || interceptable.invokeL(65536, null, bundle) == null) {
+            if (bundle == null) {
+                PaymentManager.i(3, "闪付返回信息为空");
                 return;
             }
-        }
-        b = new ne1();
-    }
-
-    public ne1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+            String string = bundle.getString(HiAnalyticsConstant.HaKey.BI_KEY_RESULT);
+            try {
+                PaymentManager.i(Integer.parseInt(string), bundle.getString("payInfo"));
+            } catch (NumberFormatException e) {
+                PaymentManager.i(3, e.getMessage());
             }
         }
-        c();
     }
 
-    public static ne1 a() {
-        InterceptResult invokeV;
+    public static void b(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
+        if (interceptable == null || interceptable.invokeL(65537, null, bundle) == null) {
+            le1.a().g(bundle);
         }
-        return (ne1) invokeV.objValue;
     }
 
-    public ISignatureVerifier b() {
-        InterceptResult invokeV;
+    public static void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.get();
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && ProcessUtils.isMainProcess()) {
+            le1.a().h("");
         }
-        return (ISignatureVerifier) invokeV.objValue;
     }
 }

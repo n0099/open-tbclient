@@ -18,11 +18,11 @@ public interface ah extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.depend.ah$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        public static class C0696a implements ah {
+        public static class C0701a implements ah {
             public static ah a;
             public IBinder b;
 
-            public C0696a(IBinder iBinder) {
+            public C0701a(IBinder iBinder) {
                 this.b = iBinder;
             }
 
@@ -56,7 +56,7 @@ public interface ah extends IInterface {
         }
 
         public static ah a() {
-            return C0696a.a;
+            return C0701a.a;
         }
 
         public static ah a(IBinder iBinder) {
@@ -67,7 +67,7 @@ public interface ah extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof ah)) {
                 return (ah) queryLocalInterface;
             }
-            return new C0696a(iBinder);
+            return new C0701a(iBinder);
         }
 
         @Override // android.os.Binder

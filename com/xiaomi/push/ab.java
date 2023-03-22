@@ -53,7 +53,7 @@ public class ab {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static boolean m172a() {
+    public static boolean m174a() {
         return a == 2;
     }
 

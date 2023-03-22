@@ -4,8 +4,8 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.p15;
-import com.baidu.tieba.ul7;
+import com.baidu.tieba.bn7;
+import com.baidu.tieba.yz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,10 +19,10 @@ import tbclient.GetSugTopic.GetSugTopicResIdl;
 public class HotSelectSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ul7 mBangTopic;
-    public ul7 mSugTopic;
-    public ul7 mUserHisTopic;
-    public ul7 mVideoTopic;
+    public bn7 mBangTopic;
+    public bn7 mSugTopic;
+    public bn7 mUserHisTopic;
+    public bn7 mVideoTopic;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public HotSelectSocketResponseMessage() {
@@ -42,40 +42,40 @@ public class HotSelectSocketResponseMessage extends SocketResponsedMessage {
         }
     }
 
-    public ul7 getBangTopic() {
+    public bn7 getBangTopic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.mBangTopic;
         }
-        return (ul7) invokeV.objValue;
+        return (bn7) invokeV.objValue;
     }
 
-    public ul7 getSugTopic() {
+    public bn7 getSugTopic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.mSugTopic;
         }
-        return (ul7) invokeV.objValue;
+        return (bn7) invokeV.objValue;
     }
 
-    public ul7 getUserHisTopic() {
+    public bn7 getUserHisTopic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.mUserHisTopic;
         }
-        return (ul7) invokeV.objValue;
+        return (bn7) invokeV.objValue;
     }
 
-    public ul7 getVideoTopic() {
+    public bn7 getVideoTopic() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.mVideoTopic;
         }
-        return (ul7) invokeV.objValue;
+        return (bn7) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -85,8 +85,8 @@ public class HotSelectSocketResponseMessage extends SocketResponsedMessage {
         if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, bArr) == null) {
             super.afterDispatchInBackGround(i, (int) bArr);
             if (bArr != null && bArr.length > 0 && getError() == 0) {
-                p15.d();
-                p15.c("topic_select_space", TbadkCoreApplication.getCurrentAccount()).a("topic_select_user", bArr);
+                yz4.d();
+                yz4.c("topic_select_space", TbadkCoreApplication.getCurrentAccount()).a("topic_select_user", bArr);
             }
         }
     }
@@ -111,36 +111,36 @@ public class HotSelectSocketResponseMessage extends SocketResponsedMessage {
                 return getSugTopicResIdl;
             }
             if (dataRes.user_his_topic != null) {
-                ul7 ul7Var = new ul7();
-                ul7Var.f(0);
-                ul7Var.d(getSugTopicResIdl.data.user_his_topic);
-                this.mUserHisTopic = ul7Var;
+                bn7 bn7Var = new bn7();
+                bn7Var.f(0);
+                bn7Var.d(getSugTopicResIdl.data.user_his_topic);
+                this.mUserHisTopic = bn7Var;
             }
             if (getSugTopicResIdl.data.bang_topic != null) {
-                ul7 ul7Var2 = new ul7();
-                ul7Var2.f(1);
-                ul7Var2.d(getSugTopicResIdl.data.bang_topic);
-                this.mBangTopic = ul7Var2;
+                bn7 bn7Var2 = new bn7();
+                bn7Var2.f(1);
+                bn7Var2.d(getSugTopicResIdl.data.bang_topic);
+                this.mBangTopic = bn7Var2;
             }
             if (getSugTopicResIdl.data.sug_topic != null) {
-                ul7 ul7Var3 = new ul7();
-                ul7Var3.d(getSugTopicResIdl.data.sug_topic);
-                this.mSugTopic = ul7Var3;
+                bn7 bn7Var3 = new bn7();
+                bn7Var3.d(getSugTopicResIdl.data.sug_topic);
+                this.mSugTopic = bn7Var3;
             }
             if (getSugTopicResIdl.data.video_topic != null) {
-                ul7 ul7Var4 = new ul7();
-                ul7Var4.d(getSugTopicResIdl.data.video_topic);
-                this.mVideoTopic = ul7Var4;
+                bn7 bn7Var4 = new bn7();
+                bn7Var4.d(getSugTopicResIdl.data.video_topic);
+                this.mVideoTopic = bn7Var4;
             }
             return getSugTopicResIdl;
         }
         return invokeIL.objValue;
     }
 
-    public void setVideoTopic(ul7 ul7Var) {
+    public void setVideoTopic(bn7 bn7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, ul7Var) == null) {
-            this.mVideoTopic = ul7Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bn7Var) == null) {
+            this.mVideoTopic = bn7Var;
         }
     }
 }

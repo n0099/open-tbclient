@@ -23,6 +23,7 @@ public class DialogSyncMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public long fromUid;
     public long operatedMaxMsgid;
     public long paid;
+    public int remainEmptySession;
     public int status;
     public int updateTime;
 
@@ -102,10 +103,19 @@ public class DialogSyncMsg extends NotifyMsg implements Parcelable, NoProGuard {
         return invokeV.longValue;
     }
 
-    public int getSyncCategory() {
+    public int getRemainEmptySession() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.remainEmptySession;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getSyncCategory() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.category;
         }
         return invokeV.intValue;
@@ -114,7 +124,7 @@ public class DialogSyncMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public long getSyncFromUid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.fromUid;
         }
         return invokeV.longValue;
@@ -123,7 +133,7 @@ public class DialogSyncMsg extends NotifyMsg implements Parcelable, NoProGuard {
     public int getSyncStatus() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.status;
         }
         return invokeV.intValue;
@@ -148,6 +158,7 @@ public class DialogSyncMsg extends NotifyMsg implements Parcelable, NoProGuard {
         this.fromUid = -1L;
         this.operatedMaxMsgid = -1L;
         this.paid = -1L;
+        this.remainEmptySession = 0;
         setNotifyCmd(22);
     }
 
@@ -175,19 +186,21 @@ public class DialogSyncMsg extends NotifyMsg implements Parcelable, NoProGuard {
         this.fromUid = -1L;
         this.operatedMaxMsgid = -1L;
         this.paid = -1L;
+        this.remainEmptySession = 0;
         this.status = parcel.readInt();
         this.updateTime = parcel.readInt();
         this.category = parcel.readInt();
         this.fromUid = parcel.readLong();
         this.operatedMaxMsgid = parcel.readLong();
         this.paid = parcel.readLong();
+        this.remainEmptySession = parcel.readInt();
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg
     public boolean parseJsonString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             try {
                 JSONObject jSONObject = new JSONObject(getJsonContent());
                 this.status = jSONObject.getInt("status");
@@ -196,6 +209,7 @@ public class DialogSyncMsg extends NotifyMsg implements Parcelable, NoProGuard {
                 this.fromUid = jSONObject.getLong("from_uid");
                 this.operatedMaxMsgid = jSONObject.optLong("msgid", -1L);
                 this.paid = jSONObject.optLong(Constants.EXTRA_PAUID_TYPE, -1L);
+                this.remainEmptySession = jSONObject.optInt(Constants.EXTRA_REMAIN_EMPTY_SESSION, 0);
                 return true;
             } catch (JSONException e) {
                 LogUtils.e(LogUtils.TAG, "parseJsonString", e);
@@ -208,7 +222,7 @@ public class DialogSyncMsg extends NotifyMsg implements Parcelable, NoProGuard {
     @Override // com.baidu.android.imsdk.chatmessage.messages.NotifyMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048582, this, parcel, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048583, this, parcel, i) == null) {
             super.writeToParcel(parcel, i);
             parcel.writeInt(this.status);
             parcel.writeInt(this.updateTime);
@@ -216,6 +230,7 @@ public class DialogSyncMsg extends NotifyMsg implements Parcelable, NoProGuard {
             parcel.writeLong(this.fromUid);
             parcel.writeLong(this.operatedMaxMsgid);
             parcel.writeLong(this.paid);
+            parcel.writeInt(this.remainEmptySession);
         }
     }
 }

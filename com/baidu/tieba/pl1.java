@@ -1,21 +1,17 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sdk.container.filedownloader.MaterialLoader;
+import android.content.SharedPreferences;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes5.dex */
 public class pl1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public SharedPreferences a;
 
     public pl1(Context context) {
         Interceptable interceptable = $ic;
@@ -32,64 +28,21 @@ public class pl1 {
                 return;
             }
         }
-        this.a = context;
+        try {
+            SharedPreferences sharedPreferences = context.getSharedPreferences("leroadcfg", 4);
+            this.a = sharedPreferences;
+            sharedPreferences.edit();
+        } catch (Throwable th) {
+            cn1.d(th);
+        }
     }
 
-    public final boolean d(String str) {
-        InterceptResult invokeL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            File a = wj1.a(str);
-            if (a != null && a.exists() && a.isFile()) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.getString("xyus", "");
         }
-        return invokeL.booleanValue;
-    }
-
-    public Bitmap a(String str, wl1 wl1Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, wl1Var)) == null) {
-            try {
-                File a = wj1.a(str);
-                if (a != null && a.exists() && a.isFile()) {
-                    return BitmapFactory.decodeFile(a.getAbsolutePath());
-                }
-            } catch (OutOfMemoryError unused) {
-            }
-            return MaterialLoader.k(this.a).i(str, wl1Var);
-        }
-        return (Bitmap) invokeLL.objValue;
-    }
-
-    public String b(String str, MaterialLoader.MaterialCacheType materialCacheType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, materialCacheType)) == null) {
-            try {
-                File a = wj1.a(str);
-                if (a != null && a.exists() && a.isFile()) {
-                    return a.getAbsolutePath();
-                }
-                return MaterialLoader.k(this.a).m(str, materialCacheType);
-            } catch (Throwable unused) {
-                return null;
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public boolean c(String str, MaterialLoader.MaterialCacheType materialCacheType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, materialCacheType)) == null) {
-            if (!MaterialLoader.k(this.a).o(str, materialCacheType) && !d(str)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeLL.booleanValue;
+        return (String) invokeV.objValue;
     }
 }

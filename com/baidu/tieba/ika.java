@@ -4,51 +4,41 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.java_websocket.exceptions.InvalidDataException;
-import org.java_websocket.exceptions.InvalidFrameException;
-import org.java_websocket.framing.Framedata;
+import java.util.concurrent.Executor;
 /* loaded from: classes4.dex */
-public abstract class ika extends kka {
+public final class ika<TResult> implements bla<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ela<TResult> a;
+    public Executor b;
+    public final Object c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ika(Framedata.Opcode opcode) {
-        super(opcode);
+    public ika(Executor executor, ela<TResult> elaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {opcode};
+            Object[] objArr = {executor, elaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Framedata.Opcode) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.c = new Object();
+        this.a = elaVar;
+        this.b = executor;
     }
 
-    @Override // com.baidu.tieba.kka
-    public void h() throws InvalidDataException {
+    @Override // com.baidu.tieba.bla
+    public final void a(nka<TResult> nkaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (f()) {
-                if (!b()) {
-                    if (!c()) {
-                        if (!e()) {
-                            return;
-                        }
-                        throw new InvalidFrameException("Control frame cant have rsv3==true set");
-                    }
-                    throw new InvalidFrameException("Control frame cant have rsv2==true set");
-                }
-                throw new InvalidFrameException("Control frame cant have rsv1==true set");
-            }
-            throw new InvalidFrameException("Control frame cant have fin==false set");
+        if ((interceptable == null || interceptable.invokeL(1048576, this, nkaVar) == null) && nkaVar.f()) {
+            nkaVar.e();
+            this.b.execute(new gka(this, nkaVar));
         }
     }
 }

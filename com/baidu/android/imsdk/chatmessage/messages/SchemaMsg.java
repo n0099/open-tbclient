@@ -167,7 +167,7 @@ public class SchemaMsg extends NormalMsg {
                     this.mContent = new JSONObject(jsonContent).optString("src");
                     return true;
                 } catch (JSONException e) {
-                    LogUtils.e("TextMsg", "parse json err!", e);
+                    LogUtils.e(TextMsg.TAG, "parse json err!", e);
                 }
             }
             return false;

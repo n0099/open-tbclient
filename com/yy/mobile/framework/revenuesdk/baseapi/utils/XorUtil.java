@@ -2,7 +2,7 @@ package com.yy.mobile.framework.revenuesdk.baseapi.utils;
 
 import android.text.TextUtils;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class XorUtil {
     public static String encode(String str) {
         if (TextUtils.isEmpty(str)) {

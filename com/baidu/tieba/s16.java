@@ -1,169 +1,268 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.base.BdBaseApplication;
+import android.app.Activity;
+import android.content.DialogInterface;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.livesdk.api.share.Share;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.share.ImplicitShareMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
-@Singleton
-@Service
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class s16 implements ju1 {
+public class s16 extends ActivityDelegation {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
 
-    @Override // com.baidu.tieba.ju1
-    public void b() {
+    public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.ju1
-    public void e(String str) {
+    public final void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.ju1
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-        }
-    }
-
-    public String g() {
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public boolean onExec() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "a061" : (String) invokeV.objValue;
-    }
-
-    public jl5 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return false;
         }
-        return (jl5) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948098609, "Lcom/baidu/tieba/s16;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements DialogInterface.OnCancelListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ s16 a;
+
+        public a(s16 s16Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s16Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948098609, "Lcom/baidu/tieba/s16;");
+            this.a = s16Var;
+        }
+
+        @Override // android.content.DialogInterface.OnCancelListener
+        public void onCancel(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, dialogInterface) != null) {
                 return;
             }
+            this.a.f(true);
         }
-        b = wp1.a;
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements DialogInterface.OnCancelListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ s16 a;
+
+        public b(s16 s16Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s16Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = s16Var;
+        }
+
+        @Override // android.content.DialogInterface.OnCancelListener
+        public void onCancel(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, dialogInterface) != null) {
+                return;
+            }
+            this.a.f(false);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+            }
+        }
+
+        public c(s16 s16Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s16Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
     public s16() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public List<String> h() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add("a001");
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ju1
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (b) {
-                Log.e("DefaultSwanAppLifecycle", "onAppBackground");
-            }
-            long o = b55.m().o("smart_app_tid", 0L);
-            String s = b55.m().s("smart_app_id", "");
-            String s2 = b55.m().s("smart_app_name", "");
-            if (this.a != 0 && o != 0) {
-                long currentTimeMillis = System.currentTimeMillis() - this.a;
-                ll5 ll5Var = new ll5();
-                ll5Var.y(currentTimeMillis);
-                ll5Var.s(g());
-                ll5Var.C(o);
-                ll5Var.i = s;
-                ll5Var.j = s2;
-                ll5Var.x(h());
-                ml5.b().j(true);
-                ml5.b().k(TbadkApplication.getInst().getApplicationContext(), ll5Var, i());
-                b55.m().A("smart_app_tid", 0L);
-            }
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            e();
+            g(getAgent(), this.mParams.getString("options"));
         }
     }
 
-    @Override // com.baidu.tieba.ju1
-    public void c(String str) {
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public void onSelfFinish() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (b) {
-                Log.e("DefaultSwanAppLifecycle", "onAppForeground" + m93.M().b);
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            h();
+        }
+    }
+
+    public final int d(int i, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
+            if (str.equals(Share.WEIXIN_FRIEND)) {
+                return 3;
             }
-            File file = new File(vm.b("libBaiduMapSDK.so"));
-            if (file.exists() && file.isFile() && BdBaseApplication.getInst().getResHashMap().get("libBaiduMapSDK.so") == null && xm.a(BdBaseApplication.getInst().getContext(), vm.a("libBaiduMapSDK.so"))) {
-                try {
-                    System.loadLibrary("BaiduMapSDK");
-                } catch (Throwable unused) {
+            if (str.equals(Share.WEIXIN_TIMELINE)) {
+                return 2;
+            }
+            if (str.equals(Share.QQFRIEND)) {
+                return 8;
+            }
+            if (str.equals(Share.QQDENGLU)) {
+                return 4;
+            }
+            if (str.equals(Share.SINAWEIBO)) {
+                return 6;
+            }
+            return i;
+        }
+        return invokeIL.intValue;
+    }
+
+    public final void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.mResult.putBoolean("share_result", z);
+            h();
+            finish();
+        }
+    }
+
+    public final void g(Activity activity, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, activity, str) == null) {
+            if (activity == null) {
+                f(false);
+                return;
+            }
+            r16 r16Var = new r16();
+            try {
+                r16Var.q(new JSONObject(str));
+                TbadkCoreApplication.getInst().setCurAiAppid(r16Var.x0);
+                if (!TextUtils.isEmpty(r16Var.o())) {
+                    int d = d(-1, r16Var.o());
+                    if (!TextUtils.isEmpty(r16Var.n()) && !TextUtils.isEmpty(r16Var.m())) {
+                        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SHARE_COMMAND_GENERATE);
+                        httpMessage.addParam("scheme", r16Var.n());
+                        httpMessage.setExtra(new zv4(r16Var, activity, d, new a(this)));
+                        MessageManager.getInstance().sendMessage(httpMessage);
+                        return;
+                    }
+                    MessageManager.getInstance().sendMessage(new ImplicitShareMessage(activity, d, r16Var, true));
+                    f(y85.b(activity, d));
+                    return;
                 }
-                BdBaseApplication.getInst().getResHashMap().put("libBaiduMapSDK.so", vm.a("libBaiduMapSDK.so"));
-            }
-            this.a = System.currentTimeMillis();
-        }
-    }
-
-    @Override // com.baidu.tieba.ju1
-    public void d(@NonNull SwanAppActivity swanAppActivity, int i, @Nullable ju2 ju2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048579, this, swanAppActivity, i, ju2Var) == null) {
-            if (b) {
-                Log.e("DefaultSwanAppLifecycle", "onAppExit");
-            }
-            if (b55.m().i("key_ai_app_guide_display", true)) {
-                Intent intent = new Intent(swanAppActivity, DealIntentService.class);
-                intent.putExtra(DealIntentService.KEY_CLASS, 38);
-                swanAppActivity.startService(intent);
+                TiebaStatic.log(new StatisticItem("c13530").param("obj_id", r16Var.x0).param("obj_type", r16Var.y0).param("obj_source", r16Var.z0));
+                ShareDialogConfig shareDialogConfig = new ShareDialogConfig(activity, r16Var, false);
+                shareDialogConfig.onCancelListener = new b(this);
+                shareDialogConfig.onDismissListener = new c(this);
+                JSONArray p = r16Var.p();
+                if (p != null && !TextUtils.isEmpty(r16Var.n()) && !TextUtils.isEmpty(r16Var.m())) {
+                    ArrayList arrayList = new ArrayList();
+                    for (int i = 0; i < p.length(); i++) {
+                        try {
+                            arrayList.add(Integer.valueOf(d(-1, p.getString(i))));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    if (!ListUtils.isEmpty(arrayList)) {
+                        r16Var.i(arrayList);
+                    }
+                    HttpMessage httpMessage2 = new HttpMessage(CmdConfigHttp.CMD_SHARE_COMMAND_GENERATE);
+                    httpMessage2.addParam("scheme", r16Var.n());
+                    httpMessage2.setExtra(new zv4(r16Var, activity, shareDialogConfig.onCancelListener));
+                    MessageManager.getInstance().sendMessage(httpMessage2);
+                    return;
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
+            } catch (JSONException unused) {
+                f(false);
             }
         }
     }

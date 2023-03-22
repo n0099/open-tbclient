@@ -1,187 +1,468 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Queue;
-import java.util.concurrent.atomic.AtomicLong;
-import rx.internal.util.UtilityFunctions;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import com.huawei.hms.common.internal.TransactionIdCreater;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import javax.security.auth.x500.X500Principal;
+import org.apache.commons.codec.net.RFC1522Codec;
 /* loaded from: classes5.dex */
-public final class nna {
+public class nna {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public char[] g;
 
-    public static long a(long j, long j2) {
-        InterceptResult invokeCommon;
+    public nna(X500Principal x500Principal) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            long j3 = j + j2;
-            if (j3 < 0) {
-                return Long.MAX_VALUE;
-            }
-            return j3;
-        }
-        return invokeCommon.longValue;
-    }
-
-    public static long b(AtomicLong atomicLong, long j) {
-        long j2;
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, atomicLong, j)) == null) {
-            do {
-                j2 = atomicLong.get();
-            } while (!atomicLong.compareAndSet(j2, a(j2, j)));
-            return j2;
-        }
-        return invokeLJ.longValue;
-    }
-
-    public static long c(long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            long j3 = j * j2;
-            if (((j | j2) >>> 31) != 0 && j2 != 0 && j3 / j2 != j) {
-                return Long.MAX_VALUE;
-            }
-            return j3;
-        }
-        return invokeCommon.longValue;
-    }
-
-    /* JADX DEBUG: Type inference failed for r10v3. Raw type applied. Possible types: R, ? super R */
-    /* JADX DEBUG: Type inference failed for r8v4. Raw type applied. Possible types: R, ? super R */
-    public static <T, R> void d(AtomicLong atomicLong, Queue<T> queue, yma<? super R> ymaVar, kna<? super T, ? extends R> knaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65539, null, atomicLong, queue, ymaVar, knaVar) == null) {
-            long j = atomicLong.get();
-            if (j == Long.MAX_VALUE) {
-                while (!ymaVar.isUnsubscribed()) {
-                    Object poll = queue.poll();
-                    if (poll == null) {
-                        ymaVar.onCompleted();
-                        return;
-                    }
-                    ymaVar.onNext((R) knaVar.call(poll));
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {x500Principal};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
+        }
+        String name = x500Principal.getName("RFC2253");
+        this.a = name;
+        this.b = name.length();
+    }
+
+    public final int a(int i) {
+        InterceptResult invokeI;
+        int i2;
+        int i3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            int i4 = i + 1;
+            if (i4 < this.b) {
+                char c = this.g[i];
+                if (c >= '0' && c <= '9') {
+                    i2 = c - TransactionIdCreater.FILL_BYTE;
+                } else if (c >= 'a' && c <= 'f') {
+                    i2 = c - 'W';
+                } else if (c >= 'A' && c <= 'F') {
+                    i2 = c - '7';
+                } else {
+                    throw new IllegalStateException("Malformed DN: " + this.a);
+                }
+                char c2 = this.g[i4];
+                if (c2 >= '0' && c2 <= '9') {
+                    i3 = c2 - TransactionIdCreater.FILL_BYTE;
+                } else if (c2 >= 'a' && c2 <= 'f') {
+                    i3 = c2 - 'W';
+                } else if (c2 >= 'A' && c2 <= 'F') {
+                    i3 = c2 - '7';
+                } else {
+                    throw new IllegalStateException("Malformed DN: " + this.a);
+                }
+                return (i2 << 4) + i3;
+            }
+            throw new IllegalStateException("Malformed DN: " + this.a);
+        }
+        return invokeI.intValue;
+    }
+
+    public List<String> d(String str) {
+        InterceptResult invokeL;
+        String h;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            this.c = 0;
+            this.d = 0;
+            this.e = 0;
+            this.f = 0;
+            this.g = this.a.toCharArray();
+            List<String> emptyList = Collections.emptyList();
+            String g = g();
+            if (g == null) {
+                return emptyList;
+            }
             do {
-                long j2 = Long.MIN_VALUE;
-                while (true) {
-                    int i = (j2 > j ? 1 : (j2 == j ? 0 : -1));
-                    if (i != 0) {
-                        if (ymaVar.isUnsubscribed()) {
-                            return;
-                        }
-                        Object poll2 = queue.poll();
-                        if (poll2 == null) {
-                            ymaVar.onCompleted();
-                            return;
+                int i = this.c;
+                if (i < this.b) {
+                    char c = this.g[i];
+                    if (c != '\"') {
+                        if (c != '#') {
+                            if (c != '+' && c != ',' && c != ';') {
+                                h = b();
+                            } else {
+                                h = "";
+                            }
                         } else {
-                            ymaVar.onNext((R) knaVar.call(poll2));
-                            j2++;
+                            h = f();
                         }
                     } else {
-                        if (i == 0) {
-                            if (ymaVar.isUnsubscribed()) {
-                                return;
-                            }
-                            if (queue.isEmpty()) {
-                                ymaVar.onCompleted();
-                                return;
-                            }
+                        h = h();
+                    }
+                    if (str.equalsIgnoreCase(g)) {
+                        if (emptyList.isEmpty()) {
+                            emptyList = new ArrayList<>();
                         }
-                        j = atomicLong.get();
-                        if (j == j2) {
-                            j = atomicLong.addAndGet(-(j2 & Long.MAX_VALUE));
+                        emptyList.add(h);
+                    }
+                    int i2 = this.c;
+                    if (i2 < this.b) {
+                        char[] cArr = this.g;
+                        if (cArr[i2] != ',' && cArr[i2] != ';' && cArr[i2] != '+') {
+                            throw new IllegalStateException("Malformed DN: " + this.a);
                         }
+                        this.c++;
+                        g = g();
                     }
                 }
-            } while (j != Long.MIN_VALUE);
+                return emptyList;
+            } while (g != null);
+            throw new IllegalStateException("Malformed DN: " + this.a);
         }
+        return (List) invokeL.objValue;
     }
 
-    public static <T> boolean e(AtomicLong atomicLong, long j, Queue<T> queue, yma<? super T> ymaVar) {
-        InterceptResult invokeCommon;
+    /* JADX WARN: Code restructure failed: missing block: B:35:0x00ab, code lost:
+        return new java.lang.String(r1, r2, r8.f - r2);
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{atomicLong, Long.valueOf(j), queue, ymaVar})) == null) {
-            return f(atomicLong, j, queue, ymaVar, UtilityFunctions.b());
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    public static <T, R> boolean f(AtomicLong atomicLong, long j, Queue<T> queue, yma<? super R> ymaVar, kna<? super T, ? extends R> knaVar) {
-        InterceptResult invokeCommon;
-        long j2;
-        long j3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{atomicLong, Long.valueOf(j), queue, ymaVar, knaVar})) == null) {
-            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-            if (i >= 0) {
-                if (i == 0) {
-                    if ((atomicLong.get() & Long.MIN_VALUE) == 0) {
-                        return true;
-                    }
-                    return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            int i = this.c;
+            this.d = i;
+            this.e = i;
+            while (true) {
+                int i2 = this.c;
+                if (i2 >= this.b) {
+                    char[] cArr = this.g;
+                    int i3 = this.d;
+                    return new String(cArr, i3, this.e - i3);
                 }
-                while (true) {
-                    j2 = atomicLong.get();
-                    j3 = j2 & Long.MIN_VALUE;
-                    if (atomicLong.compareAndSet(j2, a(Long.MAX_VALUE & j2, j) | j3)) {
+                char[] cArr2 = this.g;
+                char c = cArr2[i2];
+                if (c != ' ') {
+                    if (c == ';') {
+                        break;
+                    } else if (c != '\\') {
+                        if (c == '+' || c == ',') {
+                            break;
+                        }
+                        int i4 = this.e;
+                        this.e = i4 + 1;
+                        cArr2[i4] = cArr2[i2];
+                        this.c = i2 + 1;
+                    } else {
+                        int i5 = this.e;
+                        this.e = i5 + 1;
+                        cArr2[i5] = c();
+                        this.c++;
+                    }
+                } else {
+                    int i6 = this.e;
+                    this.f = i6;
+                    this.c = i2 + 1;
+                    this.e = i6 + 1;
+                    cArr2[i6] = WebvttCueParser.CHAR_SPACE;
+                    while (true) {
+                        int i7 = this.c;
+                        if (i7 >= this.b) {
+                            break;
+                        }
+                        char[] cArr3 = this.g;
+                        if (cArr3[i7] != ' ') {
+                            break;
+                        }
+                        int i8 = this.e;
+                        this.e = i8 + 1;
+                        cArr3[i8] = WebvttCueParser.CHAR_SPACE;
+                        this.c = i7 + 1;
+                    }
+                    int i9 = this.c;
+                    if (i9 == this.b) {
+                        break;
+                    }
+                    char[] cArr4 = this.g;
+                    if (cArr4[i9] == ',' || cArr4[i9] == '+' || cArr4[i9] == ';') {
                         break;
                     }
                 }
-                if (j2 == Long.MIN_VALUE) {
-                    d(atomicLong, queue, ymaVar, knaVar);
-                    return false;
-                } else if (j3 == 0) {
-                    return true;
+            }
+            char[] cArr5 = this.g;
+            int i10 = this.d;
+            return new String(cArr5, i10, this.e - i10);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final char c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            int i = this.c + 1;
+            this.c = i;
+            if (i != this.b) {
+                char[] cArr = this.g;
+                char c = cArr[i];
+                if (c != ' ' && c != '%' && c != '\\' && c != '_' && c != '\"' && c != '#') {
+                    switch (c) {
+                        case '*':
+                        case '+':
+                        case ',':
+                            break;
+                        default:
+                            switch (c) {
+                                case ';':
+                                case '<':
+                                case '=':
+                                case '>':
+                                    break;
+                                default:
+                                    return e();
+                            }
+                    }
+                }
+                return cArr[i];
+            }
+            throw new IllegalStateException("Unexpected end of DN: " + this.a);
+        }
+        return invokeV.charValue;
+    }
+
+    public final char e() {
+        InterceptResult invokeV;
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int a = a(this.c);
+            this.c++;
+            if (a < 128) {
+                return (char) a;
+            }
+            if (a < 192 || a > 247) {
+                return RFC1522Codec.SEP;
+            }
+            if (a <= 223) {
+                i2 = a & 31;
+                i = 1;
+            } else if (a <= 239) {
+                i = 2;
+                i2 = a & 15;
+            } else {
+                i = 3;
+                i2 = a & 7;
+            }
+            for (int i3 = 0; i3 < i; i3++) {
+                int i4 = this.c + 1;
+                this.c = i4;
+                if (i4 == this.b || this.g[i4] != '\\') {
+                    return RFC1522Codec.SEP;
+                }
+                int i5 = i4 + 1;
+                this.c = i5;
+                int a2 = a(i5);
+                this.c++;
+                if ((a2 & 192) != 128) {
+                    return RFC1522Codec.SEP;
+                }
+                i2 = (i2 << 6) + (a2 & 63);
+            }
+            return (char) i2;
+        }
+        return invokeV.charValue;
+    }
+
+    public final String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            int i = this.c + 1;
+            this.c = i;
+            this.d = i;
+            this.e = i;
+            while (true) {
+                int i2 = this.c;
+                if (i2 != this.b) {
+                    char[] cArr = this.g;
+                    if (cArr[i2] == '\"') {
+                        this.c = i2 + 1;
+                        while (true) {
+                            int i3 = this.c;
+                            if (i3 >= this.b || this.g[i3] != ' ') {
+                                break;
+                            }
+                            this.c = i3 + 1;
+                        }
+                        char[] cArr2 = this.g;
+                        int i4 = this.d;
+                        return new String(cArr2, i4, this.e - i4);
+                    }
+                    if (cArr[i2] == '\\') {
+                        cArr[this.e] = c();
+                    } else {
+                        cArr[this.e] = cArr[i2];
+                    }
+                    this.c++;
+                    this.e++;
                 } else {
-                    return false;
+                    throw new IllegalStateException("Unexpected end of DN: " + this.a);
                 }
             }
-            throw new IllegalArgumentException("n >= 0 required but it was " + j);
+        } else {
+            return (String) invokeV.objValue;
         }
-        return invokeCommon.booleanValue;
     }
 
-    public static long g(AtomicLong atomicLong, long j) {
-        long j2;
-        long j3;
-        InterceptResult invokeLJ;
+    public final String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, atomicLong, j)) == null) {
-            do {
-                j2 = atomicLong.get();
-                if (j2 == Long.MAX_VALUE) {
-                    return Long.MAX_VALUE;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            int i = this.c;
+            if (i + 4 < this.b) {
+                this.d = i;
+                this.c = i + 1;
+                while (true) {
+                    int i2 = this.c;
+                    if (i2 == this.b) {
+                        break;
+                    }
+                    char[] cArr = this.g;
+                    if (cArr[i2] == '+' || cArr[i2] == ',' || cArr[i2] == ';') {
+                        break;
+                    } else if (cArr[i2] == ' ') {
+                        this.e = i2;
+                        this.c = i2 + 1;
+                        while (true) {
+                            int i3 = this.c;
+                            if (i3 >= this.b || this.g[i3] != ' ') {
+                                break;
+                            }
+                            this.c = i3 + 1;
+                        }
+                    } else {
+                        if (cArr[i2] >= 'A' && cArr[i2] <= 'F') {
+                            cArr[i2] = (char) (cArr[i2] + WebvttCueParser.CHAR_SPACE);
+                        }
+                        this.c++;
+                    }
                 }
-                j3 = j2 - j;
-                if (j3 < 0) {
-                    throw new IllegalStateException("More produced than requested: " + j3);
+                this.e = this.c;
+                int i4 = this.e;
+                int i5 = this.d;
+                int i6 = i4 - i5;
+                if (i6 >= 5 && (i6 & 1) != 0) {
+                    int i7 = i6 / 2;
+                    byte[] bArr = new byte[i7];
+                    int i8 = i5 + 1;
+                    for (int i9 = 0; i9 < i7; i9++) {
+                        bArr[i9] = (byte) a(i8);
+                        i8 += 2;
+                    }
+                    return new String(this.g, this.d, i6);
                 }
-            } while (!atomicLong.compareAndSet(j2, j3));
-            return j3;
-        }
-        return invokeLJ.longValue;
-    }
-
-    public static boolean h(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65543, null, j)) == null) {
-            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
-            if (i >= 0) {
-                if (i != 0) {
-                    return true;
-                }
-                return false;
+                throw new IllegalStateException("Unexpected end of DN: " + this.a);
             }
-            throw new IllegalArgumentException("n >= 0 required but it was " + j);
+            throw new IllegalStateException("Unexpected end of DN: " + this.a);
         }
-        return invokeJ.booleanValue;
+        return (String) invokeV.objValue;
+    }
+
+    public final String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            while (true) {
+                int i = this.c;
+                if (i >= this.b || this.g[i] != ' ') {
+                    break;
+                }
+                this.c = i + 1;
+            }
+            int i2 = this.c;
+            if (i2 == this.b) {
+                return null;
+            }
+            this.d = i2;
+            this.c = i2 + 1;
+            while (true) {
+                int i3 = this.c;
+                if (i3 >= this.b) {
+                    break;
+                }
+                char[] cArr = this.g;
+                if (cArr[i3] == '=' || cArr[i3] == ' ') {
+                    break;
+                }
+                this.c = i3 + 1;
+            }
+            int i4 = this.c;
+            if (i4 < this.b) {
+                this.e = i4;
+                if (this.g[i4] == ' ') {
+                    while (true) {
+                        int i5 = this.c;
+                        if (i5 >= this.b) {
+                            break;
+                        }
+                        char[] cArr2 = this.g;
+                        if (cArr2[i5] == '=' || cArr2[i5] != ' ') {
+                            break;
+                        }
+                        this.c = i5 + 1;
+                    }
+                    char[] cArr3 = this.g;
+                    int i6 = this.c;
+                    if (cArr3[i6] != '=' || i6 == this.b) {
+                        throw new IllegalStateException("Unexpected end of DN: " + this.a);
+                    }
+                }
+                this.c++;
+                while (true) {
+                    int i7 = this.c;
+                    if (i7 >= this.b || this.g[i7] != ' ') {
+                        break;
+                    }
+                    this.c = i7 + 1;
+                }
+                int i8 = this.e;
+                int i9 = this.d;
+                if (i8 - i9 > 4) {
+                    char[] cArr4 = this.g;
+                    if (cArr4[i9 + 3] == '.' && (cArr4[i9] == 'O' || cArr4[i9] == 'o')) {
+                        char[] cArr5 = this.g;
+                        int i10 = this.d + 1;
+                        if (cArr5[i10] == 'I' || cArr5[i10] == 'i') {
+                            char[] cArr6 = this.g;
+                            int i11 = this.d + 2;
+                            if (cArr6[i11] == 'D' || cArr6[i11] == 'd') {
+                                this.d += 4;
+                            }
+                        }
+                    }
+                }
+                char[] cArr7 = this.g;
+                int i12 = this.d;
+                return new String(cArr7, i12, this.e - i12);
+            }
+            throw new IllegalStateException("Unexpected end of DN: " + this.a);
+        }
+        return (String) invokeV.objValue;
     }
 }

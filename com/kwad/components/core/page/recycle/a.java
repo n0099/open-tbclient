@@ -35,7 +35,7 @@ public abstract class a extends com.kwad.components.core.i.c {
     }
 
     public static int nS() {
-        return R.id.obfuscated_res_0x7f091275;
+        return R.id.obfuscated_res_0x7f0912a7;
     }
 
     public abstract d a(RecyclerView recyclerView);

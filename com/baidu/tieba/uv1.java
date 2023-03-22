@@ -1,45 +1,16 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.annotation.UiThread;
-import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
-import com.baidu.swan.apps.core.SwanAppWebViewManager;
-import com.baidu.tieba.tv1;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
 /* loaded from: classes6.dex */
-public interface uv1<T extends tv1> extends TypedCallbackHandler {
-    @UiThread
-    void N();
+public interface uv1 {
+    @NonNull
+    r62 f();
 
-    void U(za2 za2Var);
+    @NonNull
+    CallbackHandler g();
 
-    String a();
-
-    void attachActivity(Activity activity);
-
-    void b(a82 a82Var);
-
-    String b0();
-
-    SwanAppWebViewManager.d d();
-
-    void destroy();
-
-    void e0();
-
-    String getUserAgent();
-
-    void loadUrl(String str);
-
-    void onJSLoaded();
-
-    void onPause();
-
-    void onResume();
-
-    @UiThread
-    void q();
-
-    T r();
-
-    void t(za2 za2Var);
+    @NonNull
+    Context getContext();
 }

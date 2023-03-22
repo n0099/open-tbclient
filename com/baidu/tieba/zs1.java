@@ -1,21 +1,14 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.tieba.pi4;
-import okhttp3.Callback;
-import org.json.JSONObject;
+import java.io.File;
+import org.json.JSONArray;
 /* loaded from: classes7.dex */
 public interface zs1 {
-    void d(byte[] bArr);
+    void a(@NonNull JSONArray jSONArray);
 
-    <T> void e(String str, String str2, ResponseCallback<T> responseCallback);
+    wb2 b(Context context, File file, long j);
 
-    void f(String str, String str2, pi4.c cVar);
-
-    boolean g(String str);
-
-    boolean h();
-
-    boolean i(@NonNull m93 m93Var, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2, Callback callback, fo3<String> fo3Var);
+    void c(@NonNull JSONArray jSONArray);
 }

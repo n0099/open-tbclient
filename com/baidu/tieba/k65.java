@@ -1,169 +1,190 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
-import com.baidu.tbadk.core.view.itemcard.download.ItemDownloadExtraData;
-import com.baidu.tbadk.download.DownloadData;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tieba.p38;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.DataOutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import org.json.JSONException;
+import java.util.ArrayList;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class k65 {
+public class k65 implements p38 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public String j;
+    public String k;
+    public String l;
+    public String m;
+    public int n;
+    public String o;
+    public p38.a p;
+    public int q;
+    public String r;
 
-    /* loaded from: classes5.dex */
-    public static class a extends BdAsyncTask<String, Integer, Integer> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public k65() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX WARN: Type inference failed for: r2v0, types: [int] */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Integer doInBackground(String... strArr) {
-            InterceptResult invokeL;
-            HttpURLConnection httpURLConnection;
-            DataOutputStream dataOutputStream;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                HttpURLConnection httpURLConnection2 = null;
-                if (strArr != null) {
-                    ?? length = strArr.length;
-                    try {
-                        if (length != 0) {
-                            try {
-                                httpURLConnection = (HttpURLConnection) new URL("https://appc.baidu.com/appsrv?action=appdistributionlog&native_api=1").openConnection();
-                                try {
-                                    httpURLConnection.setRequestMethod("POST");
-                                    httpURLConnection.setDoOutput(true);
-                                    httpURLConnection.setDoInput(true);
-                                    httpURLConnection.setConnectTimeout(fc.d().c().b());
-                                    httpURLConnection.setReadTimeout(fc.d().b().b());
-                                    httpURLConnection.setRequestProperty("Content-Type", "application/json");
-                                    httpURLConnection.setRequestProperty(BOSTokenRequest.CHARSET, "UTF-8");
-                                    httpURLConnection.connect();
-                                    try {
-                                        dataOutputStream = new DataOutputStream(httpURLConnection.getOutputStream());
-                                        try {
-                                            dataOutputStream.write(strArr[0].getBytes("UTF-8"));
-                                            dataOutputStream.flush();
-                                            ch.d(dataOutputStream);
-                                            httpURLConnection.getResponseCode();
-                                        } catch (Throwable th) {
-                                            th = th;
-                                            ch.d(dataOutputStream);
-                                            throw th;
-                                        }
-                                    } catch (Throwable th2) {
-                                        th = th2;
-                                        dataOutputStream = null;
-                                    }
-                                } catch (Exception e) {
-                                    e = e;
-                                    e.printStackTrace();
-                                    ch.f(httpURLConnection);
-                                    return null;
-                                }
-                            } catch (Exception e2) {
-                                e = e2;
-                                httpURLConnection = null;
-                            } catch (Throwable th3) {
-                                th = th3;
-                                ch.f(httpURLConnection2);
-                                throw th;
-                            }
-                            ch.f(httpURLConnection);
-                            return null;
-                        }
-                    } catch (Throwable th4) {
-                        th = th4;
-                        httpURLConnection2 = length;
-                    }
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return !"0".equals(this.r);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "dynamic".equals(this.e);
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.p38
+    public p38.a getParallelCharge() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.p;
+        }
+        return (p38.a) invokeV.objValue;
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (StringUtils.isNull(this.a) && StringUtils.isNull(this.j) && StringUtils.isNull(this.l)) {
+                return true;
+            }
+            if (c()) {
+                if (StringUtils.isNull(this.c) || StringUtils.isNull(this.d)) {
+                    return true;
                 }
+                return false;
+            }
+            return StringUtils.isNull(this.b);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final JSONArray d(JSONObject jSONObject, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, jSONObject, str)) == null) {
+            try {
+                return jSONObject.optJSONArray(str);
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
                 return null;
             }
-            return (Integer) invokeL.objValue;
+        }
+        return (JSONArray) invokeLL.objValue;
+    }
+
+    public void e(JSONObject jSONObject) {
+        String lowerCase;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.a = jSONObject.optString("url");
+        this.b = jSONObject.optString("icon_url");
+        this.c = jSONObject.optString("fold_lottie");
+        this.d = jSONObject.optString("unfold_lottie");
+        this.e = jSONObject.optString("float_type");
+        jSONObject.optString("fold_name");
+        jSONObject.optString("unfold_name");
+        this.h = jSONObject.optString("view_statistics_url");
+        this.i = jSONObject.optString("click_statistics_url");
+        this.j = jSONObject.optString("scheme");
+        this.k = jSONObject.optString("package_name");
+        this.l = jSONObject.optString("deeplink");
+        this.n = jSONObject.optInt("source", 1);
+        this.m = jSONObject.optString("ext_info");
+        this.o = jSONObject.optString(LegoListActivityConfig.AD_ID);
+        this.r = jSONObject.optString("display_ad_icon");
+        p38.a aVar = new p38.a();
+        this.p = aVar;
+        aVar.a = jSONObject.optString("parallel_charge_url");
+        this.p.c = f(d(jSONObject, "show_urls"));
+        this.p.d = f(d(jSONObject, "click_urls"));
+        String c = oi.c(TbadkApplication.getInst().getAndroidId());
+        String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
+        StringBuilder sb = new StringBuilder();
+        sb.append("&ANDROIDID=");
+        String str = "";
+        if (c == null) {
+            lowerCase = "";
+        } else {
+            lowerCase = c.toLowerCase();
+        }
+        sb.append(lowerCase);
+        sb.append("&OAID=");
+        if (lastCachedOid != null) {
+            str = lastCachedOid.toUpperCase();
+        }
+        sb.append(str);
+        String sb2 = sb.toString();
+        if (!StringUtils.isNull(this.h)) {
+            this.h += sb2;
+        }
+        if (!StringUtils.isNull(this.i)) {
+            this.i += sb2;
         }
     }
 
-    public static void a(DownloadData downloadData, int i) {
+    public final ArrayList<String> f(JSONArray jSONArray) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65536, null, downloadData, i) == null) && downloadData != null && (downloadData.getExtra() instanceof ItemDownloadExtraData) && ((ItemDownloadExtraData) downloadData.getExtra()).isShouzhuData()) {
-            ItemDownloadExtraData itemDownloadExtraData = (ItemDownloadExtraData) downloadData.getExtra();
-            if (dj.isEmpty(itemDownloadExtraData.shouzhuSource)) {
-                itemDownloadExtraData.shouzhuSource = l65.f().g(itemDownloadExtraData.pkgName);
-            }
-            c(downloadData, i);
-            b(itemDownloadExtraData.pkgName, itemDownloadExtraData.appName, itemDownloadExtraData.shouzhuScene, itemDownloadExtraData.shouzhuCategory, itemDownloadExtraData.shouzhuSource, i);
-        }
-    }
-
-    public static void c(DownloadData downloadData, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65538, null, downloadData, i) == null) {
-            if (i != 100 && i != 200) {
-                if (i != 300) {
-                    if (i != 400) {
-                        if (i != 500) {
-                            if (i != 600) {
-                                if (i != 700 && i != 800) {
-                                    if (i == 900) {
-                                        l65.f().k(downloadData);
-                                        return;
-                                    }
-                                    return;
-                                }
-                                l65.f().e(downloadData);
-                                return;
-                            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, jSONArray)) == null) {
+            if (jSONArray != null && jSONArray.length() != 0) {
+                int length = jSONArray.length();
+                ArrayList<String> arrayList = new ArrayList<>(length);
+                for (int i = 0; i < length; i++) {
+                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
+                    if (optJSONObject != null) {
+                        String optString = optJSONObject.optString("url");
+                        if (!StringUtils.isNull(optString)) {
+                            arrayList.add(optString);
                         }
                     }
-                    l65.f().j(downloadData);
-                    return;
                 }
-                l65.f().d(downloadData);
-                return;
+                return arrayList;
             }
-            l65.f();
+            return new ArrayList<>();
         }
-    }
-
-    public static void b(String str, String str2, int i, int i2, String str3, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), str3, Integer.valueOf(i3)}) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("pkgname", str);
-                jSONObject.put("appname", str2);
-                jSONObject.put("host", 4);
-                jSONObject.put("scene", i);
-                jSONObject.put("category", i2);
-                jSONObject.put("event", i3);
-                jSONObject.put("source", str3);
-                new a().execute(jSONObject.toString());
-            } catch (JSONException unused) {
-            }
-        }
+        return (ArrayList) invokeL.objValue;
     }
 }

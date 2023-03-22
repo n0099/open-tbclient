@@ -14,16 +14,16 @@ import com.baidu.tbadk.core.atomData.PersonChangeActivityConfig;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b35;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.ey;
-import com.baidu.tieba.wh7;
+import com.baidu.tieba.bj7;
+import com.baidu.tieba.hi;
+import com.baidu.tieba.hx;
+import com.baidu.tieba.n15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class HomeLocalCompleteInfoLayout extends LinearLayout implements ey {
+public class HomeLocalCompleteInfoLayout extends LinearLayout implements hx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
@@ -60,7 +60,7 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements ey {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.getContext() == null) {
                 return;
             }
-            wh7.h();
+            bj7.h();
             PersonChangeActivityConfig personChangeActivityConfig = new PersonChangeActivityConfig(this.a.getContext());
             personChangeActivityConfig.setIsCompleteLocalInfo(true);
             personChangeActivityConfig.start();
@@ -156,25 +156,25 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements ey {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, -2);
-            marginLayoutParams.setMargins(0, ej.g(getContext(), R.dimen.M_H_X003), 0, 0);
+            marginLayoutParams.setMargins(0, hi.g(getContext(), R.dimen.M_H_X003), 0, 0);
             setLayoutParams(marginLayoutParams);
             setOrientation(0);
             setGravity(16);
-            int g = ej.g(getContext(), R.dimen.M_W_X005);
+            int g = hi.g(getContext(), R.dimen.M_W_X005);
             setPadding(g, 0, g, 0);
             TextView textView = new TextView(getContext());
             this.a = textView;
-            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0903));
+            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f090e));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
             layoutParams.weight = 1.0f;
             addView(this.a, layoutParams);
             EMTextView eMTextView = new EMTextView(getContext());
             this.b = eMTextView;
-            eMTextView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0904));
-            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, ej.g(getContext(), R.dimen.tbds75));
-            int g2 = ej.g(getContext(), R.dimen.M_W_X004);
-            layoutParams2.setMargins(g2, ej.g(getContext(), R.dimen.M_H_X005), g2, ej.g(getContext(), R.dimen.tbds38));
-            int g3 = ej.g(getContext(), R.dimen.M_W_X007);
+            eMTextView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f090f));
+            LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, hi.g(getContext(), R.dimen.tbds75));
+            int g2 = hi.g(getContext(), R.dimen.M_W_X004);
+            layoutParams2.setMargins(g2, hi.g(getContext(), R.dimen.M_H_X005), g2, hi.g(getContext(), R.dimen.tbds38));
+            int g3 = hi.g(getContext(), R.dimen.M_W_X007);
             this.b.setGravity(16);
             this.b.setPadding(g3, 0, g3, 0);
             addView(this.b, layoutParams2);
@@ -185,33 +185,33 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements ey {
         }
     }
 
-    @Override // com.baidu.tieba.ey
+    @Override // com.baidu.tieba.hx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
             TextView textView = this.a;
             if (textView != null) {
-                b35 d = b35.d(textView);
-                d.v(R.color.CAM_X0105);
-                d.z(R.dimen.T_X06);
-                d.A(R.string.F_X01);
+                n15 d = n15.d(textView);
+                d.w(R.color.CAM_X0105);
+                d.A(R.dimen.T_X06);
+                d.B(R.string.F_X01);
             }
             EMTextView eMTextView = this.b;
             if (eMTextView != null) {
-                b35 d2 = b35.d(eMTextView);
-                d2.v(R.color.CAM_X0302);
-                d2.z(R.dimen.T_X08);
-                d2.A(R.string.F_X01);
-                d2.n(R.string.J_X01);
-                d2.l(R.dimen.L_X02);
-                d2.k(R.color.CAM_X0302);
+                n15 d2 = n15.d(eMTextView);
+                d2.w(R.color.CAM_X0302);
+                d2.A(R.dimen.T_X08);
+                d2.B(R.string.F_X01);
+                d2.o(R.string.J_X01);
+                d2.m(R.dimen.L_X02);
+                d2.l(R.color.CAM_X0302);
             }
             ImageView imageView = this.c;
             if (imageView != null) {
                 WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
             }
-            b35 d3 = b35.d(this);
-            d3.n(R.string.J_X06);
+            n15 d3 = n15.d(this);
+            d3.o(R.string.J_X06);
             d3.f(R.color.CAM_X0205);
         }
     }

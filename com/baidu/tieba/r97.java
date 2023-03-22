@@ -1,110 +1,152 @@
 package com.baidu.tieba;
 
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListAdapter;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.frs.FrsSchoolRecommendItemView;
+import com.baidu.tieba.horizonalList.widget.HListView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
-import tbclient.Esport;
-import tbclient.EsportRank;
-import tbclient.EsportStatic;
 /* loaded from: classes6.dex */
-public class r97 implements Cdo {
+public class r97 extends ne6<sw6> {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public List<q97> b;
-    public String c;
-    public String d;
+    public HListView t;
+    public bm7 u;
+    public FrsSchoolRecommendItemView v;
+    public List<cm7> w;
+    public View.OnClickListener x;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948076537, "Lcom/baidu/tieba/r97;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ r97 a;
+
+        public a(r97 r97Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r97Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948076537, "Lcom/baidu/tieba/r97;");
-                return;
+            this.a = r97Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.e() != null) {
+                this.a.e().a(view2, null);
             }
         }
-        e = BdUniqueId.gen();
     }
 
-    public r97() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r97(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.x = new a(this);
+        HListView hListView = new HListView(getContext());
+        this.t = hListView;
+        hListView.setHeaderDividersEnabled(false);
+        this.t.setFooterDividersEnabled(false);
+        this.t.setSelector(R.drawable.list_selector_transparent);
+        this.v = new FrsSchoolRecommendItemView(LayoutInflater.from(tbPageContext.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0367, (ViewGroup) null), tbPageContext, bdUniqueId);
+        bm7 bm7Var = new bm7(getContext(), R.layout.obfuscated_res_0x7f0d0367, this.v);
+        this.u = bm7Var;
+        bm7Var.d(this.x);
+        this.t.setAdapter((ListAdapter) this.u);
+        this.q.addView(this.t);
+        this.p.setVisibility(8);
+        this.j.setTextSize(0, hi.g(tbPageContext.getPageActivity(), R.dimen.obfuscated_res_0x7f0701f9));
+    }
+
+    @Override // com.baidu.tieba.ne6, com.baidu.tieba.me6
+    public void m(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
+            super.m(tbPageContext, i);
+            if (this.t != null && this.u != null) {
+                SkinManager.setViewTextColor(this.j, (int) R.color.CAM_X0109);
+                this.u.b(i);
             }
         }
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public final boolean u(List<cm7> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public List<q97> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.Cdo
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return e;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void c(Esport esport) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, esport) == null) && esport != null) {
-            this.a = esport.floor_no.intValue();
-            EsportStatic esportStatic = esport._static;
-            if (esportStatic != null) {
-                this.c = esportStatic.img;
-                this.d = esportStatic.url;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
+            if (ListUtils.isEmpty(list)) {
+                return false;
             }
-            this.b = new ArrayList();
-            if (!StringUtils.isNull(this.c)) {
-                q97 q97Var = new q97();
-                q97Var.i(this.c);
-                q97Var.j(this.d);
-                this.b.add(q97Var);
+            if (ListUtils.isEmpty(this.w) || ListUtils.getCount(this.w) != ListUtils.getCount(list)) {
+                return true;
             }
-            if (!ListUtils.isEmpty(esport.billboard)) {
-                for (EsportRank esportRank : esport.billboard) {
-                    q97 q97Var2 = new q97();
-                    q97Var2.h(esportRank);
-                    this.b.add(q97Var2);
+            for (int i = 0; i < ListUtils.getCount(this.w); i++) {
+                cm7 cm7Var = (cm7) ListUtils.getItem(this.w, i);
+                cm7 cm7Var2 = (cm7) ListUtils.getItem(list, i);
+                if ((cm7Var instanceof yx6) && (cm7Var2 instanceof yx6) && !((yx6) cm7Var).a.getUserId().equals(((yx6) cm7Var2).a.getUserId())) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ne6
+    /* renamed from: x */
+    public void t(sw6 sw6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, sw6Var) == null) {
+            super.l(sw6Var);
+            if (sw6Var != null && !ListUtils.isEmpty(sw6Var.getDataList())) {
+                if (StringUtils.isNull(sw6Var.mGroupTitle)) {
+                    this.j.setText(getContext().getResources().getString(R.string.school_recommend));
+                } else {
+                    this.j.setText(sw6Var.mGroupTitle);
+                }
+                if (u(sw6Var.getDataList())) {
+                    List<cm7> dataList = sw6Var.getDataList();
+                    this.w = dataList;
+                    this.u.c(dataList);
+                    this.u.notifyDataSetChanged();
                 }
             }
         }

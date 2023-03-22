@@ -29,8 +29,8 @@ import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.searchbox.http.HttpManager;
 import com.baidu.searchbox.http.request.PostFormRequest;
-import com.baidu.tieba.d20;
-import com.baidu.tieba.e30;
+import com.baidu.tieba.t00;
+import com.baidu.tieba.u10;
 import com.baidu.util.Base64Encoder;
 import com.meizu.cloud.pushsdk.notification.model.AdvertisementOption;
 import java.io.ByteArrayOutputStream;
@@ -66,7 +66,7 @@ import org.w3c.dom.Document;
 import org.w3c.dom.Node;
 import org.xml.sax.SAXException;
 @SuppressLint({"StaticFieldLeak"})
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public final class BaiduActiveManager {
     public static final String ACTIVE_DEVICE_BEHAVIOR_PURPOSE = "active";
     public static final String BASIC_DEVICE_BEHAVIOR_SCENE = "basic";
@@ -96,7 +96,7 @@ public final class BaiduActiveManager {
     public String mConfirmExt = null;
     public String mClnCuid = null;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes2.dex */
     public static final class ActiveTimeParser {
         public static final String TAG = "ActiveTimeParser";
         public static ActiveTimeParser mParser;
@@ -287,7 +287,7 @@ public final class BaiduActiveManager {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* JADX WARN: Removed duplicated region for block: B:29:0x00e6  */
-    /* JADX WARN: Removed duplicated region for block: B:37:0x015c  */
+    /* JADX WARN: Removed duplicated region for block: B:37:0x015d  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -322,7 +322,7 @@ public final class BaiduActiveManager {
                 e = e3;
                 e.printStackTrace();
                 String encode = encode(getRandId(), "none");
-                String encode2 = encode(e30.f(AppRuntime.getAppContext()).e(), "none");
+                String encode2 = encode(u10.f(AppRuntime.getAppContext()).e(), "none");
                 String encode3 = encode(this.mInvokeSource, "none");
                 String encode4 = encode(this.mLauncherSource, "none");
                 String encode5 = encode(this.mLauncherExt, "none");
@@ -356,7 +356,7 @@ public final class BaiduActiveManager {
                 e = e4;
                 e.printStackTrace();
                 String encode10 = encode(getRandId(), "none");
-                String encode22 = encode(e30.f(AppRuntime.getAppContext()).e(), "none");
+                String encode22 = encode(u10.f(AppRuntime.getAppContext()).e(), "none");
                 String encode32 = encode(this.mInvokeSource, "none");
                 String encode42 = encode(this.mLauncherSource, "none");
                 String encode52 = encode(this.mLauncherExt, "none");
@@ -397,7 +397,7 @@ public final class BaiduActiveManager {
             str2 = str;
         }
         String encode102 = encode(getRandId(), "none");
-        String encode222 = encode(e30.f(AppRuntime.getAppContext()).e(), "none");
+        String encode222 = encode(u10.f(AppRuntime.getAppContext()).e(), "none");
         String encode322 = encode(this.mInvokeSource, "none");
         String encode422 = encode(this.mLauncherSource, "none");
         String encode522 = encode(this.mLauncherExt, "none");
@@ -825,7 +825,7 @@ public final class BaiduActiveManager {
                             }
                             appendParam = BaiduIdentityManager.getInstance().appendParam(str4 + "&pre_abi=" + new String(Base64Encoder.B64Encode(preferredABI.getBytes())), 1);
                             if (BaiduActiveManager.DEBUG) {
-                                Log.d(BaiduActiveManager.TAG, "usePrivacyPolicy: " + d20.b().h());
+                                Log.d(BaiduActiveManager.TAG, "usePrivacyPolicy: " + t00.b().h());
                                 Log.d(BaiduActiveManager.TAG, "active url: QALog-" + appendParam);
                             }
                             activePostData = BaiduActiveManager.this.getActivePostData();

@@ -1,33 +1,33 @@
 package rx.schedulers;
 
-import com.baidu.tieba.fna;
-import com.baidu.tieba.lra;
-import com.baidu.tieba.pra;
-import com.baidu.tieba.vma;
-import com.baidu.tieba.zma;
+import com.baidu.tieba.bsa;
+import com.baidu.tieba.hwa;
+import com.baidu.tieba.lwa;
+import com.baidu.tieba.rra;
+import com.baidu.tieba.vra;
 import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Queue;
 import java.util.concurrent.TimeUnit;
 /* loaded from: classes9.dex */
-public class TestScheduler extends vma {
+public class TestScheduler extends rra {
     public static long c;
     public final Queue<c> a = new PriorityQueue(11, new a());
     public long b;
 
     /* loaded from: classes9.dex */
-    public final class b extends vma.a {
-        public final lra a = new lra();
+    public final class b extends rra.a {
+        public final hwa a = new hwa();
 
         /* loaded from: classes9.dex */
-        public class a implements fna {
+        public class a implements bsa {
             public final /* synthetic */ c a;
 
             public a(c cVar) {
                 this.a = cVar;
             }
 
-            @Override // com.baidu.tieba.fna
+            @Override // com.baidu.tieba.bsa
             public void call() {
                 TestScheduler.this.a.remove(this.a);
             }
@@ -35,14 +35,14 @@ public class TestScheduler extends vma {
 
         /* renamed from: rx.schedulers.TestScheduler$b$b  reason: collision with other inner class name */
         /* loaded from: classes9.dex */
-        public class C0741b implements fna {
+        public class C0748b implements bsa {
             public final /* synthetic */ c a;
 
-            public C0741b(c cVar) {
+            public C0748b(c cVar) {
                 this.a = cVar;
             }
 
-            @Override // com.baidu.tieba.fna
+            @Override // com.baidu.tieba.bsa
             public void call() {
                 TestScheduler.this.a.remove(this.a);
             }
@@ -51,49 +51,49 @@ public class TestScheduler extends vma {
         public b() {
         }
 
-        @Override // com.baidu.tieba.vma.a
-        public zma b(fna fnaVar) {
-            c cVar = new c(this, 0L, fnaVar);
+        @Override // com.baidu.tieba.rra.a
+        public vra b(bsa bsaVar) {
+            c cVar = new c(this, 0L, bsaVar);
             TestScheduler.this.a.add(cVar);
-            return pra.a(new C0741b(cVar));
+            return lwa.a(new C0748b(cVar));
         }
 
-        @Override // com.baidu.tieba.vma.a
+        @Override // com.baidu.tieba.rra.a
         public long a() {
             return TestScheduler.this.now();
         }
 
-        @Override // com.baidu.tieba.zma
+        @Override // com.baidu.tieba.vra
         public boolean isUnsubscribed() {
             return this.a.isUnsubscribed();
         }
 
-        @Override // com.baidu.tieba.zma
+        @Override // com.baidu.tieba.vra
         public void unsubscribe() {
             this.a.unsubscribe();
         }
 
-        @Override // com.baidu.tieba.vma.a
-        public zma c(fna fnaVar, long j, TimeUnit timeUnit) {
-            c cVar = new c(this, TestScheduler.this.b + timeUnit.toNanos(j), fnaVar);
+        @Override // com.baidu.tieba.rra.a
+        public vra c(bsa bsaVar, long j, TimeUnit timeUnit) {
+            c cVar = new c(this, TestScheduler.this.b + timeUnit.toNanos(j), bsaVar);
             TestScheduler.this.a.add(cVar);
-            return pra.a(new a(cVar));
+            return lwa.a(new a(cVar));
         }
     }
 
     /* loaded from: classes9.dex */
     public static final class c {
         public final long a;
-        public final fna b;
-        public final vma.a c;
+        public final bsa b;
+        public final rra.a c;
         public final long d;
 
-        public c(vma.a aVar, long j, fna fnaVar) {
+        public c(rra.a aVar, long j, bsa bsaVar) {
             long j2 = TestScheduler.c;
             TestScheduler.c = 1 + j2;
             this.d = j2;
             this.a = j;
-            this.b = fnaVar;
+            this.b = bsaVar;
             this.c = aVar;
         }
 
@@ -102,12 +102,12 @@ public class TestScheduler extends vma {
         }
     }
 
-    @Override // com.baidu.tieba.vma
-    public vma.a createWorker() {
+    @Override // com.baidu.tieba.rra
+    public rra.a createWorker() {
         return new b();
     }
 
-    @Override // com.baidu.tieba.vma
+    @Override // com.baidu.tieba.rra
     public long now() {
         return TimeUnit.NANOSECONDS.toMillis(this.b);
     }

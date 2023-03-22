@@ -1,13 +1,30 @@
 package com.baidu.tieba;
 
+import androidx.annotation.CallSuper;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.j7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes5.dex */
-public final class qi6 extends li6 {
+/* loaded from: classes6.dex */
+public abstract class qi6 implements j7.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract boolean a(long j);
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    public void c(ri6 ri6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ri6Var) == null) {
+        }
+    }
 
     public qi6() {
         Interceptable interceptable = $ic;
@@ -23,12 +40,12 @@ public final class qi6 extends li6 {
         }
     }
 
-    @Override // com.baidu.tieba.li6, com.baidu.tieba.g8.a
+    @Override // com.baidu.tieba.j7.a
+    @CallSuper
     public void reset() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            a().b();
-            super.reset();
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            c(null);
         }
     }
 }

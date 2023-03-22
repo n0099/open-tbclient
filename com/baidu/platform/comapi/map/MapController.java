@@ -31,6 +31,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.extractor.ogg.DefaultOggSeeker;
 import com.google.android.gms.common.util.GmsVersion;
 import com.huawei.hms.framework.common.ExceptionCode;
 import java.lang.ref.SoftReference;
@@ -180,7 +181,7 @@ public class MapController {
                 case 6:
                     return 200000;
                 case 7:
-                    return 100000;
+                    return DefaultOggSeeker.MATCH_BYTE_RANGE;
                 case 8:
                     return 50000;
                 case 9:

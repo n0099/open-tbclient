@@ -1,74 +1,29 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.SelectForumActivityConfig;
-import com.baidu.tbadk.core.data.TransmitForumData;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Objects;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function2;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public class e08 {
+public abstract class e08<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public ArrayList<TransmitForumData> b;
-    public final CustomMessageListener c;
+    public final k08<T> a;
+    public Function2<? super View, ? super k08<T>, Unit> b;
 
-    /* loaded from: classes4.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e08 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(e08 e08Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e08Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = e08Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof ArrayList)) {
-                this.a.b.clear();
-                this.a.b.addAll((ArrayList) customResponsedMessage.getData());
-            }
-        }
-    }
-
-    public e08(TbPageContext tbPageContext) {
+    public e08(k08<T> data) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {data};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -78,49 +33,78 @@ public class e08 {
                 return;
             }
         }
-        this.b = new ArrayList<>();
-        this.c = new a(this, 2016563);
-        this.a = tbPageContext;
-        MessageManager.getInstance().registerListener(this.c);
+        Intrinsics.checkNotNullParameter(data, "data");
+        this.a = data;
     }
 
-    public List<TransmitForumData> b() {
+    public boolean e(e08<?> other) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, other)) == null) {
+            Intrinsics.checkNotNullParameter(other, "other");
+            if (this.a.e().c() != 2 && other.a.e().c() != 2) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final k08<T> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return this.a;
         }
-        return (List) invokeV.objValue;
+        return (k08) invokeV.objValue;
     }
 
-    public void c() {
+    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: kotlin.jvm.functions.Function2<? super android.view.View, ? super com.baidu.tieba.k08<T>, kotlin.Unit>, kotlin.jvm.functions.Function2<android.view.View, com.baidu.tieba.k08<T>, kotlin.Unit> */
+    public final Function2<View, k08<T>, Unit> d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            oh6.c().i();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return (Function2<? super View, ? super k08<T>, Unit>) this.b;
         }
+        return (Function2) invokeV.objValue;
     }
 
-    public void d() {
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.c);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return Objects.hashCode(this.a);
         }
+        return invokeV.intValue;
     }
 
-    public void e(long j, String str, ShareItem shareItem) {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        e08 e08Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), str, shareItem}) == null) {
-            if (j <= 0 && TextUtils.isEmpty(str)) {
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            SelectForumActivityConfig selectForumActivityConfig = new SelectForumActivityConfig(this.a.getPageActivity(), 24007);
-            CustomMessage customMessage = new CustomMessage(2002001, selectForumActivityConfig);
-            selectForumActivityConfig.setFrom(1);
-            selectForumActivityConfig.setForumList(this.b);
-            selectForumActivityConfig.setLiveId(j);
-            selectForumActivityConfig.setYyAnchorBdUid(str);
-            shareItem.k(true);
-            MessageManager.getInstance().sendMessage(customMessage);
+            k08<T> k08Var = null;
+            if (obj instanceof e08) {
+                e08Var = (e08) obj;
+            } else {
+                e08Var = null;
+            }
+            k08<T> k08Var2 = this.a;
+            if (e08Var != null) {
+                k08Var = e08Var.a;
+            }
+            return Objects.equals(k08Var2, k08Var);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void f(Function2<? super View, ? super k08<T>, Unit> function2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, function2) == null) {
+            this.b = function2;
         }
     }
 }

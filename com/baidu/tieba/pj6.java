@@ -1,30 +1,32 @@
 package com.baidu.tieba;
 
-import android.os.Trace;
+import com.baidu.tieba.danmu.layout.retainer.BottomRetainer;
+import com.baidu.tieba.xj6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class pj6 {
+public final class pj6 extends oj6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final void a() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pj6() {
+        super(new BottomRetainer(0.5f), new vj6());
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65536, null) != null) || !zw4.e()) {
-            return;
-        }
-        Trace.endSection();
-    }
-
-    public static final void b(String name) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, name) == null) {
-            Intrinsics.checkNotNullParameter(name, "name");
-            if (!zw4.e()) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((xj6) objArr[0], (xj6.a) objArr[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            Trace.beginSection(name);
         }
     }
 }

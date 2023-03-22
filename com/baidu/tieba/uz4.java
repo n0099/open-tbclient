@@ -2,13 +2,17 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.LotteryTheme;
+import tbclient.VoteSchema;
 /* loaded from: classes6.dex */
 public class uz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
 
     public uz4() {
         Interceptable interceptable = $ic;
@@ -24,12 +28,19 @@ public class uz4 {
         }
     }
 
-    public void a(LotteryTheme lotteryTheme) {
+    public static uz4 a(VoteSchema voteSchema) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, lotteryTheme) != null) || lotteryTheme == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, voteSchema)) == null) {
+            if (voteSchema == null) {
+                return null;
+            }
+            uz4 uz4Var = new uz4();
+            uz4Var.a = voteSchema.text_before_vote;
+            uz4Var.b = voteSchema.text_after_vote;
+            uz4Var.c = voteSchema.jump_url;
+            return uz4Var;
         }
-        String str = lotteryTheme.bgcolor;
-        String str2 = lotteryTheme.bgimage;
+        return (uz4) invokeL.objValue;
     }
 }

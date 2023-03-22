@@ -1,139 +1,86 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public interface ak0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "deviceInfo.bag");
-    public static final ak0 b = new a();
+public class ak0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public String j;
+    public yj0 k;
 
-    @Nullable
-    or0 a();
-
-    @Nullable
-    or0 b();
-
-    @Nullable
-    or0 c();
-
-    @Nullable
-    or0 d();
-
-    @Nullable
-    or0 e();
-
-    @Nullable
-    or0 f();
-
-    @Nullable
-    or0 g();
-
-    @Nullable
-    boolean h();
-
-    /* loaded from: classes3.dex */
-    public static class a implements ak0 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.ak0
-        public or0 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return null;
-            }
-            return (or0) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.ak0
-        public or0 b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return null;
-            }
-            return (or0) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.ak0
-        public or0 c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return null;
-            }
-            return (or0) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.ak0
-        public or0 d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return null;
-            }
-            return (or0) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.ak0
-        public or0 e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return null;
-            }
-            return (or0) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.ak0
-        public or0 f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                return null;
-            }
-            return (or0) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.ak0
-        public or0 g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                return null;
-            }
-            return (or0) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.ak0
-        public boolean h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public ak0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @NonNull
+    public static ak0 a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            JSONObject c = v01.c(str);
+            ak0 ak0Var = new ak0();
+            ak0Var.a = c.optString("als_ext");
+            ak0Var.b = c.optString("cmd");
+            ak0Var.c = c.optString("defer_cmd");
+            ak0Var.d = c.optString("init_text");
+            ak0Var.e = c.optString("opt_icon");
+            ak0Var.f = c.optString("opt_text");
+            ak0Var.g = c.optString("app_icon_url");
+            ak0Var.h = c.optString("app_name");
+            ak0Var.i = c.optString("version_code");
+            ak0Var.j = c.optString(LegoListActivityConfig.AD_ID);
+            return ak0Var;
+        }
+        return (ak0) invokeL.objValue;
+    }
+
+    public static String b(@NonNull ak0 ak0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, ak0Var)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("als_ext", ak0Var.a);
+                jSONObject.put("cmd", ak0Var.b);
+                jSONObject.put("defer_cmd", ak0Var.c);
+                jSONObject.put("init_text", ak0Var.d);
+                jSONObject.put("opt_icon", ak0Var.e);
+                jSONObject.put("opt_text", ak0Var.f);
+                jSONObject.put("app_icon_url", ak0Var.g);
+                jSONObject.put("app_name", ak0Var.h);
+                jSONObject.put("version_code", ak0Var.i);
+                jSONObject.put(LegoListActivityConfig.AD_ID, ak0Var.j);
+            } catch (JSONException unused) {
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeL.objValue;
     }
 }

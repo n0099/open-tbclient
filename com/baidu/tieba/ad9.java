@@ -1,316 +1,306 @@
 package com.baidu.tieba;
 
+import android.database.Cursor;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.searchbox.retrieve.timer.bean.FetchTimer;
 import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TiebaDatabase;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ad9 {
     public static /* synthetic */ Interceptable $ic;
-    public static ad9 a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes3.dex */
-    public class a extends BdAsyncTask<Void, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ad9 a;
-
-        public a(ad9 ad9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ad9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ad9Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public Void doInBackground(Void... voidArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, voidArr)) == null) {
-                List a = ad9.a();
-                int size = a.size();
-                for (int i = 0; i < size; i++) {
-                    zc9 zc9Var = (zc9) a.get(i);
-                    this.a.j(zc9Var.a, zc9Var.b);
-                }
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b extends BdAsyncTask<zc9, Void, Void> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ad9 a;
-
-        public b(ad9 ad9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ad9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ad9Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Void doInBackground(zc9... zc9VarArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, zc9VarArr)) == null) {
-                if (zc9VarArr != null && zc9VarArr.length == 1 && zc9VarArr[0] != null) {
-                    this.a.c(zc9VarArr[0]);
-                }
-                return null;
-            }
-            return (Void) invokeL.objValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947611475, "Lcom/baidu/tieba/ad9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947611475, "Lcom/baidu/tieba/ad9;");
-                return;
-            }
-        }
-        a = new ad9();
-    }
-
-    public ad9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static /* synthetic */ List a() {
-        return h();
-    }
-
-    public static ad9 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return a;
-        }
-        return (ad9) invokeV.objValue;
-    }
-
-    public static File[] g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            File file = new File(k78.e);
-            if (!file.exists()) {
-                return null;
-            }
-            return file.listFiles();
-        }
-        return (File[]) invokeV.objValue;
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || !zi.c()) {
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947611475, "Lcom/baidu/tieba/ad9;")) == null) {
             return;
         }
-        new a(this).execute(new Void[0]);
-    }
-
-    public void j(String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject) == null) {
-            new b(this).execute(new zc9(str, jSONObject));
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947611475, "Lcom/baidu/tieba/ad9;");
         }
     }
 
-    public static JSONObject e(String str) {
-        InterceptResult invokeL;
+    public static boolean a(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (StringUtils.isNull(str) || !new File(str).exists()) {
-                return null;
-            }
-            try {
-                return new JSONObject().put("running", l(i78.d(str)));
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
+            i9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            mainDBDatabaseManager.e("delete from cash_data where type=?", new String[]{String.valueOf(i)});
+            return mainDBDatabaseManager.e("Insert into cash_data(type ,account ,data ) values(?,?,?)", new String[]{String.valueOf(i), "", str});
         }
-        return (JSONObject) invokeL.objValue;
+        return invokeLI.booleanValue;
     }
 
-    public static JSONObject f(String str) {
-        InterceptResult invokeL;
-        JSONObject jSONObject;
+    public static void f(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            File file = new File(str);
-            if (!file.exists()) {
-                return null;
-            }
-            try {
-                jSONObject = new JSONObject(i78.e(file));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if (!m(jSONObject)) {
-                return null;
-            }
-            return jSONObject;
+        if (interceptable == null || interceptable.invokeIL(65542, null, i, str) == null) {
+            TiebaDatabase.getInstance().getMainDBDatabaseManager().e("delete from cash_data where type=? and account=?", new String[]{String.valueOf(i), (str == null || str.length() == 0) ? "0" : "0"});
         }
-        return (JSONObject) invokeL.objValue;
     }
 
-    public static boolean m(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public static void i(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, jSONObject)) == null) {
-            int optInt = jSONObject.optInt("errorTimes", -1);
-            int optInt2 = jSONObject.optInt("postSuccess", -1);
-            int optInt3 = jSONObject.optInt("posted", -1);
-            if (optInt != -1 && optInt2 != -1 && optInt3 != -1 && (optInt3 == 1 || optInt > 0)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void c(zc9 zc9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, zc9Var) == null) {
-            try {
-                byte[] b2 = bd9.b(zc9Var.b);
-                bd9.c(b2, TbConfig.SERVER_ADDRESS + TbConfig.URL_POST_VIDEO_MONITOR_REPORT);
-                i78.b(zc9Var.a);
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || interceptable.invokeIL(65545, null, i, str) == null) {
+            i9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            if (str != null) {
+                if (i != 0) {
+                    if (i == 1) {
+                        mainDBDatabaseManager.e("delete from search_post_data where key=?", new String[]{str});
+                        return;
+                    }
+                    return;
+                }
+                mainDBDatabaseManager.e("delete from search_data where key=?", new String[]{str});
             }
         }
     }
 
-    public static List<zc9> h() {
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            c(0);
+        }
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            c(1);
+        }
+    }
+
+    public static void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
+            e(2);
+        }
+    }
+
+    public static ArrayList<String> k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            ArrayList arrayList = new ArrayList();
-            File[] g = g();
-            if (g == null) {
-                return arrayList;
-            }
-            for (File file : g) {
-                String name = file.getName();
-                JSONObject f = f(file.getAbsolutePath() + k78.a + "kpi");
-                if (f == null) {
-                    i78.b(name);
-                } else {
-                    JSONObject e = e(file.getAbsolutePath() + k78.a + "debug");
-                    if (e == null) {
-                        i78.b(name);
-                    } else {
-                        arrayList.add(new zc9(name, i(VideoPlatformStatic.c(), f, e)));
-                    }
-                }
-            }
-            return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return l(0);
         }
-        return (List) invokeV.objValue;
+        return (ArrayList) invokeV.objValue;
     }
 
-    public static JSONObject i(JSONObject jSONObject, JSONObject jSONObject2, JSONObject jSONObject3) {
-        InterceptResult invokeLLL;
+    public static ArrayList<String> m() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65545, null, jSONObject, jSONObject2, jSONObject3)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            return l(1);
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    public static void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
+            i9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            if (i != 0) {
+                if (i == 1) {
+                    mainDBDatabaseManager.d("delete from search_post_data");
+                    return;
+                }
+                return;
+            }
+            mainDBDatabaseManager.d("delete from search_data");
+        }
+    }
+
+    public static void g(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
+            f(13, str);
+        }
+    }
+
+    public static void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
+            i(0, str);
+        }
+    }
+
+    public static void o(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65551, null, str) == null) {
+            p(0, str);
+        }
+    }
+
+    public static void q(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65553, null, str) == null) {
+            p(1, str);
+        }
+    }
+
+    public static void e(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(65541, null, i) != null) || TbadkCoreApplication.getCurrentAccount() == null) {
+            return;
+        }
+        TiebaDatabase.getInstance().getMainDBDatabaseManager().e("delete from cash_data where type=? and account=?", new String[]{String.valueOf(i), TbadkCoreApplication.getCurrentAccount()});
+    }
+
+    public static ArrayList<String> l(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65548, null, i)) == null) {
+            i9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            ArrayList<String> arrayList = new ArrayList<>();
+            Cursor cursor = null;
             try {
-                JSONObject jSONObject4 = new JSONObject();
-                jSONObject4.put("kpiInfo", jSONObject2);
-                jSONObject4.put("baseInfo", jSONObject);
-                jSONObject4.put("debugInfo", jSONObject3);
-                return jSONObject4;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
+                try {
+                    if (i != 0) {
+                        if (i == 1) {
+                            cursor = mainDBDatabaseManager.j("select * from search_post_data order by time desc limit 5", null);
+                        }
+                    } else {
+                        cursor = mainDBDatabaseManager.j("select * from search_data order by time desc limit 20", null);
+                    }
+                    while (cursor.moveToNext()) {
+                        String string = cursor.getString(0);
+                        if (string != null && string.length() > 0) {
+                            arrayList.add(string);
+                        }
+                    }
+                } catch (Exception e) {
+                    mainDBDatabaseManager.i(e, "getAllSearchData");
+                }
+                return arrayList;
+            } finally {
+                fg.a(cursor);
             }
         }
-        return (JSONObject) invokeLLL.objValue;
+        return (ArrayList) invokeI.objValue;
     }
 
-    public static JSONArray l(JSONArray jSONArray) {
-        InterceptResult invokeL;
-        int optInt;
+    public static void n() {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, jSONArray)) == null) {
-            if (jSONArray == null) {
-                return null;
-            }
-            int length = jSONArray.length();
-            boolean z = false;
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                if (optJSONObject != null && ((optInt = optJSONObject.optInt("type")) == 501 || optInt == 503 || optInt == 502)) {
-                    z = true;
-                    break;
+        if ((interceptable == null || interceptable.invokeV(65550, null) == null) && TbadkCoreApplication.getCurrentAccount() != null && TbadkCoreApplication.getCurrentAccount().length() > 0 && TbadkCoreApplication.getCurrentAccountName() != null) {
+            i9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            Cursor cursor = null;
+            try {
+                try {
+                    cursor = mainDBDatabaseManager.j("select * from setting where account=?", new String[]{TbadkCoreApplication.getCurrentAccount()});
+                    if (cursor != null && cursor.moveToFirst()) {
+                        k85.d().M(cursor.getInt(cursor.getColumnIndex(FetchTimer.FREQUENCY)));
+                        k85 d = k85.d();
+                        if (cursor.getInt(cursor.getColumnIndex("fans_switch")) == 1) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        d.O(z);
+                        if (cursor.getInt(cursor.getColumnIndex("reply_me_switch")) == 0) {
+                            k85.d().P(false);
+                        } else {
+                            k85.d().P(true);
+                        }
+                        if (cursor.getInt(cursor.getColumnIndex("at_me_switch")) == 0) {
+                            k85.d().K(false);
+                        } else {
+                            k85.d().K(true);
+                        }
+                        if (cursor.getInt(cursor.getColumnIndex("zan_me_switch")) == 0) {
+                            k85.d().S(false);
+                        } else {
+                            k85.d().S(true);
+                        }
+                        k85.d().a(cursor.getInt(cursor.getColumnIndex("remind_tone")));
+                        if (cursor.getInt(cursor.getColumnIndex("msg_chat_switch")) == 0) {
+                            k85.d().L(false);
+                        } else {
+                            k85.d().L(true);
+                        }
+                        if (cursor.getInt(cursor.getColumnIndex("nodisturb_switch")) == 0) {
+                            k85.d().U(false);
+                        } else {
+                            k85.d().U(true);
+                        }
+                        k85.d().V(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
+                        k85.d().T(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
+                        if (cursor.getInt(cursor.getColumnIndex("remind_light")) == 0) {
+                            k85.d().N(false);
+                        } else {
+                            k85.d().N(true);
+                        }
+                        if (cursor.getInt(cursor.getColumnIndex("stranger_chat_switch")) == 0) {
+                            k85.d().b0(false);
+                        } else {
+                            k85.d().b0(true);
+                        }
+                    } else {
+                        k85.d().M(300);
+                        k85.d().O(true);
+                        k85.d().P(true);
+                        k85.d().K(true);
+                        k85.d().S(true);
+                        k85.d().Q(true);
+                        k85.d().R(false);
+                        k85.d().N(true);
+                        k85.d().b0(false);
+                        k85.d().L(true);
+                        k85.d().U(false);
+                        k85.d().V(TbConfig.MSG_DEFAULT_NODISTURB_START_TIME);
+                        k85.d().T(TbConfig.MSG_DEFAULT_NODISTURB_END_TIME);
+                    }
+                } catch (Exception e) {
+                    mainDBDatabaseManager.i(e, "getSettingData");
                 }
+                fg.a(cursor);
+                MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001311));
+            } catch (Throwable th) {
+                fg.a(null);
+                throw th;
             }
-            if (!z) {
-                jSONArray.put(new nt8(502, "unknown", -4399, "").a());
-            }
-            return jSONArray;
         }
-        return (JSONArray) invokeL.objValue;
+    }
+
+    public static void p(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(65552, null, i, str) == null) {
+            i9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+            if (str != null) {
+                if (i != 0) {
+                    if (i == 1) {
+                        mainDBDatabaseManager.e("delete from search_post_data where key=?", new String[]{str});
+                        mainDBDatabaseManager.e("Insert into search_post_data(key,account,time) values(?,?,?)", new Object[]{str, TbadkCoreApplication.getCurrentAccount(), Long.valueOf(System.currentTimeMillis())});
+                        return;
+                    }
+                    return;
+                }
+                mainDBDatabaseManager.e("delete from search_data where key=?", new String[]{str});
+                mainDBDatabaseManager.e("Insert into search_data(key,account,time) values(?,?,?)", new Object[]{str, TbadkCoreApplication.getCurrentAccount(), Long.valueOf(System.currentTimeMillis())});
+            }
+        }
+    }
+
+    public static void r() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65554, null) != null) || TbadkCoreApplication.getCurrentAccount() == null) {
+            return;
+        }
+        i9 mainDBDatabaseManager = TiebaDatabase.getInstance().getMainDBDatabaseManager();
+        mainDBDatabaseManager.e("delete from setting where account=?", new Object[]{TbadkCoreApplication.getCurrentAccount()});
+        mainDBDatabaseManager.e("Insert into setting(account,frequency,fans_switch,reply_me_switch,at_me_switch,remind_tone,msg_chat_switch,nodisturb_switch,nodisturb_start_time,nodisturb_end_time,remind_light,stranger_chat_switch,zan_me_switch) values(?,?,?,?,?,?,?,?,?,?,?,?,?)", new Object[]{TbadkCoreApplication.getCurrentAccount(), Integer.valueOf(k85.d().f()), Integer.valueOf(k85.d().x() ? 1 : 0), Integer.valueOf(k85.d().z() ? 1 : 0), Integer.valueOf(k85.d().u() ? 1 : 0), Integer.valueOf(k85.d().c()), Integer.valueOf(k85.d().v() ? 1 : 0), Integer.valueOf(k85.d().D() ? 1 : 0), k85.d().h(), k85.d().g(), Integer.valueOf(k85.d().w() ? 1 : 0), Integer.valueOf(k85.d().F() ? 1 : 0), Integer.valueOf(k85.d().C() ? 1 : 0)});
     }
 }

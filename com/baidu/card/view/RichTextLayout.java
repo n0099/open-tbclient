@@ -15,16 +15,16 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.widget.tiejia.TiePlusEventController;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b35;
-import com.baidu.tieba.dy;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.zx4;
+import com.baidu.tieba.gx;
+import com.baidu.tieba.hi;
+import com.baidu.tieba.hw4;
+import com.baidu.tieba.n15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes2.dex */
-public class RichTextLayout extends LinearLayout implements dy<zx4>, View.OnClickListener {
+public class RichTextLayout extends LinearLayout implements gx<hw4>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
@@ -125,7 +125,7 @@ public class RichTextLayout extends LinearLayout implements dy<zx4>, View.OnClic
                 return;
             }
         }
-        this.a = ej.l(TbadkCoreApplication.getInst()) - ((ej.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + ej.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
+        this.a = hi.l(TbadkCoreApplication.getInst()) - ((hi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X005) + hi.g(TbadkCoreApplication.getInst(), R.dimen.M_W_X004)) * 2);
         this.e = false;
         this.g = false;
         this.d = context;
@@ -176,23 +176,23 @@ public class RichTextLayout extends LinearLayout implements dy<zx4>, View.OnClic
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.dy
+    @Override // com.baidu.tieba.gx
     /* renamed from: d */
-    public void a(zx4 zx4Var) {
+    public void a(hw4 hw4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, zx4Var) == null) && zx4Var != null && zx4Var.getThreadData() != null) {
-            ThreadData threadData = zx4Var.getThreadData();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hw4Var) == null) && hw4Var != null && hw4Var.getThreadData() != null) {
+            ThreadData threadData = hw4Var.getThreadData();
             OriginalThreadInfo originalThreadInfo = threadData.originalThreadData;
             if (originalThreadInfo != null && this.e) {
                 this.b.setVisibility(8);
-                b35 d = b35.d(this.c);
-                d.A(R.string.F_X01);
-                d.z(R.dimen.T_X07);
-                if (!originalThreadInfo.m && !zx4Var.getThreadData().shouldShowBlockedState()) {
+                n15 d = n15.d(this.c);
+                d.B(R.string.F_X01);
+                d.A(R.dimen.T_X07);
+                if (!originalThreadInfo.m && !hw4Var.getThreadData().shouldShowBlockedState()) {
                     SpannableString c = originalThreadInfo.c();
                     ThreadCardUtils.setAbstract(this.c, this.b, c, threadData, this.a, this.e, this.g);
                     if (c != null) {
-                        TiePlusEventController.j(originalThreadInfo.h());
+                        TiePlusEventController.l(originalThreadInfo.h());
                     }
                 } else {
                     ThreadCardUtils.setAbstract(this.c, this.b, new SpannableString(this.d.getString(R.string.origin_thread_deleted_title)), threadData, this.a, this.e, this.g);
@@ -203,7 +203,7 @@ public class RichTextLayout extends LinearLayout implements dy<zx4>, View.OnClic
                 SpannableString abstractText = threadData.getAbstractText();
                 ThreadCardUtils.setAbstract(this.c, this.b, abstractText, threadData, this.a, this.e, this.g);
                 if (abstractText != null) {
-                    TiePlusEventController.j(threadData.getTiePlusLinkOriginData());
+                    TiePlusEventController.l(threadData.getTiePlusLinkOriginData());
                 }
             }
             if (!this.e) {

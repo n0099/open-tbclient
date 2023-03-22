@@ -1,7 +1,7 @@
 package com.baidu.adp.log;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.r08;
+import com.baidu.tieba.w58;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,7 @@ public final class NetLog {
     public static /* synthetic */ Interceptable $ic;
     public static final NetLog INSTANCE;
     public transient /* synthetic */ FieldHolder $fh;
-    public final r08 instance;
+    public final w58 instance;
 
     static {
         InterceptResult invokeClinit;
@@ -36,13 +36,13 @@ public final class NetLog {
         $VALUES = new NetLog[]{netLog};
     }
 
-    public static r08 getInstance() {
+    public static w58 getInstance() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             return INSTANCE.instance;
         }
-        return (r08) invokeV.objValue;
+        return (w58) invokeV.objValue;
     }
 
     public static NetLog[] values() {
@@ -72,7 +72,7 @@ public final class NetLog {
                 return;
             }
         }
-        this.instance = new r08("network");
+        this.instance = new w58("network");
     }
 
     public static NetLog valueOf(String str) {

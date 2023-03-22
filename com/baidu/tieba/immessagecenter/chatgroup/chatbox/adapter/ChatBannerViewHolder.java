@@ -16,10 +16,10 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b35;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.ks7;
-import com.baidu.tieba.vs7;
+import com.baidu.tieba.cu7;
+import com.baidu.tieba.hi;
+import com.baidu.tieba.n15;
+import com.baidu.tieba.rt7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +34,7 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
     public TbImageView d;
     public View e;
-    public vs7 f;
+    public cu7 f;
     public String g;
     public String h;
 
@@ -89,7 +89,7 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
                 return;
             }
         }
-        i = ej.l(TbadkCoreApplication.getInst()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) * 2);
+        i = hi.l(TbadkCoreApplication.getInst()) - (UtilHelper.getDimenPixelSize(R.dimen.M_W_X004) * 2);
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -110,18 +110,18 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
                 return;
             }
         }
-        this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090de3);
-        this.e = view2.findViewById(R.id.obfuscated_res_0x7f090de5);
+        this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e11);
+        this.e = view2.findViewById(R.id.obfuscated_res_0x7f090e13);
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder
-    public void d(@NonNull ks7 ks7Var, @NonNull TbPageContext tbPageContext, int i2) {
+    public void d(@NonNull rt7 rt7Var, @NonNull TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, ks7Var, tbPageContext, i2) == null) {
-            if (ks7Var instanceof vs7) {
-                vs7 vs7Var = (vs7) ks7Var;
-                this.f = vs7Var;
-                this.g = vs7Var.b();
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, rt7Var, tbPageContext, i2) == null) {
+            if (rt7Var instanceof cu7) {
+                cu7 cu7Var = (cu7) rt7Var;
+                this.f = cu7Var;
+                this.g = cu7Var.b();
                 this.h = this.f.c();
                 this.d.setOnClickListener(new a(this, tbPageContext));
             }
@@ -136,7 +136,7 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             super.f(i2);
             if (TextUtils.isEmpty(this.g) && (tbImageView = this.d) != null) {
-                SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f0805fa, i2);
+                SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080605, i2);
             }
             if (!TextUtils.isEmpty(this.g) && this.d != null) {
                 o(i2);
@@ -152,8 +152,8 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
                 return;
             }
             this.e.setVisibility(0);
-            b35.d(this.e).f(R.color.CAM_X0503);
-            b35.d(this.e).n(R.string.J_X06);
+            n15.d(this.e).f(R.color.CAM_X0503);
+            n15.d(this.e).o(R.string.J_X06);
         }
     }
 
@@ -196,11 +196,11 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
             this.e.setLayoutParams(layoutParams);
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             if (!TextUtils.isEmpty(this.g)) {
-                this.d.K(this.g, 10, false);
+                this.d.M(this.g, 10, false);
                 o(skinType);
                 return;
             }
-            SkinManager.setImageResource(this.d, R.drawable.obfuscated_res_0x7f0805fa, skinType);
+            SkinManager.setImageResource(this.d, R.drawable.obfuscated_res_0x7f080605, skinType);
         }
     }
 }

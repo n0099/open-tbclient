@@ -1,40 +1,63 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
-import com.baidu.adp.lib.stats.BdStatisticsManager;
+import android.annotation.TargetApi;
+import android.os.Build;
+import android.os.Process;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.ArrayList;
+import java.io.BufferedReader;
+import java.io.FileReader;
+@TargetApi(21)
 /* loaded from: classes6.dex */
 public class wh {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(ArrayList<String> arrayList, boolean z) {
+    public static boolean a() {
+        InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65536, null, arrayList, z) == null) {
-            xc xcVar = new xc(BdStatisticsManager.getInstance().getTrackLogWriteDir(), null, DiskFileOperate.Action.DELETE_FILES, arrayList);
-            xcVar.setSdCard(z);
-            xcVar.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
-            rc.f().a(xcVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 23) {
+                return Process.is64Bit();
+            }
+            String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
+            if (strArr == null || strArr.length <= 0 || (str = Build.CPU_ABI) == null) {
+                return false;
+            }
+            return str.equals(strArr[0]);
         }
+        return invokeV.booleanValue;
     }
 
-    public static File[] b(boolean z) {
-        InterceptResult invokeZ;
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65537, null, z)) == null) {
-            DiskFileOperate diskFileOperate = new DiskFileOperate(BdStatisticsManager.getInstance().getTrackLogWriteDir(), null, DiskFileOperate.Action.INFO);
-            diskFileOperate.setSdCard(z);
-            diskFileOperate.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
-            rc.f().call(diskFileOperate);
-            if (diskFileOperate.getFileInfo() == null || diskFileOperate.getFileInfo().listFiles() == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            boolean z = false;
+            if (Build.VERSION.SDK_INT >= 21) {
+                String[] strArr = Build.SUPPORTED_64_BIT_ABIS;
+                if (strArr == null) {
+                    return false;
+                }
+                for (String str : strArr) {
+                    if ("arm64-v8a".equals(str)) {
+                        return true;
+                    }
+                }
+                return false;
             }
-            return diskFileOperate.getFileInfo().listFiles();
+            try {
+                BufferedReader bufferedReader = new BufferedReader(new FileReader(com.kuaishou.weapon.p0.k1.a));
+                z = bufferedReader.readLine().contains("aarch64");
+                bufferedReader.close();
+                return z;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return z;
+            }
         }
-        return (File[]) invokeZ.objValue;
+        return invokeV.booleanValue;
     }
 }

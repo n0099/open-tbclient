@@ -2,7 +2,9 @@ package com.baidu.android.imsdk.media.update;
 
 import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.BIMManager;
 import com.baidu.android.imsdk.ChatObject;
+import com.baidu.android.imsdk.IMConstants;
 import com.baidu.android.imsdk.account.AccountManager;
 import com.baidu.android.imsdk.box.IMBoxManager;
 import com.baidu.android.imsdk.chatmessage.ChatSession;
@@ -300,7 +302,7 @@ public class ChatSessionUpdateManager implements DBBase.ChatSessionChangeOberser
                 case 4:
                 case 9:
                     if (Utility.isValidAggSession(chatSession2.getClassType(), chatSession2.getClassShow())) {
-                        updateSessionByClassAndNotify(chatSession2.getClassType(), 1);
+                        updateSessionByClassAndNotify(chatSession2.getClassType(), 1, chatSession2);
                         return;
                     } else {
                         updateMediaChatSession(i2, arrayList);
@@ -308,7 +310,7 @@ public class ChatSessionUpdateManager implements DBBase.ChatSessionChangeOberser
                     }
                 case 2:
                     if (Utility.isValidAggSession(chatSession2.getClassType(), chatSession2.getClassShow())) {
-                        updateSessionByClassAndNotify(chatSession2.getClassType(), 1);
+                        updateSessionByClassAndNotify(chatSession2.getClassType(), 1, chatSession2);
                         return;
                     }
                     for (ChatSession chatSession3 : arrayList) {
@@ -623,19 +625,11 @@ public class ChatSessionUpdateManager implements DBBase.ChatSessionChangeOberser
         }
     }
 
-    private void updateSessionByClassAndNotify(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeII(65557, this, i, i2) != null) || MediaMessageDBManager.getInstance(this.mContext).getMediaChatSessionByClassType(i) == null) {
-            return;
-        }
-        ArrayList<ChatSession> chatRecordsByClass = ChatMessageDBManager.getInstance(this.mContext).getChatRecordsByClass(1L, Collections.singletonList(Integer.valueOf(i)));
-        if (chatRecordsByClass != null && chatRecordsByClass.size() != 0) {
-            MediaMessageDBManager.getInstance(this.mContext).updateSessionByClassAndNotify(i, i2);
-            return;
-        }
-        MediaSessionManager.getInstance(this.mContext).deleteSession(SessionParam.getBjhReadOrDelParam(0, 0L, i, 1), null);
-    }
-
+    /* JADX WARN: Removed duplicated region for block: B:50:0x00b9 A[SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:53:0x0018 A[SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     private boolean updateMeidaSessionNewSum(List<ChatSession> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -652,11 +646,17 @@ public class ChatSessionUpdateManager implements DBBase.ChatSessionChangeOberser
                         if (chatSession2 != null && chatSession2.getLastMsgTime() >= chatSession.getLastMsgTime()) {
                             chatSession2.setNewMsgSum(ChatMessageDBManager.getInstance(this.mContext).getNewMsgCountOfClass(chatSession.getClassType()));
                         }
+                        if (BIMManager.hudongTop && chatSession.getClassType() == 11) {
+                            chatSession.setNewMsgSum(ChatMessageDBManager.getInstance(this.mContext).getNewMsgCountOfClass(chatSession.getClassType()));
+                            if (chatSession == null) {
+                                arrayList.add(chatSession);
+                            }
+                        }
                     } else if (chatSession.getChatType() == 57 && (chatSession2 = MediaMessageDBManager.getInstance(this.mContext).getChatRecord(chatSession.getCategory(), chatSession.getContacter())) != null && chatSession2.getLastMsgTime() >= chatSession.getLastMsgTime()) {
                         chatSession2.setNewMsgSum(chatSession.getNewMsgSum());
                     }
-                    if (chatSession2 != null) {
-                        arrayList.add(chatSession2);
+                    chatSession = chatSession2;
+                    if (chatSession == null) {
                     }
                 }
             }
@@ -669,6 +669,33 @@ public class ChatSessionUpdateManager implements DBBase.ChatSessionChangeOberser
             return true;
         }
         return invokeL.booleanValue;
+    }
+
+    private void updateSessionByClassAndNotify(int i, int i2, ChatSession chatSession) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeIIL(65557, this, i, i2, chatSession) != null) || MediaMessageDBManager.getInstance(this.mContext).getMediaChatSessionByClassType(i) == null) {
+            return;
+        }
+        ArrayList<ChatSession> chatRecordsByClass = ChatMessageDBManager.getInstance(this.mContext).getChatRecordsByClass(1L, Collections.singletonList(Integer.valueOf(i)));
+        if (chatSession != null && chatSession.getClassType() == 11) {
+            z = true;
+        } else {
+            z = false;
+        }
+        if (chatRecordsByClass == null || chatRecordsByClass.size() == 0) {
+            if (BIMManager.hudongTop && z) {
+                if (chatSession != null) {
+                    chatSession.setLastMsg(IMConstants.HUDONG_DESC_DEFAULT);
+                    chatSession.setIsClicked(1);
+                    chatSession.setNewMsgSum(0L);
+                }
+            } else {
+                MediaSessionManager.getInstance(this.mContext).deleteSession(SessionParam.getBjhReadOrDelParam(0, 0L, i, 1), null);
+                return;
+            }
+        }
+        MediaMessageDBManager.getInstance(this.mContext).updateSessionByClassAndNotify(i, i2, chatSession);
     }
 
     public void doSessionChangeListenerNotify(int i, List<ChatSession> list, ArrayList<IBaseSessionUpdateListener> arrayList) {

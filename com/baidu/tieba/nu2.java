@@ -1,31 +1,52 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.os.Parcelable;
-import android.util.Log;
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.uf3;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ConcurrentModificationException;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import org.json.JSONException;
+import org.json.JSONObject;
+@SuppressLint({"SwanCommentWar"})
 /* loaded from: classes5.dex */
-public interface nu2 {
-    public static final ou2<Boolean> a = new d(Boolean.FALSE);
-    public static final ou2<Integer> b = new e(0);
-    public static final ou2<Long> c = new f(0L);
-    public static final ou2<Float> d = new g(Float.valueOf(0.0f));
-    public static final ou2<String> e = new h();
-    public static final ou2<String[]> f = new a();
-    public static final ou2<Bundle> g = new b();
-    public static final ou2<Parcelable> h = new c();
+public class nu2 implements sx2 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public mu2 b;
+    public String c;
+    public String d;
+    public double e;
+    public double f;
+    public int g;
+    public int h;
+    public b i;
+    public c j;
+    public a k;
 
+    @SuppressLint({"SwanCommentWar"})
     /* loaded from: classes5.dex */
-    public static class a extends ou2<String[]> {
+    public static class a implements sx2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public double a;
+        public double b;
+
+        @Override // com.baidu.tieba.sx2
+        public boolean isValid() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
 
         public a() {
             Interceptable interceptable = $ic;
@@ -37,362 +58,292 @@ public interface nu2 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = 0.5d;
+            this.b = 1.0d;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ou2
-        /* renamed from: f */
-        public String[] c(Bundle bundle, String str, String[] strArr) {
-            InterceptResult invokeLLL;
+        @Override // com.baidu.tieba.sx2
+        public void a(JSONObject jSONObject) throws JSONException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, strArr)) == null) {
-                return bundle.getStringArray(str);
+            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+                return;
             }
-            return (String[]) invokeLLL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ou2
-        /* renamed from: g */
-        public void e(Bundle bundle, String str, String[] strArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, strArr) == null) {
-                bundle.putStringArray(str, strArr);
+            this.a = Math.abs(jSONObject.optDouble("x", 0.5d));
+            double d = 1.0d;
+            this.b = Math.abs(jSONObject.optDouble("y", 1.0d));
+            double d2 = this.a;
+            if (d2 < 0.0d) {
+                d2 = 0.0d;
+            } else if (d2 > 1.0d) {
+                d2 = 1.0d;
             }
+            this.a = d2;
+            double d3 = this.b;
+            if (d3 < 0.0d) {
+                d = 0.0d;
+            } else if (d3 <= 1.0d) {
+                d = d3;
+            }
+            this.b = d;
         }
     }
 
+    @SuppressLint({"SwanCommentWar"})
     /* loaded from: classes5.dex */
-    public static class b extends ou2<Bundle> {
+    public static class b extends d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ou2
-        /* renamed from: f */
-        public Bundle c(Bundle bundle, String str, Bundle bundle2) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, bundle2)) == null) {
-                return bundle.getBundle(str);
-            }
-            return (Bundle) invokeLLL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ou2
-        /* renamed from: g */
-        public void e(Bundle bundle, String str, Bundle bundle2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, bundle2) == null) {
-                bundle.putBundle(str, bundle2);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c extends ou2<Parcelable> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ou2
-        /* renamed from: f */
-        public Parcelable c(Bundle bundle, String str, Parcelable parcelable) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, parcelable)) == null) {
-                return bundle.getParcelable(str);
-            }
-            return (Parcelable) invokeLLL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ou2
-        /* renamed from: g */
-        public void e(Bundle bundle, String str, Parcelable parcelable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, parcelable) == null) {
-                bundle.putParcelable(str, parcelable);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class d extends ou2<Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+        public float f;
+        public String g;
+        public int h;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(Boolean bool) {
-            super(bool);
+        public b(nu2 nu2Var) {
+            super(nu2Var);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bool};
+                Object[] objArr = {nu2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super(newInitContext.callArgs[0]);
+                    super((nu2) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.f = 0.0f;
+            this.g = "BYCLICK";
+            this.h = -1;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ou2
-        /* renamed from: f */
-        public Boolean c(Bundle bundle, String str, Boolean bool) {
-            InterceptResult invokeLLL;
+        @Override // com.baidu.tieba.nu2.d, com.baidu.tieba.sx2
+        public void a(JSONObject jSONObject) throws JSONException {
+            String str;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, bool)) == null) {
-                return Boolean.valueOf(bundle.getBoolean(str, bool.booleanValue()));
+            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+                return;
             }
-            return (Boolean) invokeLLL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ou2
-        /* renamed from: g */
-        public void e(Bundle bundle, String str, Boolean bool) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, bool) == null) {
-                bundle.putBoolean(str, bool.booleanValue());
+            super.a(jSONObject);
+            this.f = (float) jSONObject.optDouble("borderRadius", 0.0d);
+            jSONObject.optDouble("borderWidth", 0.0d);
+            if (jSONObject.has(CriusAttrConstants.DISPLAY)) {
+                str = jSONObject.optString(CriusAttrConstants.DISPLAY);
+            } else {
+                str = "BYCLICK";
             }
+            this.g = str;
+            this.h = gu2.a(jSONObject.optString("bgColor"), -1);
+            gu2.a(jSONObject.optString("borderColor"), this.h);
         }
     }
 
+    @SuppressLint({"SwanCommentWar"})
     /* loaded from: classes5.dex */
-    public static class e extends ou2<Integer> {
+    public static class c extends d implements sx2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public float f;
+        public float g;
+        public float h;
+        public int i;
+        public float j;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public e(Integer num) {
-            super(num);
+        public c(nu2 nu2Var) {
+            super(nu2Var);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {num};
+                Object[] objArr = {nu2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super(newInitContext.callArgs[0]);
+                    super((nu2) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.f = 0.0f;
+            this.g = 0.0f;
+            this.h = 0.0f;
+            this.i = 0;
+            this.j = 0.0f;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ou2
-        /* renamed from: f */
-        public Integer c(Bundle bundle, String str, Integer num) {
-            InterceptResult invokeLLL;
+        @Override // com.baidu.tieba.nu2.d, com.baidu.tieba.sx2
+        public void a(JSONObject jSONObject) throws JSONException {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, num)) == null) {
-                return Integer.valueOf(bundle.getInt(str, num.intValue()));
+            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+                return;
             }
-            return (Integer) invokeLLL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ou2
-        /* renamed from: g */
-        public void e(Bundle bundle, String str, Integer num) {
-            String O;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, num) == null) {
-                try {
-                    bundle.putInt(str, num.intValue());
-                } catch (ConcurrentModificationException e) {
-                    uf3.b bVar = new uf3.b(10011);
-                    if (m93.M() == null) {
-                        O = "null appKey";
-                    } else {
-                        O = m93.M().O();
-                    }
-                    bVar.h(O);
-                    bVar.k(str);
-                    bVar.i(Log.getStackTraceString(e));
-                    bVar.m();
-                }
+            super.a(jSONObject);
+            this.f = gu2.b(jSONObject.optDouble("x", 0.0d));
+            float b = gu2.b(jSONObject.optDouble("y", 0.0d));
+            this.g = b;
+            if (this.f == 0.0f && b == 0.0f) {
+                this.f = gu2.b(jSONObject.optDouble("anchorX", 0.0d));
+                this.g = gu2.b(jSONObject.optDouble("anchorY", 0.0d));
             }
+            this.h = (float) jSONObject.optDouble("borderWidth", 0.0d);
+            this.i = gu2.a(jSONObject.optString("borderColor"), 0);
+            this.j = (float) jSONObject.optDouble("borderRadius", 0.0d);
         }
     }
 
+    @SuppressLint({"SwanCommentWar"})
     /* loaded from: classes5.dex */
-    public static class f extends ou2<Long> {
+    public static class d implements sx2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public int b;
+        public float c;
+        public int d;
+        public float e;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public f(Long l) {
-            super(l);
+        public d(nu2 nu2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {l};
+                Object[] objArr = {nu2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super(newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
+            this.a = "";
+            this.b = -16777216;
+            this.c = gu2.b(10.0d);
+            this.d = 0;
+            this.e = 0.0f;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ou2
-        /* renamed from: f */
-        public Long c(Bundle bundle, String str, Long l) {
-            InterceptResult invokeLLL;
+        @Override // com.baidu.tieba.sx2
+        public void a(JSONObject jSONObject) throws JSONException {
+            float b;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, l)) == null) {
-                return Long.valueOf(bundle.getLong(str, l.longValue()));
+            if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null || !jSONObject.has("content")) {
+                return;
             }
-            return (Long) invokeLLL.objValue;
+            this.a = jSONObject.optString("content");
+            this.b = gu2.a(jSONObject.optString("color"), -16777216);
+            if (jSONObject.has(TtmlNode.ATTR_TTS_FONT_SIZE)) {
+                b = Math.abs(gu2.b(jSONObject.optDouble(TtmlNode.ATTR_TTS_FONT_SIZE, 10.0d)));
+            } else {
+                b = gu2.b(10.0d);
+            }
+            this.c = b;
+            this.d = gu2.a(jSONObject.optString("bgColor"), 0);
+            this.e = gu2.b(jSONObject.optDouble(CriusAttrConstants.PADDING, 0.0d));
+            if (jSONObject.has(TtmlNode.ATTR_TTS_TEXT_ALIGN)) {
+                jSONObject.optString(TtmlNode.ATTR_TTS_TEXT_ALIGN);
+            }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ou2
-        /* renamed from: g */
-        public void e(Bundle bundle, String str, Long l) {
+        @Override // com.baidu.tieba.sx2
+        public boolean isValid() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, l) == null) {
-                bundle.putLong(str, l.longValue());
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return !TextUtils.isEmpty(this.a);
             }
+            return invokeV.booleanValue;
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class g extends ou2<Float> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public g(Float f) {
-            super(f);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public nu2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ou2
-        /* renamed from: f */
-        public Float c(Bundle bundle, String str, Float f) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, f)) == null) {
-                return Float.valueOf(bundle.getFloat(str, f.floatValue()));
-            }
-            return (Float) invokeLLL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ou2
-        /* renamed from: g */
-        public void e(Bundle bundle, String str, Float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, f) == null) {
-                bundle.putFloat(str, f.floatValue());
-            }
-        }
+        this.a = "";
+        this.c = "";
+        this.d = "";
+        this.e = 0.0d;
+        this.f = 1.0d;
+        this.g = -1;
+        this.h = -1;
     }
 
-    /* loaded from: classes5.dex */
-    public static class h extends ou2<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public h() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+    @Override // com.baidu.tieba.sx2
+    public void a(JSONObject jSONObject) throws JSONException {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ou2
-        /* renamed from: f */
-        public String c(Bundle bundle, String str, String str2) {
-            InterceptResult invokeLLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, bundle, str, str2)) == null) {
-                return bundle.getString(str, str2);
-            }
-            return (String) invokeLLL.objValue;
+        mu2 mu2Var = new mu2();
+        this.b = mu2Var;
+        mu2Var.a(jSONObject);
+        if (!this.b.isValid()) {
+            return;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.ou2
-        /* renamed from: g */
-        public void e(Bundle bundle, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, bundle, str, str2) == null) {
-                bundle.putString(str, str2);
-            }
+        String optString = jSONObject.optString("markerId");
+        this.a = optString;
+        if (TextUtils.isEmpty(optString)) {
+            this.a = jSONObject.optString("id");
         }
+        this.c = jSONObject.optString("title");
+        this.d = jSONObject.optString("iconPath");
+        this.e = jSONObject.optDouble("rotate", 0.0d);
+        this.f = Math.abs(jSONObject.optDouble(Key.ALPHA, 1.0d));
+        int i2 = -1;
+        if (jSONObject.has("width")) {
+            i = Math.abs(kl3.g(jSONObject.optInt("width")));
+        } else {
+            i = -1;
+        }
+        this.g = i;
+        if (jSONObject.has("height")) {
+            i2 = Math.abs(kl3.g(jSONObject.optInt("height")));
+        }
+        this.h = i2;
+        jSONObject.optInt("zIndex", 0);
+        b bVar = new b(this);
+        this.i = bVar;
+        bVar.a(jSONObject.optJSONObject("callout"));
+        c cVar = new c(this);
+        this.j = cVar;
+        cVar.a(jSONObject.optJSONObject("label"));
+        a aVar = new a();
+        this.k = aVar;
+        aVar.a(jSONObject.optJSONObject("anchor"));
+    }
+
+    @Override // com.baidu.tieba.sx2
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            mu2 mu2Var = this.b;
+            if (mu2Var != null && mu2Var.isValid()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

@@ -1,99 +1,52 @@
 package com.baidu.tieba;
 
-import android.content.ContentResolver;
-import android.content.ContentValues;
-import androidx.annotation.AnyThread;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class l33 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = -1;
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947891901, "Lcom/baidu/tieba/l33;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947891901, "Lcom/baidu/tieba/l33;");
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947891901, "Lcom/baidu/tieba/l33;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
             }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            m93 b0;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (b0 = m93.b0()) == null) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947891901, "Lcom/baidu/tieba/l33;");
                 return;
             }
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("appKey", b0.getAppId());
-            contentValues.put("launch_type", Integer.valueOf(eg3.c()));
-            contentValues.put("source", b0.W().T());
-            contentValues.put("time", Long.valueOf(System.currentTimeMillis()));
-            ContentResolver contentResolver = ts2.c().getContentResolver();
-            if (contentResolver != null) {
-                contentResolver.insert(ng2.b(), contentValues);
-            }
+        }
+        a = do1.a;
+    }
+
+    public static void a(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, null, str) == null) && a && !TextUtils.isEmpty(str)) {
+            t42.c("Module-Plugin", str);
         }
     }
 
-    public static int a() {
-        InterceptResult invokeV;
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            int i = a;
-            if (i != -1) {
-                return i;
-            }
-            ts2.g0().getSwitch("swan_backstage_policy", 0);
-            a = 300;
-            if (300 < 60) {
-                a = 60;
-            } else if (300 > 3600) {
-                a = 3600;
-            }
-            return a;
+        if ((interceptable == null || interceptable.invokeL(65538, null, str) == null) && a && !TextUtils.isEmpty(str)) {
+            t42.i("Module-Plugin", str);
         }
-        return invokeV.intValue;
     }
 
-    @AnyThread
-    public static void b() {
+    public static void c(@Nullable String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            gm3.k(new a(), "SwanLaunchBehavior");
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            a(str);
         }
     }
 }

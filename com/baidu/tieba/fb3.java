@@ -1,68 +1,36 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.tieba.c72;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.gslbsdk.db.DelayTB;
+import java.util.UUID;
+import org.json.JSONException;
 import org.json.JSONObject;
+@Deprecated
 /* loaded from: classes4.dex */
-public class fb3 extends jb3 {
+public class fb3 extends q93 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-
-        public a(fb3 fb3Var, Context context) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fb3Var, context};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = context;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Bundle bundle = new Bundle();
-                bundle.putString("bundle_key_preload_preload_scene", "5");
-                k63.k(this.a, bundle);
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fb3(ja3 ja3Var) {
-        super(ja3Var, "/swanAPI/preloadSwanCore");
+    public fb3(q83 q83Var) {
+        super(q83Var, "/swanAPI/navigateBack");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ja3Var};
+            Object[] objArr = {q83Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -76,33 +44,90 @@ public class fb3 extends jb3 {
         }
     }
 
-    @Override // com.baidu.tieba.jb3
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, m93 m93Var) {
+    @Override // com.baidu.tieba.q93
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, t73 t73Var) {
         InterceptResult invokeLLLL;
         int optInt;
+        tx2 tx2Var;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, m93Var)) == null) {
-            if (jb3.b) {
-                Log.d("PreloadSwanCoreAction", "handle entity: " + unitedSchemeEntity.toString());
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, t73Var)) == null) {
+            if (q93.b) {
+                Log.d("NavigateBackAction", "handle entity: " + unitedSchemeEntity.toString());
             }
-            if (!ProcessUtils.isMainProcess()) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal process");
+            String uuid = UUID.randomUUID().toString();
+            z03.b(uuid);
+            String str2 = unitedSchemeEntity.getParams().get("params");
+            if (!TextUtils.isEmpty(str2)) {
+                try {
+                    optInt = new JSONObject(str2).optInt("delta", 1);
+                } catch (JSONException e) {
+                    if (q93.b) {
+                        e.printStackTrace();
+                    }
+                    t42.c("navigateBack", "params parse fail");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                    return false;
+                }
+            } else {
+                optInt = 1;
+            }
+            c72 V = gt2.U().V();
+            if (V == null) {
+                t42.c("navigateBack", "fragmentManager is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            JSONObject a2 = jb3.a(unitedSchemeEntity, "params");
-            if (a2 == null) {
-                optInt = 0;
+            int k = V.k();
+            if (q93.b) {
+                Log.d("NavigateBackAction", "back delta: " + optInt);
+            }
+            if (k == 1) {
+                t42.c("NavigateBackAction", "navigateBack api can only work when slave's count greater than 1");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "navigateBack api can only work when slave's count greater than 1");
+                return false;
+            }
+            if (optInt >= k) {
+                optInt = k - 1;
+            }
+            if (q93.b) {
+                Log.d("NavigateBackAction", "real back delta: " + optInt);
+            }
+            z62 j = V.j((k - optInt) - 1);
+            tx2 tx2Var2 = null;
+            if (j instanceof b72) {
+                tx2Var = ((b72) j).p3();
+                tx2Var.e = "1";
+                tx2Var.f = uuid;
             } else {
-                optInt = a2.optInt(DelayTB.DELAY, 0);
+                tx2Var = null;
             }
-            if (optInt < 0) {
-                optInt = 0;
+            he3.g(tx2Var);
+            z03.c(1, uuid);
+            dk3.a(V, context);
+            c72.b i = V.i("navigateBack");
+            i.n(c72.i, c72.h);
+            i.h(optInt);
+            i.a();
+            b72 o = V.o();
+            if (o != null) {
+                tx2Var2 = o.p3();
             }
-            if (jb3.b) {
-                Log.d("PreloadSwanCoreAction", "delay: " + optInt);
+            y03.q("route", uuid).F(new UbcFlowEvent("na_push_page_end"));
+            z03.a(uuid, tx2Var2);
+            if (!(V.m() instanceof b72)) {
+                t42.c("navigateBack", "top fragment error");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                he3.i(tx2Var);
+                return false;
             }
-            gn3.b0(new a(this, context), optInt);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+            b72 b72Var = (b72) V.m();
+            if (b72Var != null) {
+                str = b72Var.w3();
+            } else {
+                str = "";
+            }
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(cb3.c(str), 0));
             return true;
         }
         return invokeLLLL.booleanValue;

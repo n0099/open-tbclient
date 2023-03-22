@@ -1,173 +1,111 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.SmallTailThemeData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.data.UserPendantData;
-import com.baidu.tieba.person.ProfileHttpResponseMessage;
-import com.baidu.tieba.person.ProfileSocketResponseMessage;
-import com.baidu.tieba.person.ProfileVirtualImageInfo;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import android.content.Context;
+import android.graphics.Color;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Pendant;
+import tbclient.ThemeElement;
 /* loaded from: classes4.dex */
-public class ga9 extends wb {
+public class ga9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ThemeElement a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final x89 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ga9(MainTabActivity mainTabActivity, m89 m89Var) {
-        super(CmdConfigHttp.PROFILE_HTTP_CMD, 303012);
+    public static int a(int i, float f) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, m89Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Float.valueOf(f)})) == null) ? (i & 16777215) | (((int) ((i >>> 24) * f)) << 24) : invokeCommon.intValue;
+    }
+
+    public static boolean e(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) ? i == Integer.MAX_VALUE : invokeI.booleanValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947787338, "Lcom/baidu/tieba/ga9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947787338, "Lcom/baidu/tieba/ga9;");
                 return;
             }
         }
-        this.a = mainTabActivity;
-        this.b = mainTabActivity.e;
+        ThemeElement.Builder builder = new ThemeElement.Builder();
+        builder.common_color = "#FF614EC2";
+        builder.dark_color = "#FF614EC2";
+        builder.light_color = "#FF614EC2";
+        builder.pattern_image = "http://imgsrc.baidu.com/forum/pic/item/00a8540828381f3028c4e2d1a6014c086f06f075.jpg";
+        builder.font_color = "#FFFFFFFF";
+        a = builder.build(false);
     }
 
-    public final void a() {
-        x89 x89Var;
+    @NonNull
+    public static ThemeElement b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (x89Var = this.b) != null && x89Var.a() != null && this.a.A == 1) {
-            this.b.a().d();
-            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            MainTabActivity mainTabActivity = this.a;
-            if (currentActivity == mainTabActivity && mainTabActivity.B.intValue() != 1) {
-                this.b.a().f();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
         }
+        return (ThemeElement) invokeV.objValue;
     }
 
-    public final void b(ProfileHttpResponseMessage profileHttpResponseMessage) {
-        boolean z;
-        boolean z2;
-        x89 x89Var;
+    public static int c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, profileHttpResponseMessage) == null) {
-            boolean z3 = true;
-            if (profileHttpResponseMessage != null && profileHttpResponseMessage.GetUser() != null) {
-                this.a.A = profileHttpResponseMessage.GetUser().my_like_num.intValue();
-                if (this.a.A == 1 && (x89Var = this.b) != null && x89Var.a() != null) {
-                    this.b.a().d();
-                    this.b.a().f();
-                }
-                a();
-                ProfileVirtualImageInfo.getInstance().parseProto(profileHttpResponseMessage.GetUser().virtual_image_info);
-                TbSingleton.getInstance().setUserSmallTheme(new SmallTailThemeData(profileHttpResponseMessage.GetUser().theme_tail));
-                d(profileHttpResponseMessage.GetUser().pendant);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            float[] fArr = new float[3];
+            Color.colorToHSV(i, fArr);
+            if ((fArr[0] < 0.0f || fArr[0] >= 60.0f) && ((fArr[0] < 120.0f || fArr[0] >= 180.0f) && fArr[0] < 240.0f && fArr[0] >= 300.0f)) {
+                fArr[0] = fArr[0] + 15.0f;
+            } else {
+                fArr[0] = fArr[0] - 15.0f;
             }
-            if (profileHttpResponseMessage != null && profileHttpResponseMessage.getMemberBlockInfo() != null) {
-                MainTabActivity mainTabActivity = this.a;
-                if (profileHttpResponseMessage.getMemberBlockInfo().is_permanent_ban.intValue() == 1) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                mainTabActivity.L = z;
-                MainTabActivity mainTabActivity2 = this.a;
-                if (profileHttpResponseMessage.getMemberBlockInfo().is_auto_pay.intValue() == 1) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                mainTabActivity2.M = z2;
-                TbSingleton tbSingleton = TbSingleton.getInstance();
-                if (profileHttpResponseMessage.getMemberBlockInfo().is_ban.intValue() != 1) {
-                    z3 = false;
-                }
-                tbSingleton.setUserBan(z3);
-            }
+            return Color.HSVToColor(fArr);
         }
+        return invokeI.intValue;
     }
 
-    public final void c(ProfileSocketResponseMessage profileSocketResponseMessage) {
-        boolean z;
-        boolean z2;
+    public static int d(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, profileSocketResponseMessage) == null) {
-            boolean z3 = true;
-            if (profileSocketResponseMessage != null && profileSocketResponseMessage.GetUser() != null) {
-                this.a.A = profileSocketResponseMessage.GetUser().my_like_num.intValue();
-                if (this.a.A == 1) {
-                    x89 x89Var = this.b;
-                    if (x89Var != null && x89Var.a() != null) {
-                        this.b.a().d();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            if (context != null && context.getResources() != null) {
+                return context.getResources().getIdentifier(str, "color", context.getPackageName());
+            }
+            return 0;
+        }
+        return invokeLL.intValue;
+    }
+
+    public static int f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (str == null) {
+                return Integer.MAX_VALUE;
+            }
+            if (str.length() != 0) {
+                try {
+                    if (!str.startsWith("#")) {
+                        str = "#" + str;
                     }
-                    a();
+                } catch (Exception unused) {
+                    return Integer.MAX_VALUE;
                 }
-                ProfileVirtualImageInfo.getInstance().parseProto(profileSocketResponseMessage.GetUser().virtual_image_info);
-                TbSingleton.getInstance().setUserSmallTheme(new SmallTailThemeData(profileSocketResponseMessage.GetUser().theme_tail));
-                d(profileSocketResponseMessage.GetUser().pendant);
             }
-            if (profileSocketResponseMessage != null && profileSocketResponseMessage.getMemberBlockInfo() != null) {
-                MainTabActivity mainTabActivity = this.a;
-                if (profileSocketResponseMessage.getMemberBlockInfo().is_permanent_ban.intValue() == 1) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                mainTabActivity.L = z;
-                MainTabActivity mainTabActivity2 = this.a;
-                if (profileSocketResponseMessage.getMemberBlockInfo().is_auto_pay.intValue() == 1) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                mainTabActivity2.M = z2;
-                TbSingleton tbSingleton = TbSingleton.getInstance();
-                if (profileSocketResponseMessage.getMemberBlockInfo().is_ban.intValue() != 1) {
-                    z3 = false;
-                }
-                tbSingleton.setUserBan(z3);
-            }
+            return Color.parseColor(str);
         }
-    }
-
-    public final void d(Pendant pendant) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, pendant) == null) {
-            UserPendantData userPendantData = new UserPendantData();
-            userPendantData.parserProtobuf(pendant);
-            TbSingleton.getInstance().setUserPendantData(userPendantData);
-        }
-    }
-
-    @Override // com.baidu.tieba.wb
-    public void onMessage(ResponsedMessage<?> responsedMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, responsedMessage) == null) {
-            boolean z = responsedMessage instanceof ProfileSocketResponseMessage;
-            if (!z && !(responsedMessage instanceof ProfileHttpResponseMessage)) {
-                return;
-            }
-            if (z) {
-                c((ProfileSocketResponseMessage) responsedMessage);
-            }
-            if (responsedMessage instanceof ProfileHttpResponseMessage) {
-                b((ProfileHttpResponseMessage) responsedMessage);
-            }
-        }
+        return invokeL.intValue;
     }
 }

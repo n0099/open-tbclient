@@ -1,18 +1,28 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
-import com.baidu.swan.bdprivate.extensions.loginauthmobile.LoginAndGetMobileActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
 /* loaded from: classes5.dex */
-public class jr3 extends ActivityDelegation implements yp1 {
+public abstract class jr3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public int b;
+    public String c;
+
+    public abstract void e(IOException iOException);
+
+    public abstract void f(int i);
+
+    public abstract void h(byte[] bArr);
 
     public jr3() {
         Interceptable interceptable = $ic;
@@ -24,39 +34,78 @@ public class jr3 extends ActivityDelegation implements yp1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = false;
+        this.b = 0;
     }
 
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            kr3.b();
-            finish();
-        }
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public boolean onExec() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Intent intent = new Intent(getAgent(), LoginAndGetMobileActivity.class);
-            intent.putExtras(this.mParams);
-            getAgent().startActivity(intent);
-            getAgent().overridePendingTransition(R.anim.obfuscated_res_0x7f0100a0, 0);
-            kr3.c(this);
-            return false;
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.yp1
-    public void onResult(int i) {
+    public final void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.mResult.putInt("loginStatusCode", i);
-            c();
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.b = 0;
+            sq3.b().a(str, this);
         }
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    public final String g(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, bArr)) == null) {
+            String str = new String(bArr);
+            if (pq3.a) {
+                Log.d("BDTLS", "processResponseData encodeResponseData=" + str);
+            }
+            if (this.a) {
+                dr3 c = tq3.f().c(vq3.l().m(), bArr);
+                if (c != null) {
+                    if (!TextUtils.isEmpty(c.a())) {
+                        str = c.a();
+                    }
+                    this.b = c.b().intValue();
+                } else {
+                    this.b = -1;
+                }
+                vq3.l().m().s(this.b);
+                if (this.b == -1) {
+                    sq3.b().f(false);
+                }
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
     }
 }

@@ -2,17 +2,17 @@ package com.baidu.tieba.immessagecenter.chatgroup.chatbox.flowdialog.impl;
 
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.OnLifecycleEvent;
+import com.baidu.tieba.au7;
+import com.baidu.tieba.bu7;
 import com.baidu.tieba.immessagecenter.chatgroup.chatbox.flowdialog.ResponsesPanelController;
-import com.baidu.tieba.ts7;
-import com.baidu.tieba.us7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
 public class ResponsesPanelControllerImpl implements ResponsesPanelController {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final us7 a;
-    public final ts7 b;
+    public final bu7 a;
+    public final au7 b;
 
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     private void onDestroy() {

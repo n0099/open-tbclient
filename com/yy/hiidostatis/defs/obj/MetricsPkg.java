@@ -8,7 +8,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class MetricsPkg {
     public int maxCount;
     public ConcurrentLinkedQueue<IJsonSerialize> reqData = new ConcurrentLinkedQueue<>();

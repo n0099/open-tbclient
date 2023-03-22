@@ -9,6 +9,7 @@ import com.baidu.android.imsdk.chatmessage.ChatMsgManagerImpl;
 import com.baidu.android.imsdk.chatmessage.ChatSession;
 import com.baidu.android.imsdk.chatmessage.ChatSessionManagerImpl;
 import com.baidu.android.imsdk.chatmessage.IMediaGetChatSessionListener;
+import com.baidu.android.imsdk.chatmessage.MediaChatMessageManager;
 import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 import com.baidu.android.imsdk.chatmessage.request.RequestContants;
 import com.baidu.android.imsdk.chatmessage.request.Type;
@@ -21,7 +22,7 @@ import com.baidu.android.imsdk.task.TaskManager;
 import com.baidu.android.imsdk.ubc.CaseUbc;
 import com.baidu.android.imsdk.ubc.UBCConstants;
 import com.baidu.android.imsdk.utils.LogUtils;
-import com.baidu.tieba.e80;
+import com.baidu.tieba.u60;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -101,64 +102,20 @@ public abstract class NotifyMessageHandler {
     }
 
     public static void handleBusinessMsgNotify(Context context, int i, int i2, long j, int i3, long j2, long j3, String str) {
-        long j4;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{context, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), Integer.valueOf(i3), Long.valueOf(j2), Long.valueOf(j3), str}) == null) {
+            boolean isShieldSession = BIMManager.isShieldSession(9, i);
+            LogUtils.d(TAG, "96新消息通知拉取，问一问消息屏蔽状态：" + isShieldSession);
+            if (isShieldSession) {
+                return;
+            }
             List<ChatSession> busiChatSessionsFromDb = ChatSessionManagerImpl.getInstance(context).getBusiChatSessionsFromDb(i, i2, 0L, 0L, Long.MAX_VALUE, -1, 1);
+            long j4 = 0;
             if (busiChatSessionsFromDb != null && busiChatSessionsFromDb.size() > 0) {
                 if (i3 == 2) {
                     j4 = busiChatSessionsFromDb.get(0).getLastMsgId();
-                    handleConsultMsgChanged(context, i, i2, j, i3, j2, j3, str);
-                    ChatSessionManagerImpl.getInstance(context).updateBusiSessionAndGet(i, i2, 0L, j4 + 1, Long.MAX_VALUE, -20, 2, 1, new IMediaGetChatSessionListener(j, context, i, i3, j2, j3, str) { // from class: com.baidu.android.imsdk.internal.NotifyMessageHandler.2
-                        public static /* synthetic */ Interceptable $ic;
-                        public transient /* synthetic */ FieldHolder $fh;
-                        public final /* synthetic */ int val$businessType;
-                        public final /* synthetic */ long val$contacterImUk;
-                        public final /* synthetic */ Context val$context;
-                        public final /* synthetic */ String val$eventList;
-                        public final /* synthetic */ long val$notifyId;
-                        public final /* synthetic */ long val$notifyMsgId;
-                        public final /* synthetic */ int val$notifyType;
-
-                        {
-                            Interceptable interceptable2 = $ic;
-                            if (interceptable2 != null) {
-                                InitContext newInitContext = TitanRuntime.newInitContext();
-                                newInitContext.initArgs = r2;
-                                Object[] objArr = {Long.valueOf(j), context, Integer.valueOf(i), Integer.valueOf(i3), Long.valueOf(j2), Long.valueOf(j3), str};
-                                interceptable2.invokeUnInit(65536, newInitContext);
-                                int i4 = newInitContext.flag;
-                                if ((i4 & 1) != 0) {
-                                    int i5 = i4 & 2;
-                                    newInitContext.thisArg = this;
-                                    interceptable2.invokeInitBody(65536, newInitContext);
-                                    return;
-                                }
-                            }
-                            this.val$contacterImUk = j;
-                            this.val$context = context;
-                            this.val$businessType = i;
-                            this.val$notifyType = i3;
-                            this.val$notifyMsgId = j2;
-                            this.val$notifyId = j3;
-                            this.val$eventList = str;
-                        }
-
-                        @Override // com.baidu.android.imsdk.chatmessage.IMediaGetChatSessionListener
-                        public void onMediaGetChatSessionResult(int i4, int i5, int i6, boolean z, List<ChatSession> list) {
-                            Interceptable interceptable2 = $ic;
-                            if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Boolean.valueOf(z), list}) == null) && i4 == 0 && list != null && list.size() > 0) {
-                                for (ChatSession chatSession : list) {
-                                    if (chatSession.getContacter() != this.val$contacterImUk) {
-                                        NotifyMessageHandler.handleConsultMsgChanged(this.val$context, this.val$businessType, chatSession.getSessionType(), chatSession.getContacter(), this.val$notifyType, this.val$notifyMsgId, this.val$notifyId, this.val$eventList);
-                                    }
-                                }
-                            }
-                        }
-                    });
                 }
             }
-            j4 = 0;
             handleConsultMsgChanged(context, i, i2, j, i3, j2, j3, str);
             ChatSessionManagerImpl.getInstance(context).updateBusiSessionAndGet(i, i2, 0L, j4 + 1, Long.MAX_VALUE, -20, 2, 1, new IMediaGetChatSessionListener(j, context, i, i3, j2, j3, str) { // from class: com.baidu.android.imsdk.internal.NotifyMessageHandler.2
                 public static /* synthetic */ Interceptable $ic;
@@ -175,7 +132,7 @@ public abstract class NotifyMessageHandler {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = objArr;
+                        newInitContext.initArgs = r2;
                         Object[] objArr = {Long.valueOf(j), context, Integer.valueOf(i), Integer.valueOf(i3), Long.valueOf(j2), Long.valueOf(j3), str};
                         interceptable2.invokeUnInit(65536, newInitContext);
                         int i4 = newInitContext.flag;
@@ -216,7 +173,11 @@ public abstract class NotifyMessageHandler {
             long optLong = jSONObject.optLong(RequestContants.EXTRA_CONTACTER_PA_UID, -1L);
             int optInt = jSONObject.optInt(RequestContants.EXTRA_CONTACTER_USER_TYPE, 0);
             String optString = jSONObject.optString(Constants.EXTRA_BUSINESS_MSG_EXT);
-            if (!TextUtils.isEmpty(optString) && jSONObject.optInt("im_notify_type") == 6) {
+            if (TextUtils.isEmpty(optString)) {
+                return;
+            }
+            int optInt2 = jSONObject.optInt("im_notify_type");
+            if (optInt2 == 6) {
                 try {
                     JSONArray optJSONArray = new JSONObject(optString).optJSONArray("msgid");
                     int length = optJSONArray.length();
@@ -310,6 +271,57 @@ public abstract class NotifyMessageHandler {
                 } catch (JSONException e) {
                     LogUtils.e(TAG, "handleClueMsgNotify extcption:" + e.getMessage());
                 }
+            } else if (optInt2 == 7) {
+                try {
+                    JSONObject jSONObject2 = new JSONObject(optString);
+                    int optInt3 = jSONObject2.optInt("re_msg_status");
+                    String optString2 = jSONObject2.optString("re_msg_status_display_text");
+                    JSONArray jSONArray = jSONObject2.getJSONArray("msgid");
+                    for (int i4 = 0; i4 < jSONArray.length(); i4++) {
+                        long j2 = jSONArray.getLong(i4);
+                        jSONObject2.optLong("1657773954733779");
+                        TaskManager.getInstance(context).submitForNetWork(new Runnable(context, j2, optInt3, optString2) { // from class: com.baidu.android.imsdk.internal.NotifyMessageHandler.4
+                            public static /* synthetic */ Interceptable $ic;
+                            public transient /* synthetic */ FieldHolder $fh;
+                            public final /* synthetic */ Context val$context;
+                            public final /* synthetic */ String val$displayText;
+                            public final /* synthetic */ int val$msgRepliedStatus;
+                            public final /* synthetic */ long val$replyMsgId;
+
+                            {
+                                Interceptable interceptable2 = $ic;
+                                if (interceptable2 != null) {
+                                    InitContext newInitContext = TitanRuntime.newInitContext();
+                                    newInitContext.initArgs = r2;
+                                    Object[] objArr = {context, Long.valueOf(j2), Integer.valueOf(optInt3), optString2};
+                                    interceptable2.invokeUnInit(65536, newInitContext);
+                                    int i5 = newInitContext.flag;
+                                    if ((i5 & 1) != 0) {
+                                        int i6 = i5 & 2;
+                                        newInitContext.thisArg = this;
+                                        interceptable2.invokeInitBody(65536, newInitContext);
+                                        return;
+                                    }
+                                }
+                                this.val$context = context;
+                                this.val$replyMsgId = j2;
+                                this.val$msgRepliedStatus = optInt3;
+                                this.val$displayText = optString2;
+                            }
+
+                            @Override // java.lang.Runnable
+                            public void run() {
+                                ChatMsg updateReplyChatMsgQuoteData;
+                                Interceptable interceptable2 = $ic;
+                                if ((interceptable2 == null || interceptable2.invokeV(1048576, this) == null) && (updateReplyChatMsgQuoteData = MediaChatMessageManager.getInstance(this.val$context).updateReplyChatMsgQuoteData(this.val$replyMsgId, this.val$msgRepliedStatus, this.val$displayText)) != null) {
+                                    ChatMsgManagerImpl.getInstance(this.val$context).sendMsgUpdatedBroadcast(this.val$context, updateReplyChatMsgQuoteData);
+                                }
+                            }
+                        });
+                    }
+                } catch (JSONException e2) {
+                    LogUtils.e(TAG, "handleClueMsgNotify parse failed,", e2);
+                }
             }
         }
     }
@@ -364,7 +376,7 @@ public abstract class NotifyMessageHandler {
                     handleRtcReport("notify", "exception :" + th.getMessage());
                     debugInfo.extInfo = "ClassNotFoundException BIMRtcManager";
                 }
-                e80.d().f(CaseUbc.generateUBCData(context, "-1", "", debugInfo), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+                u60.d().f(CaseUbc.generateUBCData(context, "-1", "", debugInfo), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
                 return;
             }
             LogUtils.i(TAG, "handleRtcNotifyMessage context == null || msgobj == null ");

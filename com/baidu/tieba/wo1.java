@@ -1,77 +1,55 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Autowired
 /* loaded from: classes6.dex */
-public final class wo1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "";
-    public static String b;
+public class wo1 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public tr1 a;
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
+    public wo1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            try {
-            } catch (Throwable th) {
-                vo1.d(th);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if (!TextUtils.isEmpty(a)) {
-                return a;
-            }
-            a = fn1.g(context).F();
-            return a;
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String b(Context context) {
-        InterceptResult invokeL;
+    @NonNull
+    public tr1 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                if (!TextUtils.isEmpty(b)) {
-                    return b;
-                }
-                String c = c(context);
-                b = c;
-                if (!TextUtils.isEmpty(c)) {
-                    return b;
-                }
-                String a2 = new in1(context).a();
-                b = a2;
-                if (!TextUtils.isEmpty(a2)) {
-                    return b;
-                }
-                return "";
-            } catch (Throwable th) {
-                vo1.d(th);
-                return "";
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a == null) {
+                this.a = b();
             }
+            return this.a;
         }
-        return (String) invokeL.objValue;
+        return (tr1) invokeV.objValue;
     }
 
-    public static String c(Context context) {
-        InterceptResult invokeL;
+    @Inject(force = false)
+    public tr1 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            try {
-                Class<?> cls = Class.forName("com.baidu.sofire.ac.F");
-                Object invoke = cls.getDeclaredMethod("getInstance", new Class[0]).invoke(cls, new Object[0]);
-                if (invoke == null) {
-                    return "";
-                }
-                return (String) cls.getDeclaredMethod("gzd", Context.class).invoke(invoke, context);
-            } catch (Throwable th) {
-                vo1.d(th);
-                return "";
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new oo3();
         }
-        return (String) invokeL.objValue;
+        return (tr1) invokeV.objValue;
     }
 }

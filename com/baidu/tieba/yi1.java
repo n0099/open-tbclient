@@ -1,197 +1,219 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.SpannableString;
+import android.net.Uri;
 import android.text.TextUtils;
-import android.text.style.AbsoluteSizeSpan;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xi1;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.DecimalFormat;
-import java.util.List;
+import java.net.URLDecoder;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.regex.Pattern;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class yi1 extends BaseAdapter {
+public final class yi1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<xi1.a> a;
-    public Context b;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
+    public static String a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            return 0L;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            if (i != 0) {
+                if (i != 101) {
+                    if (i != 201) {
+                        if (i != 202) {
+                            if (i != 301) {
+                                if (i != 302) {
+                                    switch (i) {
+                                        case 401:
+                                            return ri1.a().getString(R.string.prologue_united_scheme_err_message_action_sec_check_fail);
+                                        case 402:
+                                            return ri1.a().getString(R.string.prologue_united_scheme_err_message_action_acl_check_fail);
+                                        case 403:
+                                            return ri1.a().getString(R.string.prologue_united_scheme_err_message_action_allow_close);
+                                        default:
+                                            return ri1.a().getString(R.string.prologue_united_scheme_err_message_parse_fail);
+                                    }
+                                }
+                                return ri1.a().getString(R.string.prologue_united_scheme_err_message_action_notfound);
+                            }
+                            return ri1.a().getString(R.string.prologue_united_scheme_err_message_module_notfound);
+                        }
+                        return ri1.a().getString(R.string.prologue_united_scheme_err_message_params_parse_fail);
+                    }
+                    return ri1.a().getString(R.string.prologue_united_scheme_err_message_parse_fail);
+                }
+                return ri1.a().getString(R.string.prologue_united_scheme_err_message_not_support);
+            }
+            return ri1.a().getString(R.string.prologue_united_scheme_err_message_ok);
         }
-        return invokeI.longValue;
+        return (String) invokeI.objValue;
     }
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public TextView b;
-        public ImageView c;
-        public TextView d;
-        public ImageView e;
-        public LinearLayout f;
-        public LinearLayout g;
-        public TextView h;
-        public ImageView i;
-
-        public a(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static HashMap<String, String> b(String str) {
+        InterceptResult invokeL;
+        String substring;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            HashMap<String, String> hashMap = new HashMap<>();
+            if (TextUtils.isEmpty(str)) {
+                return hashMap;
+            }
+            int indexOf = str.indexOf("?");
+            int indexOf2 = str.indexOf("#");
+            if (indexOf < 0) {
+                return hashMap;
+            }
+            if (indexOf2 < 0) {
+                substring = str.substring(indexOf + 1);
+            } else {
+                substring = str.substring(indexOf + 1, indexOf2);
+            }
+            String[] split = substring.split("&");
+            if (split == null) {
+                return hashMap;
+            }
+            for (String str2 : split) {
+                int indexOf3 = str2.indexOf("=");
+                if (indexOf3 > 0) {
+                    try {
+                        hashMap.put(URLDecoder.decode(str2.substring(0, indexOf3)), URLDecoder.decode(str2.substring(indexOf3 + 1)));
+                    } catch (IllegalArgumentException unused) {
+                    }
                 }
             }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09079b);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09079a);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091fbb);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905f8);
-            this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09079c);
-            this.f = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090798);
-            this.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090795);
-            this.h = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090799);
-            this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091fc5);
+            return hashMap;
         }
+        return (HashMap) invokeL.objValue;
     }
 
-    public yi1(Context context) {
+    public static String[] c(Uri uri) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, uri)) == null) {
+            if (uri == null) {
+                return null;
             }
+            ArrayList arrayList = new ArrayList(uri.getPathSegments());
+            if (!d(uri)) {
+                arrayList.add(0, uri.getHost());
+            }
+            if (arrayList.size() <= 0) {
+                return null;
+            }
+            return (String[]) arrayList.toArray(new String[0]);
         }
-        this.b = context;
+        return (String[]) invokeL.objValue;
     }
 
-    public final String a(long j) {
-        InterceptResult invokeJ;
+    public static boolean d(Uri uri) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            return new DecimalFormat("0").format((j * 1.0d) / 100.0d);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, uri)) == null) {
+            if (uri == null) {
+                return false;
+            }
+            String host = uri.getHost();
+            if (TextUtils.isEmpty(host) || !host.startsWith("v") || !e(host)) {
+                return false;
+            }
+            return true;
         }
-        return (String) invokeJ.objValue;
+        return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: b */
-    public xi1.a getItem(int i) {
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (Pattern.compile("[0-9]").matcher(str).find()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean f(Uri uri) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, uri)) == null) {
+            if (uri == null) {
+                return false;
+            }
+            String scheme = uri.getScheme();
+            String host = uri.getHost();
+            if (!TextUtils.equals(ui1.a, scheme) || TextUtils.isEmpty(host)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return f(Uri.parse(str));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static JSONObject h(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i < this.a.size()) {
-                return this.a.get(i);
-            }
-            return null;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65543, null, i)) == null) {
+            return j(null, i);
         }
-        return (xi1.a) invokeI.objValue;
+        return (JSONObject) invokeI.objValue;
     }
 
-    public void c(List<xi1.a> list) {
+    public static JSONObject i(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.a = list;
-            notifyDataSetChanged();
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65544, null, i, str)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("status", String.valueOf(i));
+                jSONObject.put("message", str);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
         }
+        return (JSONObject) invokeIL.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
+    public static JSONObject j(JSONObject jSONObject, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<xi1.a> list = this.a;
-            if (list == null) {
-                return 0;
-            }
-            return list.size();
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65545, null, jSONObject, i)) == null) {
+            return k(jSONObject, i, a(i));
         }
-        return invokeV.intValue;
+        return (JSONObject) invokeLI.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        boolean z;
+    public static JSONObject k(JSONObject jSONObject, int i, String str) {
+        InterceptResult invokeLIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, view2, viewGroup)) == null) {
-            xi1.a item = getItem(i);
-            if (item == null) {
-                return view2;
-            }
-            boolean z2 = false;
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d020c, (ViewGroup) null, false);
-                view2.setTag(new a(view2));
-            }
-            if (view2.getTag() != null && (view2.getTag() instanceof a)) {
-                a aVar = (a) view2.getTag();
-                if (item.a == -1) {
-                    aVar.g.setVisibility(8);
-                    aVar.f.setVisibility(0);
-                    aVar.h.setText(item.d);
-                    ImageView imageView = aVar.i;
-                    if (item.h == 1) {
-                        z2 = true;
-                    }
-                    imageView.setSelected(z2);
-                } else {
-                    aVar.g.setVisibility(0);
-                    aVar.f.setVisibility(8);
-                    aVar.a.setText(item.d);
-                    if (TextUtils.isEmpty(item.e)) {
-                        aVar.b.setVisibility(8);
-                    } else {
-                        aVar.b.setVisibility(0);
-                        aVar.b.setText(item.e);
-                    }
-                    ImageView imageView2 = aVar.c;
-                    if (item.h == 1) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    imageView2.setSelected(z);
-                    SpannableString spannableString = new SpannableString("￥" + a(item.g.longValue()));
-                    spannableString.setSpan(new AbsoluteSizeSpan(zh1.a(this.b, 14.0f)), 0, 1, 33);
-                    aVar.d.setText(spannableString);
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65546, null, jSONObject, i, str)) == null) {
+            JSONObject i2 = i(i, str);
+            if (jSONObject != null) {
+                try {
+                    i2.put("data", jSONObject);
+                } catch (JSONException e) {
+                    e.printStackTrace();
                 }
             }
-            return view2;
+            return i2;
         }
-        return (View) invokeILL.objValue;
+        return (JSONObject) invokeLIL.objValue;
     }
 }

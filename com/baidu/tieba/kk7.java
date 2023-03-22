@@ -1,63 +1,61 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.List;
-import tbclient.RecomVideo.DislikeReason;
-import tbclient.RecomVideo.ThreadPersonalized;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class kk7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ik7 a;
+    public ArrayList<jk7> b;
 
-    public static void a(List<ThreadPersonalized> list, List<Cdo> list2) {
-        eg6 eg6Var;
-        ThreadData threadData;
-        ThreadPersonalized threadPersonalized;
+    public kk7() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, list, list2) == null) && list != null && list2 != null) {
-            HashMap hashMap = new HashMap();
-            for (ThreadPersonalized threadPersonalized2 : list) {
-                if (threadPersonalized2 != null) {
-                    hashMap.put(String.valueOf(threadPersonalized2.tid), threadPersonalized2);
-                }
-            }
-            int count = ListUtils.getCount(list2);
-            for (int i = 0; i < count; i++) {
-                Cdo cdo = (Cdo) ListUtils.getItem(list2, i);
-                if ((cdo instanceof eg6) && (threadData = (eg6Var = (eg6) cdo).getThreadData()) != null && (threadPersonalized = (ThreadPersonalized) hashMap.get(threadData.getTid())) != null) {
-                    eg6Var.H(threadPersonalized.source);
-                    eg6Var.K(threadPersonalized.weight);
-                    eg6Var.B(threadPersonalized.abtest_tag);
-                    threadData.mRecomAbTag = threadPersonalized.abtest_tag;
-                    threadData.mRecomSource = threadPersonalized.source;
-                    threadData.mRecomWeight = threadPersonalized.weight;
-                    if (threadData.getThreadVideoInfo() != null) {
-                        eg6Var.D(threadData.getThreadVideoInfo().is_vertical);
-                    }
-                    List<DislikeReason> list3 = threadPersonalized.dislike_resource;
-                    if (list3 != null) {
-                        SparseArray<String> sparseArray = new SparseArray<>();
-                        for (DislikeReason dislikeReason : list3) {
-                            int intValue = dislikeReason.dislike_id.intValue();
-                            sparseArray.put(intValue, dislikeReason.dislike_reason + "%" + dislikeReason.extra);
-                        }
-                        eg6Var.feedBackReasonMap = sparseArray;
-                        eg6Var.C(threadPersonalized.extra);
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void b(List<ThreadPersonalized> list, List<Cdo> list2) {
+    public static kk7 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, list, list2) == null) {
-            a(list, list2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            kk7 kk7Var = new kk7();
+            JSONObject optJSONObject = jSONObject.optJSONObject("guide_content");
+            JSONArray optJSONArray = jSONObject.optJSONArray("hot_topic");
+            kk7Var.a = ik7.a(optJSONObject);
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                kk7Var.b = new ArrayList<>();
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    try {
+                        jk7 a = jk7.a(optJSONArray.getJSONObject(i));
+                        if (a != null) {
+                            kk7Var.b.add(a);
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+            return kk7Var;
         }
+        return (kk7) invokeL.objValue;
     }
 }

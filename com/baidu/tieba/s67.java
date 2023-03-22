@@ -1,27 +1,44 @@
 package com.baidu.tieba;
 
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import com.baidu.tbadk.TbadkApplication;
+import androidx.annotation.ColorInt;
+import androidx.annotation.NonNull;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+/* compiled from: TabBarLogic.java */
 /* loaded from: classes6.dex */
-public class s67 {
+public final /* synthetic */ class s67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static PackageInfo a(String str) {
-        InterceptResult invokeL;
+    @NonNull
+    public static u67 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            try {
-                return TbadkApplication.getInst().getPackageManager().getPackageInfo(str, 0);
-            } catch (PackageManager.NameNotFoundException e) {
-                e.printStackTrace();
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return new t67();
         }
-        return (PackageInfo) invokeL.objValue;
+        return (u67) invokeV.objValue;
+    }
+
+    @ColorInt
+    public static int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return SkinManager.getColor(R.color.CAM_X0107);
+        }
+        return invokeV.intValue;
+    }
+
+    public static int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return UtilHelper.getDimenPixelSize(R.dimen.tbds42);
+        }
+        return invokeV.intValue;
     }
 }

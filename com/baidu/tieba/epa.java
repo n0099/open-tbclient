@@ -1,101 +1,174 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.AbstractQueue;
-import java.util.Iterator;
-import java.util.concurrent.atomic.AtomicReferenceArray;
+import com.squareup.wire2.ProtoAdapter;
+import com.squareup.wire2.internal.ImmutableList;
+import com.squareup.wire2.internal.MutableOnWriteList;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public abstract class epa<E> extends AbstractQueue<E> {
+public final class epa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReferenceArray<E> a;
-    public final int b;
 
-    public final int b(long j, int i) {
-        InterceptResult invokeCommon;
+    public static int e(Object obj, Object obj2, Object obj3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) ? ((int) j) & i : invokeCommon.intValue;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj, obj2, obj3)) == null) {
+            return (obj != null ? 1 : 0) + (obj2 != null ? 1 : 0) + (obj3 == null ? 0 : 1);
+        }
+        return invokeLLL.intValue;
     }
 
-    public epa(int i) {
+    public static void a(List<?> list) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeL(65536, null, list) == null) {
+            if (list != null) {
+                int size = list.size();
+                for (int i = 0; i < size; i++) {
+                    if (list.get(i) == null) {
+                        throw new NullPointerException("Element at index " + i + " is null");
+                    }
+                }
                 return;
             }
+            throw new NullPointerException("list == null");
         }
-        int b = spa.b(i);
-        this.b = b - 1;
-        this.a = new AtomicReferenceArray<>(b);
     }
 
-    public final int a(long j) {
-        InterceptResult invokeJ;
+    public static void b(Map<?, ?> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            return this.b & ((int) j);
-        }
-        return invokeJ.intValue;
-    }
-
-    public final E c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            return d(this.a, i);
-        }
-        return (E) invokeI.objValue;
-    }
-
-    @Override // java.util.AbstractQueue, java.util.AbstractCollection, java.util.Collection
-    public void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048579, this) != null) {
-            return;
-        }
-        while (true) {
-            if (poll() == null && isEmpty()) {
+        if (interceptable == null || interceptable.invokeL(65537, null, map) == null) {
+            if (map != null) {
+                for (Map.Entry<?, ?> entry : map.entrySet()) {
+                    if (entry.getKey() != null) {
+                        if (entry.getValue() == null) {
+                            throw new NullPointerException("Value for key " + entry.getKey() + " is null");
+                        }
+                    } else {
+                        throw new NullPointerException("map.containsKey(null)");
+                    }
+                }
                 return;
+            }
+            throw new NullPointerException("map == null");
+        }
+    }
+
+    public static <T> List<T> c(String str, List<T> list) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, list)) == null) {
+            if (list != null) {
+                if (list != Collections.emptyList() && !(list instanceof ImmutableList)) {
+                    return new ArrayList(list);
+                }
+                return new MutableOnWriteList(list);
+            }
+            throw new NullPointerException(str + " == null");
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    public static <K, V> Map<K, V> d(String str, Map<K, V> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, map)) == null) {
+            if (map != null) {
+                return new LinkedHashMap(map);
+            }
+            throw new NullPointerException(str + " == null");
+        }
+        return (Map) invokeLL.objValue;
+    }
+
+    public static boolean f(Object obj, Object obj2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, obj, obj2)) == null) {
+            if (obj != obj2 && (obj == null || !obj.equals(obj2))) {
+                return false;
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static <T> void k(List<T> list, ProtoAdapter<T> protoAdapter) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65546, null, list, protoAdapter) == null) {
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                list.set(i, protoAdapter.redact(list.get(i)));
             }
         }
     }
 
-    @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
-    public Iterator<E> iterator() {
+    public static <T> List<T> g(String str, List<T> list) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, list)) == null) {
+            if (list != null) {
+                if (list instanceof MutableOnWriteList) {
+                    list = ((MutableOnWriteList) list).mutableList;
+                }
+                if (list != Collections.emptyList() && !(list instanceof ImmutableList)) {
+                    ImmutableList immutableList = new ImmutableList(list);
+                    if (!immutableList.contains(null)) {
+                        return immutableList;
+                    }
+                    throw new IllegalArgumentException(str + ".contains(null)");
+                }
+                return list;
+            }
+            throw new NullPointerException(str + " == null");
+        }
+        return (List) invokeLL.objValue;
+    }
+
+    public static <K, V> Map<K, V> h(String str, Map<K, V> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, map)) == null) {
+            if (map != null) {
+                if (map.isEmpty()) {
+                    return Collections.emptyMap();
+                }
+                LinkedHashMap linkedHashMap = new LinkedHashMap(map);
+                if (!linkedHashMap.containsKey(null)) {
+                    if (!linkedHashMap.containsValue(null)) {
+                        return Collections.unmodifiableMap(linkedHashMap);
+                    }
+                    throw new IllegalArgumentException(str + ".containsValue(null)");
+                }
+                throw new IllegalArgumentException(str + ".containsKey(null)");
+            }
+            throw new NullPointerException(str + " == null");
+        }
+        return (Map) invokeLL.objValue;
+    }
+
+    public static <T> List<T> i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            throw new UnsupportedOperationException();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return new MutableOnWriteList(Collections.emptyList());
         }
-        return (Iterator) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public final E d(AtomicReferenceArray<E> atomicReferenceArray, int i) {
-        InterceptResult invokeLI;
+    public static <K, V> Map<K, V> j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, atomicReferenceArray, i)) == null) {
-            return atomicReferenceArray.get(i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return new LinkedHashMap();
         }
-        return (E) invokeLI.objValue;
-    }
-
-    public final void e(AtomicReferenceArray<E> atomicReferenceArray, int i, E e) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048581, this, atomicReferenceArray, i, e) == null) {
-            atomicReferenceArray.lazySet(i, e);
-        }
+        return (Map) invokeV.objValue;
     }
 }

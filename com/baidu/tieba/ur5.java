@@ -1,22 +1,21 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
+import android.widget.ImageView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class ur5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WebView a;
-    public String b;
-    public int c;
-    public long d;
+    public ImageView a;
+    public ImageView b;
+    public yr5 c;
+    public b d;
+    public final bg<rm> e;
 
     /* loaded from: classes6.dex */
     public interface b {
@@ -24,18 +23,17 @@ public class ur5 {
     }
 
     /* loaded from: classes6.dex */
-    public class a extends WebViewClient {
+    public class a extends bg<rm> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ b a;
-        public final /* synthetic */ ur5 b;
+        public final /* synthetic */ ur5 a;
 
-        public a(ur5 ur5Var, b bVar) {
+        public a(ur5 ur5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ur5Var, bVar};
+                Object[] objArr = {ur5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -45,34 +43,37 @@ public class ur5 {
                     return;
                 }
             }
-            this.b = ur5Var;
-            this.a = bVar;
+            this.a = ur5Var;
         }
 
-        @Override // android.webkit.WebViewClient
-        public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            InterceptResult invokeLL;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.bg
+        public void onLoaded(rm rmVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, str)) == null) {
-                if (str.startsWith("http://notify/ready")) {
-                    this.b.c = 2;
-                    b bVar = this.a;
-                    if (bVar != null) {
-                        bVar.a();
-                        return true;
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, rmVar, str, i) == null) {
+                super.onLoaded((a) rmVar, str, i);
+                if (!StringUtils.isNull(str) && this.a.c != null && this.a.c.isValid()) {
+                    if (str.equals(this.a.c.a())) {
+                        this.a.b.setImageDrawable(rmVar.j());
                     }
-                    return true;
+                    if (str.equals(this.a.c.d())) {
+                        this.a.a.setImageDrawable(rmVar.j());
+                    }
+                    this.a.c.b(str);
+                    if (this.a.c.e() && this.a.d != null) {
+                        this.a.d.a();
+                    }
                 }
-                return false;
             }
-            return invokeLL.booleanValue;
         }
     }
 
-    public ur5() {
+    public ur5(ImageView imageView, ImageView imageView2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {imageView, imageView2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -82,39 +83,34 @@ public class ur5 {
                 return;
             }
         }
-        this.c = 0;
-        this.d = 0L;
-        this.d = System.currentTimeMillis();
+        this.e = new a(this);
+        this.a = imageView;
+        this.b = imageView2;
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public void f(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.c == 2) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.d = bVar;
         }
-        return invokeV.booleanValue;
     }
 
-    public void b(b bVar) {
-        WebView webView;
+    public void e() {
+        yr5 yr5Var;
+        b bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) != null) || (webView = this.a) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (yr5Var = this.c) == null || !yr5Var.isValid() || !this.c.e() || (bVar = this.d) == null) {
             return;
         }
-        webView.setWebViewClient(new a(this, bVar));
-        StringBuilder sb = new StringBuilder();
-        sb.append(this.b);
-        if (dj.isEmpty(Uri.parse(this.b).getQuery())) {
-            sb.append("?");
-        } else {
-            sb.append("&");
+        bVar.a();
+    }
+
+    public void g(yr5 yr5Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yr5Var) == null) && yr5Var != null && yr5Var.isValid()) {
+            this.c = yr5Var;
+            cg.h().m(this.c.a(), 10, this.e, null);
+            cg.h().m(this.c.d(), 10, this.e, null);
         }
-        sb.append("page_lifecycle_type=preheat_enabled");
-        this.a.loadUrl(sb.toString());
-        this.c = 1;
     }
 }

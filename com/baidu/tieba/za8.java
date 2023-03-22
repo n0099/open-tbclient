@@ -1,20 +1,17 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.ClassForumInfo;
-import tbclient.GetVerticalForumList.DataRes;
-import tbclient.Page;
-import tbclient.RecommendForumInfo;
+import tbclient.DeleteTail.ResData;
 /* loaded from: classes7.dex */
 public class za8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<xa8> a;
+    public int a;
 
     public za8() {
         Interceptable interceptable = $ic;
@@ -30,26 +27,21 @@ public class za8 {
         }
     }
 
-    public void a(DataRes dataRes) {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public void b(ResData resData) {
+        Long l;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, resData) != null) || resData == null || (l = resData.tailId) == null) {
             return;
         }
-        if (dataRes.class_foruminfo != null) {
-            this.a = new ArrayList();
-            for (ClassForumInfo classForumInfo : dataRes.class_foruminfo) {
-                xa8 xa8Var = new xa8();
-                xa8Var.b = classForumInfo.class_id;
-                xa8Var.c = classForumInfo.class_name;
-                xa8Var.d = classForumInfo.class_icon;
-                ArrayList arrayList = new ArrayList();
-                for (RecommendForumInfo recommendForumInfo : classForumInfo.forum_info) {
-                    arrayList.add(new db8(recommendForumInfo, false));
-                }
-                xa8Var.a = arrayList;
-                this.a.add(xa8Var);
-            }
-        }
-        Page page = dataRes.page;
+        this.a = l.intValue();
     }
 }

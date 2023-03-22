@@ -1,5 +1,9 @@
 package com.baidu.tieba;
+
+import android.view.Surface;
 /* loaded from: classes6.dex */
 public interface rk1 {
-    void a(String str);
+    void a();
+
+    void b(Surface surface);
 }

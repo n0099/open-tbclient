@@ -58,11 +58,11 @@ public class il implements is<il, Object>, Serializable, Cloneable {
         int a8;
         int a9;
         if (il.class.equals(ilVar.getClass())) {
-            int compareTo = Boolean.valueOf(m588a()).compareTo(Boolean.valueOf(ilVar.m588a()));
+            int compareTo = Boolean.valueOf(m590a()).compareTo(Boolean.valueOf(ilVar.m590a()));
             if (compareTo != 0) {
                 return compareTo;
             }
-            if (!m588a() || (a9 = it.a(this.f739a, ilVar.f739a)) == 0) {
+            if (!m590a() || (a9 = it.a(this.f739a, ilVar.f739a)) == 0) {
                 int compareTo2 = Boolean.valueOf(b()).compareTo(Boolean.valueOf(ilVar.b()));
                 if (compareTo2 != 0) {
                     return compareTo2;
@@ -137,19 +137,19 @@ public class il implements is<il, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.is
     public void a(jd jdVar) {
-        jdVar.mo617a();
+        jdVar.mo619a();
         while (true) {
-            ja mo613a = jdVar.mo613a();
-            byte b2 = mo613a.a;
+            ja mo615a = jdVar.mo615a();
+            byte b2 = mo615a.a;
             if (b2 == 0) {
                 jdVar.f();
                 a();
                 return;
             }
-            switch (mo613a.f813a) {
+            switch (mo615a.f813a) {
                 case 1:
                     if (b2 == 11) {
-                        this.f739a = jdVar.mo618a();
+                        this.f739a = jdVar.mo620a();
                         continue;
                         jdVar.g();
                     }
@@ -165,45 +165,45 @@ public class il implements is<il, Object>, Serializable, Cloneable {
                     break;
                 case 3:
                     if (b2 == 11) {
-                        this.f741b = jdVar.mo618a();
+                        this.f741b = jdVar.mo620a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 4:
                     if (b2 == 11) {
-                        this.f742c = jdVar.mo618a();
+                        this.f742c = jdVar.mo620a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 5:
                     if (b2 == 11) {
-                        this.f743d = jdVar.mo618a();
+                        this.f743d = jdVar.mo620a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 6:
                     if (b2 == 11) {
-                        this.f744e = jdVar.mo618a();
+                        this.f744e = jdVar.mo620a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 7:
                     if (b2 == 11) {
-                        this.f745f = jdVar.mo618a();
+                        this.f745f = jdVar.mo620a();
                         continue;
                         jdVar.g();
                     }
                     break;
                 case 8:
                     if (b2 == 15) {
-                        jb mo614a = jdVar.mo614a();
-                        this.f740a = new ArrayList(mo614a.f814a);
-                        for (int i = 0; i < mo614a.f814a; i++) {
-                            this.f740a.add(jdVar.mo618a());
+                        jb mo616a = jdVar.mo616a();
+                        this.f740a = new ArrayList(mo616a.f814a);
+                        for (int i = 0; i < mo616a.f814a; i++) {
+                            this.f740a.add(jdVar.mo620a());
                         }
                         jdVar.i();
                         continue;
@@ -217,23 +217,23 @@ public class il implements is<il, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m588a() {
+    public boolean m590a() {
         return this.f739a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m589a(il ilVar) {
+    public boolean m591a(il ilVar) {
         if (ilVar == null) {
             return false;
         }
-        boolean m588a = m588a();
-        boolean m588a2 = ilVar.m588a();
-        if ((m588a || m588a2) && !(m588a && m588a2 && this.f739a.equals(ilVar.f739a))) {
+        boolean m590a = m590a();
+        boolean m590a2 = ilVar.m590a();
+        if ((m590a || m590a2) && !(m590a && m590a2 && this.f739a.equals(ilVar.f739a))) {
             return false;
         }
         boolean b2 = b();
         boolean b3 = ilVar.b();
-        if ((b2 || b3) && !(b2 && b3 && this.f738a.m513a(ilVar.f738a))) {
+        if ((b2 || b3) && !(b2 && b3 && this.f738a.m515a(ilVar.f738a))) {
             return false;
         }
         boolean c2 = c();
@@ -278,7 +278,7 @@ public class il implements is<il, Object>, Serializable, Cloneable {
     public void b(jd jdVar) {
         a();
         jdVar.a(f737a);
-        if (this.f739a != null && m588a()) {
+        if (this.f739a != null && m590a()) {
             jdVar.a(a);
             jdVar.a(this.f739a);
             jdVar.b();
@@ -323,7 +323,7 @@ public class il implements is<il, Object>, Serializable, Cloneable {
             jdVar.b();
         }
         jdVar.c();
-        jdVar.mo621a();
+        jdVar.mo623a();
     }
 
     public boolean b() {
@@ -359,7 +359,7 @@ public class il implements is<il, Object>, Serializable, Cloneable {
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof il)) {
-            return m589a((il) obj);
+            return m591a((il) obj);
         }
         return false;
     }
@@ -384,7 +384,7 @@ public class il implements is<il, Object>, Serializable, Cloneable {
         boolean z;
         StringBuilder sb = new StringBuilder("XmPushActionSubscription(");
         boolean z2 = false;
-        if (m588a()) {
+        if (m590a()) {
             sb.append("debug:");
             String str = this.f739a;
             if (str == null) {

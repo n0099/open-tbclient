@@ -9,9 +9,9 @@ import android.view.LayoutInflater;
 import android.widget.LinearLayout;
 import com.baidu.swan.apps.res.ui.wheelview3d.WheelView3d;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a83;
-import com.baidu.tieba.dn3;
-import com.baidu.tieba.e83;
+import com.baidu.tieba.h63;
+import com.baidu.tieba.kl3;
+import com.baidu.tieba.l63;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
@@ -41,11 +41,11 @@ public class BdTimePicker extends LinearLayout {
     }
 
     /* loaded from: classes3.dex */
-    public class a implements e83 {
+    public class a implements l63 {
         public a() {
         }
 
-        @Override // com.baidu.tieba.e83
+        @Override // com.baidu.tieba.l63
         public void a(WheelView3d wheelView3d, int i) {
             BdTimePicker bdTimePicker = BdTimePicker.this;
             bdTimePicker.a = i + bdTimePicker.f;
@@ -54,11 +54,11 @@ public class BdTimePicker extends LinearLayout {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements e83 {
+    public class b implements l63 {
         public b() {
         }
 
-        @Override // com.baidu.tieba.e83
+        @Override // com.baidu.tieba.l63
         public void a(WheelView3d wheelView3d, int i) {
             BdTimePicker bdTimePicker = BdTimePicker.this;
             bdTimePicker.b = i + bdTimePicker.h;
@@ -140,13 +140,13 @@ public class BdTimePicker extends LinearLayout {
 
     public final void f(Context context) {
         setOrientation(0);
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00d7, this);
-        this.l = dn3.f(context, this.l);
-        this.m = dn3.f(context, 16.0f);
-        this.n = dn3.f(context, 14.0f);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00d9, this);
+        this.l = kl3.f(context, this.l);
+        this.m = kl3.f(context, 16.0f);
+        this.n = kl3.f(context, 14.0f);
         j();
-        this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f092377);
-        WheelView3d wheelView3d = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f092829);
+        this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0923d1);
+        WheelView3d wheelView3d = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f09288c);
         this.c = wheelView3d;
         wheelView3d.setLineSpacingMultiplier(3.0f);
         this.c.setCenterTextSize(this.m);
@@ -159,7 +159,7 @@ public class BdTimePicker extends LinearLayout {
         this.c.setDividerType(WheelView3d.DividerType.FILL);
         this.c.setDividerColor(0);
         this.c.setOnItemSelectedListener(new a());
-        WheelView3d wheelView3d2 = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f09282a);
+        WheelView3d wheelView3d2 = (WheelView3d) findViewById(R.id.obfuscated_res_0x7f09288d);
         this.d = wheelView3d2;
         wheelView3d2.setLineSpacingMultiplier(3.0f);
         this.d.setCenterTextSize(this.m);
@@ -222,7 +222,7 @@ public class BdTimePicker extends LinearLayout {
                 arrayList.add(String.format("%02d", Integer.valueOf(i)));
                 i++;
             } else {
-                this.c.setAdapter(new a83(this.f, i2));
+                this.c.setAdapter(new h63(this.f, i2));
                 k(this.c, this.f, this.g);
                 setHour(this.a);
                 return;
@@ -249,7 +249,7 @@ public class BdTimePicker extends LinearLayout {
                 arrayList.add(String.format("%02d", Integer.valueOf(i)));
                 i++;
             } else {
-                this.d.setAdapter(new a83(this.h, i2));
+                this.d.setAdapter(new h63(this.h, i2));
                 k(this.d, this.h, this.i);
                 setMinute(this.b);
                 return;

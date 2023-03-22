@@ -28,7 +28,7 @@ public class NestScrollingTypedListView extends BdTypeListView {
     public boolean Q;
     public int R;
 
-    public final boolean I(int i, int i2) {
+    public final boolean H(int i, int i2) {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(1048576, this, i, i2)) == null) {
@@ -62,7 +62,7 @@ public class NestScrollingTypedListView extends BdTypeListView {
         this.L = new int[2];
         this.M = new int[2];
         this.Q = true;
-        H();
+        G();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -88,7 +88,7 @@ public class NestScrollingTypedListView extends BdTypeListView {
         this.L = new int[2];
         this.M = new int[2];
         this.Q = true;
-        H();
+        G();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -114,10 +114,10 @@ public class NestScrollingTypedListView extends BdTypeListView {
         this.L = new int[2];
         this.M = new int[2];
         this.Q = true;
-        H();
+        G();
     }
 
-    private void H() {
+    private void G() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             this.J = new NestedScrollingChildHelper(this);
@@ -153,7 +153,7 @@ public class NestScrollingTypedListView extends BdTypeListView {
         }
     }
 
-    public final void J(MotionEvent motionEvent) {
+    public final void I(MotionEvent motionEvent) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent) == null) {
             this.R = 0;
@@ -251,9 +251,9 @@ public class NestScrollingTypedListView extends BdTypeListView {
                         if (this.Q) {
                             Log.i("pyt", "FIRST");
                             this.Q = false;
-                            J(motionEvent);
+                            I(motionEvent);
                             return true;
-                        } else if (!I(this.R, i2)) {
+                        } else if (!H(this.R, i2)) {
                             this.R = i2;
                             Log.i("pyt", "move lastY" + this.P + ",y=" + y + ",dy=" + i2);
                             if (dispatchNestedPreScroll(i, i2, this.L, this.M)) {
@@ -275,7 +275,7 @@ public class NestScrollingTypedListView extends BdTypeListView {
                     this.Q = true;
                 }
             } else {
-                J(motionEvent);
+                I(motionEvent);
             }
             super.onTouchEvent(motionEvent);
             return true;

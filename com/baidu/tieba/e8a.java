@@ -1,198 +1,60 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Handler;
+import android.os.Looper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.AdSlot;
-import com.bytedance.sdk.openadsdk.TTAdNative;
-import com.bytedance.sdk.openadsdk.TTAdSdk;
-import com.bytedance.sdk.openadsdk.TTRewardVideoAd;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import java.util.Arrays;
-import java.util.Set;
 /* loaded from: classes4.dex */
-public class e8a extends d7a<v7a> {
+public class e8a extends Handler {
     public static /* synthetic */ Interceptable $ic;
+    public static final e8a a;
     public transient /* synthetic */ FieldHolder $fh;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947689595, "Lcom/baidu/tieba/e8a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947689595, "Lcom/baidu/tieba/e8a;");
+                return;
+            }
+        }
+        a = new e8a();
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e8a(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.REWARD), pid);
+    public e8a() {
+        super(Looper.getMainLooper());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
+                super((Looper) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
     }
 
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void destroyInternal(Object obj) {
+    public static final e8a a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-            v7a v7aVar = (v7a) obj;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
         }
-    }
-
-    /* loaded from: classes4.dex */
-    public class a implements TTAdNative.RewardVideoAdListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ e8a c;
-
-        public a(e8a e8aVar, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e8aVar, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = e8aVar;
-            this.b = str;
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.RewardVideoAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
-        public void onError(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                LogPrinter.e("CSJRewardVideoAd onError code: " + i + ", message: " + str, new Object[0]);
-                if (this.a) {
-                    return;
-                }
-                this.c.onError(i, str);
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.RewardVideoAdListener
-        public void onRewardVideoCached() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                LogPrinter.d();
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.RewardVideoAdListener
-        public void onRewardVideoCached(TTRewardVideoAd tTRewardVideoAd) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, tTRewardVideoAd) == null) {
-            }
-        }
-
-        @Override // com.bytedance.sdk.openadsdk.TTAdNative.RewardVideoAdListener
-        public void onRewardVideoAdLoad(TTRewardVideoAd tTRewardVideoAd) {
-            Set<String> set;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tTRewardVideoAd) == null) {
-                this.a = true;
-                LogPrinter.d();
-                v7a v7aVar = new v7a(tTRewardVideoAd);
-                String a = v7aVar.a();
-                synchronized (p6a.class) {
-                    set = p6a.b;
-                    if (set.isEmpty()) {
-                        String string = z7a.a.getString("req_id", "");
-                        if (string.isEmpty()) {
-                            z = true;
-                        } else {
-                            set.addAll(Arrays.asList(string.split(ParamableElem.DIVIDE_PARAM)));
-                        }
-                    }
-                    z = !set.contains(a);
-                }
-                if (!z) {
-                    this.c.onError("repeat");
-                    this.c.getClass();
-                    return;
-                }
-                String a2 = v7aVar.a();
-                synchronized (p6a.class) {
-                    if (set.add(a2)) {
-                        StringBuilder sb = new StringBuilder();
-                        for (String str : set) {
-                            sb.append(str);
-                            sb.append(ParamableElem.DIVIDE_PARAM);
-                        }
-                        sb.deleteCharAt(sb.length() - 1);
-                        z7a.a.edit().putString("req_id", sb.toString()).apply();
-                    }
-                }
-                e8a e8aVar = this.c;
-                String str2 = this.b;
-                e8aVar.getClass();
-                ((TTRewardVideoAd) v7aVar.a).setRewardPlayAgainInteractionListener(new l6a(e8aVar, v7aVar, str2));
-                e8a e8aVar2 = this.c;
-                String str3 = this.b;
-                e8aVar2.getClass();
-                ((TTRewardVideoAd) v7aVar.a).setRewardAdInteractionListener(new n6a(e8aVar2, v7aVar, str3));
-                this.c.onAdLoaded((e8a) v7aVar);
-            }
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public void loadInternal(Context context, FunAdSlot funAdSlot) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, funAdSlot) == null) {
-            if (this.e == null) {
-                this.e = TTAdSdk.getAdManager().createAdNative(context.getApplicationContext());
-            }
-            String valueOf = String.valueOf(System.currentTimeMillis());
-            String tid = getTid(valueOf);
-            String buildExtra = buildExtra(context, tid, valueOf);
-            int i = 1;
-            AdSlot.Builder userID = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setUserID(FunAdSdk.getFunAdConfig().userId);
-            if (this.mPid.isHorizontal) {
-                i = 2;
-            }
-            AdSlot build = userID.setOrientation(i).setMediaExtra(buildExtra).build();
-            onLoadStart(funAdSlot);
-            this.e.loadRewardVideoAd(build, new a(this, tid));
-        }
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
-    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, activity, viewGroup, str, obj)) == null) {
-            v7a v7aVar = (v7a) obj;
-            onShowStart(v7aVar);
-            ((TTRewardVideoAd) v7aVar.a).setDownloadListener(new v6a(null));
-            ((TTRewardVideoAd) v7aVar.a).showRewardVideoAd(activity);
-            return true;
-        }
-        return invokeLLLL.booleanValue;
+        return (e8a) invokeV.objValue;
     }
 }

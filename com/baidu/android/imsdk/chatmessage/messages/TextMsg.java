@@ -4,6 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.IReplyMsg;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -16,9 +17,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
-public class TextMsg extends NormalMsg {
-    public static /* synthetic */ Interceptable $ic;
+public class TextMsg extends NormalMsg implements IReplyMsg {
+    public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<TextMsg> CREATOR;
+    public static final String TAG = "TextMsg";
     public transient /* synthetic */ FieldHolder $fh;
     public String advisoryEncodeAid;
     public String advisoryExtraAnswerContent;
@@ -26,6 +28,7 @@ public class TextMsg extends NormalMsg {
     public AdvisoryMsgBusinessExtra advisoryMsgBusinessExtra;
     public long castId;
     public long priority;
+    public MsgRepliedData replyMsgData;
     public String text;
 
     static {
@@ -168,13 +171,37 @@ public class TextMsg extends NormalMsg {
         return (String) invokeV.objValue;
     }
 
-    public String getText() {
+    @Override // com.baidu.android.imsdk.chatmessage.IReplyMsg
+    public MsgRepliedData getReplyMsgData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.replyMsgData;
+        }
+        return (MsgRepliedData) invokeV.objValue;
+    }
+
+    public String getText() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.text;
         }
         return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.android.imsdk.chatmessage.IReplyMsg
+    public boolean isReplyMsg() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            MsgRepliedData msgRepliedData = this.replyMsgData;
+            if (msgRepliedData != null && msgRepliedData.isReplyMsg()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -201,16 +228,43 @@ public class TextMsg extends NormalMsg {
         this.text = parcel.readString();
         this.castId = parcel.readLong();
         this.priority = parcel.readLong();
+        this.replyMsgData = (MsgRepliedData) parcel.readParcelable(MsgRepliedData.class.getClassLoader());
+    }
+
+    public String getTextJson(String str, MsgRepliedData msgRepliedData) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, str, msgRepliedData)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("text", str);
+                if (msgRepliedData != null) {
+                    msgRepliedData.appendMsgRepliedDataToMsgJson(jSONObject);
+                }
+            } catch (JSONException e) {
+                LogUtils.e(LogUtils.TAG, "getTextJson", e);
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public void setText(String str, MsgRepliedData msgRepliedData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048592, this, str, msgRepliedData) == null) {
+            setMsgContent(getTextJson(str, msgRepliedData));
+        }
     }
 
     @Override // com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048589, this, parcel, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048593, this, parcel, i) == null) {
             super.writeToParcel(parcel, i);
             parcel.writeString(this.text);
             parcel.writeLong(this.castId);
             parcel.writeLong(this.priority);
+            parcel.writeParcelable(this.replyMsgData, i);
         }
     }
 
@@ -240,36 +294,30 @@ public class TextMsg extends NormalMsg {
     public String getTextJson(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("text", str);
-            } catch (JSONException e) {
-                LogUtils.e(LogUtils.TAG, "getTextJson", e);
-            }
-            return jSONObject.toString();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            return getTextJson(str, null);
         }
         return (String) invokeL.objValue;
     }
 
     public void setCastId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048586, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048589, this, j) == null) {
             this.castId = j;
         }
     }
 
     public void setPriority(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048590, this, j) == null) {
             this.priority = j;
         }
     }
 
     public void setText(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            setMsgContent(getTextJson(str));
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            setText(str, null);
         }
     }
 
@@ -277,7 +325,7 @@ public class TextMsg extends NormalMsg {
     public boolean parseJsonString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             String jsonContent = getJsonContent();
             if (!TextUtils.isEmpty(jsonContent)) {
                 try {
@@ -291,9 +339,11 @@ public class TextMsg extends NormalMsg {
                         this.advisoryEncodeAid = jSONObject2.optString("encodeAid");
                     }
                     this.advisoryMsgBusinessExtra = AdvisoryMsgBusinessExtra.parseAdvisoryExtra(optString);
-                    return true;
+                    MsgRepliedData msgRepliedData = new MsgRepliedData(jSONObject);
+                    this.replyMsgData = msgRepliedData;
+                    return msgRepliedData.parseCorrect();
                 } catch (JSONException e) {
-                    LogUtils.e("TextMsg", "parse json err!", e);
+                    LogUtils.e(TAG, "parse json err!", e);
                 }
             }
             return false;

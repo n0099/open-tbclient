@@ -1,33 +1,39 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.content.Context;
+import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class ww7 {
+public class ww7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
 
-    public ww7(View view2) {
+    public static rx7 a(Context context, RecyclerView recyclerView, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, context, recyclerView, i)) == null) {
+            return new rx7(context, recyclerView, new uw7(), new vw7(), i, 1);
         }
-        Intrinsics.checkNotNullParameter(view2, "view");
-        this.a = view2;
+        return (rx7) invokeLLI.objValue;
+    }
+
+    public static rx7 b(Context context, RecyclerView recyclerView, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, context, recyclerView, i)) == null) {
+            return new rx7(context, recyclerView, new uw7(), new vw7(), i, 2);
+        }
+        return (rx7) invokeLLI.objValue;
+    }
+
+    public static qx7 c(Context context, RecyclerView recyclerView, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, context, recyclerView, i)) == null) {
+            return new qx7(context, recyclerView, new uw7(), new vw7(), i, 1);
+        }
+        return (qx7) invokeLLI.objValue;
     }
 }

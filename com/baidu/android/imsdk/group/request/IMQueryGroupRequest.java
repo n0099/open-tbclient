@@ -14,6 +14,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.IMConfigInternal;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.task.TaskManager;
+import com.baidu.android.imsdk.ubc.ScreenUbc;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
@@ -41,6 +42,7 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
     public ArrayList<String> mGroupIds;
     public String mKey;
     public String mRequestParam;
+    public ScreenUbc.MethodInfo mScreenInfo;
 
     static {
         InterceptResult invokeClinit;
@@ -68,7 +70,7 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
     public boolean shouldAbort() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -78,20 +80,21 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
     public class Mytask extends TaskManager.Task {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public int mErrorCode;
         public final /* synthetic */ IMQueryGroupRequest this$0;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public Mytask(IMQueryGroupRequest iMQueryGroupRequest, String str, String str2) {
+        public Mytask(IMQueryGroupRequest iMQueryGroupRequest, String str, String str2, int i) {
             super(str, str2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {iMQueryGroupRequest, str, str2};
+                Object[] objArr = {iMQueryGroupRequest, str, str2, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     Object[] objArr2 = newInitContext.callArgs;
                     super((String) objArr2[0], (String) objArr2[1]);
                     newInitContext.thisArg = this;
@@ -100,10 +103,13 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
                 }
             }
             this.this$0 = iMQueryGroupRequest;
+            this.mErrorCode = i;
         }
 
         /* JADX WARN: Removed duplicated region for block: B:42:0x015f  */
-        /* JADX WARN: Removed duplicated region for block: B:51:0x01d0  */
+        /* JADX WARN: Removed duplicated region for block: B:43:0x0161  */
+        /* JADX WARN: Removed duplicated region for block: B:46:0x0169  */
+        /* JADX WARN: Removed duplicated region for block: B:59:0x0212  */
         @Override // com.baidu.android.imsdk.task.TaskManager.Task, java.lang.Runnable
         /*
             Code decompiled incorrectly, please refer to instructions dump.
@@ -113,6 +119,8 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
             ArrayList arrayList;
             String str2;
             int i;
+            int i2;
+            int i3;
             GroupInfo groupInfo;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -121,21 +129,21 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
                 ArrayList arrayList2 = new ArrayList();
                 try {
                     JSONObject jSONObject = new JSONObject(mytask.mJson);
-                    int i2 = jSONObject.getInt("error_code");
+                    int i4 = jSONObject.getInt("error_code");
                     String optString = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
-                    if (i2 == 0 && jSONObject.has("response_params")) {
+                    if (i4 == 0 && jSONObject.has("response_params")) {
                         JSONArray jSONArray = jSONObject.getJSONObject("response_params").getJSONArray("group_info");
-                        int i3 = 0;
-                        while (i3 < jSONArray.length()) {
-                            JSONObject jSONObject2 = jSONArray.getJSONObject(i3);
+                        int i5 = 0;
+                        while (i5 < jSONArray.length()) {
+                            JSONObject jSONObject2 = jSONArray.getJSONObject(i5);
                             long optLong = jSONObject2.optLong("group_id");
                             String optString2 = jSONObject2.optString("group_name");
                             int optInt = jSONObject2.optInt("group_type");
                             int optInt2 = jSONObject2.optInt("group_num");
                             int optInt3 = jSONObject2.optInt(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_SIZE);
-                            int i4 = i3;
+                            int i6 = i5;
                             long optLong2 = jSONObject2.optLong("create_time");
-                            int i5 = i2;
+                            int i7 = i4;
                             String str4 = optString;
                             long optLong3 = jSONObject2.optLong("bd_uid");
                             str = str3;
@@ -152,9 +160,9 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
                                         if (optInt4 != 0 && optInt4 != 2 && optInt4 != 1) {
                                             mytask = this;
                                             arrayList = arrayList3;
-                                            i3 = i4 + 1;
+                                            i5 = i6 + 1;
                                             arrayList2 = arrayList;
-                                            i2 = i5;
+                                            i4 = i7;
                                             optString = str4;
                                             str3 = str;
                                             jSONArray = jSONArray2;
@@ -163,16 +171,21 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
                                         if (optInt4 == 1) {
                                             GroupInfoDAOImpl.setGroupState(mytask.this$0.mContext, String.valueOf(optLong), optInt4);
                                         }
-                                        i3 = i4 + 1;
+                                        i5 = i6 + 1;
                                         arrayList2 = arrayList;
-                                        i2 = i5;
+                                        i4 = i7;
                                         optString = str4;
                                         str3 = str;
                                         jSONArray = jSONArray2;
                                     } catch (JSONException e) {
                                         e = e;
                                         LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e);
-                                        i = 1010;
+                                        i3 = mytask.mErrorCode;
+                                        if (i3 != 1011) {
+                                            i = i3;
+                                        } else {
+                                            i = 1010;
+                                        }
                                         str2 = str;
                                         if (i == 0) {
                                         }
@@ -199,7 +212,9 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
                                     mytask = this;
                                     arrayList = arrayList3;
                                     LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e);
-                                    i = 1010;
+                                    i3 = mytask.mErrorCode;
+                                    if (i3 != 1011) {
+                                    }
                                     str2 = str;
                                     if (i == 0) {
                                     }
@@ -211,7 +226,7 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
                     }
                     str = str3;
                     arrayList = arrayList2;
-                    i = i2;
+                    i = i4;
                     str2 = optString;
                 } catch (JSONException e4) {
                     e = e4;
@@ -223,23 +238,30 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
                     if (mytask.this$0.isCreateGroup) {
                         BIMValueCallBack bIMValueCallBack = (BIMValueCallBack) removeListener;
                         CreateResultInfo createResultInfo = new CreateResultInfo();
+                        i2 = 0;
                         createResultInfo.groupid = (String) mytask.this$0.mGroupIds.get(0);
                         createResultInfo.memberlist = mytask.this$0.mAddMembers;
                         String str6 = IMQueryGroupRequest.TAG;
                         LogUtils.d(str6, "FXF query group info " + ((GroupInfo) arrayList.get(0)).toString());
                         if (bIMValueCallBack != null) {
                             bIMValueCallBack.onResult(0, str, createResultInfo);
-                            return;
                         } else {
                             LogUtils.e(IMQueryGroupRequest.TAG, "query group info fail, listener is null");
-                            return;
+                        }
+                    } else {
+                        String str7 = str;
+                        i2 = 0;
+                        if (removeListener != null) {
+                            ((BIMValueCallBack) removeListener).onResult(0, str7, arrayList);
                         }
                     }
-                    String str7 = str;
-                    if (removeListener != null) {
-                        ((BIMValueCallBack) removeListener).onResult(0, str7, arrayList);
+                    if (mytask.this$0.mScreenInfo == null) {
                         return;
                     }
+                    mytask.this$0.mScreenInfo.errCode = i2;
+                    mytask.this$0.mScreenInfo.errMsg = "IMQueryGroupRequestRequest_Sucess!";
+                    mytask.this$0.mScreenInfo.endTime = System.currentTimeMillis();
+                    ScreenUbc.onEvent(mytask.this$0.mContext, "getGroupData", mytask.this$0.mScreenInfo);
                     return;
                 }
                 IMListener removeListener2 = ListenerManager.getInstance().removeListener(mytask.this$0.mKey);
@@ -284,9 +306,16 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
     /* JADX INFO: Access modifiers changed from: private */
     public void completeUserSettingInfo(GroupInfo groupInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65546, this, groupInfo) == null) && groupInfo != null && this.isCreateGroup && groupInfo.getType() == 1) {
+        if ((interceptable == null || interceptable.invokeL(65548, this, groupInfo) == null) && groupInfo != null && this.isCreateGroup && groupInfo.getType() == 1) {
             groupInfo.setDisturb(1);
             GroupInfoDAOImpl.updateGroupDoNotDisturb(this.mContext, Utility.getLongByString(groupInfo.getGroupId(), 0L), 1);
+        }
+    }
+
+    public void setScreenInfo(ScreenUbc.MethodInfo methodInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, methodInfo) == null) {
+            this.mScreenInfo = methodInfo;
         }
     }
 
@@ -347,7 +376,7 @@ public class IMQueryGroupRequest extends GroupBaseHttpRequest {
             String str = new String(bArr);
             String str2 = TAG;
             LogUtils.d(str2, "IMQueryGroupRequest " + this.mGroupIds + " json is " + str);
-            TaskManager.getInstance(this.mContext).submitForNetWork(new Mytask(this, this.mKey, str));
+            TaskManager.getInstance(this.mContext).submitForNetWork(new Mytask(this, this.mKey, str, i));
         }
     }
 }

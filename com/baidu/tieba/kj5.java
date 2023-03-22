@@ -1,47 +1,56 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.mutiprocess.live.ImageViewLiveEvent;
-import com.baidu.tbadk.mutiprocess.live.YyLiveRoomConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class kj5 implements si5<ImageViewLiveEvent> {
+public abstract class kj5<T> extends lj5<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String b;
+    public Class<T> c;
 
-    public kj5() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kj5(int i, String str, Class<T> cls) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, cls};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = str;
+        this.c = cls;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.si5
-    /* renamed from: a */
-    public boolean onEvent(ImageViewLiveEvent imageViewLiveEvent) {
-        InterceptResult invokeL;
+    public T a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, imageViewLiveEvent)) == null) {
-            if (imageViewLiveEvent == null) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                return this.c.newInstance();
+            } catch (ExceptionInInitializerError e) {
+                e.printStackTrace();
+                return null;
+            } catch (IllegalAccessException e2) {
+                e2.printStackTrace();
+                return null;
+            } catch (InstantiationException e3) {
+                e3.printStackTrace();
+                return null;
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921752, new YyLiveRoomConfig(TbadkApplication.getInst().getContext(), imageViewLiveEvent.sid, imageViewLiveEvent.ssid, imageViewLiveEvent.templateId, imageViewLiveEvent.roomId, imageViewLiveEvent.streamInfo, imageViewLiveEvent.from)));
-            return true;
         }
-        return invokeL.booleanValue;
+        return (T) invokeV.objValue;
     }
 }

@@ -1,179 +1,142 @@
 package com.baidu.tieba;
 
+import android.os.Build;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.log.HybridLog;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.h5power.DescriptionTableInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes6.dex */
-public final class wc9 {
+public class wc9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ga5 a;
-    public yc9 b;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948265916, "Lcom/baidu/tieba/wc9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948265916, "Lcom/baidu/tieba/wc9;");
-                return;
-            }
-        }
-        c = new a(null);
-    }
-
-    public /* synthetic */ wc9(DefaultConstructorMarker defaultConstructorMarker) {
-        this();
-    }
-
-    @JvmStatic
-    public static final wc9 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) ? c.a() : (wc9) invokeV.objValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @JvmStatic
-        public final wc9 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return b.a.a();
-            }
-            return (wc9) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final b a;
-        public static final wc9 b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-322214786, "Lcom/baidu/tieba/wc9$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-322214786, "Lcom/baidu/tieba/wc9$b;");
-                    return;
-                }
-            }
-            a = new b();
-            b = new wc9(null);
-        }
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        public final wc9 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return b;
-            }
-            return (wc9) invokeV.objValue;
-        }
-    }
+    public final ArrayList<rc9> a;
 
     public wc9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayList<>();
+    }
+
+    public void a(rc9 rc9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, rc9Var) == null) {
+            this.a.add(rc9Var);
+        }
+    }
+
+    public final void b(WebView webView, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2) == null) {
+            w58 hybridLog = HybridLog.getInstance();
+            hybridLog.c("JsBridge", "callJsMethod methodName:" + str + " param:" + str2);
+            if (webView != null && !gi.isEmpty(str) && !gi.isEmpty(str2)) {
+                if (Build.VERSION.SDK_INT >= 19) {
+                    webView.evaluateJavascript("javascript:" + str + "&&" + str + "('" + str2 + "')", null);
+                    return;
+                }
+                webView.loadUrl("javascript:" + str + "&&" + str + "('" + str2 + "')");
             }
         }
     }
 
-    public final void a() {
+    public tc9 c(vc9 vc9Var, tc9 tc9Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            yc9 yc9Var = this.b;
-            if (yc9Var != null) {
-                xc9.b(yc9Var.c(), yc9Var.b(), yc9Var.a(), yc9Var.d());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, vc9Var, tc9Var)) == null) {
+            if (tc9Var == null) {
+                tc9Var = new tc9();
             }
-            this.b = null;
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ga5 ga5Var = this.a;
-            if (ga5Var != null) {
-                xc9.a(ga5Var);
+            if ("notification".equals(vc9Var.c()) && "addObserver".equals(vc9Var.a())) {
+                Iterator<rc9> it = this.a.iterator();
+                while (it.hasNext()) {
+                    tc9Var = it.next().addObserver(vc9Var.d(), tc9Var, true);
+                    if (tc9Var.j()) {
+                        return tc9Var;
+                    }
+                }
+                if (!tc9Var.j()) {
+                    tc9Var.y(202);
+                    tc9Var.u(TbadkCoreApplication.getInst().getString(R.string.can_find_notification_name));
+                }
+            } else {
+                String c = vc9Var.c();
+                if (!gi.isEmpty(c) && DescriptionTableInfo.getModuleSet() != null && !DescriptionTableInfo.getModuleSet().contains(c)) {
+                    tc9Var.y(201);
+                    return tc9Var;
+                }
+                Iterator<rc9> it2 = this.a.iterator();
+                while (it2.hasNext()) {
+                    tc9Var = it2.next().dispatch(vc9Var, tc9Var);
+                    if (tc9Var.i()) {
+                        return tc9Var;
+                    }
+                }
+                if (!tc9Var.i()) {
+                    tc9Var.y(202);
+                }
             }
-            this.a = null;
+            return tc9Var;
+        }
+        return (tc9) invokeLL.objValue;
+    }
+
+    public void d(WebView webView, tc9 tc9Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, webView, tc9Var) != null) || webView == null || tc9Var == null || !tc9Var.k()) {
+            return;
+        }
+        b(webView, tc9Var.c(), tc9Var.d());
+    }
+
+    public void e(WebView webView, List<tc9> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, webView, list) == null) && webView != null && !ListUtils.isEmpty(list)) {
+            for (tc9 tc9Var : list) {
+                if (tc9Var != null && tc9Var.k()) {
+                    b(webView, tc9Var.c(), tc9Var.d());
+                }
+            }
         }
     }
 
-    public final void d(yc9 yc9Var) {
+    public List<tc9> f(WebView webView, String str, HashMap hashMap) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yc9Var) == null) {
-            this.b = yc9Var;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, webView, str, hashMap)) == null) {
+            List<tc9> list = null;
+            if (gi.isEmpty(str)) {
+                return null;
+            }
+            Iterator<rc9> it = this.a.iterator();
+            while (it.hasNext()) {
+                list = it.next().processNotification(webView, str, hashMap);
+                if (!ListUtils.isEmpty(list)) {
+                    break;
+                }
+            }
+            return list;
         }
-    }
-
-    public final void e(ga5 ga5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ga5Var) == null) {
-            this.a = ga5Var;
-        }
+        return (List) invokeLLL.objValue;
     }
 }

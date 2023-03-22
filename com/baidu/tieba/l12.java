@@ -1,13 +1,59 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.graphics.Canvas;
+import android.graphics.Rect;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public interface l12 {
-    @NonNull
-    public static final l12 a = new m12(202, "params parsed as JSONObject is null");
+public class l12 extends z02 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public Rect a;
 
-    @NonNull
-    String a();
+    public l12() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    boolean isSuccess();
+    @Override // com.baidu.tieba.z02
+    public void a(a12 a12Var, Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, a12Var, canvas) == null) && this.a != null) {
+            int alpha = a12Var.b.getAlpha();
+            a12Var.c(a12Var.b);
+            canvas.drawRect(this.a, a12Var.b);
+            a12Var.b.setAlpha(alpha);
+        }
+    }
+
+    @Override // com.baidu.tieba.z02
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() == 4) {
+                    int g = kl3.g((float) jSONArray.optDouble(0));
+                    int g2 = kl3.g((float) jSONArray.optDouble(1));
+                    this.a = new Rect(g, g2, kl3.g((float) jSONArray.optDouble(2)) + g, kl3.g((float) jSONArray.optDouble(3)) + g2);
+                }
+            } catch (Exception e) {
+                if (do1.a) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
 }

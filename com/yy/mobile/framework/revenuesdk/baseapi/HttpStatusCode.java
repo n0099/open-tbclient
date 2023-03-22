@@ -1,5 +1,5 @@
 package com.yy.mobile.framework.revenuesdk.baseapi;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class HttpStatusCode {
     public static final int HTTP_ACCEPTED = 202;
     public static final int HTTP_BAD_GATEWAY = 502;

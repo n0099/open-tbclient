@@ -1,6 +1,6 @@
 package com.badlogic.gdx;
 
-import com.baidu.tieba.i1;
+import com.baidu.tieba.l0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,7 @@ public interface Application {
 
     void error(String str, String str2, Throwable th);
 
-    i1 getApplicationListener();
+    l0 getApplicationListener();
 
     Graphics getGraphics();
 

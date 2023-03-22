@@ -17,10 +17,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.h66;
-import com.baidu.tieba.i66;
-import com.baidu.tieba.j66;
+import com.baidu.tieba.n56;
 import com.baidu.tieba.o56;
+import com.baidu.tieba.p56;
+import com.baidu.tieba.u46;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -38,20 +38,20 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
     public int f;
     public long g;
     public boolean h;
-    public j66 i;
-    public i66 j;
-    public h66 k;
+    public p56 i;
+    public o56 j;
+    public n56 k;
     public Runnable l;
     public RecyclerView.OnScrollListener m;
 
     /* loaded from: classes3.dex */
-    public class c implements h66 {
+    public class c implements n56 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AlaBannerAutoScrollView a;
 
         /* loaded from: classes3.dex */
-        public class a extends AlaBannerViewHolder<o56> {
+        public class a extends AlaBannerViewHolder<u46> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public TbImageView a;
@@ -86,10 +86,10 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.ala.alasquare.widget.banner.AlaBannerViewHolder
             /* renamed from: d */
-            public void a(int i, o56 o56Var) {
+            public void a(int i, u46 u46Var) {
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeIL(1048579, this, i, o56Var) == null) && o56Var != null && this.a != null && !StringUtils.isNull(o56Var.a)) {
-                    this.a.K(o56Var.a, 10, false);
+                if ((interceptable == null || interceptable.invokeIL(1048579, this, i, u46Var) == null) && u46Var != null && this.a != null && !StringUtils.isNull(u46Var.a)) {
+                    this.a.M(u46Var.a, 10, false);
                 }
             }
 
@@ -97,7 +97,7 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
             public void b(View view2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-                    this.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f09079d);
+                    this.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0907b7);
                 }
             }
         }
@@ -120,12 +120,12 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
             this.a = alaBannerAutoScrollView;
         }
 
-        @Override // com.baidu.tieba.h66
+        @Override // com.baidu.tieba.n56
         public AlaBannerViewHolder a(ViewGroup viewGroup, int i) {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
-                return new a(this, LayoutInflater.from(this.a.a).inflate(R.layout.obfuscated_res_0x7f0d0830, viewGroup, false));
+                return new a(this, LayoutInflater.from(this.a.a).inflate(R.layout.obfuscated_res_0x7f0d0849, viewGroup, false));
             }
             return (AlaBannerViewHolder) invokeLI.objValue;
         }
@@ -415,28 +415,28 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
         }
     }
 
-    public void setOnBannerClickListener(i66 i66Var) {
+    public void setOnBannerClickListener(o56 o56Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i66Var) == null) {
-            this.j = i66Var;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, o56Var) == null) {
+            this.j = o56Var;
             AlaBannerRecyclerAdapter alaBannerRecyclerAdapter = this.d;
             if (alaBannerRecyclerAdapter != null) {
-                alaBannerRecyclerAdapter.i(i66Var);
+                alaBannerRecyclerAdapter.i(o56Var);
             }
         }
     }
 
-    public void setOnBannerScrollListener(j66 j66Var) {
+    public void setOnBannerScrollListener(p56 p56Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, j66Var) == null) {
-            this.i = j66Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, p56Var) == null) {
+            this.i = p56Var;
         }
     }
 
-    public void setViewHolderAdapter(h66 h66Var) {
+    public void setViewHolderAdapter(n56 n56Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, h66Var) == null) {
-            this.d.j(h66Var);
+        if (interceptable == null || interceptable.invokeL(1048586, this, n56Var) == null) {
+            this.d.j(n56Var);
         }
     }
 
@@ -483,9 +483,9 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00e9, (ViewGroup) this, true);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0908bd);
-            this.c = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09146a);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00eb, (ViewGroup) this, true);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0908e0);
+            this.c = (RecyclerView) findViewById(R.id.obfuscated_res_0x7f09149c);
             this.c.setLayoutManager(new LinearLayoutManager(context, 0, false));
             this.c.setOnTouchListener(new a(this));
             AlaBannerRecyclerAdapter alaBannerRecyclerAdapter = new AlaBannerRecyclerAdapter(context, this.k, false);

@@ -1,100 +1,38 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import com.baidu.crashpad.ZeusLogUploader;
+import com.baidu.crashpad.ZwCrashpad;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.logsystem.logsys.LogPipelineSingleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.CharArrayWriter;
-import java.io.Closeable;
 import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public final class h10 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: Removed duplicated region for block: B:46:0x0043 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String a(File file) {
-        InterceptResult invokeL;
-        FileReader fileReader;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null && (invokeL = interceptable.invokeL(65536, null, file)) != null) {
-            return (String) invokeL.objValue;
-        }
-        FileReader fileReader2 = null;
-        try {
-            fileReader = new FileReader(file);
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            ZwCrashpad.setEnabled(true);
+            File processCrashpadDir = LogPipelineSingleton.getInstance().getProcessCrashpadDir();
+            Context appContext = AppRuntime.getAppContext();
+            JSONObject jSONObject = new JSONObject();
             try {
-                try {
-                    char[] cArr = new char[8192];
-                    CharArrayWriter charArrayWriter = new CharArrayWriter();
-                    while (true) {
-                        int read = fileReader.read(cArr);
-                        if (read <= 0) {
-                            break;
-                        }
-                        charArrayWriter.write(cArr, 0, read);
-                    }
-                    String charArrayWriter2 = charArrayWriter.toString();
-                    try {
-                        fileReader.close();
-                    } catch (Exception e) {
-                        c(e);
-                    }
-                    return charArrayWriter2;
-                } catch (Exception e2) {
-                    e = e2;
-                    c(e);
-                    if (fileReader != null) {
-                        try {
-                            fileReader.close();
-                        } catch (Exception e3) {
-                            c(e3);
-                        }
-                    }
-                    return null;
-                }
-            } catch (Throwable th) {
-                th = th;
-                fileReader2 = fileReader;
-                if (fileReader2 != null) {
-                    try {
-                        fileReader2.close();
-                    } catch (Exception e4) {
-                        c(e4);
-                    }
-                }
-                throw th;
+                jSONObject.put("clientDir", appContext.getApplicationInfo().nativeLibraryDir);
+                jSONObject.put("handlerDir", appContext.getApplicationInfo().nativeLibraryDir);
+                jSONObject.put("dumpCopyDir", processCrashpadDir.getAbsolutePath());
+            } catch (JSONException unused) {
             }
-        } catch (Exception e5) {
-            e = e5;
-            fileReader = null;
-        } catch (Throwable th2) {
-            th = th2;
-            if (fileReader2 != null) {
+            if (jSONObject.length() == 0) {
+                return;
             }
-            throw th;
-        }
-    }
-
-    public static void b(Closeable closeable) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(65537, null, closeable) == null) || closeable == null) {
-            return;
-        }
-        try {
-            closeable.close();
-        } catch (IOException e) {
-            c(e);
-        }
-    }
-
-    public static void c(Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, th) == null) {
+            ZwCrashpad.doInitGeneric(appContext, jSONObject.toString());
+            ZeusLogUploader.setEnabled(false);
         }
     }
 }

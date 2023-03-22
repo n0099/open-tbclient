@@ -1,5 +1,5 @@
 package com.yy.mobile.framework.revenuesdk.payapi.bean;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class PropsInfo {
     public int count;
     public int propid;

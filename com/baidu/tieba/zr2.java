@@ -1,110 +1,94 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextWatcher;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.component.components.textarea.SwanEditText;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
 /* loaded from: classes7.dex */
-public class zr2 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile zr2 c;
-    public transient /* synthetic */ FieldHolder $fh;
-    public TextWatcher a;
-    public SwanEditText b;
+public interface zr2 {
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948369487, "Lcom/baidu/tieba/zr2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948369487, "Lcom/baidu/tieba/zr2;");
-                return;
-            }
-        }
-        boolean z = wp1.a;
+    /* loaded from: classes7.dex */
+    public interface a {
+        void b(zr2 zr2Var);
     }
 
-    public zr2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
+    /* loaded from: classes7.dex */
+    public interface b {
+        boolean f(zr2 zr2Var, int i, int i2);
     }
 
-    public static zr2 d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (zr2.class) {
-                    if (c == null) {
-                        c = new zr2();
-                    }
-                }
-            }
-            return c;
-        }
-        return (zr2) invokeV.objValue;
+    /* loaded from: classes7.dex */
+    public interface c {
+        void c(zr2 zr2Var);
     }
 
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = null;
-        }
+    /* loaded from: classes7.dex */
+    public interface d {
+        void e(zr2 zr2Var);
     }
 
-    public SwanEditText c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (SwanEditText) invokeV.objValue;
+    /* loaded from: classes7.dex */
+    public interface e {
+        void a(zr2 zr2Var);
     }
 
-    public TextWatcher e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (TextWatcher) invokeV.objValue;
+    /* loaded from: classes7.dex */
+    public interface f {
+        void d(zr2 zr2Var);
     }
 
-    public SwanEditText a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-            SwanEditText swanEditText = new SwanEditText(context);
-            this.b = swanEditText;
-            return swanEditText;
-        }
-        return (SwanEditText) invokeL.objValue;
-    }
+    void a(FrameLayout frameLayout);
 
-    public void f(TextWatcher textWatcher) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, textWatcher) == null) {
-            this.a = textWatcher;
-        }
-    }
+    void b();
+
+    void c();
+
+    void d(boolean z);
+
+    zr2 e(Context context, @NonNull nw2 nw2Var);
+
+    void f();
+
+    void g(a aVar);
+
+    int getCurrentPosition();
+
+    int getDuration();
+
+    void h(nw2 nw2Var, boolean z);
+
+    void i(String str);
+
+    boolean isEnd();
+
+    boolean isPlaying();
+
+    void j(e eVar);
+
+    void k(f fVar);
+
+    void l(boolean z, int i);
+
+    void m(d dVar);
+
+    void mute(boolean z);
+
+    void n(nw2 nw2Var);
+
+    void o(nw2 nw2Var);
+
+    boolean onBackPressed();
+
+    void p(b bVar);
+
+    void pause();
+
+    int q(String str);
+
+    void r(c cVar);
+
+    void resume();
+
+    void seekTo(int i);
+
+    void stop();
 }

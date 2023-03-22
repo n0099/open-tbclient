@@ -1,5 +1,8 @@
 package com.baidu.tieba;
 
+import android.opengl.EGL14;
+import android.opengl.EGLSurface;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -8,106 +11,91 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.WeakHashMap;
 /* loaded from: classes4.dex */
 public class ic0 {
-    public static /* synthetic */ Interceptable $ic;
-    public static ic0 b;
-    public static WeakHashMap<Object, List<gc0>> c;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String c = "ic0";
     public transient /* synthetic */ FieldHolder $fh;
-    public jc0 a;
+    public hc0 a;
+    public EGLSurface b;
 
-    /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ic0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-723291019, "Lcom/baidu/tieba/ic0$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-723291019, "Lcom/baidu/tieba/ic0$b;");
-                    return;
-                }
-            }
-            a = new ic0(null);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947848563, "Lcom/baidu/tieba/ic0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947848563, "Lcom/baidu/tieba/ic0;");
         }
     }
 
-    public ic0() {
+    public ic0(hc0 hc0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {hc0Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        c = new WeakHashMap<>();
-        this.a = new jc0();
+        this.b = EGL14.EGL_NO_SURFACE;
+        this.a = hc0Var;
     }
 
-    public static ic0 a() {
+    public void a(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            if (this.b == EGL14.EGL_NO_SURFACE) {
+                this.b = this.a.b(obj);
+                return;
+            }
+            throw new IllegalStateException("surface already created");
+        }
+    }
+
+    public void b(hc0 hc0Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hc0Var) == null) && !hc0Var.d(this.b)) {
+            hc0Var.e(this.b);
+        }
+    }
+
+    public void d(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.a.h(this.b, j);
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.g(this.b);
+            this.b = EGL14.EGL_NO_SURFACE;
+        }
+    }
+
+    public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                b = b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            boolean i = this.a.i(this.b);
+            if (!i) {
+                Log.d(c, "WARNING: swapBuffers() failed");
             }
-            return b;
+            return i;
         }
-        return (ic0) invokeV.objValue;
-    }
-
-    public /* synthetic */ ic0(a aVar) {
-        this();
-    }
-
-    public void b(Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, obj) != null) || obj == null || c.isEmpty()) {
-            return;
-        }
-        this.a.c(c, obj);
-    }
-
-    public void e(Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, obj) == null) && obj != null && !c.isEmpty() && c.containsKey(obj)) {
-            this.a.e(c, obj);
-        }
-    }
-
-    public void c(Object obj, Class<?> cls, int i, fc0 fc0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, cls, i, fc0Var) == null) && obj != null && cls != null && fc0Var != null && kc0.a(i)) {
-            this.a.d(c, obj, cls, i, fc0Var);
-        }
-    }
-
-    public synchronized void d(Object obj, Class<?> cls, fc0 fc0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, obj, cls, fc0Var) == null) {
-            synchronized (this) {
-                c(obj, cls, 1, fc0Var);
-            }
-        }
+        return invokeV.booleanValue;
     }
 }

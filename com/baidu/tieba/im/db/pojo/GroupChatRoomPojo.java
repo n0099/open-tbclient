@@ -38,7 +38,7 @@ public class GroupChatRoomPojo extends OrmObject {
         }
     }
 
-    public int N() {
+    public int R() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -47,7 +47,7 @@ public class GroupChatRoomPojo extends OrmObject {
         return invokeV.intValue;
     }
 
-    public int O() {
+    public int S() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -137,7 +137,7 @@ public class GroupChatRoomPojo extends OrmObject {
         return invokeV.longValue;
     }
 
-    public void P(long j) {
+    public void T(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
             this.f = j;

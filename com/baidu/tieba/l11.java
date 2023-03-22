@@ -1,140 +1,107 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.net.request.Headers;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class l11 {
+public class l11 {
     public static /* synthetic */ Interceptable $ic;
-    public static u11 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a extends u11 {
+    public static class a extends ir0<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ m11 a;
 
-        public a() {
+        public String f(Headers headers, String str, int i) throws Exception {
+            InterceptResult invokeLLI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, str, i)) == null) ? str : (String) invokeLLI.objValue;
+        }
+
+        public a(m11 m11Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m11Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = m11Var;
         }
 
-        @Override // com.baidu.tieba.u11
-        public boolean c(int i, @Nullable String str) {
-            InterceptResult invokeIL;
+        @Override // com.baidu.tieba.gr0
+        public void a(Exception exc, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
-                return gt0.f();
-            }
-            return invokeIL.booleanValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947889917, "Lcom/baidu/tieba/l11;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947889917, "Lcom/baidu/tieba/l11;");
-                return;
+            if ((interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) && this.a.c()) {
+                k11.b(this.a.a(i, exc.getMessage()));
             }
         }
-        a = new a();
-    }
 
-    public static void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            c(3, null, str, null);
+        @Override // com.baidu.tieba.hr0
+        public /* bridge */ /* synthetic */ Object d(Headers headers, String str, int i) throws Exception {
+            f(headers, str, i);
+            return str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.hr0
+        /* renamed from: e */
+        public void b(Headers headers, String str, int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLLI(1048579, this, headers, str, i) == null) && this.a.c()) {
+                k11.b(this.a.a(i, "success"));
+            }
         }
     }
 
-    public static void d(String str) {
+    public static void a(@Nullable m11 m11Var) {
+        l31 l31Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            c(6, null, str, null);
+        if ((interceptable == null || interceptable.invokeL(65536, null, m11Var) == null) && m11Var != null && !TextUtils.isEmpty(m11Var.d())) {
+            pr0 pr0Var = new pr0();
+            pr0Var.l(m11Var.d());
+            pr0Var.g(3000);
+            pr0Var.c();
+            if (!TextUtils.isEmpty(m11Var.e)) {
+                pr0Var.d("User-Agent", m11Var.e);
+            } else {
+                pr0Var.d("User-Agent", hi0.e());
+            }
+            wq0.b().a().a(pr0Var, new a(m11Var));
+            if (f31.a && (l31Var = (l31) e31.a().a(l31.class)) != null) {
+                l31Var.b(new g31("计费", "", "并行计费"));
+            }
         }
     }
 
-    public static void g(String str) {
+    public static void b(@Nullable String str) {
+        l31 l31Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
-            c(4, null, str, null);
+        if ((interceptable != null && interceptable.invokeL(65537, null, str) != null) || TextUtils.isEmpty(str)) {
+            return;
         }
-    }
-
-    public static void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
-            c(2, null, str, null);
-        }
-    }
-
-    public static void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
-            c(5, null, str, null);
-        }
-    }
-
-    public static void b(@Nullable String str, @Nullable String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            c(3, str, str2, null);
-        }
-    }
-
-    public static void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
-            c(6, str, str2, null);
-        }
-    }
-
-    public static void f(String str, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, str, th) == null) {
-            c(6, null, str, th);
-        }
-    }
-
-    public static void i(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) {
-            c(2, str, str2, null);
-        }
-    }
-
-    public static void k(String str, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65547, null, str, th) == null) {
-            c(5, null, str, th);
-        }
-    }
-
-    public static void c(int i, @Nullable String str, @Nullable String str2, @Nullable Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), str, str2, th}) == null) {
-            a.a(i, str, str2, th);
+        pr0 pr0Var = new pr0();
+        pr0Var.l(str);
+        pr0Var.g(3000);
+        pr0Var.d("User-Agent", hi0.e());
+        pr0Var.c();
+        wq0.b().a().a(pr0Var, null);
+        if (f31.a && (l31Var = (l31) e31.a().a(l31.class)) != null) {
+            l31Var.b(new g31("计费", "", "并行计费"));
         }
     }
 }

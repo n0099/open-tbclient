@@ -20,9 +20,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.coreExtra.NoNetworkMoreActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d89;
-import com.baidu.tieba.x9;
-import com.baidu.tieba.xw4;
+import com.baidu.tieba.a9;
+import com.baidu.tieba.fv4;
+import com.baidu.tieba.je9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,7 +47,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
 
     /* loaded from: classes3.dex */
     public interface b {
-        void h(boolean z);
+        void e(boolean z);
     }
 
     public int getLayout() {
@@ -288,7 +288,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
             this.c = (TextView) findViewById(R.id.check_detail_view);
             setOnClickListener(this);
             if (attributeSet != null) {
-                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d89.noNetworkView);
+                TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, je9.noNetworkView);
                 this.d = obtainStyledAttributes.getBoolean(0, false);
                 obtainStyledAttributes.recycle();
             }
@@ -306,13 +306,13 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
         }
     }
 
-    public void d(x9<?> x9Var, int i) {
+    public void d(a9<?> a9Var, int i) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, x9Var, i) == null) {
-            if (x9Var instanceof TbPageContext) {
-                TbPageContext tbPageContext = (TbPageContext) x9Var;
-                xw4 layoutMode = tbPageContext.getLayoutMode();
+        if (interceptable == null || interceptable.invokeLI(1048579, this, a9Var, i) == null) {
+            if (a9Var instanceof TbPageContext) {
+                TbPageContext tbPageContext = (TbPageContext) a9Var;
+                fv4 layoutMode = tbPageContext.getLayoutMode();
                 if (i == 4) {
                     z = true;
                 } else {
@@ -340,7 +340,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                 setVisibility(0);
                 startAnimation(alphaAnimation);
                 for (int i = 0; i < this.f.size(); i++) {
-                    this.f.get(i).h(false);
+                    this.f.get(i).e(false);
                 }
             } else if (this.d && !BdSocketLinkService.isAvailable()) {
                 if (2 == this.e) {
@@ -354,7 +354,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                 setVisibility(0);
                 startAnimation(alphaAnimation2);
                 for (int i2 = 0; i2 < this.f.size(); i2++) {
-                    this.f.get(i2).h(false);
+                    this.f.get(i2).e(false);
                 }
             } else if (this.e != 0) {
                 this.e = 0;
@@ -365,7 +365,7 @@ public class NoNetworkView extends RelativeLayout implements View.OnClickListene
                     alphaAnimation3.setAnimationListener(new a(this));
                     startAnimation(alphaAnimation3);
                     for (int i3 = 0; i3 < this.f.size(); i3++) {
-                        this.f.get(i3).h(true);
+                        this.f.get(i3).e(true);
                     }
                 }
             }

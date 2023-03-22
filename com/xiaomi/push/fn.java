@@ -42,7 +42,7 @@ public class fn {
     public int a(fk fkVar) {
         int c = fkVar.c();
         if (c > 32768) {
-            com.xiaomi.channel.commonutils.logger.b.m97a("Blob size=" + c + " should be less than 32768 Drop blob chid=" + fkVar.a() + " id=" + fkVar.e());
+            com.xiaomi.channel.commonutils.logger.b.m99a("Blob size=" + c + " should be less than 32768 Drop blob chid=" + fkVar.a() + " id=" + fkVar.e());
             return 0;
         }
         this.f388a.clear();
@@ -54,10 +54,10 @@ public class fn {
         this.f388a.putShort((short) 5);
         this.f388a.putInt(c);
         int position = this.f388a.position();
-        this.f388a = fkVar.mo400a(this.f388a);
-        if (!"CONN".equals(fkVar.m399a())) {
+        this.f388a = fkVar.mo402a(this.f388a);
+        if (!"CONN".equals(fkVar.m401a())) {
             if (this.f390a == null) {
-                this.f390a = this.f386a.m414a();
+                this.f390a = this.f386a.m416a();
             }
             com.xiaomi.push.service.bp.a(this.f390a, this.f388a.array(), true, position, c);
         }
@@ -68,7 +68,7 @@ public class fn {
         this.f387a.write(this.f391b.array(), 0, 4);
         this.f387a.flush();
         int position2 = this.f388a.position() + 4;
-        com.xiaomi.channel.commonutils.logger.b.c("[Slim] Wrote {cmd=" + fkVar.m399a() + ";chid=" + fkVar.a() + ";len=" + position2 + "}");
+        com.xiaomi.channel.commonutils.logger.b.c("[Slim] Wrote {cmd=" + fkVar.m401a() + ";chid=" + fkVar.a() + ";len=" + position2 + "}");
         return position2;
     }
 
@@ -76,24 +76,24 @@ public class fn {
         dw.e eVar = new dw.e();
         eVar.a(106);
         eVar.a(Build.MODEL);
-        eVar.b(s.m640a());
-        eVar.c(com.xiaomi.push.service.bv.m721a());
+        eVar.b(s.m642a());
+        eVar.c(com.xiaomi.push.service.bv.m723a());
         eVar.b(48);
-        eVar.d(this.f386a.m423b());
-        eVar.e(this.f386a.mo421a());
+        eVar.d(this.f386a.m425b());
+        eVar.e(this.f386a.mo423a());
         eVar.f(Locale.getDefault().toString());
         eVar.c(Build.VERSION.SDK_INT);
-        byte[] mo429a = this.f386a.m420a().mo429a();
-        if (mo429a != null) {
-            eVar.a(dw.b.a(mo429a));
+        byte[] mo431a = this.f386a.m422a().mo431a();
+        if (mo431a != null) {
+            eVar.a(dw.b.a(mo431a));
         }
         fk fkVar = new fk();
         fkVar.a(0);
         fkVar.a("CONN", (String) null);
         fkVar.a(0L, "xiaomi.com", null);
-        fkVar.a(eVar.m363a(), (String) null);
+        fkVar.a(eVar.m365a(), (String) null);
         a(fkVar);
-        com.xiaomi.channel.commonutils.logger.b.m97a("[slim] open conn: andver=" + Build.VERSION.SDK_INT + " sdk=48 tz=" + this.a + ":" + this.b + " Model=" + Build.MODEL + " os=" + Build.VERSION.INCREMENTAL);
+        com.xiaomi.channel.commonutils.logger.b.m99a("[slim] open conn: andver=" + Build.VERSION.SDK_INT + " sdk=48 tz=" + this.a + ":" + this.b + " Model=" + Build.MODEL + " os=" + Build.VERSION.INCREMENTAL);
     }
 
     public void b() {

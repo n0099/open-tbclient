@@ -12,9 +12,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.xiuba.JSResultData;
-import com.baidu.tieba.j69;
-import com.baidu.tieba.lj;
-import com.baidu.tieba.n69;
+import com.baidu.tieba.oi;
+import com.baidu.tieba.pc9;
+import com.baidu.tieba.tc9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class CommonTbJsBridge implements j69 {
+public class CommonTbJsBridge implements pc9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String GET_SUPPLEMENT_INFO = "getSupplementInfo";
     public static final String INTERFACE_NAME = "CommonJSBridge";
@@ -63,7 +63,7 @@ public class CommonTbJsBridge implements j69 {
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.j69
+    @Override // com.baidu.tieba.pc9
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -90,11 +90,11 @@ public class CommonTbJsBridge implements j69 {
         return invokeLLLL.booleanValue;
     }
 
-    public n69 getSupplementInfo() {
+    public tc9 getSupplementInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            n69 n69Var = new n69();
+            tc9 tc9Var = new tc9();
             StringBuilder sb = new StringBuilder(1024);
             String imei = TbadkCoreApplication.getInst().getImei();
             sb.append("imei=");
@@ -117,7 +117,7 @@ public class CommonTbJsBridge implements j69 {
             sb.append("zid=");
             sb.append(zid);
             sb.append("tiebaclient!!!");
-            String c = lj.c(sb.toString());
+            String c = oi.c(sb.toString());
             try {
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put("imei", imei);
@@ -128,14 +128,14 @@ public class CommonTbJsBridge implements j69 {
                 jSONObject.put("client_version", version);
                 jSONObject.put("zid", zid);
                 jSONObject.put("sign", c);
-                n69Var.o(jSONObject.toString());
-                return n69Var;
+                tc9Var.o(jSONObject.toString());
+                return tc9Var;
             } catch (JSONException e) {
                 BdLog.e(e);
-                n69Var.o("");
-                return n69Var;
+                tc9Var.o("");
+                return tc9Var;
             }
         }
-        return (n69) invokeV.objValue;
+        return (tc9) invokeV.objValue;
     }
 }

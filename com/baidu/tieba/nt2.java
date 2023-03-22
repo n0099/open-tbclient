@@ -1,35 +1,64 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface nt2 {
-    boolean a(Context context, cw2 cw2Var, vv2 vv2Var, m93 m93Var);
+public class nt2 implements kt2 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public bf2 a;
 
-    boolean b(Context context, xv2 xv2Var, vv2 vv2Var, m93 m93Var);
+    public nt2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    boolean c(Context context, yv2 yv2Var, vv2 vv2Var, m93 m93Var);
+    @Override // com.baidu.tieba.kt2
+    public void onPause() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            a();
+            bf2 bf2Var = this.a;
+            if (bf2Var != null) {
+                bf2Var.suspendTimer();
+            }
+        }
+    }
 
-    void d(sv1 sv1Var);
+    @Override // com.baidu.tieba.kt2
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            a();
+            bf2 bf2Var = this.a;
+            if (bf2Var != null) {
+                bf2Var.continueTimer();
+            }
+        }
+    }
 
-    boolean e(Context context, wv2 wv2Var, vv2 vv2Var, m93 m93Var);
-
-    void f(sv1 sv1Var);
-
-    boolean g(Context context, yv2 yv2Var, vv2 vv2Var, m93 m93Var);
-
-    boolean h(Context context, aw2 aw2Var, vv2 vv2Var, m93 m93Var);
-
-    void i(sv1 sv1Var);
-
-    boolean j(Context context, bw2 bw2Var, vv2 vv2Var, m93 m93Var);
-
-    boolean k(Context context, yv2 yv2Var, vv2 vv2Var, m93 m93Var);
-
-    boolean l(Context context, yv2 yv2Var, vv2 vv2Var, m93 m93Var);
-
-    boolean m(Context context, yv2 yv2Var, vv2 vv2Var, m93 m93Var);
-
-    boolean n(Context context, yv2 yv2Var, vv2 vv2Var, m93 m93Var);
-
-    boolean update(Context context, yv2 yv2Var, vv2 vv2Var, m93 m93Var);
+    public final void a() {
+        p92 W;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            bf2 bf2Var = this.a;
+            if ((bf2Var == null || bf2Var.isDestroyed()) && (W = ne2.U().W()) != null && (W.f() instanceof bf2)) {
+                this.a = (bf2) W.f();
+            }
+        }
+    }
 }

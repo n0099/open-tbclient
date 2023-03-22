@@ -1,17 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface y71 {
-    void a();
+    boolean g();
 
-    void b();
+    boolean j1();
 
-    void c();
-
-    void d();
-
-    void dismiss();
-
-    void e();
-
-    void f();
+    boolean u0();
 }

@@ -1,17 +1,17 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.uma;
+import com.baidu.tieba.qra;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes9.dex */
-public class OperatorElementAt$InnerProducer extends AtomicBoolean implements uma {
+public class OperatorElementAt$InnerProducer extends AtomicBoolean implements qra {
     public static final long serialVersionUID = 1;
-    public final uma actual;
+    public final qra actual;
 
-    public OperatorElementAt$InnerProducer(uma umaVar) {
-        this.actual = umaVar;
+    public OperatorElementAt$InnerProducer(qra qraVar) {
+        this.actual = qraVar;
     }
 
-    @Override // com.baidu.tieba.uma
+    @Override // com.baidu.tieba.qra
     public void request(long j) {
         int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
         if (i >= 0) {

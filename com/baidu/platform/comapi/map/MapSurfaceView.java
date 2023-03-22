@@ -48,7 +48,6 @@ import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLContext;
 import javax.microedition.khronos.egl.EGLDisplay;
 import org.json.JSONObject;
-import org.webrtc.EglBase10;
 /* loaded from: classes2.dex */
 public class MapSurfaceView extends aj implements View.OnKeyListener, MapRenderModeChangeListener, MapViewInterface, ak {
     public static /* synthetic */ Interceptable $ic;
@@ -130,7 +129,7 @@ public class MapSurfaceView extends aj implements View.OnKeyListener, MapRenderM
                 }
             }
             this.a = mapSurfaceView;
-            this.b = EglBase10.EGL_CONTEXT_CLIENT_VERSION;
+            this.b = 12440;
         }
 
         public /* synthetic */ a(MapSurfaceView mapSurfaceView, t tVar) {

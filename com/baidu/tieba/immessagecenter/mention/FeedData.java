@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.atomData.VideoPlayActivityConfig;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tieba.ak5;
-import com.baidu.tieba.dj;
+import com.baidu.tieba.gi;
+import com.baidu.tieba.xi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ import tbclient.ReplyMe.ReplyList;
 import tbclient.User;
 import tbclient.Zan;
 /* loaded from: classes4.dex */
-public class FeedData implements Serializable, ak5 {
+public class FeedData implements Serializable, xi5 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TYPE_DECLARE = "declare";
     public static final String TYPE_GRAFFITI = "graffiti";
@@ -423,7 +423,7 @@ public class FeedData implements Serializable, ak5 {
                 this.mOriginalThreadInfo = originalThreadInfo;
                 originalThreadInfo.r(jSONObject.optJSONObject("origin_thread_info"));
             }
-            if (((!dj.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (optJSONObject = jSONObject.optJSONObject(TYPE_ZAN)) != null) {
+            if (((!gi.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (optJSONObject = jSONObject.optJSONObject(TYPE_ZAN)) != null) {
                 this.mPraiseNum = optJSONObject.optInt("num");
                 if (optJSONObject.optInt("consent_type") == 2) {
                     z6 = true;
@@ -517,7 +517,7 @@ public class FeedData implements Serializable, ak5 {
         this.mPraiseItemType = replyList.item_type;
         this.hideForumName = replyList.hide_fname.intValue();
         this.fromForumId = replyList.v_forum_id.longValue();
-        if (((!dj.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (zan = replyList.zan) != null) {
+        if (((!gi.isEmpty(this.mPraiseItemType) && this.mPraiseItemType.equals(TYPE_ZAN)) || this.mPraiseItemType.equals(TYPE_GRAFFITI) || this.mPraiseItemType.equals(TYPE_DECLARE)) && (zan = replyList.zan) != null) {
             this.mPraiseNum = zan.num.intValue();
             if (zan.consent_type.intValue() == 2) {
                 z5 = true;

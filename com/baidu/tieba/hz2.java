@@ -1,42 +1,42 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.http.NetworkQuality;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class hz2 {
+public class hz2 extends t33 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Integer num, String str) {
+    public hz2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, num, str) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("level", String.valueOf(num));
-            hashMap.put("percentage", str + "%");
-            zu2.U().u(new nj2("text-size-adjust", hashMap));
-            w02.d(num.intValue());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    /* JADX WARN: Type inference failed for: r1v1, types: [org.json.JSONObject, T] */
-    public static void b(String str, String str2, String str3) {
+    @Override // com.baidu.tieba.t33
+    public void b(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, str, str2, str3) == null) {
-            sj2 sj2Var = new sj2();
-            ?? jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", "text-size-adjust");
-                jSONObject.put("percentage", str3 + "%");
-                jSONObject.put("level", str2);
-            } catch (JSONException e) {
-                e53.b(Log.getStackTraceString(e));
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            if (SwanAppNetworkUtils.h()) {
+                this.d.putInt("net_quality", NetworkQuality.getNetworkQuality());
+            } else {
+                this.d.putInt("net_quality", 3);
             }
-            sj2Var.c = jSONObject;
-            zu2.U().m(str, sj2Var);
+            c();
         }
     }
 }

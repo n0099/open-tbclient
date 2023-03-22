@@ -38,12 +38,12 @@ public class a {
 
     /* renamed from: com.qq.e.comm.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C0668a implements NetworkCallBack {
+    public class C0673a implements NetworkCallBack {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PM a;
 
-        public C0668a(a aVar, PM pm) {
+        public C0673a(a aVar, PM pm) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -222,7 +222,7 @@ public class a {
                     if (StringUtil.isEmpty(sm.getSuid())) {
                     }
                     System.currentTimeMillis();
-                    NetworkClientImpl.getInstance().submit(new S2SSRequest(str, jSONObject6.getBytes(Charset.forName("UTF-8"))), NetworkClient.Priority.High, new C0668a(this, pm));
+                    NetworkClientImpl.getInstance().submit(new S2SSRequest(str, jSONObject6.getBytes(Charset.forName("UTF-8"))), NetworkClient.Priority.High, new C0673a(this, pm));
                 }
             } catch (JSONException unused2) {
             }
@@ -234,7 +234,7 @@ public class a {
                 str = "http://sdk.e.qq.com/activate";
             }
             System.currentTimeMillis();
-            NetworkClientImpl.getInstance().submit(new S2SSRequest(str, jSONObject62.getBytes(Charset.forName("UTF-8"))), NetworkClient.Priority.High, new C0668a(this, pm));
+            NetworkClientImpl.getInstance().submit(new S2SSRequest(str, jSONObject62.getBytes(Charset.forName("UTF-8"))), NetworkClient.Priority.High, new C0673a(this, pm));
         }
     }
 }

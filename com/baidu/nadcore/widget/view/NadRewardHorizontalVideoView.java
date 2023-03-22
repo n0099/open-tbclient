@@ -7,9 +7,9 @@ import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.uitemplate.HorizontalVideoTailView;
 import com.baidu.nadcore.widget.uitemplate.NadRewardOperateView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.g21;
-import com.baidu.tieba.hr0;
-import com.baidu.tieba.ir0;
+import com.baidu.tieba.w01;
+import com.baidu.tieba.xp0;
+import com.baidu.tieba.yp0;
 /* loaded from: classes2.dex */
 public class NadRewardHorizontalVideoView extends NadRewardVideoView {
     public HorizontalVideoTailView u;
@@ -18,18 +18,18 @@ public class NadRewardHorizontalVideoView extends NadRewardVideoView {
         super(context);
     }
 
-    public final void J(AdBaseModel adBaseModel) {
-        ir0 ir0Var;
+    public final void L(AdBaseModel adBaseModel) {
+        yp0 yp0Var;
         HorizontalVideoTailView horizontalVideoTailView = this.u;
-        if (horizontalVideoTailView != null && adBaseModel != null && (ir0Var = adBaseModel.i) != null && ir0Var.k) {
-            horizontalVideoTailView.setAdInfo(ir0Var);
+        if (horizontalVideoTailView != null && adBaseModel != null && (yp0Var = adBaseModel.i) != null && yp0Var.k) {
+            horizontalVideoTailView.setAdInfo(yp0Var);
         }
     }
 
     @Override // com.baidu.nadcore.widget.view.NadRewardVideoView, com.baidu.nadcore.widget.view.NadRewardBaseView
     public void r(AdBaseModel adBaseModel) {
         super.r(adBaseModel);
-        J(adBaseModel);
+        L(adBaseModel);
     }
 
     public NadRewardHorizontalVideoView(Context context, AttributeSet attributeSet) {
@@ -37,10 +37,10 @@ public class NadRewardHorizontalVideoView extends NadRewardVideoView {
     }
 
     @Override // com.baidu.nadcore.widget.view.NadRewardVideoView, com.baidu.nadcore.widget.view.NadRewardBaseView
-    public void m(LayoutInflater layoutInflater, hr0 hr0Var) {
+    public void m(LayoutInflater layoutInflater, xp0 xp0Var) {
         int i;
         Integer num;
-        if (hr0Var != null && (num = (Integer) g21.b(hr0Var.a, AdBaseModel.STYLE.VIDEO)) != null) {
+        if (xp0Var != null && (num = (Integer) w01.b(xp0Var.a, AdBaseModel.STYLE.VIDEO)) != null) {
             i = num.intValue();
         } else {
             i = R.layout.nad_reward_horizontal_video_view;
@@ -52,14 +52,14 @@ public class NadRewardHorizontalVideoView extends NadRewardVideoView {
         this(context, attributeSet, i, null);
     }
 
-    public NadRewardHorizontalVideoView(Context context, AttributeSet attributeSet, int i, hr0 hr0Var) {
-        super(context, attributeSet, i, hr0Var);
+    public NadRewardHorizontalVideoView(Context context, AttributeSet attributeSet, int i, xp0 xp0Var) {
+        super(context, attributeSet, i, xp0Var);
         this.u = (HorizontalVideoTailView) findViewById(R.id.nad_horizontal_video_tail_frame_view);
     }
 
     @Override // com.baidu.nadcore.widget.view.NadRewardVideoView
-    public void G() {
-        if (this.u == null || !K()) {
+    public void I() {
+        if (this.u == null || !M()) {
             return;
         }
         NadRewardOperateView nadRewardOperateView = this.m;
@@ -70,8 +70,8 @@ public class NadRewardHorizontalVideoView extends NadRewardVideoView {
     }
 
     @Override // com.baidu.nadcore.widget.view.NadRewardVideoView
-    public void H() {
-        if (this.u == null || K() || !(getTag() instanceof AdBaseModel)) {
+    public void J() {
+        if (this.u == null || M() || !(getTag() instanceof AdBaseModel)) {
             return;
         }
         NadRewardOperateView nadRewardOperateView = this.m;
@@ -82,7 +82,7 @@ public class NadRewardHorizontalVideoView extends NadRewardVideoView {
         this.u.bringToFront();
     }
 
-    public boolean K() {
+    public boolean M() {
         HorizontalVideoTailView horizontalVideoTailView = this.u;
         if (horizontalVideoTailView != null && horizontalVideoTailView.getVisibility() == 0) {
             return true;

@@ -1,251 +1,253 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.os.Looper;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.network.outback.core.Call;
-import com.baidu.searchbox.network.outback.core.Callback;
-import com.baidu.searchbox.network.outback.core.Request;
-import com.baidu.searchbox.network.outback.core.Response;
-import com.baidu.searchbox.network.support.cookie.CookieJarImpl;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public final class n70 implements Call {
+public class n70 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final o70 a;
-    public final Request b;
-    public final boolean c;
-    public boolean d;
-    public h70 e;
 
     /* loaded from: classes5.dex */
-    public final class a extends k70 {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Callback b;
-        public final /* synthetic */ n70 c;
+        public final /* synthetic */ SharedPreferences a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ Object c;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(n70 n70Var, Callback callback) {
-            super("BaiduNetwork %s", n70Var.d());
+        public a(SharedPreferences sharedPreferences, String str, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {n70Var, callback};
+                Object[] objArr = {sharedPreferences, str, obj};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (Object[]) objArr2[1]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = n70Var;
-            this.b = callback;
+            this.a = sharedPreferences;
+            this.b = str;
+            this.c = obj;
         }
 
-        @Override // com.baidu.tieba.k70
-        public void a() {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    try {
-                        this.b.onResponse(this.c, this.c.b());
-                    } catch (IOException e) {
-                        this.b.onFailure(this.c, e);
-                    }
-                } finally {
-                    this.c.a.p().d(this);
-                }
+                n70.n(this.a, this.b, this.c);
             }
         }
+    }
 
-        public n70 b() {
-            InterceptResult invokeV;
+    /* loaded from: classes5.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ Set c;
+
+        public b(Context context, String str, Set set) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.c;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, str, set};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return (n70) invokeV.objValue;
+            this.a = context;
+            this.b = str;
+            this.c = set;
         }
 
-        public String c() {
-            InterceptResult invokeV;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.c.b.url().host();
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    public n70(Request request, o70 o70Var, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {request, o70Var, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.getSharedPreferences("track_sp", 0).edit().putStringSet(this.b, this.c).apply();
             }
         }
-        this.b = request;
-        this.c = z;
-        this.a = o70Var;
-        u70 u70Var = o70Var.m;
-        this.e = new h70(o70Var);
     }
 
-    public static n70 c(Request request, o70 o70Var, boolean z) {
-        InterceptResult invokeLLZ;
+    public static int g(Context context, String str, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, request, o70Var, z)) == null) {
-            return new n70(request, o70Var, z);
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, context, str, i)) == null) {
+            return context.getSharedPreferences("track_sp", 0).getInt(str, i);
         }
-        return (n70) invokeLLZ.objValue;
+        return invokeLLI.intValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.network.outback.core.Call
-    /* renamed from: a */
-    public n70 m57clone() {
-        InterceptResult invokeV;
+    public static Set<String> h(Context context, String str, Set<String> set) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c(this.b, this.a, this.c);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, context, str, set)) == null) {
+            return context.getSharedPreferences("track_sp", 0).getStringSet(str, set);
         }
-        return (n70) invokeV.objValue;
+        return (Set) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.searchbox.network.outback.core.Call
-    public void cancel() {
+    public static void i(Context context, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.e.b();
+        if (interceptable == null || interceptable.invokeLII(65544, null, context, i, i2) == null) {
+            l(context, i + "real_time_track", i2);
         }
     }
 
-    public String d() {
-        InterceptResult invokeV;
+    public static void l(Context context, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b.url().redact();
+        if (interceptable == null || interceptable.invokeLLI(65547, null, context, str, i) == null) {
+            p(context, str, Integer.valueOf(i));
         }
-        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.network.outback.core.Call
-    public boolean isCanceled() {
-        InterceptResult invokeV;
+    public static Set<String> b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.e.d();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            return h(context, "track_connection", new HashSet());
         }
-        return invokeV.booleanValue;
+        return (Set) invokeL.objValue;
     }
 
-    @Override // com.baidu.searchbox.network.outback.core.Call
-    public synchronized boolean isExecuted() {
-        InterceptResult invokeV;
-        boolean z;
+    public static int c(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            synchronized (this) {
-                z = this.d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            return g(context, "login_open_type", -1);
+        }
+        return invokeL.intValue;
+    }
+
+    public static Set<String> d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            return h(context, "track_request", new HashSet());
+        }
+        return (Set) invokeL.objValue;
+    }
+
+    public static boolean f(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            if (g(context, "track_upload_state", 1) == 1) {
+                return true;
             }
-            return z;
+            return false;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.searchbox.network.outback.core.Call
-    public Request request() {
-        InterceptResult invokeV;
+    public static boolean e(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.b;
-        }
-        return (Request) invokeV.objValue;
-    }
-
-    public Response b() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.addAll(this.a.t());
-            arrayList.add(new x70(new CookieJarImpl(this.b.getCookieManager()), this.a));
-            arrayList.add(this.e);
-            arrayList.addAll(this.a.w());
-            arrayList.add(new y70());
-            return new z70(arrayList, null, 0, this.b, this).a(this.b);
-        }
-        return (Response) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.network.outback.core.Call
-    public void enqueue(Callback callback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, callback) == null) {
-            synchronized (this) {
-                if (!this.d) {
-                    this.d = true;
-                } else {
-                    throw new IllegalStateException("Already Executed");
-                }
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i)) == null) {
+            if (g(context, i + "real_time_track", 0) != 1) {
+                return false;
             }
-            this.a.p().a(new a(this, callback));
+            return true;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static void j(Context context, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65545, null, context, i) == null) {
+            l(context, "track_upload_state", i);
         }
     }
 
-    @Override // com.baidu.searchbox.network.outback.core.Call
-    public Response execute() throws IOException {
-        InterceptResult invokeV;
+    public static void k(Context context, Set<String> set) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            synchronized (this) {
-                if (!this.d) {
-                    this.d = true;
-                } else {
-                    throw new IllegalStateException("Already Executed");
-                }
+        if (interceptable == null || interceptable.invokeLL(65546, null, context, set) == null) {
+            q(context, "track_connection", set);
+        }
+    }
+
+    public static void m(Context context, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65548, null, context, i) == null) {
+            l(context, "login_open_type", i);
+        }
+    }
+
+    public static void o(Context context, Set<String> set) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65550, null, context, set) == null) {
+            q(context, "track_request", set);
+        }
+    }
+
+    public static void n(SharedPreferences sharedPreferences, String str, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65549, null, sharedPreferences, str, obj) == null) {
+            if (obj instanceof Boolean) {
+                sharedPreferences.edit().putBoolean(str, ((Boolean) obj).booleanValue()).apply();
+            } else if (obj instanceof Integer) {
+                sharedPreferences.edit().putInt(str, ((Integer) obj).intValue()).apply();
+            } else if (obj instanceof Long) {
+                sharedPreferences.edit().putLong(str, ((Long) obj).longValue()).apply();
+            } else if (obj instanceof Float) {
+                sharedPreferences.edit().putFloat(str, ((Float) obj).floatValue()).apply();
+            } else if (obj instanceof String) {
+                sharedPreferences.edit().putString(str, (String) obj).apply();
             }
+        }
+    }
+
+    public static void p(Context context, String str, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65551, null, context, str, obj) == null) {
             try {
-                try {
-                    this.a.p().b(this);
-                    Response b = b();
-                    if (b != null) {
-                        return b;
-                    }
-                    throw new IOException("Canceled");
-                } catch (IOException e) {
-                    throw e;
-                } catch (Exception e2) {
-                    if (TextUtils.isEmpty(e2.getMessage())) {
-                        throw new IOException("unknown exception", e2);
-                    }
-                    throw new IOException(e2);
+                SharedPreferences sharedPreferences = context.getSharedPreferences("track_sp", 0);
+                if (Looper.getMainLooper().getThread() == Thread.currentThread()) {
+                    n80.a(context).b(new a(sharedPreferences, str, obj));
+                } else {
+                    n(sharedPreferences, str, obj);
                 }
-            } finally {
-                this.a.p().e(this);
+            } catch (Throwable th) {
+                q80.b("TrackUtils", th.getMessage());
             }
         }
-        return (Response) invokeV.objValue;
+    }
+
+    @SuppressLint({"CommitPrefEdits"})
+    public static void q(Context context, String str, Set<String> set) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65552, null, context, str, set) == null) {
+            try {
+                if (Looper.getMainLooper().getThread() == Thread.currentThread()) {
+                    n80.a(context).b(new b(context, str, set));
+                } else {
+                    context.getSharedPreferences("track_sp", 0).edit().putStringSet(str, set).apply();
+                }
+            } catch (Throwable th) {
+                q80.b("TrackUtils", th.getMessage());
+            }
+        }
     }
 }

@@ -9,7 +9,6 @@ import android.opengl.EGLDisplay;
 import android.opengl.EGLSurface;
 import android.view.Surface;
 import com.baidu.webkit.internal.monitor.MonitorType;
-import org.webrtc.EglBase10;
 @SuppressLint({"NewApi"})
 /* loaded from: classes2.dex */
 public class OutputSurface implements SurfaceTexture.OnFrameAvailableListener {
@@ -121,7 +120,7 @@ public class OutputSurface implements SurfaceTexture.OnFrameAvailableListener {
             if (EGL14.eglInitialize(eglGetDisplay, iArr, 0, iArr, 1)) {
                 EGLConfig[] eGLConfigArr = new EGLConfig[1];
                 if (EGL14.eglChooseConfig(this.mEGLDisplay, new int[]{MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 8, MonitorType.MONITOR_TYPE_INIT_WEBKIT, 8, 12322, 8, 12352, 4, 12339, 1, 12344}, 0, eGLConfigArr, 0, 1, new int[1], 0)) {
-                    this.mEGLContext = EGL14.eglCreateContext(this.mEGLDisplay, eGLConfigArr[0], EGL14.EGL_NO_CONTEXT, new int[]{EglBase10.EGL_CONTEXT_CLIENT_VERSION, 2, 12344}, 0);
+                    this.mEGLContext = EGL14.eglCreateContext(this.mEGLDisplay, eGLConfigArr[0], EGL14.EGL_NO_CONTEXT, new int[]{12440, 2, 12344}, 0);
                     checkEglError("eglCreateContext");
                     if (this.mEGLContext != null) {
                         this.mEGLSurface = EGL14.eglCreatePbufferSurface(this.mEGLDisplay, eGLConfigArr[0], new int[]{12375, i, 12374, i2, 12344}, 0);

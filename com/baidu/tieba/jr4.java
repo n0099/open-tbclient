@@ -1,66 +1,118 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import android.webkit.WebResourceResponse;
-import androidx.annotation.NonNull;
-import androidx.annotation.WorkerThread;
-import androidx.webkit.WebViewAssetLoader;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
+import java.lang.reflect.Array;
 /* loaded from: classes5.dex */
-public final class jr4 implements WebViewAssetLoader.PathHandler {
+public class jr4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final File a;
 
-    public jr4(@NonNull Context context, @NonNull File file) {
+    public static String a(char[] cArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, file};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, cArr)) == null) {
+            if (cArr != null && cArr.length != 0) {
+                StringBuilder sb = new StringBuilder();
+                for (char c : cArr) {
+                    if (c != 0) {
+                        sb.append(c);
+                    }
+                }
+                return sb.toString();
             }
+            return null;
         }
-        try {
-            this.a = new File(ir4.a(file));
-        } catch (IOException e) {
-            throw new IllegalArgumentException("Failed to resolve the canonical path for the given directory: " + file.getPath(), e);
-        }
+        return (String) invokeL.objValue;
     }
 
-    @Override // androidx.webkit.WebViewAssetLoader.PathHandler
-    @NonNull
-    @WorkerThread
-    public WebResourceResponse handle(@NonNull String str) {
+    public static String d(String str) {
         InterceptResult invokeL;
-        File b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            try {
-                b = ir4.b(this.a, str);
-            } catch (IOException e) {
-                Log.e("ExtStoragePathHandler", "Error opening the requested path: " + str, e);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (!StringUtils.isNull(str) && str.endsWith("!") && str.startsWith("$")) {
+                return str.replace("$", "").replace("!", "");
             }
-            if (b != null) {
-                return new WebResourceResponse(ir4.c(str), null, ir4.e(b));
-            }
-            Log.e("ExtStoragePathHandler", String.format("The requested file: %s is outside the mounted directory: %s", str, this.a));
-            return new WebResourceResponse(null, null, null);
+            return null;
         }
-        return (WebResourceResponse) invokeL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public static char[][] e(char[][] cArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cArr)) == null) {
+            if (cArr != null && cArr[0] != null) {
+                char[][] cArr2 = (char[][]) Array.newInstance(char.class, cArr.length, cArr[0].length);
+                for (int length = cArr.length - 1; length >= 0; length--) {
+                    cArr2[(cArr.length - length) - 1] = cArr[length];
+                }
+                return cArr2;
+            }
+            return null;
+        }
+        return (char[][]) invokeL.objValue;
+    }
+
+    public static String f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            char[] charArray = str.toCharArray();
+            char[][] cArr = (char[][]) Array.newInstance(char.class, (charArray.length / 2) + 1, 2);
+            c(charArray, cArr);
+            return a(b(e(cArr)));
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static char[] b(char[][] cArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cArr)) == null) {
+            if (cArr != null && cArr[0] != null) {
+                char[] cArr2 = new char[cArr.length * cArr[0].length];
+                int i = 0;
+                for (int i2 = 0; i2 < cArr.length; i2++) {
+                    for (int i3 = 0; i3 < cArr[i2].length; i3++) {
+                        if (cArr[i2][i3] != 0) {
+                            cArr2[i] = cArr[i2][i3];
+                            i++;
+                        }
+                    }
+                }
+                return cArr2;
+            }
+            return null;
+        }
+        return (char[]) invokeL.objValue;
+    }
+
+    public static void c(char[] cArr, char[][] cArr2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, cArr, cArr2) == null) {
+            int length = cArr2.length;
+            int length2 = cArr2[0].length;
+            int i = 0;
+            int i2 = 0;
+            for (char c : cArr) {
+                if (i >= length2) {
+                    i2++;
+                    i = 0;
+                }
+                if (i2 < length) {
+                    cArr2[i2][i] = c;
+                    i++;
+                } else {
+                    return;
+                }
+            }
+        }
     }
 }

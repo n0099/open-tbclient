@@ -1,10 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.fo5;
-import com.baidu.tieba.go5;
+import com.baidu.tieba.cn5;
+import com.baidu.tieba.dn5;
 /* loaded from: classes4.dex */
-public interface en5<Q extends fo5, P extends go5> {
-    void a(Q q, P p);
+public interface en5<Q extends cn5, P extends dn5> {
+    int a();
 
-    void b(Q q, boolean z);
+    Q b();
+
+    String c();
+
+    P d();
+
+    int e();
 }

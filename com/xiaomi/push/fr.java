@@ -29,11 +29,11 @@ public class fr extends gc {
         if (z) {
             fqVar.a("1");
         }
-        byte[] m398a = fi.m398a();
-        if (m398a != null) {
+        byte[] m400a = fi.m400a();
+        if (m400a != null) {
             dw.j jVar = new dw.j();
-            jVar.a(a.a(m398a));
-            fqVar.a(jVar.m363a(), (String) null);
+            jVar.a(a.a(m400a));
+            fqVar.a(jVar.m365a(), (String) null);
         }
         return fqVar;
     }
@@ -56,7 +56,7 @@ public class fr extends gc {
     /* JADX DEBUG: Possible override for method com.xiaomi.push.fv.a()Z */
     @Override // com.xiaomi.push.gc
     /* renamed from: a */
-    public synchronized void mo441a() {
+    public synchronized void mo443a() {
         h();
         this.f396a.a();
     }
@@ -83,14 +83,14 @@ public class fr extends gc {
         if (fkVar == null) {
             return;
         }
-        if (fkVar.m402a()) {
-            com.xiaomi.channel.commonutils.logger.b.m97a("[Slim] RCV blob chid=" + fkVar.a() + "; id=" + fkVar.e() + "; errCode=" + fkVar.b() + "; err=" + fkVar.m406c());
+        if (fkVar.m404a()) {
+            com.xiaomi.channel.commonutils.logger.b.m99a("[Slim] RCV blob chid=" + fkVar.a() + "; id=" + fkVar.e() + "; errCode=" + fkVar.b() + "; err=" + fkVar.m408c());
         }
         if (fkVar.a() == 0) {
-            if ("PING".equals(fkVar.m399a())) {
-                com.xiaomi.channel.commonutils.logger.b.m97a("[Slim] RCV ping id=" + fkVar.e());
+            if ("PING".equals(fkVar.m401a())) {
+                com.xiaomi.channel.commonutils.logger.b.m99a("[Slim] RCV ping id=" + fkVar.e());
                 g();
-            } else if ("CLOSE".equals(fkVar.m399a())) {
+            } else if ("CLOSE".equals(fkVar.m401a())) {
                 c(13, null);
             }
         }
@@ -117,12 +117,12 @@ public class fr extends gc {
 
     @Override // com.xiaomi.push.gc
     /* renamed from: a  reason: collision with other method in class */
-    public void mo412a(boolean z) {
+    public void mo414a(boolean z) {
         if (this.f396a == null) {
             throw new gg("The BlobWriter is null.");
         }
         fk a = a(z);
-        com.xiaomi.channel.commonutils.logger.b.m97a("[Slim] SND ping id=" + a.e());
+        com.xiaomi.channel.commonutils.logger.b.m99a("[Slim] SND ping id=" + a.e());
         b(a);
         f();
     }
@@ -139,7 +139,7 @@ public class fr extends gc {
     /* JADX DEBUG: Possible override for method com.xiaomi.push.gc.a()V */
     @Override // com.xiaomi.push.fv
     /* renamed from: a  reason: collision with other method in class */
-    public boolean mo413a() {
+    public boolean mo415a() {
         return true;
     }
 
@@ -153,10 +153,10 @@ public class fr extends gc {
     /* JADX DEBUG: Possible override for method com.xiaomi.push.gc.a()Ljava/net/Socket; */
     /* JADX DEBUG: Possible override for method com.xiaomi.push.gc.a()V */
     /* renamed from: a  reason: collision with other method in class */
-    public synchronized byte[] m414a() {
+    public synchronized byte[] m416a() {
         if (this.f398a == null && !TextUtils.isEmpty(((fv) this).f412a)) {
-            String m721a = com.xiaomi.push.service.bv.m721a();
-            this.f398a = com.xiaomi.push.service.bp.a(((fv) this).f412a.getBytes(), (((fv) this).f412a.substring(((fv) this).f412a.length() / 2) + m721a.substring(m721a.length() / 2)).getBytes());
+            String m723a = com.xiaomi.push.service.bv.m723a();
+            this.f398a = com.xiaomi.push.service.bp.a(((fv) this).f412a.getBytes(), (((fv) this).f412a.substring(((fv) this).f412a.length() / 2) + m723a.substring(m723a.length() / 2)).getBytes());
         }
         return this.f398a;
     }

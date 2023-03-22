@@ -2,23 +2,22 @@ package com.baidu.tieba;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import com.baidu.adp.lib.util.BdLog;
+import android.graphics.Matrix;
+import android.media.ExifInterface;
+import android.media.MediaMetadataRetriever;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import com.baidu.ugc.editvideo.data.MultiMediaData;
+import java.io.IOException;
 /* loaded from: classes5.dex */
-public class lp6 implements sp6 {
+public class lp6 extends kp6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public np6 a;
-    public boolean b;
-    public boolean c;
-    public kp6 d;
-    public boolean e;
 
     public lp6(boolean z) {
         Interceptable interceptable = $ic;
@@ -35,91 +34,141 @@ public class lp6 implements sp6 {
                 return;
             }
         }
-        this.c = false;
-        this.e = false;
-        this.a = new np6();
-        this.e = z;
+        this.d = z;
     }
 
-    @Override // com.baidu.tieba.sp6
-    public void a(String str, tp6 tp6Var) {
-        kp6 kp6Var;
-        kp6 kp6Var2;
-        float f;
-        float f2;
+    public final int j(String str) {
+        ExifInterface exifInterface;
+        int attributeInt;
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, tp6Var) != null) || tp6Var == null) {
-            return;
-        }
-        if (this.b) {
-            File file = new File(tp6Var.a);
-            Bitmap decodeFile = BitmapFactory.decodeFile(tp6Var.a);
-            if (file.exists() && decodeFile != null) {
-                float height = decodeFile.getHeight();
-                float width = decodeFile.getWidth();
-                float f3 = height * 1.0f;
-                float f4 = f3 / width;
-                if (f4 > 1.0f) {
-                    f = 1.7777778f;
-                } else {
-                    f = 0.75f;
-                }
-                float f5 = 0.0f;
-                if (f4 > f) {
-                    float f6 = f * width;
-                    f2 = (height - f6) * 0.5f;
-                    height = f6;
-                } else {
-                    float f7 = f3 / f;
-                    f5 = (width - f7) * 0.5f;
-                    width = f7;
-                    f2 = 0.0f;
-                }
-                tp6Var.a = FileHelper.saveBitmapByAbsolutelyPath(file.getPath(), file.getName(), Bitmap.createBitmap(decodeFile, (int) f5, (int) f2, (int) width, (int) height), 95);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            try {
+                exifInterface = new ExifInterface(str);
+            } catch (IOException unused) {
+                exifInterface = null;
             }
-        }
-        if ("default".equals(str)) {
-            if (!this.c && (kp6Var2 = this.d) != null) {
-                kp6Var2.b0(tp6Var.a);
+            if (exifInterface != null && (attributeInt = exifInterface.getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, -1)) != -1) {
+                if (attributeInt != 3) {
+                    if (attributeInt != 6) {
+                        if (attributeInt == 8) {
+                            return 270;
+                        }
+                    } else {
+                        return 90;
+                    }
+                } else {
+                    return 180;
+                }
             }
-        } else if ("manual".equals(str) && (kp6Var = this.d) != null) {
-            kp6Var.b0(tp6Var.a);
+            return 0;
         }
+        return invokeL.intValue;
     }
 
-    public void b(up6 up6Var, String str) {
+    public Bitmap k(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, up6Var, str) == null) {
-            this.a.a(str, this.e).a(up6Var, this);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            qp6 qp6Var = this.a;
+            Bitmap i = i(str, qp6Var.a, qp6Var.b);
+            if (i == null) {
+                return null;
+            }
+            int j = j(str);
+            Matrix matrix = new Matrix();
+            matrix.setRotate(j);
+            return Bitmap.createBitmap(i, 0, 0, i.getWidth(), i.getHeight(), matrix, true);
         }
+        return (Bitmap) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.sp6
-    public void onError(String str, String str2) {
+    public static int h(BitmapFactory.Options options, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, str, str2) == null) {
-            BdLog.e("get cover error ! type : " + str + ", err : " + str2);
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, options, i, i2)) == null) {
+            int i3 = options.outHeight;
+            int i4 = options.outWidth;
+            if (i3 <= i2 && i4 <= i) {
+                return 1;
+            }
+            int round = Math.round(i3 / i2);
+            int round2 = Math.round(i4 / i);
+            if (round >= round2) {
+                round = round2;
+            }
+            if (round >= 3) {
+                if (round < 6.5d) {
+                    return 4;
+                }
+                if (round < 8) {
+                    return 8;
+                }
+            }
+            return round;
         }
+        return invokeLII.intValue;
     }
 
-    public void c(boolean z) {
+    public static Bitmap i(String str, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.c = z;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, str, i, i2)) == null) {
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            options.inPreferredConfig = Bitmap.Config.RGB_565;
+            BitmapFactory.decodeFile(str, options);
+            options.inSampleSize = h(options, i, i2);
+            options.inJustDecodeBounds = false;
+            return BitmapFactory.decodeFile(str, options);
         }
+        return (Bitmap) invokeLII.objValue;
     }
 
-    public void d(boolean z) {
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:25:0x0064 -> B:39:0x005f). Please submit an issue!!! */
+    @Override // com.baidu.tieba.kp6
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.b = z;
-        }
-    }
-
-    public void e(kp6 kp6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, kp6Var) == null) {
-            this.d = kp6Var;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            qp6 qp6Var = this.a;
+            if (qp6Var.e) {
+                this.b.onError(qp6Var.f, "is cartoon style !!");
+                return;
+            }
+            MultiMediaData multiMediaData = qp6Var.c;
+            if (multiMediaData != null && !TextUtils.isEmpty(multiMediaData.path)) {
+                String str = multiMediaData.path;
+                if (multiMediaData.type == 1) {
+                    MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+                    try {
+                        try {
+                            mediaMetadataRetriever.setDataSource(str);
+                            Bitmap frameAtTime = mediaMetadataRetriever.getFrameAtTime(multiMediaData.start * 1000);
+                            if (this.a.d != 0.0f) {
+                                g(new pp6(), c(frameAtTime, this.a.d, multiMediaData));
+                            } else {
+                                g(new pp6(), frameAtTime);
+                            }
+                        } catch (IllegalArgumentException e) {
+                            e.printStackTrace();
+                        } catch (Exception unused) {
+                        }
+                        return;
+                    } finally {
+                        mediaMetadataRetriever.release();
+                    }
+                }
+                Bitmap k = k(str);
+                if (k != null) {
+                    g(new pp6(), k);
+                    return;
+                }
+                return;
+            }
+            this.b.onError(this.a.f, "multiMediaData is null !!");
         }
     }
 }

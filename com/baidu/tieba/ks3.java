@@ -1,126 +1,146 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.tieba.pi4;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Callback;
+import org.json.JSONException;
 import org.json.JSONObject;
-@Service
 /* loaded from: classes5.dex */
-public class ks3 implements zs1 {
+public class ks3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947923614, "Lcom/baidu/tieba/ks3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947923614, "Lcom/baidu/tieba/ks3;");
-                return;
-            }
-        }
-        a = wp1.a;
-    }
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public boolean h;
+    public js3 i;
+    public js3 j;
+    public js3 k;
+    public js3 l;
 
     public ks3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = -1;
+        this.b = -1;
+        this.c = -1;
+        this.d = -1;
+        this.e = -1;
+        this.f = -1;
+        this.g = -1;
     }
 
-    @Override // com.baidu.tieba.zs1
-    public boolean h() {
+    public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return ls3.b().d();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (!this.h) {
+                return b(this.l);
+            }
+            js3 js3Var = this.k;
+            if (js3Var != null) {
+                return js3Var.c;
+            }
+            js3 js3Var2 = this.i;
+            if (js3Var2 != null) {
+                return js3Var2.c;
+            }
+            js3 js3Var3 = this.j;
+            if (js3Var3 != null) {
+                return js3Var3.c;
+            }
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.g != -1) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.zs1
-    public void d(byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bArr) == null) {
-            ls3.b().c(bArr);
-        }
-    }
-
-    @Override // com.baidu.tieba.zs1
-    public boolean g(String str) {
+    public final int b(js3 js3Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return ls3.b().e(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.zs1
-    public <T> void e(String str, String str2, ResponseCallback<T> responseCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, responseCallback) == null) {
-            new bt3().q(str, str2, responseCallback);
-        }
-    }
-
-    @Override // com.baidu.tieba.zs1
-    public void f(String str, String str2, pi4.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, cVar) == null) {
-            new at3().k(str, str2, cVar);
-        }
-    }
-
-    @Override // com.baidu.tieba.zs1
-    public boolean i(@NonNull m93 m93Var, @NonNull JSONObject jSONObject, @NonNull String str, @NonNull String str2, Callback callback, fo3<String> fo3Var) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{m93Var, jSONObject, str, str2, callback, fo3Var})) == null) {
-            JSONObject optJSONObject = jSONObject.optJSONObject("ext");
-            if (optJSONObject == null || !optJSONObject.optBoolean("enableBdtls", false)) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, js3Var)) == null) {
+            if (js3Var != null) {
+                return js3Var.c;
             }
-            String optString = optJSONObject.optString("serviceId");
-            if (TextUtils.isEmpty(optString)) {
-                if (a) {
-                    Log.d("BdtlsImpl", "onFailure: serviceId is invalid");
-                }
-                if (fo3Var != null) {
-                    fo3Var.a("serviceId is invalid");
-                    return true;
-                }
-                return true;
-            }
-            fg3.D(str, m93Var.Y().G(), null, str2);
-            new dt3(m93Var, jSONObject, str2, callback).o(optString);
-            return true;
+            return -1;
         }
-        return invokeCommon.booleanValue;
+        return invokeL.intValue;
+    }
+
+    public final int c(js3 js3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, js3Var)) == null) {
+            if (js3Var != null) {
+                return js3Var.b;
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("cores", this.a);
+                jSONObject.put("is_biglittle", this.h);
+                if (this.h) {
+                    jSONObject.put("little_freq_min", c(this.j));
+                    jSONObject.put("little_freq_max", b(this.j));
+                    jSONObject.put("big_freq_min", c(this.i));
+                    jSONObject.put("big_freq_max", b(this.i));
+                    jSONObject.put("little_cores", this.b);
+                    jSONObject.put("big_cores", this.d);
+                    jSONObject.put("little_index", this.c);
+                    jSONObject.put("big_index", this.e);
+                    if (this.g != -1) {
+                        jSONObject.put("super_freq_min", c(this.k));
+                        jSONObject.put("super_freq_max", b(this.k));
+                        jSONObject.put("super_cores", this.f);
+                        jSONObject.put("super_index", this.g);
+                    }
+                } else {
+                    jSONObject.put("freq_min", c(this.l));
+                    jSONObject.put("freq_max", b(this.l));
+                }
+                return jSONObject.toString();
+            } catch (JSONException unused) {
+                return "";
+            }
+        }
+        return (String) invokeV.objValue;
     }
 }

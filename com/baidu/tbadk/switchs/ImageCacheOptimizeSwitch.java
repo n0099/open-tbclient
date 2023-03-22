@@ -2,8 +2,8 @@ package com.baidu.tbadk.switchs;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b55;
-import com.baidu.tieba.qf;
+import com.baidu.tieba.m35;
+import com.baidu.tieba.te;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,7 +16,7 @@ import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 @Metadata(d1 = {"\u0000$\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0010\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u0011\n\u0002\u0010\u000e\n\u0002\b\u0007\u0018\u0000 \u000f2\u00020\u0001:\u0001\u000fB\u0005¢\u0006\u0002\u0010\u0002J\u0010\u0010\u0003\u001a\u00020\u00042\u0006\u0010\u0005\u001a\u00020\u0006H\u0014J\u0017\u0010\u0007\u001a\f\u0012\u0006\u0012\u0004\u0018\u00010\t\u0018\u00010\bH\u0014¢\u0006\u0002\u0010\nJ\b\u0010\u000b\u001a\u00020\u0006H\u0014J\b\u0010\f\u001a\u00020\u0006H\u0014J\b\u0010\r\u001a\u00020\tH\u0014J\b\u0010\u000e\u001a\u00020\u0006H\u0014¨\u0006\u0010"}, d2 = {"Lcom/baidu/tbadk/switchs/ImageCacheOptimizeSwitch;", "Lcom/baidu/adp/lib/featureSwitch/AbstractSwitch;", "()V", "changeSettingByType", "", "type", "", "getCrashKeys", "", "", "()[Ljava/lang/String;", "getDefaultType", "getMaxCrashTimes", "getName", "getOffType", "Companion", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes3.dex */
-public final class ImageCacheOptimizeSwitch extends qf {
+public final class ImageCacheOptimizeSwitch extends te {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Companion Companion;
     public static final String KEY = "12_36_imagecache_optimize_switch";
@@ -30,14 +30,14 @@ public final class ImageCacheOptimizeSwitch extends qf {
         return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) ? Companion.cacheSize() : invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.qf
+    @Override // com.baidu.tieba.te
     public void changeSettingByType(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.qf
+    @Override // com.baidu.tieba.te
     public String[] getCrashKeys() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -47,7 +47,7 @@ public final class ImageCacheOptimizeSwitch extends qf {
         return (String[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qf
+    @Override // com.baidu.tieba.te
     public int getDefaultType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -57,7 +57,7 @@ public final class ImageCacheOptimizeSwitch extends qf {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.qf
+    @Override // com.baidu.tieba.te
     public int getMaxCrashTimes() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -67,14 +67,14 @@ public final class ImageCacheOptimizeSwitch extends qf {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.qf
+    @Override // com.baidu.tieba.te
     public String getName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? KEY : (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qf
+    @Override // com.baidu.tieba.te
     public int getOffType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -114,7 +114,7 @@ public final class ImageCacheOptimizeSwitch extends qf {
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 if (getResultCachesize() == -1) {
-                    setResultCachesize(b55.m().n(ImageCacheOptimizeSwitch.KEY, 0));
+                    setResultCachesize(m35.m().n(ImageCacheOptimizeSwitch.KEY, 0));
                 }
                 return getResultCachesize();
             }

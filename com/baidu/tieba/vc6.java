@@ -1,27 +1,23 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bumptech.glide.load.model.ModelLoader;
-import com.bumptech.glide.load.model.ModelLoaderFactory;
-import com.bumptech.glide.load.model.MultiModelLoaderFactory;
-import java.io.InputStream;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public class vc6 implements ModelLoaderFactory<String, InputStream> {
+public class vc6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.bumptech.glide.load.model.ModelLoaderFactory
-    public void teardown() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
+    public Set<xc6> a;
+    public Set<String> b;
+    public String c;
+    public String d;
+    public String e;
+    public Set<String> f;
+    public boolean g;
+    public boolean h;
+    public boolean i;
 
     public vc6() {
         Interceptable interceptable = $ic;
@@ -35,16 +31,5 @@ public class vc6 implements ModelLoaderFactory<String, InputStream> {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.bumptech.glide.load.model.ModelLoaderFactory
-    @NonNull
-    public ModelLoader<String, InputStream> build(@NonNull MultiModelLoaderFactory multiModelLoaderFactory) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, multiModelLoaderFactory)) == null) {
-            return new uc6();
-        }
-        return (ModelLoader) invokeL.objValue;
     }
 }

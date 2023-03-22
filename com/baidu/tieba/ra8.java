@@ -1,44 +1,71 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.tbselector.TBSelector;
-import com.baidu.tieba.newinterest.viewholder.InterestedForumStyleAForumViewHolder;
+import com.baidu.tbadk.core.util.tbselector.shadow.ShadowDrawable;
+import com.baidu.tieba.memberCenter.memberpay.MemberPayResult;
+import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class ra8 extends qn<ab8, InterestedForumStyleAForumViewHolder> {
+public class ra8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ib8 a;
+    public List<MemberPayResult.e> a;
+    public final LayoutInflater b;
+    public final int c;
+    public final int d;
+    public final int e;
+    public final int f;
+    public final int g;
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) ? i : invokeI.longValue;
+    }
 
     /* loaded from: classes6.dex */
-    public class a implements no {
+    public class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ra8 a;
+        public RelativeLayout a;
+        public LinearLayout b;
+        public TextView c;
+        public TextView d;
+        public TextView e;
+        public TextView f;
+        public TextView g;
+        public RoundRelativeLayout h;
+        public ImageView i;
+        public LinearLayout j;
 
-        public a(ra8 ra8Var) {
+        public a(ra8 ra8Var, View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ra8Var};
+                Object[] objArr = {ra8Var, view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,155 +75,227 @@ public class ra8 extends qn<ab8, InterestedForumStyleAForumViewHolder> {
                     return;
                 }
             }
-            this.a = ra8Var;
-        }
-
-        @Override // com.baidu.tieba.no
-        public void b(View view2, Cdo cdo, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, cdo, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(cdo instanceof ab8)) {
-                return;
-            }
-            ab8 ab8Var = (ab8) cdo;
-            ab8Var.s(!ab8Var.j());
-            InterestedForumStyleAForumViewHolder interestedForumStyleAForumViewHolder = (InterestedForumStyleAForumViewHolder) view2.getTag();
-            if (interestedForumStyleAForumViewHolder != null) {
-                this.a.B(interestedForumStyleAForumViewHolder.h, ab8Var.j());
-            }
-            if (this.a.a != null) {
-                this.a.a.a();
-            }
-            if (!ab8Var.j()) {
-                return;
-            }
-            this.a.v(ab8Var);
+            this.a = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091e2e);
+            this.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09076e);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925e8);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925ea);
+            this.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925e7);
+            this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925e9);
+            this.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925be);
+            this.h = (RoundRelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c14);
+            this.i = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091e84);
+            this.h.setRoundLayoutRadius(new float[]{ra8Var.g, ra8Var.g, ra8Var.g, ra8Var.g, ra8Var.g, ra8Var.g, 0.0f, ra8Var.g});
+            this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091c13);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ra8(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    public ra8(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mContext = context;
-        this.mType = bdUniqueId;
-        setOnAdapterItemClickListener(new a(this));
-    }
-
-    public final void v(ab8 ab8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ab8Var) == null) {
-            StatisticItem statisticItem = new StatisticItem("c13682");
-            statisticItem.param("obj_type", 2);
-            statisticItem.param("obj_locate", 4);
-            statisticItem.param("fid", ab8Var.c());
-            TiebaStatic.log(statisticItem);
-        }
+        this.b = LayoutInflater.from(tbPageContext.getPageActivity());
+        this.c = tbPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds294);
+        this.d = tbPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds416);
+        this.e = tbPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.M_H_X007);
+        this.f = tbPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.M_H_X004);
+        this.g = tbPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds42);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: w */
-    public InterestedForumStyleAForumViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // android.widget.Adapter
+    /* renamed from: b */
+    public MemberPayResult.e getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
-            return new InterestedForumStyleAForumViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0418, viewGroup, false));
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return (MemberPayResult.e) ListUtils.getItem(this.a, i);
         }
-        return (InterestedForumStyleAForumViewHolder) invokeL.objValue;
+        return (MemberPayResult.e) invokeI.objValue;
     }
 
-    public void z(ib8 ib8Var) {
+    public void f(List<MemberPayResult.e> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ib8Var) == null) {
-            this.a = ib8Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            this.a = list;
         }
     }
 
-    public final void B(ImageView imageView, boolean z) {
+    public MemberPayResult.e c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageView, z) == null) {
-            if (z) {
-                SkinManager.setImageResource(imageView, R.drawable.icon_interest_checked);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (ListUtils.isEmpty(this.a)) {
+                return null;
+            }
+            for (MemberPayResult.e eVar : this.a) {
+                if (eVar != null && eVar.i) {
+                    return eVar;
+                }
+            }
+            return null;
+        }
+        return (MemberPayResult.e) invokeV.objValue;
+    }
+
+    public final void d(int i, MemberPayResult.e eVar, a aVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, eVar, aVar) == null) && eVar != null && eVar.f >= 0) {
+            aVar.g.setText(h(eVar.b, 7));
+            if (TextUtils.isEmpty(eVar.c)) {
+                aVar.f.setVisibility(4);
             } else {
-                SkinManager.setImageResource(imageView, R.drawable.icon_interest_unchecked);
+                aVar.f.setVisibility(0);
+                aVar.f.setText(h(eVar.c, 10));
             }
+            TextView textView = aVar.e;
+            textView.setText("" + (eVar.f / 100));
+            if (TextUtils.isEmpty(eVar.d)) {
+                aVar.j.setVisibility(4);
+                aVar.h.setVisibility(4);
+                aVar.d.setVisibility(4);
+            } else {
+                aVar.h.setVisibility(0);
+                aVar.d.setVisibility(0);
+                aVar.j.setVisibility(0);
+                aVar.d.setText(eVar.d);
+            }
+            if (i == 0) {
+                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar.a.getLayoutParams();
+                layoutParams.width = this.c;
+                layoutParams.height = this.d;
+                layoutParams.leftMargin = this.e;
+                layoutParams.rightMargin = this.f;
+                aVar.a.setLayoutParams(layoutParams);
+            } else {
+                LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) aVar.a.getLayoutParams();
+                layoutParams2.width = this.c;
+                layoutParams2.height = this.d;
+                layoutParams2.leftMargin = 0;
+                layoutParams2.rightMargin = this.f;
+                aVar.a.setLayoutParams(layoutParams2);
+            }
+            SkinManager.setViewTextColor(aVar.c, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(aVar.d, (int) R.color.CAM_X0101);
+            SkinManager.setBackgroundResource(aVar.d, R.drawable.member_price_tag_bg_shape);
+            n15.d(aVar.d).B(R.string.F_X02);
+            SkinManager.setViewTextColor(aVar.e, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(aVar.f, (int) R.color.CAM_X0109);
+            SkinManager.setViewTextColor(aVar.g, (int) R.color.CAM_X0105);
+            n15.d(aVar.g).B(R.string.F_X01);
+            e(aVar);
+            g(eVar, aVar);
         }
     }
 
-    public final void A(InterestedForumStyleAForumViewHolder interestedForumStyleAForumViewHolder) {
+    public void e(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, interestedForumStyleAForumViewHolder) == null) {
-            b35 d = b35.d(interestedForumStyleAForumViewHolder.c);
-            d.v(R.color.CAM_X0105);
-            d.z(R.dimen.T_X06);
-            b35 d2 = b35.d(interestedForumStyleAForumViewHolder.d);
-            d2.v(R.color.CAM_X0109);
-            d2.z(R.dimen.T_X09);
-            b35 d3 = b35.d(interestedForumStyleAForumViewHolder.e);
-            d3.v(R.color.CAM_X0109);
-            d3.z(R.dimen.T_X09);
-            b35 d4 = b35.d(interestedForumStyleAForumViewHolder.f);
-            d4.v(R.color.CAM_X0109);
-            d4.z(R.dimen.T_X09);
-            TBSelector.setViewBackgroundColorWithPressedState(interestedForumStyleAForumViewHolder.a, R.color.CAM_X0205, R.color.CAM_X0204);
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            TBSelector.makeShadowDrawable().setShape(1).setShapeRadius(UtilHelper.getDimenPixelSize(R.dimen.tbds42)).setShadowColor(R.color.CAM_X0301).setShadowAlpha(200).setShadowSide(ShadowDrawable.NO_TOP).setShadowRadius(UtilHelper.getDimenPixelSize(R.dimen.tbds16)).setOffsetX(0).setOffsetY(UtilHelper.getDimenPixelSize(R.dimen.tbds45)).into(aVar.j);
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
-    @Override // com.baidu.tieba.qn
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ab8 ab8Var, InterestedForumStyleAForumViewHolder interestedForumStyleAForumViewHolder) {
-        x(i, view2, viewGroup, ab8Var, interestedForumStyleAForumViewHolder);
-        return view2;
+    public final void g(MemberPayResult.e eVar, a aVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, eVar, aVar) == null) && eVar != null && aVar != null) {
+            SkinManager.setViewTextColor(aVar.e, (int) R.color.CAM_X0301);
+            SkinManager.setViewTextColor(aVar.c, (int) R.color.CAM_X0301);
+            aVar.i.setVisibility(8);
+            if (eVar.i) {
+                SkinManager.setBackgroundResource(aVar.b, R.drawable.member_price_bg_shape_s);
+                n15 d = n15.d(aVar.b);
+                d.e(R.string.A_X09);
+                d.o(R.string.J_X07);
+                d.l(R.color.CAM_X0335);
+                d.k(R.string.A_X05);
+                d.m(R.dimen.L_X04);
+                d.f(R.color.CAM_X0335);
+                n15 d2 = n15.d(aVar.g);
+                d2.B(R.string.F_X02);
+                d2.w(R.color.CAM_X0311);
+                n15 d3 = n15.d(aVar.f);
+                d3.w(R.color.CAM_X0311);
+                d3.A(R.dimen.T_X09);
+                d3.B(R.string.F_X02);
+                if (aVar.f.getVisibility() == 0) {
+                    aVar.i.setVisibility(0);
+                    return;
+                } else {
+                    aVar.i.setVisibility(8);
+                    return;
+                }
+            }
+            SkinManager.setBackgroundResource(aVar.b, R.drawable.member_price_bg_shape_n);
+            n15 d4 = n15.d(aVar.b);
+            d4.n(0);
+            d4.o(R.string.J_X07);
+            d4.l(R.color.CAM_X0335);
+            d4.m(R.dimen.L_X04);
+            d4.k(R.string.A_X09);
+            d4.f(R.color.CAM_X0201);
+            n15 d5 = n15.d(aVar.f);
+            d5.w(R.color.CAM_X0109);
+            d5.A(R.dimen.T_X09);
+            d5.B(R.string.F_X01);
+        }
     }
 
-    public View x(int i, View view2, ViewGroup viewGroup, ab8 ab8Var, InterestedForumStyleAForumViewHolder interestedForumStyleAForumViewHolder) {
-        InterceptResult invokeCommon;
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ab8Var, interestedForumStyleAForumViewHolder})) == null) {
-            if (ab8Var == null) {
-                return view2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return ListUtils.getCount(this.a);
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048585, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = this.b.inflate(R.layout.obfuscated_res_0x7f0d05c2, (ViewGroup) null);
+                view2.setTag(new a(this, view2));
             }
-            A(interestedForumStyleAForumViewHolder);
-            y(interestedForumStyleAForumViewHolder, ab8Var);
+            d(i, getItem(i), (a) view2.getTag());
             return view2;
         }
-        return (View) invokeCommon.objValue;
+        return (View) invokeILL.objValue;
     }
 
-    public final void y(InterestedForumStyleAForumViewHolder interestedForumStyleAForumViewHolder, ab8 ab8Var) {
+    public final String h(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048583, this, interestedForumStyleAForumViewHolder, ab8Var) == null) {
-            interestedForumStyleAForumViewHolder.b.setShowOval(true);
-            interestedForumStyleAForumViewHolder.b.setAutoChangeStyle(true);
-            interestedForumStyleAForumViewHolder.b.setStrokeWith(ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
-            interestedForumStyleAForumViewHolder.b.setStrokeColorResId(R.color.CAM_X0401);
-            interestedForumStyleAForumViewHolder.b.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            interestedForumStyleAForumViewHolder.b.setPlaceHolder(1);
-            interestedForumStyleAForumViewHolder.b.K(ab8Var.a(), 10, false);
-            interestedForumStyleAForumViewHolder.c.setText(ab8Var.f() + this.mContext.getString(R.string.obfuscated_res_0x7f0f06ba));
-            if (!StringUtils.isNull(ab8Var.h())) {
-                interestedForumStyleAForumViewHolder.d.setText(this.mContext.getString(R.string.obfuscated_res_0x7f0f09ee, ab8Var.h()));
-            } else {
-                interestedForumStyleAForumViewHolder.d.setText(this.mContext.getString(R.string.obfuscated_res_0x7f0f09f2));
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048586, this, str, i)) == null) {
+            if (str.length() > i) {
+                return str.substring(0, i - 1) + StringHelper.STRING_MORE;
             }
-            interestedForumStyleAForumViewHolder.e.setText(String.format(this.mContext.getString(R.string.obfuscated_res_0x7f0f044e), StringHelper.numberUniformFormatExtraWithRoundInt(ab8Var.g())));
-            interestedForumStyleAForumViewHolder.f.setText(String.format(this.mContext.getString(R.string.forum_thread_number), StringHelper.numberUniformFormatExtraWithRoundInt(ab8Var.i())));
-            B(interestedForumStyleAForumViewHolder.h, ab8Var.j());
+            return str;
+        }
+        return (String) invokeLI.objValue;
+    }
+
+    public void i(MemberPayResult.e eVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048587, this, eVar) == null) && eVar != null && !ListUtils.isEmpty(this.a)) {
+            for (MemberPayResult.e eVar2 : this.a) {
+                if (eVar2 != null) {
+                    eVar2.i = eVar2.a.equals(eVar.a);
+                }
+            }
+            notifyDataSetChanged();
         }
     }
 }

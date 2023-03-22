@@ -22,11 +22,11 @@ public class Cif implements is<Cif, Object>, Serializable, Cloneable {
     public int compareTo(Cif cif) {
         int a2;
         if (Cif.class.equals(cif.getClass())) {
-            int compareTo = Boolean.valueOf(m554a()).compareTo(Boolean.valueOf(cif.m554a()));
+            int compareTo = Boolean.valueOf(m556a()).compareTo(Boolean.valueOf(cif.m556a()));
             if (compareTo != 0) {
                 return compareTo;
             }
-            if (!m554a() || (a2 = it.a(this.f643a, cif.f643a)) == 0) {
+            if (!m556a() || (a2 = it.a(this.f643a, cif.f643a)) == 0) {
                 return 0;
             }
             return a2;
@@ -39,7 +39,7 @@ public class Cif implements is<Cif, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m553a() {
+    public void m555a() {
         if (this.f643a != null) {
             return;
         }
@@ -48,19 +48,19 @@ public class Cif implements is<Cif, Object>, Serializable, Cloneable {
 
     @Override // com.xiaomi.push.is
     public void a(jd jdVar) {
-        jdVar.mo617a();
+        jdVar.mo619a();
         while (true) {
-            ja mo613a = jdVar.mo613a();
-            byte b = mo613a.a;
+            ja mo615a = jdVar.mo615a();
+            byte b = mo615a.a;
             if (b == 0) {
                 jdVar.f();
-                m553a();
+                m555a();
                 return;
             }
-            if (mo613a.f813a == 1 && b == 15) {
-                jb mo614a = jdVar.mo614a();
-                this.f643a = new ArrayList(mo614a.f814a);
-                for (int i = 0; i < mo614a.f814a; i++) {
+            if (mo615a.f813a == 1 && b == 15) {
+                jb mo616a = jdVar.mo616a();
+                this.f643a = new ArrayList(mo616a.f814a);
+                for (int i = 0; i < mo616a.f814a; i++) {
                     hq hqVar = new hq();
                     hqVar.a(jdVar);
                     this.f643a.add(hqVar);
@@ -74,26 +74,26 @@ public class Cif implements is<Cif, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m554a() {
+    public boolean m556a() {
         return this.f643a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m555a(Cif cif) {
+    public boolean m557a(Cif cif) {
         if (cif == null) {
             return false;
         }
-        boolean m554a = m554a();
-        boolean m554a2 = cif.m554a();
-        if (m554a || m554a2) {
-            return m554a && m554a2 && this.f643a.equals(cif.f643a);
+        boolean m556a = m556a();
+        boolean m556a2 = cif.m556a();
+        if (m556a || m556a2) {
+            return m556a && m556a2 && this.f643a.equals(cif.f643a);
         }
         return true;
     }
 
     @Override // com.xiaomi.push.is
     public void b(jd jdVar) {
-        m553a();
+        m555a();
         jdVar.a(f642a);
         if (this.f643a != null) {
             jdVar.a(a);
@@ -105,12 +105,12 @@ public class Cif implements is<Cif, Object>, Serializable, Cloneable {
             jdVar.b();
         }
         jdVar.c();
-        jdVar.mo621a();
+        jdVar.mo623a();
     }
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof Cif)) {
-            return m555a((Cif) obj);
+            return m557a((Cif) obj);
         }
         return false;
     }

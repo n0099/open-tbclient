@@ -6,8 +6,8 @@ import com.baidu.ala.gift.AlaDynamicGiftConfigInfo;
 import com.baidu.ala.gift.AlaDynamicGiftZip;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.download.center.clearcache.DiskUpdateListener;
-import com.baidu.tieba.Cdo;
-import com.baidu.tieba.dh;
+import com.baidu.tieba.gg;
+import com.baidu.tieba.gn;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,7 +18,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class AlaEnterEffectData implements Serializable, Cdo {
+public class AlaEnterEffectData implements Serializable, gn {
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ALA_ENTER_EFFECT_DOWNLOADING = 102;
     public static final int ALA_ENTER_EFFECT_HAS_DOWNLOAD = 101;
@@ -84,7 +84,7 @@ public class AlaEnterEffectData implements Serializable, Cdo {
         }
     }
 
-    @Override // com.baidu.tieba.Cdo
+    @Override // com.baidu.tieba.gn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -141,8 +141,8 @@ public class AlaEnterEffectData implements Serializable, Cdo {
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("props_info");
         if (optJSONObject2 != null) {
-            this.propId = dh.e(optJSONObject2.optString("props_id"), 0);
-            this.price = dh.g(optJSONObject2.optString("price"), 0L);
+            this.propId = gg.e(optJSONObject2.optString("props_id"), 0);
+            this.price = gg.g(optJSONObject2.optString("price"), 0L);
             this.time = optJSONObject2.optString("buy_cycle");
             this.buy_staus = optJSONObject2.optInt("buy_staus");
         }

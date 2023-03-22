@@ -1,73 +1,88 @@
 package com.baidu.tieba;
 
-import android.webkit.JsResult;
-import android.webkit.WebChromeClient;
-import android.webkit.WebView;
+import android.text.TextUtils;
+import android.webkit.WebResourceResponse;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.ByteArrayInputStream;
 /* loaded from: classes4.dex */
-public final class gc6 extends dc6 {
+public class gc6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final WebResourceResponse a;
+    public final byte[] b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gc6() {
-        super(null);
+    public gc6(WebResourceResponse webResourceResponse, byte[] bArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {webResourceResponse, bArr};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((WebChromeClient) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = webResourceResponse;
+        if (bArr != null) {
+            this.b = bArr;
+        } else {
+            this.b = new byte[0];
+        }
     }
 
-    @Override // com.baidu.tieba.dc6, android.webkit.WebChromeClient
-    public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
-        InterceptResult invokeLLLL;
+    public WebResourceResponse a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, webView, str, str2, jsResult)) == null) {
-            if (ih.e(wd6.a(webView.getContext()))) {
-                return super.onJsAlert(webView, str, str2, jsResult);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (c()) {
+                this.a.setData(new ByteArrayInputStream(this.b));
             }
-            return true;
+            return this.a;
         }
-        return invokeLLLL.booleanValue;
+        return (WebResourceResponse) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.dc6, android.webkit.WebChromeClient
-    public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
-        InterceptResult invokeLLLL;
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, jsResult)) == null) {
-            if (ih.e(wd6.a(webView.getContext()))) {
-                return super.onJsBeforeUnload(webView, str, str2, jsResult);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.a != null && d() > 0) {
+                return true;
             }
-            return true;
+            return false;
         }
-        return invokeLLLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.dc6, android.webkit.WebChromeClient
-    public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
-        InterceptResult invokeLLLL;
+    public int d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2, jsResult)) == null) {
-            if (ih.e(wd6.a(webView.getContext()))) {
-                return super.onJsConfirm(webView, str, str2, jsResult);
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b.length;
         }
-        return invokeLLLL.booleanValue;
+        return invokeV.intValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            WebResourceResponse webResourceResponse = this.a;
+            if (webResourceResponse != null && vd6.b(webResourceResponse.getResponseHeaders())) {
+                return TextUtils.equals(this.a.getResponseHeaders().get("tieba-response-via"), PrefetchEvent.MODULE);
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

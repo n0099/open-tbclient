@@ -1,44 +1,76 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class uy3 {
+public class uy3 extends zz3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
-    public String l;
-    public String m;
-    public String n;
-    public String o;
-    public String p;
-    public String q;
-    public String r;
-    public String s;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948227290, "Lcom/baidu/tieba/uy3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948227290, "Lcom/baidu/tieba/uy3;");
+                return;
+            }
+        }
+        boolean z = do1.a;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public uy3() {
+        super("getDownloadConfig");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+    }
+
+    @Override // com.baidu.tieba.zz3
+    public tz1 a(JSONObject jSONObject, xk2 xk2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, xk2Var)) == null) {
+            if (jSONObject == null) {
+                xk2Var.onFail(202, "params may be error");
+                return null;
+            }
+            if (jSONObject.has("wifiResumeDownloadFlag")) {
+                dz3.a().c(jSONObject.optBoolean("wifiResumeDownloadFlag", false));
+            }
+            if (jSONObject.has("install_guide_switch")) {
+                iz3.r(jSONObject.optBoolean("install_guide_switch"));
+            }
+            if (jSONObject.has("install_guide_count")) {
+                iz3.q(jSONObject.optInt("install_guide_count"));
+            }
+            if (jSONObject.has("get_install_result")) {
+                iz3.s(jSONObject.optBoolean("get_install_result"));
+            }
+            xk2Var.a(null);
+            return null;
+        }
+        return (tz1) invokeLL.objValue;
     }
 }

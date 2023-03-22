@@ -29,6 +29,7 @@ public class IMBCSessionDelMsg extends Message {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String TAG = "IMBCSessionDelMsg";
     public transient /* synthetic */ FieldHolder $fh;
+    public int delSessionMode;
     public int mBusinessType;
     public int mCategory;
     public int mClassType;
@@ -154,6 +155,7 @@ public class IMBCSessionDelMsg extends Message {
                 }
                 jSONObject.put("sdk_version", IMConfigInternal.getInstance().getSDKVersionValue(this.mContext));
                 jSONObject.put("app_version", AccountManagerImpl.getInstance(this.mContext).getAppVersion());
+                jSONObject.put(Constants.EXTRA_REMAIN_EMPTY_SESSION, this.delSessionMode);
                 this.mBody = jSONObject.toString();
                 LogUtils.d(TAG, "百家号发送删除消息 body = " + this.mBody);
             } catch (JSONException e) {
@@ -217,21 +219,15 @@ public class IMBCSessionDelMsg extends Message {
         }
     }
 
-    private void handleBusinessSessionDelResult(JSONObject jSONObject, String str) {
-        int i;
+    private void handleBusinessSessionDelResult(JSONObject jSONObject, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, this, jSONObject, str) == null) {
-            if (jSONObject != null) {
-                i = jSONObject.optInt(PmsConstant.Statistic.STATISTIC_ERRCODE);
-                if (i == 0) {
-                    long j = this.mContacterPaid;
-                    if (j <= 0) {
-                        j = this.mContacterUK;
-                    }
-                    MediaSessionManager.getInstance(this.mContext).handleMediaDeleteSession(this.mCategory, j, this.mContacterPaid, this.mClassType, this.mType, this.mIsStranger);
+        if (interceptable == null || interceptable.invokeLLI(65544, this, jSONObject, str, i) == null) {
+            if (jSONObject != null && (i = jSONObject.optInt(PmsConstant.Statistic.STATISTIC_ERRCODE)) == 0) {
+                long j = this.mContacterPaid;
+                if (j <= 0) {
+                    j = this.mContacterUK;
                 }
-            } else {
-                i = 0;
+                MediaSessionManager.getInstance(this.mContext).handleMediaDeleteSession(this.mCategory, j, this.mContacterPaid, this.mClassType, this.mType, this.mIsStranger, this.delSessionMode);
             }
             IMListener removeListener = ListenerManager.getInstance().removeListener(getListenerKey());
             if (removeListener instanceof BIMValueCallBack) {
@@ -240,13 +236,13 @@ public class IMBCSessionDelMsg extends Message {
         }
     }
 
-    private void handleDelResult(JSONObject jSONObject, String str) {
+    private void handleDelResult(JSONObject jSONObject, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, this, jSONObject, str) == null) {
+        if (interceptable == null || interceptable.invokeLLI(65545, this, jSONObject, str, i) == null) {
             if (this.mBusinessType == 27) {
                 handleAdvisoryDelResult(jSONObject, str);
             } else {
-                handleBusinessSessionDelResult(jSONObject, str);
+                handleBusinessSessionDelResult(jSONObject, str, i);
             }
         }
     }
@@ -260,7 +256,18 @@ public class IMBCSessionDelMsg extends Message {
                 if (intExtra == 27) {
                     return new IMBCSessionDelMsg(context, intent.getLongExtra("contacter", -1L), intent.getLongExtra(Constants.EXTRA_CLIENT_MAX_MSGID, -1L), intent.getIntExtra("session_type", -1), intExtra, intent.getIntExtra("category", 0), intent.getStringExtra(Constants.EXTRA_LISTENER_ID));
                 }
-                return new IMBCSessionDelMsg(context, intent.getLongExtra("contacter", 0L), intent.getLongExtra(Constants.EXTRA_CLIENT_MAX_MSGID, 0L), intExtra, intent.getIntExtra("category", 0), intent.getLongExtra(Constants.EXTRA_PA_ID, 0L), intent.getIntExtra(Constants.EXTRA_CLASS_TYPE, 0), intent.getIntExtra(Constants.EXTRA_IS_STRANGER, 0), intent.getIntExtra("type", 0), intent.getStringExtra(Constants.EXTRA_LISTENER_ID));
+                long longExtra = intent.getLongExtra("contacter", 0L);
+                int intExtra2 = intent.getIntExtra("category", 0);
+                long longExtra2 = intent.getLongExtra(Constants.EXTRA_CLIENT_MAX_MSGID, 0L);
+                String stringExtra = intent.getStringExtra(Constants.EXTRA_LISTENER_ID);
+                long longExtra3 = intent.getLongExtra(Constants.EXTRA_PA_ID, 0L);
+                int intExtra3 = intent.getIntExtra(Constants.EXTRA_CLASS_TYPE, 0);
+                int intExtra4 = intent.getIntExtra(Constants.EXTRA_IS_STRANGER, 0);
+                int intExtra5 = intent.getIntExtra("type", 0);
+                int intExtra6 = intent.getIntExtra(Constants.EXTRA_REMAIN_EMPTY_SESSION, 1);
+                IMBCSessionDelMsg iMBCSessionDelMsg = new IMBCSessionDelMsg(context, longExtra, longExtra2, intExtra, intExtra2, longExtra3, intExtra3, intExtra4, intExtra5, stringExtra);
+                iMBCSessionDelMsg.delSessionMode = intExtra6;
+                return iMBCSessionDelMsg;
             }
             return null;
         }
@@ -272,9 +279,9 @@ public class IMBCSessionDelMsg extends Message {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, jSONObject, i, str) == null) {
             if (i == 0) {
-                handleDelResult(jSONObject, str);
+                handleDelResult(jSONObject, str, i);
             } else if (i != 1004 && i != 1001 && i != 4001) {
-                handleDelResult(jSONObject, str);
+                handleDelResult(jSONObject, str, i);
             } else {
                 LoginManager.getInstance(context).triggleLogoutListener(i, str);
             }

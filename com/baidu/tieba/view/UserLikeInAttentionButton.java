@@ -8,14 +8,14 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b75;
-import com.baidu.tieba.z55;
+import com.baidu.tieba.k45;
+import com.baidu.tieba.m55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class UserLikeInAttentionButton extends TBSpecificationBtn implements b75 {
+public class UserLikeInAttentionButton extends TBSpecificationBtn implements m55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a o;
@@ -25,7 +25,7 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements b75
         void a(View view2);
     }
 
-    @Override // com.baidu.tieba.b75
+    @Override // com.baidu.tieba.m55
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
@@ -93,13 +93,13 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements b75
                 return;
             }
         }
-        z55 z55Var = new z55();
-        z55Var.r(R.color.CAM_X0302, R.color.CAM_X0101);
-        setConfig(z55Var);
+        k45 k45Var = new k45();
+        k45Var.r(R.color.CAM_X0302, R.color.CAM_X0101);
+        setConfig(k45Var);
         setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ba));
     }
 
-    @Override // com.baidu.tieba.b75
+    @Override // com.baidu.tieba.m55
     public void a(View view2) {
         a aVar;
         Interceptable interceptable = $ic;
@@ -108,7 +108,7 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements b75
         }
     }
 
-    @Override // com.baidu.tieba.b75
+    @Override // com.baidu.tieba.m55
     public void e(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
@@ -130,7 +130,7 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements b75
         }
     }
 
-    @Override // com.baidu.tieba.b75
+    @Override // com.baidu.tieba.m55
     public void b(boolean z, int i, boolean z2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Boolean.valueOf(z2)}) == null) {
@@ -138,7 +138,7 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements b75
         }
     }
 
-    @Override // com.baidu.tieba.b75
+    @Override // com.baidu.tieba.m55
     public void d(boolean z, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
@@ -154,15 +154,15 @@ public class UserLikeInAttentionButton extends TBSpecificationBtn implements b75
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             if (z) {
-                z55 z55Var = new z55();
-                z55Var.r(R.color.CAM_X0613, R.color.CAM_X0103);
-                setConfig(z55Var);
+                k45 k45Var = new k45();
+                k45Var.r(R.color.CAM_X0613, R.color.CAM_X0103);
+                setConfig(k45Var);
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
             } else {
-                z55 z55Var2 = new z55();
-                z55Var2.r(R.color.CAM_X0302, R.color.CAM_X0101);
-                setConfig(z55Var2);
+                k45 k45Var2 = new k45();
+                k45Var2.r(R.color.CAM_X0302, R.color.CAM_X0101);
+                setConfig(k45Var2);
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02ba));
             }

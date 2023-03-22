@@ -1,200 +1,255 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.os.Environment;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tieba.lw9;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.TimeHelper;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tieba.tu9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubs.analytics.b;
 import java.util.List;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class sw9 extends xw9 {
+public class sw9 extends mw9 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
+    public fu9 V;
 
-    public sw9() {
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ sw9 a;
+
+        public a(sw9 sw9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sw9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = sw9Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                gt4.x(this.a.a.getPageActivity(), "", hi.T(TbConfig.QUESTION_THREAD_RULE, "refer=3"), true, true, true);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements tu9.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ tu9 a;
+        public final /* synthetic */ sw9 b;
+
+        public b(sw9 sw9Var, tu9 tu9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sw9Var, tu9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = sw9Var;
+            this.a = tu9Var;
+        }
+
+        @Override // com.baidu.tieba.tu9.b
+        public void onClick() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                pu9 pu9Var = this.b.D;
+                if (pu9Var != null) {
+                    pu9Var.P(0);
+                }
+                if (this.b.V != null) {
+                    this.b.V.z(8);
+                }
+                this.a.B(8);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sw9(@NonNull TbPageContext<?> tbPageContext, @NonNull NavigationBar navigationBar, @NonNull LinearLayout linearLayout, @NonNull EditorTools editorTools, @NonNull yu9 yu9Var, boolean z) {
+        super(tbPageContext, navigationBar, linearLayout, editorTools, yu9Var, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, navigationBar, linearLayout, editorTools, yu9Var, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (NavigationBar) objArr2[1], (LinearLayout) objArr2[2], (EditorTools) objArr2[3], (yu9) objArr2[4], ((Boolean) objArr2[5]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static void b(bw9 bw9Var, fw9 fw9Var, dw9 dw9Var, vv9 vv9Var, List<com.baidu.ubs.analytics.a.l> list, List<com.baidu.ubs.analytics.a.i> list2, List<com.baidu.ubs.analytics.a.a> list3) {
-        int i;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{bw9Var, fw9Var, dw9Var, vv9Var, list, list2, list3}) == null) {
-            int i3 = 0;
-            if (list2.size() != 0) {
-                i = list2.get(list2.size() - 1).getId();
-            } else {
-                i = 0;
-            }
-            bw9Var.b(i);
-            fw9Var.a(uw9.e().I());
-            if (list.size() != 0) {
-                i2 = list.get(list.size() - 1).getId();
-            } else {
-                i2 = 0;
-            }
-            dw9Var.b(i2);
-            if (list3.size() != 0) {
-                i3 = list3.get(list3.size() - 1).getId();
-            }
-            vv9Var.b(i3);
-        }
-    }
-
-    @Override // com.baidu.tieba.xw9
-    public final void a() {
-        lw9 lw9Var;
-        String str;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            lw9Var = lw9.a.a;
-            if (lw9Var.a().size() == 0) {
-                vw9.b(" 线程轮询  app 应该是退出了");
-            }
-            if (a == null && Environment.getExternalStorageState().equals("mounted")) {
-                StringBuffer stringBuffer = new StringBuffer();
-                stringBuffer.append(Environment.getExternalStorageDirectory().getPath());
-                stringBuffer.append("/baidu/ab/");
-                stringBuffer.append(qw9.l(uv9.h().getContext()));
-                stringBuffer.append("/");
-                a = stringBuffer.toString();
-            }
-            bw9 bw9Var = new bw9();
-            fw9 fw9Var = new fw9();
-            dw9 dw9Var = new dw9();
-            vv9 vv9Var = new vv9();
-            List<com.baidu.ubs.analytics.a.i> a2 = bw9Var.a();
-            List<com.baidu.ubs.analytics.a.n> d = fw9Var.d();
-            List<com.baidu.ubs.analytics.a.l> a3 = dw9Var.a();
-            List<com.baidu.ubs.analytics.a.a> a4 = vv9Var.a();
-            vw9.b("这次查询结果       session ：    " + d.size() + "      点击事件   " + a4.size() + "    网络请求：  " + a2.size() + "    页面记录     " + a3.size());
-            if (a2.size() == 0 && a3.size() == 0 && a4.size() == 0) {
-                vw9.b("这次记录 json 为空的，就不传了  ………………");
-                if (d.size() > 1) {
-                    for (int i = 0; i < d.size(); i++) {
-                        if (d.get(i).O() == null) {
-                            fw9Var.c(d.get(i).I());
-                        }
-                    }
-                    return;
-                }
                 return;
             }
-            JSONArray jSONArray = new JSONArray();
-            String j = uv9.h().j();
-            if (uv9.h().k() != null) {
-                for (Map.Entry<String, com.baidu.ubs.analytics.a.g> entry : uv9.h().k().entrySet()) {
-                    try {
-                        JSONObject jSONObject = new JSONObject();
-                        jSONObject.put("exp_id", entry.getKey());
-                        jSONObject.put("sid", entry.getValue().L());
-                        jSONArray.put(jSONObject);
-                    } catch (JSONException e) {
-                        dx9.d(e);
-                    }
-                }
+        }
+    }
+
+    @Override // com.baidu.tieba.mw9, com.baidu.tieba.nw9
+    public void U(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+            super.U(bundle);
+            this.p.setQuestionThread(true);
+        }
+    }
+
+    public final void A0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            m35.m().A("key_question_write_guide_time", System.currentTimeMillis());
+        }
+    }
+
+    @Override // com.baidu.tieba.mw9, com.baidu.tieba.nw9
+    public void Y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            eb9.q(this.p.getForumId(), this);
+        }
+    }
+
+    @Override // com.baidu.tieba.mw9, com.baidu.tieba.nw9
+    public void c0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.c0();
+            eb9.A(this.p.getForumId(), this.p, false);
+        }
+    }
+
+    @Override // com.baidu.tieba.mw9, com.baidu.tieba.nw9, com.baidu.tieba.bv9
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.j();
+            eb9.A(this.p.getForumId(), this.p, true);
+        }
+    }
+
+    public final boolean z0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return !TimeHelper.isSameDay(System.currentTimeMillis(), m35.m().o("key_question_write_guide_time", 0L));
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.mw9, com.baidu.tieba.nw9
+    public void M(@NonNull List<zu9<?>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            list.add(cw9.o(this.a));
+            pu9 n = cw9.n(this.a, this, this.s, this.J);
+            this.D = n;
+            n.Q(false);
+            list.add(this.D);
+            y0(list);
+            eu9 c = cw9.c(this.a, this, this.d, this.s, this.J);
+            this.E = c;
+            list.add(c);
+            list.add(cw9.h(this.a, this.C));
+            mu9 k = cw9.k(this.a);
+            k.w(this.E);
+            list.add(k);
+            nu9 l = cw9.l(this.a);
+            k.w(l);
+            list.add(l);
+        }
+    }
+
+    @Override // com.baidu.tieba.mw9, com.baidu.tieba.nw9
+    public void O(@NonNull EditorTools editorTools) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, editorTools) == null) {
+            editorTools.setMoreButtonAtEnd(false);
+            editorTools.setBarLauncherType(8);
+            editorTools.E(true);
+            editorTools.F(false);
+            editorTools.setBackgroundColorId(R.color.CAM_X0201);
+            ew9.m(this.a, editorTools, this.p.getCallFrom(), this).n(false);
+            editorTools.f();
+            super.O(editorTools);
+        }
+    }
+
+    @Override // com.baidu.tieba.mw9, com.baidu.tieba.nw9
+    public void P(@NonNull NavigationBar navigationBar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, navigationBar) == null) {
+            super.P(navigationBar);
+            navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f0fcd));
+            p0(0, hi.g(this.a.getPageActivity(), R.dimen.M_W_X002));
+            q0(R.drawable.obfuscated_res_0x7f080a3a, R.dimen.tbds42, R.dimen.tbds42, R.dimen.tbds3);
+            this.j.setOnClickListener(new a(this));
+        }
+    }
+
+    public final void y0(@NonNull List<zu9<?>> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048585, this, list) == null) && z0()) {
+            tu9 r = cw9.r(this.a);
+            r.A(new b(this, r));
+            list.add(r);
+            pu9 pu9Var = this.D;
+            if (pu9Var != null) {
+                pu9Var.P(8);
             }
-            com.baidu.ubs.analytics.b bVar = new com.baidu.ubs.analytics.b();
-            b.a aVar = new b.a();
-            aVar.r(qw9.l(uv9.h().getContext()));
-            aVar.b(j);
-            aVar.q(jSONArray.toString());
-            aVar.g(Build.VERSION.RELEASE);
-            aVar.d(qw9.g(uv9.h().getContext()));
-            aVar.f(Build.MODEL);
-            aVar.e(Build.BRAND);
-            aVar.f(Build.MODEL);
-            aVar.h(qw9.h(uv9.h().getContext()));
-            aVar.i(com.baidu.ubs.analytics.d.a.c());
-            if (nw9.d()) {
-                str = "1";
+            fu9 d = cw9.d(this.a);
+            this.V = d;
+            list.add(d);
+            A0();
+        }
+    }
+
+    @Override // com.baidu.tieba.mw9, com.baidu.tieba.nw9, com.baidu.tieba.vu9
+    public void q(@NonNull av9 av9Var, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, av9Var, z) == null) {
+            super.q(av9Var, z);
+            if (this.a.getPageActivity() == null) {
+                return;
+            }
+            if (z) {
+                this.a.getPageActivity().getWindow().setSoftInputMode(16);
             } else {
-                str = "0";
-            }
-            aVar.j(str);
-            aVar.k(qw9.i(uv9.h().getContext()));
-            aVar.m(qw9.j(uv9.h().getContext()));
-            aVar.n(qw9.m());
-            aVar.o(qw9.n());
-            aVar.p(qw9.a());
-            int f = qw9.f(uv9.h().getContext());
-            if (f == 1) {
-                str2 = "WIFI";
-            } else if (f == 2) {
-                str2 = "2G";
-            } else if (f == 3) {
-                str2 = "3G";
-            } else if (f == 4) {
-                str2 = "4G";
-            } else if (f == 5) {
-                str2 = "unKnow";
-            } else {
-                str2 = "noNet";
-            }
-            aVar.l(str2);
-            uv9.h();
-            aVar.setPhone("");
-            bVar.a(aVar);
-            bVar.c(a4);
-            bVar.e(a2);
-            bVar.b(d);
-            bVar.d(a3);
-            String a5 = bx9.a(bVar);
-            String e2 = ax9.e(a, "ABJson.log");
-            if (!e2.equals("")) {
-                StringBuffer stringBuffer2 = new StringBuffer();
-                stringBuffer2.append(PreferencesUtil.LEFT_MOUNT);
-                stringBuffer2.append(e2);
-                stringBuffer2.append(a5);
-                stringBuffer2.append(PreferencesUtil.RIGHT_MOUNT);
-                if (gw9.a(uv9.h().getContext(), stringBuffer2.toString())) {
-                    vw9.b("上传成功，删除本地文件的       ");
-                    ax9.b(a + "ABJson.log");
-                    b(bw9Var, fw9Var, dw9Var, vv9Var, a3, a2, a4);
-                    return;
-                }
-                StringBuffer stringBuffer3 = new StringBuffer();
-                stringBuffer3.append(PreferencesUtil.LEFT_MOUNT);
-                stringBuffer3.append(a5);
-                stringBuffer3.append(PreferencesUtil.RIGHT_MOUNT);
-                if (gw9.a(uv9.h().getContext(), stringBuffer3.toString())) {
-                    b(bw9Var, fw9Var, dw9Var, vv9Var, a3, a2, a4);
-                    return;
-                } else if (ax9.d(a5, a, "ABJson.log")) {
-                    b(bw9Var, fw9Var, dw9Var, vv9Var, a3, a2, a4);
-                    return;
-                } else {
-                    return;
-                }
-            }
-            StringBuffer stringBuffer4 = new StringBuffer();
-            stringBuffer4.append(PreferencesUtil.LEFT_MOUNT);
-            stringBuffer4.append(a5);
-            stringBuffer4.append(PreferencesUtil.RIGHT_MOUNT);
-            if (gw9.a(uv9.h().getContext(), stringBuffer4.toString())) {
-                b(bw9Var, fw9Var, dw9Var, vv9Var, a3, a2, a4);
-            } else if (ax9.d(a5, a, "ABJson.log")) {
-                b(bw9Var, fw9Var, dw9Var, vv9Var, a3, a2, a4);
+                this.a.getPageActivity().getWindow().setSoftInputMode(48);
             }
         }
     }

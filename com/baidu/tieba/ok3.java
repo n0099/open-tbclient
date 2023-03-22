@@ -1,109 +1,83 @@
 package com.baidu.tieba;
 
-import android.net.wifi.WifiConfiguration;
-import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes5.dex */
 public class ok3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(WifiConfiguration wifiConfiguration) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, wifiConfiguration)) == null) {
-            if (wifiConfiguration == null) {
-                return -1;
-            }
-            if (wifiConfiguration.allowedKeyManagement.get(1)) {
-                return 2;
-            }
-            if (wifiConfiguration.allowedKeyManagement.get(2) || wifiConfiguration.allowedKeyManagement.get(3)) {
-                return 3;
-            }
-            if (wifiConfiguration.wepKeys[0] != null) {
-                return 1;
-            }
-            if (!wifiConfiguration.allowedKeyManagement.get(0)) {
-                return -1;
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
+    /* loaded from: classes5.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ boolean b;
 
-    public static int b(kk3 kk3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, kk3Var)) == null) {
-            if (kk3Var == null) {
-                return -1;
-            }
-            if (TextUtils.isEmpty(kk3Var.c) && TextUtils.isEmpty(kk3Var.d)) {
-                return 0;
-            }
-            if (!TextUtils.isEmpty(kk3Var.c) && !TextUtils.isEmpty(kk3Var.d)) {
-                return 3;
-            }
-            if (TextUtils.isEmpty(kk3Var.d)) {
-                return -1;
-            }
-            return 2;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return 0;
-            }
-            if (str.contains("WEP")) {
-                return 1;
-            }
-            if (str.contains("PSK")) {
-                return 2;
-            }
-            if (str.contains("EAP")) {
-                return 3;
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public static void d(WifiConfiguration wifiConfiguration, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(65539, null, wifiConfiguration, i) != null) || wifiConfiguration == null) {
-            return;
-        }
-        wifiConfiguration.allowedKeyManagement.clear();
-        wifiConfiguration.allowedProtocols.clear();
-        wifiConfiguration.allowedAuthAlgorithms.clear();
-        wifiConfiguration.allowedPairwiseCiphers.clear();
-        wifiConfiguration.allowedGroupCiphers.clear();
-        if (i != 0) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i == 3) {
-                        wifiConfiguration.allowedKeyManagement.set(2);
-                        wifiConfiguration.allowedKeyManagement.set(3);
-                        return;
-                    }
+        public a(String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
-                wifiConfiguration.allowedKeyManagement.set(1);
+            }
+            this.a = str;
+            this.b = z;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                String str = AppRuntime.getAppContext().getFilesDir().getPath() + File.separator + ok3.b;
+                if (ok3.a) {
+                    Log.d("SwanAppFeedbackUtils", "recordFeedbackExtInfo: " + this.a);
+                }
+                wq2.b(str, this.a, this.b);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948035090, "Lcom/baidu/tieba/ok3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948035090, "Lcom/baidu/tieba/ok3;");
                 return;
             }
-            wifiConfiguration.allowedKeyManagement.set(0);
-            wifiConfiguration.allowedAuthAlgorithms.set(0);
-            wifiConfiguration.allowedAuthAlgorithms.set(1);
-            return;
         }
-        wifiConfiguration.allowedKeyManagement.set(0);
+        a = do1.a;
+        b = "aiapps_folder" + File.separator + "feed_back_record.txt";
+    }
+
+    public static void c(@NonNull String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65539, null, str, z) == null) {
+            nk3.k(new a(str, z), "record_feedback_ext_info");
+        }
     }
 }

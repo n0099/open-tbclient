@@ -69,7 +69,7 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
     public static final int CHIP_BODY_VIRTUAL_ID = 0;
     public static final int CLOSE_ICON_VIRTUAL_ID = 1;
     public static final String COMPOUND_BUTTON_ACCESSIBILITY_CLASS_NAME = "android.widget.CompoundButton";
-    public static final int DEF_STYLE_RES = 2131755872;
+    public static final int DEF_STYLE_RES = 2131755876;
     public static final String GENERIC_VIEW_ACCESSIBILITY_CLASS_NAME = "android.view.View";
     public static final int MIN_TOUCH_TARGET_DP = 48;
     public static final String NAMESPACE_ANDROID = "http://schemas.android.com/apk/res/android";
@@ -184,7 +184,7 @@ public class Chip extends AppCompatCheckBox implements ChipDrawable.Delegate, Sh
                         str = text;
                     }
                     objArr[0] = str;
-                    accessibilityNodeInfoCompat.setContentDescription(context.getString(R.string.obfuscated_res_0x7f0f0bc0, objArr).trim());
+                    accessibilityNodeInfoCompat.setContentDescription(context.getString(R.string.obfuscated_res_0x7f0f0bcd, objArr).trim());
                 }
                 accessibilityNodeInfoCompat.setBoundsInParent(Chip.this.getCloseIconTouchBoundsInt());
                 accessibilityNodeInfoCompat.addAction(AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_CLICK);

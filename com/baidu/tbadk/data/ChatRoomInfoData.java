@@ -1,6 +1,7 @@
 package com.baidu.tbadk.data;
 
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
@@ -20,6 +21,10 @@ import tbclient.Loop.ChatroomMEMsgInfo;
 /* loaded from: classes3.dex */
 public class ChatRoomInfoData extends OrmObject implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
+    public static final int BTN_TYPE_DEFAULT = 0;
+    public static final int BTN_TYPE_ENTER_CHAT_ROOM = 3;
+    public static final int BTN_TYPE_EXPERIENCE_INCREASE = 1;
+    public static final int BTN_TYPE_UNREAD_NUM = 2;
     public static final long serialVersionUID = -317647475408404670L;
     public transient /* synthetic */ FieldHolder $fh;
     public AtInfoData atInfoData;
@@ -148,9 +153,27 @@ public class ChatRoomInfoData extends OrmObject implements Serializable {
             }
         }
 
+        public long getMsgId() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.msgId;
+            }
+            return invokeV.longValue;
+        }
+
+        public String getMsgKey() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.msgKey;
+            }
+            return (String) invokeV.objValue;
+        }
+
         public void parseProto(AtMsgBase atMsgBase) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, atMsgBase) == null) && atMsgBase != null) {
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, atMsgBase) == null) && atMsgBase != null) {
                 this.msgId = atMsgBase.msg_id.longValue();
                 this.msgKey = atMsgBase.msg_key;
             }
@@ -162,6 +185,7 @@ public class ChatRoomInfoData extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public String avatar;
+        public int btnType;
         public long forumId;
         public String forumName;
         public String name;
@@ -190,10 +214,19 @@ public class ChatRoomInfoData extends OrmObject implements Serializable {
             return (String) invokeV.objValue;
         }
 
-        public long getForumId() {
+        public int getBtnType() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.btnType;
+            }
+            return invokeV.intValue;
+        }
+
+        public long getForumId() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
                 return this.forumId;
             }
             return invokeV.longValue;
@@ -202,7 +235,7 @@ public class ChatRoomInfoData extends OrmObject implements Serializable {
         public String getForumName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 return this.forumName;
             }
             return (String) invokeV.objValue;
@@ -211,7 +244,7 @@ public class ChatRoomInfoData extends OrmObject implements Serializable {
         public String getName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
                 return this.name;
             }
             return (String) invokeV.objValue;
@@ -220,7 +253,7 @@ public class ChatRoomInfoData extends OrmObject implements Serializable {
         public String getUnreadNum() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
                 return this.unreadNum;
             }
             return (String) invokeV.objValue;
@@ -228,7 +261,7 @@ public class ChatRoomInfoData extends OrmObject implements Serializable {
 
         public void parseProto(ChatroomInfoBasic chatroomInfoBasic) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048581, this, chatroomInfoBasic) != null) || chatroomInfoBasic == null) {
+            if ((interceptable != null && interceptable.invokeL(1048582, this, chatroomInfoBasic) != null) || chatroomInfoBasic == null) {
                 return;
             }
             this.forumId = chatroomInfoBasic.forum_id.longValue();
@@ -236,6 +269,14 @@ public class ChatRoomInfoData extends OrmObject implements Serializable {
             this.avatar = chatroomInfoBasic.avatar;
             this.name = chatroomInfoBasic.name;
             this.unreadNum = chatroomInfoBasic.unread_num;
+            this.btnType = chatroomInfoBasic.btn_type.intValue();
+        }
+
+        public void setUnreadNum(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+                this.unreadNum = str;
+            }
         }
     }
 
@@ -247,6 +288,7 @@ public class ChatRoomInfoData extends OrmObject implements Serializable {
         public String fromName;
         public long fromUid;
         public long msgId;
+        public String specialMsg;
 
         public ChatroomMEMsgInfoData() {
             Interceptable interceptable = $ic;
@@ -298,15 +340,60 @@ public class ChatRoomInfoData extends OrmObject implements Serializable {
             return invokeV.longValue;
         }
 
+        public String getSpecialMsg() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+                return this.specialMsg;
+            }
+            return (String) invokeV.objValue;
+        }
+
         public void parseProto(ChatroomMEMsgInfo chatroomMEMsgInfo) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048580, this, chatroomMEMsgInfo) != null) || chatroomMEMsgInfo == null) {
+            if ((interceptable != null && interceptable.invokeL(1048581, this, chatroomMEMsgInfo) != null) || chatroomMEMsgInfo == null) {
                 return;
             }
             this.fromUid = chatroomMEMsgInfo.from_uid.longValue();
             this.fromName = chatroomMEMsgInfo.from_name;
             this.content = chatroomMEMsgInfo.content;
             this.msgId = chatroomMEMsgInfo.msg_id.longValue();
+            this.specialMsg = chatroomMEMsgInfo.special_msg;
+        }
+
+        public void setContent(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+                this.content = str;
+            }
+        }
+
+        public void setFromName(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+                this.fromName = str;
+            }
+        }
+
+        public void setFromUid(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+                this.fromUid = j;
+            }
+        }
+
+        public void setMsgId(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+                this.msgId = j;
+            }
+        }
+
+        public void setSpecialMsg(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+                this.specialMsg = str;
+            }
         }
     }
 

@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kt8;
+import com.baidu.tieba.ny8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,7 +23,7 @@ public class SimpleVideoPlayActivity extends BaseActivity {
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public kt8 c;
+    public ny8 c;
     public FrameLayout d;
     public NavigationBar e;
 
@@ -103,9 +103,9 @@ public class SimpleVideoPlayActivity extends BaseActivity {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
             layoutParams.gravity = 17;
             this.d.addView(frameLayout2, layoutParams);
-            kt8 kt8Var = new kt8(this, frameLayout2);
-            this.c = kt8Var;
-            kt8Var.setStageType("2006");
+            ny8 ny8Var = new ny8(this, frameLayout2);
+            this.c = ny8Var;
+            ny8Var.setStageType("2006");
             NavigationBar navigationBar = new NavigationBar(this);
             this.e = navigationBar;
             navigationBar.hideBottomLine();
@@ -132,7 +132,7 @@ public class SimpleVideoPlayActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
             initView();
-            w1(bundle);
+            z1(bundle);
             setContentView(this.d);
         }
     }
@@ -147,7 +147,7 @@ public class SimpleVideoPlayActivity extends BaseActivity {
         }
     }
 
-    public final void w1(Bundle bundle) {
+    public final void z1(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             if (bundle != null) {
@@ -157,7 +157,7 @@ public class SimpleVideoPlayActivity extends BaseActivity {
                 this.a = getIntent().getStringExtra("video_url");
                 this.b = getIntent().getStringExtra("thumb_url");
             }
-            this.c.z0(this.b, this.a);
+            this.c.D0(this.b, this.a);
         }
     }
 }

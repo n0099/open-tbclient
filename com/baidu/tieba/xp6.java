@@ -1,30 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.data.TbMusicData;
-import com.baidu.tieba.external.music.data.MusicData;
-/* loaded from: classes6.dex */
+import com.baidu.tieba.external.sticker.data.QmStickerItem;
+import com.baidu.tieba.yp6;
+/* loaded from: classes7.dex */
 public interface xp6 {
-    void a(float f);
+    String a(String str);
 
-    String b();
+    boolean b(QmStickerItem qmStickerItem);
 
-    void c(MusicData musicData, Object obj);
+    void c(yp6.b bVar);
 
-    void d();
+    void d(QmStickerItem qmStickerItem);
 
-    void e(TbMusicData tbMusicData);
-
-    void f(String str, String str2);
-
-    boolean g();
-
-    void onPause();
-
-    void onResume();
-
-    void pause();
-
-    void releasePlayer();
+    void e();
 
     void reset();
 }

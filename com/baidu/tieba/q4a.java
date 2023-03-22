@@ -1,137 +1,42 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.media.AudioTrack;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class q4a {
+public class q4a extends AudioTrack implements p4a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public long b;
 
-    public q4a(long j, int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public q4a(int i, int i2, int i3, int i4, int i5, int i6) throws IllegalArgumentException {
+        super(i, i2, i3, i4, i5, i6);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j), Integer.valueOf(i)};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i7 = newInitContext.flag;
+            if ((i7 & 1) != 0) {
+                int i8 = i7 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue(), ((Integer) objArr2[4]).intValue(), ((Integer) objArr2[5]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = j;
-        this.a = i;
     }
 
-    public static q4a b(String str, int i, int i2) {
-        InterceptResult invokeLII;
-        long j;
-        int i3;
+    @Override // com.baidu.tieba.p4a
+    public void close() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, str, i, i2)) == null) {
-            if (i >= i2) {
-                return null;
-            }
-            long j2 = 0;
-            int i4 = i;
-            while (i4 < i2) {
-                char charAt = str.charAt(i4);
-                if (charAt >= '0' && charAt <= '9') {
-                    j2 = (j2 * 16) + (charAt - '0');
-                } else {
-                    if (charAt >= 'A' && charAt <= 'F') {
-                        j = j2 * 16;
-                        i3 = charAt - 'A';
-                    } else if (charAt < 'a' || charAt > 'f') {
-                        break;
-                    } else {
-                        j = j2 * 16;
-                        i3 = charAt - 'a';
-                    }
-                    j2 = j + i3 + 10;
-                }
-                if (j2 > 4294967295L) {
-                    return null;
-                }
-                i4++;
-            }
-            if (i4 == i) {
-                return null;
-            }
-            return new q4a(j2, i4);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && getState() == 1) {
+            flush();
+            release();
         }
-        return (q4a) invokeLII.objValue;
-    }
-
-    public static q4a c(String str, int i, int i2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (i >= i2) {
-                return null;
-            }
-            boolean z2 = false;
-            if (z) {
-                char charAt = str.charAt(i);
-                if (charAt != '+') {
-                    if (charAt == '-') {
-                        z2 = true;
-                    }
-                }
-                i++;
-            }
-            long j = 0;
-            int i3 = i;
-            while (i3 < i2) {
-                char charAt2 = str.charAt(i3);
-                if (charAt2 < '0' || charAt2 > '9') {
-                    break;
-                }
-                if (z2) {
-                    j = (j * 10) - (charAt2 - '0');
-                    if (j < -2147483648L) {
-                        return null;
-                    }
-                } else {
-                    j = (j * 10) + (charAt2 - '0');
-                    if (j > 2147483647L) {
-                        return null;
-                    }
-                }
-                i3++;
-            }
-            if (i3 == i) {
-                return null;
-            }
-            return new q4a(j, i3);
-        }
-        return (q4a) invokeCommon.objValue;
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return (int) this.b;
-        }
-        return invokeV.intValue;
     }
 }

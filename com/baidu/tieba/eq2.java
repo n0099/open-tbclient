@@ -1,84 +1,107 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.Surface;
 import androidx.annotation.NonNull;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class eq2 extends dq2 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface eq2 extends ql2 {
 
     /* loaded from: classes4.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ List a;
-        public final /* synthetic */ pq2 b;
+    public interface a {
+        void a(int i);
 
-        public a(eq2 eq2Var, List list, pq2 pq2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eq2Var, list, pq2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = list;
-            this.b = pq2Var;
-        }
+        void b(int i);
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                for (String str : this.a) {
-                    this.b.e(str);
-                }
-            }
-        }
+        void c(String str);
+
+        void d(@NonNull String str);
+
+        void e(String str);
+
+        void f();
+
+        void onEnded();
+
+        void onError(int i);
+
+        void onPrepared();
+
+        void onRelease(String str);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public eq2(ja3 ja3Var) {
-        super(ja3Var, "/swanAPI/removeComponentFromFullScreenSync");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ja3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((ja3) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
+    void B(boolean z);
 
-    @Override // com.baidu.tieba.dq2
-    public boolean j(@NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull pq2 pq2Var, @NonNull List<String> list) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, unitedSchemeEntity, pq2Var, list)) == null) {
-            gn3.a0(new a(this, list, pq2Var));
-            return true;
-        }
-        return invokeLLL.booleanValue;
-    }
+    void C();
+
+    void G(int i);
+
+    void H();
+
+    void L(int i, int i2, int i3, int i4);
+
+    void N(ZeusPluginFactory.Invoker invoker);
+
+    boolean O(String str, String str2, String str3, boolean z);
+
+    boolean P();
+
+    a Q();
+
+    void S(Map map);
+
+    void T();
+
+    void V();
+
+    int a();
+
+    void a0(String str);
+
+    void b0();
+
+    String c();
+
+    ZeusPluginFactory.Invoker e0();
+
+    void f0(int i);
+
+    void g0(@NonNull a aVar);
+
+    Context getContext();
+
+    int getCurrentPosition();
+
+    int getDuration();
+
+    int getVideoHeight();
+
+    int getVideoSarDen();
+
+    int getVideoSarNum();
+
+    int getVideoWidth();
+
+    boolean i0();
+
+    boolean isPlaying();
+
+    void l(boolean z);
+
+    void m0();
+
+    void pause();
+
+    boolean prepareAsync();
+
+    void release();
+
+    void seekTo(int i);
+
+    void setSpeed(float f);
+
+    void setSurface(Surface surface);
+
+    void start();
 }

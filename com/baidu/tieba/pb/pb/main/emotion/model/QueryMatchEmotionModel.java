@@ -11,9 +11,9 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.a9;
 import com.baidu.tieba.face.data.EmotionImageData;
 import com.baidu.tieba.pb.pb.main.emotion.message.QueryMatchEmotionResponseMessage;
-import com.baidu.tieba.x9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -88,7 +88,7 @@ public class QueryMatchEmotionModel extends BdBaseModel {
                 if (httpResponsedMessage.getOrginalMessage() != null && (httpResponsedMessage.getOrginalMessage().getExtra() instanceof String)) {
                     String str = (String) httpResponsedMessage.getOrginalMessage().getExtra();
                     this.a.a.a(str, queryMatchEmotionResponseMessage.getData());
-                    this.a.R(str, queryMatchEmotionResponseMessage.getData());
+                    this.a.V(str, queryMatchEmotionResponseMessage.getData());
                     return;
                 }
                 return;
@@ -126,18 +126,18 @@ public class QueryMatchEmotionModel extends BdBaseModel {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public QueryMatchEmotionModel(x9<Object> x9Var) {
-        super(x9Var);
+    public QueryMatchEmotionModel(a9<Object> a9Var) {
+        super(a9Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {x9Var};
+            Object[] objArr = {a9Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((x9) newInitContext.callArgs[0]);
+                super((a9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
@@ -149,7 +149,7 @@ public class QueryMatchEmotionModel extends BdBaseModel {
         registerListener(this.b);
     }
 
-    public final List<EmotionImageData> P(String str) {
+    public final List<EmotionImageData> T(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
@@ -162,14 +162,14 @@ public class QueryMatchEmotionModel extends BdBaseModel {
         return (List) invokeL.objValue;
     }
 
-    public void Q(String str, b bVar) {
+    public void U(String str, b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bVar) == null) {
             this.a = bVar;
             if (bVar == null) {
                 return;
             }
-            if (!ListUtils.isEmpty(P(str))) {
+            if (!ListUtils.isEmpty(T(str))) {
                 this.a.a(str, c.get(str));
                 return;
             }
@@ -180,7 +180,7 @@ public class QueryMatchEmotionModel extends BdBaseModel {
         }
     }
 
-    public final void R(String str, List<EmotionImageData> list) {
+    public final void V(String str, List<EmotionImageData> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, list) == null) && !TextUtils.isEmpty(str) && !ListUtils.isEmpty(list)) {
             if (c == null) {

@@ -6,11 +6,11 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.e59;
-import com.baidu.tieba.ec9;
-import com.baidu.tieba.hb9;
-import com.baidu.tieba.mc9;
-import com.baidu.tieba.wb;
+import com.baidu.tieba.jb9;
+import com.baidu.tieba.ji9;
+import com.baidu.tieba.mh9;
+import com.baidu.tieba.ri9;
+import com.baidu.tieba.za;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,16 +22,16 @@ import java.util.List;
 public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public mc9 a;
-    public List<ec9> b;
+    public ri9 a;
+    public List<ji9> b;
     public int c;
     public boolean d;
     public b e;
-    public wb f;
+    public za f;
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(int i, String str, mc9 mc9Var, List<ec9> list, boolean z);
+        void a(int i, String str, ri9 ri9Var, List<ji9> list, boolean z);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -45,7 +45,7 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
     }
 
     /* loaded from: classes6.dex */
-    public class a extends wb {
+    public class a extends za {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonalCardCategoryModel a;
@@ -72,7 +72,7 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
             this.a = personalCardCategoryModel;
         }
 
-        @Override // com.baidu.tieba.wb
+        @Override // com.baidu.tieba.za
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
@@ -83,7 +83,7 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
                 return;
             }
             if (responsedMessage.getError() != 0) {
-                PersonalCardCategoryModel.N(this.a);
+                PersonalCardCategoryModel.R(this.a);
                 if (this.a.e != null) {
                     this.a.e.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.a, this.a.b, this.a.d);
                     return;
@@ -135,25 +135,25 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
         this.c = 1;
         this.d = true;
         this.f = new a(this, CmdConfigHttp.CMD_GET_CARD_BY_CATEGORY, 309331);
-        e59.h(309331, PersonalCardCategorySocktResponse.class, false, false);
-        e59.c(309331, CmdConfigHttp.CMD_GET_CARD_BY_CATEGORY, TbConfig.GET_PERSONAL_CARD_BY_CATEGORY, PersonalCardCategoryHttpResponse.class, false, false, false, false);
+        jb9.h(309331, PersonalCardCategorySocktResponse.class, false, false);
+        jb9.c(309331, CmdConfigHttp.CMD_GET_CARD_BY_CATEGORY, TbConfig.GET_PERSONAL_CARD_BY_CATEGORY, PersonalCardCategoryHttpResponse.class, false, false, false, false);
         registerListener(this.f);
     }
 
-    public static /* synthetic */ int N(PersonalCardCategoryModel personalCardCategoryModel) {
+    public static /* synthetic */ int R(PersonalCardCategoryModel personalCardCategoryModel) {
         int i = personalCardCategoryModel.c;
         personalCardCategoryModel.c = i - 1;
         return i;
     }
 
-    public void Y(b bVar) {
+    public void c0(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
             this.e = bVar;
         }
     }
 
-    public void V() {
+    public void Z() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.d) {
             return;
@@ -185,10 +185,10 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
         }
     }
 
-    public void W(long j, int i) {
+    public void a0(long j, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
-            X(j, i);
+            b0(j, i);
             b bVar = this.e;
             if (bVar != null) {
                 bVar.a(0, null, this.a, this.b, this.d);
@@ -196,24 +196,24 @@ public class PersonalCardCategoryModel extends BdBaseModel<PersonalCardCategoryM
         }
     }
 
-    public void X(long j, int i) {
-        List<ec9> list;
+    public void b0(long j, int i) {
+        List<ji9> list;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) && (list = this.b) != null && list.size() > 0) {
-            for (ec9 ec9Var : list) {
-                if (ec9Var != null && ec9Var.a() != null && ec9Var.a().size() > 0) {
-                    for (hb9 hb9Var : ec9Var.a()) {
-                        if (hb9Var != null) {
-                            if (hb9Var.a() == j) {
+            for (ji9 ji9Var : list) {
+                if (ji9Var != null && ji9Var.a() != null && ji9Var.a().size() > 0) {
+                    for (mh9 mh9Var : ji9Var.a()) {
+                        if (mh9Var != null) {
+                            if (mh9Var.a() == j) {
                                 if (i == 1) {
-                                    hb9Var.s(1);
+                                    mh9Var.s(1);
                                 } else {
-                                    hb9Var.s(0);
+                                    mh9Var.s(0);
                                 }
                             } else if (i == 1) {
-                                hb9Var.s(0);
-                            } else if (hb9Var.a() == hb9.k) {
-                                hb9Var.s(1);
+                                mh9Var.s(0);
+                            } else if (mh9Var.a() == mh9.k) {
+                                mh9Var.s(1);
                             }
                         }
                     }

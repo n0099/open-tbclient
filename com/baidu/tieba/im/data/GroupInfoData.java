@@ -11,8 +11,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.tbadk.core.util.PreLoadImageInfo;
 import com.baidu.tbadk.core.util.PreLoadImageProvider;
-import com.baidu.tieba.Cdo;
-import com.baidu.tieba.dh;
+import com.baidu.tieba.gg;
+import com.baidu.tieba.gn;
 import com.baidu.tieba.im.db.pojo.GroupChatRoomPojo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -25,7 +25,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class GroupInfoData extends AbstractImageProvider implements Cdo, Parcelable, Serializable, PreLoadImageProvider {
+public class GroupInfoData extends AbstractImageProvider implements gn, Parcelable, Serializable, PreLoadImageProvider {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Parcelable.Creator<GroupInfoData> CREATOR;
     public static final String SHARE_KEY_FID = "fid";
@@ -318,7 +318,7 @@ public class GroupInfoData extends AbstractImageProvider implements Cdo, Parcela
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.Cdo
+    @Override // com.baidu.tieba.gn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -361,7 +361,7 @@ public class GroupInfoData extends AbstractImageProvider implements Cdo, Parcela
             groupInfoData.setGroupId(groupChatRoomPojo.getRoomId());
             groupInfoData.setName(groupChatRoomPojo.getName());
             groupInfoData.setPortrait(groupChatRoomPojo.getAvatar());
-            groupInfoData.forumId = dh.g(groupChatRoomPojo.getForumId(), -1L);
+            groupInfoData.forumId = gg.g(groupChatRoomPojo.getForumId(), -1L);
             groupInfoData.forumName = groupChatRoomPojo.getForumName();
             groupInfoData.lastUpdateTime = groupChatRoomPojo.getTimestamp();
             return groupInfoData;

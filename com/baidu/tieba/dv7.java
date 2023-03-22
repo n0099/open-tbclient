@@ -1,68 +1,44 @@
 package com.baidu.tieba;
 
-import android.widget.ListView;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.im.model.MsglistModel;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public class dv7 {
+public final class dv7 extends hv7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<cv7> a;
+    public final ChatPage b;
 
-    /* loaded from: classes4.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ListView a;
-        public final /* synthetic */ List b;
-        public final /* synthetic */ cv7 c;
-        public final /* synthetic */ ChatMessage d;
-        public final /* synthetic */ ChatMessage e;
-
-        public a(dv7 dv7Var, ListView listView, List list, cv7 cv7Var, ChatMessage chatMessage, ChatMessage chatMessage2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dv7Var, listView, list, cv7Var, chatMessage, chatMessage2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = listView;
-            this.b = list;
-            this.c = cv7Var;
-            this.d = chatMessage;
-            this.e = chatMessage2;
+    @Override // com.baidu.tieba.hv7
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.getLastVisiblePosition() != this.b.size() - 1) {
-                return;
-            }
-            this.c.b(this.a, this.d, this.e);
-        }
+        return invokeV.booleanValue;
     }
 
-    public dv7() {
+    @Override // com.baidu.tieba.hv7
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "un_support" : (String) invokeV.objValue;
+    }
+
+    public dv7(ChatPage chatPage) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {chatPage};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -72,29 +48,16 @@ public class dv7 {
                 return;
             }
         }
-        ArrayList<cv7> arrayList = new ArrayList<>(2);
-        this.a = arrayList;
-        arrayList.add(new bv7());
-        this.a.add(new ev7());
+        Intrinsics.checkNotNullParameter(chatPage, "chatPage");
+        this.b = chatPage;
     }
 
-    public void a(MsglistModel msglistModel, ListView listView) {
+    @Override // com.baidu.tieba.hv7
+    public void b(AbilityItem abilityItem, BaseMsg baseMsg) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, msglistModel, listView) == null) && msglistModel != null && msglistModel.getData() != null) {
-            List<ChatMessage> chatMessages = msglistModel.getData().getChatMessages();
-            if (ListUtils.isEmpty(chatMessages)) {
-                return;
-            }
-            ChatMessage chatMessage = (ChatMessage) ListUtils.getItem(chatMessages, ListUtils.getCount(chatMessages) - 1);
-            ChatMessage chatMessage2 = (ChatMessage) ListUtils.getItem(chatMessages, ListUtils.getCount(chatMessages) - 2);
-            Iterator<cv7> it = this.a.iterator();
-            while (it.hasNext()) {
-                cv7 next = it.next();
-                if (next.a(chatMessage, chatMessage2)) {
-                    listView.postDelayed(new a(this, listView, chatMessages, next, chatMessage, chatMessage2), 200L);
-                    return;
-                }
-            }
+        if (interceptable == null || interceptable.invokeLL(1048576, this, abilityItem, baseMsg) == null) {
+            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
+            this.b.W0(R.string.obfuscated_res_0x7f0f0862);
         }
     }
 }

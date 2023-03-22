@@ -1,82 +1,354 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.aperf.bosuploader.FileUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes3.dex */
-public final class ae1 extends ImageSpan {
+public class ae1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ae1(Drawable _drawable) {
-        super(_drawable);
+    public static boolean a(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
+        FileOutputStream fileOutputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {_drawable};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Drawable) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, str, str2)) == null) {
+            if (context == null) {
+                if (zd1.a()) {
+                    Log.e(FileUtil.TAG, "copyAssetsTo: context is null");
+                }
+                return false;
+            }
+            try {
+                InputStream open = context.getAssets().open(str);
+                if (open == null) {
+                }
+                File file = new File(str2);
+                if (file.exists()) {
+                    file.delete();
+                }
+                FileOutputStream fileOutputStream2 = null;
+                try {
+                    try {
+                        fileOutputStream = new FileOutputStream(file);
+                    } catch (Throwable th) {
+                        th = th;
+                    }
+                } catch (IOException e) {
+                    e = e;
+                }
+                try {
+                    byte[] bArr = new byte[4096];
+                    if (open == null) {
+                        if (open != null) {
+                            try {
+                                open.close();
+                            } catch (IOException unused) {
+                            }
+                        }
+                        try {
+                            fileOutputStream.close();
+                        } catch (IOException unused2) {
+                        }
+                        return false;
+                    }
+                    while (true) {
+                        int read = open.read(bArr);
+                        if (read < 0) {
+                            break;
+                        }
+                        fileOutputStream.write(bArr, 0, read);
+                    }
+                    fileOutputStream.flush();
+                    if (open != null) {
+                        try {
+                            open.close();
+                        } catch (IOException unused3) {
+                        }
+                    }
+                    try {
+                        fileOutputStream.close();
+                        return true;
+                    } catch (IOException unused4) {
+                        return true;
+                    }
+                } catch (IOException e2) {
+                    e = e2;
+                    fileOutputStream2 = fileOutputStream;
+                    if (zd1.a()) {
+                        Log.e(FileUtil.TAG, "copyAssetsTo: destOutputStream e=" + e.toString());
+                    }
+                    if (open != null) {
+                        try {
+                            open.close();
+                        } catch (IOException unused5) {
+                        }
+                    }
+                    if (fileOutputStream2 != null) {
+                        try {
+                            fileOutputStream2.close();
+                        } catch (IOException unused6) {
+                        }
+                    }
+                    return false;
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileOutputStream2 = fileOutputStream;
+                    if (open != null) {
+                        try {
+                            open.close();
+                        } catch (IOException unused7) {
+                        }
+                    }
+                    if (fileOutputStream2 != null) {
+                        try {
+                            fileOutputStream2.close();
+                        } catch (IOException unused8) {
+                        }
+                    }
+                    throw th;
+                }
+            } catch (IOException e3) {
+                if (zd1.a()) {
+                    Log.e(FileUtil.TAG, "copyAssetsTo: sourceInputStream e=" + e3.toString());
+                }
+                return false;
+            } finally {
+                Log.e(FileUtil.TAG, "copyAssetsTo: sourceInputStream is null");
             }
         }
-        Intrinsics.checkNotNullParameter(_drawable, "_drawable");
+        return invokeLLL.booleanValue;
     }
 
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+    public static boolean b(File file, File file2) {
+        InterceptResult invokeLL;
+        FileOutputStream fileOutputStream;
+        FileOutputStream fileOutputStream2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-            Intrinsics.checkNotNullParameter(canvas, "canvas");
-            Intrinsics.checkNotNullParameter(paint, "paint");
-            Drawable drawable = getDrawable();
-            canvas.save();
-            Intrinsics.checkNotNullExpressionValue(drawable, "drawable");
-            canvas.translate(f, (((i5 - i3) - drawable.getBounds().bottom) / 2) + i3);
-            drawable.draw(canvas);
-            canvas.restore();
-        }
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            Intrinsics.checkNotNullParameter(paint, "paint");
-            Drawable drawable = getDrawable();
-            Intrinsics.checkNotNullExpressionValue(drawable, "drawable");
-            Rect bounds = drawable.getBounds();
-            Intrinsics.checkNotNullExpressionValue(bounds, "drawable.bounds");
-            if (fontMetricsInt != null) {
-                Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
-                int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
-                int i4 = (bounds.bottom - bounds.top) / 2;
-                int i5 = i3 / 4;
-                int i6 = i4 - i5;
-                int i7 = -(i4 + i5);
-                fontMetricsInt.ascent = i7;
-                fontMetricsInt.top = i7;
-                fontMetricsInt.bottom = i6;
-                fontMetricsInt.descent = i6;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, file, file2)) == null) {
+            FileInputStream fileInputStream = null;
+            try {
+                FileInputStream fileInputStream2 = new FileInputStream(file);
+                try {
+                    if (file2.exists()) {
+                        file2.delete();
+                    }
+                    fileOutputStream2 = new FileOutputStream(file2);
+                    try {
+                        byte[] bArr = new byte[4096];
+                        while (true) {
+                            int read = fileInputStream2.read(bArr);
+                            if (read >= 0) {
+                                fileOutputStream2.write(bArr, 0, read);
+                            } else {
+                                fileOutputStream2.flush();
+                                try {
+                                    fileInputStream2.close();
+                                    fileOutputStream2.close();
+                                    return true;
+                                } catch (IOException unused) {
+                                    return true;
+                                }
+                            }
+                        }
+                    } catch (FileNotFoundException unused2) {
+                        fileInputStream = fileInputStream2;
+                        if (fileInputStream != null) {
+                            try {
+                                fileInputStream.close();
+                            } catch (IOException unused3) {
+                                return false;
+                            }
+                        }
+                        if (fileOutputStream2 != null) {
+                            fileOutputStream2.close();
+                        }
+                        return false;
+                    } catch (IOException unused4) {
+                        fileInputStream = fileInputStream2;
+                        if (fileInputStream != null) {
+                            try {
+                                fileInputStream.close();
+                            } catch (IOException unused5) {
+                                return false;
+                            }
+                        }
+                        if (fileOutputStream2 != null) {
+                            fileOutputStream2.close();
+                        }
+                        return false;
+                    } catch (Throwable th) {
+                        fileInputStream = fileInputStream2;
+                        fileOutputStream = fileOutputStream2;
+                        th = th;
+                        if (fileInputStream != null) {
+                            try {
+                                fileInputStream.close();
+                            } catch (IOException unused6) {
+                                throw th;
+                            }
+                        }
+                        if (fileOutputStream != null) {
+                            fileOutputStream.close();
+                        }
+                        throw th;
+                    }
+                } catch (FileNotFoundException unused7) {
+                    fileOutputStream2 = null;
+                } catch (IOException unused8) {
+                    fileOutputStream2 = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileOutputStream = null;
+                    fileInputStream = fileInputStream2;
+                }
+            } catch (FileNotFoundException unused9) {
+                fileOutputStream2 = null;
+            } catch (IOException unused10) {
+                fileOutputStream2 = null;
+            } catch (Throwable th3) {
+                th = th3;
+                fileOutputStream = null;
             }
-            return bounds.right;
+        } else {
+            return invokeLL.booleanValue;
         }
-        return invokeCommon.intValue;
+    }
+
+    public static boolean c(InputStream inputStream, File file) {
+        InterceptResult invokeLL;
+        FileOutputStream fileOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, inputStream, file)) == null) {
+            if (inputStream != null && file != null) {
+                if (file.exists()) {
+                    file.delete();
+                }
+                FileOutputStream fileOutputStream2 = null;
+                try {
+                    fileOutputStream = new FileOutputStream(file);
+                } catch (IOException unused) {
+                } catch (Throwable th) {
+                    th = th;
+                }
+                try {
+                    byte[] bArr = new byte[4096];
+                    while (true) {
+                        int read = inputStream.read(bArr);
+                        if (read < 0) {
+                            break;
+                        }
+                        fileOutputStream.write(bArr, 0, read);
+                    }
+                    fileOutputStream.flush();
+                    try {
+                        fileOutputStream.close();
+                    } catch (IOException unused2) {
+                    }
+                    return true;
+                } catch (IOException unused3) {
+                    fileOutputStream2 = fileOutputStream;
+                    if (fileOutputStream2 != null) {
+                        try {
+                            fileOutputStream2.close();
+                        } catch (IOException unused4) {
+                        }
+                    }
+                    return false;
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileOutputStream2 = fileOutputStream;
+                    if (fileOutputStream2 != null) {
+                        try {
+                            fileOutputStream2.close();
+                        } catch (IOException unused5) {
+                        }
+                    }
+                    throw th;
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static File d(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, str)) == null) {
+            return new File(i(context), str);
+        }
+        return (File) invokeLL.objValue;
+    }
+
+    public static File e(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
+            File file = new File(f(context, str), "lib");
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            return file;
+        }
+        return (File) invokeLL.objValue;
+    }
+
+    public static File f(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, context, str)) == null) {
+            File file = new File(i(context), str);
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            return file;
+        }
+        return (File) invokeLL.objValue;
+    }
+
+    public static File g(Context context, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, context, str)) == null) {
+            return new File(h(context), str);
+        }
+        return (File) invokeLL.objValue;
+    }
+
+    public static File h(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            File dir = context.getDir("nps_download", 0);
+            if (!dir.exists()) {
+                dir.mkdirs();
+            }
+            return dir;
+        }
+        return (File) invokeL.objValue;
+    }
+
+    public static File i(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            File dir = context.getDir("nps", 0);
+            if (!dir.exists()) {
+                dir.mkdirs();
+            }
+            return dir;
+        }
+        return (File) invokeL.objValue;
     }
 }

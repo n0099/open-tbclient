@@ -1,29 +1,21 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
 public class kl0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public il0 k;
+    public final ConcurrentHashMap<Class<?>, ArrayList<sl0>> a;
+    public final ConcurrentHashMap<Object, ArrayList<sl0>> b;
 
     public kl0() {
         Interceptable interceptable = $ic;
@@ -35,52 +27,135 @@ public class kl0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ConcurrentHashMap<>();
+        this.b = new ConcurrentHashMap<>();
+    }
+
+    public final void a(@NonNull sl0 sl0Var) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, sl0Var) == null) {
+            synchronized (this) {
+                ArrayList<sl0> arrayList = this.a.get(sl0Var.b);
+                boolean z2 = true;
+                if (arrayList == null) {
+                    arrayList = new ArrayList<>();
+                    this.a.put(sl0Var.b, arrayList);
+                } else {
+                    Iterator<sl0> it = arrayList.iterator();
+                    while (it.hasNext()) {
+                        if (it.next().a == sl0Var.a) {
+                            z = true;
+                            break;
+                        }
+                    }
+                }
+                z = false;
+                if (!z) {
+                    arrayList.add(sl0Var);
+                }
+                ArrayList<sl0> arrayList2 = this.b.get(sl0Var.a);
+                if (arrayList2 == null) {
+                    arrayList2 = new ArrayList<>();
+                    this.b.put(sl0Var.a, arrayList2);
+                } else {
+                    Iterator<sl0> it2 = arrayList2.iterator();
+                    while (it2.hasNext()) {
+                        if (it2.next().d == sl0Var.d) {
+                            break;
+                        }
+                    }
+                }
+                z2 = false;
+                if (!z2) {
+                    arrayList2.add(sl0Var);
+                }
             }
         }
     }
 
-    @NonNull
-    public static kl0 a(String str) {
-        InterceptResult invokeL;
+    public <T extends nl0> void b(@Nullable T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            JSONObject c = f21.c(str);
-            kl0 kl0Var = new kl0();
-            kl0Var.a = c.optString("als_ext");
-            kl0Var.b = c.optString("cmd");
-            kl0Var.c = c.optString("defer_cmd");
-            kl0Var.d = c.optString("init_text");
-            kl0Var.e = c.optString("opt_icon");
-            kl0Var.f = c.optString("opt_text");
-            kl0Var.g = c.optString("app_icon_url");
-            kl0Var.h = c.optString("app_name");
-            kl0Var.i = c.optString("version_code");
-            kl0Var.j = c.optString(LegoListActivityConfig.AD_ID);
-            return kl0Var;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) != null) || t == null) {
+            return;
         }
-        return (kl0) invokeL.objValue;
+        synchronized (this) {
+            ArrayList<sl0> arrayList = this.a.get(t.getClass());
+            if (arrayList != null) {
+                Iterator<sl0> it = arrayList.iterator();
+                while (it.hasNext()) {
+                    sl0 next = it.next();
+                    f(next, next.d, t);
+                }
+            }
+        }
     }
 
-    public static String b(@NonNull kl0 kl0Var) {
-        InterceptResult invokeL;
+    public <T extends nl0> void c(@NonNull Object obj, int i, @NonNull ql0<T> ql0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, kl0Var)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("als_ext", kl0Var.a);
-                jSONObject.put("cmd", kl0Var.b);
-                jSONObject.put("defer_cmd", kl0Var.c);
-                jSONObject.put("init_text", kl0Var.d);
-                jSONObject.put("opt_icon", kl0Var.e);
-                jSONObject.put("opt_text", kl0Var.f);
-                jSONObject.put("app_icon_url", kl0Var.g);
-                jSONObject.put("app_name", kl0Var.h);
-                jSONObject.put("version_code", kl0Var.i);
-                jSONObject.put(LegoListActivityConfig.AD_ID, kl0Var.j);
-            } catch (JSONException unused) {
-            }
-            return jSONObject.toString();
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, obj, i, ql0Var) == null) {
+            a(new sl0(i, obj, ql0Var.a(), ql0Var));
         }
-        return (String) invokeL.objValue;
+    }
+
+    public <T extends nl0> void d(@NonNull Object obj, @NonNull ql0<T> ql0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, obj, ql0Var) == null) {
+            c(obj, 0, ql0Var);
+        }
+    }
+
+    public final void e(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, obj) == null) {
+            synchronized (this) {
+                ArrayList<sl0> arrayList = this.b.get(obj);
+                if (arrayList != null) {
+                    Iterator<sl0> it = arrayList.iterator();
+                    while (it.hasNext()) {
+                        sl0 next = it.next();
+                        ArrayList<sl0> arrayList2 = this.a.get(next.b);
+                        if (arrayList2 != null) {
+                            arrayList2.remove(next);
+                        }
+                    }
+                    arrayList.clear();
+                    this.b.remove(obj);
+                }
+            }
+        }
+    }
+
+    public final <T extends nl0> void f(sl0 sl0Var, ql0<T> ql0Var, T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, sl0Var, ql0Var, t) == null) {
+            int i = sl0Var.c;
+            if (i != 0) {
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i == 3) {
+                            il0.b().a(sl0Var, ql0Var, t);
+                            return;
+                        }
+                        return;
+                    }
+                    jl0.b().a(sl0Var, ql0Var, t);
+                    return;
+                }
+                rl0.b().a(sl0Var, ql0Var, t);
+                return;
+            }
+            ql0Var.onEvent(t);
+        }
+    }
+
+    public void g(@NonNull Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
+            e(obj);
+        }
     }
 }

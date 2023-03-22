@@ -1,60 +1,204 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.exoplayer2.text.cea.Cea608Decoder;
-import kotlin.jvm.internal.ByteCompanionObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.spec.AlgorithmParameterSpec;
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 /* loaded from: classes7.dex */
 public final class y30 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public a40 c;
+    public byte[] d;
+    public int e;
+    public w30 f;
 
-    public static byte[] a() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948279091, "Lcom/baidu/tieba/y30;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948279091, "Lcom/baidu/tieba/y30;");
+        }
+    }
+
+    public y30() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = 2;
+    }
+
+    private void update(byte[] bArr, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLII(65538, this, bArr, i, i2) == null) && i2 != 0 && bArr != null) {
+            int i3 = this.e;
+            int i4 = i3 + i2;
+            byte[] bArr2 = this.d;
+            if (i4 > bArr2.length) {
+                this.e = bArr2.length + 1;
+                return;
+            }
+            System.arraycopy(bArr, i, bArr2, i3, i2);
+            this.e += i2;
+        }
+    }
+
+    public byte[] b(byte[] bArr, int i, int i2) throws BadPaddingException, IllegalBlockSizeException {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i, i2)) == null) {
+            update(bArr, i, i2);
+            return a();
+        }
+        return (byte[]) invokeLII.objValue;
+    }
+
+    public final byte[] a() throws BadPaddingException, IllegalBlockSizeException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return new byte[]{ExifInterface.MARKER_SOF7, 117, 76, 90, 52, -92, 15, ExifInterface.START_CODE, 26, 37, 0, -124, 69, 32, ByteCompanionObject.MAX_VALUE, -32, -73, -44, 32, 20, ExifInterface.MARKER_APP1, -20, -28, 118, -89, ByteCompanionObject.MAX_VALUE, -6, 83, 34, -42};
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int i = this.e;
+            byte[] bArr = this.d;
+            if (i <= bArr.length) {
+                try {
+                    int i2 = this.a;
+                    if (i2 != 1) {
+                        if (i2 != 2) {
+                            if (i2 != 3) {
+                                if (i2 == 4) {
+                                    return this.c.c(x30.e(x30.a(bArr, 0, i), this.f));
+                                }
+                                throw new AssertionError("Internal error");
+                            }
+                            throw new UnsupportedOperationException("only verify supported");
+                        }
+                        throw new UnsupportedOperationException("only verify supported");
+                    }
+                    throw new UnsupportedOperationException("only verify supported");
+                } finally {
+                    this.e = 0;
+                }
+            }
+            throw new IllegalBlockSizeException("Data must not be longer than " + this.d.length + " bytes");
         }
         return (byte[]) invokeV.objValue;
     }
 
-    public static byte[] b() {
-        InterceptResult invokeV;
+    public void c(int i, w30 w30Var) throws InvalidKeyException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new byte[]{ExifInterface.MARKER_SOF7, 117, 76, 90, 52, -92, 15, ExifInterface.START_CODE, 26, 37, 0, -124, 65, 58, 123, -19, -88, -44, 32, 20, ExifInterface.MARKER_APP1, -20, -28, 118, -89, ByteCompanionObject.MAX_VALUE, -6, 83, 34, -42};
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, w30Var) == null) {
+            try {
+                e(i, w30Var, null);
+            } catch (InvalidAlgorithmParameterException e) {
+                InvalidKeyException invalidKeyException = new InvalidKeyException("Wrong parameters");
+                invalidKeyException.initCause(e);
+                throw invalidKeyException;
+            }
         }
-        return (byte[]) invokeV.objValue;
     }
 
-    public static byte[] d() {
-        InterceptResult invokeV;
+    public void d(int i) throws NoSuchPaddingException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return new byte[]{ExifInterface.MARKER_SOF7, 117, 76, 90, 52, -92, 15, ExifInterface.START_CODE, 26, 37, 0, -124, 84, 45, 108, -20, -73, -28, 7, 15, ExifInterface.MARKER_SOI, ExifInterface.MARKER_EOI, -13, 105, -93, Constants.SHORT_PING_CMD_TYPE, -6, 73, Cea608Decoder.CTRL_DELETE_TO_END_OF_ROW, -41, 23};
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            if (i == 1) {
+                this.b = 1;
+            } else if (i == 2) {
+                this.b = 2;
+            } else {
+                throw new NoSuchPaddingException("Padding " + i + " not supported");
+            }
         }
-        return (byte[]) invokeV.objValue;
     }
 
-    public static byte[] c() {
-        InterceptResult invokeV;
+    /* JADX WARN: Removed duplicated region for block: B:16:0x0030  */
+    /* JADX WARN: Removed duplicated region for block: B:39:0x0088  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void e(int i, w30 w30Var, AlgorithmParameterSpec algorithmParameterSpec) throws InvalidKeyException, InvalidAlgorithmParameterException {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new byte[]{ExifInterface.MARKER_SOF7, 117, 76, 90, 52, -92, 15, ExifInterface.START_CODE, 26, 37, 0, -124, 84, 45, 118, -26, -67, -14, 55, 45, -44, -5, -27, 114, -67, 120, -24, 88, 33, -35, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, -37, Constants.GZIP_CAST_TYPE, 17, -24, 67, -119, 93, 51, 122, 111, 9, 58};
+        if (interceptable == null || interceptable.invokeILL(1048580, this, i, w30Var, algorithmParameterSpec) == null) {
+            int i2 = 4;
+            int i3 = 2;
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            throw new InvalidKeyException("Unknown mode: " + i);
+                        }
+                    }
+                }
+                z = false;
+                if (!(w30Var instanceof w30)) {
+                    if (z) {
+                        i2 = 1;
+                    }
+                    this.a = i2;
+                    this.f = w30Var;
+                    int c = x30.c(w30Var.b());
+                    this.e = 0;
+                    int i4 = this.b;
+                    if (i4 == 1) {
+                        if (algorithmParameterSpec == null) {
+                            this.c = a40.a(3, c);
+                            this.d = new byte[c];
+                            return;
+                        }
+                        throw new InvalidAlgorithmParameterException("Parameters not supported");
+                    } else if (i4 == 2) {
+                        if (algorithmParameterSpec == null) {
+                            if (this.a > 2) {
+                                i3 = 1;
+                            }
+                            a40 a = a40.a(i3, c);
+                            this.c = a;
+                            if (z) {
+                                this.d = new byte[a.b()];
+                                return;
+                            } else {
+                                this.d = new byte[c];
+                                return;
+                            }
+                        }
+                        throw new InvalidAlgorithmParameterException("Parameters not supported");
+                    } else {
+                        throw new InvalidKeyException("PEAO not supported");
+                    }
+                }
+                throw new InvalidKeyException("only support helios key");
+            }
+            z = true;
+            if (!(w30Var instanceof w30)) {
+            }
         }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public static byte[] e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return new byte[]{ExifInterface.MARKER_SOF7, 117, 76, 90, 52, -92, 15, ExifInterface.START_CODE, 26, 37, 0, -124, 82, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 113, -26, -116, -28, 32, 14, ExifInterface.MARKER_SOI, -6, -30, 122, -84, 96, -20, 111, 63, -47, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, -52, 16, Cea608Decoder.CTRL_ERASE_DISPLAYED_MEMORY, -28, 66, -105, 93, 47, 103};
-        }
-        return (byte[]) invokeV.objValue;
     }
 }

@@ -184,7 +184,7 @@ public class IMMediaDeleteSessionRequest extends IMMediaBaseHttpRequest {
                 i2 = jSONObject.optInt("error_code", 0);
                 str = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
                 if (i2 == 0 && this.mContactorType == 2) {
-                    ChatMessageDBManager.getInstance(this.mContext).deleteAllMsg(new ChatObject(this.mContext, 1, this.mContacter));
+                    ChatMessageDBManager.getInstance(this.mContext).deleteAllMsg(new ChatObject(this.mContext, 1, this.mContacter), 1);
                 } else if (i2 == 0 && this.mClassType > 0) {
                     BIMManager.removeSessionByClasstype(this.mContext, this.mClassType);
                 }

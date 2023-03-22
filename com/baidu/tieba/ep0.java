@@ -3,35 +3,36 @@ package com.baidu.tieba;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.requester.NadRequester;
-import com.baidu.nadcore.requester.RequestParameters;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ep0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, String> a;
+    public final String a;
+    public final List<a> b;
+    public final String c;
 
     /* loaded from: classes4.dex */
-    public class a implements NadRequester.b {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dc1 a;
-        public final /* synthetic */ ep0 b;
+        public String a;
+        public String b;
+        public boolean c;
+        public String d;
 
-        public a(ep0 ep0Var, dc1 dc1Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ep0Var, dc1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,41 +42,79 @@ public class ep0 {
                     return;
                 }
             }
-            this.b = ep0Var;
-            this.a = dc1Var;
+            this.c = false;
         }
 
-        @Override // com.baidu.nadcore.requester.NadRequester.b
-        public void a(@NonNull NadRequester.Error error) {
+        public String a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, error) == null) {
-                try {
-                    this.a.dismiss();
-                } catch (Exception unused) {
-                }
-                this.b.f();
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
             }
+            return (String) invokeV.objValue;
         }
 
-        @Override // com.baidu.nadcore.requester.NadRequester.b
-        public void b(@NonNull List<AdBaseModel> list) {
+        public String b() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-                try {
-                    this.a.dismiss();
-                } catch (Exception unused) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.d;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public boolean c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.c;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public boolean d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.b)) {
+                    return true;
                 }
-                this.b.d(list);
+                return false;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public static a e(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return null;
+                }
+                a aVar = new a();
+                aVar.a = jSONObject.optString("name");
+                aVar.b = jSONObject.optString("type");
+                aVar.d = "\"" + aVar.b + "\"：\"" + aVar.a + "\"";
+                return aVar;
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public void f(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+                this.c = z;
             }
         }
     }
 
-    public ep0(@NonNull Map<String, String> map) {
+    public ep0(@NonNull JSONObject jSONObject) {
+        int length;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {map};
+            Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -85,51 +124,30 @@ public class ep0 {
                 return;
             }
         }
-        this.a = map;
+        jSONObject.optInt("support_close");
+        this.a = jSONObject.optString("title");
+        this.b = new ArrayList();
+        JSONArray optJSONArray = jSONObject.optJSONArray("reasons");
+        if (optJSONArray == null) {
+            length = 0;
+        } else {
+            length = optJSONArray.length();
+        }
+        for (int i3 = 0; i3 < length; i3++) {
+            a e = a.e(optJSONArray.optJSONObject(i3));
+            if (e != null && e.d()) {
+                u01.b(this.b, e);
+            }
+        }
+        this.c = jSONObject.optString("scheme");
     }
 
-    public final boolean c(AdBaseModel adBaseModel) {
+    public static ep0 a(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, adBaseModel)) == null) {
-            if (adBaseModel != null && !TextUtils.isEmpty(adBaseModel.f.c)) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            return new ep0(jSONObject);
         }
-        return invokeL.booleanValue;
-    }
-
-    public void e(@NonNull dc1 dc1Var, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, dc1Var, str) == null) {
-            RequestParameters.b bVar = new RequestParameters.b();
-            bVar.q(str);
-            bVar.n(this.a);
-            NadRequester.a(bVar.o(), new a(this, dc1Var));
-        }
-    }
-
-    public final void d(@NonNull List<AdBaseModel> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            if (e21.g(list)) {
-                f();
-                return;
-            }
-            AdBaseModel adBaseModel = (AdBaseModel) e21.d(list, 0);
-            if (!c(adBaseModel)) {
-                f();
-            } else {
-                aj0.d(adBaseModel.f.c, rj0.b(), null);
-            }
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            n41.a().showToast(rj0.b(), rj0.b().getString(R.string.nad_reward_video_lp_empty));
-        }
+        return (ep0) invokeL.objValue;
     }
 }

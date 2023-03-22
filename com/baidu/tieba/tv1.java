@@ -1,31 +1,10 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.webkit.ValueCallback;
+import androidx.annotation.NonNull;
 /* loaded from: classes6.dex */
-public interface tv1 extends k82 {
-    boolean canGoBack();
+public interface tv1 {
+    @NonNull
+    uv1 a();
 
-    View covertToView();
-
-    void destroy();
-
-    @Override // com.baidu.tieba.k82
-    void evaluateJavascript(String str, ValueCallback<String> valueCallback);
-
-    int getContentHeight();
-
-    View getCurrentWebView();
-
-    float getScale();
-
-    int getWebViewScrollX();
-
-    int getWebViewScrollY();
-
-    void goBack();
-
-    void setDefaultViewSize(int i, int i2, String str);
-
-    void webViewScrollTo(int i, int i2);
+    void d(String str, tz1 tz1Var);
 }

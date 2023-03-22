@@ -15,7 +15,7 @@ import com.google.android.material.checkbox.MaterialCheckBox;
 import com.google.android.material.radiobutton.MaterialRadioButton;
 import com.google.android.material.textfield.MaterialAutoCompleteTextView;
 import com.google.android.material.textview.MaterialTextView;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MaterialComponentsViewInflater extends AppCompatViewInflater {
     @Override // androidx.appcompat.app.AppCompatViewInflater
     @NonNull

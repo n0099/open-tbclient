@@ -1,15 +1,17 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes3.dex */
-public interface b67 {
-    void a(Context context, f67 f67Var);
+public class b67 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    int b();
+    public abstract void a();
 
-    View getView();
+    public abstract void b(pa9 pa9Var);
 
-    void setData(List<xw6> list);
+    public abstract void c(pa9 pa9Var, int i, d67 d67Var);
+
+    public abstract void d();
 }

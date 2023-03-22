@@ -8,7 +8,7 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import androidx.annotation.Nullable;
-import com.baidu.tieba.rm3;
+import com.baidu.tieba.yk3;
 @SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes3.dex */
 public class BdBaseImageView extends ImageView {
@@ -24,8 +24,8 @@ public class BdBaseImageView extends ImageView {
     @Override // android.view.View
     public void draw(Canvas canvas) {
         if (b()) {
-            rm3.b(getContext(), getDrawable());
-            this.b = rm3.d(getContext());
+            yk3.b(getContext(), getDrawable());
+            this.b = yk3.d(getContext());
             this.a = false;
         }
         super.draw(canvas);
@@ -34,7 +34,7 @@ public class BdBaseImageView extends ImageView {
     @Override // android.widget.ImageView
     public void setImageAlpha(int i) {
         if (a()) {
-            rm3.c(getContext(), getDrawable(), i);
+            yk3.c(getContext(), getDrawable(), i);
         } else {
             super.setImageAlpha(i);
         }
@@ -59,14 +59,14 @@ public class BdBaseImageView extends ImageView {
     }
 
     public final boolean a() {
-        if (Color.alpha(rm3.d(getContext())) != 0) {
+        if (Color.alpha(yk3.d(getContext())) != 0) {
             return true;
         }
         return false;
     }
 
     public final boolean b() {
-        if (!this.a && this.b == rm3.d(getContext())) {
+        if (!this.a && this.b == yk3.d(getContext())) {
             return false;
         }
         return true;

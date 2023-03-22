@@ -1,19 +1,23 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Method;
-/* loaded from: classes5.dex */
-public class qp1 {
+import org.json.JSONObject;
+/* loaded from: classes6.dex */
+public class qp1 implements nr1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Object a;
-    public Class<?> b;
-    public Method c;
+
+    @Override // com.baidu.tieba.nr1
+    public String a(@NonNull String str, JSONObject jSONObject) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jSONObject)) == null) ? str : (String) invokeLL.objValue;
+    }
 
     public qp1() {
         Interceptable interceptable = $ic;
@@ -27,26 +31,5 @@ public class qp1 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public final String a(Context context, Method method) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, method)) == null) {
-            Object obj = this.a;
-            if (obj == null || method == null) {
-                return null;
-            }
-            try {
-                Object invoke = method.invoke(obj, context);
-                if (invoke != null) {
-                    return (String) invoke;
-                }
-                return null;
-            } catch (Throwable unused) {
-                return null;
-            }
-        }
-        return (String) invokeLL.objValue;
     }
 }

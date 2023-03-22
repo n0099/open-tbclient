@@ -1,189 +1,257 @@
 package com.baidu.tieba;
 
+import android.location.Location;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.core.data.TransmitForumData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.yg6;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes4.dex */
-public class dh6 {
+public class dh6 implements yg6.a {
     public static /* synthetic */ Interceptable $ic;
+    public static dh6 j;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public long b;
-    public int c;
-    public long d;
-    public long e;
-    public String f;
-    public long g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
-    public String l;
-    public int m;
-    public double n;
+    public yg6 a;
+    public yg6 b;
+    public ArrayList<TransmitForumData> c;
+    public ArrayList<TransmitForumData> d;
+    public boolean e;
+    public ArrayList<TransmitForumData> f;
+    public boolean g;
+    public int h;
+    public boolean i;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947704599, "Lcom/baidu/tieba/dh6;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947704599, "Lcom/baidu/tieba/dh6;");
+        }
+    }
+
+    public static Location b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return null;
+        }
+        return (Location) invokeV.objValue;
+    }
 
     public dh6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.c = new ArrayList<>();
+        this.e = false;
+        this.g = false;
+        this.i = false;
+        e();
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2016562), yg6.class);
+            if (runTask != null) {
+                this.b = (yg6) runTask.getData();
+            }
+            yg6 yg6Var = this.b;
+            if (yg6Var != null) {
+                yg6Var.a(this);
             }
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.j;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(new CustomMessage<>(2001449), yg6.class);
+            if (runTask != null) {
+                this.a = (yg6) runTask.getData();
+            }
+            yg6 yg6Var = this.a;
+            if (yg6Var != null) {
+                yg6Var.a(this);
+            }
         }
-        return (String) invokeV.objValue;
     }
 
-    public String b() {
+    public static dh6 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (j == null) {
+                synchronized (dh6.class) {
+                    if (j == null) {
+                        j = new dh6();
+                    }
+                }
+            }
+            return j;
+        }
+        return (dh6) invokeV.objValue;
+    }
+
+    public final Location d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.h;
+            return b();
         }
-        return (String) invokeV.objValue;
+        return (Location) invokeV.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.i;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            g();
+            f();
+            this.i = false;
         }
-        return (String) invokeV.objValue;
     }
 
-    public long d() {
-        InterceptResult invokeV;
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return invokeV.longValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.m;
-        }
-        return invokeV.intValue;
-    }
-
-    public long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.e;
-        }
-        return invokeV.longValue;
-    }
-
-    public long g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.g;
-        }
-        return invokeV.longValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public double i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.n;
-        }
-        return invokeV.doubleValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            if (StringUtils.isNull(this.l)) {
-                return this.k;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.i = true;
+            yg6 yg6Var = this.a;
+            if (yg6Var != null) {
+                yg6Var.b();
             }
-            return this.l;
+            yg6 yg6Var2 = this.b;
+            if (yg6Var2 != null) {
+                yg6Var2.b();
+            }
         }
-        return (String) invokeV.objValue;
     }
 
-    public int k() {
-        InterceptResult invokeV;
+    public final void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016563, this.c));
         }
-        return invokeV.intValue;
     }
 
-    public String l() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.yg6.a
+    public void a(ArrayList<TransmitForumData> arrayList, boolean z, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.f;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{arrayList, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            if (i == 1) {
+                if (z) {
+                    this.f = arrayList;
+                }
+                this.g = true;
+            } else if (i == 2) {
+                if (z) {
+                    this.d = arrayList;
+                    this.h = i2;
+                }
+                this.e = true;
+            }
+            j();
         }
-        return (String) invokeV.objValue;
     }
 
-    public long m() {
-        InterceptResult invokeV;
+    public final boolean h(long j2) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048581, this, j2)) == null) {
+            ArrayList<TransmitForumData> arrayList = this.c;
+            if (arrayList == null) {
+                return false;
+            }
+            Iterator<TransmitForumData> it = arrayList.iterator();
+            while (it.hasNext()) {
+                TransmitForumData next = it.next();
+                if (next != null && next.forumId == j2) {
+                    return true;
+                }
+            }
+            return false;
         }
-        return invokeV.longValue;
+        return invokeJ.booleanValue;
     }
 
-    public void n(JSONObject jSONObject) {
+    public final void j() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048589, this, jSONObject) != null) || jSONObject == null) {
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            if (this.a == null || this.e) {
+                if (this.b == null || this.g) {
+                    this.e = false;
+                    this.g = false;
+                    this.i = false;
+                    this.c.clear();
+                    if (!ListUtils.isEmpty(this.d)) {
+                        Iterator<TransmitForumData> it = this.d.iterator();
+                        while (it.hasNext()) {
+                            TransmitForumData next = it.next();
+                            if (!h(next.forumId)) {
+                                this.c.add(next);
+                            }
+                        }
+                    }
+                    if (!ListUtils.isEmpty(this.f)) {
+                        Iterator<TransmitForumData> it2 = this.f.iterator();
+                        while (it2.hasNext()) {
+                            TransmitForumData next2 = it2.next();
+                            if (!h(next2.forumId)) {
+                                this.c.add(next2);
+                            }
+                        }
+                    }
+                    this.d = null;
+                    this.f = null;
+                    k();
+                }
+            }
+        }
+    }
+
+    public void l(ShareDialogConfig shareDialogConfig) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048585, this, shareDialogConfig) != null) || shareDialogConfig == null || shareDialogConfig.shareItem == null || uo5.a()) {
             return;
         }
-        this.a = jSONObject.optString("order_id");
-        jSONObject.optLong(MemberPayActivityConfig.SCENE_ID);
-        this.b = jSONObject.optLong("scores");
-        this.c = jSONObject.optInt("status");
-        this.d = jSONObject.optLong("create_time");
-        this.e = jSONObject.optLong("finish_time");
-        this.f = jSONObject.optString("title");
-        this.g = jSONObject.optLong("money");
-        jSONObject.optString("preg_field");
-        this.k = jSONObject.optString("user_name");
-        this.l = jSONObject.optString("user_nickname");
-        this.h = jSONObject.optString("activity_desc");
-        this.i = jSONObject.optString("activity_url");
-        this.j = jSONObject.optString("button_name");
-        this.m = jSONObject.optInt("price_type", 0);
-        this.n = jSONObject.optDouble("order_yy_amount", 0.0d);
-        jSONObject.optDouble("order_amount", 0.0d);
+        if (shareDialogConfig.showLocation) {
+            shareDialogConfig.shareItem.F = d();
+        }
+        if (hi.F() && TbadkCoreApplication.isLogin() && !shareDialogConfig.mIsAlaLive && !this.i && !shareDialogConfig.shareItem.g()) {
+            i();
+        }
+        shareDialogConfig.setIsShowTransmitShare(true);
+        shareDialogConfig.setTransmitForumList(this.c);
+        shareDialogConfig.setPrivateThread(this.h);
+        MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
     }
 }

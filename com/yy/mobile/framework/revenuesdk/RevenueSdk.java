@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class RevenueSdk {
     public static final String TAG = "RevenueSdk";
     public static Map<String, IRevenue> iRevenueMap = new HashMap();

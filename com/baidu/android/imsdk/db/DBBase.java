@@ -509,14 +509,14 @@ public class DBBase {
             }
             SQLiteDatabase openDatabase = openDatabase();
             try {
-                try {
-                } catch (Exception e) {
-                    LogUtils.e(TAG, "updateBatch", e);
-                }
-                if (openDatabase == null) {
-                    LogUtils.e(TAG, "updateBatch open db = null");
-                    return -1;
-                }
+            } catch (Exception e) {
+                LogUtils.e(TAG, "updateBatch", e);
+            }
+            if (openDatabase == null) {
+                LogUtils.e(TAG, "updateBatch open db = null");
+                return -1;
+            }
+            try {
                 try {
                     openDatabase.beginTransaction();
                     for (UpdateArgs updateArgs : list) {

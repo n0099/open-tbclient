@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
 import com.baidu.mobstat.Config;
-import com.baidu.tieba.j51;
+import com.baidu.tieba.z31;
 import kotlin.Metadata;
 import kotlin.Unit;
 import kotlin.jvm.JvmOverloads;
@@ -43,7 +43,7 @@ public final class NadRewardInterceptFrameLayout extends FrameLayout {
     public NadRewardInterceptFrameLayout(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         Intrinsics.checkNotNullParameter(context, "context");
-        this.f = j51.c.f(context) / 6.0f;
+        this.f = z31.c.f(context) / 6.0f;
     }
 
     public /* synthetic */ NadRewardInterceptFrameLayout(Context context, AttributeSet attributeSet, int i, int i2, DefaultConstructorMarker defaultConstructorMarker) {

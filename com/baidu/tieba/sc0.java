@@ -1,182 +1,214 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.opengl.EGLContext;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.common.param.CommonUrlParamManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
-import java.util.HashMap;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class sc0 {
+public class sc0 implements Cloneable, Comparable<sc0> {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public EGLContext a;
+    public pc0 b;
+    public oc0 c;
+    public mc0 d;
+    public qc0 e;
+    public boolean f;
+    public lc0 g;
+    public rc0 h;
+    public int i;
+    public boolean j;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948146473, "Lcom/baidu/tieba/sc0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public sc0(EGLContext eGLContext, int i, boolean z) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {eGLContext, Integer.valueOf(i), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948146473, "Lcom/baidu/tieba/sc0;");
-        }
+        this.a = eGLContext;
+        this.i = i;
+        this.j = z;
+        this.b = new pc0();
+        this.c = new oc0();
+        this.d = new nc0();
+        this.e = new qc0();
+        this.f = false;
+        this.g = null;
+        this.h = new rc0();
     }
 
-    public static String a(String str, Map<String, String> map) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: a */
+    public sc0 clone() {
+        sc0 sc0Var;
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, map)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                String f = f(map);
-                if (!TextUtils.isEmpty(f)) {
-                    if (str.contains("?")) {
-                        return str + "&" + f;
-                    }
-                    return str + "?" + f;
-                }
-                return str;
-            }
-            return str;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            if (!a) {
-                c();
-            }
-            return e(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            int indexOf = str.indexOf("?");
-            if (indexOf <= 0) {
-                return null;
-            }
-            return str.substring(indexOf + 1);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (b) {
-                return CommonUrlParamManager.getInstance().appendParam(str, 1);
-            }
-            return CommonUrlParamManager.getInstance().processUrl(str);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                boolean z = false;
-                if (Class.forName("com.baidu.common.param.CommonUrlParamManager").getMethod("appendParam", String.class, Integer.TYPE) != null) {
-                    z = true;
-                }
-                b = z;
-            } catch (ClassNotFoundException e) {
+                sc0Var = (sc0) super.clone();
+            } catch (CloneNotSupportedException e) {
                 e.printStackTrace();
-            } catch (NoSuchMethodException e2) {
-                e2.printStackTrace();
+                sc0Var = null;
             }
-            a = true;
+            if (sc0Var != null) {
+                sc0Var.n(this.e.clone());
+                sc0Var.q(this.h.clone());
+            }
+            return sc0Var;
+        }
+        return (sc0) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: b */
+    public int compareTo(sc0 sc0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, sc0Var)) == null) {
+            if (this.i < sc0Var.d()) {
+                return -1;
+            }
+            return 1;
+        }
+        return invokeL.intValue;
+    }
+
+    public void n(qc0 qc0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, qc0Var) == null) {
+            this.e = qc0Var;
         }
     }
 
-    public static String f(Map<String, String> map) {
-        InterceptResult invokeL;
-        String encode;
-        String str;
+    public void o(EGLContext eGLContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, map)) == null) {
-            if (map == null) {
-                return "";
-            }
-            StringBuilder sb = new StringBuilder();
-            for (String str2 : map.keySet()) {
-                if (sb.length() > 0) {
-                    sb.append("&");
-                }
-                String str3 = map.get(str2);
-                if (str2 == null) {
-                    encode = "";
-                } else {
-                    try {
-                        encode = URLEncoder.encode(str2, "UTF-8");
-                    } catch (UnsupportedEncodingException e) {
-                        e.printStackTrace();
-                    }
-                }
-                sb.append(encode);
-                sb.append("=");
-                if (str3 == null) {
-                    str = "";
-                } else {
-                    str = URLEncoder.encode(str3, "UTF-8");
-                }
-                sb.append(str);
-            }
-            return sb.toString();
+        if (interceptable == null || interceptable.invokeL(1048591, this, eGLContext) == null) {
+            this.a = eGLContext;
         }
-        return (String) invokeL.objValue;
     }
 
-    public static Map<String, String> g(String str) {
-        InterceptResult invokeL;
-        String str2;
+    public void p(lc0 lc0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            HashMap hashMap = new HashMap();
-            for (String str3 : str.split("&")) {
-                String[] split = str3.split("=");
-                try {
-                    String decode = URLDecoder.decode(split[0], "UTF-8");
-                    if (split.length > 1) {
-                        str2 = URLDecoder.decode(split[1], "UTF-8");
-                    } else {
-                        str2 = "";
-                    }
-                    hashMap.put(decode, str2);
-                } catch (UnsupportedEncodingException unused) {
-                }
-            }
-            return hashMap;
+        if (interceptable == null || interceptable.invokeL(1048592, this, lc0Var) == null) {
+            this.g = lc0Var;
         }
-        return (Map) invokeL.objValue;
+    }
+
+    public void q(rc0 rc0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, rc0Var) == null) {
+            this.h = rc0Var;
+        }
+    }
+
+    public void r(pc0 pc0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, pc0Var) == null) {
+            this.b = pc0Var;
+        }
+    }
+
+    public qc0 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return (qc0) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.i;
+        }
+        return invokeV.intValue;
+    }
+
+    public mc0 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d;
+        }
+        return (mc0) invokeV.objValue;
+    }
+
+    public EGLContext f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a;
+        }
+        return (EGLContext) invokeV.objValue;
+    }
+
+    public lc0 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.g;
+        }
+        return (lc0) invokeV.objValue;
+    }
+
+    public rc0 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.h;
+        }
+        return (rc0) invokeV.objValue;
+    }
+
+    public oc0 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.c;
+        }
+        return (oc0) invokeV.objValue;
+    }
+
+    public pc0 k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.b;
+        }
+        return (pc0) invokeV.objValue;
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.j;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
     }
 }

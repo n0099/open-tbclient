@@ -1,18 +1,23 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
+import android.graphics.Canvas;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public final class s12 {
+public class s12 extends z02 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vt2 a;
+
+    @Override // com.baidu.tieba.z02
+    public void b(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+        }
+    }
 
     public s12() {
         Interceptable interceptable = $ic;
@@ -24,25 +29,20 @@ public final class s12 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new vt2();
     }
 
-    public void a(Activity activity) {
+    @Override // com.baidu.tieba.z02
+    public void a(a12 a12Var, Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            this.a.a(activity);
-        }
-    }
-
-    public void b(ug2 ug2Var, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ug2Var, context) == null) {
-            UnitedSchemeMainDispatcher unitedSchemeMainDispatcher = new UnitedSchemeMainDispatcher();
-            this.a.e(ug2Var, context, ug2Var, unitedSchemeMainDispatcher);
-            fa3.a(unitedSchemeMainDispatcher);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, a12Var, canvas) == null) {
+            a12Var.e();
+            try {
+                canvas.restore();
+            } catch (IllegalStateException e) {
+                t42.d("Canvas", "Underflow in restore - more restores than saves, please check", e);
+            }
         }
     }
 }

@@ -1,46 +1,34 @@
 package com.baidu.tieba;
 
-import android.database.sqlite.SQLiteDatabase;
-import android.text.TextUtils;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.tieba.advert.sdk.data.AdLoadState;
 /* loaded from: classes4.dex */
-public class f06 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile SQLiteDatabase a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface f06 {
+    public static final boolean a;
 
-    public static synchronized void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            synchronized (f06.class) {
-                fj.b(a);
-            }
-        }
-    }
+    void a();
 
-    public static synchronized SQLiteDatabase b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (f06.class) {
-                try {
-                } catch (Exception e) {
-                    TiebaStatic.printDBExceptionLog(e, "RelationshipDbManager.getRelationshipDataBase", new Object[0]);
-                }
-                if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                    return null;
-                }
-                if (a != null && a.isOpen()) {
-                    return a;
-                }
-                a = new e06(TbadkCoreApplication.getInst().getApp()).getWritableDatabase();
-                return a;
-            }
+    boolean b();
+
+    String c();
+
+    AdLoadState d();
+
+    void destroy();
+
+    void e(et4 et4Var);
+
+    String f();
+
+    void show();
+
+    static {
+        boolean z;
+        if (!TbadkCoreApplication.getInst().isDebugMode() && !hv4.h()) {
+            z = false;
+        } else {
+            z = true;
         }
-        return (SQLiteDatabase) invokeV.objValue;
+        a = z;
     }
 }

@@ -1,13 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.i30;
+import com.baidu.searchbox.network.outback.core.Request;
+import com.baidu.searchbox.network.outback.core.Response;
+import com.baidu.tieba.z50;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.net.URISyntaxException;
 /* loaded from: classes5.dex */
-public class q60 implements i30.a {
+public class q60 implements z50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,13 +29,24 @@ public class q60 implements i30.a {
         }
     }
 
-    @Override // com.baidu.tieba.i30.a
-    public h30 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.z50
+    public Response a(z50.a aVar) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new k30(true);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+            Request request = aVar.request();
+            try {
+                return aVar.a(request);
+            } catch (RuntimeException e) {
+                if (e.getCause() != null && (e.getCause() instanceof URISyntaxException)) {
+                    throw new IOException(e);
+                }
+                if ((e instanceof IllegalStateException) && e.getMessage().contains("Unexpected readData call. Buffer is null")) {
+                    throw new IOException(e);
+                }
+                throw new RuntimeException(e.getMessage() + " request url == " + request.url(), e);
+            }
         }
-        return (h30) invokeV.objValue;
+        return (Response) invokeL.objValue;
     }
 }

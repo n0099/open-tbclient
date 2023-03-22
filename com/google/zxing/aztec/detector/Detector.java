@@ -1,5 +1,6 @@
 package com.google.zxing.aztec.detector;
 
+import com.baidu.cyberplayer.sdk.rtc.RTCConst;
 import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
 import com.google.zxing.NotFoundException;
 import com.google.zxing.ResultPoint;
@@ -13,7 +14,7 @@ import com.google.zxing.common.reedsolomon.ReedSolomonDecoder;
 import com.google.zxing.common.reedsolomon.ReedSolomonException;
 /* loaded from: classes8.dex */
 public final class Detector {
-    public static final int[] EXPECTED_CORNER_BITS = {3808, 476, 2107, 1799};
+    public static final int[] EXPECTED_CORNER_BITS = {3808, 476, RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL7, 1799};
     public boolean compact;
     public final BitMatrix image;
     public int nbCenterLayers;

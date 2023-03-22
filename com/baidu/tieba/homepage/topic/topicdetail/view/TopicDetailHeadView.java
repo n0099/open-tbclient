@@ -15,10 +15,10 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
+import com.baidu.tieba.hi;
 import com.baidu.tieba.homepage.topic.topictab.view.TopicPkView;
-import com.baidu.tieba.jj7;
-import com.baidu.tieba.nj7;
+import com.baidu.tieba.qk7;
+import com.baidu.tieba.uk7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -108,62 +108,62 @@ public class TopicDetailHeadView extends RelativeLayout {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08f0, (ViewGroup) this, true);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f092459);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d090e, (ViewGroup) this, true);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0924b4);
             this.b = tbImageView;
             tbImageView.setDrawingCacheEnabled(true);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09245b);
-            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09245d);
-            this.e = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09245c);
-            this.f = findViewById(R.id.obfuscated_res_0x7f09245e);
-            this.g = (TopicPkView) findViewById(R.id.obfuscated_res_0x7f09245f);
-            this.h = (TopicTimelineView) findViewById(R.id.obfuscated_res_0x7f092460);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0924b6);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0924b8);
+            this.e = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0924b7);
+            this.f = findViewById(R.id.obfuscated_res_0x7f0924b9);
+            this.g = (TopicPkView) findViewById(R.id.obfuscated_res_0x7f0924ba);
+            this.h = (TopicTimelineView) findViewById(R.id.obfuscated_res_0x7f0924bb);
             ViewGroup.LayoutParams layoutParams = this.e.getLayoutParams();
-            layoutParams.height = ((ej.l(getContext()) - ej.g(getContext(), R.dimen.tbds88)) * 9) / 16;
+            layoutParams.height = ((hi.l(getContext()) - hi.g(getContext(), R.dimen.tbds88)) * 9) / 16;
             this.e.setLayoutParams(layoutParams);
-            this.e.setRadius(ej.g(context, R.dimen.tbds10));
+            this.e.setRadius(hi.g(context, R.dimen.tbds10));
             this.e.setConrers(15);
             this.e.setPlaceHolder(3);
             b();
         }
     }
 
-    public void setData(jj7 jj7Var) {
+    public void setData(qk7 qk7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, jj7Var) == null) {
-            if (jj7Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, qk7Var) == null) {
+            if (qk7Var == null) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            if (jj7Var.e == null && StringUtils.isNull(jj7Var.c)) {
-                ((LinearLayout.LayoutParams) this.c.getLayoutParams()).bottomMargin = ej.g(getContext(), R.dimen.tbds130);
+            if (qk7Var.e == null && StringUtils.isNull(qk7Var.c)) {
+                ((LinearLayout.LayoutParams) this.c.getLayoutParams()).bottomMargin = hi.g(getContext(), R.dimen.tbds130);
             }
-            this.c.setText(jj7Var.b);
-            if (StringUtils.isNull(jj7Var.c)) {
+            this.c.setText(qk7Var.b);
+            if (StringUtils.isNull(qk7Var.c)) {
                 this.d.setVisibility(8);
-                this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0812b2);
+                this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0812cc);
             } else {
                 this.d.setVisibility(0);
-                this.e.K(jj7Var.c, 10, false);
-                this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0812b3);
+                this.e.M(qk7Var.c, 10, false);
+                this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0812cd);
             }
-            if (jj7Var.e == null) {
+            if (qk7Var.e == null) {
                 this.f.setVisibility(8);
                 this.g.setVisibility(8);
             } else {
                 this.f.setVisibility(0);
                 this.g.setVisibility(0);
-                this.g.setData(jj7Var.e);
+                this.g.setData(qk7Var.e);
             }
-            nj7 nj7Var = jj7Var.f;
-            if (nj7Var != null && !ListUtils.isEmpty(nj7Var.b)) {
+            uk7 uk7Var = qk7Var.f;
+            if (uk7Var != null && !ListUtils.isEmpty(uk7Var.b)) {
                 this.h.setVisibility(0);
-                this.h.setData(jj7Var.f);
+                this.h.setData(qk7Var.f);
             } else {
                 this.h.setVisibility(8);
             }
-            this.b.K(jj7Var.d, 10, false);
+            this.b.M(qk7Var.d, 10, false);
         }
     }
 

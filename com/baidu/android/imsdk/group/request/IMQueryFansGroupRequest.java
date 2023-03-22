@@ -15,7 +15,9 @@ import com.baidu.android.imsdk.group.db.GroupInfoDAOImpl;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.android.imsdk.internal.ListenerManager;
 import com.baidu.android.imsdk.task.TaskManager;
+import com.baidu.android.imsdk.ubc.ScreenUbc;
 import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.android.imsdk.utils.Utility;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -35,6 +37,7 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<String> mGroupIds;
     public String mKey;
+    public ScreenUbc.MethodInfo mScreenInfo;
 
     @Override // com.baidu.android.imsdk.utils.HttpHelper.Request
     public String getContentType() {
@@ -47,7 +50,7 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
     public boolean shouldAbort() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -81,21 +84,20 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
             this.this$0 = iMQueryFansGroupRequest;
         }
 
-        /* JADX WARN: Removed duplicated region for block: B:44:0x01e9  */
-        /* JADX WARN: Removed duplicated region for block: B:60:? A[RETURN, SYNTHETIC] */
+        /* JADX WARN: Removed duplicated region for block: B:41:0x01e3  */
+        /* JADX WARN: Removed duplicated region for block: B:58:? A[RETURN, SYNTHETIC] */
         @Override // com.baidu.android.imsdk.task.TaskManager.Task, java.lang.Runnable
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void run() {
-            ArrayList arrayList;
             String str;
             int i;
             IMListener removeListener;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 Mytask mytask = this;
-                ArrayList arrayList2 = new ArrayList();
+                ArrayList arrayList = new ArrayList();
                 try {
                     JSONObject jSONObject = new JSONObject(mytask.mJson);
                     int i2 = jSONObject.getInt("error_code");
@@ -110,15 +112,15 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
                             int optInt = jSONObject2.optInt("group_type");
                             int optInt2 = jSONObject2.optInt("group_num");
                             long optLong2 = jSONObject2.optLong("create_time");
-                            int i4 = i2;
+                            int i4 = i3;
                             long optLong3 = jSONObject2.optLong("bd_uid");
+                            int i5 = i2;
                             String str2 = optString;
-                            int i5 = i3;
                             long optLong4 = jSONObject2.optLong("uk");
                             JSONArray jSONArray2 = jSONArray;
                             int optInt3 = jSONObject2.optInt("status", -1);
                             String trim = jSONObject2.optString("group_image").trim();
-                            ArrayList arrayList3 = arrayList2;
+                            ArrayList arrayList2 = arrayList;
                             try {
                                 String optString3 = jSONObject2.optString(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_NOTICE);
                                 String optString4 = jSONObject2.optString(DBTableDefine.GroupInfoColumns.COLUMN_GROUP_DESC);
@@ -170,56 +172,49 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
                                         groupInfo.setWelcomeJsonTxt(optString7);
                                         mytask = this;
                                         mytask.this$0.updateGroupInfo(optLong, optInt3, optInt7, groupInfo);
-                                        arrayList = arrayList3;
-                                        try {
-                                            arrayList.add(groupInfo);
-                                            i3 = i5 + 1;
-                                            arrayList2 = arrayList;
-                                            i2 = i4;
-                                            optString = str2;
-                                            jSONArray = jSONArray2;
-                                        } catch (JSONException e) {
-                                            e = e;
-                                            LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e);
-                                            i = 1010;
-                                            str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
-                                            removeListener = ListenerManager.getInstance().removeListener(mytask.this$0.mKey);
-                                            if (removeListener instanceof BIMValueCallBack) {
-                                            }
-                                        }
-                                    } catch (JSONException e2) {
-                                        e = e2;
+                                        arrayList = arrayList2;
+                                        arrayList.add(groupInfo);
+                                        i3 = i4 + 1;
+                                        i2 = i5;
+                                        optString = str2;
+                                        jSONArray = jSONArray2;
+                                    } catch (JSONException e) {
+                                        e = e;
                                         mytask = this;
-                                        arrayList = arrayList3;
+                                        arrayList = arrayList2;
                                         LogUtils.e(LogUtils.TAG, "IMCreateGroupRequest JSONException", e);
                                         i = 1010;
                                         str = Constants.ERROR_MSG_JSON_PARSE_EXCEPTION;
                                         removeListener = ListenerManager.getInstance().removeListener(mytask.this$0.mKey);
-                                        if (removeListener instanceof BIMValueCallBack) {
+                                        if (!(removeListener instanceof BIMValueCallBack)) {
                                         }
                                     }
                                 }
-                                arrayList = arrayList3;
-                                i3 = i5 + 1;
-                                arrayList2 = arrayList;
-                                i2 = i4;
+                                arrayList = arrayList2;
+                                i3 = i4 + 1;
+                                i2 = i5;
                                 optString = str2;
                                 jSONArray = jSONArray2;
-                            } catch (JSONException e3) {
-                                e = e3;
+                            } catch (JSONException e2) {
+                                e = e2;
                             }
                         }
                     }
-                    arrayList = arrayList2;
                     i = i2;
                     str = optString;
-                } catch (JSONException e4) {
-                    e = e4;
-                    arrayList = arrayList2;
+                } catch (JSONException e3) {
+                    e = e3;
                 }
                 removeListener = ListenerManager.getInstance().removeListener(mytask.this$0.mKey);
-                if (removeListener instanceof BIMValueCallBack) {
+                if (!(removeListener instanceof BIMValueCallBack)) {
                     ((BIMValueCallBack) removeListener).onResult(i, str, arrayList);
+                    if (mytask.this$0.mScreenInfo == null) {
+                        return;
+                    }
+                    mytask.this$0.mScreenInfo.errCode = 0;
+                    mytask.this$0.mScreenInfo.errMsg = "IMQueryFansGroupRequest_Sucess!";
+                    mytask.this$0.mScreenInfo.endTime = System.currentTimeMillis();
+                    ScreenUbc.onEvent(mytask.this$0.mContext, "getFanGroupData", mytask.this$0.mScreenInfo);
                 }
             }
         }
@@ -257,10 +252,17 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
         }
     }
 
+    public void setScreenInfo(ScreenUbc.MethodInfo methodInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, methodInfo) == null) {
+            this.mScreenInfo = methodInfo;
+        }
+    }
+
     /* JADX INFO: Access modifiers changed from: private */
     public void updateGroupInfo(long j, int i, int i2, GroupInfo groupInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65542, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), groupInfo}) != null) || i == 1) {
+        if ((interceptable != null && interceptable.invokeCommon(65544, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2), groupInfo}) != null) || i == 1) {
             return;
         }
         String valueOf = String.valueOf(j);
@@ -279,7 +281,7 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
     private void updateGroupSession(long j, String str, String str2) {
         ChatSession chatRecord;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65543, this, new Object[]{Long.valueOf(j), str, str2}) == null) && (chatRecord = ChatMessageDBManager.getInstance(this.mContext).getChatRecord(1, j)) != null) {
+        if ((interceptable == null || interceptable.invokeCommon(65545, this, new Object[]{Long.valueOf(j), str, str2}) == null) && (chatRecord = ChatMessageDBManager.getInstance(this.mContext).getChatRecord(1, j)) != null) {
             if (!TextUtils.equals(str, chatRecord.getName()) || !TextUtils.equals(str2, chatRecord.getIconUrl())) {
                 chatRecord.setName(str);
                 chatRecord.setIconUrl(str2);
@@ -319,6 +321,10 @@ public class IMQueryFansGroupRequest extends FansGroupBaseHttpRequest {
         if (interceptable == null || interceptable.invokeIL(1048579, this, i, bArr) == null) {
             String str = new String(bArr);
             LogUtils.d(TAG, "IMQueryFansGroupRequest " + this.mGroupIds + " json is " + str);
+            ScreenUbc.MethodInfo methodInfo = this.mScreenInfo;
+            if (methodInfo != null) {
+                Utility.addEventList(methodInfo.eventList, "IMQueryFansGroupRequest_onResult");
+            }
             TaskManager.getInstance(this.mContext).submitForNetWork(new Mytask(this, this.mKey, str));
         }
     }

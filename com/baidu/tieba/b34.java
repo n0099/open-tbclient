@@ -1,17 +1,16 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class b34 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
+    @V8JavascriptField
+    public long duration;
 
     public b34() {
         Interceptable interceptable = $ic;
@@ -25,26 +24,5 @@ public class b34 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public static b34 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            b34 b34Var = new b34();
-            b34Var.a = jSONObject.optInt("state");
-            b34Var.b = jSONObject.optString("msg");
-            return b34Var;
-        }
-        return (b34) invokeL.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "CheckPayAuthModel{state=" + this.a + ", msg='" + this.b + "'}";
-        }
-        return (String) invokeV.objValue;
     }
 }

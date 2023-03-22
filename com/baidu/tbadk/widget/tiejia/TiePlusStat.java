@@ -7,9 +7,9 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.rq5;
-import com.baidu.tieba.tq5;
-import com.baidu.tieba.vt4;
+import com.baidu.tieba.cs4;
+import com.baidu.tieba.pp5;
+import com.baidu.tieba.rp5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -23,8 +23,8 @@ import tbclient.TiebaPlusInfo;
 /* loaded from: classes3.dex */
 public final class TiePlusStat {
     public static /* synthetic */ Interceptable $ic;
-    public static final tq5<Integer> a;
-    public static final tq5<Integer> b;
+    public static final rp5<Integer> a;
+    public static final rp5<Integer> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -225,7 +225,7 @@ public final class TiePlusStat {
                         landingType = null;
                         break;
                 }
-                rq5.b(landingType);
+                pp5.b(landingType);
                 return landingType;
             }
             return (LandingType) invokeI.objValue;
@@ -328,6 +328,8 @@ public final class TiePlusStat {
         public static /* synthetic */ Interceptable $ic = null;
         public static final RichTextType BIG_CARD;
         public static final RichTextType CARD;
+        public static final RichTextType CONVERSION_BAR_FULL;
+        public static final RichTextType CONVERSION_BAR_PART;
         public static final RichTextType LINK;
         public static final RichTextType MESSAGE;
         public static final String STAT_KEY = "c_type";
@@ -350,9 +352,11 @@ public final class TiePlusStat {
             LINK = new RichTextType("LINK", 0, 1);
             CARD = new RichTextType("CARD", 1, 2);
             MESSAGE = new RichTextType("MESSAGE", 2, 3);
-            RichTextType richTextType = new RichTextType("BIG_CARD", 3, 4);
-            BIG_CARD = richTextType;
-            $VALUES = new RichTextType[]{LINK, CARD, MESSAGE, richTextType};
+            BIG_CARD = new RichTextType("BIG_CARD", 3, 4);
+            CONVERSION_BAR_PART = new RichTextType("CONVERSION_BAR_PART", 4, 5);
+            RichTextType richTextType = new RichTextType("CONVERSION_BAR_FULL", 5, 6);
+            CONVERSION_BAR_FULL = richTextType;
+            $VALUES = new RichTextType[]{LINK, CARD, MESSAGE, BIG_CARD, CONVERSION_BAR_PART, richTextType};
         }
 
         public RichTextType(String str, int i, int i2) {
@@ -439,8 +443,8 @@ public final class TiePlusStat {
                     return;
                 }
             }
-            EXPOSE = new StatType("EXPOSE", 0, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_EXPOSE, vt4.h);
-            CLICK = new StatType("CLICK", 1, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_CLICK, vt4.i);
+            EXPOSE = new StatType("EXPOSE", 0, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_EXPOSE, cs4.h);
+            CLICK = new StatType("CLICK", 1, CommonStatisticKey.KEY_TIE_PLUS_RICH_TEXT_CLICK, cs4.i);
             DIALOG_EXPOSE = new StatType("DIALOG_EXPOSE", 2, CommonStatisticKey.KEY_TIE_PLUS_DIALOG_EXPOSE, -1);
             DIALOG_CLICK = new StatType("DIALOG_CLICK", 3, CommonStatisticKey.kEY_TIE_PLUS_DIAGLO_CLICK, -1);
             DOWNLOAD_FINISHED = new StatType("DOWNLOAD_FINISHED", 4, CommonStatisticKey.KEY_TIE_PLUS_DOWNLOAD_FINISHED, -1);
@@ -661,8 +665,8 @@ public final class TiePlusStat {
                 return;
             }
         }
-        a = new tq5<>(3000, TimeUnit.MILLISECONDS);
-        b = new tq5<>(3000, TimeUnit.MILLISECONDS);
+        a = new rp5<>(3000, TimeUnit.MILLISECONDS);
+        b = new rp5<>(3000, TimeUnit.MILLISECONDS);
     }
 
     public static int a(@NonNull TiebaPlusInfo tiebaPlusInfo, @Nullable Object obj) {
@@ -712,7 +716,7 @@ public final class TiePlusStat {
             if (statType == StatType.EXPOSE && !b.a(Integer.valueOf(i))) {
                 return;
             }
-            vt4.a(statType.billingTypeValue, locate.statValue, str, str2, str3, i2);
+            cs4.a(statType.billingTypeValue, locate.statValue, str, str2, str3, i2);
         }
     }
 

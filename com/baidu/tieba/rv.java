@@ -1,14 +1,13 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.BDPTask;
-import com.baidu.bdtask.component.dialog.TaskDialogViewData;
-import com.baidu.bdtask.ui.components.dialog.DoubleBtnDialog;
-import com.baidu.bdtask.ui.components.dialog.SingleBtnDialog;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import android.content.SharedPreferences;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.browser.core.util.BdLog;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,100 +15,180 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public final class rv extends it<lq> {
+public final class rv {
     public static /* synthetic */ Interceptable $ic;
+    public static ConcurrentHashMap<String, ConcurrentHashMap<String, Object>> a;
+    public static b b;
+    public static volatile boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static final class a<T> implements nt<TaskDialogViewData> {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
-        public static final a a;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b extends Handler {
+        public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(262630732, "Lcom/baidu/tieba/rv$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(262630732, "Lcom/baidu/tieba/rv$a;");
-                    return;
-                }
-            }
-            a = new a();
-        }
-
-        public a() {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(Looper looper) {
+            super(looper);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
+                newInitContext.initArgs = r2;
+                Object[] objArr = {looper};
+                interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.nt
-        /* renamed from: a */
-        public final void onChanged(TaskDialogViewData taskDialogViewData) {
-            Context context;
-            Class cls;
-            ts h;
+        public /* synthetic */ b(Looper looper, a aVar) {
+            this(looper);
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, taskDialogViewData) == null) && taskDialogViewData != null) {
-                tu v = BDPTask.m.v();
-                if (v != null && (h = v.h()) != null) {
-                    context = h.getAppContext();
-                } else {
-                    context = null;
-                }
-                if (taskDialogViewData.getShowType() == 1) {
-                    cls = SingleBtnDialog.class;
-                } else {
-                    cls = DoubleBtnDialog.class;
-                }
-                Intent intent = new Intent(context, cls);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("data", taskDialogViewData);
-                intent.putExtras(bundle);
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                if (context != null) {
-                    context.startActivity(intent);
-                }
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 0) {
+                rv.d();
+                rv.b.sendEmptyMessageDelayed(0, 15000L);
             }
         }
     }
 
-    public rv() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448316393, "Lcom/baidu/tieba/rv;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1448316393, "Lcom/baidu/tieba/rv;");
+                return;
+            }
+        }
+        a = new ConcurrentHashMap<>();
+        c = false;
+        b bVar = new b(vv.a("PreferenceQueue").getLooper(), null);
+        b = bVar;
+        bVar.sendEmptyMessageDelayed(0, 15000L);
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65542, null) == null) && !b.hasMessages(0)) {
+            b.sendEmptyMessageDelayed(0, 15000L);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jt
-    /* renamed from: b */
-    public void a(lq lqVar) {
+    public static void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lqVar) == null) {
-            lqVar.a().l(a.a);
+        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
+            Log.d("BdPreferenceQueueWorker", "wait to finish");
+            b.removeMessages(0);
+            d();
+            f();
+        }
+    }
+
+    public static void c(String str, String str2, Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(65539, null, str, str2, obj) != null) || str == null) {
+            return;
+        }
+        if (a.containsKey(str)) {
+            ConcurrentHashMap<String, Object> concurrentHashMap = a.get(str);
+            if (concurrentHashMap != null) {
+                if (obj != null) {
+                    concurrentHashMap.put(str2, obj);
+                } else {
+                    concurrentHashMap.remove(str2);
+                }
+            } else if (obj != null && str2 != null) {
+                ConcurrentHashMap<String, Object> concurrentHashMap2 = new ConcurrentHashMap<>();
+                concurrentHashMap2.put(str2, obj);
+                a.put(str, concurrentHashMap2);
+            }
+        } else if (obj != null && str2 != null) {
+            ConcurrentHashMap<String, Object> concurrentHashMap3 = new ConcurrentHashMap<>();
+            concurrentHashMap3.put(str2, obj);
+            a.put(str, concurrentHashMap3);
+        }
+    }
+
+    public static void d() {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) != null) || c) {
+            return;
+        }
+        c = true;
+        try {
+            try {
+                Context baseContext = nv.a().getBaseContext();
+                BdLog.a("BdPreferenceQueueWorker", "pending work category: " + a.size());
+                for (String str : a.keySet()) {
+                    ConcurrentHashMap<String, Object> concurrentHashMap = a.get(str);
+                    if (concurrentHashMap != null && concurrentHashMap.size() > 0) {
+                        SharedPreferences.Editor edit = baseContext.getSharedPreferences(str, 0).edit();
+                        i = 0;
+                        for (String str2 : concurrentHashMap.keySet()) {
+                            Object obj = concurrentHashMap.get(str2);
+                            if (obj != null) {
+                                if (obj instanceof Integer) {
+                                    edit.putInt(str2, ((Integer) obj).intValue());
+                                } else if (obj instanceof Long) {
+                                    edit.putLong(str2, ((Long) obj).longValue());
+                                } else if (obj instanceof Float) {
+                                    edit.putFloat(str2, ((Float) obj).floatValue());
+                                } else if (obj instanceof Boolean) {
+                                    edit.putBoolean(str2, ((Boolean) obj).booleanValue());
+                                } else if (obj instanceof String) {
+                                    edit.putString(str2, (String) obj);
+                                } else if (obj instanceof Set) {
+                                    edit.putStringSet(str2, (Set) obj);
+                                }
+                                i++;
+                            }
+                        }
+                        edit.commit();
+                    } else {
+                        i = 0;
+                    }
+                    concurrentHashMap.clear();
+                    if (i > 0) {
+                        BdLog.a("BdPreferenceQueueWorker", str + ".xml " + i + " items have been wroten");
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } finally {
+            c = false;
+        }
+    }
+
+    public static void e(String str) {
+        ConcurrentHashMap<String, Object> concurrentHashMap;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65541, null, str) == null) && str != null && (concurrentHashMap = a.get(str)) != null) {
+            concurrentHashMap.clear();
         }
     }
 }

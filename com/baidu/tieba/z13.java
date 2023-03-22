@@ -1,115 +1,123 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Pair;
-import androidx.annotation.NonNull;
+import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.f23;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.tieba.yp2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class z13 extends x13 {
+public class z13 implements mm3<HybridUbcFlow> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.px1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "PaymentApi" : (String) invokeV.objValue;
-    }
-
     /* loaded from: classes7.dex */
-    public class a implements f23.d {
+    public class a implements mm3<HybridUbcFlow> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ z13 b;
 
-        public a(z13 z13Var, String str) {
+        public a(z13 z13Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {z13Var, str};
+                Object[] objArr = {z13Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.b = z13Var;
-            this.a = str;
         }
 
-        @Override // com.baidu.tieba.f23.d
-        public void a(@NonNull m12 m12Var) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.mm3
+        /* renamed from: b */
+        public void a(HybridUbcFlow hybridUbcFlow) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, m12Var) == null) {
-                this.b.d(this.a, m12Var);
+            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) != null) || z13.b(hybridUbcFlow)) {
+                return;
             }
+            long f = hybridUbcFlow.f("na_first_meaningful_paint", "naStart");
+            if (f <= 0) {
+                f = hybridUbcFlow.f("na_first_paint", "naStart");
+            }
+            if (f <= 0) {
+                f = hybridUbcFlow.f("slave_first_rendered", "naStart");
+            }
+            if (f <= 0) {
+                f = hybridUbcFlow.f("fe_page_show", "naStart");
+            }
+            if (f <= 0) {
+                f = hybridUbcFlow.f("na_page_show", "naStart");
+            }
+            if (f <= 0) {
+                f = hybridUbcFlow.f("na_receive_intent", "naStart");
+            }
+            if (f <= 0) {
+                f = System.currentTimeMillis();
+            }
+            Bundle bundle = new Bundle();
+            bundle.putLong("property_launch_cost", f);
+            j43 e = j43.e();
+            l43 l43Var = new l43(20, bundle);
+            l43Var.f(true);
+            e.h(l43Var);
+            g13.h().end(f);
+            w13.e().f();
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z13(@NonNull nx1 nx1Var) {
-        super(nx1Var);
+    public z13() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {nx1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((nx1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public m12 x(String str) {
+    public static boolean b(HybridUbcFlow hybridUbcFlow) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#requestThirdPayment", false);
-            m93 b0 = m93.b0();
-            if (b0 == null) {
-                return new m12(1001, "swan app is null");
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, hybridUbcFlow)) == null) {
+            if (hybridUbcFlow.p("performanceEnd") && !hybridUbcFlow.p("na_first_meaningful_paint")) {
+                return true;
             }
-            SwanAppActivity w = b0.w();
-            if (w == null) {
-                return new m12(1001, "swan activity is null");
-            }
-            Pair<m12, JSONObject> s = s(str);
-            m12 m12Var = (m12) s.first;
-            if (!m12Var.isSuccess()) {
-                return m12Var;
-            }
-            JSONObject jSONObject = (JSONObject) s.second;
-            String optString = jSONObject.optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                return new m12(202, "cb is empty");
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("orderInfo");
-            String optString2 = jSONObject.optString("invokeFrom");
-            if (TextUtils.isEmpty(optString2)) {
-                optString2 = "api";
-            }
-            new f23(b0, w, new a(this, optString)).n(optJSONObject, optString2);
-            return m12.f();
+            return false;
         }
-        return (m12) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.mm3
+    /* renamed from: c */
+    public void a(HybridUbcFlow hybridUbcFlow) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
+            hybridUbcFlow.J("670");
+            hybridUbcFlow.D("preload_scene", "1");
+            hybridUbcFlow.E("from", "swan");
+            hybridUbcFlow.H("component_reporter", new u03());
+            hybridUbcFlow.H("component_reporter", new xz2());
+            hybridUbcFlow.H("component_reporter", new r03());
+            hybridUbcFlow.H("component_reporter", new w03());
+            hybridUbcFlow.H("callback_on_submit", new yp2.a());
+            hybridUbcFlow.H("fmp_callback", new c23("fmp_callback"));
+            hybridUbcFlow.H("fmp_callback", new q23());
+            hybridUbcFlow.H("callback_on_submit", new c23("callback_on_submit"));
+            hybridUbcFlow.H("callback_on_submit", new rj3());
+            hybridUbcFlow.H("callback_on_submit", new a(this));
+        }
     }
 }

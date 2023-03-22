@@ -3,9 +3,9 @@ package com.baidu.tieba.frs.itemtab;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.gk5;
-import com.baidu.tieba.mq5;
+import com.baidu.tieba.dj5;
+import com.baidu.tieba.hi;
+import com.baidu.tieba.kp5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,13 +15,13 @@ import java.util.HashMap;
 import tbclient.ItemPage.DataReq;
 import tbclient.ItemPage.ItemPageReqIdl;
 /* loaded from: classes4.dex */
-public class FrsItemTabRequestData extends OrmObject implements gk5 {
+public class FrsItemTabRequestData extends OrmObject implements dj5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int itemId;
 
-    @Override // com.baidu.tieba.fk5
-    public HashMap<String, Object> G() {
+    @Override // com.baidu.tieba.cj5
+    public HashMap<String, Object> J() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -30,8 +30,8 @@ public class FrsItemTabRequestData extends OrmObject implements gk5 {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.fk5
-    public HashMap<String, String> L() {
+    @Override // com.baidu.tieba.cj5
+    public HashMap<String, String> P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -54,17 +54,17 @@ public class FrsItemTabRequestData extends OrmObject implements gk5 {
         }
     }
 
-    @Override // com.baidu.tieba.ik5
-    public Object i(boolean z) {
+    @Override // com.baidu.tieba.fj5
+    public Object j(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             builder.item_id = Integer.valueOf(this.itemId);
-            builder.scr_h = Integer.valueOf(ej.j(TbadkCoreApplication.getInst()));
-            builder.scr_w = Integer.valueOf(ej.l(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Integer.valueOf((int) ej.i(TbadkCoreApplication.getInst()));
-            mq5.c(builder, true, false, true);
+            builder.scr_h = Integer.valueOf(hi.j(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(hi.l(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Integer.valueOf((int) hi.i(TbadkCoreApplication.getInst()));
+            kp5.c(builder, true, false, true);
             ItemPageReqIdl.Builder builder2 = new ItemPageReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

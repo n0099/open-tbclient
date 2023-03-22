@@ -79,13 +79,13 @@ public final class a extends com.kwad.components.core.i.d {
 
     @Override // com.kwad.components.core.i.d
     public final int getLayoutId() {
-        return R.layout.obfuscated_res_0x7f0d0458;
+        return R.layout.obfuscated_res_0x7f0d0464;
     }
 
     @Override // com.kwad.components.core.i.d
     public final void u(View view2) {
-        ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f0911fb)).setText(this.mContext.getString(R.string.obfuscated_res_0x7f0f0a64, com.kwad.sdk.core.response.a.a.ae(com.kwad.sdk.core.response.a.d.bQ(this.mAdTemplate))));
-        ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f0911f9)).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.kwai.kwai.a.1
+        ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f09122d)).setText(this.mContext.getString(R.string.obfuscated_res_0x7f0f0a71, com.kwad.sdk.core.response.a.a.ae(com.kwad.sdk.core.response.a.d.bQ(this.mAdTemplate))));
+        ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f09122b)).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.kwai.kwai.a.1
             @Override // android.view.View.OnClickListener
             public final void onClick(View view3) {
                 a.this.dismiss();
@@ -94,7 +94,7 @@ public final class a extends com.kwad.components.core.i.d {
                 }
             }
         });
-        ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f0911fe)).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.kwai.kwai.a.2
+        ((TextView) view2.findViewById(R.id.obfuscated_res_0x7f091230)).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.kwai.kwai.a.2
             @Override // android.view.View.OnClickListener
             public final void onClick(View view3) {
                 if (a.this.mOnClickListener != null) {

@@ -54,7 +54,7 @@ public class PayAmountCampaignListAdapter extends RecyclerView.Adapter<c> {
             super(view2);
             this.a = (TextView) view2.findViewById(R.id.tv_name);
             this.b = (TextView) view2.findViewById(R.id.tv_num);
-            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090fe9);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09101a);
             this.d = (TextView) view2.findViewById(R.id.tv_type);
         }
     }

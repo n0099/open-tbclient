@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b35;
-import com.baidu.tieba.da;
-import com.baidu.tieba.dj;
-import com.baidu.tieba.p37;
+import com.baidu.tieba.g9;
+import com.baidu.tieba.gi;
+import com.baidu.tieba.n15;
+import com.baidu.tieba.u47;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -144,8 +144,8 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !dj.isEmpty(this.a.d) && (da.a(this.a.getContext()) instanceof TbPageContext)) {
-                UrlManager.getInstance().dealOneLink((TbPageContext) da.a(this.a.getContext()), new String[]{this.a.d});
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && !gi.isEmpty(this.a.d) && (g9.a(this.a.getContext()) instanceof TbPageContext)) {
+                UrlManager.getInstance().dealOneLink((TbPageContext) g9.a(this.a.getContext()), new String[]{this.a.d});
             }
         }
     }
@@ -215,12 +215,12 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
         c();
     }
 
-    public void setData(p37 p37Var) {
+    public void setData(u47 u47Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, p37Var) == null) {
-            this.a.setText(p37Var.a);
-            this.b.setText(p37Var.b);
-            this.d = p37Var.c;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, u47Var) == null) {
+            this.a.setText(u47Var.a);
+            this.b.setText(u47Var.b);
+            this.d = u47Var.c;
         }
     }
 
@@ -244,10 +244,10 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
             if (e == null) {
                 e = getContext().getString(R.string.limited_company);
             }
-            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0415, this);
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091768);
-            this.b = (LimitiedCoTextView) findViewById(R.id.obfuscated_res_0x7f09269e);
-            this.c = findViewById(R.id.obfuscated_res_0x7f09088b);
+            RelativeLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d0420, this);
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0917a3);
+            this.b = (LimitiedCoTextView) findViewById(R.id.obfuscated_res_0x7f0926fc);
+            this.c = findViewById(R.id.obfuscated_res_0x7f0908ae);
             this.b.setOnClickListener(new a(this));
         }
     }
@@ -255,15 +255,15 @@ public class CardItemDetailListItemLayout extends RelativeLayout {
     public void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            b35.d(this.a).v(R.color.CAM_X0108);
-            if (dj.isEmpty(this.d)) {
-                b35 d = b35.d(this.b);
-                d.w(R.dimen.M_T_X002);
-                d.v(R.color.CAM_X0105);
+            n15.d(this.a).w(R.color.CAM_X0108);
+            if (gi.isEmpty(this.d)) {
+                n15 d = n15.d(this.b);
+                d.x(R.dimen.M_T_X002);
+                d.w(R.color.CAM_X0105);
             } else {
-                b35 d2 = b35.d(this.b);
-                d2.w(R.dimen.M_T_X002);
-                d2.v(R.color.CAM_X0304);
+                n15 d2 = n15.d(this.b);
+                d2.x(R.dimen.M_T_X002);
+                d2.w(R.color.CAM_X0304);
             }
             SkinManager.setBackgroundColor(this.c, R.color.CAM_X0203);
         }

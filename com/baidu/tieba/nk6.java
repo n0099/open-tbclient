@@ -2,8 +2,7 @@ package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardCompetition;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,11 +11,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class nk6 extends BaseCardInfo {
+public class nk6 implements gn {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadData a;
+    public FeatureCardCompetition a;
 
     static {
         InterceptResult invokeClinit;
@@ -48,16 +47,16 @@ public class nk6 extends BaseCardInfo {
         }
     }
 
-    public ThreadData getThreadData() {
+    public FeatureCardCompetition a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (ThreadData) invokeV.objValue;
+        return (FeatureCardCompetition) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.Cdo
+    @Override // com.baidu.tieba.gn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -67,10 +66,14 @@ public class nk6 extends BaseCardInfo {
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public void c(ThreadData threadData) {
+    public void b(FeatureCardCompetition featureCardCompetition) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, threadData) == null) {
-            this.a = threadData;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, featureCardCompetition) != null) || featureCardCompetition == null) {
+            return;
         }
+        this.a = featureCardCompetition;
+        String str = featureCardCompetition.title;
+        Integer num = featureCardCompetition.floor;
+        Integer num2 = featureCardCompetition.type;
     }
 }

@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.b0;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,17 +9,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
 public final class hk6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a f;
+    public static final hk6 a;
+    public static final b0 b;
+    public static final Class<? extends ji6>[] c;
+    public static final b0 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public float b;
-    public boolean c;
-    public float d;
-    public long e;
 
     static {
         InterceptResult invokeClinit;
@@ -33,40 +32,16 @@ public final class hk6 {
                 return;
             }
         }
-        f = new a(null);
-    }
-
-    /* loaded from: classes4.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final long b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return System.nanoTime();
-            }
-            return invokeV.longValue;
-        }
+        a = new hk6();
+        b0 b2 = b0.d(oi6.class).b();
+        Intrinsics.checkNotNullExpressionValue(b2, "all(ItemDataComponent::class.java).get()");
+        b = b2;
+        c = new Class[]{oi6.class, ni6.class};
+        b0.b d2 = b0.d(oi6.class, ni6.class);
+        d2.c(pi6.class, ri6.class);
+        b0 b3 = d2.b();
+        Intrinsics.checkNotNullExpressionValue(b3, "all(\n        ItemDataCom…t::class.java\n    ).get()");
+        d = b3;
     }
 
     public hk6() {
@@ -79,83 +54,34 @@ public final class hk6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.b = 1.0f;
-        this.c = true;
     }
 
-    public final long a() {
+    public final b0 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e / 1000000;
+            return b;
         }
-        return invokeV.longValue;
+        return (b0) invokeV.objValue;
     }
 
-    public final float b() {
+    public final Class<? extends ji6>[] b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+            return c;
         }
-        return invokeV.floatValue;
+        return (Class[]) invokeV.objValue;
     }
 
-    public final boolean c() {
+    public final b0 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+            return d;
         }
-        return invokeV.booleanValue;
-    }
-
-    public static /* synthetic */ void f(hk6 hk6Var, long j, float f2, int i, Object obj) {
-        if ((i & 1) != 0) {
-            j = hk6Var.a();
-        }
-        if ((i & 2) != 0) {
-            f2 = hk6Var.b;
-        }
-        hk6Var.e(j, f2);
-    }
-
-    public final void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.c = z;
-        }
-    }
-
-    public final void e(long j, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Float.valueOf(f2)}) == null) {
-            this.c = false;
-            this.e = j * 1000000;
-            this.b = f2;
-            this.a = f.b();
-        }
-    }
-
-    public final void g(Float f2) {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, f2) == null) {
-            long b = f.b();
-            if (this.c) {
-                j = 0;
-            } else if (f2 != null) {
-                j = f2.floatValue() * 1000000000;
-            } else {
-                j = b - this.a;
-            }
-            long j2 = ((float) j) * this.b;
-            this.e += j2;
-            this.d = ((float) j2) / 1.0E9f;
-            this.a = b;
-        }
+        return (b0) invokeV.objValue;
     }
 }

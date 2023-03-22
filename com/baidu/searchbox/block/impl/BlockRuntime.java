@@ -5,16 +5,16 @@ import com.baidu.pyramid.annotation.Inject;
 import com.baidu.searchbox.block.ioc.IBlockRegister;
 import com.baidu.searchbox.block.ioc.IBlockRegister_BlockRuntime_ListProvider;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tieba.lk1;
-import com.baidu.tieba.nk1;
+import com.baidu.tieba.bj1;
+import com.baidu.tieba.dj1;
 /* loaded from: classes2.dex */
 public class BlockRuntime {
     public static volatile BlockRuntime sInstance;
     @Inject
-    public nk1<IBlockRegister> mIBlockMonitorList;
+    public dj1<IBlockRegister> mIBlockMonitorList;
 
     public void initmIBlockMonitorList() {
-        lk1 b = lk1.b();
+        bj1 b = bj1.b();
         this.mIBlockMonitorList = b;
         b.a(new IBlockRegister_BlockRuntime_ListProvider());
     }
@@ -34,13 +34,13 @@ public class BlockRuntime {
         return sInstance;
     }
 
-    public nk1<IBlockRegister> getIBlockUploadList() {
+    public dj1<IBlockRegister> getIBlockUploadList() {
         return this.mIBlockMonitorList;
     }
 
     public boolean enableBlock() {
-        nk1<IBlockRegister> nk1Var = this.mIBlockMonitorList;
-        if (nk1Var != null && nk1Var.getList() != null) {
+        dj1<IBlockRegister> dj1Var = this.mIBlockMonitorList;
+        if (dj1Var != null && dj1Var.getList() != null) {
             for (IBlockRegister iBlockRegister : this.mIBlockMonitorList.getList()) {
                 if (iBlockRegister != null && iBlockRegister.checkEnable()) {
                     if (AppConfig.isDebug()) {

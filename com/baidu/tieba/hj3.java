@@ -1,90 +1,117 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.fj3;
+import android.app.Activity;
+import android.graphics.Rect;
+import android.view.View;
+import android.view.ViewTreeObserver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public abstract class hj3 extends jb3 {
+public class hj3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public View c;
+    public int d;
+    public gj3 e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public hj3(ja3 ja3Var, String str) {
-        super(ja3Var, str);
+    /* loaded from: classes4.dex */
+    public class a implements ViewTreeObserver.OnGlobalLayoutListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ hj3 b;
+
+        public a(hj3 hj3Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hj3Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = hj3Var;
+            this.a = str;
+        }
+
+        @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+        public void onGlobalLayout() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.b.e != null) {
+                    this.b.e.c(this.a);
+                }
+                Rect rect = new Rect();
+                this.b.c.getWindowVisibleDisplayFrame(rect);
+                int height = rect.height();
+                if (this.b.d != this.b.a) {
+                    if (this.b.d == height) {
+                        return;
+                    }
+                    if (this.b.d - height > this.b.b) {
+                        if (this.b.e != null) {
+                            this.b.e.b(this.a, this.b.d - height);
+                        }
+                        this.b.d = height;
+                        return;
+                    } else if (height - this.b.d > this.b.b) {
+                        if (this.b.e != null) {
+                            this.b.e.a(this.a, height - this.b.d);
+                        }
+                        this.b.d = height;
+                        return;
+                    } else {
+                        return;
+                    }
+                }
+                this.b.d = height;
+            }
+        }
+    }
+
+    public hj3(String str, Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ja3Var, str};
+            Object[] objArr = {str, activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = 0;
+        this.b = 200;
+        View decorView = activity.getWindow().getDecorView();
+        this.c = decorView;
+        decorView.getViewTreeObserver().addOnGlobalLayoutListener(new a(this, str));
     }
 
-    public boolean j(Context context, m93 m93Var, UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeLLL;
+    public final void h(gj3 gj3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, m93Var, unitedSchemeEntity)) == null) {
-            if (m93Var == null) {
-                m62.c("battery", "none swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                if (jb3.b) {
-                    Log.d("SwanAppAction", "getBatteryInfo --- illegal swanApp");
-                }
-                return false;
-            } else if (context == null) {
-                m62.c("battery", "none context");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-                if (jb3.b) {
-                    Log.d("SwanAppAction", "getBatteryInfo --- illegal context");
-                }
-                return false;
-            } else {
-                return true;
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, gj3Var) == null) {
+            this.e = gj3Var;
         }
-        return invokeLLL.booleanValue;
     }
 
-    @Nullable
-    public JSONObject k(@NonNull fj3.a aVar) {
-        InterceptResult invokeL;
+    public static void g(String str, Activity activity, gj3 gj3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                int i = 100;
-                if (aVar.a <= 100) {
-                    i = aVar.a;
-                }
-                jSONObject.put("level", String.valueOf(i));
-                jSONObject.put("isCharging", aVar.b);
-                return jSONObject;
-            } catch (JSONException unused) {
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeLLL(65543, null, str, activity, gj3Var) == null) {
+            new hj3(str, activity).h(gj3Var);
         }
-        return (JSONObject) invokeL.objValue;
     }
 }

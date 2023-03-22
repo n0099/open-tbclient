@@ -1,15 +1,11 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
+import android.content.Context;
+import android.telephony.PhoneStateListener;
+import android.telephony.TelephonyManager;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.thread.task.ElasticTask;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,300 +14,111 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class j41 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile j41 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public HandlerThread a;
-    public Handler b;
-    public h41 c;
-    public i41 d;
-    public g41 e;
-    public k41 f;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947833218, "Lcom/baidu/tieba/j41;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947833218, "Lcom/baidu/tieba/j41;");
-        }
-    }
 
     /* loaded from: classes5.dex */
-    public class a extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j41 a;
+    public interface a {
+        void a(int i);
+    }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(j41 j41Var, Looper looper) {
-            super(looper);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {j41Var, looper};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j41Var;
+    public static boolean a(@NonNull Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            return true;
         }
-
-        @Override // android.os.Handler
-        public void handleMessage(@NonNull Message message) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                super.handleMessage(message);
-                switch (message.what) {
-                    case 1:
-                        Object obj = message.obj;
-                        if (obj instanceof b) {
-                            b bVar = (b) obj;
-                            this.a.e.d(bVar.a, bVar.b, bVar.c);
-                        }
-                        this.a.r();
-                        return;
-                    case 2:
-                        this.a.r();
-                        return;
-                    case 3:
-                        if (this.a.d.a() > 0) {
-                            this.a.r();
-                            return;
-                        }
-                        return;
-                    case 4:
-                        Object obj2 = message.obj;
-                        if (obj2 instanceof b) {
-                            b bVar2 = (b) obj2;
-                            this.a.f.b(bVar2.a, bVar2.b, bVar2.c);
-                            this.a.t();
-                            return;
-                        }
-                        return;
-                    case 5:
-                        this.a.t();
-                        return;
-                    case 6:
-                        this.a.f.a();
-                        return;
-                    default:
-                        return;
-                }
-            }
-        }
+        return invokeL.booleanValue;
     }
 
     /* loaded from: classes5.dex */
     public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Runnable a;
-        public String b;
-        public int c;
+        @Nullable
+        public PhoneStateListener a;
 
-        public b(Runnable runnable, String str, int i) {
+        /* loaded from: classes5.dex */
+        public class a extends PhoneStateListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public a(b bVar, a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // android.telephony.PhoneStateListener
+            public void onCallStateChanged(int i, String str) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                    this.a.a(i);
+                }
+            }
+        }
+
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {runnable, str, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = runnable;
-            this.b = str;
-            this.c = i;
         }
-    }
 
-    public j41() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        @Nullable
+        public PhoneStateListener a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return (PhoneStateListener) invokeV.objValue;
+        }
+
+        public void b(a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+                this.a = new a(this, aVar);
             }
         }
-        synchronized (u31.b()) {
-            h();
-        }
     }
 
-    public static j41 f() {
-        InterceptResult invokeV;
+    public static boolean b(@NonNull Context context, @NonNull TelephonyManager telephonyManager, @NonNull b bVar) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (g == null) {
-                synchronized (j41.class) {
-                    if (g == null) {
-                        g = new j41();
-                    }
-                }
-            }
-            return g;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, telephonyManager, bVar)) == null) {
+            telephonyManager.listen(bVar.a(), 32);
+            return true;
         }
-        return (j41) invokeV.objValue;
+        return invokeLLL.booleanValue;
     }
 
-    public g41 g() {
-        InterceptResult invokeV;
+    public static boolean c(@NonNull Context context, @NonNull TelephonyManager telephonyManager, @NonNull b bVar) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, telephonyManager, bVar)) == null) {
+            telephonyManager.listen(bVar.a(), 0);
+            return true;
         }
-        return (g41) invokeV.objValue;
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            j(0L);
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            l(0L);
-        }
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            p(0L);
-        }
-    }
-
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            do {
-            } while (s());
-            i();
-        }
-    }
-
-    public final void t() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.f.c();
-        }
-    }
-
-    public void j(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            Message obtain = Message.obtain();
-            obtain.what = 3;
-            this.b.sendMessageDelayed(obtain, j);
-        }
-    }
-
-    public void l(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            Message obtain = Message.obtain();
-            obtain.what = 2;
-            this.b.sendMessageDelayed(obtain, j);
-        }
-    }
-
-    public void n(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            Message obtain = Message.obtain();
-            obtain.what = 6;
-            this.b.sendMessageDelayed(obtain, j);
-        }
-    }
-
-    public void p(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
-            Message obtain = Message.obtain();
-            obtain.what = 5;
-            this.b.sendMessageDelayed(obtain, j);
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = new h41();
-            this.d = new i41();
-            this.e = new g41();
-            this.f = new k41();
-            HandlerThread handlerThread = new HandlerThread("ElasticSchedulerThread");
-            this.a = handlerThread;
-            handlerThread.start();
-            this.a.setPriority(10);
-            this.b = new a(this, this.a.getLooper());
-        }
-    }
-
-    public void m(Runnable runnable, String str, int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{runnable, str, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            Message obtain = Message.obtain();
-            obtain.what = 1;
-            obtain.obj = new b(runnable, str, i);
-            this.b.sendMessageDelayed(obtain, j);
-        }
-    }
-
-    public void q(Runnable runnable, String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{runnable, str, Long.valueOf(j)}) == null) {
-            Message obtain = Message.obtain();
-            obtain.what = 4;
-            obtain.obj = new b(runnable, str, 4);
-            this.b.sendMessageDelayed(obtain, j);
-        }
-    }
-
-    public final boolean s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            ElasticTask b2 = this.e.b();
-            if (b2 == null) {
-                return false;
-            }
-            if (this.c.a(b2)) {
-                this.e.e(b2);
-                return true;
-            } else if (!this.d.c(b2)) {
-                return false;
-            } else {
-                this.e.e(b2);
-                return true;
-            }
-        }
-        return invokeV.booleanValue;
+        return invokeLLL.booleanValue;
     }
 }

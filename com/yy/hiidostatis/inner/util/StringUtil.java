@@ -1,7 +1,7 @@
 package com.yy.hiidostatis.inner.util;
 
 import java.util.UUID;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class StringUtil {
     public static final int GUID_LEN = 20;
 

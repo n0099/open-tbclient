@@ -82,8 +82,8 @@ public class RoundRectDrawableWithShadow extends Drawable {
     }
 
     public RoundRectDrawableWithShadow(Resources resources, ColorStateList colorStateList, float f, float f2, float f3) {
-        this.mShadowStartColor = resources.getColor(R.color.obfuscated_res_0x7f0603a3);
-        this.mShadowEndColor = resources.getColor(R.color.obfuscated_res_0x7f0603a2);
+        this.mShadowStartColor = resources.getColor(R.color.obfuscated_res_0x7f0603a9);
+        this.mShadowEndColor = resources.getColor(R.color.obfuscated_res_0x7f0603a8);
         this.mInsetShadow = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701b3);
         setBackground(colorStateList);
         Paint paint = new Paint(5);

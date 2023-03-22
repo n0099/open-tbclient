@@ -263,7 +263,7 @@ public final class DownloadFloatBallConfig {
 
     public final void n(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048587, this, str) == null) && StringUtils.isNotNull(str)) {
+        if ((interceptable == null || interceptable.invokeL(1048587, this, str) == null) && !StringUtils.isNullStr(str)) {
             m(new JSONObject(str));
         }
     }

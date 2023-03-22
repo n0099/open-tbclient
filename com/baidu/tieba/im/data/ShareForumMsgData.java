@@ -6,7 +6,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ForumData;
-import com.baidu.tieba.dh;
+import com.baidu.tieba.gg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -134,7 +134,7 @@ public final class ShareForumMsgData extends OrmObject implements Serializable {
                 return null;
             }
             ShareForumMsgData shareForumMsgData = new ShareForumMsgData();
-            shareForumMsgData.forum_id = dh.g(forumData.getId(), 0L);
+            shareForumMsgData.forum_id = gg.g(forumData.getId(), 0L);
             shareForumMsgData.forum_name = forumData.getName();
             shareForumMsgData.avatar = forumData.getImage_url();
             shareForumMsgData.thread_count = forumData.getThread_num();
@@ -157,7 +157,7 @@ public final class ShareForumMsgData extends OrmObject implements Serializable {
             shareForumMsgData.forum_id = forumInfo.forumId.longValue();
             shareForumMsgData.forum_name = forumInfo.forumName;
             shareForumMsgData.avatar = forumInfo.avatar;
-            shareForumMsgData.thread_count = dh.e(forumInfo.threadNum, 0);
+            shareForumMsgData.thread_count = gg.e(forumInfo.threadNum, 0);
             shareForumMsgData.member_count = forumInfo.memberCount.intValue();
             shareForumMsgData.slogan = forumInfo.slogan;
             return shareForumMsgData;

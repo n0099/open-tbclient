@@ -12,9 +12,9 @@ public final class R {
     /* loaded from: classes8.dex */
     public static final class color {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int emui_color_gray_1 = 0x7f0605cc;
-        public static final int emui_color_gray_10 = 0x7f0605cd;
-        public static final int emui_color_gray_7 = 0x7f0605ce;
+        public static final int emui_color_gray_1 = 0x7f0605d2;
+        public static final int emui_color_gray_10 = 0x7f0605d3;
+        public static final int emui_color_gray_7 = 0x7f0605d4;
         public transient /* synthetic */ FieldHolder $fh;
 
         public color() {
@@ -35,7 +35,7 @@ public final class R {
     /* loaded from: classes8.dex */
     public static final class id {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int enable_service_text = 0x7f090989;
+        public static final int enable_service_text = 0x7f0909af;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -77,12 +77,12 @@ public final class R {
     /* loaded from: classes8.dex */
     public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int hms_apk_not_installed_hints = 0x7f0f08f2;
-        public static final int hms_bindfaildlg_message = 0x7f0f08f3;
-        public static final int hms_bindfaildlg_title = 0x7f0f08f4;
-        public static final int hms_confirm = 0x7f0f08f5;
-        public static final int hms_is_spoof = 0x7f0f08f6;
-        public static final int hms_spoof_hints = 0x7f0f08fa;
+        public static final int hms_apk_not_installed_hints = 0x7f0f08fd;
+        public static final int hms_bindfaildlg_message = 0x7f0f08fe;
+        public static final int hms_bindfaildlg_title = 0x7f0f08ff;
+        public static final int hms_confirm = 0x7f0f0900;
+        public static final int hms_is_spoof = 0x7f0f0901;
+        public static final int hms_spoof_hints = 0x7f0f0905;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {

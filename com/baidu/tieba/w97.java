@@ -1,18 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.recyclerview.widget.DiffUtil;
+import com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetGiftList.PresentNumInfo;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class w97 {
+public final class w97 extends DiffUtil.ItemCallback<VoiceRoomWrapper> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
 
     public w97() {
         Interceptable interceptable = $ic;
@@ -28,30 +27,34 @@ public class w97 {
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.recyclerview.widget.DiffUtil.ItemCallback
+    /* renamed from: a */
+    public boolean areContentsTheSame(VoiceRoomWrapper oldItem, VoiceRoomWrapper newItem) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, oldItem, newItem)) == null) {
+            Intrinsics.checkNotNullParameter(oldItem, "oldItem");
+            Intrinsics.checkNotNullParameter(newItem, "newItem");
+            if (Intrinsics.areEqual(oldItem.getVoiceRoom().status, newItem.getVoiceRoom().status) && Intrinsics.areEqual(oldItem.getVoiceRoom().joined_num, newItem.getVoiceRoom().joined_num)) {
+                return true;
+            }
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.recyclerview.widget.DiffUtil.ItemCallback
+    /* renamed from: b */
+    public boolean areItemsTheSame(VoiceRoomWrapper oldItem, VoiceRoomWrapper newItem) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, oldItem, newItem)) == null) {
+            Intrinsics.checkNotNullParameter(oldItem, "oldItem");
+            Intrinsics.checkNotNullParameter(newItem, "newItem");
+            return Intrinsics.areEqual(oldItem.getVoiceRoom().room_id, newItem.getVoiceRoom().room_id);
         }
-        return invokeV.intValue;
-    }
-
-    public void c(PresentNumInfo presentNumInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, presentNumInfo) != null) || presentNumInfo == null) {
-            return;
-        }
-        this.a = presentNumInfo.num.intValue();
-        this.b = presentNumInfo.name;
+        return invokeLL.booleanValue;
     }
 }

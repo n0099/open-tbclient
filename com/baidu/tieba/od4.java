@@ -1,157 +1,227 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapapi.map.BaiduMap;
+import com.baidu.mapapi.map.BitmapDescriptor;
+import com.baidu.mapapi.map.BitmapDescriptorFactory;
+import com.baidu.mapapi.map.Marker;
+import com.baidu.mapapi.map.MarkerOptions;
+import com.baidu.mapapi.map.Overlay;
+import com.baidu.mapapi.map.OverlayOptions;
+import com.baidu.mapapi.map.Polyline;
+import com.baidu.mapapi.map.PolylineOptions;
+import com.baidu.mapapi.model.LatLng;
+import com.baidu.mapapi.search.route.DrivingRouteLine;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import java.lang.reflect.Method;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class od4 {
+public class od4 extends qd4 {
     public static /* synthetic */ Interceptable $ic;
-    public static Object a;
-    public static Method b;
-    public static boolean c;
+    public static final boolean e;
+    public static final int f;
     public transient /* synthetic */ FieldHolder $fh;
+    public DrivingRouteLine d;
+
+    public abstract int f();
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948028394, "Lcom/baidu/tieba/od4;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948028394, "Lcom/baidu/tieba/od4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948028394, "Lcom/baidu/tieba/od4;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+        e = do1.a;
+        f = Color.argb(178, 0, 78, 255);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public od4(BaiduMap baiduMap) {
+        super(baiduMap);
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baiduMap};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((BaiduMap) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948028394, "Lcom/baidu/tieba/od4;");
-        }
+        this.d = null;
     }
 
-    public static boolean a(String... strArr) {
+    @Override // com.baidu.mapapi.map.BaiduMap.OnMarkerClickListener
+    public final boolean onMarkerClick(Marker marker) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, strArr)) == null) {
-            if (!c) {
-                e();
-            }
-            Method method = b;
-            if (method == null) {
-                return false;
-            }
-            try {
-                method.invoke(a, strArr);
-                return true;
-            } catch (Throwable unused) {
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c(Class<?> cls) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, cls)) == null) {
-            if (!f()) {
-                return true;
-            }
-            if (cls == null) {
-                return false;
-            }
-            return a(b(cls.getName()));
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean d(String... strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, strArr)) == null) {
-            if (!f()) {
-                return true;
-            }
-            if (strArr != null && strArr.length > 0) {
-                return a(strArr);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
-            }
-            String replaceAll = str.replaceAll(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX, "/");
-            if (!replaceAll.startsWith(PreferencesUtil.LEFT_MOUNT)) {
-                return "L" + replaceAll + ParamableElem.DIVIDE_PARAM;
-            }
-            return replaceAll;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static synchronized void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            synchronized (od4.class) {
-                if (c) {
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, marker)) == null) {
+            for (Overlay overlay : this.c) {
+                if ((overlay instanceof Marker) && overlay.equals(marker) && marker.getExtraInfo() != null) {
+                    g(marker.getExtraInfo().getInt("index"));
                 }
-                try {
-                    c = true;
-                    Class<?> cls = Class.forName("dalvik.system.VMRuntime");
-                    Method b2 = pd4.b(cls, "getRuntime", new Class[0]);
-                    if (b2 != null) {
-                        b2.setAccessible(true);
-                        Object invoke = b2.invoke(null, new Object[0]);
-                        a = invoke;
-                        if (invoke != null) {
-                            Method b3 = pd4.b(cls, "setHiddenApiExemptions", String[].class);
-                            b = b3;
-                            if (b3 != null) {
-                                b3.setAccessible(true);
-                            }
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.mapapi.map.BaiduMap.OnPolylineClickListener
+    public boolean onPolylineClick(Polyline polyline) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, polyline)) == null) {
+            Iterator<Overlay> it = this.c.iterator();
+            while (true) {
+                if (it.hasNext()) {
+                    Overlay next = it.next();
+                    if ((next instanceof Polyline) && next.equals(polyline)) {
+                        z = true;
+                        break;
+                    }
+                } else {
+                    z = false;
+                    break;
+                }
+            }
+            i(z);
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.qd4
+    public final List<OverlayOptions> b() {
+        InterceptResult invokeV;
+        boolean z;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.d == null) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            List<DrivingRouteLine.DrivingStep> allStep = this.d.getAllStep();
+            if (allStep != null && allStep.size() > 0) {
+                for (DrivingRouteLine.DrivingStep drivingStep : allStep) {
+                    Bundle bundle = new Bundle();
+                    bundle.putInt("index", allStep.indexOf(drivingStep));
+                    if (drivingStep.getEntrance() != null) {
+                        arrayList.add(new MarkerOptions().position(drivingStep.getEntrance().getLocation()).anchor(0.5f, 0.5f).zIndex(10).rotate(360 - drivingStep.getDirection()).extraInfo(bundle).icon(BitmapDescriptorFactory.fromResource(R.drawable.obfuscated_res_0x7f080178)));
+                    }
+                    if (allStep.indexOf(drivingStep) == allStep.size() - 1 && drivingStep.getExit() != null) {
+                        arrayList.add(new MarkerOptions().position(drivingStep.getExit().getLocation()).anchor(0.5f, 0.5f).zIndex(10).icon(BitmapDescriptorFactory.fromResource(R.drawable.obfuscated_res_0x7f080178)));
+                    }
+                }
+            }
+            if (allStep != null && allStep.size() > 0) {
+                int size = allStep.size();
+                ArrayList arrayList2 = new ArrayList();
+                ArrayList arrayList3 = new ArrayList();
+                for (int i2 = 0; i2 < size; i2++) {
+                    List<LatLng> wayPoints = allStep.get(i2).getWayPoints();
+                    if (i2 == size - 1) {
+                        arrayList2.addAll(wayPoints);
+                    } else {
+                        arrayList2.addAll(wayPoints.subList(0, wayPoints.size() - 1));
+                    }
+                    wayPoints.size();
+                    int[] trafficList = allStep.get(i2).getTrafficList();
+                    if (trafficList != null && trafficList.length > 0) {
+                        for (int i3 : trafficList) {
+                            arrayList3.add(Integer.valueOf(i3));
                         }
                     }
-                } catch (Throwable unused) {
+                }
+                if (arrayList3.size() > 0) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                PolylineOptions focus = new PolylineOptions().points(arrayList2).textureIndex(arrayList3).width(14).dottedLine(z).focus(true);
+                if (f() != 0) {
+                    i = f();
+                } else {
+                    i = f;
+                }
+                PolylineOptions zIndex = focus.color(i).zIndex(0);
+                if (z) {
+                    zIndex.customTextureList(e());
+                }
+                arrayList.add(zIndex);
+            }
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public List<BitmapDescriptor> e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(BitmapDescriptorFactory.fromAsset("Icon_road_blue_arrow.png"));
+            arrayList.add(BitmapDescriptorFactory.fromAsset("Icon_road_green_arrow.png"));
+            arrayList.add(BitmapDescriptorFactory.fromAsset("Icon_road_yellow_arrow.png"));
+            arrayList.add(BitmapDescriptorFactory.fromAsset("Icon_road_red_arrow.png"));
+            arrayList.add(BitmapDescriptorFactory.fromAsset("Icon_road_nofocus.png"));
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean g(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            if (this.d.getAllStep() != null && this.d.getAllStep().get(i) != null && e) {
+                Log.i("baidumapsdk", "DrivingRouteOverlay onRouteNodeClick");
+                return false;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void h(DrivingRouteLine drivingRouteLine) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, drivingRouteLine) == null) {
+            this.d = drivingRouteLine;
+        }
+    }
+
+    public void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            for (Overlay overlay : this.c) {
+                if (overlay instanceof Polyline) {
+                    ((Polyline) overlay).setFocus(z);
+                    return;
                 }
             }
         }
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 28) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (Build.VERSION.SDK_INT > 29) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

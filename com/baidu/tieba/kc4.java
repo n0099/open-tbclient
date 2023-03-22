@@ -1,16 +1,19 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.swan.apps.storage.PathType;
-import com.baidu.tieba.c64;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mapapi.map.MapStatus;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class kc4 {
+public class kc4 extends fc4<fu2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,35 +30,73 @@ public class kc4 {
                 return;
             }
         }
-        boolean z = wp1.a;
+        boolean z = do1.a;
     }
 
-    public static PathType a(String str) {
-        InterceptResult invokeL;
+    public kc4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return PathType.ERROR;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            if (!str.startsWith("http://") && !str.startsWith("https://")) {
-                return PathType.RELATIVE;
-            }
-            return PathType.NETWORK;
         }
-        return (PathType) invokeL.objValue;
     }
 
-    public static String b() {
+    public static kc4 d() {
         InterceptResult invokeV;
-        File h;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            m93 q = l93.K().q();
-            if (!q.I() || q.k0() == null || (h = c64.d.h(q.getAppId(), q.k0())) == null || !h.exists()) {
-                return null;
-            }
-            return "file://" + h.getAbsolutePath();
+            return new kc4();
         }
-        return (String) invokeV.objValue;
+        return (kc4) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.fc4
+    public boolean b(Context context, fu2 fu2Var, cu2 cu2Var, t73 t73Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048576, this, context, fu2Var, cu2Var, t73Var, jSONObject)) == null) {
+            return e(context, fu2Var, cu2Var, t73Var, jSONObject);
+        }
+        return invokeLLLLL.booleanValue;
+    }
+
+    public final boolean e(Context context, fu2 fu2Var, cu2 cu2Var, t73 t73Var, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, fu2Var, cu2Var, t73Var, jSONObject)) == null) {
+            t42.i("map", "GetRegionAction start");
+            bu1 A = gt2.U().A(fu2Var.c);
+            if (!(A instanceof zt1)) {
+                t42.c("map", "WebViewManager is null");
+                return false;
+            }
+            dd4 d = cc4.b().c((zt1) A).d(fu2Var.b);
+            if (d == null) {
+                t42.c("map", "can not find map by id " + fu2Var.b);
+                return false;
+            }
+            MapStatus mapStatus = d.l.getMap().getMapStatus();
+            JSONObject jSONObject2 = new JSONObject();
+            JSONObject jSONObject3 = new JSONObject();
+            try {
+                jSONObject3.put("latitude", mapStatus.bound.southwest.latitude);
+                jSONObject3.put("longitude", mapStatus.bound.southwest.longitude);
+                jSONObject2.put("latitude", mapStatus.bound.northeast.latitude);
+                jSONObject2.put("longitude", mapStatus.bound.northeast.longitude);
+                jSONObject.put("southwest", jSONObject3);
+                jSONObject.put("northeast", jSONObject2);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            t42.i("map", "GetRegionAction end");
+            return true;
+        }
+        return invokeLLLLL.booleanValue;
     }
 }

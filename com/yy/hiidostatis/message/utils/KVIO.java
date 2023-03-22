@@ -6,7 +6,7 @@ import com.yy.hiidostatis.inner.util.NumberUtil;
 import com.yy.hiidostatis.inner.util.ProcessUtil;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class KVIO {
     public static KVIO kvio;
     public SharedPreferences cache;

@@ -20,7 +20,7 @@ import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.switchs.FollowListSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.s78;
+import com.baidu.tieba.vc8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -124,7 +124,7 @@ public class ConcernSelectView extends FrameLayout {
                 SkinManager.setViewTextColor(this.a.e, (int) R.color.CAM_X0105);
                 SkinManager.setViewTextColor(this.a.f, (int) R.color.CAM_X0107);
                 if (FollowListSwitch.isOn()) {
-                    this.a.d.setText(R.string.obfuscated_res_0x7f0f11d6);
+                    this.a.d.setText(R.string.obfuscated_res_0x7f0f11e6);
                 } else {
                     this.a.d.setText(R.string.obfuscated_res_0x7f0f0275);
                 }
@@ -433,13 +433,13 @@ public class ConcernSelectView extends FrameLayout {
             if (childCount < 0) {
                 childCount = 0;
             }
-            s78 s78Var = new s78(view2, i, (((int) this.a.getResources().getDimension(R.dimen.tbds80)) + ((int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070198))) * childCount);
+            vc8 vc8Var = new vc8(view2, i, (((int) this.a.getResources().getDimension(R.dimen.tbds80)) + ((int) this.a.getResources().getDimension(R.dimen.obfuscated_res_0x7f070198))) * childCount);
             if (i == 0 && view2.getVisibility() != 0) {
                 view2.setVisibility(0);
             }
-            s78Var.setDuration(260L);
-            s78Var.setAnimationListener(new d(this, i, view2));
-            view2.startAnimation(s78Var);
+            vc8Var.setDuration(260L);
+            vc8Var.setAnimationListener(new d(this, i, view2));
+            view2.startAnimation(vc8Var);
             ImageView imageView = this.c;
             if (imageView != null) {
                 if (imageView.getAnimation() != null && !this.c.getAnimation().hasEnded()) {
@@ -517,18 +517,18 @@ public class ConcernSelectView extends FrameLayout {
     public final void k() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0201, this);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090a21);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090a22);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09164b);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091654);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f09026f);
+            LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0206, this);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090a47);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f090a48);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091681);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09168a);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090276);
             if (FollowListSwitch.isOn()) {
-                this.d.setText(R.string.obfuscated_res_0x7f0f11d6);
-                this.e.setText(R.string.obfuscated_res_0x7f0f11d6);
+                this.d.setText(R.string.obfuscated_res_0x7f0f11e6);
+                this.e.setText(R.string.obfuscated_res_0x7f0f11e6);
             }
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f0908f9);
-            this.g = findViewById(R.id.obfuscated_res_0x7f0910d6);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f09091e);
+            this.g = findViewById(R.id.obfuscated_res_0x7f091108);
             this.b.setOnClickListener(new a(this));
             this.e.setOnClickListener(new b(this));
             this.f.setOnClickListener(new c(this));

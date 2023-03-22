@@ -1,159 +1,253 @@
 package com.baidu.tieba;
 
-import android.os.Debug;
+import android.content.SharedPreferences;
 import android.os.SystemClock;
-import android.util.Printer;
-import com.baidu.android.imsdk.internal.Constants;
+import android.preference.PreferenceManager;
+import android.text.TextUtils;
+import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.eca;
+import com.baidu.tieba.yha;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdConfig;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.internal.api.Module;
+import com.fun.ad.sdk.internal.api.PidLoaderCreator;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.nio.charset.Charset;
+import java.security.MessageDigest;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Random;
+import java.util.Set;
+import java.util.UUID;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class yba implements Printer {
+public final class yba {
     public static /* synthetic */ Interceptable $ic;
+    public static eca a;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
-    public b d;
-    public final boolean e;
 
     /* loaded from: classes7.dex */
-    public interface b {
-        void a(long j, long j2, long j3, long j4);
+    public interface a {
+        void a(wba wbaVar);
     }
 
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ long c;
-        public final /* synthetic */ long d;
-        public final /* synthetic */ yba e;
-
-        public a(yba ybaVar, long j, long j2, long j3, long j4) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ybaVar, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static <T extends dca> T a(Random random, List<T> list, fca<T> fcaVar) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, random, list, fcaVar)) == null) {
+            if (random == null || list == null || list.isEmpty()) {
+                return null;
+            }
+            LogPrinter.v("Start select for class:%s with size:%d", list.iterator().next().getClass().getSimpleName(), Integer.valueOf(list.size()));
+            ArrayList arrayList = new ArrayList();
+            int size = list.size();
+            T t = null;
+            for (int i = 0; i < size; i++) {
+                T t2 = list.get(i);
+                if (fcaVar != null) {
+                    if (!fcaVar.a(t2)) {
+                        continue;
+                    }
+                    if (t == null && t2.b() != t.b()) {
+                        break;
+                    }
+                    arrayList.add(t2);
+                    t = t2;
+                } else {
+                    if (!t2.a()) {
+                        continue;
+                    }
+                    if (t == null) {
+                    }
+                    arrayList.add(t2);
+                    t = t2;
                 }
             }
-            this.e = ybaVar;
-            this.a = j;
-            this.b = j2;
-            this.c = j3;
-            this.d = j4;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.e.d.a(this.a, this.b, this.c, this.d);
+            if (arrayList.isEmpty()) {
+                LogPrinter.v("No one is selected", new Object[0]);
+                return null;
             }
+            return (T) arrayList.get(random.nextInt(arrayList.size()));
         }
+        return (T) invokeLLL.objValue;
     }
 
-    public yba(b bVar, long j, boolean z) {
+    public static boolean g(String str, JSONObject jSONObject) {
+        InterceptResult invokeLL;
+        eca ecaVar;
+        boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bVar, Long.valueOf(j), Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, jSONObject)) == null) {
+            if (str == null || jSONObject == null || (ecaVar = a) == null) {
+                return false;
             }
-        }
-        this.a = 3000L;
-        this.b = 0L;
-        this.c = 0L;
-        this.d = null;
-        if (bVar != null) {
-            this.d = bVar;
-            this.a = j;
-            this.e = z;
-            return;
-        }
-        throw new IllegalArgumentException("blockListener should not be null.");
-    }
-
-    public final boolean b(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            if (j - this.b > this.a) {
-                return true;
+            for (eca.a aVar : ecaVar.a) {
+                if (str.equals(aVar.a)) {
+                    for (Map.Entry<String, Set<Object>> entry : aVar.b.entrySet()) {
+                        Object opt = jSONObject.opt(entry.getKey());
+                        if (opt != null) {
+                            Iterator<Object> it = entry.getValue().iterator();
+                            while (true) {
+                                if (it.hasNext()) {
+                                    if (opt.equals(it.next())) {
+                                        z2 = true;
+                                        continue;
+                                        break;
+                                    }
+                                } else {
+                                    z2 = false;
+                                    continue;
+                                    break;
+                                }
+                            }
+                            if (!z2) {
+                            }
+                        }
+                        z = false;
+                    }
+                    z = true;
+                    if (z) {
+                        return true;
+                    }
+                }
             }
             return false;
         }
-        return invokeJ.booleanValue;
+        return invokeLL.booleanValue;
     }
 
-    public final void c(long j) {
+    public static <T> T b(String str, lha<T> lhaVar) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            wba.b().post(new a(this, this.b, j, this.c, SystemClock.currentThreadTimeMillis()));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, lhaVar)) == null) {
+            if (str != null && lhaVar != null) {
+                try {
+                    byte[] decode = Base64.decode(str, 0);
+                    if (decode == null) {
+                        return null;
+                    }
+                    try {
+                        return lhaVar.a(new ObjectInputStream(new ByteArrayInputStream(decode)));
+                    } catch (IOException e) {
+                        LogPrinter.e(e);
+                        return null;
+                    }
+                } catch (Exception e2) {
+                    LogPrinter.e(e2);
+                }
+            }
+            return null;
+        }
+        return (T) invokeLL.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (TextUtils.isEmpty(b)) {
+                SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(FunAdSdk.getAppContext());
+                String string = defaultSharedPreferences.getString("u_tok", "");
+                if (TextUtils.isEmpty(string)) {
+                    string = UUID.randomUUID().toString();
+                    try {
+                        MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                        messageDigest.update(string.getBytes(Charset.forName("UTF-8")));
+                        string = Base64.encodeToString(messageDigest.digest(), 2);
+                    } catch (Throwable unused) {
+                        if (string.length() >= 24) {
+                            string = string.substring(0, 24);
+                        }
+                    }
+                    defaultSharedPreferences.edit().putString("u_tok", string).apply();
+                }
+                b = string;
+            }
+            return b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:12:0x0020 A[RETURN] */
+    /* JADX WARN: Removed duplicated region for block: B:13:0x0021  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String d(nha nhaVar) {
+        InterceptResult invokeL;
+        byte[] bArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, nhaVar)) == null) {
+            if (nhaVar != null) {
+                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+                try {
+                    ObjectOutputStream objectOutputStream = new ObjectOutputStream(byteArrayOutputStream);
+                    nhaVar.srzable(objectOutputStream);
+                    objectOutputStream.flush();
+                    bArr = byteArrayOutputStream.toByteArray();
+                } catch (IOException unused) {
+                }
+                if (bArr != null) {
+                    return null;
+                }
+                return Base64.encodeToString(bArr, 0);
+            }
+            bArr = null;
+            if (bArr != null) {
+            }
+        } else {
+            return (String) invokeL.objValue;
         }
     }
 
-    public final void d() {
+    public static void e(long j, a aVar, FunAdConfig funAdConfig, Map<String, PidLoaderCreator> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (uba.e().b != null) {
-                uba.e().b.c();
-            }
-            if (uba.e().c != null) {
-                uba.e().c.c();
-            }
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), aVar, funAdConfig, map}) == null) {
+            yha.a aVar2 = yha.a;
+            aVar2.a = System.currentTimeMillis() - 0;
+            aVar2.b = SystemClock.currentThreadTimeMillis() - 0;
+            LogPrinter.d("All ssp initialized with %dms consumed.", Long.valueOf(System.currentTimeMillis() - j));
+            funAdConfig.moduleInitManager.tryCallbackComplete();
+            aVar.a(new wba(map));
         }
     }
 
-    public final void e() {
+    public static void f(String str, String str2, FunAdConfig funAdConfig, Map<String, PidLoaderCreator> map, String str3) {
+        Module module;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (uba.e().b != null) {
-                uba.e().b.d();
+        if (interceptable == null || interceptable.invokeLLLLL(65541, null, str, str2, funAdConfig, map, str3) == null) {
+            try {
+                module = (Module) Class.forName(str2).getConstructor(new Class[0]).newInstance(new Object[0]);
+                LogPrinter.d("Module for %s created", str2);
+            } catch (Exception e) {
+                LogPrinter.e(e, "Module for %s not found", str2);
+                module = null;
             }
-            if (uba.e().c != null) {
-                uba.e().c.d();
-            }
-        }
-    }
-
-    @Override // android.util.Printer
-    public void println(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            if (this.e && Debug.isDebuggerConnected()) {
+            if (module == null) {
                 return;
             }
-            if (str.charAt(0) == '>') {
-                this.b = System.currentTimeMillis();
-                this.c = SystemClock.currentThreadTimeMillis();
-                d();
-                return;
+            try {
+                PidLoaderCreator init = module.init(funAdConfig, str3);
+                if (init == null) {
+                    LogPrinter.e("Module for %s init failed", str);
+                } else {
+                    map.put(str, init);
+                }
+            } catch (Exception unused) {
             }
-            long currentTimeMillis = System.currentTimeMillis();
-            if (b(currentTimeMillis)) {
-                c(currentTimeMillis);
-            }
-            e();
         }
     }
 }

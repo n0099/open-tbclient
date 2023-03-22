@@ -2,170 +2,82 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
-import kotlin.TypeCastException;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
-/* loaded from: classes4.dex */
+import com.baidu.webkit.internal.monitor.MonitorType;
+import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
+import com.baidu.webkit.sdk.Log;
+import com.baidu.webkit.sdk.performance.ZeusPerformanceTiming;
+import org.json.JSONObject;
+/* loaded from: classes5.dex */
 public final class iw {
     public static /* synthetic */ Interceptable $ic;
-    public static final iw a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448307775, "Lcom/baidu/tieba/iw;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448307775, "Lcom/baidu/tieba/iw;");
-                return;
-            }
-        }
-        a = new iw();
-    }
+    public jw a;
+    public JSONObject b;
+    public JSONObject c;
+    public boolean d;
 
     public iw() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @JvmStatic
-    public static final int a(String str, String str2) {
-        InterceptResult invokeLL;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            List<String> split$default = StringsKt__StringsKt.split$default((CharSequence) StringsKt__StringsKt.trim((CharSequence) str).toString(), new String[]{"."}, false, 0, 6, (Object) null);
-            List<String> split$default2 = StringsKt__StringsKt.split$default((CharSequence) StringsKt__StringsKt.trim((CharSequence) str2).toString(), new String[]{"."}, false, 0, 6, (Object) null);
-            LinkedList linkedList = new LinkedList();
-            LinkedList linkedList2 = new LinkedList();
-            for (String str3 : split$default) {
-                if (str3 != null) {
-                    String obj = StringsKt__StringsKt.trim((CharSequence) str3).toString();
-                    if (!Intrinsics.areEqual(obj, "")) {
-                        linkedList.add(obj);
-                    }
-                } else {
-                    throw new TypeCastException("null cannot be cast to non-null type kotlin.CharSequence");
-                }
-            }
-            for (String str4 : split$default2) {
-                if (str4 != null) {
-                    String obj2 = StringsKt__StringsKt.trim((CharSequence) str4).toString();
-                    if (!Intrinsics.areEqual(obj2, "")) {
-                        linkedList2.add(obj2);
-                    }
-                } else {
-                    throw new TypeCastException("null cannot be cast to non-null type kotlin.CharSequence");
-                }
-            }
-            while (!linkedList.isEmpty() && !linkedList2.isEmpty()) {
-                iw iwVar = a;
-                Object pollFirst = linkedList.pollFirst();
-                if (pollFirst == null) {
-                    Intrinsics.throwNpe();
-                }
-                int e = iwVar.e((String) pollFirst);
-                iw iwVar2 = a;
-                Object pollFirst2 = linkedList2.pollFirst();
-                if (pollFirst2 == null) {
-                    Intrinsics.throwNpe();
-                }
-                int e2 = iwVar2.e((String) pollFirst2);
-                if (e > e2) {
-                    return 1;
-                }
-                if (e < e2) {
-                    return -1;
-                }
-            }
-            if (linkedList.isEmpty() && linkedList2.isEmpty()) {
-                return 0;
-            }
-            while (!linkedList.isEmpty()) {
-                if (!TextUtils.equals((CharSequence) linkedList.pollFirst(), "0")) {
-                    return 1;
-                }
-            }
-            while (!linkedList2.isEmpty()) {
-                if (!TextUtils.equals((CharSequence) linkedList2.pollFirst(), "0")) {
-                    return -1;
-                }
-            }
-            return 0;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.c == null) {
+            return;
         }
-        return invokeLL.intValue;
+        SessionMonitorEngine.getInstance().recordImmediately(ZeusPerformanceTiming.SERVER_TYPE_T7_INIT, this.c.toString());
+        this.c = null;
     }
 
-    public final String b() {
-        InterceptResult invokeV;
+    public final void b(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (Intrinsics.areEqual(vr.c.h().getAppVersion(), "")) {
-                String b = tt.b();
-                Intrinsics.checkExpressionValueIsNotNull(b, "AppUtils.getVersionName()");
-                return b;
-            }
-            return vr.c.h().getAppVersion();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final boolean c(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            if (hw.a.a() <= j) {
-                return true;
-            }
-            return false;
-        }
-        return invokeJ.booleanValue;
-    }
-
-    public final boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (a(b(), str) >= 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final int e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) {
             try {
-                return Integer.parseInt(str);
+                if (this.b == null) {
+                    JSONObject jSONObject = new JSONObject();
+                    this.b = jSONObject;
+                    jSONObject.put("type", MonitorType.MONITOR_TYPE_INIT_WEBKIT);
+                }
+                if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                    return;
+                }
+                this.b.put(str, str2);
             } catch (Exception unused) {
-                return 0;
+                Log.e("staticWebkitInit JSON error");
             }
         }
-        return invokeL.intValue;
+    }
+
+    public final void c(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
+            try {
+                if (this.c == null) {
+                    JSONObject jSONObject = new JSONObject();
+                    this.c = jSONObject;
+                    jSONObject.put("type", MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT);
+                }
+                if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                    return;
+                }
+                this.c.put(str, str2);
+            } catch (Exception unused) {
+                Log.e("mWebkitDownloadStatics JSON error");
+            }
+        }
     }
 }

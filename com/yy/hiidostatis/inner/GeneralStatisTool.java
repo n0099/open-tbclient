@@ -4,7 +4,7 @@ import android.content.Context;
 import com.yy.hiidostatis.inner.implementation.CommonFiller;
 import com.yy.hiidostatis.inner.implementation.ITaskManager;
 import com.yy.hiidostatis.inner.implementation.TaskManagerNew;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class GeneralStatisTool {
     public AbstractConfig mConfig;
     public Context mContext;

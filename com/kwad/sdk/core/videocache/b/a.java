@@ -8,7 +8,7 @@ public final class a {
 
     /* renamed from: com.kwad.sdk.core.videocache.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0630a {
+    public static class C0635a {
         public String Qd;
     }
 

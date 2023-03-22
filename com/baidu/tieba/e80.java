@@ -1,23 +1,19 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import java.io.InputStream;
 /* loaded from: classes4.dex */
 public class e80 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile e80 e;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public Context c;
-    public boolean d;
+    public f80 a;
+    public g80 b;
 
     public e80() {
         Interceptable interceptable = $ic;
@@ -32,72 +28,35 @@ public class e80 {
                 return;
             }
         }
-        this.b = "";
+        this.a = new f80();
+        this.b = new g80();
     }
 
-    public static e80 d() {
-        InterceptResult invokeV;
+    public x70 a(x70 x70Var, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (e == null) {
-                synchronized (e80.class) {
-                    if (e == null) {
-                        e = new e80();
-                    }
-                }
-            }
-            return e;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, x70Var, z)) == null) {
+            this.a.b(x70Var, z);
+            return x70Var;
         }
-        return (e80) invokeV.objValue;
+        return (x70) invokeLZ.objValue;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public x70 b(Context context, long j) {
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, j)) == null) {
+            return this.a.c(context, j);
         }
-        return (String) invokeV.objValue;
+        return (x70) invokeLJ.objValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public x70 c(InputStream inputStream) throws Exception {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, inputStream)) == null) {
+            return this.b.b(inputStream);
         }
-        return invokeV.booleanValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public void e(Context context, String str, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            this.b = str;
-            if (context != null) {
-                this.c = context.getApplicationContext();
-            }
-            this.a = i;
-            this.d = z;
-        }
-    }
-
-    public void f(JSONArray jSONArray, boolean z, boolean z2, boolean z3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{jSONArray, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) == null) {
-            if (!TextUtils.isEmpty(this.b) && this.c != null && jSONArray != null && jSONArray.length() != 0) {
-                k80.b(this.c, jSONArray, z, z2, z3);
-            } else {
-                o80.a("IMLiteUBC", "cuid is empty or context null or upload json is null");
-            }
-        }
+        return (x70) invokeL.objValue;
     }
 }

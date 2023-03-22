@@ -1,47 +1,22 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Item;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class qu5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ItemData a;
 
-    public qu5(Item item) {
+    public static int a(int i, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {item};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (i != 80) {
+                return -1;
             }
+            return z ? R.anim.pickerview_slide_in_bottom : R.anim.pickerview_slide_out_bottom;
         }
-        this.a = null;
-        if (item != null) {
-            ItemData itemData = new ItemData();
-            this.a = itemData;
-            itemData.parseProto(item);
-        }
-    }
-
-    public ItemData a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (ItemData) invokeV.objValue;
+        return invokeCommon.intValue;
     }
 }

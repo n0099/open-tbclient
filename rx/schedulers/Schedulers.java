@@ -1,22 +1,22 @@
 package rx.schedulers;
 
-import com.baidu.tieba.cra;
-import com.baidu.tieba.dra;
-import com.baidu.tieba.ooa;
-import com.baidu.tieba.poa;
-import com.baidu.tieba.qoa;
-import com.baidu.tieba.toa;
-import com.baidu.tieba.vma;
-import com.baidu.tieba.voa;
-import com.baidu.tieba.zqa;
+import com.baidu.tieba.kta;
+import com.baidu.tieba.lta;
+import com.baidu.tieba.mta;
+import com.baidu.tieba.pta;
+import com.baidu.tieba.rra;
+import com.baidu.tieba.rta;
+import com.baidu.tieba.vva;
+import com.baidu.tieba.yva;
+import com.baidu.tieba.zva;
 import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes9.dex */
 public final class Schedulers {
     public static final AtomicReference<Schedulers> d = new AtomicReference<>();
-    public final vma a;
-    public final vma b;
-    public final vma c;
+    public final rra a;
+    public final rra b;
+    public final rra c;
 
     public static Schedulers a() {
         while (true) {
@@ -32,20 +32,20 @@ public final class Schedulers {
         }
     }
 
-    public static vma computation() {
-        return zqa.f(a().a);
+    public static rra computation() {
+        return vva.f(a().a);
     }
 
-    public static vma immediate() {
-        return qoa.a;
+    public static rra immediate() {
+        return mta.a;
     }
 
-    public static vma io() {
-        return zqa.k(a().b);
+    public static rra io() {
+        return vva.k(a().b);
     }
 
-    public static vma newThread() {
-        return zqa.l(a().c);
+    public static rra newThread() {
+        return vva.l(a().c);
     }
 
     public static void reset() {
@@ -59,7 +59,7 @@ public final class Schedulers {
         Schedulers a = a();
         a.b();
         synchronized (a) {
-            poa.d.shutdown();
+            lta.d.shutdown();
         }
     }
 
@@ -67,7 +67,7 @@ public final class Schedulers {
         Schedulers a = a();
         a.c();
         synchronized (a) {
-            poa.d.start();
+            lta.d.start();
         }
     }
 
@@ -75,57 +75,57 @@ public final class Schedulers {
         return new TestScheduler();
     }
 
-    public static vma trampoline() {
-        return voa.a;
+    public static rra trampoline() {
+        return rta.a;
     }
 
     public synchronized void b() {
-        if (this.a instanceof toa) {
-            ((toa) this.a).shutdown();
+        if (this.a instanceof pta) {
+            ((pta) this.a).shutdown();
         }
-        if (this.b instanceof toa) {
-            ((toa) this.b).shutdown();
+        if (this.b instanceof pta) {
+            ((pta) this.b).shutdown();
         }
-        if (this.c instanceof toa) {
-            ((toa) this.c).shutdown();
+        if (this.c instanceof pta) {
+            ((pta) this.c).shutdown();
         }
     }
 
     public synchronized void c() {
-        if (this.a instanceof toa) {
-            ((toa) this.a).start();
+        if (this.a instanceof pta) {
+            ((pta) this.a).start();
         }
-        if (this.b instanceof toa) {
-            ((toa) this.b).start();
+        if (this.b instanceof pta) {
+            ((pta) this.b).start();
         }
-        if (this.c instanceof toa) {
-            ((toa) this.c).start();
+        if (this.c instanceof pta) {
+            ((pta) this.c).start();
         }
     }
 
     public Schedulers() {
-        dra f = cra.c().f();
-        vma g = f.g();
+        zva f = yva.c().f();
+        rra g = f.g();
         if (g != null) {
             this.a = g;
         } else {
-            this.a = dra.a();
+            this.a = zva.a();
         }
-        vma i = f.i();
+        rra i = f.i();
         if (i != null) {
             this.b = i;
         } else {
-            this.b = dra.c();
+            this.b = zva.c();
         }
-        vma j = f.j();
+        rra j = f.j();
         if (j != null) {
             this.c = j;
         } else {
-            this.c = dra.e();
+            this.c = zva.e();
         }
     }
 
-    public static vma from(Executor executor) {
-        return new ooa(executor);
+    public static rra from(Executor executor) {
+        return new kta(executor);
     }
 }

@@ -1,170 +1,79 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class o52 extends la3 {
+public class o52 implements v42 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.la3
-    @NonNull
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "/swanAPI/coverview" : (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o52(ja3 ja3Var) {
-        super(ja3Var, "/swanAPI/coverview");
+    public o52() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ja3Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((ja3) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Nullable
-    public final u52 q(UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeL;
+    public static void d() {
+        t73 M;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, unitedSchemeEntity)) == null) {
-            if (unitedSchemeEntity == null) {
-                return null;
-            }
-            JSONObject k = k(unitedSchemeEntity);
-            if (k == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                m62.c("Component-Action-CoverView", "params is null");
-                return null;
-            }
-            u52 u52Var = new u52();
-            try {
-                u52Var.a(k);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                m62.d("Component-Action-CoverView", "model parse exception:", e);
-            }
-            return u52Var;
+        if ((interceptable != null && interceptable.invokeV(65537, null) != null) || (M = t73.M()) == null) {
+            return;
         }
-        return (u52) invokeL.objValue;
+        ck3.j(M.getActivity());
+        System.exit(0);
     }
 
-    @Override // com.baidu.tieba.la3
-    public boolean m(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, m93 m93Var) {
-        InterceptResult invokeLLLLL;
+    public static String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, m93Var)) == null) {
-            if (jb3.b) {
-                Log.d("Component-Action-CoverView", "insert");
-            }
-            u52 q = q(unitedSchemeEntity);
-            if (q == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                m62.c("Component-Action-CoverView", "model is null");
-                return false;
-            }
-            d52 insert = new t52(context, q).insert();
-            boolean a = insert.a();
-            if (a) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, insert.b);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
             return a;
         }
-        return invokeLLLLL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.la3
-    public boolean o(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, m93 m93Var) {
-        InterceptResult invokeLLLLL;
+    @Override // com.baidu.tieba.v42
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, str, m93Var)) == null) {
-            if (jb3.b) {
-                Log.d("Component-Action-CoverView", "remove");
-            }
-            u52 q = q(unitedSchemeEntity);
-            if (q == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                m62.c("Component-Action-CoverView", "model is null");
-                return false;
-            }
-            t52 t52Var = (t52) z52.a(q);
-            if (t52Var == null) {
-                String str2 = "can't find coverView component:#" + q.b;
-                m62.c("Component-Action-CoverView", str2);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
-                return false;
-            }
-            d52 B = t52Var.B();
-            boolean a = B.a();
-            if (a) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, B.b);
-            }
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return m52.e().getPath();
         }
-        return invokeLLLLL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.la3
-    public boolean p(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, m93 m93Var) {
-        InterceptResult invokeLLLLL;
+    @Override // com.baidu.tieba.v42
+    public void a(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, context, unitedSchemeEntity, callbackHandler, str, m93Var)) == null) {
-            if (jb3.b) {
-                Log.d("Component-Action-CoverView", StickerDataChangeType.UPDATE);
-            }
-            u52 q = q(unitedSchemeEntity);
-            if (q == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                m62.c("Component-Action-CoverView", "model is null");
-                return false;
-            }
-            t52 t52Var = (t52) z52.a(q);
-            if (t52Var == null) {
-                String str2 = "can't find coverView component:#" + q.b;
-                m62.c("Component-Action-CoverView", str2);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
-                return false;
-            }
-            d52 update = t52Var.update((t52) q);
-            boolean a = update.a();
-            if (a) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, update.b);
-            }
-            return a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            a = sk3.i(bundle, "extraWSUrl");
+            w42.i(sk3.i(bundle, PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD));
+            w42.j(sk3.i(bundle, "slavePreload"));
         }
-        return invokeLLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.v42
+    public void b(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            bundle.putString("extraWSUrl", a);
+            bundle.putString("slavePreload", w42.c());
+            bundle.putString(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, w42.a());
+        }
     }
 }

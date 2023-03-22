@@ -1,115 +1,113 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.Context;
-import android.os.Build;
+import android.content.Intent;
+import android.os.Bundle;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashSet;
-import java.util.Set;
-/* loaded from: classes4.dex */
-public final class iw9 {
+/* loaded from: classes5.dex */
+public class iw9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final iw9 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<a> a;
-    public boolean b;
+    @NonNull
+    public TbPageContext<?> a;
+    @NonNull
+    public NavigationBar b;
+    @NonNull
+    public LinearLayout c;
+    @NonNull
+    public LinearLayout d;
+    @NonNull
+    public yu9 e;
+    public EditorTools f;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void U();
-
-        void a(Activity activity);
-
-        void b();
-
-        void onActivityDestroyed(Activity activity);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947868062, "Lcom/baidu/tieba/iw9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947868062, "Lcom/baidu/tieba/iw9;");
-                return;
-            }
-        }
-        c = new iw9();
-    }
-
-    public iw9() {
+    public iw9(@NonNull TbPageContext<?> tbPageContext, @NonNull NavigationBar navigationBar, @NonNull LinearLayout linearLayout, @NonNull LinearLayout linearLayout2, @NonNull yu9 yu9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, navigationBar, linearLayout, linearLayout2, yu9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new LinkedHashSet();
+        this.a = tbPageContext;
+        this.b = navigationBar;
+        this.c = linearLayout;
+        this.d = linearLayout2;
+        this.e = yu9Var;
     }
 
-    public static iw9 a() {
-        InterceptResult invokeV;
+    @Nullable
+    public bv9 a(int i, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return c;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            return c(i, z);
         }
-        return (iw9) invokeV.objValue;
+        return (bv9) invokeCommon.objValue;
     }
 
-    public final Set<a> b() {
-        InterceptResult invokeV;
+    @Nullable
+    public bv9 b(Bundle bundle) {
+        InterceptResult invokeL;
+        Intent intent;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
+            int i = 9;
+            if (bundle != null) {
+                i = bundle.getInt("type", 9);
+            } else if (this.a.getPageActivity() != null && (intent = this.a.getPageActivity().getIntent()) != null) {
+                i = intent.getIntExtra("type", 9);
+            }
+            return c(i, true);
         }
-        return (Set) invokeV.objValue;
+        return (bv9) invokeL.objValue;
     }
 
-    public final void c() {
+    public final bv9 c(int i, boolean z) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this.a) {
-                this.a.clear();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (this.a.getPageActivity() == null) {
+                return null;
+            }
+            this.b.removeAllViews(NavigationBar.ControlAlign.HORIZONTAL_LEFT);
+            this.b.removeAllViews(NavigationBar.ControlAlign.HORIZONTAL_RIGHT);
+            this.c.removeAllViews();
+            this.d.removeAllViews();
+            EditorTools editorTools = new EditorTools(this.a.getPageActivity());
+            this.f = editorTools;
+            this.d.addView(editorTools);
+            switch (i) {
+                case 11:
+                    return new tw9(this.a, this.b, this.c, this.f, this.e, z);
+                case 12:
+                    return new pw9(this.a, this.b, this.c, this.f, this.e, z);
+                case 13:
+                    return new qw9(this.a, this.b, this.c, this.f, this.e, z);
+                case 14:
+                    return new sw9(this.a, this.b, this.c, this.f, this.e, z);
+                case 15:
+                    return new ow9(this.a, this.b, this.c, this.f, this.e, z);
+                default:
+                    return new rw9(this.a, this.b, this.c, this.f, this.e, z);
             }
         }
-    }
-
-    public final void d(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            synchronized (this.a) {
-                this.a.add(aVar);
-            }
-        }
-    }
-
-    public final void e(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, context) == null) && !this.b && Build.VERSION.SDK_INT >= 14) {
-            try {
-                ((Application) context.getApplicationContext()).registerActivityLifecycleCallbacks(new pw9(this));
-            } catch (Exception unused) {
-                dx9.b("registerActivityLifecycleCallbacks encounter exception");
-            }
-            this.b = true;
-        }
+        return (bv9) invokeCommon.objValue;
     }
 }

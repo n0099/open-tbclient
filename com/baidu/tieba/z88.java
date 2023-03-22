@@ -1,81 +1,58 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.content.Intent;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.searchbox.live.interfaces.service.RouterService;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.kz;
-import com.baidu.tieba.zy;
+import com.baidu.tbadk.browser.WebViewBroadcastReceiver;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class z88 extends u88<d15, ThreadCardViewHolder<ThreadData>> {
+public class z88 implements RouterService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId c;
-    public TbPageContext<?> d;
-    public boolean e;
-    public jo f;
-    public xf6<ThreadData> g;
 
-    /* loaded from: classes7.dex */
-    public class a extends xf6<ThreadData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ z88 b;
-
-        public a(z88 z88Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {z88Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = z88Var;
+    @Override // com.baidu.searchbox.live.interfaces.service.RouterService
+    public boolean invokeSchemeWithCallBack(Context context, Uri uri, String str, RouterService.LiveShowSchemeCallBack liveShowSchemeCallBack) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, context, uri, str, liveShowSchemeCallBack)) == null) {
+            return false;
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xf6
-        /* renamed from: d */
-        public void a(View view2, ThreadData threadData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) {
-                qf6.b().d(true);
-                this.b.z(view2, threadData);
-            }
-        }
+        return invokeLLLL.booleanValue;
     }
 
     /* loaded from: classes7.dex */
-    public class b implements no {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ z88 a;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ Context b;
+        public final /* synthetic */ z88 c;
 
-        public b(z88 z88Var) {
+        public a(z88 z88Var, String str, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {z88Var};
+                Object[] objArr = {z88Var, str, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -85,113 +62,186 @@ public class z88 extends u88<d15, ThreadCardViewHolder<ThreadData>> {
                     return;
                 }
             }
-            this.a = z88Var;
+            this.c = z88Var;
+            this.a = str;
+            this.b = context;
         }
 
-        @Override // com.baidu.tieba.no
-        public void b(View view2, Cdo cdo, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            String str;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, cdo, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (cdo instanceof d15) && (view2.getTag() instanceof ThreadCardViewHolder)) {
-                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-                ThreadData threadData = ((d15) cdo).t;
-                threadData.objType = 1;
-                if (this.a.g != null) {
-                    this.a.g.a(threadCardViewHolder.getView(), threadData);
-                }
-                Context context = view2.getContext();
-                String y1 = this.a.b.getOrignalPage().y1();
-                if (this.a.s()) {
-                    str = "3";
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Activity b = w8.f().b();
+                if (b != null && (g9.a(b) instanceof TbPageContext)) {
+                    UrlManager.getInstance().dealOneLink((TbPageContext) g9.a(b), new String[]{this.a}, true);
+                } else if (!this.a.startsWith(BdUniDispatchSchemeController.SCHEME)) {
+                    this.c.c(this.b, this.a);
                 } else {
-                    str = "2";
+                    UtilHelper.dealOneScheme(this.b, this.a);
                 }
-                ThreadCardUtils.jumpToPB(threadData, context, 17, false, y1, str);
-                threadCardViewHolder.a().p(new kz.a(1));
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z88(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId);
+    public z88() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.e = true;
-        this.g = new a(this);
-        this.d = tbPageContext;
-        this.c = bdUniqueId2;
     }
 
-    public void A(jo joVar) {
+    @Override // com.baidu.searchbox.live.interfaces.service.RouterService
+    public boolean invokeScheme(Uri uri, String str, RouterService.LiveShowSchemeCallBack liveShowSchemeCallBack) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, joVar) == null) {
-            this.f = joVar;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, uri, str, liveShowSchemeCallBack)) == null) {
+            openScheme(uri.toString());
+            return true;
         }
+        return invokeLLL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: x */
-    public ThreadCardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final boolean b(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            zy.b bVar = new zy.b(this.d.getPageActivity(), false);
-            ny nyVar = new ny(this.d.getPageActivity());
-            nyVar.v("index");
-            nyVar.w(this.e);
-            bVar.n(nyVar);
-            zy k = bVar.k(BaseCardInfo.SupportType.CONTENT, viewGroup, this.f);
-            k.s(17);
-            ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(k);
-            threadCardViewHolder.i(this.c);
-            setOnAdapterItemClickListener(new b(this));
-            return threadCardViewHolder;
-        }
-        return (ThreadCardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.qn
-    /* renamed from: y */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, d15 d15Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
-        InterceptResult invokeCommon;
-        ThreadData threadData;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, d15Var, threadCardViewHolder})) == null) {
-            if (d15Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && (threadData = d15Var.t) != null) {
-                threadData.statFloor = getPositionByType(i) + 1;
-                threadCardViewHolder.a().r(i);
-                threadCardViewHolder.e(d15Var.t);
-                threadCardViewHolder.a().onChangeSkinType(this.d, TbadkCoreApplication.getInst().getSkinType());
-                threadCardViewHolder.a().q(this.g);
-                r88.c(this, d15Var);
-                return threadCardViewHolder.getView();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
+            if (StringUtils.isNull(str) || !str.contains("from=tieba")) {
+                return false;
             }
-            return null;
+            if (str.contains("com.baidu.tieba.unidispatch://pwStatisticalLog?")) {
+                e(Uri.parse(str));
+                return true;
+            } else if (str.startsWith(UrlSchemaHelper.SCHEMA_MESSAGE_CENTER_PAGE)) {
+                UrlSchemaJumpHelper.jumpMessageCenterPage(context, str);
+                return true;
+            } else if (str.startsWith("com.baidu.tieba://unidispatch/GameGodsDetailPage")) {
+                UrlSchemaJumpHelper.jumpGameGodsPage(context, str);
+                return true;
+            } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_DISPATCH_PAGE)) {
+                UrlSchemaJumpHelper.jumpDispatchOrderPage(context, str);
+                return true;
+            } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_UNPAID_PAGE)) {
+                UrlSchemaJumpHelper.jumpUnPaidOrderPage(context, str);
+                return true;
+            } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_UNPAID_LIST_PAGE)) {
+                UrlSchemaJumpHelper.jumpUnPaidListPage(context, str);
+                return true;
+            } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_PERSON_CHAT)) {
+                UrlSchemaJumpHelper.jumpPersonChat(context, str, true);
+                return true;
+            } else if (str.startsWith("com.baidu.tieba://unidispatch/tbwebview")) {
+                UrlSchemaJumpHelper.jumpNativeH5Page(context, str);
+                return true;
+            } else {
+                if (str.startsWith(UrlSchemaHelper.SCHEME_POST_DETAIL_PAGE)) {
+                    UrlSchemaJumpHelper.jumpPostDetailPage(context, str);
+                }
+                return false;
+            }
         }
-        return (View) invokeCommon.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public final void z(View view2, ThreadData threadData) {
+    public final boolean c(Context context, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, view2, threadData) == null) {
-            r88.b(this, threadData);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+            if (context != null) {
+                Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                if (UtilHelper.isIntentAvailable(context, intent)) {
+                    try {
+                        context.startActivity(intent);
+                        return true;
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                        return false;
+                    }
+                }
+                return false;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public final void d(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str) != null) || StringUtils.isNull(str) || b(context, str)) {
+            return;
+        }
+        StringBuilder sb = new StringBuilder();
+        sb.append(str);
+        if (str.indexOf("?") > 0) {
+            sb.append("&");
+        } else {
+            sb.append("?");
+        }
+        sb.append(WebViewBroadcastReceiver.INTENT_LOCALE_RECEV_CLOSE);
+        sb.append("=1");
+        sb.append("&page_from=live");
+        jg.a().post(new a(this, sb.toString(), context));
+    }
+
+    public final void e(Uri uri) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, uri) != null) || uri == null) {
+            return;
+        }
+        String queryParameter = uri.getQueryParameter("key");
+        if (TextUtils.isEmpty(queryParameter)) {
+            return;
+        }
+        StatisticItem statisticItem = new StatisticItem(queryParameter);
+        for (String str : uri.getQueryParameterNames()) {
+            if (!TextUtils.equals(str, "key")) {
+                statisticItem.addParam(str, uri.getQueryParameter(str));
+            }
+        }
+        TiebaStatic.log(statisticItem);
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.RouterService
+    public void openScheme(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) && !StringUtils.isNull(str)) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(str);
+            if (str.indexOf("?") > 0) {
+                sb.append("&");
+            } else {
+                sb.append("?");
+            }
+            sb.append(WebViewBroadcastReceiver.INTENT_LOCALE_RECEV_CLOSE);
+            sb.append("=1");
+            sb.append("&page_from=live");
+            Activity b = w8.f().b();
+            if (b != null) {
+                UrlManager.getInstance().dealOneLink((TbPageContext) g9.a(b), new String[]{sb.toString()}, true);
+            }
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.RouterService
+    public void invoke(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, context, str) == null) {
+            d(context, str);
+        }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.RouterService
+    public void invokeScheme(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, context, str) == null) {
+            d(context, str);
         }
     }
 }

@@ -260,9 +260,23 @@ public class AudioMsg extends RichMediaMsg {
         }
     }
 
+    public void setDuration(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.mDuration = i;
+        }
+    }
+
+    public void setFormat(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.mFormat = i;
+        }
+    }
+
     public void transCodeUrl(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, jSONObject) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) {
             try {
                 String decode = URLDecoder.decode(this.mRemoteUrl, "UTF-8");
                 LogUtils.d(ChatMsg.TAG, decode);
@@ -280,7 +294,7 @@ public class AudioMsg extends RichMediaMsg {
     @Override // com.baidu.android.imsdk.chatmessage.messages.RichMediaMsg, com.baidu.android.imsdk.chatmessage.messages.ChatMsg, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, parcel, i) == null) {
+        if (interceptable == null || interceptable.invokeLI(1048586, this, parcel, i) == null) {
             super.writeToParcel(parcel, i);
             parcel.writeInt(this.mFormat);
             parcel.writeInt(this.mDuration);

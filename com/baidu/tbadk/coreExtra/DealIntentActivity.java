@@ -7,7 +7,7 @@ import android.view.MotionEvent;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.tieba.s9;
+import com.baidu.tieba.v8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,7 +47,7 @@ public class DealIntentActivity extends Activity {
     public void onCreate(@Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            s9.b(this);
+            v8.b(this);
             super.onCreate(bundle);
             Intent intent = getIntent();
             if (intent != null) {
@@ -62,7 +62,7 @@ public class DealIntentActivity extends Activity {
     public void setRequestedOrientation(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            if (s9.d(this) && s9.a(i)) {
+            if (v8.d(this) && v8.a(i)) {
                 return;
             }
             super.setRequestedOrientation(i);

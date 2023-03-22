@@ -4,7 +4,7 @@ import android.app.ActivityManager;
 import android.content.Context;
 import android.os.Process;
 import android.text.TextUtils;
-import com.baidu.tieba.b10;
+import com.baidu.tieba.e00;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,12 +48,12 @@ public final class Util {
     public static String toHexString(byte[] bArr, String str, boolean z) {
         InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, bArr, str, z)) == null) ? b10.a(bArr, str, z) : (String) invokeLLZ.objValue;
+        return (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65538, null, bArr, str, z)) == null) ? e00.a(bArr, str, z) : (String) invokeLLZ.objValue;
     }
 
     public static String toMd5(byte[] bArr, boolean z) {
         InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, bArr, z)) == null) ? b10.b(bArr, z) : (String) invokeLZ.objValue;
+        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, bArr, z)) == null) ? e00.b(bArr, z) : (String) invokeLZ.objValue;
     }
 }

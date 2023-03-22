@@ -4,6 +4,7 @@ import android.util.Pair;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.appsearch.update.patchupdate.GDiffPatcher;
 import com.google.android.exoplayer2.ParserException;
+import com.google.android.exoplayer2.extractor.ogg.OpusReader;
 import java.util.ArrayList;
 /* loaded from: classes7.dex */
 public final class CodecSpecificDataUtil {
@@ -15,7 +16,7 @@ public final class CodecSpecificDataUtil {
     public static final int AUDIO_SPECIFIC_CONFIG_CHANNEL_CONFIGURATION_INVALID = -1;
     public static final int AUDIO_SPECIFIC_CONFIG_FREQUENCY_INDEX_ARBITRARY = 15;
     public static final byte[] NAL_START_CODE = {0, 0, 0, 1};
-    public static final int[] AUDIO_SPECIFIC_CONFIG_SAMPLING_RATE_TABLE = {96000, 88200, 64000, 48000, 44100, 32000, 24000, 22050, 16000, 12000, 11025, 8000, 7350};
+    public static final int[] AUDIO_SPECIFIC_CONFIG_SAMPLING_RATE_TABLE = {96000, 88200, 64000, OpusReader.SAMPLE_RATE, 44100, 32000, 24000, 22050, 16000, 12000, 11025, 8000, 7350};
     public static final int[] AUDIO_SPECIFIC_CONFIG_CHANNEL_COUNT_TABLE = {0, 1, 2, 3, 4, 5, 6, 8, -1, -1, -1, 7, 8, -1, 8, -1};
 
     public static byte[] buildAacAudioSpecificConfig(int i, int i2, int i3) {

@@ -24,8 +24,8 @@ import com.baidu.android.pushservice.l.d;
 import com.baidu.android.pushservice.pull.ClientEventInfo;
 import com.baidu.android.pushservice.util.Utility;
 import com.baidu.down.retry.HttpRetryStrategyDataParse;
-import com.baidu.tieba.ffa;
 import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
+import com.baidu.tieba.ola;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -90,7 +90,7 @@ public class e {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 e.h(this.c);
                 try {
-                    str = HmsInstanceId.getInstance(this.c).getToken(ffa.c(this.c).a("client/app_id"), HmsMessaging.DEFAULT_TOKEN_SCOPE);
+                    str = HmsInstanceId.getInstance(this.c).getToken(ola.c(this.c).a("client/app_id"), HmsMessaging.DEFAULT_TOKEN_SCOPE);
                 } catch (Throwable unused) {
                     PushSettings.h = 1;
                     com.baidu.android.pushservice.a0.i.b(this.c, "com.baidu.android.pushservice.PushSettings.hw_hms_down_mode", 1);

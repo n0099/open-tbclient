@@ -26,7 +26,7 @@ public final class a {
 
     /* renamed from: com.vivo.push.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0728a {
+    public static class C0733a {
         public static /* synthetic */ Interceptable $ic;
         public static a a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -66,7 +66,7 @@ public final class a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return C0728a.a;
+            return C0733a.a;
         }
         return (a) invokeV.objValue;
     }

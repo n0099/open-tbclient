@@ -1,7 +1,12 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.badlogic.gdx.math.Matrix3;
+import com.badlogic.gdx.math.Matrix4;
+import com.badlogic.gdx.math.Quaternion;
+import com.badlogic.gdx.math.Vector3;
+import com.badlogic.gdx.utils.JsonValue;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.y6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,14 +15,35 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class o4 extends k4 {
+public abstract class o4 implements r6, y6.c {
     public static /* synthetic */ Interceptable $ic;
-    public static final long h;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean d;
-    public int e;
-    public int f;
-    public float g;
+
+    @Override // com.baidu.tieba.y6.c
+    public void a(y6 y6Var, JsonValue jsonValue) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, y6Var, jsonValue) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.r6
+    public void dispose() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    public void f(w0 w0Var, r4 r4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, w0Var, r4Var) == null) {
+        }
+    }
+
+    public void update() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -32,12 +58,19 @@ public class o4 extends k4 {
                 return;
             }
         }
-        h = k4.d("blended");
+        new Vector3();
+        new Vector3();
+        new Vector3();
+        new Vector3();
+        new Vector3();
+        new Vector3();
+        new Quaternion();
+        new Quaternion();
+        new Matrix3();
+        new Matrix4();
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public o4() {
-        this(null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -45,156 +78,9 @@ public class o4 extends k4 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                this((o4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.k4
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return (((((((super.hashCode() * 947) + (this.d ? 1 : 0)) * 947) + this.e) * 947) + this.f) * 947) + a8.b(this.g);
-        }
-        return invokeV.intValue;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public o4(int i, int i2, float f) {
-        this(true, i, i2, f);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Boolean) objArr2[0]).booleanValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Float) objArr2[3]).floatValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public o4(o4 o4Var) {
-        this(r0, r1, r2, r10);
-        boolean z;
-        int i;
-        int i2;
-        float f;
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {o4Var};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Boolean) objArr2[0]).booleanValue(), ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Float) objArr2[3]).floatValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        if (o4Var != null && !o4Var.d) {
-            z = false;
-        } else {
-            z = true;
-        }
-        if (o4Var == null) {
-            i = 770;
-        } else {
-            i = o4Var.e;
-        }
-        if (o4Var == null) {
-            i2 = 771;
-        } else {
-            i2 = o4Var.f;
-        }
-        if (o4Var == null) {
-            f = 1.0f;
-        } else {
-            f = o4Var.g;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o4(boolean z, int i, int i2, float f) {
-        super(h);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)};
-            interceptable.invokeUnInit(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                super(((Long) newInitContext.callArgs[0]).longValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(InputDeviceCompat.SOURCE_TRACKBALL, newInitContext);
-                return;
-            }
-        }
-        this.g = 1.0f;
-        this.d = z;
-        this.e = i;
-        this.f = i2;
-        this.g = f;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: e */
-    public int compareTo(k4 k4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k4Var)) == null) {
-            long j = this.a;
-            long j2 = k4Var.a;
-            if (j != j2) {
-                return (int) (j - j2);
-            }
-            o4 o4Var = (o4) k4Var;
-            boolean z = this.d;
-            if (z != o4Var.d) {
-                if (z) {
-                    return 1;
-                }
-                return -1;
-            }
-            int i = this.e;
-            int i2 = o4Var.e;
-            if (i != i2) {
-                return i - i2;
-            }
-            int i3 = this.f;
-            int i4 = o4Var.f;
-            if (i3 != i4) {
-                return i3 - i4;
-            }
-            if (com.badlogic.gdx.math.d.e(this.g, o4Var.g)) {
-                return 0;
-            }
-            if (this.g < o4Var.g) {
-                return 1;
-            }
-            return -1;
-        }
-        return invokeL.intValue;
     }
 }

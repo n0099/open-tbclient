@@ -1,11 +1,13 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.process.SwanAppProcessInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,13 +15,81 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class j43 implements fo3<HybridUbcFlow> {
+public final class j43 {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<String> a;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public c a;
+
+    /* loaded from: classes5.dex */
+    public interface c {
+        void a();
+
+        void b(@NonNull l43 l43Var);
+
+        void c(String str);
+
+        void d(String str);
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ l43 a;
+        public final /* synthetic */ j43 b;
+
+        public a(j43 j43Var, l43 l43Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j43Var, l43Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = j43Var;
+            this.a = l43Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.g(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static j43 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-737977982, "Lcom/baidu/tieba/j43$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-737977982, "Lcom/baidu/tieba/j43$b;");
+                    return;
+                }
+            }
+            a = new j43();
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +104,7 @@ public class j43 implements fo3<HybridUbcFlow> {
                 return;
             }
         }
-        a = new ArrayList(5);
+        b = do1.a;
     }
 
     public j43() {
@@ -51,59 +121,85 @@ public class j43 implements fo3<HybridUbcFlow> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.fo3
-    /* renamed from: b */
-    public void a(@NonNull HybridUbcFlow hybridUbcFlow) {
+    public static j43 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
-            g43.g().d(false);
-            String h = hybridUbcFlow.h("launchid");
-            if (!TextUtils.isEmpty(h)) {
-                synchronized (a) {
-                    if (!a.contains(h)) {
-                        a.add(h);
-                        d(h, hybridUbcFlow);
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
+        }
+        return (j43) invokeV.objValue;
+    }
+
+    public void c() {
+        c cVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (cVar = this.a) != null) {
+            cVar.a();
+        }
+    }
+
+    public static void f(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && b) {
+            Log.i("SwanAppMessenger", str);
+        }
+    }
+
+    public void b(String str) {
+        c cVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (cVar = this.a) != null) {
+            cVar.d(str);
+        }
+    }
+
+    public void d(String str) {
+        c cVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (cVar = this.a) != null) {
+            cVar.c(str);
+        }
+    }
+
+    public final void g(@NonNull l43 l43Var) {
+        c p43Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, l43Var) == null) {
+            boolean isMainProcess = ProcessUtils.isMainProcess();
+            if (!isMainProcess && !SwanAppProcessInfo.isInited()) {
+                f("send: return by process check");
+                return;
+            }
+            if (this.a == null) {
+                if (isMainProcess) {
+                    p43Var = new t43();
+                } else {
+                    p43Var = new p43();
                 }
+                this.a = p43Var;
             }
-            String str = (String) hybridUbcFlow.k("routeId");
-            if (!TextUtils.isEmpty(str)) {
-                synchronized (a) {
-                    if (!a.contains(str)) {
-                        a.add(str);
-                        c(str, hybridUbcFlow);
-                    }
-                }
-            }
+            f("send: sender=" + this.a);
+            this.a.a();
+            this.a.b(l43Var);
+            this.a.a();
         }
     }
 
-    public final void c(@NonNull String str, @NonNull HybridUbcFlow hybridUbcFlow) {
+    public void h(@NonNull l43 l43Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, hybridUbcFlow) == null) {
-            e(hybridUbcFlow);
-            UbcFlowEvent g = hybridUbcFlow.g("na_first_meaningful_paint");
-            HybridUbcFlow e = r23.e("route", str);
-            if (e != null && g != null) {
-                e.F(g);
-                e.B();
+        if (interceptable == null || interceptable.invokeL(1048580, this, l43Var) == null) {
+            long i = l43Var.i();
+            int i2 = (i > 0L ? 1 : (i == 0L ? 0 : -1));
+            if (i2 <= 0 && Looper.getMainLooper() == Looper.myLooper()) {
+                g(l43Var);
+                return;
             }
+            Handler M = s73.M();
+            a aVar = new a(this, l43Var);
+            if (i2 < 0) {
+                i = 0;
+            }
+            M.postDelayed(aVar, i);
         }
-    }
-
-    public final void d(@NonNull String str, @NonNull HybridUbcFlow hybridUbcFlow) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, hybridUbcFlow) == null) {
-            e(hybridUbcFlow);
-        }
-    }
-
-    public final void e(@NonNull HybridUbcFlow hybridUbcFlow) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, hybridUbcFlow) != null) || hybridUbcFlow.g("na_first_meaningful_paint") == null) {
-            return;
-        }
-        gg2.U().U0(new tj2((String) hybridUbcFlow.k(PrefetchEvent.EVENT_DATA_WEBVIEW_ID), (String) hybridUbcFlow.k(PrefetchEvent.EVENT_KEY_PAGE_URL)));
     }
 }

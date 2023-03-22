@@ -1,32 +1,121 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class a04 extends g04 {
+public class a04 implements ot1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, zz3> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a04(String str) {
-        super("onFail", 0, str);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947561348, "Lcom/baidu/tieba/a04;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947561348, "Lcom/baidu/tieba/a04;");
+                return;
+            }
+        }
+        b = do1.a;
+    }
+
+    public a04() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
+        }
+        this.a = new HashMap<>();
+        c();
+    }
+
+    @Override // com.baidu.tieba.ot1
+    public tz1 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull xk2 xk2Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, jSONObject, xk2Var)) == null) {
+            return b(str, jSONObject, xk2Var);
+        }
+        return (tz1) invokeLLL.objValue;
+    }
+
+    public final tz1 b(String str, JSONObject jSONObject, xk2 xk2Var) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, jSONObject, xk2Var)) == null) {
+            zz3 zz3Var = this.a.get(str);
+            if (zz3Var != null) {
+                if (b) {
+                    Log.i("GameCenterDispatcher", "action: " + str + " params: " + jSONObject);
+                }
+                return zz3Var.a(jSONObject, xk2Var);
+            }
+            if (b) {
+                Log.i("GameCenterDispatcher", "action has not found: " + str + ", params: " + jSONObject);
+            }
+            return new tz1(10002, "no such api.");
+        }
+        return (tz1) invokeLLL.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            d(new xz3());
+            d(new yz3());
+            d(new vy3());
+            d(new zy3());
+            d(new wy3());
+            d(new o04());
+            d(new xy3());
+            d(new e04());
+            d(new l04());
+            d(new uy3());
+            d(new bz3());
+            d(new yy3());
+            d(new az3());
+            d(new h04());
+            d(new n04());
+            d(new i04());
+            d(new k04());
+            d(new j04());
+        }
+    }
+
+    public void d(zz3 zz3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, zz3Var) == null) {
+            if (b && TextUtils.isEmpty(zz3Var.a)) {
+                throw new IllegalArgumentException("action name is null");
+            }
+            if (b && this.a.containsKey(zz3Var.a)) {
+                throw new IllegalArgumentException("duplicate action: " + zz3Var);
+            }
+            this.a.put(zz3Var.a, zz3Var);
         }
     }
 }

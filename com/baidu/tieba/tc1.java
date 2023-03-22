@@ -1,530 +1,231 @@
 package com.baidu.tieba;
 
-import android.animation.ObjectAnimator;
-import android.animation.PropertyValuesHolder;
-import android.os.Handler;
-import android.os.Message;
-import android.text.TextUtils;
-import android.view.View;
-import androidx.constraintlayout.motion.widget.Key;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.widget.bubble.BubbleManager;
-import com.baidu.nadcore.widget.bubble.BubblePosition;
-import com.baidu.platform.comapi.map.NodeType;
-import com.baidu.tieba.j51;
+import com.baidu.nps.main.manager.NPSManager;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import dalvik.system.PathClassLoader;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.net.URL;
+import java.util.Enumeration;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public abstract class tc1 {
+public class tc1 extends PathClassLoader {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public int c;
-    public BubbleManager.b d;
-    public BubbleManager.a e;
-    public g f;
-    public boolean g;
-    public boolean h;
-    public boolean i;
-    public ObjectAnimator j;
-    public boolean k;
-    public xc1 l;
-    public pc1 m;
+    public final ClassLoader a;
+    public Method b;
+    public Method c;
+    public Method d;
+    public Method e;
+    public Set<String> f;
 
-    public abstract xc1 f();
-
-    public abstract void j();
-
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tc1 a;
-
-        public a(tc1 tc1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tc1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tc1Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.k();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tc1 a;
-
-        public b(tc1 tc1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tc1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tc1Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                tc1 tc1Var = this.a;
-                BubblePosition b = tc1Var.m.b(tc1Var.l);
-                if (b == BubblePosition.INVALID) {
-                    this.a.l.m();
-                    oc1.a().b("——>show: remove bubble view end");
-                    tc1 tc1Var2 = this.a;
-                    if (tc1Var2.g) {
-                        tc1Var2.l.l();
-                        oc1.a().b("——>show: remove bg view end");
-                    }
-                    tc1 tc1Var3 = this.a;
-                    if (tc1Var3.h) {
-                        tc1Var3.l.k();
-                        oc1.a().b("——>show: remove anchorlayer view end");
-                        return;
-                    }
-                    return;
-                }
-                this.a.l.z(b);
-                this.a.q(b);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ BubblePosition a;
-        public final /* synthetic */ tc1 b;
-
-        public c(tc1 tc1Var, BubblePosition bubblePosition) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tc1Var, bubblePosition};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = tc1Var;
-            this.a = bubblePosition;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            int i;
-            int i2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                tc1 tc1Var = this.b;
-                int[] i3 = tc1Var.m.i(this.a, tc1Var.l);
-                this.b.l.A(i3);
-                tc1 tc1Var2 = this.b;
-                if (tc1Var2.i) {
-                    int a = j51.c.a(null, tc1Var2.m.b + 11.0f);
-                    BubblePosition bubblePosition = this.a;
-                    if (bubblePosition != BubblePosition.UP && bubblePosition != BubblePosition.DOWN) {
-                        if (bubblePosition == BubblePosition.RIGHT || bubblePosition == BubblePosition.LEFT) {
-                            if (this.a == BubblePosition.LEFT) {
-                                i2 = i3[0] + a;
-                            } else {
-                                i2 = i3[0] - a;
-                            }
-                            tc1 tc1Var3 = this.b;
-                            tc1Var3.b(tc1Var3.l.b, i2, i3[0], i3[1], i3[1]);
-                        }
-                    } else {
-                        if (this.a == BubblePosition.UP) {
-                            i = i3[1] + a;
-                        } else {
-                            i = i3[1] - a;
-                        }
-                        tc1 tc1Var4 = this.b;
-                        tc1Var4.b(tc1Var4.l.b, i3[0], i3[0], i, i3[1]);
-                    }
-                }
-                tc1 tc1Var5 = this.b;
-                if (tc1Var5.h) {
-                    tc1Var5.l.y();
-                }
-                tc1 tc1Var6 = this.b;
-                tc1Var6.a = true;
-                if (tc1Var6.b) {
-                    tc1Var6.f.sendEmptyMessageDelayed(0, tc1Var6.c);
-                }
-                BubbleManager.b bVar = this.b.d;
-                if (bVar != null) {
-                    bVar.c();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class d implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tc1 a;
-
-        public d(tc1 tc1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tc1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tc1Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.i(view2);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class e implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tc1 a;
-
-        public e(tc1 tc1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tc1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tc1Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.i(view2);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class f implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tc1 a;
-
-        public f(tc1 tc1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tc1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tc1Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.i(view2);
-                BubbleManager.a aVar = this.a.e;
-                if (aVar != null) {
-                    aVar.a();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class g extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<tc1> a;
-
-        public g(tc1 tc1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tc1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new WeakReference<>(tc1Var);
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            tc1 tc1Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && message.what == 0 && (tc1Var = this.a.get()) != null) {
-                tc1Var.c();
-            }
-        }
-    }
-
-    public tc1(xc1 xc1Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tc1(ClassLoader classLoader, ClassLoader classLoader2) {
+        super("", "", classLoader);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {xc1Var};
+            Object[] objArr = {classLoader, classLoader2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1], (ClassLoader) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = true;
-        this.c = NodeType.E_PARTICLE;
-        this.k = true;
-        this.m = new pc1();
-        this.l = xc1Var;
+        this.f = new HashSet();
+        this.a = classLoader2;
+        b(classLoader2);
+        c(classLoader2);
+        this.f.add("android.widget.ViewStub");
+        this.f.add("android.widget.View");
+        this.f.add("android.webkit.ViewStub");
+        this.f.add("android.webkit.View");
+        this.f.add("android.app.ViewStub");
+        this.f.add("android.app.View");
+        this.f.add("com.google.android.gms.net.PlayServicesCronetProvider");
+        this.f.add("com.google.android.gms.net.GmsCoreCronetProvider");
+        this.f.add("org.chromium.net.impl.JavaCronetProvider");
     }
 
-    public final void b(View view2, float f2, float f3, float f4, float f5) {
+    public final void a(String str, ClassLoader classLoader) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5)}) == null) {
-            ObjectAnimator objectAnimator = this.j;
-            if (objectAnimator != null && objectAnimator.isRunning()) {
-                this.j.cancel();
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, classLoader) == null) {
+            try {
+                Field b = fe1.b(classLoader.getClass(), str);
+                fe1.h(b);
+                fe1.l(b, this, fe1.g(b, classLoader));
+            } catch (IllegalAccessException unused) {
             }
-            ObjectAnimator duration = ObjectAnimator.ofPropertyValuesHolder(view2, PropertyValuesHolder.ofFloat(Key.ALPHA, 0.0f, 1.0f), PropertyValuesHolder.ofFloat(Key.TRANSLATION_X, f2, f3), PropertyValuesHolder.ofFloat(Key.TRANSLATION_Y, f4, f5)).setDuration(180L);
-            this.j = duration;
-            duration.start();
         }
     }
 
-    public void c() {
+    public final void b(ClassLoader classLoader) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !this.a) {
-            return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, classLoader) == null) {
+            a("pathList", classLoader);
         }
-        gk0.b(new a(this));
     }
 
-    public pc1 e() {
+    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
+    public Class<?> findClass(String str) throws ClassNotFoundException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return super.findClass(str);
+        }
+        return (Class) invokeL.objValue;
+    }
+
+    public final void c(ClassLoader classLoader) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, classLoader) == null) {
+            Class<?> cls = classLoader.getClass();
+            Method c = fe1.c(cls, "findResource", String.class);
+            this.b = c;
+            c.setAccessible(true);
+            Method c2 = fe1.c(cls, "findResources", String.class);
+            this.c = c2;
+            c2.setAccessible(true);
+            Method c3 = fe1.c(cls, "findLibrary", String.class);
+            this.d = c3;
+            c3.setAccessible(true);
+            Method c4 = fe1.c(cls, "getPackage", String.class);
+            this.e = c4;
+            c4.setAccessible(true);
+        }
+    }
+
+    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
+    public Package getPackage(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            Package r0 = null;
+            if (str != null && !str.isEmpty()) {
+                try {
+                    r0 = (Package) this.e.invoke(this.a, str);
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                } catch (IllegalArgumentException e2) {
+                    e2.printStackTrace();
+                } catch (InvocationTargetException e3) {
+                    e3.printStackTrace();
+                }
+                if (r0 == null) {
+                    r0 = super.getPackage(str);
+                }
+                if (r0 == null) {
+                    return definePackage(str, "Unknown", "0.0", "Unknown", "Unknown", "0.0", "Unknown", null);
+                }
+            }
+            return r0;
+        }
+        return (Package) invokeL.objValue;
+    }
+
+    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
+    public String findLibrary(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            try {
+                return (String) this.d.invoke(this.a, str);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+                return super.findLibrary(str);
+            } catch (IllegalArgumentException e2) {
+                e2.printStackTrace();
+                return super.findLibrary(str);
+            } catch (InvocationTargetException e3) {
+                e3.printStackTrace();
+                return super.findLibrary(str);
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
+    public URL findResource(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            try {
+                return (URL) this.b.invoke(this.a, str);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+                return super.findResource(str);
+            } catch (IllegalArgumentException e2) {
+                e2.printStackTrace();
+                return super.findResource(str);
+            } catch (InvocationTargetException e3) {
+                e3.printStackTrace();
+                return super.findResource(str);
+            }
+        }
+        return (URL) invokeL.objValue;
+    }
+
+    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
+    public Enumeration<URL> findResources(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            try {
+                return (Enumeration) this.c.invoke(this.a, str);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+                return super.findResources(str);
+            } catch (IllegalArgumentException e2) {
+                e2.printStackTrace();
+                return super.findResources(str);
+            } catch (InvocationTargetException e3) {
+                e3.printStackTrace();
+                return super.findResources(str);
+            }
+        }
+        return (Enumeration) invokeL.objValue;
+    }
+
+    @Override // java.lang.ClassLoader
+    public Class<?> loadClass(String str, boolean z) throws ClassNotFoundException {
+        Class<?> loadComponentClass;
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, z)) == null) {
+            try {
+                return this.a.loadClass(str);
+            } catch (ClassNotFoundException unused) {
+                if (!this.f.contains(str) && (loadComponentClass = NPSManager.getInstance().loadComponentClass(str)) != null) {
+                    return loadComponentClass;
+                }
+                return super.loadClass(str, z);
+            }
+        }
+        return (Class) invokeLZ.objValue;
+    }
+
+    @Override // dalvik.system.BaseDexClassLoader
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.m;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return tc1.class.getName() + "[mBase=" + this.a.toString() + PreferencesUtil.RIGHT_MOUNT;
         }
-        return (pc1) invokeV.objValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return !this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            xc1 xc1Var = this.l;
-            if (xc1Var != null) {
-                xc1Var.n();
-                this.l = null;
-            }
-            this.d = null;
-            this.f = null;
-            this.j = null;
-        }
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.i = z;
-        }
-    }
-
-    public void i(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
-            BubbleManager.b bVar = this.d;
-            if (bVar != null) {
-                bVar.a();
-            }
-            if (this.k) {
-                c();
-            }
-        }
-    }
-
-    public void m(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            if (i <= 0) {
-                this.c = NodeType.E_PARTICLE;
-            } else {
-                this.c = i;
-            }
-        }
-    }
-
-    public void n(BubbleManager.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, bVar) == null) {
-            this.d = bVar;
-        }
-    }
-
-    public void q(BubblePosition bubblePosition) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, bubblePosition) == null) {
-            this.l.j(new c(this, bubblePosition));
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.l.g()) {
-            this.f = new g(this);
-            this.l.v(new d(this));
-            this.l.u(new e(this));
-            this.l.t(new f(this));
-        }
-    }
-
-    public void p() {
-        xc1 xc1Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048590, this) != null) || (xc1Var = this.l) == null || xc1Var.c == null || TextUtils.isEmpty(xc1Var.c()) || !this.l.h() || !h()) {
-            return;
-        }
-        o();
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && this.a) {
-            ObjectAnimator objectAnimator = this.j;
-            if (objectAnimator != null && objectAnimator.isRunning()) {
-                this.j.cancel();
-            }
-            if (this.g) {
-                this.l.l();
-                oc1.a().b("——>dismiss BgView end");
-            }
-            if (this.h) {
-                this.l.k();
-                oc1.a().b("——>dismiss anchorLayer end");
-            }
-            this.l.m();
-            oc1.a().b("——>dismiss BubbleView end");
-            this.a = false;
-            g gVar = this.f;
-            if (gVar != null) {
-                gVar.removeMessages(0);
-            }
-            BubbleManager.b bVar = this.d;
-            if (bVar != null) {
-                bVar.b();
-            }
-            l();
-        }
-    }
-
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            oc1.a().b("——>show");
-            g();
-            if (this.g) {
-                this.l.q();
-            }
-            if (this.h) {
-                this.l.p();
-                this.l.o();
-            }
-            this.l.r();
-            if (!this.k) {
-                this.l.f();
-            }
-            j();
-            this.l.j(new b(this));
-        }
+        return (String) invokeV.objValue;
     }
 }

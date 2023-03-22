@@ -1,110 +1,135 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.live.interfaces.service.AccountManagerService;
-import com.baidu.searchbox.live.interfaces.service.AppInfoService;
-import com.baidu.searchbox.live.interfaces.service.RouterService;
-import com.baidu.searchbox.live.interfaces.service.ToastService;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.ala.alasquare.subtablist.view.AlaSubListGameDoubleViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class b56 implements ILiveFeedPageInvoke {
+public class b56 extends tm<d56, AlaSubListGameDoubleViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AccountManagerService a;
-    public AppInfoService b;
-    public ToastService c;
-    public RouterService d;
+    public TbPageContext<?> a;
+    public m56 b;
+    public boolean c;
+    public h56 d;
+    public int e;
+    public int f;
 
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
-    public String getIID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
-    public b56() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b56(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity(), d56.c);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = (AccountManagerService) ServiceManager.getService(AccountManagerService.Companion.getSERVICE_REFERENCE());
-        this.b = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
-        this.c = (ToastService) ServiceManager.getService(ToastService.Companion.getSERVICE_REFERENCE());
-        this.d = (RouterService) ServiceManager.getService(RouterService.Companion.getSERVICE_REFERENCE());
+        this.c = false;
+        this.a = tbPageContext;
     }
 
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
-    public String getCuid() {
-        InterceptResult invokeV;
-        AppInfoService appInfoService;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.tm
+    /* renamed from: t */
+    public AlaSubListGameDoubleViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a != null && (appInfoService = this.b) != null) {
-                return this.a.getSocialEncryption(appInfoService.getCuid(), "baiduuid_");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            this.d = new h56(this.a, this.c);
+            return new AlaSubListGameDoubleViewHolder(this.d);
+        }
+        return (AlaSubListGameDoubleViewHolder) invokeL.objValue;
+    }
+
+    public void x(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public void y(m56 m56Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, m56Var) == null) {
+            this.b = m56Var;
+        }
+    }
+
+    public void z(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public final void s(d56 d56Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d56Var) != null) || d56Var == null) {
+            return;
+        }
+        int i = this.f;
+        if (i == 1) {
+            if (d56Var.a != null) {
+                m46 b = m46.b();
+                m46 b2 = m46.b();
+                int i2 = this.e;
+                n26 n26Var = d56Var.a;
+                b.a(b2.d(i2, "c12117", n26Var.a, n26Var.b, n26Var.getThreadData()));
             }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
-    public String getUIMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (TbadkCoreApplication.getInst().getSkinType() == 4) {
-                return "dark";
+            if (d56Var.b != null) {
+                m46 b3 = m46.b();
+                m46 b4 = m46.b();
+                int i3 = this.e;
+                n26 n26Var2 = d56Var.b;
+                b3.a(b4.d(i3, "c12117", n26Var2.a, n26Var2.b, n26Var2.getThreadData()));
             }
-            return "day";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
-    public String getUK() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            AccountManagerService accountManagerService = this.a;
-            if (accountManagerService != null) {
-                return accountManagerService.getAccount().getUk();
+        } else if (i == 2) {
+            n26 n26Var3 = d56Var.a;
+            if (n26Var3 != null && n26Var3.getThreadData() != null && d56Var.a.getThreadData().getThreadAlaInfo() != null) {
+                ThreadData threadData = d56Var.a.getThreadData();
+                TiebaStatic.log(new StatisticItem("c12115").param("obj_id", threadData.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, threadData.getThreadAlaInfo().appId).param("locate_type", d56Var.a.b));
             }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
-    public void invokeScheme(Context context, String str) {
-        RouterService routerService;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, context, str) == null) && context != null && !TextUtils.isEmpty(str) && (routerService = this.d) != null) {
-            routerService.invokeScheme(context, str);
+            n26 n26Var4 = d56Var.b;
+            if (n26Var4 != null && n26Var4.getThreadData() != null && d56Var.b.getThreadData().getThreadAlaInfo() != null) {
+                ThreadData threadData2 = d56Var.b.getThreadData();
+                TiebaStatic.log(new StatisticItem("c12115").param("obj_id", threadData2.getThreadAlaInfo().live_id).param(TiebaStatic.Params.OBJ_PARAM3, threadData2.getThreadAlaInfo().appId).param("locate_type", d56Var.b.b));
+            }
         }
     }
 
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
-    public void showToast(Context context, String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.tm
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, d56 d56Var, AlaSubListGameDoubleViewHolder alaSubListGameDoubleViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, context, str) == null) && this.c != null && context != null && !TextUtils.isEmpty(str)) {
-            this.c.showNormal(context, str, 0);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, d56Var, alaSubListGameDoubleViewHolder})) == null) {
+            s(d56Var);
+            alaSubListGameDoubleViewHolder.a.l(d56Var);
+            alaSubListGameDoubleViewHolder.a.s(this.b);
+            return alaSubListGameDoubleViewHolder.getView();
         }
+        return (View) invokeCommon.objValue;
     }
 }

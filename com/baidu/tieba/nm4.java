@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import androidx.core.view.InputDeviceCompat;
+import android.graphics.Paint;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -10,53 +10,26 @@ public class nm4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static long a(int i) {
-        InterceptResult invokeI;
+    public static int a(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            SharedPreferences a = vm4.a();
-            return a.getLong("latest_update_time" + i, 0L);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
+            return view2.getLayerType();
         }
-        return invokeI.longValue;
+        return invokeL.intValue;
     }
 
-    public static long b(int i) {
-        InterceptResult invokeI;
+    public static void b(View view2, int i, Paint paint) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            SharedPreferences a = vm4.a();
-            return a.getLong("max_age" + i, 0L);
-        }
-        return invokeI.longValue;
-    }
-
-    public static boolean c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if ((System.currentTimeMillis() - a(i)) / 1000 > b(i)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public static void d(int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            SharedPreferences.Editor edit = vm4.a().edit();
-            edit.putLong("latest_update_time" + i, j).apply();
+        if (interceptable == null || interceptable.invokeLIL(65537, null, view2, i, paint) == null) {
+            view2.setLayerType(i, paint);
         }
     }
 
-    public static void e(int i, long j) {
+    public static void c(View view2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            if (j <= 0 || j >= 259200) {
-                j = 0;
-            }
-            vm4.a().edit().putLong("max_age" + i, j).apply();
+        if (interceptable == null || interceptable.invokeLZ(65538, null, view2, z) == null) {
+            view2.setSaveFromParentEnabled(z);
         }
     }
 }

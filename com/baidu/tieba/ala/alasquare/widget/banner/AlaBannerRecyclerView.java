@@ -81,7 +81,7 @@ public class AlaBannerRecyclerView extends RecyclerView {
         }
     }
 
-    public final int b(int i) {
+    public final int a(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
@@ -137,7 +137,7 @@ public class AlaBannerRecyclerView extends RecyclerView {
         InterceptResult invokeII;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) {
-            return super.fling(b(i), b(i2));
+            return super.fling(a(i), a(i2));
         }
         return invokeII.booleanValue;
     }

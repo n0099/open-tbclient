@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b35;
+import com.baidu.tieba.n15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -77,11 +77,11 @@ public final class GroupItemHolder extends RecyclerView.ViewHolder {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.d != (skinType = TbadkCoreApplication.getInst().getSkinType())) {
             this.d = skinType;
-            this.a.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0805b7));
-            b35 d = b35.d(this.b);
-            d.v(R.color.CAM_X0304);
-            d.z(R.dimen.T_X08);
-            d.A(R.string.F_X01);
+            this.a.setBackground(SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f0805c2));
+            n15 d = n15.d(this.b);
+            d.w(R.color.CAM_X0304);
+            d.A(R.dimen.T_X08);
+            d.B(R.string.F_X01);
             WebPManager.setPureDrawable(this.c, R.drawable.icon_pure_arrow12_right, R.color.CAM_X0304, WebPManager.ResourceStateType.NORMAL_PRESS);
         }
     }

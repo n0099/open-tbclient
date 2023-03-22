@@ -1,121 +1,72 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ObjectAnimator;
-import android.content.Context;
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayDeque;
+import java.util.Queue;
 /* loaded from: classes6.dex */
 public class wl3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Queue<Runnable> a;
+    public Runnable b;
 
-    /* loaded from: classes6.dex */
-    public static class a extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-
-        public a(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = view2;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                this.a.setTranslationX(0.0f);
-            }
-        }
-    }
-
-    public static void a(v82 v82Var, Context context) {
+    public wl3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, v82Var, context) == null) {
-            b(v82Var, context, 2);
-        }
-    }
-
-    public static void b(v82 v82Var, Context context, int i) {
-        View V;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(65537, null, v82Var, context, i) == null) && v82Var != null && v82Var.k() >= i) {
-            s82 j = v82Var.j(v82Var.k() - i);
-            s82 m = v82Var.m();
-            if (m != null && m.E0) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            float o = dn3.o(context) >> 2;
-            if (j != null && (V = j.V()) != null) {
-                ObjectAnimator.ofFloat(V, Key.TRANSLATION_X, -o, 0.0f).setDuration(300L).start();
-            }
         }
+        this.a = new ArrayDeque();
+        this.b = null;
     }
 
-    public static void c(v82 v82Var, Context context) {
-        View V;
+    public synchronized boolean a(Runnable runnable) {
+        InterceptResult invokeL;
+        boolean z;
+        boolean z2;
+        boolean z3;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, v82Var, context) == null) && v82Var != null && v82Var.k() >= 2) {
-            s82 j = v82Var.j(v82Var.k() - 2);
-            float o = dn3.o(context) >> 2;
-            if (j != null && (V = j.V()) != null) {
-                ObjectAnimator ofFloat = ObjectAnimator.ofFloat(V, Key.TRANSLATION_X, 0.0f, -o);
-                ofFloat.setDuration(300L).start();
-                ofFloat.addListener(new a(V));
-            }
-        }
-    }
-
-    public static void d(@NonNull kn4 kn4Var, String str, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLII(65539, null, kn4Var, str, i, i2) != null) || kn4Var == null) {
-            return;
-        }
-        char c = 65535;
-        int hashCode = str.hashCode();
-        if (hashCode != -1876181062) {
-            if (hashCode != -983638536) {
-                if (hashCode == 1528366175 && str.equals("showModalPage")) {
-                    c = 1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+            synchronized (this) {
+                z = true;
+                if (runnable == null) {
+                    z2 = true;
+                } else {
+                    z2 = false;
                 }
-            } else if (str.equals("navigateBack")) {
-                c = 0;
+                if (!z2) {
+                    this.a.offer(runnable);
+                }
+                if (this.b == null && !this.a.isEmpty()) {
+                    z3 = true;
+                } else {
+                    z3 = false;
+                }
+                if (z3) {
+                    while (!this.a.isEmpty()) {
+                        Runnable poll = this.a.poll();
+                        this.b = poll;
+                        if (poll != null) {
+                            poll.run();
+                        }
+                        this.b = null;
+                    }
+                }
+                z = (z2 || !z3) ? false : false;
             }
-        } else if (str.equals("hideModalPage")) {
-            c = 2;
+            return z;
         }
-        if (c != 0) {
-            if (c != 1 && c != 2) {
-                kn4Var.i(i, i2);
-                return;
-            }
-            return;
-        }
-        v82 V = zu2.U().V();
-        s82 j = V.j(V.k() - 1);
-        if (j != null && j.E0) {
-            return;
-        }
-        kn4Var.i(i, i2);
+        return invokeL.booleanValue;
     }
 }

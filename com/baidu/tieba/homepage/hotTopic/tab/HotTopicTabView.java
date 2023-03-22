@@ -21,19 +21,19 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.PbListView;
-import com.baidu.tieba.Cdo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.ge7;
+import com.baidu.tieba.ff7;
+import com.baidu.tieba.gn;
+import com.baidu.tieba.hi;
 import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
-import com.baidu.tieba.k55;
-import com.baidu.tieba.l55;
-import com.baidu.tieba.mc7;
-import com.baidu.tieba.od7;
-import com.baidu.tieba.pw4;
-import com.baidu.tieba.xg5;
-import com.baidu.tieba.yd7;
-import com.baidu.tieba.yg5;
+import com.baidu.tieba.kf5;
+import com.baidu.tieba.lf5;
+import com.baidu.tieba.nf7;
+import com.baidu.tieba.td7;
+import com.baidu.tieba.v35;
+import com.baidu.tieba.ve7;
+import com.baidu.tieba.w35;
+import com.baidu.tieba.xu4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,24 +42,24 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 @SuppressLint({"ViewConstructor"})
 /* loaded from: classes4.dex */
-public class HotTopicTabView extends FrameLayout implements k55.g {
+public class HotTopicTabView extends FrameLayout implements v35.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public TbPageContext<?> b;
-    public od7 c;
+    public ve7 c;
     public BdSwipeRefreshLayout d;
     public BdTypeRecyclerView e;
-    public yd7 f;
-    public l55 g;
-    public xg5 h;
-    public yg5 i;
+    public ff7 f;
+    public w35 g;
+    public kf5 h;
+    public lf5 i;
     public ScrollFragmentTabHost j;
     public int k;
     public PbListView l;
     public HotTopicHeaderView m;
-    public pw4 n;
-    public mc7 o;
+    public xu4 n;
+    public td7 o;
     public boolean p;
     public RecyclerView.OnScrollListener q;
     public ScrollFragmentTabHost.s r;
@@ -218,7 +218,7 @@ public class HotTopicTabView extends FrameLayout implements k55.g {
         v();
     }
 
-    @Override // com.baidu.tieba.k55.g
+    @Override // com.baidu.tieba.v35.g
     public void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
@@ -226,43 +226,43 @@ public class HotTopicTabView extends FrameLayout implements k55.g {
         }
     }
 
-    public void setData(@NonNull ge7 ge7Var) {
+    public void setData(@NonNull nf7 nf7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, ge7Var) == null) {
-            y(ge7Var);
-            setListData(ge7Var.getDataList());
+        if (interceptable == null || interceptable.invokeL(1048590, this, nf7Var) == null) {
+            y(nf7Var);
+            setListData(nf7Var.getDataList());
         }
     }
 
-    public void setListData(@NonNull List<Cdo> list) {
+    public void setListData(@NonNull List<gn> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048591, this, list) == null) {
             if (!ListUtils.isEmpty(this.f.a())) {
-                ej.P(this.b.getPageActivity(), R.string.obfuscated_res_0x7f0f093e);
+                hi.P(this.b.getPageActivity(), R.string.obfuscated_res_0x7f0f0949);
             }
             this.f.d(list);
         }
     }
 
-    public void setOnItemCoverListener(pw4 pw4Var) {
+    public void setOnItemCoverListener(xu4 xu4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, pw4Var) == null) {
-            this.n = pw4Var;
-            yd7 yd7Var = this.f;
-            if (yd7Var != null) {
-                yd7Var.e(pw4Var);
+        if (interceptable == null || interceptable.invokeL(1048592, this, xu4Var) == null) {
+            this.n = xu4Var;
+            ff7 ff7Var = this.f;
+            if (ff7Var != null) {
+                ff7Var.e(xu4Var);
             }
             HotTopicHeaderView hotTopicHeaderView = this.m;
             if (hotTopicHeaderView != null) {
-                hotTopicHeaderView.setOnItemCoverListener(pw4Var);
+                hotTopicHeaderView.setOnItemCoverListener(xu4Var);
             }
         }
     }
 
-    public void setPresenter(od7 od7Var) {
+    public void setPresenter(ve7 ve7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, od7Var) == null) {
-            this.c = od7Var;
+        if (interceptable == null || interceptable.invokeL(1048593, this, ve7Var) == null) {
+            this.c = ve7Var;
         }
     }
 
@@ -280,13 +280,13 @@ public class HotTopicTabView extends FrameLayout implements k55.g {
     public void setUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048595, this, bdUniqueId) == null) {
-            yd7 yd7Var = this.f;
-            if (yd7Var != null) {
-                yd7Var.f(bdUniqueId);
+            ff7 ff7Var = this.f;
+            if (ff7Var != null) {
+                ff7Var.f(bdUniqueId);
             }
-            l55 l55Var = this.g;
-            if (l55Var != null) {
-                l55Var.a0(bdUniqueId);
+            w35 w35Var = this.g;
+            if (w35Var != null) {
+                w35Var.a0(bdUniqueId);
             }
         }
     }
@@ -309,16 +309,16 @@ public class HotTopicTabView extends FrameLayout implements k55.g {
             return;
         }
         if (this.i == null) {
-            this.i = new yg5(getContext(), new c(this));
+            this.i = new lf5(getContext(), new c(this));
         }
         this.i.attachView(this, z);
         this.i.p();
         this.o.r(false);
     }
 
-    public void y(@NonNull ge7 ge7Var) {
+    public void y(@NonNull nf7 nf7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048602, this, ge7Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048602, this, nf7Var) == null) {
             if (this.m == null) {
                 HotTopicHeaderView hotTopicHeaderView = new HotTopicHeaderView(getContext());
                 this.m = hotTopicHeaderView;
@@ -326,7 +326,7 @@ public class HotTopicTabView extends FrameLayout implements k55.g {
             }
             this.e.setHeaderView(this.m);
             this.m.setOnItemCoverListener(this.n);
-            this.m.setData(ge7Var.getResData());
+            this.m.setData(nf7Var.getResData());
         }
     }
 
@@ -336,7 +336,7 @@ public class HotTopicTabView extends FrameLayout implements k55.g {
             this.e.setNextPage(this.l);
             this.l.g();
             this.l.O(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
-            this.l.G(getResources().getString(R.string.really_great), ej.g(getContext(), R.dimen.tbds158));
+            this.l.G(getResources().getString(R.string.really_great), hi.g(getContext(), R.dimen.tbds158));
         }
     }
 
@@ -389,9 +389,9 @@ public class HotTopicTabView extends FrameLayout implements k55.g {
     public void m() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            xg5 xg5Var = this.h;
-            if (xg5Var != null) {
-                xg5Var.dettachView(this);
+            kf5 kf5Var = this.h;
+            if (kf5Var != null) {
+                kf5Var.dettachView(this);
                 this.h = null;
             }
             this.o.r(true);
@@ -401,9 +401,9 @@ public class HotTopicTabView extends FrameLayout implements k55.g {
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            yg5 yg5Var = this.i;
-            if (yg5Var != null) {
-                yg5Var.dettachView(this);
+            lf5 lf5Var = this.i;
+            if (lf5Var != null) {
+                lf5Var.dettachView(this);
                 this.i = null;
             }
             this.o.r(true);
@@ -438,9 +438,9 @@ public class HotTopicTabView extends FrameLayout implements k55.g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            xg5 xg5Var = this.h;
-            if (xg5Var != null) {
-                return xg5Var.isViewAttached();
+            kf5 kf5Var = this.h;
+            if (kf5Var != null) {
+                return kf5Var.isViewAttached();
             }
             return false;
         }
@@ -451,9 +451,9 @@ public class HotTopicTabView extends FrameLayout implements k55.g {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            yg5 yg5Var = this.i;
-            if (yg5Var != null) {
-                return yg5Var.isViewAttached();
+            lf5 lf5Var = this.i;
+            if (lf5Var != null) {
+                return lf5Var.isViewAttached();
             }
             return false;
         }
@@ -474,10 +474,10 @@ public class HotTopicTabView extends FrameLayout implements k55.g {
     }
 
     public void u() {
-        mc7 mc7Var;
+        td7 td7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048598, this) == null) && (mc7Var = this.o) != null) {
-            mc7Var.f();
+        if ((interceptable == null || interceptable.invokeV(1048598, this) == null) && (td7Var = this.o) != null) {
+            td7Var.f();
         }
     }
 
@@ -496,20 +496,20 @@ public class HotTopicTabView extends FrameLayout implements k55.g {
     public final void p(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048586, this, context, str) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02ed, (ViewGroup) this, true);
-            this.d = (BdSwipeRefreshLayout) findViewById(R.id.obfuscated_res_0x7f090ee5);
-            l55 l55Var = new l55(this.b);
-            this.g = l55Var;
-            this.d.setProgressView(l55Var);
-            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f090ee4);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02f6, (ViewGroup) this, true);
+            this.d = (BdSwipeRefreshLayout) findViewById(R.id.obfuscated_res_0x7f090f15);
+            w35 w35Var = new w35(this.b);
+            this.g = w35Var;
+            this.d.setProgressView(w35Var);
+            BdTypeRecyclerView bdTypeRecyclerView = (BdTypeRecyclerView) findViewById(R.id.obfuscated_res_0x7f090f14);
             this.e = bdTypeRecyclerView;
             bdTypeRecyclerView.setLayoutManager(new LinearLayoutManager(context));
             this.e.setFadingEdgeLength(0);
             this.e.setOverScrollMode(2);
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.M_W_X004);
             this.e.setPadding(dimenPixelSize, 0, dimenPixelSize, 0);
-            this.f = new yd7(this.b, this.e);
-            this.o = new mc7(this, this.e);
+            this.f = new ff7(this.b, this.e);
+            this.o = new td7(this, this.e);
             if (!TextUtils.isEmpty(str)) {
                 this.o.q(str);
             }
@@ -529,21 +529,21 @@ public class HotTopicTabView extends FrameLayout implements k55.g {
             return;
         }
         this.a = skinType;
-        l55 l55Var = this.g;
-        if (l55Var != null) {
-            l55Var.H(skinType);
+        w35 w35Var = this.g;
+        if (w35Var != null) {
+            w35Var.H(skinType);
         }
-        xg5 xg5Var = this.h;
-        if (xg5Var != null) {
-            xg5Var.onChangeSkinType();
+        kf5 kf5Var = this.h;
+        if (kf5Var != null) {
+            kf5Var.onChangeSkinType();
         }
-        yg5 yg5Var = this.i;
-        if (yg5Var != null) {
-            yg5Var.onChangeSkinType();
+        lf5 lf5Var = this.i;
+        if (lf5Var != null) {
+            lf5Var.onChangeSkinType();
         }
-        yd7 yd7Var = this.f;
-        if (yd7Var != null) {
-            yd7Var.c();
+        ff7 ff7Var = this.f;
+        if (ff7Var != null) {
+            ff7Var.c();
         }
         PbListView pbListView = this.l;
         if (pbListView != null) {
@@ -554,9 +554,9 @@ public class HotTopicTabView extends FrameLayout implements k55.g {
         if (hotTopicHeaderView != null) {
             hotTopicHeaderView.l(skinType);
         }
-        mc7 mc7Var = this.o;
-        if (mc7Var != null) {
-            mc7Var.o();
+        td7 td7Var = this.o;
+        if (td7Var != null) {
+            td7Var.o();
         }
         u();
     }
@@ -567,8 +567,8 @@ public class HotTopicTabView extends FrameLayout implements k55.g {
             return;
         }
         if (this.h == null) {
-            this.h = new xg5(getContext());
-            int height = (((getHeight() - TbadkCoreApplication.getInst().getMainTabBottomBarHeight()) - ej.g(getContext(), R.dimen.tbds304)) / 2) - (TbadkCoreApplication.getInst().getMainTabBottomBarHeight() / 2);
+            this.h = new kf5(getContext());
+            int height = (((getHeight() - TbadkCoreApplication.getInst().getMainTabBottomBarHeight()) - hi.g(getContext(), R.dimen.tbds304)) / 2) - (TbadkCoreApplication.getInst().getMainTabBottomBarHeight() / 2);
             this.h.i();
             this.h.t(height);
             this.h.onChangeSkinType();

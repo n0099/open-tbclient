@@ -1,119 +1,80 @@
 package com.baidu.tieba;
 
-import android.media.MediaCodec;
-import android.media.MediaCrypto;
-import android.media.MediaFormat;
-import android.view.Surface;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.huawei.hms.common.internal.TransactionIdCreater;
+import java.security.MessageDigest;
 /* loaded from: classes5.dex */
-public class me0 extends ne0 {
+public class me0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
-    public long l;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947969649, "Lcom/baidu/tieba/me0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947969649, "Lcom/baidu/tieba/me0;");
-        }
-    }
-
-    public me0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947969649, "Lcom/baidu/tieba/me0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947969649, "Lcom/baidu/tieba/me0;");
                 return;
             }
         }
-        this.l = 0L;
+        a = new char[]{TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
     }
 
-    @Override // com.baidu.tieba.ne0
-    public void j() {
+    public static String a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.h == 0) {
-                this.h = this.e.presentationTimeUs;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            if (bArr == null) {
+                return null;
             }
-            MediaCodec.BufferInfo bufferInfo = this.e;
-            long j = bufferInfo.presentationTimeUs - this.h;
-            bufferInfo.presentationTimeUs = j;
-            long j2 = this.l;
-            if (j < j2) {
-                long j3 = j2 + 10000;
-                this.l = j3;
-                bufferInfo.presentationTimeUs = j3;
+            StringBuilder sb = new StringBuilder(bArr.length * 2);
+            for (int i = 0; i < bArr.length; i++) {
+                sb.append(a[(bArr[i] & 240) >>> 4]);
+                sb.append(a[bArr[i] & 15]);
             }
-            MediaCodec.BufferInfo bufferInfo2 = this.e;
-            long j4 = bufferInfo2.presentationTimeUs;
-            long j5 = ne0.j;
-            if (j4 > j5 + 500000) {
-                long j6 = this.l;
-                if (j5 > j6) {
-                    bufferInfo2.presentationTimeUs = j5 + 5000;
-                } else {
-                    bufferInfo2.presentationTimeUs = j6 + 5000;
-                }
-            }
-            if (ne0.j > this.e.presentationTimeUs + 500000) {
-                ne0.k = 1200;
-            }
-            this.l = this.e.presentationTimeUs;
+            return sb.toString();
         }
+        return (String) invokeL.objValue;
     }
 
-    public void k(pe0 pe0Var, qe0 qe0Var) {
+    public static String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pe0Var, qe0Var) == null) {
-            boolean z = false;
-            if (pe0Var != null && qe0Var != null) {
-                this.c = qe0Var;
-                MediaFormat mediaFormat = new MediaFormat();
-                mediaFormat.setString("mime", pe0Var.c());
-                mediaFormat.setInteger("aac-profile", 2);
-                mediaFormat.setInteger("sample-rate", pe0Var.e());
-                mediaFormat.setInteger("channel-count", pe0Var.b());
-                mediaFormat.setInteger("bitrate", pe0Var.a());
-                mediaFormat.setInteger("max-input-size", pe0Var.d());
-                try {
-                    MediaCodec createEncoderByType = MediaCodec.createEncoderByType(pe0Var.c());
-                    this.d = createEncoderByType;
-                    createEncoderByType.configure(mediaFormat, (Surface) null, (MediaCrypto) null, 1);
-                    if (!pe0Var.p()) {
-                        this.g = true;
-                    } else {
-                        this.g = false;
-                    }
-                    z = true;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (str == null) {
+                return null;
             }
-            oe0 oe0Var = this.f;
-            if (oe0Var != null) {
-                oe0Var.b(z);
+            try {
+                return c(str.getBytes("UTF-8"));
+            } catch (Exception unused) {
+                return null;
             }
         }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.update(bArr);
+                return a(messageDigest.digest());
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
+            }
+        }
+        return (String) invokeL.objValue;
     }
 }

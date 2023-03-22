@@ -5,7 +5,7 @@ import android.media.MediaCodec;
 import android.media.MediaFormat;
 import android.media.MediaMuxer;
 import android.text.TextUtils;
-import com.baidu.tieba.d1a;
+import com.baidu.tieba.m7a;
 import java.io.IOException;
 import java.nio.ByteBuffer;
 @TargetApi(18)
@@ -41,7 +41,7 @@ public class InnerMuxerWrapper {
 
     public static void log(String str, String str2) {
         if (!TextUtils.isEmpty(str2)) {
-            d1a.i(str2);
+            m7a.i(str2);
         }
     }
 

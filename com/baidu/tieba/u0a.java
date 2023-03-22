@@ -1,7 +1,16 @@
 package com.baidu.tieba;
 
-import android.graphics.SurfaceTexture;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface u0a {
-    void a(o0a o0aVar, SurfaceTexture surfaceTexture);
+public class u0a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            t0a.a();
+        }
+    }
 }

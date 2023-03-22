@@ -1,5 +1,9 @@
 package com.baidu.tieba;
+
+import android.database.sqlite.SQLiteDatabase;
 /* loaded from: classes3.dex */
-public interface bg4 {
-    void a(ag4 ag4Var);
+public interface bg4<T> {
+    void a(SQLiteDatabase sQLiteDatabase);
+
+    void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2);
 }

@@ -1,21 +1,33 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
-import com.baidu.tbadk.core.atomData.PaymentConfirmActivityConfig;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.BookThread;
 /* loaded from: classes6.dex */
 public class ry4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public long b;
+    public View a;
+    public View b;
+    public View c;
+    public View d;
+    public View e;
+    public View f;
+    public View g;
+    public View h;
+    public View i;
+    public View j;
+    public View k;
+    public View l;
+    public View m;
+    public View n;
+    public View o;
+    public View p;
+    public View q;
+    public View r;
+    public View s;
 
     public ry4() {
         Interceptable interceptable = $ic;
@@ -31,27 +43,27 @@ public class ry4 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    public void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = null;
+            this.b = null;
+            this.c = null;
+            this.d = null;
+            this.e = null;
+            this.f = null;
+            this.g = null;
+            this.h = null;
+            this.i = null;
+            this.k = null;
+            this.l = null;
+            this.m = null;
+            this.n = null;
+            this.o = null;
+            this.p = null;
+            this.q = null;
+            this.r = null;
+            this.s = null;
         }
-        try {
-            this.a = jSONObject.optString("book_id", "0");
-            this.b = jSONObject.optLong(MangaBrowserActivityConfig.CHAPTER_ID, 0L);
-            jSONObject.optInt(PaymentConfirmActivityConfig.BOOK_TYPE, 0);
-        } catch (Exception e) {
-            BdLog.e(e.toString());
-        }
-    }
-
-    public void b(BookThread bookThread) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bookThread) != null) || bookThread == null) {
-            return;
-        }
-        this.a = bookThread.book_id;
-        this.b = bookThread.chapter_id.longValue();
-        bookThread.book_type.intValue();
     }
 }

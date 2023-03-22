@@ -1,25 +1,32 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import com.baidu.tieba.video.editvideo.data.PendantData;
-import java.util.List;
+import android.view.View;
+import com.baidu.tieba.tblauncher.MainTabScheduleStrategy;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface ne9 {
-    void S();
+public class ne9 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void h();
+    public static void a(MainTabScheduleStrategy mainTabScheduleStrategy) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, mainTabScheduleStrategy) == null) {
+            oe9.b(mainTabScheduleStrategy);
+        }
+    }
 
-    void h0(String str);
+    public static void b(Runnable runnable, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65537, null, runnable, i) == null) {
+            oe9.f(new te9(runnable, i));
+        }
+    }
 
-    void m();
-
-    void n0(String str);
-
-    void n1(Bitmap bitmap);
-
-    void onNext();
-
-    void s(List<PendantData> list);
-
-    void x();
+    public static void c(View view2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65538, null, view2, i) == null) {
+            oe9.f(new ve9(view2, i));
+        }
+    }
 }

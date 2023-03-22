@@ -1,64 +1,61 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import androidx.annotation.Nullable;
+import android.text.Editable;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.GreyUtil;
+import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
+import com.baidu.tbadk.core.view.spanGroup.SpanGroupForegroundColorSpan;
+import com.baidu.tieba.e55;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class e55 {
-    public static /* synthetic */ Interceptable $ic;
+public abstract class e55<T extends e55> {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int h = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public Activity b;
-    public AlertDialog c;
-    public String d;
-    public TextView e;
-    public DialogInterface.OnCancelListener f;
-    public boolean g;
+    public final int a;
+    public boolean b;
+    public Editable c;
+    public int d;
+    public int e;
+    public int f;
+    public a g;
 
-    public e55(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = null;
-        this.b = null;
-        this.d = null;
-        this.e = null;
-        this.g = true;
-        this.b = activity;
+    /* loaded from: classes4.dex */
+    public interface a {
+        void c(int i, boolean z);
     }
 
-    public e55(TbPageContext<?> tbPageContext) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947685348, "Lcom/baidu/tieba/e55;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947685348, "Lcom/baidu/tieba/e55;");
+        }
+    }
+
+    public abstract void r(Editable editable);
+
+    public abstract void s(Editable editable, int i);
+
+    public e55() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -68,164 +65,166 @@ public class e55 {
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.d = null;
-        this.e = null;
-        this.g = true;
-        this.a = tbPageContext;
-        if (tbPageContext != null && tbPageContext.getPageActivity() != null) {
-            this.b = this.a.getPageActivity();
-        }
+        int i3 = h;
+        h = i3 + 1;
+        this.a = i3;
     }
 
-    public final e55 a(DialogInterface.OnCancelListener onCancelListener) {
-        InterceptResult invokeL;
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, onCancelListener)) == null) {
-            if (this.b == null) {
-                return this;
-            }
-            AlertDialog create = new AlertDialog.Builder(this.b).create();
-            this.c = create;
-            GreyUtil.grey(create);
-            ih.i(this.c, this.b);
-            View inflate = LayoutInflater.from(this.b).inflate(R.layout.custom_loading_toast, (ViewGroup) null);
-            this.e = (TextView) inflate.findViewById(R.id.custom_loading_text);
-            if (!StringUtils.isNull(this.d) && (textView = this.e) != null) {
-                textView.setText(this.d);
-            }
-            AlertDialog alertDialog = this.c;
-            if (alertDialog != null && alertDialog.getWindow() != null) {
-                this.c.getWindow().setContentView(inflate);
-                if (onCancelListener != null) {
-                    this.c.setCancelable(true);
-                    this.c.setCanceledOnTouchOutside(true);
-                    this.c.setOnCancelListener(onCancelListener);
-                } else {
-                    this.c.setCanceledOnTouchOutside(false);
-                    this.c.setCancelable(false);
-                }
-            }
-            return this;
-        }
-        return (e55) invokeL.objValue;
-    }
-
-    public final e55 b(DialogInterface.OnCancelListener onCancelListener) {
-        InterceptResult invokeL;
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onCancelListener)) == null) {
-            if (this.b == null) {
-                return this;
-            }
-            AlertDialog create = new AlertDialog.Builder(this.b).create();
-            this.c = create;
-            GreyUtil.grey(create);
-            ih.i(this.c, this.b);
-            View inflate = LayoutInflater.from(this.b).inflate(R.layout.custom_loading_toast, (ViewGroup) null);
-            this.e = (TextView) inflate.findViewById(R.id.custom_loading_text);
-            if (!StringUtils.isNull(this.d) && (textView = this.e) != null) {
-                textView.setText(this.d);
-            }
-            AlertDialog alertDialog = this.c;
-            if (alertDialog != null && alertDialog.getWindow() != null) {
-                this.c.getWindow().setContentView(inflate);
-                if (onCancelListener != null) {
-                    this.c.setOnCancelListener(onCancelListener);
-                }
-            }
-            return this;
-        }
-        return (e55) invokeL.objValue;
-    }
-
-    public boolean c() {
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            AlertDialog alertDialog = this.c;
-            if (alertDialog == null || !alertDialog.isShowing()) {
-                return false;
-            }
-            return true;
+            return this.e;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    @Nullable
-    public Activity getActivity() {
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public Editable g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.c;
+        }
+        return (Editable) invokeV.objValue;
+    }
+
+    public boolean h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.b;
         }
-        return (Activity) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void d(boolean z) {
+    public void i() {
+        Editable editable;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.g = z;
+        if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || (editable = this.c) == null) {
+            return;
+        }
+        for (SpanGroupForegroundColorSpan spanGroupForegroundColorSpan : (SpanGroupForegroundColorSpan[]) editable.getSpans(this.d, this.e, SpanGroupForegroundColorSpan.class)) {
+            this.c.removeSpan(spanGroupForegroundColorSpan);
         }
     }
 
-    public void e(DialogInterface.OnCancelListener onCancelListener) {
+    public void j() {
+        Editable editable;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onCancelListener) == null) {
-            this.f = onCancelListener;
+        if ((interceptable != null && interceptable.invokeV(1048585, this) != null) || (editable = this.c) == null) {
+            return;
+        }
+        for (EMRichTextAnyIconSpan eMRichTextAnyIconSpan : (EMRichTextAnyIconSpan[]) editable.getSpans(this.d, this.e, EMRichTextAnyIconSpan.class)) {
+            this.c.removeSpan(eMRichTextAnyIconSpan);
         }
     }
 
-    public void f(boolean z) {
-        AlertDialog alertDialog;
+    public void a(Editable editable, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && (alertDialog = this.c) != null) {
-            alertDialog.setCancelable(z);
+        if (interceptable == null || interceptable.invokeLIII(1048576, this, editable, i, i2, i3) == null) {
+            this.c = editable;
+            this.d = i;
+            this.e = i2;
+            this.f = i3;
         }
     }
 
-    public void g(boolean z) {
-        AlertDialog alertDialog;
+    public void n(Object obj, int i, int i2, int i3) {
+        Editable editable;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048582, this, z) == null) && (alertDialog = this.c) != null) {
-            alertDialog.setCanceledOnTouchOutside(z);
+        if ((interceptable != null && interceptable.invokeLIII(1048589, this, obj, i, i2, i3) != null) || (editable = this.c) == null) {
+            return;
+        }
+        editable.setSpan(obj, i, i2, i3);
+    }
+
+    public void b(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+            this.b = t.h();
+            this.c = t.g();
+            this.d = t.f();
+            this.e = t.c();
+            this.f = t.d();
         }
     }
 
-    public void h(boolean z) {
+    public void k(@NonNull CharSequence charSequence) {
+        Editable editable;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            if (z) {
-                if (this.g) {
-                    a(this.f);
-                    return;
-                } else {
-                    b(this.f);
-                    return;
-                }
+        if ((interceptable == null || interceptable.invokeL(1048586, this, charSequence) == null) && (editable = this.c) != null && charSequence != null) {
+            try {
+                editable.replace(this.d, this.e, charSequence);
+            } catch (Exception e) {
+                BdLog.e(e);
             }
-            ih.a(this.c, this.b);
+            this.e = this.d + charSequence.length();
         }
     }
 
-    public void i(int i) {
-        Activity activity;
+    public void l(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048585, this, i) == null) && (activity = this.b) != null) {
-            this.d = activity.getString(i);
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.e = i;
         }
     }
 
-    public void j(String str) {
+    public void m(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.d = str;
-            TextView textView = this.e;
-            if (textView != null) {
-                textView.setText(str);
+        if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
+            this.g = aVar;
+        }
+    }
+
+    public void o(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void p(Editable editable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, editable) == null) {
+            this.c = editable;
+        }
+    }
+
+    public void q(boolean z) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+            boolean z2 = this.b;
+            this.b = z;
+            if (z2 != z && (aVar = this.g) != null) {
+                aVar.c(this.a, z);
             }
         }
     }

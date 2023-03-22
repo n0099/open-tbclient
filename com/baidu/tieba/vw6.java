@@ -5,14 +5,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class vw6 extends qw6 {
+public class vw6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int e;
-    public String f;
-    public boolean g;
-    public boolean h;
-    public boolean i;
+    public int a;
+    public ox6 b;
+    public boolean c;
 
     public vw6() {
         Interceptable interceptable = $ic;
@@ -27,7 +25,6 @@ public class vw6 extends qw6 {
                 return;
             }
         }
-        this.g = true;
-        this.i = true;
+        this.c = true;
     }
 }

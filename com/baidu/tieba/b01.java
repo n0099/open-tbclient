@@ -1,177 +1,140 @@
 package com.baidu.tieba;
 
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public final class b01 extends c01 {
+public final class b01 {
     public static /* synthetic */ Interceptable $ic;
+    public static k01 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ArrayList<Object> a;
-    public final String b;
-    public final Boolean c;
-    public final String d;
-    public final String e;
-    public final String f;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this != obj) {
-                if (obj instanceof b01) {
-                    b01 b01Var = (b01) obj;
-                    return Intrinsics.areEqual(this.a, b01Var.a) && Intrinsics.areEqual(this.b, b01Var.b) && Intrinsics.areEqual(b(), b01Var.b()) && Intrinsics.areEqual(c(), b01Var.c()) && Intrinsics.areEqual(e(), b01Var.e()) && Intrinsics.areEqual(a(), b01Var.a());
+    /* loaded from: classes3.dex */
+    public static class a extends k01 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                return false;
             }
-            return true;
         }
-        return invokeL.booleanValue;
+
+        @Override // com.baidu.tieba.k01
+        public boolean c(int i, @Nullable String str) {
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
+                return wr0.f();
+            }
+            return invokeIL.booleanValue;
+        }
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            ArrayList<Object> arrayList = this.a;
-            int hashCode = (arrayList != null ? arrayList.hashCode() : 0) * 31;
-            String str = this.b;
-            int hashCode2 = (hashCode + (str != null ? str.hashCode() : 0)) * 31;
-            Boolean b = b();
-            int hashCode3 = (hashCode2 + (b != null ? b.hashCode() : 0)) * 31;
-            String c = c();
-            int hashCode4 = (hashCode3 + (c != null ? c.hashCode() : 0)) * 31;
-            String e = e();
-            int hashCode5 = (hashCode4 + (e != null ? e.hashCode() : 0)) * 31;
-            String a = a();
-            return hashCode5 + (a != null ? a.hashCode() : 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "AdaptationSet(representationList=" + this.a + ", type=" + this.b + ", frmAlign=" + b() + ", pre=" + c() + ", suf=" + e() + ", codecs=" + a() + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public b01(ArrayList<Object> arrayList, String str, Boolean bool, String str2, String str3, String str4) {
-        super(bool, str2, str3, str4);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {arrayList, str, bool, str2, str3, str4};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Boolean) objArr2[0], (String) objArr2[1], (String) objArr2[2], (String) objArr2[3]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947591046, "Lcom/baidu/tieba/b01;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947591046, "Lcom/baidu/tieba/b01;");
                 return;
             }
         }
-        this.a = arrayList;
-        this.b = str;
-        this.c = bool;
-        this.d = str2;
-        this.e = str3;
-        this.f = str4;
+        a = new a();
     }
 
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public /* synthetic */ b01(ArrayList arrayList, String str, Boolean bool, String str2, String str3, String str4, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(arrayList, str, r3, r4, r5, r6);
-        String str5;
-        String str6;
-        String str7;
-        Boolean bool2 = (i & 4) != 0 ? null : bool;
-        if ((i & 8) != 0) {
-            str5 = "";
-        } else {
-            str5 = str2;
-        }
-        if ((i & 16) != 0) {
-            str6 = "";
-        } else {
-            str6 = str3;
-        }
-        if ((i & 32) != 0) {
-            str7 = "";
-        } else {
-            str7 = str4;
-        }
-    }
-
-    public String a() {
-        InterceptResult invokeV;
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            c(3, null, str, null);
         }
-        return (String) invokeV.objValue;
     }
 
-    public Boolean b() {
-        InterceptResult invokeV;
+    public static void d(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            c(6, null, str, null);
         }
-        return (Boolean) invokeV.objValue;
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public static void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
+        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
+            c(4, null, str, null);
         }
-        return (String) invokeV.objValue;
     }
 
-    public final ArrayList<Object> d() {
-        InterceptResult invokeV;
+    public static void h(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
+            c(2, null, str, null);
         }
-        return (ArrayList) invokeV.objValue;
     }
 
-    public String e() {
-        InterceptResult invokeV;
+    public static void j(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
+        if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
+            c(5, null, str, null);
         }
-        return (String) invokeV.objValue;
     }
 
-    public final String getType() {
-        InterceptResult invokeV;
+    public static void b(@Nullable String str, @Nullable String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            c(3, str, str2, null);
         }
-        return (String) invokeV.objValue;
+    }
+
+    public static void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
+            c(6, str, str2, null);
+        }
+    }
+
+    public static void f(String str, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, th) == null) {
+            c(6, null, str, th);
+        }
+    }
+
+    public static void i(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65545, null, str, str2) == null) {
+            c(2, str, str2, null);
+        }
+    }
+
+    public static void k(String str, Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65547, null, str, th) == null) {
+            c(5, null, str, th);
+        }
+    }
+
+    public static void c(int i, @Nullable String str, @Nullable String str2, @Nullable Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), str, str2, th}) == null) {
+            a.a(i, str, str2, th);
+        }
     }
 }

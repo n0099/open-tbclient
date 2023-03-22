@@ -10,11 +10,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dj;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.ih8;
+import com.baidu.tieba.gi;
+import com.baidu.tieba.hi;
+import com.baidu.tieba.j45;
+import com.baidu.tieba.lm8;
 import com.baidu.tieba.pb.pb.main.AbsPbActivity;
-import com.baidu.tieba.y55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,7 +26,7 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public HeadImageView a;
     public PbVideoFullscreenLikeBtn b;
-    public ih8 c;
+    public lm8 c;
     public BdUniqueId d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -102,7 +102,7 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
                 return 0;
             }
             if (threadData.isMutiForumThread()) {
-                if (dj.isEmpty(threadData.getForum_name())) {
+                if (gi.isEmpty(threadData.getForum_name())) {
                     return 0;
                 }
                 return 2;
@@ -130,8 +130,8 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ih8 ih8Var = this.c;
-            if (ih8Var != null && ih8Var.j() != null && this.c.j().getIsLike()) {
+            lm8 lm8Var = this.c;
+            if (lm8Var != null && lm8Var.j() != null && this.c.j().getIsLike()) {
                 return true;
             }
             return false;
@@ -142,14 +142,14 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
-            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0733, this);
-            this.a = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f0902e2);
-            this.b = (PbVideoFullscreenLikeBtn) findViewById(R.id.obfuscated_res_0x7f090746);
+            FrameLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0744, this);
+            this.a = (HeadImageView) findViewById(R.id.obfuscated_res_0x7f0902ea);
+            this.b = (PbVideoFullscreenLikeBtn) findViewById(R.id.obfuscated_res_0x7f09075f);
             this.a.setIsRound(true);
-            this.a.setBorderWidth(ej.g(context, R.dimen.tbds3));
+            this.a.setBorderWidth(hi.g(context, R.dimen.tbds3));
             this.a.setBorderColor(context.getResources().getColor(R.color.CAM_X0402));
             this.a.setAutoChangeStyle(false);
-            this.b.setConfig(new y55());
+            this.b.setConfig(new j45());
         }
     }
 
@@ -157,10 +157,10 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, threadData) == null) && threadData != null && threadData.getAuthor() != null) {
             String avater = threadData.getAuthor().getAvater();
-            if (avater.startsWith("http")) {
-                this.a.K(avater, 10, false);
+            if (avater != null && avater.startsWith("http")) {
+                this.a.M(avater, 10, false);
             } else {
-                this.a.K(avater, 25, false);
+                this.a.M(avater, 25, false);
             }
             this.a.setBjhAuthIconRes(0);
             this.a.setIsBigV(threadData.getAuthor().isBigV());
@@ -176,20 +176,20 @@ public class PbVideoFullscreenAttentionLayout extends FrameLayout {
             int a = a(threadData);
             if (this.c == null) {
                 if (getContext() instanceof AbsPbActivity) {
-                    ih8 ih8Var = new ih8(((AbsPbActivity) getContext()).getPageContext(), this.b, -1);
-                    this.c = ih8Var;
-                    ih8Var.m("11");
+                    lm8 lm8Var = new lm8(((AbsPbActivity) getContext()).getPageContext(), this.b, -1);
+                    this.c = lm8Var;
+                    lm8Var.m("11");
                     this.c.l(this.d);
                 } else {
                     return;
                 }
             }
             this.c.n(threadData.getAuthor());
-            this.c.x(str);
-            this.c.v(threadData);
-            ih8 ih8Var2 = this.c;
-            ih8Var2.p = true;
-            ih8Var2.w(a);
+            this.c.z(str);
+            this.c.x(threadData);
+            lm8 lm8Var2 = this.c;
+            lm8Var2.p = true;
+            lm8Var2.y(a);
         }
     }
 }

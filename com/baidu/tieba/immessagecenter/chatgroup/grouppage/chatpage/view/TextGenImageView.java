@@ -13,16 +13,15 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b35;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.eq6;
+import com.baidu.tieba.aq6;
+import com.baidu.tieba.hi;
 import com.baidu.tieba.im.chat.view.ChatImageWithTailView;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.adapter.TextGenImageAdapter;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.adapter.SingleTextImageAdapter;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.BaseImageMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.LocalCacheData;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TextGenImageMsg;
-import com.baidu.tieba.km7;
-import com.baidu.tieba.nu7;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.SingleTextImageMsg;
+import com.baidu.tieba.jx7;
+import com.baidu.tieba.n15;
+import com.baidu.tieba.rn7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,18 +36,18 @@ public class TextGenImageView extends LinearLayout {
     public ChatImageWithTailView c;
 
     /* loaded from: classes4.dex */
-    public class a implements eq6.i {
+    public class a implements aq6.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TextGenImageMsg a;
+        public final /* synthetic */ SingleTextImageMsg a;
         public final /* synthetic */ TextGenImageView b;
 
-        public a(TextGenImageView textGenImageView, TextGenImageMsg textGenImageMsg) {
+        public a(TextGenImageView textGenImageView, SingleTextImageMsg singleTextImageMsg) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {textGenImageView, textGenImageMsg};
+                Object[] objArr = {textGenImageView, singleTextImageMsg};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -59,16 +58,16 @@ public class TextGenImageView extends LinearLayout {
                 }
             }
             this.b = textGenImageView;
-            this.a = textGenImageMsg;
+            this.a = singleTextImageMsg;
         }
 
-        @Override // com.baidu.tieba.eq6.i
+        @Override // com.baidu.tieba.aq6.i
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) {
-                nu7.a(spannableStringBuilder);
+                jx7.a(spannableStringBuilder);
                 this.a.setCacheText(spannableStringBuilder);
-                this.b.b.setText(this.a.getCacheTextWithProgress());
+                this.b.b.setText(this.a.getCacheText());
             }
         }
     }
@@ -93,7 +92,7 @@ public class TextGenImageView extends LinearLayout {
         }
         this.a = context;
         setOrientation(1);
-        e();
+        d();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -117,68 +116,47 @@ public class TextGenImageView extends LinearLayout {
         }
     }
 
-    public final void d(ChatImageWithTailView chatImageWithTailView, BaseImageMsg<?> baseImageMsg) {
-        String thumbUrl;
-        String thumbSize;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, chatImageWithTailView, baseImageMsg) == null) {
-            if (baseImageMsg.getCacheData() != null) {
-                thumbUrl = baseImageMsg.getCacheData().localPath;
-                thumbSize = baseImageMsg.getCacheData().imgSize;
-            } else {
-                thumbUrl = baseImageMsg.getThumbUrl();
-                thumbSize = baseImageMsg.getThumbSize();
-            }
-            baseImageMsg.setThumbSize(km7.c(chatImageWithTailView, thumbUrl, thumbSize, R.drawable.icon_pic_placeholder));
-        }
-    }
-
     public void setImageWithTailView(ChatImageWithTailView chatImageWithTailView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, chatImageWithTailView) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, chatImageWithTailView) == null) {
             this.c = chatImageWithTailView;
         }
     }
 
-    public void b(@NonNull TextGenImageAdapter.Holder holder, @NonNull TextGenImageMsg textGenImageMsg) {
+    public void b(@NonNull SingleTextImageAdapter.Holder holder, @NonNull SingleTextImageMsg singleTextImageMsg) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, holder, textGenImageMsg) == null) {
-            nu7.b(textGenImageMsg.getAtUserInfoList());
-            CharSequence cacheTextWithProgress = textGenImageMsg.getCacheTextWithProgress();
-            if (cacheTextWithProgress != null) {
-                this.b.setText(cacheTextWithProgress);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, holder, singleTextImageMsg) == null) {
+            jx7.b(singleTextImageMsg.getAtUserInfoList());
+            CharSequence cacheText = singleTextImageMsg.getCacheText();
+            if (cacheText != null) {
+                this.b.setText(cacheText);
             } else {
-                eq6.d(getContext(), textGenImageMsg.getText(), UtilHelper.getDimenPixelSize(R.dimen.T_X03), new a(this, textGenImageMsg));
+                aq6.d(getContext(), singleTextImageMsg.getText(), UtilHelper.getDimenPixelSize(R.dimen.T_X03), new a(this, singleTextImageMsg));
             }
             this.b.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            c(textGenImageMsg);
-            d(this.c, textGenImageMsg);
+            c(this.c, singleTextImageMsg);
         }
     }
 
-    public final void c(BaseImageMsg<?> baseImageMsg) {
+    public final void c(ChatImageWithTailView chatImageWithTailView, BaseImageMsg<?> baseImageMsg) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseImageMsg) == null) && !StringUtils.isNull(baseImageMsg.getThumbUrl()) && !baseImageMsg.getThumbUrl().startsWith("http")) {
-            if (baseImageMsg.getCacheData() == null) {
-                LocalCacheData localCacheData = new LocalCacheData();
-                localCacheData.imgSize = baseImageMsg.getThumbSize();
-                localCacheData.localPath = baseImageMsg.getThumbUrl();
-                baseImageMsg.setCacheData(localCacheData);
-                return;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chatImageWithTailView, baseImageMsg) == null) {
+            String thumbUrl = baseImageMsg.getThumbUrl();
+            String thumbSize = baseImageMsg.getThumbSize();
+            if (!StringUtils.isNull(thumbSize) && !StringUtils.isNull(thumbUrl)) {
+                baseImageMsg.setThumbSize(rn7.c(chatImageWithTailView, thumbUrl, thumbSize, R.drawable.icon_pic_placeholder));
             }
-            baseImageMsg.getCacheData().imgSize = baseImageMsg.getThumbSize();
-            baseImageMsg.getCacheData().localPath = baseImageMsg.getThumbUrl();
         }
     }
 
-    public final void e() {
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.b = new TextView(this.a);
-            this.b.setLayoutParams(new LinearLayout.LayoutParams(ej.g(TbadkCoreApplication.getInst(), R.dimen.tbds608), -2));
-            this.b.setId(R.id.obfuscated_res_0x7f090e0d);
+            this.b.setLayoutParams(new LinearLayout.LayoutParams(hi.g(TbadkCoreApplication.getInst(), R.dimen.tbds608), -2));
+            this.b.setId(R.id.obfuscated_res_0x7f090e3b);
             this.b.setLineSpacing(1.0f, 1.2f);
-            b35.d(this.b).z(R.dimen.T_X05);
+            n15.d(this.b).A(R.dimen.T_X05);
             addView(this.b);
             this.c = new ChatImageWithTailView(this.a);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
@@ -187,7 +165,7 @@ public class TextGenImageView extends LinearLayout {
             this.c.e(false);
             this.c.setErrorResId(R.drawable.icon_pic_placeholder);
             this.c.setErrorBgResId(R.drawable.transparent_bg);
-            this.c.getImage().setId(R.id.obfuscated_res_0x7f090dee);
+            this.c.getImage().setId(R.id.obfuscated_res_0x7f090e1c);
             addView(this.c);
         }
     }
@@ -195,7 +173,7 @@ public class TextGenImageView extends LinearLayout {
     public ChatImageWithTailView getImageWithTailView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.c;
         }
         return (ChatImageWithTailView) invokeV.objValue;

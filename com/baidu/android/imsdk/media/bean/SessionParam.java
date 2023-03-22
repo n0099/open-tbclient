@@ -38,6 +38,8 @@ public class SessionParam implements Parcelable, RequestParam {
     public long contacterPaid;
     public int contacterUserType;
     public int count;
+    public int deleteMode;
+    public boolean hudongNeedTop;
     public int isStranger;
     public int mode;
     public int needTop;
@@ -142,6 +144,8 @@ public class SessionParam implements Parcelable, RequestParam {
         this.userNumChatTypes = USER_UNREAD_NUM_CHAT_TYPES;
         this.asyncUnReadChatTypes = list;
         this.screenKey = "";
+        this.hudongNeedTop = false;
+        this.deleteMode = 0;
     }
 
     public static SessionParam getListRequestParam() {
@@ -182,6 +186,8 @@ public class SessionParam implements Parcelable, RequestParam {
         this.userNumChatTypes = USER_UNREAD_NUM_CHAT_TYPES;
         this.asyncUnReadChatTypes = list;
         this.screenKey = "";
+        this.hudongNeedTop = false;
+        this.deleteMode = 0;
         this.contacterPaid = parcel.readLong();
         this.contacterUserType = parcel.readInt();
         this.businessType = parcel.readInt();
@@ -202,6 +208,7 @@ public class SessionParam implements Parcelable, RequestParam {
         parcel.readList(this.asyncUnReadChatTypes, Integer.class.getClassLoader());
         this.contacterImUk = parcel.readLong();
         this.screenKey = parcel.readString();
+        this.deleteMode = parcel.readInt();
     }
 
     public static SessionParam getAdvisoryReadOrDelParam(long j, long j2, long j3, int i, int i2) {
@@ -315,6 +322,7 @@ public class SessionParam implements Parcelable, RequestParam {
             parcel.writeList(this.userNumChatTypes);
             parcel.writeLong(this.contacterImUk);
             parcel.writeString(this.screenKey);
+            parcel.writeInt(this.deleteMode);
         }
     }
 }

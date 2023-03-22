@@ -1,84 +1,99 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ex2 {
+public class ex2 extends gx2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public boolean b;
-    public String c;
-    public String d;
-    public int e;
 
-    public ex2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947749642, "Lcom/baidu/tieba/ex2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947749642, "Lcom/baidu/tieba/ex2;");
                 return;
             }
         }
-        this.a = 3;
-        this.b = true;
-        this.d = "back";
-        this.e = 60;
+        boolean z = do1.a;
     }
 
-    public static ex2 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ex2(String str) {
+        super(str);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            ex2 ex2Var = new ex2();
-            if (jSONObject != null) {
-                JSONArray optJSONArray = jSONObject.optJSONArray("sourceType");
-                if (optJSONArray != null && optJSONArray.length() > 0) {
-                    int length = optJSONArray.length();
-                    int i = 0;
-                    for (int i2 = 0; i2 < length; i2++) {
-                        String optString = optJSONArray.optString(i2);
-                        char c = 65535;
-                        int hashCode = optString.hashCode();
-                        if (hashCode != -1367751899) {
-                            if (hashCode == 92896879 && optString.equals("album")) {
-                                c = 0;
-                            }
-                        } else if (optString.equals("camera")) {
-                            c = 1;
-                        }
-                        if (c != 0) {
-                            if (c == 1) {
-                                i |= 2;
-                            }
-                        } else {
-                            i |= 1;
-                        }
-                    }
-                    ex2Var.a = i;
-                }
-                ex2Var.b = jSONObject.optBoolean("compressed", true);
-                int i3 = 60;
-                int optInt = jSONObject.optInt("maxDuration", 60);
-                if (optInt <= 60) {
-                    i3 = optInt;
-                }
-                ex2Var.e = i3;
-                ex2Var.d = jSONObject.optString("camera");
-                ex2Var.c = jSONObject.optString("cb");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return ex2Var;
         }
-        return (ex2) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.gx2
+    public boolean a(bx2 bx2Var, dx2 dx2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, t73 t73Var) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{bx2Var, dx2Var, context, unitedSchemeEntity, callbackHandler, t73Var})) == null) {
+            t42.i("vrvideo", "open, video id:" + dx2Var.j + " slave id: " + dx2Var.c);
+            d(bx2Var, dx2Var, unitedSchemeEntity, callbackHandler);
+            return true;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.gx2
+    public bx2 b(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3, jSONObject)) == null) {
+            if (TextUtils.isEmpty(str3)) {
+                return null;
+            }
+            ru2 f = su2.f(str, str2, str3);
+            if (f == null) {
+                return new bx2(context, dx2.h(jSONObject, new dx2()));
+            }
+            if (!(f.i() instanceof bx2)) {
+                return null;
+            }
+            return (bx2) f.i();
+        }
+        return (bx2) invokeLLLLL.objValue;
+    }
+
+    public final void d(bx2 bx2Var, dx2 dx2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, bx2Var, dx2Var, unitedSchemeEntity, callbackHandler) == null) {
+            bx2Var.g(dx2Var);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+        }
     }
 }

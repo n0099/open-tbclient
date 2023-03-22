@@ -1,81 +1,178 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.e9a;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.io.BufferedReader;
+import java.io.ByteArrayInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.OutputStream;
 /* loaded from: classes4.dex */
-public class d9a implements Animator.AnimatorListener {
+public class d9a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ e9a.a a;
-    public final /* synthetic */ View b;
-    public final /* synthetic */ ViewGroup c;
-    public final /* synthetic */ float d;
-    public final /* synthetic */ float e;
-    public final /* synthetic */ int[] f;
-    public final /* synthetic */ ViewGroup g;
-    public final /* synthetic */ e9a h;
 
-    public d9a(e9a e9aVar, e9a.a aVar, View view2, ViewGroup viewGroup, float f, float f2, int[] iArr, ViewGroup viewGroup2) {
+    public static long a(InputStream inputStream, OutputStream outputStream) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {e9aVar, aVar, view2, viewGroup, Float.valueOf(f), Float.valueOf(f2), iArr, viewGroup2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, inputStream, outputStream)) == null) {
+            if (inputStream != null && outputStream != null) {
+                try {
+                    byte[] bArr = new byte[n81.a];
+                    long j = 0;
+                    while (true) {
+                        int read = inputStream.read(bArr);
+                        if (read > 0) {
+                            outputStream.write(bArr, 0, read);
+                            j += read;
+                        } else {
+                            outputStream.flush();
+                            return j;
+                        }
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
+            return 0L;
         }
-        this.h = e9aVar;
-        this.a = aVar;
-        this.b = view2;
-        this.c = viewGroup;
-        this.d = f;
-        this.e = f2;
-        this.f = iArr;
-        this.g = viewGroup2;
+        return invokeLL.longValue;
     }
 
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationCancel(Animator animator) {
+    public static String b(File file) {
+        InterceptResult invokeL;
+        FileInputStream fileInputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+            try {
+                fileInputStream = new FileInputStream(file);
+                try {
+                    String c = c(fileInputStream);
+                    try {
+                        fileInputStream.close();
+                    } catch (IOException unused) {
+                    }
+                    return c;
+                } catch (FileNotFoundException unused2) {
+                    if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                        } catch (IOException unused3) {
+                        }
+                    }
+                    return null;
+                } catch (Throwable unused4) {
+                    if (fileInputStream != null) {
+                        try {
+                            fileInputStream.close();
+                        } catch (IOException unused5) {
+                        }
+                    }
+                    return null;
+                }
+            } catch (FileNotFoundException unused6) {
+                fileInputStream = null;
+            } catch (Throwable unused7) {
+                fileInputStream = null;
+            }
+        } else {
+            return (String) invokeL.objValue;
         }
     }
 
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationRepeat(Animator animator) {
+    public static String c(@NonNull FileInputStream fileInputStream) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, animator) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, fileInputStream)) == null) {
+            if (fileInputStream != null) {
+                StringBuilder sb = new StringBuilder();
+                try {
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(fileInputStream));
+                    while (true) {
+                        String readLine = bufferedReader.readLine();
+                        if (readLine != null) {
+                            sb.append(readLine);
+                        } else {
+                            return sb.toString();
+                        }
+                    }
+                } catch (IOException unused) {
+                    return sb.toString();
+                } catch (Throwable unused2) {
+                    return sb.toString();
+                }
+            } else {
+                throw new NullPointerException("inputStream should not be null");
+            }
+        } else {
+            return (String) invokeL.objValue;
         }
     }
 
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationEnd(Animator animator) {
+    public static boolean d(InputStream inputStream, File file, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-            this.h.a(this.b, this.c, this.d, this.e, this.f, this.g, this.a);
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, inputStream, file, z)) == null) {
+            boolean z2 = false;
+            FileOutputStream fileOutputStream = null;
+            try {
+                FileOutputStream fileOutputStream2 = new FileOutputStream(file, z);
+                try {
+                    if (a(inputStream, fileOutputStream2) != 0) {
+                        z2 = true;
+                    }
+                    try {
+                        fileOutputStream2.close();
+                    } catch (IOException unused) {
+                    }
+                    return z2;
+                } catch (FileNotFoundException unused2) {
+                    fileOutputStream = fileOutputStream2;
+                    if (fileOutputStream != null) {
+                        try {
+                            fileOutputStream.close();
+                        } catch (IOException unused3) {
+                        }
+                    }
+                    return false;
+                } catch (Throwable th) {
+                    th = th;
+                    fileOutputStream = fileOutputStream2;
+                    if (fileOutputStream != null) {
+                        try {
+                            fileOutputStream.close();
+                        } catch (IOException unused4) {
+                        }
+                    }
+                    throw th;
+                }
+            } catch (FileNotFoundException unused5) {
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } else {
+            return invokeLLZ.booleanValue;
         }
     }
 
-    @Override // android.animation.Animator.AnimatorListener
-    public void onAnimationStart(Animator animator) {
+    public static boolean e(String str, File file, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, animator) == null) {
-            LogPrinter.d("zoomOut onAnimationStart", new Object[0]);
-            this.h.getClass();
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, file, z)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            return d(new ByteArrayInputStream(str.getBytes()), file, z);
         }
+        return invokeLLZ.booleanValue;
     }
 }

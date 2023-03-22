@@ -1,39 +1,94 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class ov8 implements uw5<nv8> {
+public class ov8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ov8() {
+    public static void a(String str, List<gn> list) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if ((interceptable != null && interceptable.invokeLL(65536, null, str, list) != null) || StringUtils.isNull(str)) {
+            return;
+        }
+        if (list == null) {
+            list = new ArrayList<>();
+        }
+        JSONArray jSONArray = new JSONArray();
+        int size = list.size();
+        for (int i = 0; i < size; i++) {
+            gn gnVar = list.get(i);
+            if (gnVar instanceof ya5) {
+                ya5 ya5Var = (ya5) gnVar;
+                if (!ya5Var.c()) {
+                    jSONArray.put(ya5Var.a());
+                }
             }
         }
+        jSONArray.put(str);
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
+        httpMessage.addParam("pic_list", jSONArray.toString());
+        MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.uw5
-    /* renamed from: b */
-    public nv8 a() {
-        InterceptResult invokeV;
+    public static String c(TbPageContext tbPageContext, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return new nv8();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, tbPageContext, str)) == null) {
+            if (tbPageContext != null && !StringUtils.isNull(str)) {
+                if (tbPageContext.getResources().getDisplayMetrics().densityDpi > 240.0f) {
+                    return "http://tb.himg.baidu.com/sys/portraith/item/" + str;
+                }
+                return "http://tb.himg.baidu.com/sys/portraitl/item/" + str;
+            }
+            return null;
         }
-        return (nv8) invokeV.objValue;
+        return (String) invokeLL.objValue;
+    }
+
+    public static void d(ya5 ya5Var, BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65539, null, ya5Var, bdUniqueId) != null) || ya5Var == null || StringUtils.isNull(ya5Var.a()) || !ListUtils.isEmpty(MessageManager.getInstance().findMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT, bdUniqueId))) {
+            return;
+        }
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT);
+        httpMessage.addParam("pic_url", ya5Var.a());
+        httpMessage.setTag(bdUniqueId);
+        MessageManager.getInstance().sendMessage(httpMessage);
+    }
+
+    public static void b(ya5 ya5Var, List<gn> list) {
+        ya5 ya5Var2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, ya5Var, list) == null) && ya5Var != null && !ListUtils.isEmpty(list) && !StringUtils.isNull(ya5Var.a())) {
+            JSONArray jSONArray = new JSONArray();
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                gn gnVar = list.get(i);
+                if ((gnVar instanceof ya5) && (ya5Var2 = (ya5) gnVar) != ya5Var && !ya5Var2.c()) {
+                    jSONArray.put(ya5Var2.a());
+                }
+            }
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
+            httpMessage.addParam("pic_list", jSONArray.toString());
+            if (jSONArray.length() <= 0) {
+                httpMessage.addParam("truncat", 1);
+            } else {
+                httpMessage.addParam("truncat", 0);
+            }
+            MessageManager.getInstance().sendMessage(httpMessage);
+        }
     }
 }

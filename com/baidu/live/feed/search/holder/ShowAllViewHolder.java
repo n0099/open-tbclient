@@ -7,7 +7,7 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jd0;
+import com.baidu.tieba.zb0;
 /* loaded from: classes2.dex */
 public class ShowAllViewHolder extends RecyclerView.ViewHolder {
     public View a;
@@ -22,9 +22,9 @@ public class ShowAllViewHolder extends RecyclerView.ViewHolder {
         this.a = view2;
         this.b = context;
         this.f = str;
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092046);
-        this.d = view2.findViewById(R.id.obfuscated_res_0x7f09150e);
-        this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09204d);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092091);
+        this.d = view2.findViewById(R.id.obfuscated_res_0x7f091540);
+        this.e = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092098);
     }
 
     public void a(int i) {
@@ -34,11 +34,11 @@ public class ShowAllViewHolder extends RecyclerView.ViewHolder {
         } else {
             this.e.setVisibility(0);
         }
-        String r = jd0.f().r();
+        String r = zb0.f().r();
         if ("day".equals(r)) {
-            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080d9a);
+            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080dae);
         } else if (LiveFeedPageSdk.UI_MODE_NIGHT.equals(r)) {
-            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080d9b);
+            this.e.setImageResource(R.drawable.obfuscated_res_0x7f080daf);
         }
     }
 }

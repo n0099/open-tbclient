@@ -1,21 +1,16 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.app.Activity;
 /* loaded from: classes6.dex */
-public interface xd1<View> {
-    void a();
+public interface xd1 {
 
-    View getRealView();
+    /* loaded from: classes6.dex */
+    public interface a {
+    }
 
-    void setBtnIconNightModeEnable(boolean z);
+    void a(String str);
 
-    void setBtnPlaceholder(View view2);
+    String b(Activity activity, String str, a aVar);
 
-    void setData(@NonNull tq0 tq0Var);
-
-    void setEnhanceBtnListener(@NonNull vd1 vd1Var);
-
-    void setVisible(int i);
-
-    void update(int i);
+    void c(String str, String str2, int i);
 }

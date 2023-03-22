@@ -143,11 +143,11 @@ public final class c {
         if (this.fq) {
             return;
         }
-        SceneImpl m92clone = sceneImpl.m92clone();
+        SceneImpl m94clone = sceneImpl.m94clone();
         long elapsedRealtime = SystemClock.elapsedRealtime();
-        m92clone.setAdStyle(16);
-        m92clone.setAdNum(i2);
-        a(new com.kwad.components.core.k.kwai.b(m92clone), new AnonymousClass1(sceneImpl, bVar, elapsedRealtime));
+        m94clone.setAdStyle(16);
+        m94clone.setAdNum(i2);
+        a(new com.kwad.components.core.k.kwai.b(m94clone), new AnonymousClass1(sceneImpl, bVar, elapsedRealtime));
     }
 
     public final void release() {

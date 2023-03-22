@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,12 +9,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public interface em0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "uad.retainUI");
+    public static final ServiceReference a = new ServiceReference("nad.core", "exp_config");
     public static final em0 b = new a();
 
-    int a();
-
-    int b();
+    @NonNull
+    String[] a();
 
     /* loaded from: classes4.dex */
     public static class a implements em0 {
@@ -22,17 +21,11 @@ public interface em0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.baidu.tieba.em0
-        public int a() {
+        @NonNull
+        public String[] a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.nad_dialog_container : invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.em0
-        public int b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? R.layout.nad_retain_dialog_act : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new String[0] : (String[]) invokeV.objValue;
         }
 
         public a() {

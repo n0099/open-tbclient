@@ -837,11 +837,18 @@ public final class ChatSession implements Parcelable, NoProGuard, Cloneable {
                 if (i2 == 5) {
                     return "管理员发言了";
                 }
+                if (i2 == 3) {
+                    return "群主发优惠券了";
+                }
             } else {
                 int i3 = this.mRemindType;
                 if (i3 == 2) {
                     return this.mRemindRoleDisplayName + "@我";
-                } else if (i3 == 4 || i3 == 5) {
+                } else if (i3 != 4 && i3 != 5) {
+                    if (i3 == 3) {
+                        return "群主发优惠券了";
+                    }
+                } else {
                     return this.mRemindRoleDisplayName + "发言了";
                 }
             }

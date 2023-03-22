@@ -1,52 +1,115 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import com.baidu.android.util.io.DocumentOpenUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class kk3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public boolean e;
 
-    public kk3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @NonNull
-    public static kk3 a(JSONObject jSONObject) {
+    public static boolean a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            kk3 kk3Var = new kk3();
-            if (jSONObject == null) {
-                return kk3Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
-            kk3Var.a = jSONObject.optString("SSID");
-            kk3Var.b = jSONObject.optString("BSSID");
-            kk3Var.e = jSONObject.optBoolean("maunal");
-            kk3Var.d = jSONObject.optString(com.baidu.sapi2.views.logindialog.view.a.m);
-            kk3Var.c = jSONObject.optString("identity");
-            return kk3Var;
+            if (!TextUtils.equals(DocumentOpenUtil.PDF_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.DOCUMENT_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.SHEET_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.PRESENT_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.WORD_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.EXCEL_TYPE, str) && !TextUtils.equals(DocumentOpenUtil.PPT_TYPE, str)) {
+                return false;
+            }
+            return true;
         }
-        return (kk3) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            String lowerCase = str.toLowerCase();
+            char c = 65535;
+            switch (lowerCase.hashCode()) {
+                case 99640:
+                    if (lowerCase.equals(DocumentOpenUtil.DOC)) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case 110834:
+                    if (lowerCase.equals(DocumentOpenUtil.PDF)) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case 111220:
+                    if (lowerCase.equals(DocumentOpenUtil.PPT)) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case 118783:
+                    if (lowerCase.equals(DocumentOpenUtil.XLS)) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 3088960:
+                    if (lowerCase.equals(DocumentOpenUtil.DOCX)) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 3447940:
+                    if (lowerCase.equals(DocumentOpenUtil.PPTX)) {
+                        c = 6;
+                        break;
+                    }
+                    break;
+                case 3682393:
+                    if (lowerCase.equals(DocumentOpenUtil.XLSX)) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+            }
+            switch (c) {
+                case 0:
+                    str2 = DocumentOpenUtil.PDF_TYPE;
+                    break;
+                case 1:
+                    str2 = DocumentOpenUtil.WORD_TYPE;
+                    break;
+                case 2:
+                    str2 = DocumentOpenUtil.DOCUMENT_TYPE;
+                    break;
+                case 3:
+                    str2 = DocumentOpenUtil.EXCEL_TYPE;
+                    break;
+                case 4:
+                    str2 = DocumentOpenUtil.SHEET_TYPE;
+                    break;
+                case 5:
+                    str2 = DocumentOpenUtil.PPT_TYPE;
+                    break;
+                case 6:
+                    str2 = DocumentOpenUtil.PRESENT_TYPE;
+                    break;
+                default:
+                    str2 = "";
+                    break;
+            }
+            if (!a(str2)) {
+                return "";
+            }
+            return str2;
+        }
+        return (String) invokeL.objValue;
     }
 }

@@ -1,155 +1,86 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ThreadFactory;
-import rx.internal.util.RxThreadFactory;
+import java.util.Collections;
+import java.util.Iterator;
+import java.util.TreeMap;
 /* loaded from: classes4.dex */
-public class dra {
+public class dra implements zqa {
     public static /* synthetic */ Interceptable $ic;
-    public static final dra a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public vma g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return null;
-        }
-        return (vma) invokeV.objValue;
-    }
-
-    public vma i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
-        }
-        return (vma) invokeV.objValue;
-    }
-
-    public vma j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (vma) invokeV.objValue;
-    }
-
-    @Deprecated
-    public fna k(fna fnaVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, fnaVar)) == null) ? fnaVar : (fna) invokeL.objValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947715542, "Lcom/baidu/tieba/dra;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947715542, "Lcom/baidu/tieba/dra;");
-                return;
-            }
-        }
-        a = new dra();
-    }
+    public byte[] a;
+    public TreeMap<String, String> b;
 
     public dra() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
     }
 
-    public static vma a() {
+    @Override // com.baidu.tieba.cra
+    public Iterator<String> g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b(new RxThreadFactory("RxComputationScheduler-"));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return Collections.unmodifiableSet(this.b.keySet()).iterator();
         }
-        return (vma) invokeV.objValue;
+        return (Iterator) invokeV.objValue;
     }
 
-    public static vma c() {
+    @Override // com.baidu.tieba.cra
+    public byte[] getContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return d(new RxThreadFactory("RxIoScheduler-"));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
         }
-        return (vma) invokeV.objValue;
+        return (byte[]) invokeV.objValue;
     }
 
-    public static vma e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return f(new RxThreadFactory("RxNewThreadScheduler-"));
-        }
-        return (vma) invokeV.objValue;
-    }
-
-    public static dra h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return a;
-        }
-        return (dra) invokeV.objValue;
-    }
-
-    public static vma b(ThreadFactory threadFactory) {
+    @Override // com.baidu.tieba.cra
+    public String d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, threadFactory)) == null) {
-            if (threadFactory != null) {
-                return new noa(threadFactory);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            String str2 = this.b.get(str);
+            if (str2 == null) {
+                return "";
             }
-            throw new NullPointerException("threadFactory == null");
+            return str2;
         }
-        return (vma) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static vma d(ThreadFactory threadFactory) {
+    @Override // com.baidu.tieba.cra
+    public boolean e(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, threadFactory)) == null) {
-            if (threadFactory != null) {
-                return new moa(threadFactory);
-            }
-            throw new NullPointerException("threadFactory == null");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return this.b.containsKey(str);
         }
-        return (vma) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static vma f(ThreadFactory threadFactory) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.zqa
+    public void put(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, threadFactory)) == null) {
-            if (threadFactory != null) {
-                return new roa(threadFactory);
-            }
-            throw new NullPointerException("threadFactory == null");
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
+            this.b.put(str, str2);
         }
-        return (vma) invokeL.objValue;
     }
 }

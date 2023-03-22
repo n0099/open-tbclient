@@ -1,14 +1,22 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.poly.util.HttpSigner;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class jf1 {
-    public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
+public final class jf1 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 1;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -26,19 +34,142 @@ public class jf1 {
         }
     }
 
-    public static boolean a() {
+    /* loaded from: classes5.dex */
+    public static final class a extends cf1<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fg1 a;
+        public final /* synthetic */ JSONObject b;
+
+        public a(fg1 fg1Var, JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fg1Var, jSONObject};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fg1Var;
+            this.b = jSONObject;
+        }
+
+        @Override // com.baidu.tieba.cf1
+        public void a(Throwable th, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+                fg1 fg1Var = this.a;
+                if (fg1Var != null) {
+                    fg1Var.a(1, str);
+                }
+                nf1.d(this.b);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.cf1
+        /* renamed from: d */
+        public void c(String str) {
+            fg1 fg1Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (fg1Var = this.a) != null) {
+                fg1Var.a(0, "");
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class b extends cf1<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ fg1 a;
+
+        public b(fg1 fg1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {fg1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = fg1Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.cf1
+        /* renamed from: d */
+        public void c(String str) {
+            fg1 fg1Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (fg1Var = this.a) != null) {
+                fg1Var.a(0, "");
+            }
+        }
+
+        @Override // com.baidu.tieba.cf1
+        public void a(Throwable th, int i, String str) {
+            fg1 fg1Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) && (fg1Var = this.a) != null) {
+                fg1Var.a(1, str);
+            }
+        }
+    }
+
+    public static final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             return a;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public static void b(boolean z) {
+    public static final void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65538, null, z) == null) {
-            a = z;
+        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
+            a = i;
         }
+    }
+
+    public static final void c(JSONObject jSONObject, fg1 fg1Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65539, null, jSONObject, fg1Var) != null) || jSONObject == null) {
+            return;
+        }
+        ef1 ef1Var = new ef1();
+        lf1.d(ef1Var);
+        df1 e = lf1.e(jSONObject);
+        lf1.c(ef1Var, e.a("bduss"));
+        HttpSigner.b(e);
+        new if1(false).a(mf1.f(), ef1Var, e, new a(fg1Var, jSONObject));
+    }
+
+    public static final void d(JSONArray jSONArray, fg1 fg1Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONArray, fg1Var) != null) || jSONArray == null) {
+            return;
+        }
+        ef1 ef1Var = new ef1();
+        lf1.d(ef1Var);
+        df1 df1Var = new df1();
+        String jSONArray2 = jSONArray.toString();
+        Intrinsics.checkExpressionValueIsNotNull(jSONArray2, "params.toString()");
+        df1Var.d("batchData", jSONArray2);
+        HttpSigner.b(df1Var);
+        new if1(false).a(mf1.a(), ef1Var, df1Var, new b(fg1Var));
     }
 }

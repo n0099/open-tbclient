@@ -4,10 +4,10 @@ import android.util.Log;
 import com.baidu.searchbox.bdeventbus.BdEventBus;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.ABTestConfig;
-import com.baidu.tieba.g9;
-import com.baidu.tieba.h9;
-import com.baidu.tieba.n9;
-import com.baidu.tieba.p9;
+import com.baidu.tieba.j8;
+import com.baidu.tieba.k8;
+import com.baidu.tieba.q8;
+import com.baidu.tieba.s8;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
@@ -16,7 +16,7 @@ public class AbTestManager {
     public static final boolean DEBUG = ABTestConfig.isDebug();
     public static final String TAG = "AbTestManager";
     public static AbTestManager mAbTestManager;
-    public h9 mExperimentManager = h9.n(AppRuntime.getAppContext());
+    public k8 mExperimentManager = k8.n(AppRuntime.getAppContext());
 
     @Deprecated
     public void addEvent(String str) {
@@ -35,14 +35,14 @@ public class AbTestManager {
 
     public void forceReloadConfig() {
         this.mExperimentManager.h();
-        BdEventBus.Companion.getDefault().post(new p9());
+        BdEventBus.Companion.getDefault().post(new s8());
     }
 
     public String getExpInfos() {
         return this.mExperimentManager.m();
     }
 
-    public ArrayList<g9> getExperimentInfoList() {
+    public ArrayList<j8> getExperimentInfoList() {
         return this.mExperimentManager.l();
     }
 
@@ -50,8 +50,8 @@ public class AbTestManager {
         return this.mExperimentManager.q();
     }
 
-    public void addLocalExpInfo(n9 n9Var) {
-        this.mExperimentManager.g(n9Var);
+    public void addLocalExpInfo(q8 q8Var) {
+        this.mExperimentManager.g(q8Var);
     }
 
     @Deprecated
@@ -85,16 +85,16 @@ public class AbTestManager {
 
     public ArrayList<String> getSidsFromTids(ArrayList<Integer> arrayList) {
         ArrayList<String> arrayList2 = new ArrayList<>();
-        ArrayList<g9> l = this.mExperimentManager.l();
+        ArrayList<j8> l = this.mExperimentManager.l();
         if (l == null) {
             return arrayList2;
         }
         for (int i = 0; i < l.size(); i++) {
-            g9 g9Var = l.get(i);
-            if (g9Var != null) {
+            j8 j8Var = l.get(i);
+            if (j8Var != null) {
                 for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                    if (arrayList.get(i2).intValue() == g9Var.c()) {
-                        arrayList2.add(g9Var.c() + "_" + g9Var.b());
+                    if (arrayList.get(i2).intValue() == j8Var.c()) {
+                        arrayList2.add(j8Var.c() + "_" + j8Var.b());
                     }
                 }
             }

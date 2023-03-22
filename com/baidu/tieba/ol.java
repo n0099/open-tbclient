@@ -1,29 +1,36 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Path;
-import android.graphics.RectF;
-import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.pms.statistic.StatisticCallback;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class ol extends hl {
+public class ol implements StatisticCallback {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Path t;
-    public Paint u;
-    public a v;
-    public boolean w;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        Path a(RectF rectF);
+    @Override // com.baidu.searchbox.pms.statistic.StatisticCallback
+    public boolean addDownloadStatistic2(int i, String str, String str2, String str3, long j, String str4, String str5, int i2, int i3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, str2, str3, Long.valueOf(j), str4, str5, Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
+            return false;
+        }
+        return invokeCommon.booleanValue;
+    }
 
-        void b(Canvas canvas);
+    @Override // com.baidu.searchbox.pms.statistic.StatisticCallback
+    public boolean addFetchStatistic2InHost(int i, String str, String str2, JSONObject jSONObject) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, str2, jSONObject})) == null) {
+            return false;
+        }
+        return invokeCommon.booleanValue;
     }
 
     public ol() {
@@ -36,64 +43,7 @@ public abstract class ol extends hl {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.t = new Path();
-        this.u = null;
-        this.w = false;
-    }
-
-    @Override // com.baidu.tieba.fl
-    public void c(il ilVar, ImageView imageView, ImageView.ScaleType scaleType) {
-        Path a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, ilVar, imageView, scaleType) == null) {
-            super.c(ilVar, imageView, scaleType);
-            a aVar = this.v;
-            if (aVar == null || (a2 = aVar.a(j())) == null) {
-                return;
-            }
-            this.t.set(a2);
-            if (this.u == null) {
-                Paint paint = new Paint();
-                this.u = paint;
-                paint.setStyle(Paint.Style.STROKE);
-                this.u.setAntiAlias(true);
-                this.u.setColor(637534208);
-                this.u.setDither(true);
-                this.u.setStrokeWidth(2.0f);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.fl
-    public void g(Canvas canvas, il ilVar, ImageView imageView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas, ilVar, imageView) == null) {
-            super.g(canvas, ilVar, imageView);
-            if (!this.w) {
-                return;
-            }
-            canvas.drawPath(this.t, this.u);
-            a aVar = this.v;
-            if (aVar != null) {
-                aVar.b(canvas);
-            }
-        }
-    }
-
-    public void t(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.v = aVar;
-        }
-    }
-
-    public void u(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.w = z;
         }
     }
 }

@@ -1,9 +1,9 @@
 package com.baidu.tieba;
-
-import java.io.IOException;
 /* loaded from: classes4.dex */
 public interface gy9 {
-    void close() throws IOException;
+    void a();
 
-    int write(byte[] bArr, int i, int i2) throws IOException;
+    void b();
+
+    void c();
 }

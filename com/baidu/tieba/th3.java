@@ -1,270 +1,156 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
+import android.content.Context;
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.platform.comapi.map.MapController;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.sh3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
+import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class th3 extends uh3 {
+public class th3 extends q93 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<String> f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948181162, "Lcom/baidu/tieba/th3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements sh3.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ UnitedSchemeEntity a;
+        public final /* synthetic */ CallbackHandler b;
+        public final /* synthetic */ ly1 c;
+        public final /* synthetic */ th3 d;
+
+        public a(th3 th3Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ly1 ly1Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {th3Var, unitedSchemeEntity, callbackHandler, ly1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948181162, "Lcom/baidu/tieba/th3;");
-                return;
-            }
+            this.d = th3Var;
+            this.a = unitedSchemeEntity;
+            this.b = callbackHandler;
+            this.c = ly1Var;
         }
-        g = wp1.a;
-    }
 
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && g) {
-            IllegalAccessException illegalAccessException = new IllegalAccessException("read only allowed");
-            Log.i("IpcReadOnlySP", illegalAccessException.toString());
-            illegalAccessException.printStackTrace();
+        @Override // com.baidu.tieba.sh3.c
+        public void a(float f, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), Integer.valueOf(i)}) == null) {
+                t42.i(MapController.COMPASS_LAYER_TAG, "handle compass change, angle:" + f + ",accuracy: " + i);
+                this.d.k(this.a, this.b, this.c, f, i);
+            }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public th3(String str) {
-        super(str);
+    public th3(q83 q83Var) {
+        super(q83Var, "/swanAPI/startCompass");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {q83Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = new HashSet();
     }
 
-    @Override // com.baidu.tieba.uh3, com.baidu.tieba.zh3, android.content.SharedPreferences
-    public boolean getBoolean(String str, boolean z) {
-        InterceptResult invokeLZ;
+    @Override // com.baidu.tieba.q93
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, t73 t73Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
-            if (k(str)) {
-                return super.getBoolean(str, z);
-            }
-            return d(str, z);
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.uh3, com.baidu.tieba.zh3, android.content.SharedPreferences
-    public float getFloat(String str, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, f)) == null) {
-            if (k(str)) {
-                return super.getFloat(str, f);
-            }
-            return e(str, f);
-        }
-        return invokeLF.floatValue;
-    }
-
-    @Override // com.baidu.tieba.uh3, com.baidu.tieba.zh3, android.content.SharedPreferences
-    public int getInt(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
-            if (k(str)) {
-                return super.getInt(str, i);
-            }
-            return f(str, i);
-        }
-        return invokeLI.intValue;
-    }
-
-    @Override // com.baidu.tieba.uh3, com.baidu.tieba.zh3, android.content.SharedPreferences
-    public long getLong(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048579, this, str, j)) == null) {
-            if (k(str)) {
-                return super.getLong(str, j);
-            }
-            return g(str, j);
-        }
-        return invokeLJ.longValue;
-    }
-
-    @Override // com.baidu.tieba.uh3, com.baidu.tieba.zh3, android.content.SharedPreferences
-    public String getString(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            if (k(str)) {
-                return super.getString(str, str2);
-            }
-            return i(str, str2);
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.uh3, com.baidu.tieba.zh3, android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor putBoolean(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048583, this, str, z)) == null) {
-            if (!j() && !k(str)) {
-                l();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, t73Var)) == null) {
+            if (t73Var == null) {
+                t42.c(MapController.COMPASS_LAYER_TAG, "none swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
+                if (q93.b) {
+                    Log.d("SwanAppAction", "startCompass --- illegal swanApp");
+                }
+                return false;
+            } else if (context == null) {
+                t42.c(MapController.COMPASS_LAYER_TAG, "none context");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
+                if (q93.b) {
+                    Log.d("SwanAppAction", "startCompass --- illegal context");
+                }
+                return false;
             } else {
-                super.putBoolean(str, z);
-            }
-            return this;
-        }
-        return (SharedPreferences.Editor) invokeLZ.objValue;
-    }
-
-    @Override // com.baidu.tieba.uh3, com.baidu.tieba.zh3, android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor putFloat(String str, float f) {
-        InterceptResult invokeLF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, f)) == null) {
-            if (!j() && !k(str)) {
-                l();
-            } else {
-                super.putFloat(str, f);
-            }
-            return this;
-        }
-        return (SharedPreferences.Editor) invokeLF.objValue;
-    }
-
-    @Override // com.baidu.tieba.uh3, com.baidu.tieba.zh3, android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor putInt(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048585, this, str, i)) == null) {
-            if (!j() && !k(str)) {
-                l();
-            } else {
-                super.putInt(str, i);
-            }
-            return this;
-        }
-        return (SharedPreferences.Editor) invokeLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.uh3, com.baidu.tieba.zh3, android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor putLong(String str, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048586, this, str, j)) == null) {
-            if (!j() && !k(str)) {
-                l();
-            } else {
-                super.putLong(str, j);
-            }
-            return this;
-        }
-        return (SharedPreferences.Editor) invokeLJ.objValue;
-    }
-
-    @Override // com.baidu.tieba.uh3, com.baidu.tieba.zh3, android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor putString(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, str, str2)) == null) {
-            if (!j() && !k(str)) {
-                l();
-            } else {
-                super.putString(str, str2);
-            }
-            return this;
-        }
-        return (SharedPreferences.Editor) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.zh3, android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor putStringSet(String str, Set<String> set) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, str, set)) == null) {
-            if (!j() && !k(str)) {
-                l();
-            } else {
-                super.putStringSet(str, set);
-            }
-            return this;
-        }
-        return (SharedPreferences.Editor) invokeLL.objValue;
-    }
-
-    public boolean k(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            return this.f.contains(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.zh3, com.baidu.tieba.op4, android.content.SharedPreferences
-    public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, onSharedPreferenceChangeListener) == null) {
-            if (j()) {
-                super.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
-            } else {
-                l();
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    if (q93.b) {
+                        Log.d("SwanAppAction", "startCompass --- params is empty");
+                    }
+                    t42.c(MapController.COMPASS_LAYER_TAG, "none params");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                    return false;
+                }
+                String optString = optParamsAsJo.optString("cb");
+                if (TextUtils.isEmpty(optString)) {
+                    if (q93.b) {
+                        Log.d("SwanAppAction", "startCompass --- cb is empty");
+                    }
+                    t42.c(MapController.COMPASS_LAYER_TAG, "cb is empty");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                t42.i(MapController.COMPASS_LAYER_TAG, "init");
+                ly1 ly1Var = new ly1("compassChange", optParamsAsJo, optString);
+                sh3 i = sh3.i();
+                i.l(context);
+                i.o(new a(this, unitedSchemeEntity, callbackHandler, ly1Var));
+                t42.i(MapController.COMPASS_LAYER_TAG, "start listen compass");
+                i.p();
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                ly1Var.a(unitedSchemeEntity, callbackHandler);
+                return true;
             }
         }
+        return invokeLLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.uh3, com.baidu.tieba.zh3, android.content.SharedPreferences.Editor
-    public SharedPreferences.Editor remove(String str) {
-        InterceptResult invokeL;
+    public final void k(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ly1 ly1Var, float f, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            if (!j() && !k(str)) {
-                l();
-            } else {
-                super.remove(str);
-            }
-            return this;
-        }
-        return (SharedPreferences.Editor) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.zh3, com.baidu.tieba.op4, android.content.SharedPreferences
-    public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, onSharedPreferenceChangeListener) == null) {
-            if (j()) {
-                super.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
-            } else {
-                l();
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{unitedSchemeEntity, callbackHandler, ly1Var, Float.valueOf(f), Integer.valueOf(i)}) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(HiAnalyticsConstant.HaKey.BI_KEY_DIRECTION, f);
+                jSONObject.put("accuracy", sh3.h(i));
+                if (q93.b) {
+                    Log.d("SwanAppAction", "compassAngle : " + jSONObject.toString());
+                }
+                ly1Var.c(unitedSchemeEntity, callbackHandler, jSONObject);
+            } catch (JSONException e) {
+                t42.c(MapController.COMPASS_LAYER_TAG, "handle compass,json error，" + e.toString());
+                ly1Var.e(unitedSchemeEntity, callbackHandler, "Json error");
             }
         }
     }

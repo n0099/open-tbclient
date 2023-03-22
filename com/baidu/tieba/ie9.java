@@ -1,15 +1,10 @@
 package com.baidu.tieba;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public interface ie9 {
-    void a(int i);
-
-    void b();
-
-    void onConvertAborted();
-
-    void onConvertFailed();
-
-    void onConvertProgress(int i);
-
-    void onConvertSuccess();
+public final class ie9 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean a = false;
+    public transient /* synthetic */ FieldHolder $fh;
 }

@@ -2,9 +2,9 @@ package com.fun.ad.sdk.internal.api.ripper;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkItem;
-import com.baidu.tieba.b6a;
-import com.baidu.tieba.gba;
-import com.baidu.tieba.yaa;
+import com.baidu.tieba.hha;
+import com.baidu.tieba.kca;
+import com.baidu.tieba.pha;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,7 +44,7 @@ public abstract class BaseAdRipper implements AdRipper {
                 return;
             }
         }
-        FAKE_AD_RIPPER = new b6a();
+        FAKE_AD_RIPPER = new kca();
         a = new Random();
     }
 
@@ -210,12 +210,12 @@ public abstract class BaseAdRipper implements AdRipper {
                 jSONObject.put("convU", b.convUrl);
                 jSONObject.put("uniqueId", b.uniqueId);
                 jSONObject.put("lid", j);
-                gba<Reporter> gbaVar = yaa.b;
-                synchronized (gbaVar) {
-                    if (gbaVar.a == null) {
-                        gbaVar.a = gbaVar.a();
+                pha<Reporter> phaVar = hha.b;
+                synchronized (phaVar) {
+                    if (phaVar.a == null) {
+                        phaVar.a = phaVar.a();
                     }
-                    reporter = gbaVar.a;
+                    reporter = phaVar.a;
                 }
                 reporter.logEvent("adM", jSONObject);
             } catch (JSONException e) {

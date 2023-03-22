@@ -1,108 +1,173 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.tbadkCore.data.PostData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes4.dex */
 public class hg8 {
     public static /* synthetic */ Interceptable $ic;
+    public static int a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int a;
-    public BdTypeListView b;
-    public boolean c;
-    public int d;
-    public int e;
-    public a f;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void a();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947822864, "Lcom/baidu/tieba/hg8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947822864, "Lcom/baidu/tieba/hg8;");
+        }
     }
 
-    public hg8(BdTypeListView bdTypeListView) {
+    public hg8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bdTypeListView};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = UtilHelper.getDimenPixelSize(R.dimen.tbds144);
-        this.d = -1;
-        this.e = -1;
-        this.b = bdTypeListView;
     }
 
-    public final int a(List<Cdo> list, int i) {
-        InterceptResult invokeLI;
+    public void a(int i, cg8 cg8Var, int i2, List<gn> list, BdTypeRecyclerView bdTypeRecyclerView) {
+        List<ag8> list2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, list, i)) == null) {
-            if (!ListUtils.isEmpty(list) && i != -1) {
-                int i2 = 0;
-                for (int i3 = 0; i3 < list.size(); i3++) {
-                    if ((list.get(i3) instanceof PostData) && ((PostData) list.get(i3)).getType() == PostData.Q0 && (i2 = i2 + 1) == i) {
-                        return i3;
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), cg8Var, Integer.valueOf(i2), list, bdTypeRecyclerView}) == null) && cg8Var != null && (list2 = cg8Var.a) != null && !ListUtils.isEmpty(list2)) {
+            ArrayList arrayList = new ArrayList();
+            c(i, arrayList, list);
+            List<ag8> list3 = cg8Var.a;
+            if (list3 != null && list3.size() > 0) {
+                int i3 = 0;
+                for (ag8 ag8Var : list3) {
+                    if (ag8Var != null && i == ag8Var.b.intValue()) {
+                        List<gg8> list4 = ag8Var.a;
+                        if (list4 != null && list4.size() > 0) {
+                            for (int i4 = 0; i4 < list4.size(); i4++) {
+                                if (list4.get(i4) != null) {
+                                    if (arrayList.size() >= 20) {
+                                        d(list.get(i2));
+                                        bdTypeRecyclerView.setData(list);
+                                        return;
+                                    } else if (i3 >= 4) {
+                                        bdTypeRecyclerView.setData(list);
+                                        return;
+                                    } else {
+                                        if (i4 == list4.size() - 1) {
+                                            d(list.get(i2));
+                                        }
+                                        RecommendForumInfo recommendForumInfo = list4.get(i4).a;
+                                        if (!arrayList.contains(recommendForumInfo.forum_id)) {
+                                            dg8 dg8Var = new dg8();
+                                            dg8Var.m(ag8Var.b.intValue());
+                                            dg8Var.k(recommendForumInfo.avatar);
+                                            dg8Var.o(recommendForumInfo.forum_id.longValue());
+                                            dg8Var.p(recommendForumInfo.forum_name);
+                                            dg8Var.r(recommendForumInfo.member_count.intValue());
+                                            dg8Var.u(recommendForumInfo.thread_count.intValue());
+                                            dg8Var.t(recommendForumInfo.slogan);
+                                            dg8Var.s(false);
+                                            list.add(i2, dg8Var);
+                                            arrayList.add(recommendForumInfo.forum_id);
+                                            i2++;
+                                            i3++;
+                                        }
+                                    }
+                                }
+                            }
+                            bdTypeRecyclerView.setData(list);
+                        } else {
+                            return;
+                        }
                     }
                 }
             }
-            return -1;
-        }
-        return invokeLI.intValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e = a(this.b.getData(), kc8.b().c());
         }
     }
 
-    public void c(int i, int i2) {
-        View childAt;
+    public List<gn> b(List<ag8> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) != null) || this.b == null || this.c || !kc8.b().e() || kc8.b().c() == -1 || this.e < 0 || (childAt = this.b.getChildAt(i2 - 1)) == null) {
-            return;
-        }
-        if (this.d <= 0) {
-            this.d = this.b.getHeight() - this.a;
-        }
-        if (this.d <= 0) {
-            return;
-        }
-        int headerViewsCount = this.e + this.b.getHeaderViewsCount();
-        int i3 = (i + i2) - 1;
-        if (i3 > headerViewsCount) {
-            if (i3 - 1 == headerViewsCount && childAt.getTop() > this.d) {
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
+            if (list != null && list.size() > 0) {
+                ArrayList arrayList = new ArrayList();
+                for (ag8 ag8Var : list) {
+                    if (ag8Var != null) {
+                        fg8 fg8Var = new fg8();
+                        fg8Var.f(ag8Var.b.intValue());
+                        fg8Var.c(ag8Var.d);
+                        fg8Var.g(ag8Var.c);
+                        arrayList.add(fg8Var);
+                        List<gg8> list2 = ag8Var.a;
+                        if (list2 != null && list2.size() > 0) {
+                            a = 0;
+                            for (gg8 gg8Var : list2) {
+                                if (gg8Var != null) {
+                                    if (a >= 4) {
+                                        break;
+                                    }
+                                    dg8 dg8Var = new dg8();
+                                    RecommendForumInfo recommendForumInfo = gg8Var.a;
+                                    dg8Var.m(ag8Var.b.intValue());
+                                    dg8Var.n(ag8Var.c);
+                                    dg8Var.k(recommendForumInfo.avatar);
+                                    dg8Var.o(recommendForumInfo.forum_id.longValue());
+                                    dg8Var.p(recommendForumInfo.forum_name);
+                                    dg8Var.r(recommendForumInfo.member_count.intValue());
+                                    dg8Var.u(recommendForumInfo.thread_count.intValue());
+                                    dg8Var.t(recommendForumInfo.slogan);
+                                    arrayList.add(dg8Var);
+                                    a++;
+                                }
+                            }
+                            eg8 eg8Var = new eg8();
+                            eg8Var.f(ag8Var.b.intValue());
+                            eg8Var.g(ag8Var.c);
+                            arrayList.add(eg8Var);
+                        }
+                    }
+                }
+                return arrayList;
             }
-            a aVar = this.f;
-            if (aVar != null) {
-                aVar.a();
+            return null;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    public final void c(int i, List<Long> list, List<gn> list2) {
+        dg8 dg8Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, list, list2) == null) {
+            for (gn gnVar : list2) {
+                if ((gnVar instanceof dg8) && (dg8Var = (dg8) gnVar) != null && dg8Var.b() == i) {
+                    list.add(Long.valueOf(dg8Var.c()));
+                }
             }
-            this.c = true;
         }
     }
 
-    public void d(a aVar) {
+    public final void d(gn gnVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
-            this.f = aVar;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, gnVar) == null) && (gnVar instanceof eg8)) {
+            ((eg8) gnVar).h(false);
         }
     }
 }

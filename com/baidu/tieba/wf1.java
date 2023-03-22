@@ -1,35 +1,54 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.text.TextUtils;
+import android.graphics.Bitmap;
+import android.util.LruCache;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class wf1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile wf1 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public LruCache<String, Bitmap> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948268551, "Lcom/baidu/tieba/wf1;")) == null) {
-            return;
+    /* loaded from: classes6.dex */
+    public class a extends LruCache<String, Bitmap> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(wf1 wf1Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wf1Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948268551, "Lcom/baidu/tieba/wf1;");
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.util.LruCache
+        /* renamed from: a */
+        public int sizeOf(String str, Bitmap bitmap) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bitmap)) == null) {
+                return bitmap.getByteCount() / 1024;
+            }
+            return invokeLL.intValue;
         }
     }
 
@@ -37,98 +56,43 @@ public class wf1 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new a(this, ((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8);
+    }
+
+    public void a(String str, Bitmap bitmap) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
+            String b = bg1.b(str);
+            if (b(b) == null) {
+                this.a.put(b, bitmap);
             }
         }
     }
 
-    public static synchronized wf1 f() {
-        InterceptResult invokeV;
-        wf1 wf1Var;
+    public final Bitmap b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (wf1.class) {
-                if (a == null) {
-                    synchronized (wf1.class) {
-                        if (a == null) {
-                            a = new wf1();
-                        }
-                    }
-                }
-                wf1Var = a;
-            }
-            return wf1Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return this.a.get(str);
         }
-        return (wf1) invokeV.objValue;
+        return (Bitmap) invokeL.objValue;
     }
 
-    public boolean a(Activity activity, String str, ag1 ag1Var) {
-        InterceptResult invokeLLL;
+    public Bitmap c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, activity, str, ag1Var)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            vf1.a().c(activity, str, ag1Var);
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return b(bg1.b(str));
         }
-        return invokeLLL.booleanValue;
-    }
-
-    public boolean b(Activity activity, String str, ag1 ag1Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, ag1Var)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            vf1.a().e(activity, str, ag1Var);
-            return true;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public boolean c(Activity activity, JSONObject jSONObject, ag1 ag1Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, activity, jSONObject, ag1Var)) == null) {
-            if (jSONObject == null) {
-                return false;
-            }
-            vf1.a().i(activity, jSONObject, ag1Var);
-            return true;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public boolean e(Context context, JSONObject jSONObject, ag1 ag1Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, context, jSONObject, ag1Var)) == null) {
-            if (jSONObject == null) {
-                return false;
-            }
-            vf1.a().d(context, jSONObject, ag1Var);
-            return true;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public boolean d(Context context, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, context, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return false;
-            }
-            vf1.a().f(context, jSONObject);
-            return true;
-        }
-        return invokeLL.booleanValue;
+        return (Bitmap) invokeL.objValue;
     }
 }

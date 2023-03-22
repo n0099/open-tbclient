@@ -20,9 +20,9 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bz5;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.rx5;
+import com.baidu.tieba.hi;
+import com.baidu.tieba.hy5;
+import com.baidu.tieba.xw5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @SuppressLint({"DrawAllocation"})
 /* loaded from: classes3.dex */
-public class FeedAdProgressButton extends View implements bz5 {
+public class FeedAdProgressButton extends View implements hy5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
@@ -132,7 +132,7 @@ public class FeedAdProgressButton extends View implements bz5 {
         e(context, attributeSet);
     }
 
-    @Override // com.baidu.tieba.bz5
+    @Override // com.baidu.tieba.hy5
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -143,7 +143,7 @@ public class FeedAdProgressButton extends View implements bz5 {
         }
     }
 
-    @Override // com.baidu.tieba.bz5
+    @Override // com.baidu.tieba.hy5
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
@@ -228,7 +228,7 @@ public class FeedAdProgressButton extends View implements bz5 {
     public final void e(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048580, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, rx5.feed_ad_progress);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, xw5.feed_ad_progress);
             int color = getResources().getColor(R.color.CAM_X0302);
             int color2 = getResources().getColor(R.color.CAM_X0302);
             int dimensionPixelSize = getResources().getDimensionPixelSize(R.dimen.tbds10);
@@ -337,7 +337,7 @@ public class FeedAdProgressButton extends View implements bz5 {
         }
     }
 
-    @Override // com.baidu.tieba.bz5
+    @Override // com.baidu.tieba.hy5
     public void setButtonTextColor(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
@@ -347,11 +347,11 @@ public class FeedAdProgressButton extends View implements bz5 {
         }
     }
 
-    @Override // com.baidu.tieba.bz5
+    @Override // com.baidu.tieba.hy5
     public void setButtonTextSize(@DimenRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
-            float g = ej.g(getContext(), i);
+            float g = hi.g(getContext(), i);
             this.j = g;
             TextPaint textPaint = this.i;
             if (textPaint != null) {
@@ -370,7 +370,7 @@ public class FeedAdProgressButton extends View implements bz5 {
         }
     }
 
-    @Override // com.baidu.tieba.bz5
+    @Override // com.baidu.tieba.hy5
     public void setInitText(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
@@ -399,7 +399,7 @@ public class FeedAdProgressButton extends View implements bz5 {
         }
     }
 
-    @Override // com.baidu.tieba.bz5
+    @Override // com.baidu.tieba.hy5
     public void setButtonText(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048589, this, str, i) == null) {

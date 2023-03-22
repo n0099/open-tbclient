@@ -7,7 +7,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.LinkedHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class Property implements Serializable {
     public static final String DIVIDE_PROPERTY = ",";
     public static final int MAX_EVENT_FIELD_BYTES = 256;

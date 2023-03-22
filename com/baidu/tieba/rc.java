@@ -1,170 +1,141 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.Disk.ops.DiskFileOperate;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.Queue;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class rc {
+public class rc implements lc {
     public static /* synthetic */ Interceptable $ic;
-    public static BdUniqueId d;
-    public static BdUniqueId e;
-    public static rc f;
     public transient /* synthetic */ FieldHolder $fh;
-    public pc a;
-    public BdAsyncTaskParallel b;
-    public BdAsyncTaskParallel c;
+    public Queue<?> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1448315804, "Lcom/baidu/tieba/rc;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1448315804, "Lcom/baidu/tieba/rc;");
-                return;
-            }
-        }
-        d = BdUniqueId.gen();
-        e = BdUniqueId.gen();
-        f = null;
-    }
-
-    public static rc f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (f == null) {
-                synchronized (rc.class) {
-                    if (f == null) {
-                        f = new rc();
-                    }
-                }
-            }
-            return f;
-        }
-        return (rc) invokeV.objValue;
-    }
-
-    public rc() {
+    public rc(Queue<?> queue) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {queue};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.c = null;
-        this.b = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
-        this.c = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, BdUniqueId.gen());
-        this.a = new pc();
+        this.a = queue;
     }
 
-    public boolean a(DiskFileOperate diskFileOperate) {
+    @Override // com.baidu.tieba.lc
+    public Object a(ud udVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, diskFileOperate)) == null) {
-            if (diskFileOperate == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, udVar)) == null) {
+            Object f = f(udVar);
+            if (f != null) {
+                if (f instanceof JSONObject) {
+                    return f.toString();
+                }
+                if (f instanceof JSONArray) {
+                    return f.toString();
+                }
+                return f;
             }
-            if (diskFileOperate.isSdCard()) {
-                return e(diskFileOperate, d, this.b, 10);
-            }
-            return e(diskFileOperate, e, this.c, 5);
+            return null;
         }
-        return invokeL.booleanValue;
+        return invokeL.objValue;
     }
 
-    public boolean call(DiskFileOperate diskFileOperate) {
+    @Override // com.baidu.tieba.lc
+    public Object b(ud udVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, diskFileOperate)) == null) {
-            if (diskFileOperate == null) {
-                return false;
-            }
-            boolean call = new sc(this.a, diskFileOperate).call();
-            diskFileOperate.callback(call);
-            return call;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, udVar)) == null) {
+            return this.a;
         }
-        return invokeL.booleanValue;
+        return invokeL.objValue;
     }
 
-    public void d(DiskFileOperate diskFileOperate) {
-        String c;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, diskFileOperate) == null) && (c = c(diskFileOperate)) != null) {
-            BdAsyncTask.removeAllTask(d, c);
-            BdAsyncTask.removeAllTask(e, c);
-        }
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.a.e(str);
-        }
-    }
-
-    public final boolean b(DiskFileOperate diskFileOperate, BdUniqueId bdUniqueId, BdAsyncTaskParallel bdAsyncTaskParallel) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, diskFileOperate, bdUniqueId, bdAsyncTaskParallel)) == null) {
-            qc qcVar = new qc(this.a, diskFileOperate);
-            qcVar.setTag(bdUniqueId);
-            qcVar.setParallel(bdAsyncTaskParallel);
-            qcVar.setPriority(4);
-            qcVar.setKey(c(diskFileOperate));
-            qcVar.execute(new DiskFileOperate[0]);
-            return true;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public final String c(DiskFileOperate diskFileOperate) {
+    @Override // com.baidu.tieba.lc
+    public Object c(ud udVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, diskFileOperate)) == null) {
-            if (diskFileOperate == null) {
-                return null;
-            }
-            if (diskFileOperate.getPath() == null) {
-                return diskFileOperate.getName() + "|" + diskFileOperate.hashCode();
-            }
-            return diskFileOperate.getPath() + "/" + diskFileOperate.getName() + "|" + diskFileOperate.hashCode();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, udVar)) == null) {
+            return this.a;
         }
-        return (String) invokeL.objValue;
+        return invokeL.objValue;
     }
 
-    public final boolean e(DiskFileOperate diskFileOperate, BdUniqueId bdUniqueId, BdAsyncTaskParallel bdAsyncTaskParallel, int i) {
-        InterceptResult invokeLLLI;
+    @Override // com.baidu.tieba.lc
+    public Object e(ud udVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(1048581, this, diskFileOperate, bdUniqueId, bdAsyncTaskParallel, i)) == null) {
-            if (diskFileOperate == null) {
-                return false;
-            }
-            if (diskFileOperate.getOperateType() == DiskFileOperate.OperateType.TRY_SUCCESS && BdAsyncTask.getTaskNum(bdUniqueId) >= i + diskFileOperate.getTrySuccessWeight()) {
-                return false;
-            }
-            return b(diskFileOperate, bdUniqueId, bdAsyncTaskParallel);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, udVar)) == null) {
+            return d(udVar);
         }
-        return invokeLLLI.booleanValue;
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.lc
+    public Object d(ud udVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, udVar)) == null) {
+            Type[] b = udVar.b();
+            ArrayList arrayList = new ArrayList();
+            for (Object obj : this.a) {
+                if (obj != null) {
+                    if (b != null && b.length >= 1) {
+                        Object f = xd.a(obj).f(new ud(b[0]));
+                        if (f != null) {
+                            arrayList.add(f.toString());
+                        }
+                    } else {
+                        Object f2 = xd.a(obj).f(new ud(udVar.a()));
+                        if (f2 != null) {
+                            arrayList.add(f2.toString());
+                        }
+                    }
+                }
+            }
+            return arrayList;
+        }
+        return invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.lc
+    public Object f(ud udVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, udVar)) == null) {
+            Type[] b = udVar.b();
+            JSONArray jSONArray = new JSONArray();
+            for (Object obj : this.a) {
+                if (obj != null) {
+                    if (b != null && b.length >= 1) {
+                        Object f = xd.a(obj).f(new ud(b[0]));
+                        if (f != null) {
+                            jSONArray.put(f);
+                        }
+                    } else {
+                        Object f2 = xd.a(obj).f(new ud(udVar.a()));
+                        if (f2 != null) {
+                            jSONArray.put(f2);
+                        }
+                    }
+                }
+            }
+            return jSONArray;
+        }
+        return invokeL.objValue;
     }
 }

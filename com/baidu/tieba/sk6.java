@@ -2,7 +2,7 @@ package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.gamerecommend.data.FeatureCardGame;
+import com.baidu.tieba.frs.gamerecommend.data.FeatureCardTopic;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,11 +11,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class sk6 implements Cdo {
+public class sk6 implements gn {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public FeatureCardGame a;
+    public FeatureCardTopic a;
 
     static {
         InterceptResult invokeClinit;
@@ -47,16 +47,16 @@ public class sk6 implements Cdo {
         }
     }
 
-    public FeatureCardGame a() {
+    public FeatureCardTopic a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (FeatureCardGame) invokeV.objValue;
+        return (FeatureCardTopic) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.Cdo
+    @Override // com.baidu.tieba.gn
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -66,14 +66,14 @@ public class sk6 implements Cdo {
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public void b(FeatureCardGame featureCardGame) {
+    public void b(FeatureCardTopic featureCardTopic) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, featureCardGame) != null) || featureCardGame == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, featureCardTopic) != null) || featureCardTopic == null) {
             return;
         }
-        this.a = featureCardGame;
-        String str = featureCardGame.title;
-        Integer num = featureCardGame.floor;
-        Integer num2 = featureCardGame.type;
+        this.a = featureCardTopic;
+        String str = featureCardTopic.title;
+        Integer num = featureCardTopic.floor;
+        Integer num2 = featureCardTopic.type;
     }
 }

@@ -1,34 +1,51 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.text.TextUtils;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LogoActivityConfig;
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
-import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.TabPic;
 /* loaded from: classes5.dex */
 public class j77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public int b;
+    public dy6 c;
+    public String d;
+    public int e;
+    public TabPic f;
+    public boolean g;
 
-    public static boolean a(FrsFragment frsFragment, String str, String str2, boolean z) {
-        InterceptResult invokeCommon;
+    public j77() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{frsFragment, str, str2, Boolean.valueOf(z)})) == null) {
-            if (!z || frsFragment == null || TextUtils.isEmpty(str) || !frsFragment.isAdded() || !n77.j(TbadkCoreApplication.getInst().getApplicationContext(), frsFragment.getActivity().getClass().getName())) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            Intent intent = new Intent();
-            intent.putExtra(DealIntentService.KEY_CLASS, 2);
-            intent.putExtra("fname", str);
-            intent.putExtra(str2, "short_cut");
-            frsFragment.sendMessage(new CustomMessage(2002001, new LogoActivityConfig(frsFragment.getPageContext().getPageActivity(), intent)));
+        }
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (obj != null && (obj instanceof j77)) {
+                j77 j77Var = (j77) obj;
+                if (this.b == j77Var.b && (str = this.a) != null && str.equals(j77Var.a)) {
+                    return true;
+                }
+                return super.equals(obj);
+            }
             return false;
         }
-        return invokeCommon.booleanValue;
+        return invokeL.booleanValue;
     }
 }

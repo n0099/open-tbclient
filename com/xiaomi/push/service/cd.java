@@ -28,7 +28,7 @@ public final class cd extends aj.a {
 
     @Override // com.xiaomi.push.aj.a
     /* renamed from: a */
-    public String mo217a() {
+    public String mo219a() {
         String b;
         b = cc.b(this.a, this.f969a);
         return b;

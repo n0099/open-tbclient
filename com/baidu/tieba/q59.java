@@ -1,34 +1,27 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.DetailInfo;
 /* loaded from: classes5.dex */
 public class q59 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile p59 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public q59(DetailInfo detailInfo) {
+    public static synchronized p59 a() {
+        InterceptResult invokeV;
+        p59 p59Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {detailInfo};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (q59.class) {
+                if (a == null) {
+                    a = new p59();
+                }
+                p59Var = a;
             }
+            return p59Var;
         }
-        if (detailInfo == null) {
-            return;
-        }
-        String str = detailInfo.text;
-        String str2 = detailInfo.url;
+        return (p59) invokeV.objValue;
     }
 }

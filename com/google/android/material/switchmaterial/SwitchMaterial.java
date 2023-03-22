@@ -13,9 +13,9 @@ import com.google.android.material.elevation.ElevationOverlayProvider;
 import com.google.android.material.internal.ThemeEnforcement;
 import com.google.android.material.internal.ViewUtils;
 import com.google.android.material.theme.overlay.MaterialThemeOverlay;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SwitchMaterial extends SwitchCompat {
-    public static final int DEF_STYLE_RES = 2131755879;
+    public static final int DEF_STYLE_RES = 2131755883;
     public static final int[][] ENABLED_CHECKED_STATES = {new int[]{16842910, 16842912}, new int[]{16842910, -16842912}, new int[]{-16842910, 16842912}, new int[]{-16842910, -16842912}};
     @NonNull
     public final ElevationOverlayProvider elevationOverlayProvider;
@@ -41,7 +41,7 @@ public class SwitchMaterial extends SwitchCompat {
     }
 
     public SwitchMaterial(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f04067f);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f04068a);
     }
 
     public SwitchMaterial(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {

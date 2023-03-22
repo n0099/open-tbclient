@@ -9,11 +9,11 @@ import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.tieba.m20;
+import com.baidu.tieba.c10;
 import com.baidu.ubc.UBCManager;
 import java.util.HashMap;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes2.dex */
 public class CuidCookieSync {
     public static final boolean DEBUG = LibBLCConfig.GLOBAL_DEBUG;
     public static final String TAG = "CuidCookie";
@@ -60,7 +60,7 @@ public class CuidCookieSync {
     public void setCUIDCookie() {
         IBaiduIdentityContext baiduIdentityContext = BaiduIdentityRuntime.getBaiduIdentityContext();
         if (!new CT().isDefaultCtv()) {
-            String cookieStr = UrlUtil.getCookieStr(AppConfig.getCookieHost(), "BAIDUCUID", m20.a(BaiduIdentityManager.getInstance().getEnUid()), 31449600L);
+            String cookieStr = UrlUtil.getCookieStr(AppConfig.getCookieHost(), "BAIDUCUID", c10.a(BaiduIdentityManager.getInstance().getEnUid()), 31449600L);
             baiduIdentityContext.setCookieManualNoBdussOperate("www.baidu.com", cookieStr, true);
             if (baiduIdentityContext.isBlinkEnable()) {
                 setCUIDToSystemWebView("www.baidu.com", cookieStr);

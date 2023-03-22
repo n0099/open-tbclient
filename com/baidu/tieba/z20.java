@@ -5,13 +5,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public abstract class z20 {
+public abstract class z20 implements b30 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract String a(String str);
-
-    public abstract void b(String str, String str2);
 
     public z20() {
         Interceptable interceptable = $ic;

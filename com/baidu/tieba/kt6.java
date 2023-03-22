@@ -1,50 +1,53 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.util.BdListViewHelper;
-import com.baidu.tieba.k55;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.forbidden.fans.GetForbiddenFansResponse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.util.ArrayList;
 /* loaded from: classes5.dex */
 public class kt6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseActivity a;
-    public View b;
-    public View c;
-    public NavigationBar d;
-    public BdTypeListView e;
-    public l55 f;
-    public NoNetworkView g;
-    public jt6 h;
+    public jy4 a;
+    public ArrayList<jt6> b;
+    public b c;
+    public HttpMessageListener d;
 
     /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
+    public interface b {
+        void a(int i, String str, ArrayList<jt6> arrayList);
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ kt6 a;
 
-        public a(kt6 kt6Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(kt6 kt6Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {kt6Var};
+                Object[] objArr = {kt6Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -53,21 +56,36 @@ public class kt6 {
             this.a = kt6Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.a.finish();
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof GetForbiddenFansResponse)) {
+                return;
+            }
+            GetForbiddenFansResponse getForbiddenFansResponse = (GetForbiddenFansResponse) httpResponsedMessage;
+            this.a.a = getForbiddenFansResponse.getPageData();
+            if (this.a.b == null) {
+                this.a.b = new ArrayList();
+            }
+            if (this.a.a != null) {
+                if (this.a.a.a() == 1) {
+                    this.a.b.clear();
+                }
+                if (getForbiddenFansResponse.getFansList() != null) {
+                    this.a.b.addAll(getForbiddenFansResponse.getFansList());
+                }
+            }
+            if (this.a.c != null) {
+                this.a.c.a(getForbiddenFansResponse.getError(), getForbiddenFansResponse.getErrorString(), this.a.b);
             }
         }
     }
 
-    public kt6(BaseActivity baseActivity) {
+    public kt6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -77,124 +95,69 @@ public class kt6 {
                 return;
             }
         }
-        this.a = baseActivity;
-        baseActivity.setContentView(R.layout.obfuscated_res_0x7f0d02cb);
-        this.b = this.a.findViewById(R.id.obfuscated_res_0x7f09007a);
-        NavigationBar navigationBar = (NavigationBar) this.a.findViewById(R.id.view_navigation_bar);
-        this.d = navigationBar;
-        navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f072e)).setOnClickListener(new a(this));
-        this.d.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.a.setNetRefreshViewTopMargin(BdListViewHelper.a);
-        this.g = (NoNetworkView) this.a.findViewById(R.id.view_no_network);
-        this.e = (BdTypeListView) this.a.findViewById(R.id.obfuscated_res_0x7f090b61);
-        l55 l55Var = new l55(this.a.getPageContext());
-        this.f = l55Var;
-        l55Var.a0(this.a.getUniqueId());
-        BaseActivity baseActivity2 = this.a;
-        if (baseActivity2 instanceof k55.g) {
-            this.f.f((k55.g) baseActivity2);
-        }
-        BaseActivity baseActivity3 = this.a;
-        if (baseActivity3 instanceof BdListView.p) {
-            this.e.setOnSrollToBottomListener((BdListView.p) baseActivity3);
-        }
-        this.e.setPullRefresh(this.f);
-        this.c = BdListViewHelper.d(this.a.getPageContext().getPageActivity(), this.e, BdListViewHelper.HeadType.DEFAULT);
-        jt6 jt6Var = new jt6(this.a, this.e);
-        this.h = jt6Var;
-        this.e.a(jt6Var.a());
+        this.d = new a(this, CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS, TbConfig.SERVER_ADDRESS + TbConfig.GET_FORBIDDEN_FANS);
+        tbHttpMessageTask.setIsNeedLogin(true);
+        tbHttpMessageTask.setIsNeedTbs(true);
+        tbHttpMessageTask.setIsUseCurrentBDUSS(true);
+        tbHttpMessageTask.setResponsedClass(GetForbiddenFansResponse.class);
+        MessageManager.getInstance().registerTask(tbHttpMessageTask);
+        MessageManager.getInstance().registerListener(this.d);
     }
 
-    public void b(boolean z) {
+    public void j(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            BdListViewHelper.c(this.c, BdListViewHelper.HeadType.DEFAULT, z);
+        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
+            this.c = bVar;
         }
     }
 
-    public void f(List<Cdo> list) {
+    public boolean f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, list) != null) || list == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            jy4 jy4Var = this.a;
+            if (jy4Var != null && jy4Var.b() == 1) {
+                return true;
+            }
+            return false;
         }
-        this.e.setData(list);
-    }
-
-    public void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.d.onChangeSkinType(this.a.getPageContext(), i);
-            this.g.d(this.a.getPageContext(), i);
-            g();
-            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0204);
-        }
-    }
-
-    public void j(NoNetworkView.b bVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) != null) || bVar == null) {
-            return;
-        }
-        this.g.a(bVar);
-    }
-
-    public void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.e.setVisibility(8);
-            this.a.showNetRefreshView(this.b, str, true);
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.e.A(0L);
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.e.setVisibility(0);
-            this.a.hideLoadingView(this.b);
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.e.setVisibility(0);
-            this.a.hideNetRefreshView(this.b);
-        }
+        return invokeV.booleanValue;
     }
 
     public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.h.b();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
+            httpMessage.addParam("rn", 20);
+            httpMessage.addParam("pn", 1);
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 
     public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.h.c();
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.d);
         }
     }
 
-    public void k() {
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.e.setVisibility(8);
-            this.a.showLoadingView(this.b, true);
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.e.F();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            jy4 jy4Var = this.a;
+            int i = 1;
+            if (jy4Var != null && jy4Var.b() != 1) {
+                return;
+            }
+            jy4 jy4Var2 = this.a;
+            if (jy4Var2 != null) {
+                i = 1 + jy4Var2.a();
+            }
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_MY_FORBIDDEN_FANS);
+            httpMessage.addParam("rn", 20);
+            httpMessage.addParam("pn", i);
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 }

@@ -1,162 +1,359 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.chatmessage.messages.NetDiskFileMsg;
+import android.content.Context;
+import android.graphics.SurfaceTexture;
+import android.opengl.GLSurfaceView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.ar.DuMixCallback;
+import com.baidu.ar.capture.ICaptureResult;
+import com.baidu.minivideo.arface.bean.Filter;
+import com.baidu.minivideo.arface.bean.Sticker;
+import com.baidu.tieba.x6a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
-import org.json.JSONObject;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class m6a extends BaseAdRipper {
+public class m6a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public v6a a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m6a(Ssp.Pid pid) {
-        super(pid);
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(Object obj);
+    }
+
+    /* loaded from: classes5.dex */
+    public interface b {
+        boolean a();
+
+        int b();
+
+        void c(int i, int i2, int i3, int i4);
+
+        void d(byte[] bArr);
+
+        String e();
+
+        boolean f();
+
+        void g(int i, int i2, int i3, boolean z);
+
+        void h(boolean z);
+
+        void i(boolean z);
+
+        void j(boolean z);
+
+        boolean k(SurfaceTexture surfaceTexture, f fVar);
+
+        void l(int i);
+
+        void m(boolean z);
+
+        void n();
+
+        boolean o();
+
+        boolean p();
+
+        void q();
+
+        int r();
+
+        void release();
+
+        void s(a aVar);
+
+        void t(int i, int i2, int i3, int i4);
+
+        void u(int i);
+
+        int v();
+    }
+
+    /* loaded from: classes5.dex */
+    public interface c {
+        void a(boolean z);
+    }
+
+    /* loaded from: classes5.dex */
+    public interface d {
+        void onBeautyEnableChanged(de0 de0Var);
+
+        void onChangeGender(boolean z);
+
+        void onLuaMessage(HashMap<String, Object> hashMap);
+    }
+
+    /* loaded from: classes5.dex */
+    public interface e extends x6a.b {
+        void a();
+
+        void b(ICaptureResult iCaptureResult);
+
+        void c();
+
+        void d(int i);
+
+        void e();
+
+        void f(int i, int i2);
+
+        void g(boolean z);
+    }
+
+    /* loaded from: classes5.dex */
+    public interface f {
+        void a(byte[] bArr, int i);
+    }
+
+    public m6a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = new v6a(context);
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:42:0x00bc A[Catch: Exception -> 0x0121, TryCatch #0 {Exception -> 0x0121, blocks: (B:5:0x0005, B:7:0x0017, B:10:0x0020, B:11:0x0023, B:14:0x0032, B:17:0x003f, B:20:0x0045, B:22:0x004d, B:24:0x0055, B:26:0x0069, B:28:0x0078, B:34:0x0089, B:36:0x0091, B:42:0x00bc, B:44:0x00c4, B:45:0x00cc, B:37:0x00a3, B:39:0x00ab), top: B:54:0x0005 }] */
-    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public RippedAd getRippedAdInternal(Object obj) {
-        InterceptResult invokeL;
-        String str;
-        String str2;
-        String str3;
-        String str4;
-        String str5;
-        String optString;
-        String str6;
-        JSONObject optJSONObject;
-        JSONObject optJSONObject2;
+    public boolean A() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            try {
-                A a = ((f7a) obj).a;
-                String[] strArr = {"com.bytedance.sdk.openadsdk.core.r.w", "com.bytedance.sdk.openadsdk.core.s.y"};
-                Object obj2 = null;
-                for (int i = 0; i < 2; i++) {
-                    obj2 = ReflectionUtils.findField(strArr[i], a);
-                    if (obj2 != null) {
-                        break;
-                    }
-                }
-                String[] strArr2 = {"bY", "ce", "ca"};
-                JSONObject jSONObject = null;
-                for (int i2 = 0; i2 < 3 && (jSONObject = (JSONObject) ReflectionUtils.invoke(obj2, strArr2[i2], null, new Object[0])) == null; i2++) {
-                }
-                if (jSONObject == null) {
-                    return null;
-                }
-                JSONObject optJSONObject3 = jSONObject.optJSONObject("icon");
-                if (optJSONObject3 != null) {
-                    str = optJSONObject3.optString("url");
-                } else {
-                    str = null;
-                }
-                String combineStrWithComma = RippedAd.combineStrWithComma(jSONObject.optJSONArray("image"), new RippedAd.Acceptor() { // from class: com.baidu.tieba.k6a
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a0() : invokeV.booleanValue;
+    }
 
-                    @Override // com.fun.ad.sdk.internal.api.ripper.RippedAd.Acceptor
-                    public final String accept(Object obj3) {
-                        InterceptResult invokeL2;
-                        String optString2;
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || (invokeL2 = interceptable2.invokeL(1048576, this, obj3)) == null) {
-                            optString2 = ((JSONObject) obj3).optString("url");
-                            return optString2;
-                        }
-                        return (String) invokeL2.objValue;
-                    }
-                });
-                JSONObject optJSONObject4 = jSONObject.optJSONObject("video");
-                if (optJSONObject4 != null) {
-                    str3 = optJSONObject4.optString("video_url");
-                    str2 = optJSONObject4.optString(NetDiskFileMsg.NetDiskFile.JSON_KEY_COVER_URL);
-                } else {
-                    str2 = null;
-                    str3 = null;
-                }
-                int optInt = jSONObject.optInt("interaction_type", -1);
-                if (optInt != 3) {
-                    if (optInt == 4 && (optJSONObject2 = jSONObject.optJSONObject("app")) != null) {
-                        String optString2 = optJSONObject2.optString("app_name");
-                        String optString3 = optJSONObject2.optString("package_name");
-                        str6 = optJSONObject2.optString("download_url");
-                        str5 = optString3;
-                        str4 = optString2;
-                        optString = null;
-                        if (str4 == null && (optJSONObject = jSONObject.optJSONObject("app_manage")) != null) {
-                            str4 = optJSONObject.optString("app_name");
-                            str5 = optJSONObject.optString("package_name");
-                        }
-                        RippedAd.Builder builder = new RippedAd.Builder();
-                        builder.setCorporation(jSONObject.optString("source")).setTitle(jSONObject.optString("title")).setDescription(jSONObject.optString("description")).setAppName(str4).setAppPkg(str5).setAppUrl(str6).setIconUrl(str).setImageUrl(combineStrWithComma).setVideoImageUrl(str2).setVideoUrl(str3).setClickUrl(jSONObject.optString("target_url")).setDeepLinkUrl(optString).setConvUrl(null);
-                        return builder.build();
-                    }
-                    str6 = null;
-                    optString = null;
-                    str4 = null;
-                    str5 = null;
-                    if (str4 == null) {
-                        str4 = optJSONObject.optString("app_name");
-                        str5 = optJSONObject.optString("package_name");
-                    }
-                    RippedAd.Builder builder2 = new RippedAd.Builder();
-                    builder2.setCorporation(jSONObject.optString("source")).setTitle(jSONObject.optString("title")).setDescription(jSONObject.optString("description")).setAppName(str4).setAppPkg(str5).setAppUrl(str6).setIconUrl(str).setImageUrl(combineStrWithComma).setVideoImageUrl(str2).setVideoUrl(str3).setClickUrl(jSONObject.optString("target_url")).setDeepLinkUrl(optString).setConvUrl(null);
-                    return builder2.build();
-                }
-                JSONObject optJSONObject5 = jSONObject.optJSONObject("deep_link");
-                if (optJSONObject5 != null) {
-                    str4 = null;
-                    str5 = null;
-                    optString = optJSONObject5.optString("deeplink_url");
-                    str6 = null;
-                    if (str4 == null) {
-                    }
-                    RippedAd.Builder builder22 = new RippedAd.Builder();
-                    builder22.setCorporation(jSONObject.optString("source")).setTitle(jSONObject.optString("title")).setDescription(jSONObject.optString("description")).setAppName(str4).setAppPkg(str5).setAppUrl(str6).setIconUrl(str).setImageUrl(combineStrWithComma).setVideoImageUrl(str2).setVideoUrl(str3).setClickUrl(jSONObject.optString("target_url")).setDeepLinkUrl(optString).setConvUrl(null);
-                    return builder22.build();
-                }
-                str6 = null;
-                optString = null;
-                str4 = null;
-                str5 = null;
-                if (str4 == null) {
-                }
-                RippedAd.Builder builder222 = new RippedAd.Builder();
-                builder222.setCorporation(jSONObject.optString("source")).setTitle(jSONObject.optString("title")).setDescription(jSONObject.optString("description")).setAppName(str4).setAppPkg(str5).setAppUrl(str6).setIconUrl(str).setImageUrl(combineStrWithComma).setVideoImageUrl(str2).setVideoUrl(str3).setClickUrl(jSONObject.optString("target_url")).setDeepLinkUrl(optString).setConvUrl(null);
-                return builder222.build();
-            } catch (Exception e) {
-                LogPrinter.e(e);
-                return null;
-            }
+    public boolean B() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.c0() : invokeV.booleanValue;
+    }
+
+    public void C() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.X();
         }
-        return (RippedAd) invokeL.objValue;
+    }
+
+    public void D(int i) {
+        v6a v6aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeI(1048579, this, i) == null) || (v6aVar = this.a) == null) {
+            return;
+        }
+        v6aVar.r(i);
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a.onDestroy();
+        }
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.q0() : (String) invokeV.objValue;
+    }
+
+    public void c(b bVar, int i, int i2, boolean z, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{bVar, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), str}) == null) {
+            this.a.A(bVar, i, i2, z, str);
+        }
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            v6a v6aVar = this.a;
+            if (v6aVar != null) {
+                return v6aVar.p0();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void e(c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, cVar) == null) {
+            this.a.B(cVar);
+            this.a.e0();
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.a.onPause();
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.a.onResume();
+        }
+    }
+
+    public void h() {
+        v6a v6aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048587, this) == null) || (v6aVar = this.a) == null) {
+            return;
+        }
+        v6aVar.k0();
+    }
+
+    public void i(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048588, this, i, i2) == null) {
+            this.a.s(i, i2);
+        }
+    }
+
+    public void j() {
+        v6a v6aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048589, this) == null) || (v6aVar = this.a) == null) {
+            return;
+        }
+        v6aVar.c();
+    }
+
+    public void k(DuMixCallback duMixCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, duMixCallback) == null) {
+            this.a.x(duMixCallback);
+        }
+    }
+
+    public void l(Filter filter) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, filter) == null) {
+            this.a.y(filter);
+        }
+    }
+
+    public void m(GLSurfaceView gLSurfaceView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, gLSurfaceView) == null) {
+            this.a.w(gLSurfaceView);
+        }
+    }
+
+    public void n() {
+        v6a v6aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048593, this) == null) || (v6aVar = this.a) == null) {
+            return;
+        }
+        v6aVar.d();
+    }
+
+    public void o(boolean z) {
+        v6a v6aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048594, this, z) == null) || (v6aVar = this.a) == null) {
+            return;
+        }
+        v6aVar.f0(z);
+    }
+
+    public void p(SurfaceTexture.OnFrameAvailableListener onFrameAvailableListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, onFrameAvailableListener) == null) {
+            this.a.u(onFrameAvailableListener);
+        }
+    }
+
+    public void q(d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, dVar) == null) {
+            this.a.C(dVar);
+        }
+    }
+
+    public void r(e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, eVar) == null) {
+            this.a.D(eVar);
+        }
+    }
+
+    public void s(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
+        }
+    }
+
+    public void t(boolean z) {
+        v6a v6aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048599, this, z) == null) || (v6aVar = this.a) == null) {
+            return;
+        }
+        v6aVar.G(z);
+    }
+
+    public void u(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048600, this, z) == null) {
+        }
+    }
+
+    public void v(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
+            this.a.T(z);
+        }
+    }
+
+    public void w(boolean z) {
+        v6a v6aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeZ(1048602, this, z) == null) || (v6aVar = this.a) == null) {
+            return;
+        }
+        v6aVar.Y(z);
+    }
+
+    public void x(float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048603, this, f2) == null) {
+            this.a.setSpeed(f2);
+        }
+    }
+
+    public boolean y(Sticker sticker, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048604, this, sticker, str)) == null) ? this.a.H(sticker, str) : invokeLL.booleanValue;
+    }
+
+    public void z(float f2) {
+        v6a v6aVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeF(1048605, this, f2) == null) || (v6aVar = this.a) == null) {
+            return;
+        }
+        v6aVar.q(f2);
     }
 }

@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -9,11 +8,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public interface on0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "exp_config");
+    public static final ServiceReference a = new ServiceReference("nad.business", "rewardVideoLpHost");
     public static final on0 b = new a();
 
-    @NonNull
-    String[] a();
+    boolean a();
 
     /* loaded from: classes5.dex */
     public static class a implements on0 {
@@ -21,11 +19,13 @@ public interface on0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.baidu.tieba.on0
-        @NonNull
-        public String[] a() {
+        public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new String[0] : (String[]) invokeV.objValue;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return true;
+            }
+            return invokeV.booleanValue;
         }
 
         public a() {

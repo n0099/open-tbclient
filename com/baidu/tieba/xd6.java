@@ -1,19 +1,26 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.Closeable;
+import java.io.IOException;
 /* loaded from: classes6.dex */
 public class xd6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    public static void a(Closeable... closeableArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return true;
+        if ((interceptable != null && interceptable.invokeL(65536, null, closeableArr) != null) || vd6.d(closeableArr)) {
+            return;
         }
-        return invokeV.booleanValue;
+        for (Closeable closeable : closeableArr) {
+            if (closeable != null) {
+                try {
+                    closeable.close();
+                } catch (IOException unused) {
+                }
+            }
+        }
     }
 }

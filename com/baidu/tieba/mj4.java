@@ -1,115 +1,71 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class mj4 {
     public static /* synthetic */ Interceptable $ic;
-    public static mj4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public cj4 a;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
 
-    public mj4() {
+    public mj4(int i, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i6 = newInitContext.flag;
+            if ((i6 & 1) != 0) {
+                int i7 = i6 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new cj4();
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
+        this.d = i5;
+        this.e = i4;
     }
 
-    public static mj4 b() {
+    @NonNull
+    public static mj4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            mj4 mj4Var = b;
-            if (mj4Var != null) {
-                return mj4Var;
-            }
-            synchronized (mj4.class) {
-                if (b == null) {
-                    b = new mj4();
-                }
-            }
-            return b;
+            return new mj4(24, 70, 1440, 720, 30);
         }
         return (mj4) invokeV.objValue;
     }
 
-    public yi4 a(oj4 oj4Var) {
+    @NonNull
+    public static mj4 b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, oj4Var)) == null) {
-            if (oj4Var == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return a();
             }
-            return new tj4(oj4Var, false);
-        }
-        return (yi4) invokeL.objValue;
-    }
-
-    public synchronized boolean c(String str) {
-        InterceptResult invokeL;
-        boolean e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            synchronized (this) {
-                e = this.a.e(str);
-            }
-            return e;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized boolean d(String str) {
-        InterceptResult invokeL;
-        boolean f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            synchronized (this) {
-                f = this.a.f(str);
-            }
-            return f;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized void e(kj4 kj4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, kj4Var) == null) {
-            synchronized (this) {
-                this.a.c(kj4Var);
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                return new mj4(jSONObject.optInt("clean_check_hour", 24), jSONObject.optInt("hold_history_max_count", 70), jSONObject.optInt("history_force_clean_hour", 1440), jSONObject.optInt("force_clean_hour", 720), jSONObject.optInt("hold_max_count", 30));
+            } catch (JSONException unused) {
+                return a();
             }
         }
-    }
-
-    public synchronized <T> void f(oj4<T> oj4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, oj4Var) == null) {
-            synchronized (this) {
-                oj4Var.s(false);
-                this.a.h(oj4Var);
-            }
-        }
-    }
-
-    public synchronized void g(kj4 kj4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, kj4Var) == null) {
-            synchronized (this) {
-                this.a.i(kj4Var);
-            }
-        }
+        return (mj4) invokeL.objValue;
     }
 }

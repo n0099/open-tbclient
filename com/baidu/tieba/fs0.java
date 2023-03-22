@@ -1,50 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.content.Context;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.nadcore.player.strategy.IVideoUpdateStrategy;
 /* loaded from: classes4.dex */
-public class fs0 extends as0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final ks0 b;
+public interface fs0 extends bs0, ds0 {
+    public static final a a = sa1.a;
 
-    public fs0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = b("okhttp");
+    /* loaded from: classes4.dex */
+    public interface a {
+        fs0 a(Context context, int i);
+
+        fs0 b(Context context, int i, @Nullable gs0 gs0Var);
     }
 
-    @Override // com.baidu.tieba.ms0
-    public ks0 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (ks0) invokeV.objValue;
-    }
+    void a(cs0 cs0Var);
 
-    @Override // com.baidu.tieba.as0
-    public ks0 b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return new xs0();
-        }
-        return (ks0) invokeL.objValue;
-    }
+    void attachToContainer(@NonNull ViewGroup viewGroup);
+
+    void c(@NonNull up0 up0Var);
+
+    void d(@NonNull IVideoUpdateStrategy iVideoUpdateStrategy);
+
+    void release();
 }

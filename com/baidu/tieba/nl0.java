@@ -1,19 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.model.ParseError;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class nl0 {
+public abstract class nl0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public ir0 b;
-    public String c;
 
     public nl0() {
         Interceptable interceptable = $ic;
@@ -27,28 +21,5 @@ public class nl0 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    public static nl0 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            nl0 nl0Var = new nl0();
-            nl0Var.a = jSONObject.optInt("download_state");
-            JSONObject optJSONObject = jSONObject.optJSONObject("app_info");
-            if (optJSONObject != null) {
-                try {
-                    nl0Var.b = ir0.c(optJSONObject);
-                } catch (ParseError e) {
-                    e.printStackTrace();
-                }
-            }
-            nl0Var.c = jSONObject.optString("download_hint");
-            return nl0Var;
-        }
-        return (nl0) invokeL.objValue;
     }
 }

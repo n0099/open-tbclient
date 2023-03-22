@@ -3,7 +3,7 @@ package com.yy.hiidostatis.inner.implementation;
 import com.yy.hiidostatis.inner.implementation.ITaskExecutor;
 import com.yy.hiidostatis.inner.util.log.L;
 import java.util.concurrent.RejectedExecutionException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class AbstractTaskExecutor implements ITaskExecutor {
     public abstract ITaskExecutor.OnTaskRejectedListener getOnTaskRejectedListener();
 
@@ -15,7 +15,7 @@ public abstract class AbstractTaskExecutor implements ITaskExecutor {
 
     public abstract void submitTask(Runnable runnable, int i);
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class Task implements Runnable {
         public Runnable mRunnable;
 

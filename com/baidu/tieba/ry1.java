@@ -1,196 +1,73 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.view.View;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.mt2;
-import com.baidu.tieba.qy1;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 /* loaded from: classes6.dex */
-public class ry1 {
+public final class ry1 extends ny1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ry1 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public c a;
-
-    /* loaded from: classes6.dex */
-    public interface c {
-        void b(qy1.c cVar, int i);
-
-        void f(qy1.c cVar, String str);
-
-        void g(qy1.c cVar, lc3 lc3Var);
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements p43 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qy1.c a;
-        public final /* synthetic */ ry1 b;
-
-        public a(ry1 ry1Var, qy1.c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ry1Var, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ry1Var;
-            this.a = cVar;
-        }
-
-        @Override // com.baidu.tieba.p43
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.b.c(this.a);
-            }
-        }
-
-        @Override // com.baidu.tieba.p43
-        public void b(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                m62.c("GetLocationHelper", str);
-                sg3.b("getLocation", 5002, "user no permission", 10005, str);
-                this.b.a.f(this.a, str);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements mt2.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qy1.c a;
-        public final /* synthetic */ ry1 b;
-
-        public b(ry1 ry1Var, qy1.c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ry1Var, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ry1Var;
-            this.a = cVar;
-        }
-
-        @Override // com.baidu.tieba.mt2.a
-        public void a(lc3 lc3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, lc3Var) == null) {
-                this.b.a.g(this.a, lc3Var);
-            }
-        }
-
-        @Override // com.baidu.tieba.mt2.a
-        public void onFailed(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-                sg3.b("getLocation", 4000, "sdk's errCode is " + i, 1001, String.valueOf(i));
-                this.b.a.b(this.a, i);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948137855, "Lcom/baidu/tieba/ry1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948137855, "Lcom/baidu/tieba/ry1;");
-                return;
-            }
-        }
-        boolean z = wp1.a;
-    }
 
     public ry1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static ry1 d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ny1
+    public tz1 c(@NonNull z62 z62Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (b == null) {
-                synchronized (ry1.class) {
-                    if (b == null) {
-                        b = new ry1();
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, z62Var)) == null) {
+            View q = br2.i().q(z62Var);
+            if (q == null) {
+                return new tz1(1001);
+            }
+            return e(q);
+        }
+        return (tz1) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ny1
+    public tz1 d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return new tz1(1001);
+        }
+        return (tz1) invokeI.objValue;
+    }
+
+    public final tz1 e(@NonNull View view2) {
+        InterceptResult invokeL;
+        tz1 tz1Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
+            try {
+                tz1Var = new tz1(0, b((int) (kl3.P(view2.getLeft()) + 0.5f), (int) (kl3.P(view2.getTop()) + 0.5f), (int) (kl3.P(view2.getRight()) + 0.5f), (int) (kl3.P(view2.getBottom()) + 0.5f)));
+            } catch (JSONException e) {
+                if (ny1.a) {
+                    e.printStackTrace();
                 }
+                tz1Var = new tz1(1001, "result JSONException");
             }
-            return b;
+            t42.k("AbsMenuButtonHandle", "getMenuButtonBoundingClientRect call success, param valid, get param normally, result = " + tz1Var);
+            return tz1Var;
         }
-        return (ry1) invokeV.objValue;
-    }
-
-    public final void c(qy1.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
-            String str = "gcj02";
-            if (!TextUtils.equals(cVar.a, "gcj02")) {
-                if (TextUtils.equals(cVar.a, "bd09ll")) {
-                    str = "bd09ll";
-                } else {
-                    str = "wgs84";
-                }
-            }
-            ts2.I().b(str, false, cVar.b, new b(this, cVar));
-        }
-    }
-
-    public void e(@NonNull qy1.c cVar, @NonNull c cVar2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar, cVar2, z) == null) {
-            this.a = cVar2;
-            if (gn3.M()) {
-                c(cVar);
-            } else if (z) {
-                sg3.b("getLocation", 1002, "GetLocation does not supported when app is invisible", 10005, "GetLocation does not supported when app is invisible");
-                this.a.f(cVar, "GetLocation does not supported when app is invisible");
-            } else {
-                o43.g(l93.K().w(), new String[]{com.kuaishou.weapon.p0.h.g, com.kuaishou.weapon.p0.h.h}, 0, new a(this, cVar));
-            }
-        }
+        return (tz1) invokeL.objValue;
     }
 }

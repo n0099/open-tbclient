@@ -1,153 +1,196 @@
 package com.baidu.tieba;
 
+import android.os.Environment;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.net.MalformedURLException;
 import java.util.HashMap;
+import java.util.Locale;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class p14 implements hv1 {
+public class p14 {
     public static /* synthetic */ Interceptable $ic;
+    public static final HashMap<String, String> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, Boolean> a;
-    public o14 b;
 
-    /* loaded from: classes5.dex */
-    public class a implements qm2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ qm2 a;
-        public final /* synthetic */ p14 b;
-
-        public a(p14 p14Var, qm2 qm2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p14Var, qm2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = p14Var;
-            this.a = qm2Var;
-        }
-
-        @Override // com.baidu.tieba.qm2
-        public void a(@Nullable JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                this.b.g(true);
-                this.a.a(jSONObject);
-            }
-        }
-
-        @Override // com.baidu.tieba.qm2
-        public void onFail(int i, @Nullable String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                this.b.g(false);
-                this.a.onFail(i, str);
-            }
-        }
+    public static boolean b(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeF = interceptable.invokeF(65538, null, f)) == null) ? f <= 1.0f && f >= 0.0f : invokeF.booleanValue;
     }
 
-    public p14() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948009174, "Lcom/baidu/tieba/p14;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948009174, "Lcom/baidu/tieba/p14;");
                 return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = new o14();
+        HashMap<String, String> hashMap = new HashMap<>();
+        a = hashMap;
+        hashMap.put("494433", ".mp3");
+        a.put("524946", ".wav");
     }
 
-    public final String d() {
+    public static String g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            m93 b0 = m93.b0();
-            if (b0 != null) {
-                return b0.O();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            String e = e();
+            if (j() && !TextUtils.isEmpty(e)) {
+                return e;
             }
-            return null;
+            return AppRuntime.getAppContext().getCacheDir().getAbsolutePath();
         }
         return (String) invokeV.objValue;
     }
 
-    public boolean f() {
-        InterceptResult invokeV;
-        Boolean bool;
+    public static String a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            String d = d();
-            if (TextUtils.isEmpty(d) || (bool = this.a.get(d)) == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            StringBuilder sb = new StringBuilder();
+            if (bArr != null && bArr.length > 0) {
+                for (byte b : bArr) {
+                    String upperCase = Integer.toHexString(b & 255).toUpperCase(Locale.US);
+                    if (upperCase.length() < 2) {
+                        sb.append(0);
+                    }
+                    sb.append(upperCase);
+                }
+                String sb2 = sb.toString();
+                if (do1.a) {
+                    Log.e("AudioDataUtils", "audio buffer header: " + sb2);
+                }
+                return sb2;
             }
-            return bool.booleanValue();
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d(String str) throws MalformedURLException {
+        InterceptResult invokeL;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            int lastIndexOf = str.lastIndexOf(46);
+            if (lastIndexOf != -1) {
+                str2 = str.substring(lastIndexOf);
+            } else {
+                str2 = "";
+            }
+            return "/" + t73.g0() + "/" + str.hashCode() + str2;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static n14 c(q14 q14Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, q14Var)) == null) {
+            n14 n14Var = new n14();
+            n14Var.a = q14Var.b;
+            n14Var.e = q14Var.autoplay;
+            n14Var.f = q14Var.loop;
+            n14Var.c = q14Var.src;
+            n14Var.d = q14Var.startTime;
+            n14Var.g = q14Var.obeyMuteSwitch;
+            n14Var.i = q14Var.volume;
+            n14Var.j = i().toString();
+            return n14Var;
+        }
+        return (n14) invokeL.objValue;
+    }
+
+    public static String h(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, bArr)) == null) {
+            if (bArr != null && 3 <= bArr.length) {
+                byte[] bArr2 = new byte[3];
+                for (int i = 0; i < 3; i++) {
+                    bArr2[i] = bArr[i];
+                }
+                return a.get(a(bArr2));
+            }
+            return "";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            String str = dk2.p() + "/usr";
+            File file = new File(str);
+            if (!file.exists() && !file.mkdirs()) {
+                Log.e("AudioDataUtils", "create targetFile dir error, path is " + file.getAbsolutePath(), new Throwable());
+                return "";
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return File.separator + "bdata" + File.separator;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return "mounted".equals(Environment.getExternalStorageState());
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.hv1
-    @Nullable
-    public m12 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull qm2 qm2Var) {
-        InterceptResult invokeLLL;
+    public static JSONObject i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, jSONObject, qm2Var)) == null) {
-            if (f()) {
-                qm2Var.a(null);
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("onCanplay", "canplay");
+                jSONObject.put("onPlay", "play");
+                jSONObject.put("onEnded", "ended");
+                jSONObject.put(MissionEvent.MESSAGE_PAUSE, "pause");
+                jSONObject.put("onSeeking", "seeking");
+                jSONObject.put("onSeeked", "seeked");
+                jSONObject.put(MissionEvent.MESSAGE_STOP, "stop");
+                jSONObject.put("onError", "error");
+                jSONObject.put("onTimeUpdate", "timeupdate");
+                jSONObject.put("onBufferingUpdate", "buffered");
+                jSONObject.put("onWaiting", "waiting");
+            } catch (Exception e) {
+                if (do1.a) {
+                    e.printStackTrace();
+                }
             }
-            return this.b.a(jSONObject, c(qm2Var));
+            return jSONObject;
         }
-        return (m12) invokeLLL.objValue;
-    }
-
-    public final qm2 c(@NonNull qm2 qm2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qm2Var)) == null) {
-            return new a(this, qm2Var);
-        }
-        return (qm2) invokeL.objValue;
-    }
-
-    public boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return TextUtils.equals(this.b.a, str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            String d = d();
-            if (TextUtils.isEmpty(d)) {
-                return;
-            }
-            this.a.put(d, Boolean.valueOf(z));
-        }
+        return (JSONObject) invokeV.objValue;
     }
 }

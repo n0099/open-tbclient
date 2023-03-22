@@ -1,7 +1,7 @@
 package com.yy.hiidostatis.inner.util.hdid;
 
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class Device {
     public static final int HFROM_NEW_INNER = 4;
     public static final int HFROM_NEW_OUTER = 5;

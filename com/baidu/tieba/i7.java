@@ -4,43 +4,28 @@ import androidx.core.view.InputDeviceCompat;
 import com.badlogic.gdx.utils.GdxRuntimeException;
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.d8;
+import com.baidu.tieba.g7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import java.util.Iterator;
 import java.util.NoSuchElementException;
 /* loaded from: classes4.dex */
-public class i7<K, V> implements Iterable<d8.b<K, V>> {
+public class i7<K, V> extends g7<K, V> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public K[] a;
-    public V[] b;
-    public int c;
-    public boolean d;
-    public transient a e;
-    public transient a f;
+    public final k6<K> o;
 
     /* loaded from: classes4.dex */
-    public static class a<K, V> implements Iterable<d8.b<K, V>>, Iterator<d8.b<K, V>> {
+    public static class a<K, V> extends g7.a<K, V> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final i7<K, V> a;
-        public d8.b<K, V> b;
-        public int c;
-        public boolean d;
+        public k6<K> g;
 
-        @Override // java.lang.Iterable
-        public Iterator<d8.b<K, V>> iterator() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (Iterator) invokeV.objValue;
-        }
-
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(i7<K, V> i7Var) {
+            super(i7Var);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,71 +35,268 @@ public class i7<K, V> implements Iterable<d8.b<K, V>> {
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
+                    super((g7) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = new d8.b<>();
-            this.d = true;
-            this.a = i7Var;
+            this.g = i7Var.o;
+        }
+
+        @Override // com.baidu.tieba.g7.d
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.d = -1;
+                boolean z = false;
+                this.c = 0;
+                if (this.b.a > 0) {
+                    z = true;
+                }
+                this.a = z;
+            }
+        }
+
+        @Override // com.baidu.tieba.g7.d, java.util.Iterator
+        public void remove() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                if (this.d >= 0) {
+                    this.b.k(this.f.a);
+                    this.c--;
+                    this.d = -1;
+                    return;
+                }
+                throw new IllegalStateException("next must be called before remove.");
+            }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Iterator
-        /* renamed from: a */
-        public d8.b<K, V> next() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int i = this.c;
-                i7<K, V> i7Var = this.a;
-                if (i < i7Var.c) {
-                    if (this.d) {
-                        d8.b<K, V> bVar = this.b;
-                        bVar.a = i7Var.a[i];
-                        V[] vArr = i7Var.b;
-                        this.c = i + 1;
-                        bVar.b = vArr[i];
-                        return bVar;
-                    }
-                    throw new GdxRuntimeException("#iterator() cannot be used nested.");
-                }
-                throw new NoSuchElementException(String.valueOf(this.c));
-            }
-            return (d8.b) invokeV.objValue;
-        }
-
-        @Override // java.util.Iterator
-        public boolean hasNext() {
+        @Override // com.baidu.tieba.g7.a, java.util.Iterator
+        /* renamed from: d */
+        public g7.b next() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.d) {
-                    if (this.c < this.a.c) {
-                        return true;
+                if (this.a) {
+                    if (this.e) {
+                        int i = this.c;
+                        this.d = i;
+                        this.f.a = this.g.get(i);
+                        g7.b<K, V> bVar = this.f;
+                        bVar.b = this.b.c(bVar.a);
+                        boolean z = true;
+                        int i2 = this.c + 1;
+                        this.c = i2;
+                        if (i2 >= this.b.a) {
+                            z = false;
+                        }
+                        this.a = z;
+                        return this.f;
                     }
-                    return false;
+                    throw new GdxRuntimeException("#iterator() cannot be used nested.");
                 }
-                throw new GdxRuntimeException("#iterator() cannot be used nested.");
+                throw new NoSuchElementException();
             }
-            return invokeV.booleanValue;
-        }
-
-        @Override // java.util.Iterator
-        public void remove() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                int i = this.c - 1;
-                this.c = i;
-                this.a.f(i);
-            }
+            return (g7.b) invokeV.objValue;
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    /* loaded from: classes4.dex */
+    public static class b<K> extends g7.c<K> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public k6<K> f;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(i7<K, ?> i7Var) {
+            super(i7Var);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((g7) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f = i7Var.o;
+        }
+
+        @Override // com.baidu.tieba.g7.d
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.d = -1;
+                boolean z = false;
+                this.c = 0;
+                if (this.b.a > 0) {
+                    z = true;
+                }
+                this.a = z;
+            }
+        }
+
+        @Override // com.baidu.tieba.g7.c
+        public k6<K> d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                k6<K> k6Var = new k6<>(true, this.f.b - this.c);
+                e(k6Var);
+                return k6Var;
+            }
+            return (k6) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.g7.d, java.util.Iterator
+        public void remove() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                int i = this.d;
+                if (i >= 0) {
+                    ((i7) this.b).o(i);
+                    this.c = this.d;
+                    this.d = -1;
+                    return;
+                }
+                throw new IllegalStateException("next must be called before remove.");
+            }
+        }
+
+        @Override // com.baidu.tieba.g7.c
+        public k6<K> e(k6<K> k6Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, k6Var)) == null) {
+                k6<K> k6Var2 = this.f;
+                int i = this.c;
+                k6Var.c(k6Var2, i, k6Var2.b - i);
+                this.c = this.f.b;
+                this.a = false;
+                return k6Var;
+            }
+            return (k6) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.g7.c, java.util.Iterator
+        public K next() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (this.a) {
+                    if (this.e) {
+                        K k = this.f.get(this.c);
+                        int i = this.c;
+                        this.d = i;
+                        boolean z = true;
+                        int i2 = i + 1;
+                        this.c = i2;
+                        if (i2 >= this.b.a) {
+                            z = false;
+                        }
+                        this.a = z;
+                        return k;
+                    }
+                    throw new GdxRuntimeException("#iterator() cannot be used nested.");
+                }
+                throw new NoSuchElementException();
+            }
+            return (K) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class c<V> extends g7.e<V> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public k6 f;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(i7<?, V> i7Var) {
+            super(i7Var);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {i7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((g7) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.f = i7Var.o;
+        }
+
+        @Override // com.baidu.tieba.g7.d
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.d = -1;
+                boolean z = false;
+                this.c = 0;
+                if (this.b.a > 0) {
+                    z = true;
+                }
+                this.a = z;
+            }
+        }
+
+        @Override // com.baidu.tieba.g7.d, java.util.Iterator
+        public void remove() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                int i = this.d;
+                if (i >= 0) {
+                    ((i7) this.b).o(i);
+                    this.c = this.d;
+                    this.d = -1;
+                    return;
+                }
+                throw new IllegalStateException("next must be called before remove.");
+            }
+        }
+
+        @Override // com.baidu.tieba.g7.e, java.util.Iterator
+        public V next() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.a) {
+                    if (this.e) {
+                        V c = this.b.c(this.f.get(this.c));
+                        int i = this.c;
+                        this.d = i;
+                        boolean z = true;
+                        int i2 = i + 1;
+                        this.c = i2;
+                        if (i2 >= this.b.a) {
+                            z = false;
+                        }
+                        this.a = z;
+                        return c;
+                    }
+                    throw new GdxRuntimeException("#iterator() cannot be used nested.");
+                }
+                throw new NoSuchElementException();
+            }
+            return (V) invokeV.objValue;
+        }
+    }
+
     public i7() {
-        this(true, 16);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -122,356 +304,232 @@ public class i7<K, V> implements Iterable<d8.b<K, V>> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                this(((Boolean) objArr[0]).booleanValue(), ((Integer) objArr[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.o = new k6<>();
     }
 
-    public int hashCode() {
+    @Override // com.baidu.tieba.g7
+    public void clear() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.o.clear();
+            super.clear();
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.g7, java.lang.Iterable
+    /* renamed from: e */
+    public g7.a<K, V> iterator() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            K[] kArr = this.a;
-            V[] vArr = this.b;
-            int i = this.c;
-            int i2 = 0;
-            for (int i3 = 0; i3 < i; i3++) {
-                K k = kArr[i3];
-                V v = vArr[i3];
-                if (k != null) {
-                    i2 += k.hashCode() * 31;
-                }
-                if (v != null) {
-                    i2 += v.hashCode();
-                }
-            }
-            return i2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return b();
         }
-        return invokeV.intValue;
+        return (g7.a) invokeV.objValue;
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public i7(Class cls, Class cls2) {
-        this(false, 16, cls, cls2);
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i7(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cls, cls2};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this(((Boolean) objArr2[0]).booleanValue(), ((Integer) objArr2[1]).intValue(), (Class) objArr2[2], (Class) objArr2[3]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.o = new k6<>(i);
     }
 
-    public i7(boolean z, int i) {
+    @Override // com.baidu.tieba.g7
+    public g7.a<K, V> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i)};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (p6.a) {
+                return new a(this);
             }
+            if (this.h == null) {
+                this.h = new a(this);
+                this.i = new a(this);
+            }
+            g7.a aVar = this.h;
+            if (!aVar.e) {
+                aVar.b();
+                g7.a<K, V> aVar2 = this.h;
+                aVar2.e = true;
+                this.i.e = false;
+                return aVar2;
+            }
+            this.i.b();
+            g7.a<K, V> aVar3 = this.i;
+            aVar3.e = true;
+            this.h.e = false;
+            return aVar3;
         }
-        this.d = z;
-        this.a = (K[]) new Object[i];
-        this.b = (V[]) new Object[i];
+        return (g7.a) invokeV.objValue;
     }
 
-    public V c(K k, V v) {
+    @Override // com.baidu.tieba.g7
+    public g7.c<K> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (p6.a) {
+                return new b(this);
+            }
+            if (this.l == null) {
+                this.l = new b(this);
+                this.m = new b(this);
+            }
+            g7.c cVar = this.l;
+            if (!cVar.e) {
+                cVar.b();
+                g7.c<K> cVar2 = this.l;
+                cVar2.e = true;
+                this.m.e = false;
+                return cVar2;
+            }
+            this.m.b();
+            g7.c<K> cVar3 = this.m;
+            cVar3.e = true;
+            this.l.e = false;
+            return cVar3;
+        }
+        return (g7.c) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.g7
+    public g7.e<V> n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (p6.a) {
+                return new c(this);
+            }
+            if (this.j == null) {
+                this.j = new c(this);
+                this.k = new c(this);
+            }
+            g7.e eVar = this.j;
+            if (!eVar.e) {
+                eVar.b();
+                g7.e<V> eVar2 = this.j;
+                eVar2.e = true;
+                this.k.e = false;
+                return eVar2;
+            }
+            this.k.b();
+            g7.e<V> eVar3 = this.k;
+            eVar3.e = true;
+            this.j.e = false;
+            return eVar3;
+        }
+        return (g7.e) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.g7
+    public V i(K k, V v) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, k, v)) == null) {
-            K[] kArr = this.a;
-            int i = this.c - 1;
-            if (k == null) {
-                while (i >= 0) {
-                    if (kArr[i] == k) {
-                        return this.b[i];
-                    }
-                    i--;
-                }
-            } else {
-                while (i >= 0) {
-                    if (k.equals(kArr[i])) {
-                        return this.b[i];
-                    }
-                    i--;
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, k, v)) == null) {
+            int g = g(k);
+            if (g >= 0) {
+                V[] vArr = this.c;
+                V v2 = vArr[g];
+                vArr[g] = v;
+                return v2;
             }
-            return v;
+            int i = -(g + 1);
+            this.b[i] = k;
+            this.c[i] = v;
+            this.o.a(k);
+            int i2 = this.a + 1;
+            this.a = i2;
+            if (i2 >= this.e) {
+                l(this.b.length << 1);
+                return null;
+            }
+            return null;
         }
         return (V) invokeLL.objValue;
     }
 
-    public int e(K k, V v) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, k, v)) == null) {
-            int d = d(k);
-            if (d == -1) {
-                int i = this.c;
-                if (i == this.a.length) {
-                    g(Math.max(8, (int) (i * 1.75f)));
-                }
-                d = this.c;
-                this.c = d + 1;
-            }
-            this.a[d] = k;
-            this.b[d] = v;
-            return d;
-        }
-        return invokeLL.intValue;
-    }
-
-    public i7(boolean z, int i, Class cls, Class cls2) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Integer.valueOf(i), cls, cls2};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.d = z;
-        this.a = (K[]) ((Object[]) z8.a(cls, i));
-        this.b = (V[]) ((Object[]) z8.a(cls2, i));
-    }
-
-    public a<K, V> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (m7.a) {
-                return new a<>(this);
-            }
-            if (this.e == null) {
-                this.e = new a(this);
-                this.f = new a(this);
-            }
-            a<K, V> aVar = this.e;
-            if (!aVar.d) {
-                aVar.c = 0;
-                aVar.d = true;
-                this.f.d = false;
-                return aVar;
-            }
-            a<K, V> aVar2 = this.f;
-            aVar2.c = 0;
-            aVar2.d = true;
-            aVar.d = false;
-            return aVar2;
-        }
-        return (a) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            if (this.c == 0) {
-                return StringUtil.EMPTY_ARRAY;
-            }
-            K[] kArr = this.a;
-            V[] vArr = this.b;
-            q8 q8Var = new q8(32);
-            q8Var.a('{');
-            q8Var.m(kArr[0]);
-            q8Var.a('=');
-            q8Var.m(vArr[0]);
-            for (int i = 1; i < this.c; i++) {
-                q8Var.n(StringUtil.ARRAY_ELEMENT_SEPARATOR);
-                q8Var.m(kArr[i]);
-                q8Var.a('=');
-                q8Var.m(vArr[i]);
-            }
-            q8Var.a('}');
-            return q8Var.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public V b(K k) {
+    @Override // com.baidu.tieba.g7
+    public V k(K k) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k)) == null) {
-            return c(k, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, k)) == null) {
+            this.o.i(k, false);
+            return (V) super.k(k);
         }
         return (V) invokeL.objValue;
     }
 
-    public void clear() {
+    public V o(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Arrays.fill(this.a, 0, this.c, (Object) null);
-            Arrays.fill(this.b, 0, this.c, (Object) null);
-            this.c = 0;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+            return (V) super.k(this.o.h(i));
         }
+        return (V) invokeI.objValue;
     }
 
-    @Override // java.lang.Iterable
-    public Iterator<d8.b<K, V>> iterator() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.g7
+    public String m(String str, boolean z) {
+        InterceptResult invokeLZ;
+        K k;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return a();
-        }
-        return (Iterator) invokeV.objValue;
-    }
-
-    public int d(K k) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, k)) == null) {
-            K[] kArr = this.a;
-            int i = 0;
-            if (k == null) {
-                int i2 = this.c;
-                while (i < i2) {
-                    if (kArr[i] == k) {
-                        return i;
-                    }
-                    i++;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048583, this, str, z)) == null) {
+            if (this.a == 0) {
+                if (z) {
+                    return StringUtil.EMPTY_ARRAY;
                 }
-                return -1;
+                return "";
             }
-            int i3 = this.c;
-            while (i < i3) {
-                if (k.equals(kArr[i])) {
-                    return i;
+            StringBuilder sb = new StringBuilder(32);
+            if (z) {
+                sb.append('{');
+            }
+            k6<K> k6Var = this.o;
+            int i = k6Var.b;
+            for (int i2 = 0; i2 < i; i2++) {
+                K k2 = k6Var.get(i2);
+                if (i2 > 0) {
+                    sb.append(str);
                 }
-                i++;
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    /* JADX DEBUG: Multi-variable search result rejected for r9v1, resolved type: com.baidu.tieba.i7 */
-    /* JADX WARN: Multi-variable type inference failed */
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, obj)) == null) {
-            if (obj == this) {
-                return true;
-            }
-            if (!(obj instanceof i7)) {
-                return false;
-            }
-            i7 i7Var = (i7) obj;
-            int i = i7Var.c;
-            int i2 = this.c;
-            if (i != i2) {
-                return false;
-            }
-            K[] kArr = this.a;
-            V[] vArr = this.b;
-            for (int i3 = 0; i3 < i2; i3++) {
-                K k = kArr[i3];
-                V v = vArr[i3];
-                if (v == null) {
-                    if (i7Var.c(k, d8.n) != null) {
-                        return false;
-                    }
-                } else if (!v.equals(i7Var.b(k))) {
-                    return false;
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            int i2 = this.c;
-            if (i < i2) {
-                K[] kArr = this.a;
-                int i3 = i2 - 1;
-                this.c = i3;
-                if (this.d) {
-                    int i4 = i + 1;
-                    System.arraycopy(kArr, i4, kArr, i, i3 - i);
-                    V[] vArr = this.b;
-                    System.arraycopy(vArr, i4, vArr, i, this.c - i);
+                Object obj = "(this)";
+                if (k2 == this) {
+                    k = "(this)";
                 } else {
-                    kArr[i] = kArr[i3];
-                    V[] vArr2 = this.b;
-                    vArr2[i] = vArr2[i3];
+                    k = k2;
                 }
-                int i5 = this.c;
-                kArr[i5] = null;
-                this.b[i5] = null;
-                return;
+                sb.append(k);
+                sb.append('=');
+                V c2 = c(k2);
+                if (c2 != this) {
+                    obj = c2;
+                }
+                sb.append(obj);
             }
-            throw new IndexOutOfBoundsException(String.valueOf(i));
-        }
-    }
-
-    public void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            K[] kArr = (K[]) ((Object[]) z8.a(this.a.getClass().getComponentType(), i));
-            System.arraycopy(this.a, 0, kArr, 0, Math.min(this.c, kArr.length));
-            this.a = kArr;
-            V[] vArr = (V[]) ((Object[]) z8.a(this.b.getClass().getComponentType(), i));
-            System.arraycopy(this.b, 0, vArr, 0, Math.min(this.c, vArr.length));
-            this.b = vArr;
-        }
-    }
-
-    public void insert(int i, K k, V v) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048586, this, i, k, v) == null) {
-            int i2 = this.c;
-            if (i <= i2) {
-                if (i2 == this.a.length) {
-                    g(Math.max(8, (int) (i2 * 1.75f)));
-                }
-                if (this.d) {
-                    K[] kArr = this.a;
-                    int i3 = i + 1;
-                    System.arraycopy(kArr, i, kArr, i3, this.c - i);
-                    V[] vArr = this.b;
-                    System.arraycopy(vArr, i, vArr, i3, this.c - i);
-                } else {
-                    K[] kArr2 = this.a;
-                    int i4 = this.c;
-                    kArr2[i4] = kArr2[i];
-                    V[] vArr2 = this.b;
-                    vArr2[i4] = vArr2[i];
-                }
-                this.c++;
-                this.a[i] = k;
-                this.b[i] = v;
-                return;
+            if (z) {
+                sb.append('}');
             }
-            throw new IndexOutOfBoundsException(String.valueOf(i));
+            return sb.toString();
         }
+        return (String) invokeLZ.objValue;
     }
 }

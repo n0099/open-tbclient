@@ -1,219 +1,89 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import android.content.Context;
-import android.os.IBinder;
-import android.view.View;
-import android.widget.PopupWindow;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import com.baidu.adp.lib.stats.BdStatisticsManager;
+import com.baidu.adp.lib.stats.upload.BdUploadingLogInfo;
+import com.baidu.searchbox.retrieve.core.task.UploadTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Iterator;
 /* loaded from: classes4.dex */
 public class ih {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final boolean a(Dialog dialog, Activity activity) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, dialog, activity)) == null) {
-            if (dialog == null || activity == null || activity.isFinishing() || activity.getWindow() == null || !h(activity.getWindow().getDecorView())) {
-                return false;
-            }
-            dialog.dismiss();
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static final boolean d(PopupWindow popupWindow, Activity activity) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, popupWindow, activity)) == null) {
-            if (popupWindow != null && activity != null) {
-                if (g(activity) || !h(activity.getWindow().getDecorView())) {
-                    return false;
-                }
-                popupWindow.dismiss();
-                return true;
-            }
-            return c(popupWindow);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static final boolean b(Dialog dialog, x9<?> x9Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, dialog, x9Var)) == null) {
-            if (x9Var != null && x9Var.getPageActivity() != null) {
-                return a(dialog, x9Var.getPageActivity());
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static final boolean j(Dialog dialog, x9<?> x9Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, dialog, x9Var)) == null) {
-            if (x9Var != null && x9Var.getPageActivity() != null) {
-                return i(dialog, x9Var.getPageActivity());
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static final boolean k(PopupWindow popupWindow, View view2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65546, null, popupWindow, view2)) == null) {
-            if (popupWindow != null && view2 != null && !g(view2.getContext()) && h(view2)) {
-                try {
-                    popupWindow.showAsDropDown(view2);
-                    return true;
-                } catch (Exception unused) {
-                }
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static final boolean c(PopupWindow popupWindow) {
+    public static ArrayList<ah> a(xg xgVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, popupWindow)) == null) {
-            if (popupWindow == null || g(popupWindow.getContentView().getContext()) || !h(popupWindow.getContentView())) {
-                return false;
-            }
-            popupWindow.dismiss();
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static final boolean e(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity)) == null) {
-            if (activity == null || g(activity)) {
-                return false;
-            }
-            if (!h(activity.getWindow().getDecorView()) && activity.getWindow().isActive()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static final boolean f(x9<?> x9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, x9Var)) == null) {
-            if (x9Var == null) {
-                return false;
-            }
-            return e(x9Var.getPageActivity());
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static final boolean g(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            if (context instanceof Activity) {
-                return ((Activity) context).isFinishing();
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static final boolean h(View view2) {
-        InterceptResult invokeL;
-        IBinder windowToken;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, view2)) == null) {
-            if (view2 != null && (windowToken = view2.getWindowToken()) != null) {
-                try {
-                    if (windowToken.isBinderAlive()) {
-                        if (windowToken.pingBinder()) {
-                            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, xgVar)) == null) {
+            ArrayList arrayList = new ArrayList();
+            File[] b = zg.b(xgVar.C());
+            if (b != null) {
+                for (File file : b) {
+                    if (file.isFile()) {
+                        String name = file.getName();
+                        if (!TextUtils.isEmpty(name) && name.startsWith(xgVar.h()) && name.contains("Uploading")) {
+                            arrayList.add(new ah(name, file.length(), file.lastModified()));
                         }
-                        return false;
                     }
-                    return false;
-                } catch (Exception unused) {
-                    return false;
                 }
             }
-            return false;
+            long currentTimeMillis = System.currentTimeMillis();
+            ArrayList<ah> arrayList2 = new ArrayList<>();
+            ArrayList arrayList3 = new ArrayList();
+            Iterator it = arrayList.iterator();
+            while (it.hasNext()) {
+                ah ahVar = (ah) it.next();
+                if (ahVar != null) {
+                    long j = ahVar.c;
+                    if (j != 0 && j + 604800000 < currentTimeMillis) {
+                        arrayList3.add(ahVar.b);
+                    } else {
+                        arrayList2.add(ahVar);
+                    }
+                }
+            }
+            if (arrayList3.size() > 0) {
+                zg.a(arrayList3, xgVar.C());
+            }
+            return arrayList2;
         }
-        return invokeL.booleanValue;
+        return (ArrayList) invokeL.objValue;
     }
 
-    public static final boolean i(Dialog dialog, Activity activity) {
-        InterceptResult invokeLL;
+    public static BdUploadingLogInfo b(xg xgVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, dialog, activity)) == null) {
-            if (dialog == null || activity == null || activity.isFinishing()) {
-                return false;
-            }
-            if (activity.getWindow() != null && !activity.getWindow().isActive()) {
-                try {
-                    dialog.show();
-                    return true;
-                } catch (Exception unused) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, xgVar)) == null) {
+            ArrayList<ah> a = a(xgVar);
+            BdUploadingLogInfo bdUploadingLogInfo = new BdUploadingLogInfo(BdStatisticsManager.getInstance().getTrackLogWriteDir(), xgVar.C(), xgVar.A());
+            if (a != null && a.size() > 0) {
+                if (a.size() > 1) {
+                    Collections.sort(a, new bh());
+                }
+                ArrayList arrayList = new ArrayList();
+                int size = a.size();
+                long j = 0;
+                for (int i = 0; i < size; i++) {
+                    ah ahVar = a.get(i);
+                    j += ahVar.a;
+                    arrayList.add(ahVar);
+                    if (j >= UploadTask.SIZE_LIMIT_DEFAULT) {
+                        bdUploadingLogInfo.add(arrayList);
+                        arrayList = new ArrayList();
+                        j = 0;
+                    }
+                }
+                if (arrayList.size() > 0) {
+                    bdUploadingLogInfo.add(arrayList);
                 }
             }
-            if (activity.getWindow() != null && h(activity.getWindow().getDecorView())) {
-                try {
-                    dialog.show();
-                    return true;
-                } catch (Exception unused2) {
-                }
-            }
-            return false;
+            return bdUploadingLogInfo;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static final boolean l(PopupWindow popupWindow, View view2, int i, int i2) {
-        InterceptResult invokeLLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65547, null, popupWindow, view2, i, i2)) == null) {
-            if (popupWindow != null && view2 != null && !g(view2.getContext()) && h(view2)) {
-                try {
-                    popupWindow.showAsDropDown(view2, i, i2);
-                    return true;
-                } catch (Exception unused) {
-                }
-            }
-            return false;
-        }
-        return invokeLLII.booleanValue;
-    }
-
-    public static final boolean m(PopupWindow popupWindow, View view2, int i, int i2, int i3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{popupWindow, view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)})) == null) {
-            if (popupWindow != null && view2 != null && !g(view2.getContext()) && h(view2)) {
-                try {
-                    popupWindow.showAtLocation(view2, i, i2, i3);
-                    return true;
-                } catch (Exception unused) {
-                }
-            }
-            return false;
-        }
-        return invokeCommon.booleanValue;
+        return (BdUploadingLogInfo) invokeL.objValue;
     }
 }

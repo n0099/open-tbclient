@@ -1,96 +1,96 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import android.app.Activity;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.gda;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayOutputStream;
-import java.util.concurrent.Callable;
-import java.util.zip.DataFormatException;
-import java.util.zip.Inflater;
-import org.json.JSONObject;
+import com.bytedance.sdk.openadsdk.TTNativeAd;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes5.dex */
-public class kda implements Callable<jda> {
+public class kda extends FunNativeAd2Bridger<tda, com.fun.module.csj.g0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Intent a;
+    public final TTNativeAd.AdInteractionListener b;
+    public final /* synthetic */ gda c;
 
-    public kda(Intent intent) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kda(gda gdaVar, ReporterPidLoader reporterPidLoader, tda tdaVar) {
+        super(reporterPidLoader);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {intent};
+            Object[] objArr = {gdaVar, reporterPidLoader, tdaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = intent;
+        this.c = gdaVar;
+        this.b = new gda.b(gdaVar, tdaVar);
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    /* JADX WARN: Type inference failed for: r1v0, types: [com.baidu.tieba.jda, java.lang.Object] */
-    @Override // java.util.concurrent.Callable
-    public jda call() throws Exception {
-        InterceptResult invokeV;
-        byte[] bArr;
-        String str;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    /* JADX DEBUG: Return type fixed from 'android.view.View' to match base method */
+    /* JADX WARN: Type inference failed for: r1v1, types: [com.fun.module.csj.g0, android.view.View] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public com.fun.module.csj.g0 createExpressView(tda tdaVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            Intent intent = this.a;
-            if (intent == null) {
-                return null;
-            }
-            long j = 0;
-            try {
-                j = intent.getLongExtra("msg_id", 0L);
-            } catch (Exception e) {
-                nda.b("PassByMsgIntentParser", "parserMsgId", e);
-            }
-            try {
-                bArr = this.a.getByteArrayExtra("msg_content");
-            } catch (Exception e2) {
-                nda.b("PassByMsgIntentParser", "parseMsgContent", e2);
-                bArr = null;
-            }
-            Inflater inflater = new Inflater();
-            inflater.setInput(bArr);
-            byte[] bArr2 = new byte[256];
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(256);
-            while (!inflater.finished()) {
-                try {
-                    byteArrayOutputStream.write(bArr2, 0, inflater.inflate(bArr2));
-                } catch (DataFormatException unused) {
-                    inflater.end();
-                    str = null;
-                } catch (Throwable th) {
-                    inflater.end();
-                    throw th;
-                }
-            }
-            inflater.end();
-            str = byteArrayOutputStream.toString(IMAudioTransRequest.CHARSET);
-            if (str == null) {
-                return null;
-            }
-            String optString = new JSONObject(str).optString("data");
-            if (TextUtils.isEmpty(optString)) {
-                return null;
-            }
-            jda jdaVar = new jda();
-            jdaVar.d(j);
-            jdaVar.c(optString);
-            return jdaVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tdaVar)) == null) {
+            return hda.a((TTNativeAd) tdaVar.a);
         }
-        return invokeV.objValue;
+        return (View) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, tda tdaVar, BaseNativeAd2<tda, com.fun.module.csj.g0> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, tdaVar, baseNativeAd2, funAdInteractionListener}) == null) {
+            this.c.g(activity, tdaVar, str, customInflater.inflate(), customInflater.getClickViews(), customInflater.getCreativeViews(), this.b, funAdInteractionListener);
+        }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, tda tdaVar, BaseNativeAd2<tda, com.fun.module.csj.g0> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+        Ssp.Pid pid;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, tdaVar, baseNativeAd2, funAdInteractionListener}) == null) {
+            tda tdaVar2 = tdaVar;
+            gda gdaVar = this.c;
+            FunNativeAdListenerHelper<tda, TTNativeAd.AdInteractionListener> funNativeAdListenerHelper = gdaVar.f;
+            pid = gdaVar.mPid;
+            funNativeAdListenerHelper.startShow(tdaVar2, str, pid, this.b, funAdInteractionListener);
+            com.fun.module.csj.g0 expressView = baseNativeAd2.getExpressView();
+            if (expressView == null) {
+                if (!FunAdSdk.isLogEnabled()) {
+                    LogPrinter.e("The image mode of ad is not support!", new Object[0]);
+                    return;
+                }
+                throw new RuntimeException("The image mode of ad is not support!");
+            }
+            this.c.f(activity, tdaVar2, expressInflater.inflate(), expressView, this.b);
+        }
     }
 }

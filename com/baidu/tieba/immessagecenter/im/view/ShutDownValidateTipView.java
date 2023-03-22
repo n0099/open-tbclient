@@ -31,7 +31,7 @@ public class ShutDownValidateTipView extends FrameLayout {
 
     /* loaded from: classes4.dex */
     public interface c {
-        void h(boolean z);
+        void e(boolean z);
     }
 
     /* loaded from: classes4.dex */
@@ -198,11 +198,11 @@ public class ShutDownValidateTipView extends FrameLayout {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            addView(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d081a, (ViewGroup) null));
+            addView(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d082c, (ViewGroup) null));
             this.b = (ImageView) findViewById(R.id.no_network_icon);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091822);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091823);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091826);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091860);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091861);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091864);
         }
     }
 
@@ -263,7 +263,7 @@ public class ShutDownValidateTipView extends FrameLayout {
             setVisibility(0);
             startAnimation(alphaAnimation);
             for (int i = 0; i < this.f.size(); i++) {
-                this.f.get(i).h(false);
+                this.f.get(i).e(false);
             }
         } else if (getVisibility() != 8) {
             AlphaAnimation alphaAnimation2 = new AlphaAnimation(1.0f, 0.0f);
@@ -272,7 +272,7 @@ public class ShutDownValidateTipView extends FrameLayout {
             alphaAnimation2.setAnimationListener(new b(this));
             startAnimation(alphaAnimation2);
             for (int i2 = 0; i2 < this.f.size(); i2++) {
-                this.f.get(i2).h(true);
+                this.f.get(i2).e(true);
             }
         }
     }

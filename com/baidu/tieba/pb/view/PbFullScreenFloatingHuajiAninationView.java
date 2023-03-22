@@ -19,9 +19,9 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ej;
-import com.baidu.tieba.gh;
-import com.baidu.tieba.v75;
+import com.baidu.tieba.g65;
+import com.baidu.tieba.hi;
+import com.baidu.tieba.jg;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -143,7 +143,7 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
             }
         }
         s = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702cc);
-        t = ej.l(TbadkCoreApplication.getInst());
+        t = hi.l(TbadkCoreApplication.getInst());
     }
 
     public void g() {
@@ -191,13 +191,13 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             SkinManager.setBackgroundColor(this, R.color.black_alpha60);
-            v75 activitySwitch = TbadkCoreApplication.getInst().getActivitySwitch();
+            g65 activitySwitch = TbadkCoreApplication.getInst().getActivitySwitch();
             if (activitySwitch != null && activitySwitch.a()) {
                 i2 = R.drawable.icon_floor_praised_floating_xmas;
                 i3 = R.drawable.icon_floor_bigpraised_floating_xmas;
             } else {
-                i2 = R.drawable.obfuscated_res_0x7f08074f;
-                i3 = R.drawable.obfuscated_res_0x7f08074d;
+                i2 = R.drawable.obfuscated_res_0x7f080761;
+                i3 = R.drawable.obfuscated_res_0x7f08075f;
             }
             SkinManager.setImageResource(this.a, i3);
             SkinManager.setImageResource(this.b, i2);
@@ -296,7 +296,7 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.p = false;
-            gh.a().post(this.r);
+            jg.a().post(this.r);
             c cVar = this.o;
             if (cVar != null) {
                 cVar.onAnimationEnd();
@@ -308,14 +308,14 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0709, this);
-            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0919e1);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f0919e3);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f0919e4);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0919e5);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0919e6);
-            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f0919e7);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0919e2);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d071a, this);
+            this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a22);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a24);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a25);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a26);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a27);
+            this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091a28);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091a23);
             this.g = textView;
             textView.setX((t - s) / 2);
             e(TbadkCoreApplication.getInst().getSkinType());
@@ -327,7 +327,7 @@ public class PbFullScreenFloatingHuajiAninationView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.h = new AnimatorSet();
-            Drawable drawable = SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f08074d);
+            Drawable drawable = SkinManager.getDrawable(R.drawable.obfuscated_res_0x7f08075f);
             ImageView imageView = this.a;
             float intrinsicWidth = (t - drawable.getIntrinsicWidth()) / 2;
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(imageView, "X", t, intrinsicWidth);

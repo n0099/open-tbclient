@@ -2,8 +2,8 @@ package com.baidu.bdtask;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.bdtask.ctrl.b;
-import com.baidu.tieba.rr;
-import com.baidu.tieba.sq;
+import com.baidu.tieba.uq;
+import com.baidu.tieba.vp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,18 +17,18 @@ import kotlin.jvm.internal.Reflection;
 import kotlin.reflect.KDeclarationContainer;
 @Metadata(bv = {1, 0, 2}, d1 = {"\u0000\u0014\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\u0010\u0000\u001a\u00020\u00012\u0015\u0010\u0002\u001a\u00110\u0003¢\u0006\f\b\u0004\u0012\b\b\u0005\u0012\u0004\b\b(\u00062\u0017\u0010\u0007\u001a\u0013\u0018\u00010\u0001¢\u0006\f\b\u0004\u0012\b\b\u0005\u0012\u0004\b\b(\b¢\u0006\u0002\b\t"}, d2 = {"<anonymous>", "Lcom/baidu/bdtask/ctrl/BDPTaskState;", ZeusPerformanceTiming.KEY_BROWSER_STARTUP, "Lcom/baidu/bdtask/framework/redux/Action;", "Lkotlin/ParameterName;", "name", "action", "p2", "state", "invoke"}, k = 3, mv = {1, 1, 9}, pn = "", xi = 0, xs = "")
 /* loaded from: classes.dex */
-public final class BDPTask$store$1 extends FunctionReference implements Function2<rr, b, b> {
+public final class BDPTask$store$1 extends FunctionReference implements Function2<uq, b, b> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public BDPTask$store$1(sq sqVar) {
-        super(2, sqVar);
+    public BDPTask$store$1(vp vpVar) {
+        super(2, vpVar);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {sqVar};
+            Object[] objArr = {vpVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -53,7 +53,7 @@ public final class BDPTask$store$1 extends FunctionReference implements Function
     public final KDeclarationContainer getOwner() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Reflection.getOrCreateKotlinClass(sq.class) : (KDeclarationContainer) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Reflection.getOrCreateKotlinClass(vp.class) : (KDeclarationContainer) invokeV.objValue;
     }
 
     @Override // kotlin.jvm.internal.CallableReference
@@ -65,11 +65,11 @@ public final class BDPTask$store$1 extends FunctionReference implements Function
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // kotlin.jvm.functions.Function2
-    public final b invoke(rr rrVar, b bVar) {
+    public final b invoke(uq uqVar, b bVar) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, rrVar, bVar)) == null) {
-            return ((sq) this.receiver).c(rrVar, bVar);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, uqVar, bVar)) == null) {
+            return ((vp) this.receiver).c(uqVar, bVar);
         }
         return (b) invokeLL.objValue;
     }

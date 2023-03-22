@@ -1,279 +1,248 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import android.content.Context;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.player.constants.PlayerStatus;
-import com.baidu.nadcore.player.utils.BdNetUtils;
-import com.baidu.searchbox.player.event.ControlEvent;
 import com.baidu.searchbox.player.event.LayerEvent;
 import com.baidu.searchbox.player.event.PlayerEvent;
+import com.baidu.searchbox.player.event.SystemEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class zy0 extends wy0 implements View.OnClickListener {
-    public static /* synthetic */ Interceptable $ic;
+public final class zy0 extends yy0 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean f = false;
+    public static boolean g = false;
+    public static boolean h = false;
+    public static boolean i = false;
+    public static int j = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrameLayout e;
-    public LinearLayout f;
-    public TextView g;
-    public Button h;
-    public LinearLayout i;
-    public TextView j;
-    public boolean k;
+    public boolean d;
+    public boolean e;
 
-    public zy0() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948376152, "Lcom/baidu/tieba/zy0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948376152, "Lcom/baidu/tieba/zy0;");
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zy0(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.k = true;
-        FrameLayout frameLayout = new FrameLayout(this.c);
-        this.e = frameLayout;
-        frameLayout.setVisibility(4);
+        Intrinsics.checkNotNullParameter(context, "context");
     }
 
-    public final void L() {
-        LinearLayout linearLayout;
+    @Override // com.baidu.tieba.yy0, com.baidu.tieba.sv0
+    public void d(ru0 event) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (linearLayout = this.i) != null) {
-            linearLayout.setVisibility(8);
+        if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
+            if (Intrinsics.areEqual(event.c(), PlayerEvent.ACTION_SET_DATA_SOURCE)) {
+                boolean z = false;
+                this.e = false;
+                Context context = getContext();
+                Intrinsics.checkNotNullExpressionValue(context, "context");
+                boolean a = wz0.a(context);
+                if (!a) {
+                    j = e01.c(getContext());
+                }
+                if (a != f) {
+                    f = a;
+                    if (!a && xr0.T() && e01.c(getContext()) > 0) {
+                        b01.b("HeadsetPlugin", "恢复操作,静音->非静音");
+                        i = false;
+                        xr0 i2 = i();
+                        if (i2 != null) {
+                            i2.s0(false);
+                        }
+                    }
+                }
+                xr0 i3 = i();
+                if (i3 != null) {
+                    z = i3.V();
+                }
+                this.d = z;
+            }
         }
     }
 
-    public final void M() {
-        LinearLayout linearLayout;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (linearLayout = this.f) != null) {
-            linearLayout.setVisibility(4);
-        }
-    }
-
-    @Override // com.baidu.tieba.bz0
-    @NonNull
-    public View getContentView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.e;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.cx0
-    @Nullable
+    @Override // com.baidu.tieba.sv0
     public int[] getSubscribeEvent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return new int[]{4, 5, 2, 3, 8};
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new int[]{1, 4};
         }
         return (int[]) invokeV.objValue;
     }
 
-    public void N() {
+    @Override // com.baidu.tieba.yy0, com.baidu.tieba.sv0
+    public void n(ru0 event) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.i == null) {
-                LinearLayout linearLayout = (LinearLayout) View.inflate(this.c, R.layout.nad_bdvideoplayer_layout_kernel_error, null);
-                this.i = linearLayout;
-                TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091b4b);
-                this.j = textView;
-                textView.setOnClickListener(this);
-                this.e.addView(this.i, new FrameLayout.LayoutParams(-1, -1));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, event) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
+            if (Intrinsics.areEqual(event.c(), SystemEvent.ACTION_HEADSET_PLUG)) {
+                boolean d = event.d(3);
+                h = d;
+                if (!g) {
+                    p(d);
+                }
+            } else if (Intrinsics.areEqual(event.c(), SystemEvent.ACTION_BLUETOOTH_HEADSET)) {
+                boolean d2 = event.d(6);
+                g = d2;
+                if (!h) {
+                    p(d2);
+                }
             }
-            this.j.setText(R.string.nad_bdvideoplayer_tip_kernel_error);
-            P(u().V0());
-            this.i.setVisibility(0);
         }
     }
 
-    public void O() {
+    public final void p(boolean z) {
+        Boolean bool;
+        Boolean bool2;
+        xr0 i2;
+        boolean z2;
+        xr0 i3;
+        int i4;
+        int i5;
+        xr0 i6;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || !this.k) {
-            return;
-        }
-        if (this.f == null) {
-            LinearLayout linearLayout = (LinearLayout) View.inflate(this.c, R.layout.nad_bdvideoplayer_layout_net_error, null);
-            this.f = linearLayout;
-            this.g = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09252e);
-            Button button = (Button) this.f.findViewById(R.id.obfuscated_res_0x7f090464);
-            this.h = button;
-            button.setOnClickListener(this);
-            this.e.addView(this.f, new FrameLayout.LayoutParams(-1, -1));
-        }
-        Q(u().V0());
-        F(rv0.w(LayerEvent.ACTION_NET_ERROR_SHOW));
-        this.f.setVisibility(0);
-        u().y().y(true);
-    }
-
-    public final void P(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            Drawable[] compoundDrawables = this.j.getCompoundDrawables();
-            if (z) {
-                this.j.setTextSize(0, this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_14dp));
-                compoundDrawables[1].setBounds(0, 0, this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_47dp), this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_47dp));
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("播放器是否静音isMute= ");
+            xr0 i7 = i();
+            Boolean bool3 = null;
+            if (i7 != null) {
+                bool = Boolean.valueOf(i7.V());
             } else {
-                this.j.setTextSize(0, this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_12dp));
-                compoundDrawables[1].setBounds(0, 0, this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_42dp), this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_42dp));
+                bool = null;
             }
-            this.j.setCompoundDrawables(compoundDrawables[0], compoundDrawables[1], compoundDrawables[2], compoundDrawables[3]);
-        }
-    }
-
-    @Override // com.baidu.tieba.oy0, com.baidu.tieba.cx0
-    public void k(@NonNull bw0 bw0Var) {
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, bw0Var) == null) {
-            String c2 = bw0Var.c();
-            int hashCode = c2.hashCode();
-            if (hashCode != -552621273) {
-                if (hashCode != -552580917) {
-                    if (hashCode == 1409909918 && c2.equals(LayerEvent.ACTION_SWITCH_FLOATING)) {
-                        c = 2;
-                    }
-                    c = 65535;
+            sb.append(bool);
+            sb.append(',');
+            sb.append(" 播放器是否全局静音sGlobalMute= ");
+            sb.append(xr0.T());
+            sb.append(',');
+            sb.append(" 播放器静音状态(业务复写的方法)isPlayerMute= ");
+            xr0 i8 = i();
+            if (i8 != null) {
+                bool2 = Boolean.valueOf(i8.X());
+            } else {
+                bool2 = null;
+            }
+            sb.append(bool2);
+            sb.append(',');
+            sb.append(" 播放器耳机连接前的音量大小-> ");
+            sb.append(j);
+            sb.append(',');
+            sb.append(" 播放器音量音量焦点-> ");
+            xr0 i9 = i();
+            if (i9 != null) {
+                bool3 = Boolean.valueOf(i9.U());
+            }
+            sb.append(bool3);
+            b01.b("HeadsetPlugin", sb.toString());
+            if (z) {
+                f = true;
+                i = xr0.T();
+                xr0 i10 = i();
+                if (i10 != null) {
+                    z2 = i10.V();
                 } else {
-                    if (c2.equals(LayerEvent.ACTION_SWITCH_HALF)) {
-                        c = 1;
+                    z2 = false;
+                }
+                this.d = z2;
+                b01.b("HeadsetPlugin", "耳机连接>>> 静音状态,全局=" + i + ", 播放器=" + this.d);
+                boolean z3 = this.d;
+                if (!z3) {
+                    xr0 i11 = i();
+                    if (i11 != null && i11.V()) {
+                        z3 = true;
+                    } else {
+                        z3 = false;
                     }
-                    c = 65535;
+                }
+                if (z3 && (i6 = i()) != null) {
+                    i6.s0(false);
+                }
+                int c = e01.c(getContext());
+                if (c == 0) {
+                    c = (int) (e01.b(getContext()) * 0.35d);
+                }
+                e01.d(getContext(), c);
+                if (m01.k() && (i3 = i()) != null && i3.W() && this.e) {
+                    xr0 i12 = i();
+                    if (i12 != null) {
+                        i4 = i12.r();
+                    } else {
+                        i4 = 0;
+                    }
+                    xr0 i13 = i();
+                    if (i13 != null) {
+                        i5 = i13.C();
+                    } else {
+                        i5 = 0;
+                    }
+                    if (i4 > i5) {
+                        this.e = false;
+                        xr0 i14 = i();
+                        if (i14 != null) {
+                            i14.l0();
+                        }
+                    }
+                }
+            } else if (f) {
+                f = false;
+                if (m01.k() && (i2 = i()) != null && i2.Y()) {
+                    this.e = true;
+                    xr0 i15 = i();
+                    if (i15 != null) {
+                        i15.f0(4);
+                    }
+                }
+                b01.b("HeadsetPlugin", "耳机断开>>> 恢复之前静音状态,全局=" + i + ", 播放器=" + this.d + StringUtil.ARRAY_ELEMENT_SEPARATOR + "声音=" + j);
+                if (j == 0) {
+                    e01.d(getContext(), j);
+                }
+                xr0 i16 = i();
+                if (i16 != null) {
+                    i16.s0(i);
+                }
+                xr0 i17 = i();
+                if (i17 != null) {
+                    i17.w0(this.d);
                 }
             } else {
-                if (c2.equals(LayerEvent.ACTION_SWITCH_FULL)) {
-                    c = 0;
-                }
-                c = 65535;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c == 2) {
-                        L();
-                        M();
-                        return;
-                    }
-                    return;
-                }
-                if (this.f != null) {
-                    Q(false);
-                }
-                if (this.i != null) {
-                    P(false);
-                    return;
-                }
-                return;
-            }
-            if (this.f != null) {
-                Q(true);
-            }
-            if (this.i != null) {
-                P(true);
-            }
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, view2) == null) {
-            if (view2.getId() == R.id.obfuscated_res_0x7f090464 || view2.getId() == R.id.obfuscated_res_0x7f091b4b) {
-                if (!BdNetUtils.f()) {
-                    ViewGroup n = u().n();
-                    if (n != null && u().n1().a()) {
-                        n41.a().a(n.getContext(), R.string.nad_bdvideoplayer_tip_net_error);
-                        return;
-                    }
-                    return;
-                }
-                L();
-                M();
-                this.e.setVisibility(4);
-                u().m0();
-                F(rv0.w(LayerEvent.ACTION_CLICK_RETRY));
-            }
-        }
-    }
-
-    public final void Q(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.h.getLayoutParams();
-            if (z) {
-                this.g.setTextSize(0, this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_14dp));
-                this.h.setTextSize(0, this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_14dp));
-                layoutParams.width = this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_102dp);
-                layoutParams.height = this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_32dp);
-                layoutParams.topMargin = this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_31dp);
-            } else {
-                this.g.setTextSize(0, this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_12dp));
-                this.h.setTextSize(0, this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_12dp));
-                layoutParams.width = this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_66dp);
-                layoutParams.height = this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_24_33dp);
-                layoutParams.topMargin = this.c.getResources().getDimensionPixelOffset(R.dimen.nad_bdvideoplayer_dimens_24dp);
-            }
-            this.h.setLayoutParams(layoutParams);
-        }
-    }
-
-    @Override // com.baidu.tieba.oy0, com.baidu.tieba.cx0
-    public void d(@NonNull bw0 bw0Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, bw0Var) == null) && PlayerEvent.ACTION_ON_ERROR.equals(bw0Var.c()) && !u().U0()) {
-            this.e.setVisibility(0);
-            u().y().j(this);
-            if (!BdNetUtils.f()) {
-                O();
-                L();
-                return;
-            }
-            N();
-            M();
-        }
-    }
-
-    @Override // com.baidu.tieba.oy0, com.baidu.tieba.cx0
-    public void h(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048585, this, playerStatus, playerStatus2) == null) {
-            super.h(playerStatus, playerStatus2);
-            if (playerStatus == PlayerStatus.PLAYING || playerStatus == PlayerStatus.PREPARING) {
-                u().y().i(this);
-                M();
-                L();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.oy0, com.baidu.tieba.cx0
-    public void q(@NonNull bw0 bw0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, bw0Var) == null) {
-            if (ControlEvent.ACTION_RESUME.equals(bw0Var.c()) || ControlEvent.ACTION_SHOW_TIP.equals(bw0Var.c()) || ControlEvent.ACTION_START.equals(bw0Var.c())) {
-                u().y().i(this);
-                L();
-                M();
+                mz0.c().d(hu0.w(LayerEvent.ACTION_MUTE_SYNC_TO_ALL_PLAYER));
             }
         }
     }

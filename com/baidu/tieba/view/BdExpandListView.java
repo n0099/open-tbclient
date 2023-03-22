@@ -12,7 +12,7 @@ import android.widget.Scroller;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.d89;
+import com.baidu.tieba.je9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -166,7 +166,7 @@ public class BdExpandListView extends BdTypeListView {
         this.J = context;
         this.K = new Scroller(this.J);
         this.Q = ViewConfiguration.get(context).getScaledTouchSlop();
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, d89.ExpandListView);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, je9.ExpandListView);
         this.R = obtainStyledAttributes.getDimensionPixelSize(d0, 0);
         obtainStyledAttributes.recycle();
     }
@@ -180,7 +180,7 @@ public class BdExpandListView extends BdTypeListView {
         }
     }
 
-    public final void K(float f) {
+    public final void J(float f) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeF(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, f) == null) {
             float f2 = 360.0f - ((f * 360.0f) / this.R);
@@ -243,7 +243,7 @@ public class BdExpandListView extends BdTypeListView {
         return invokeV.intValue;
     }
 
-    public void L() {
+    public void K() {
         b bVar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (bVar = this.S) != null) {
@@ -252,11 +252,11 @@ public class BdExpandListView extends BdTypeListView {
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView
-    public void F() {
+    public void E() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (this.a0) {
-                super.F();
+                super.E();
                 return;
             }
             if (getLastVisiblePosition() > 10) {
@@ -269,7 +269,7 @@ public class BdExpandListView extends BdTypeListView {
                 int originalHeight = getOriginalHeight();
                 int i = this.R;
                 scroller.startScroll(0, originalHeight + i, 0, -i, 200);
-                L();
+                K();
                 invalidate();
                 this.V.removeCallbacks(this.b0);
                 this.V.postDelayed(this.b0, 200L);
@@ -278,13 +278,13 @@ public class BdExpandListView extends BdTypeListView {
         }
     }
 
-    public void M() {
+    public void L() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.O == null) {
             return;
         }
         if (this.L.getHeight() >= this.O.b - (this.R / 2)) {
-            L();
+            K();
         } else {
             b bVar = this.S;
             if (bVar != null) {
@@ -348,7 +348,7 @@ public class BdExpandListView extends BdTypeListView {
                                 this.P = true;
                                 setClickEventEnabled(false);
                                 this.L.setLayoutParams(new AbsListView.LayoutParams(this.L.getWidth(), a2));
-                                K(a2 - this.O.a);
+                                J(a2 - this.O.a);
                             } else {
                                 c cVar2 = this.O;
                                 if (a2 <= cVar2.a) {
@@ -367,7 +367,7 @@ public class BdExpandListView extends BdTypeListView {
                 }
                 if (this.P) {
                     setClickEventEnabled(false);
-                    M();
+                    L();
                     this.P = false;
                 } else {
                     b bVar = this.S;

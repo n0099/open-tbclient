@@ -1,12 +1,15 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tieba.frs.loadmore.FrsLoadMoreModel;
 import com.baidu.tieba.tbadkCore.FrsViewData;
 /* loaded from: classes3.dex */
-public interface a57 {
-    void a(b59 b59Var, FrsViewData frsViewData);
+public interface a57 extends FrsLoadMoreModel.b {
+    FrsViewData W0();
 
-    View getView();
+    a9 getPageContext();
 
-    void onChangeSkinType(int i);
+    BdUniqueId getUniqueId();
+
+    String v();
 }
