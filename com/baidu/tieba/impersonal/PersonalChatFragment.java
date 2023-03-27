@@ -348,7 +348,6 @@ public final class PersonalChatFragment extends AutoReleaseSliceFragment<Fragmen
         if ((interceptable != null && interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) != null) || I1().e.getVisibility() != 0) {
             return;
         }
-        I1().c.animate().alpha(1.0f).start();
         I1().m.animate().alpha(1.0f).start();
         String P1 = P1();
         if (P1 != null) {
@@ -369,7 +368,6 @@ public final class PersonalChatFragment extends AutoReleaseSliceFragment<Fragmen
     public final void W1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            I1().c.animate().alpha(0.0f).start();
             I1().m.animate().alpha(0.0f).start();
             I1().d.setBackgroundColor(ContextCompat.getColor(TbadkCoreApplication.getInst(), R.color.CAM_X0338));
             I1().d.setImageURI(Uri.EMPTY, (Object) null);

@@ -1086,7 +1086,7 @@ public class ImageListFragment extends BaseFragment implements as9.d, AbsListVie
         }
     }
 
-    /* JADX WARN: Type inference failed for: r0v9, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r0v9, types: [boolean, int] */
     public final void q2() {
         zr9 zr9Var;
         String string;

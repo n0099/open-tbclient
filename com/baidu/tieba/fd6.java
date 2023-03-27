@@ -51,9 +51,9 @@ public class fd6 {
     public static void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            BridgeConfig_Frames.register();
             JsInterfaces_tbadkcore.register();
             JsInterfaces_Frames.register();
+            BridgeConfig_Frames.register();
             BridgeConfig_tbadkcore.register();
         }
     }

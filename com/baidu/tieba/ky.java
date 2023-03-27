@@ -551,31 +551,58 @@ public abstract class ky extends ow<hw4> implements ox8 {
                     }
                 }
                 if (this.k == null) {
-                    this.i.setCornerId(R.string.J_X05);
-                    this.j.setVisibility(8);
+                    RoundCornerFrameLayout roundCornerFrameLayout = this.i;
+                    if (roundCornerFrameLayout != null) {
+                        roundCornerFrameLayout.setCornerId(R.string.J_X05);
+                    }
+                    RoundRelativeLayout roundRelativeLayout = this.j;
+                    if (roundRelativeLayout != null) {
+                        roundRelativeLayout.setVisibility(8);
+                        return;
+                    }
                     return;
                 }
-                this.i.setCornerId(R.string.J_X13);
-                this.j.setRoundLayoutRadius(l15.B(R.string.J_X16));
-                this.j.setVisibility(0);
-                if (this.k.getParent() instanceof ViewGroup) {
-                    ((ViewGroup) this.k.getParent()).removeAllViews();
+                RoundCornerFrameLayout roundCornerFrameLayout2 = this.i;
+                if (roundCornerFrameLayout2 != null) {
+                    roundCornerFrameLayout2.setCornerId(R.string.J_X13);
                 }
-                this.k.setData(threadData);
-                this.j.addView(this.k);
+                RoundRelativeLayout roundRelativeLayout2 = this.j;
+                if (roundRelativeLayout2 != null) {
+                    roundRelativeLayout2.setRoundLayoutRadius(l15.B(R.string.J_X16));
+                    this.j.setVisibility(0);
+                }
+                AbsDownloadGuide absDownloadGuide = this.k;
+                if (absDownloadGuide != null) {
+                    if (absDownloadGuide.getParent() instanceof ViewGroup) {
+                        ((ViewGroup) this.k.getParent()).removeAllViews();
+                    }
+                    this.k.setData(threadData);
+                    RoundRelativeLayout roundRelativeLayout3 = this.j;
+                    if (roundRelativeLayout3 != null) {
+                        roundRelativeLayout3.addView(this.k);
+                        return;
+                    }
+                    return;
+                }
                 return;
             }
-            this.i.setCornerId(R.string.J_X05);
-            this.j.setVisibility(8);
+            RoundCornerFrameLayout roundCornerFrameLayout3 = this.i;
+            if (roundCornerFrameLayout3 != null) {
+                roundCornerFrameLayout3.setCornerId(R.string.J_X05);
+            }
+            RoundRelativeLayout roundRelativeLayout4 = this.j;
+            if (roundRelativeLayout4 != null) {
+                roundRelativeLayout4.setVisibility(8);
+            }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Code restructure failed: missing block: B:30:0x00bc, code lost:
-        if (r1 != r2) goto L54;
+        if (r1 != r2) goto L57;
      */
     /* JADX WARN: Code restructure failed: missing block: B:33:0x00c1, code lost:
-        if (r1 != r2) goto L54;
+        if (r1 != r2) goto L57;
      */
     /* JADX WARN: Code restructure failed: missing block: B:34:0x00c3, code lost:
         r8 = true;
@@ -652,7 +679,10 @@ public abstract class ky extends ow<hw4> implements ox8 {
                         this.i.post(new a(this, layoutParams));
                     }
                 }
-                this.j.getLayoutParams().width = layoutParams.width;
+                RoundRelativeLayout roundRelativeLayout = this.j;
+                if (roundRelativeLayout != null) {
+                    roundRelativeLayout.getLayoutParams().width = layoutParams.width;
+                }
                 if (this.h.getThreadData().isBJHVideoDynamicThreadType()) {
                     this.g.setMaxLines(5);
                     ThreadCardUtils.setTitle(this.g, this.h.getThreadData(), x, this.q);

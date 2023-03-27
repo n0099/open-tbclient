@@ -372,7 +372,7 @@ public class UserIconBox extends LinearLayout {
     /* JADX DEBUG: Multi-variable search result rejected for r7v1, resolved type: com.baidu.tbadk.widget.TbImageView */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r14v0 */
-    /* JADX WARN: Type inference failed for: r14v1, types: [int, boolean] */
+    /* JADX WARN: Type inference failed for: r14v1, types: [boolean, int] */
     /* JADX WARN: Type inference failed for: r14v2 */
     public void i(List<IconData> list, int i, int i2, int i3, int i4, boolean z) {
         Interceptable interceptable = $ic;
